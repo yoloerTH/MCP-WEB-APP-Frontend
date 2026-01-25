@@ -28,6 +28,7 @@ function App() {
   const audioContextRef = useRef<AudioContext | null>(null)
   const analyserRef = useRef<AnalyserNode | null>(null)
   const audioStreamRef = useRef<MediaStream | null>(null)
+  const currentAudioRef = useRef<HTMLAudioElement | null>(null)
 
   // Initialize socket connection
   useEffect(() => {
@@ -70,6 +71,16 @@ function App() {
     newSocket.on('audio-response', (audioBase64: string) => {
       console.log('🔊 Playing AI audio response')
       playAudioResponse(audioBase64)
+    })
+
+    newSocket.on('barge-in', () => {
+      console.log('🛑 Barge-in detected - stopping AI audio')
+      if (currentAudioRef.current) {
+        currentAudioRef.current.pause()
+        currentAudioRef.current.currentTime = 0
+        currentAudioRef.current = null
+      }
+      setCallStatus('listening')
     })
 
     newSocket.on('error', (data: { message: string }) => {
@@ -201,11 +212,29 @@ function App() {
 
   const playAudioResponse = (base64Audio: string) => {
     try {
+      // Stop any currently playing audio
+      if (currentAudioRef.current) {
+        currentAudioRef.current.pause()
+        currentAudioRef.current.currentTime = 0
+      }
+
       const audio = new Audio(`data:audio/wav;base64,${base64Audio}`)
+      currentAudioRef.current = audio
+
       audio.play()
 
       audio.onended = () => {
+        if (currentAudioRef.current === audio) {
+          currentAudioRef.current = null
+        }
         setCallStatus('listening')
+      }
+
+      audio.onerror = () => {
+        console.error('❌ Audio playback error')
+        if (currentAudioRef.current === audio) {
+          currentAudioRef.current = null
+        }
       }
     } catch (error) {
       console.error('❌ Failed to play audio:', error)
