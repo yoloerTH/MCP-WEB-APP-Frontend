@@ -138,10 +138,22 @@ function App() {
       // Start visualization loop
       visualizeAudio()
 
-      // Setup MediaRecorder for streaming
-      const mediaRecorder = new MediaRecorder(stream, {
-        mimeType: 'audio/webm;codecs=opus',
-      })
+      // Setup MediaRecorder for streaming with mobile compatibility
+      let options: MediaRecorderOptions = {}
+
+      // Check supported MIME types (iOS Safari needs different format)
+      if (MediaRecorder.isTypeSupported('audio/webm;codecs=opus')) {
+        options.mimeType = 'audio/webm;codecs=opus'
+      } else if (MediaRecorder.isTypeSupported('audio/mp4')) {
+        options.mimeType = 'audio/mp4'
+      } else if (MediaRecorder.isTypeSupported('audio/webm')) {
+        options.mimeType = 'audio/webm'
+      }
+      // If none supported, use default (no mimeType)
+
+      console.log('🎤 Using audio format:', options.mimeType || 'default')
+
+      const mediaRecorder = new MediaRecorder(stream, options)
       mediaRecorderRef.current = mediaRecorder
 
       mediaRecorder.ondataavailable = (event) => {
@@ -166,7 +178,22 @@ function App() {
     } catch (error) {
       console.error('❌ Failed to start call:', error)
       setCallStatus('disconnected')
-      addTranscript('system', 'Failed to access microphone')
+
+      let errorMessage = 'Failed to access microphone'
+
+      if (error instanceof Error) {
+        if (error.name === 'NotAllowedError') {
+          errorMessage = 'Microphone permission denied. Please allow microphone access in your browser settings.'
+        } else if (error.name === 'NotFoundError') {
+          errorMessage = 'No microphone found. Please connect a microphone and try again.'
+        } else if (error.name === 'NotSupportedError') {
+          errorMessage = 'Your browser doesn\'t support audio recording. Try using Chrome or Safari.'
+        } else {
+          errorMessage = `Error: ${error.message}`
+        }
+      }
+
+      addTranscript('system', errorMessage)
     }
   }
 
