@@ -28,7 +28,7 @@ export default function CallControls({
           whileTap={{ scale: 0.98 }}
           onClick={onStartCall}
           disabled={callStatus === 'connecting'}
-          className="relative px-10 py-4 bg-gradient-to-br from-coral-500 to-coral-600 hover:from-coral-600 hover:to-coral-700 text-white font-bold rounded-xl shadow-glow-coral transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden group"
+          className="relative px-10 py-4 bg-gradient-to-br from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-midnight-900 font-bold rounded-xl shadow-glow-gold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden group"
         >
           {/* Shimmer effect */}
           <motion.div
@@ -55,8 +55,8 @@ export default function CallControls({
             onClick={onToggleMute}
             className={`w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-200 shadow-soft ${
               isMuted
-                ? 'bg-neutral-200 text-neutral-600 border border-neutral-300'
-                : 'bg-emerald-100 text-emerald-600 border border-emerald-300'
+                ? 'bg-midnight-700 text-midnight-400 border border-midnight-600'
+                : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/50'
             }`}
           >
             <svg

@@ -308,9 +308,9 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-midnight relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-midnight-soft relative overflow-hidden">
       {/* Subtle background glow */}
-      <div className="absolute inset-0 bg-gradient-glow opacity-50 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-glow opacity-60 pointer-events-none" />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -319,16 +319,16 @@ function App() {
         className="w-full max-w-3xl relative z-10"
       >
         {/* Main card with premium styling */}
-        <div className="bg-white backdrop-blur-xl rounded-3xl shadow-soft-lg border border-midnight-200/30 overflow-hidden">
+        <div className="bg-midnight-800 backdrop-blur-xl rounded-3xl shadow-glow-midnight border border-emerald-500/20 overflow-hidden">
           {/* Header with gradient accent */}
-          <div className="relative px-8 pt-8 pb-6 border-b border-midnight-100/50">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 via-coral-500 to-emerald-500" />
+          <div className="relative px-8 pt-8 pb-6 border-b border-midnight-700">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 via-gold-400 to-gold-500" />
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-3xl font-bold text-midnight-800 tracking-tight">
+                <h1 className="text-3xl font-bold text-white tracking-tight">
                   Voice AI
                 </h1>
-                <p className="text-sm text-midnight-500 mt-1 font-medium">
+                <p className="text-sm text-emerald-300 mt-1 font-medium">
                   Intelligent voice assistant with Google Workspace
                 </p>
               </div>
@@ -337,7 +337,7 @@ function App() {
           </div>
 
           {/* Content */}
-          <div className="p-8 space-y-6">
+          <div className="p-8 space-y-6 bg-gradient-to-b from-midnight-800 to-midnight-900">
             {/* Audio Visualizer */}
             <AudioVisualizer
               audioLevel={audioLevel}
@@ -366,7 +366,7 @@ function App() {
           transition={{ delay: 0.3 }}
           className="text-center mt-6 space-y-2"
         >
-          <p className="text-xs text-midnight-600 font-medium">
+          <p className="text-xs text-emerald-300/70 font-medium">
             Powered by advanced AI • Secured with enterprise-grade encryption
           </p>
         </motion.div>

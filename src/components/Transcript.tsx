@@ -29,10 +29,10 @@ export default function Transcript({ messages }: TranscriptProps) {
 
   return (
     <div>
-      <h3 className="text-sm font-bold text-midnight-700 mb-3 flex items-center gap-2">
+      <h3 className="text-sm font-bold text-emerald-300 mb-3 flex items-center gap-2">
         <span>Conversation</span>
         {messages.length > 0 && (
-          <span className="text-xs font-medium text-midnight-500 bg-midnight-100 px-2 py-0.5 rounded-full">
+          <span className="text-xs font-medium text-gold-300 bg-gold-500/20 px-2 py-0.5 rounded-full border border-gold-500/30">
             {messages.length}
           </span>
         )}
@@ -40,7 +40,7 @@ export default function Transcript({ messages }: TranscriptProps) {
 
       <div
         ref={scrollRef}
-        className="h-64 overflow-y-auto space-y-3 bg-gradient-to-br from-midnight-50/50 to-transparent rounded-xl p-4 border border-midnight-200/50"
+        className="h-64 overflow-y-auto space-y-3 bg-gradient-to-br from-midnight-900/80 to-midnight-800/50 rounded-xl p-4 border border-emerald-500/20"
       >
         <AnimatePresence initial={false}>
           {messages.length === 0 ? (
@@ -50,8 +50,8 @@ export default function Transcript({ messages }: TranscriptProps) {
               className="flex items-center justify-center h-full text-center text-midnight-400 text-sm"
             >
               <div>
-                <p className="font-medium">No messages yet</p>
-                <p className="text-xs mt-1 text-midnight-300">Start a call to begin conversation</p>
+                <p className="font-medium text-emerald-400">No messages yet</p>
+                <p className="text-xs mt-1 text-midnight-400">Start a call to begin conversation</p>
               </div>
             </motion.div>
           ) : (
@@ -68,16 +68,16 @@ export default function Transcript({ messages }: TranscriptProps) {
                   <div
                     className={`p-3.5 rounded-2xl shadow-soft ${
                       message.type === 'user'
-                        ? 'bg-white border border-midnight-200 text-midnight-800'
+                        ? 'bg-midnight-700 border border-midnight-600 text-white'
                         : message.type === 'ai'
                         ? 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-glow-emerald'
-                        : 'bg-midnight-100 border border-midnight-200 text-midnight-600 text-center text-xs'
+                        : 'bg-gold-500/20 border border-gold-500/50 text-gold-200 text-center text-xs'
                     }`}
                   >
                     {/* Label for non-system messages */}
                     {message.type !== 'system' && (
                       <div className={`text-[10px] font-bold mb-1 uppercase tracking-wider ${
-                        message.type === 'user' ? 'text-midnight-500' : 'text-emerald-100'
+                        message.type === 'user' ? 'text-midnight-400' : 'text-emerald-100'
                       }`}>
                         {message.type === 'user' ? 'You' : 'AI Assistant'}
                       </div>
@@ -96,7 +96,7 @@ export default function Transcript({ messages }: TranscriptProps) {
                         ? 'text-midnight-400'
                         : message.type === 'ai'
                         ? 'text-emerald-200'
-                        : 'text-midnight-400'
+                        : 'text-gold-300'
                     }`}>
                       {formatTime(message.timestamp)}
                     </div>
