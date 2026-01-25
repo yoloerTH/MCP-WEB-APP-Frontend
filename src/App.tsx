@@ -29,6 +29,8 @@ function App() {
   const analyserRef = useRef<AnalyserNode | null>(null)
   const audioStreamRef = useRef<MediaStream | null>(null)
   const currentAudioRef = useRef<HTMLAudioElement | null>(null)
+  const audioQueueRef = useRef<string[]>([])
+  const isPlayingAudioRef = useRef<boolean>(false)
 
   // Initialize socket connection
   useEffect(() => {
@@ -75,11 +77,15 @@ function App() {
 
     newSocket.on('barge-in', () => {
       console.log('🛑 Barge-in detected - stopping AI audio')
+      // Stop current audio
       if (currentAudioRef.current) {
         currentAudioRef.current.pause()
         currentAudioRef.current.currentTime = 0
         currentAudioRef.current = null
       }
+      // Clear audio queue
+      audioQueueRef.current = []
+      isPlayingAudioRef.current = false
       setCallStatus('listening')
     })
 
@@ -179,6 +185,14 @@ function App() {
       audioContextRef.current = null
     }
 
+    // Stop any playing audio and clear queue
+    if (currentAudioRef.current) {
+      currentAudioRef.current.pause()
+      currentAudioRef.current = null
+    }
+    audioQueueRef.current = []
+    isPlayingAudioRef.current = false
+
     setCallStatus('connected')
     addTranscript('system', 'Call ended')
   }
@@ -211,13 +225,28 @@ function App() {
   }
 
   const playAudioResponse = (base64Audio: string) => {
-    try {
-      // Stop any currently playing audio
-      if (currentAudioRef.current) {
-        currentAudioRef.current.pause()
-        currentAudioRef.current.currentTime = 0
-      }
+    // Add to queue
+    audioQueueRef.current.push(base64Audio)
 
+    // Start processing queue if not already playing
+    if (!isPlayingAudioRef.current) {
+      processAudioQueue()
+    }
+  }
+
+  const processAudioQueue = () => {
+    // If queue is empty, stop
+    if (audioQueueRef.current.length === 0) {
+      isPlayingAudioRef.current = false
+      setCallStatus('listening')
+      return
+    }
+
+    // Get next audio from queue
+    const base64Audio = audioQueueRef.current.shift()!
+    isPlayingAudioRef.current = true
+
+    try {
       const audio = new Audio(`data:audio/wav;base64,${base64Audio}`)
       currentAudioRef.current = audio
 
@@ -227,7 +256,8 @@ function App() {
         if (currentAudioRef.current === audio) {
           currentAudioRef.current = null
         }
-        setCallStatus('listening')
+        // Play next audio in queue
+        processAudioQueue()
       }
 
       audio.onerror = () => {
@@ -235,9 +265,13 @@ function App() {
         if (currentAudioRef.current === audio) {
           currentAudioRef.current = null
         }
+        // Continue to next audio even on error
+        processAudioQueue()
       }
     } catch (error) {
       console.error('❌ Failed to play audio:', error)
+      // Continue to next audio even on error
+      processAudioQueue()
     }
   }
 
