@@ -30,7 +30,7 @@ export default function AudioVisualizer({ audioLevel, isActive, isSpeaking }: Au
   }, [audioLevel, isActive])
 
   return (
-    <div className="relative h-72 rounded-2xl overflow-hidden bg-gradient-to-br from-midnight-50 via-emerald-50/30 to-midnight-50 border border-midnight-200/50 shadow-soft">
+    <div className="relative h-72 rounded-2xl overflow-hidden bg-gradient-to-br from-midnight-900 via-midnight-800 to-midnight-900 border border-emerald-500/30 shadow-glow-emerald">
       {/* Ambient glow effect */}
       {isActive && (
         <motion.div
@@ -88,7 +88,7 @@ export default function AudioVisualizer({ audioLevel, isActive, isSpeaking }: Au
               <motion.div
                 className="absolute inset-0 rounded-full blur-xl"
                 style={{
-                  background: 'radial-gradient(circle, rgba(249, 115, 22, 0.2) 0%, transparent 70%)',
+                  background: 'radial-gradient(circle, rgba(245, 158, 11, 0.3) 0%, transparent 70%)',
                   width: '200px',
                   height: '200px',
                   left: '-50px',
@@ -96,7 +96,7 @@ export default function AudioVisualizer({ audioLevel, isActive, isSpeaking }: Au
                 }}
                 animate={{
                   scale: [1, 1.3, 1],
-                  opacity: [0.2, 0.4, 0.2],
+                  opacity: [0.3, 0.5, 0.3],
                 }}
                 transition={{
                   duration: 2,
@@ -154,31 +154,58 @@ export default function AudioVisualizer({ audioLevel, isActive, isSpeaking }: Au
 
           {/* Orbital rings */}
           {isActive && (
-            <motion.div
-              className="absolute inset-0 rounded-full border-2 border-emerald-400/30"
-              style={{
-                width: '140px',
-                height: '140px',
-                left: '-6px',
-                top: '-6px',
-              }}
-              animate={{
-                rotate: 360,
-                scale: [1, 1.1, 1],
-              }}
-              transition={{
-                rotate: {
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: 'linear',
-                },
-                scale: {
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: 'easeInOut',
-                },
-              }}
-            />
+            <>
+              <motion.div
+                className="absolute inset-0 rounded-full border-2 border-emerald-400/40"
+                style={{
+                  width: '140px',
+                  height: '140px',
+                  left: '-6px',
+                  top: '-6px',
+                }}
+                animate={{
+                  rotate: 360,
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{
+                  rotate: {
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: 'linear',
+                  },
+                  scale: {
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  },
+                }}
+              />
+              <motion.div
+                className="absolute inset-0 rounded-full border border-gold-400/30"
+                style={{
+                  width: '160px',
+                  height: '160px',
+                  left: '-16px',
+                  top: '-16px',
+                }}
+                animate={{
+                  rotate: -360,
+                  scale: [1, 1.05, 1],
+                }}
+                transition={{
+                  rotate: {
+                    duration: 12,
+                    repeat: Infinity,
+                    ease: 'linear',
+                  },
+                  scale: {
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  },
+                }}
+              />
+            </>
           )}
         </motion.div>
       </div>
@@ -210,8 +237,8 @@ export default function AudioVisualizer({ audioLevel, isActive, isSpeaking }: Au
         <motion.div
           className={`px-4 py-2 rounded-full backdrop-blur-md border ${
             isActive
-              ? 'bg-emerald-500/10 border-emerald-400/30'
-              : 'bg-midnight-500/10 border-midnight-400/30'
+              ? 'bg-emerald-500/20 border-emerald-400/50'
+              : 'bg-midnight-700/50 border-midnight-500/30'
           }`}
           animate={{
             scale: isActive ? [1, 1.05, 1] : 1,
@@ -223,7 +250,7 @@ export default function AudioVisualizer({ audioLevel, isActive, isSpeaking }: Au
           }}
         >
           <p className={`text-xs font-semibold ${
-            isActive ? 'text-emerald-600' : 'text-midnight-600'
+            isActive ? 'text-emerald-300' : 'text-midnight-300'
           }`}>
             {isSpeaking ? '🎙️ AI Speaking' : isActive ? '👂 Listening' : '⏸️ Inactive'}
           </p>
