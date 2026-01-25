@@ -77,11 +77,16 @@ function App() {
 
     newSocket.on('barge-in', () => {
       console.log('🛑 Barge-in detected - stopping AI audio')
-      // Stop current audio
+      // Stop and cleanup current audio immediately
       if (currentAudioRef.current) {
-        currentAudioRef.current.pause()
-        currentAudioRef.current.currentTime = 0
-        currentAudioRef.current = null
+        try {
+          currentAudioRef.current.pause()
+          currentAudioRef.current.currentTime = 0
+          currentAudioRef.current.src = '' // Clear source to fully stop
+          currentAudioRef.current = null
+        } catch (e) {
+          console.error('Error stopping audio:', e)
+        }
       }
       // Clear audio queue
       audioQueueRef.current = []
