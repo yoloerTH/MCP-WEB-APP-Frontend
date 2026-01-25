@@ -282,9 +282,29 @@ function App() {
       const audio = new Audio(`data:audio/wav;base64,${base64Audio}`)
       currentAudioRef.current = audio
 
-      audio.play()
+      // Set volume explicitly (helps on some mobile devices)
+      audio.volume = 1.0
+
+      // Handle the play() promise (critical for mobile browsers)
+      const playPromise = audio.play()
+
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            console.log('✅ Audio playback started successfully')
+          })
+          .catch((error) => {
+            console.error('❌ Audio play() rejected:', error.name, error.message)
+            // Try to continue to next audio
+            if (currentAudioRef.current === audio) {
+              currentAudioRef.current = null
+            }
+            processAudioQueue()
+          })
+      }
 
       audio.onended = () => {
+        console.log('✅ Audio playback ended')
         if (currentAudioRef.current === audio) {
           currentAudioRef.current = null
         }
@@ -292,8 +312,8 @@ function App() {
         processAudioQueue()
       }
 
-      audio.onerror = () => {
-        console.error('❌ Audio playback error')
+      audio.onerror = (e) => {
+        console.error('❌ Audio playback error:', e)
         if (currentAudioRef.current === audio) {
           currentAudioRef.current = null
         }
