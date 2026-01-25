@@ -281,84 +281,63 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      {/* Background effects */}
-      <div className="scan-line" />
-      <div className="holographic-noise" />
-      <div className="grid-background" />
-
-      {/* Radial gradient */}
-      <div className="fixed inset-0 bg-gradient-radial from-cyber-900/20 via-transparent to-transparent pointer-events-none" />
-
-      {/* Main content */}
-      <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="w-full max-w-4xl"
-        >
-          {/* Holographic container */}
-          <div className="relative">
-            {/* Glow effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-cyber-400 via-magenta-500 to-cyber-400 rounded-2xl opacity-20 blur-xl animate-pulse-glow" />
-
-            {/* Main panel */}
-            <div className="relative backdrop-blur-xl bg-black/40 border border-cyber-400/30 rounded-2xl p-8 shadow-2xl">
-              {/* Header */}
-              <div className="flex items-center justify-between mb-8">
-                <motion.h1
-                  className="text-4xl font-display font-bold bg-gradient-to-r from-cyber-400 via-magenta-500 to-cyber-400 bg-clip-text text-transparent"
-                  animate={{
-                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                  }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: 'linear',
-                  }}
-                  style={{
-                    backgroundSize: '200% 200%',
-                  }}
-                >
-                  VOICE.AI
-                </motion.h1>
-
-                <StatusIndicator status={callStatus} />
+    <div className="min-h-screen flex items-center justify-center p-6">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className="w-full max-w-3xl"
+      >
+        {/* Main card */}
+        <div className="bg-white/80 backdrop-blur-lg rounded-3xl shadow-soft-lg border border-neutral-200/50 overflow-hidden">
+          {/* Header */}
+          <div className="px-8 pt-8 pb-6 border-b border-neutral-100">
+            <div className="flex items-center justify-between">
+              <div>
+                <h1 className="text-3xl font-semibold text-neutral-900 tracking-tight">
+                  Voice AI
+                </h1>
+                <p className="text-sm text-neutral-500 mt-1">
+                  Intelligent voice assistant
+                </p>
               </div>
-
-              {/* Audio Visualizer */}
-              <AudioVisualizer
-                audioLevel={audioLevel}
-                isActive={callStatus === 'listening' || callStatus === 'ai-speaking'}
-                isSpeaking={callStatus === 'ai-speaking'}
-              />
-
-              {/* Transcript */}
-              <Transcript messages={transcript} />
-
-              {/* Controls */}
-              <CallControls
-                callStatus={callStatus}
-                isMuted={isMuted}
-                onStartCall={startCall}
-                onEndCall={endCall}
-                onToggleMute={toggleMute}
-              />
+              <StatusIndicator status={callStatus} />
             </div>
           </div>
 
-          {/* Footer hint */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.5 }}
-            transition={{ delay: 1 }}
-            className="text-center mt-6 text-sm text-cyber-400/50 font-body"
-          >
-            POWERED BY HOLOGRAPHIC NEURAL INTERFACE v2.0
-          </motion.p>
-        </motion.div>
-      </div>
+          {/* Content */}
+          <div className="p-8 space-y-6">
+            {/* Audio Visualizer */}
+            <AudioVisualizer
+              audioLevel={audioLevel}
+              isActive={callStatus === 'listening' || callStatus === 'ai-speaking'}
+              isSpeaking={callStatus === 'ai-speaking'}
+            />
+
+            {/* Transcript */}
+            <Transcript messages={transcript} />
+
+            {/* Controls */}
+            <CallControls
+              callStatus={callStatus}
+              isMuted={isMuted}
+              onStartCall={startCall}
+              onEndCall={endCall}
+              onToggleMute={toggleMute}
+            />
+          </div>
+        </div>
+
+        {/* Footer */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="text-center mt-6 text-xs text-neutral-400"
+        >
+          Powered by advanced AI technology
+        </motion.p>
+      </motion.div>
     </div>
   )
 }
