@@ -6,60 +6,43 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        'display': ['Orbitron', 'monospace'],
-        'body': ['Space Mono', 'monospace'],
-      },
       colors: {
-        cyber: {
-          50: '#f0fdff',
-          100: '#ccf7ff',
-          200: '#99eeff',
-          300: '#5ee3ff',
-          400: '#00d4ff',
-          500: '#00b8e6',
-          600: '#0099cc',
-          700: '#007aa3',
-          800: '#006685',
-          900: '#00526b',
+        // Refined single-accent palette
+        primary: {
+          50: '#f5f7ff',
+          100: '#ebf0ff',
+          200: '#d6e0ff',
+          300: '#b3c7ff',
+          400: '#8da8ff',
+          500: '#6b8aff',  // Main accent
+          600: '#5570eb',
+          700: '#4157c9',
+          800: '#3545a3',
+          900: '#2d3a85',
         },
-        magenta: {
-          500: '#ff00ff',
-          600: '#cc00cc',
-          700: '#990099',
-        },
+        neutral: {
+          50: '#fafafa',
+          100: '#f5f5f5',
+          200: '#e8e8e8',
+          300: '#d4d4d4',
+          400: '#a3a3a3',
+          500: '#737373',
+          600: '#525252',
+          700: '#404040',
+          800: '#262626',
+          900: '#171717',
+        }
       },
-      animation: {
-        'pulse-glow': 'pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'scan': 'scan 8s linear infinite',
-        'float': 'float 6s ease-in-out infinite',
-      },
-      keyframes: {
-        'pulse-glow': {
-          '0%, 100%': {
-            opacity: '1',
-            filter: 'drop-shadow(0 0 20px currentColor)',
-          },
-          '50%': {
-            opacity: '0.7',
-            filter: 'drop-shadow(0 0 40px currentColor)',
-          },
-        },
-        'scan': {
-          '0%': { transform: 'translateY(-100%)' },
-          '100%': { transform: 'translateY(100%)' },
-        },
-        'float': {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
-        },
+      fontFamily: {
+        sans: ['DM Sans', 'system-ui', '-apple-system', 'sans-serif'],
       },
       backgroundImage: {
-        'grid-pattern': `linear-gradient(rgba(0, 212, 255, 0.1) 1px, transparent 1px),
-                         linear-gradient(90deg, rgba(0, 212, 255, 0.1) 1px, transparent 1px)`,
+        'gradient-soft': 'linear-gradient(135deg, #fafafa 0%, #f0f4ff 100%)',
       },
-      backgroundSize: {
-        'grid': '40px 40px',
+      boxShadow: {
+        'soft': '0 2px 20px rgba(0, 0, 0, 0.04)',
+        'soft-lg': '0 8px 40px rgba(0, 0, 0, 0.06)',
+        'inner-soft': 'inset 0 1px 3px rgba(0, 0, 0, 0.05)',
       },
     },
   },
