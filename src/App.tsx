@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { io, Socket } from 'socket.io-client'
 import AudioVisualizer from './components/AudioVisualizer'
 import Transcript from './components/Transcript'
