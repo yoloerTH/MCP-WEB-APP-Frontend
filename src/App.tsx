@@ -308,24 +308,28 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6">
+    <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-midnight relative overflow-hidden">
+      {/* Subtle background glow */}
+      <div className="absolute inset-0 bg-gradient-glow opacity-50 pointer-events-none" />
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="w-full max-w-3xl"
+        className="w-full max-w-3xl relative z-10"
       >
-        {/* Main card */}
-        <div className="bg-white/80 backdrop-blur-lg rounded-3xl shadow-soft-lg border border-neutral-200/50 overflow-hidden">
-          {/* Header */}
-          <div className="px-8 pt-8 pb-6 border-b border-neutral-100">
+        {/* Main card with premium styling */}
+        <div className="bg-white backdrop-blur-xl rounded-3xl shadow-soft-lg border border-midnight-200/30 overflow-hidden">
+          {/* Header with gradient accent */}
+          <div className="relative px-8 pt-8 pb-6 border-b border-midnight-100/50">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 via-coral-500 to-emerald-500" />
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-3xl font-semibold text-neutral-900 tracking-tight">
+                <h1 className="text-3xl font-bold text-midnight-800 tracking-tight">
                   Voice AI
                 </h1>
-                <p className="text-sm text-neutral-500 mt-1">
-                  Intelligent voice assistant
+                <p className="text-sm text-midnight-500 mt-1 font-medium">
+                  Intelligent voice assistant with Google Workspace
                 </p>
               </div>
               <StatusIndicator status={callStatus} />
@@ -356,14 +360,16 @@ function App() {
         </div>
 
         {/* Footer */}
-        <motion.p
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="text-center mt-6 text-xs text-neutral-400"
+          className="text-center mt-6 space-y-2"
         >
-          Powered by advanced AI technology
-        </motion.p>
+          <p className="text-xs text-midnight-600 font-medium">
+            Powered by advanced AI • Secured with enterprise-grade encryption
+          </p>
+        </motion.div>
       </motion.div>
     </div>
   )

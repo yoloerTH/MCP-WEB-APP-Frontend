@@ -8,11 +8,11 @@ interface AudioVisualizerProps {
 }
 
 export default function AudioVisualizer({ audioLevel, isActive, isSpeaking }: AudioVisualizerProps) {
-  const [bars, setBars] = useState<number[]>(new Array(24).fill(0))
+  const [bars, setBars] = useState<number[]>(new Array(32).fill(0))
 
   useEffect(() => {
     if (!isActive) {
-      setBars(new Array(24).fill(0))
+      setBars(new Array(32).fill(0))
       return
     }
 
@@ -24,79 +24,125 @@ export default function AudioVisualizer({ audioLevel, isActive, isSpeaking }: Au
         newBars.unshift(audioLevel + Math.random() * 0.15)
         return newBars
       })
-    }, 60)
+    }, 50)
 
     return () => clearInterval(interval)
   }, [audioLevel, isActive])
 
   return (
-    <div className="relative h-56 rounded-2xl overflow-hidden bg-gradient-to-br from-primary-50 to-primary-100/50 border border-primary-200/50">
-      {/* Center orb - refined and subtle */}
-      <div className="absolute inset-0 flex items-center justify-center">
+    <div className="relative h-72 rounded-2xl overflow-hidden bg-gradient-to-br from-midnight-50 via-emerald-50/30 to-midnight-50 border border-midnight-200/50 shadow-soft">
+      {/* Ambient glow effect */}
+      {isActive && (
         <motion.div
-          className="relative"
+          className="absolute inset-0"
+          style={{
+            background: 'radial-gradient(circle at center, rgba(16, 185, 129, 0.08), transparent 70%)',
+          }}
           animate={{
-            scale: isActive ? [1, 1.05, 1] : 1,
+            scale: [1, 1.2, 1],
+            opacity: [0.5, 0.8, 0.5],
           }}
           transition={{
             duration: 3,
             repeat: Infinity,
             ease: 'easeInOut',
           }}
+        />
+      )}
+
+      {/* Center orb */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <motion.div
+          className="relative"
+          animate={{
+            scale: isActive ? [1, 1.08, 1] : 1,
+          }}
+          transition={{
+            duration: 2.5,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
         >
-          {/* Soft glow */}
+          {/* Outer glow rings */}
           {isActive && (
-            <motion.div
-              className="absolute inset-0 rounded-full blur-3xl"
-              style={{
-                background: 'radial-gradient(circle, rgba(107, 138, 255, 0.2) 0%, transparent 70%)',
-                width: '200px',
-                height: '200px',
-                left: '-50px',
-                top: '-50px',
-              }}
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.3, 0.5, 0.3],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
-            />
+            <>
+              <motion.div
+                className="absolute inset-0 rounded-full blur-2xl"
+                style={{
+                  background: 'radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, transparent 60%)',
+                  width: '250px',
+                  height: '250px',
+                  left: '-75px',
+                  top: '-75px',
+                }}
+                animate={{
+                  scale: [1, 1.4, 1],
+                  opacity: [0.3, 0.6, 0.3],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+              />
+              <motion.div
+                className="absolute inset-0 rounded-full blur-xl"
+                style={{
+                  background: 'radial-gradient(circle, rgba(249, 115, 22, 0.2) 0%, transparent 70%)',
+                  width: '200px',
+                  height: '200px',
+                  left: '-50px',
+                  top: '-50px',
+                }}
+                animate={{
+                  scale: [1, 1.3, 1],
+                  opacity: [0.2, 0.4, 0.2],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                  delay: 0.5,
+                }}
+              />
+            </>
           )}
 
           {/* Main orb */}
           <motion.div
-            className="relative w-24 h-24 rounded-full flex items-center justify-center"
+            className="relative w-28 h-28 rounded-full flex items-center justify-center overflow-hidden"
             style={{
-              background: 'linear-gradient(135deg, rgba(107, 138, 255, 0.9), rgba(85, 112, 235, 0.8))',
+              background: isActive
+                ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)'
+                : 'linear-gradient(135deg, #64748b 0%, #475569 100%)',
               boxShadow: isActive
-                ? '0 8px 32px rgba(107, 138, 255, 0.3)'
-                : '0 4px 16px rgba(107, 138, 255, 0.2)',
+                ? '0 10px 40px rgba(16, 185, 129, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)'
+                : '0 4px 16px rgba(100, 116, 139, 0.2)',
             }}
             animate={{
               boxShadow: isActive
                 ? [
-                    '0 8px 32px rgba(107, 138, 255, 0.3)',
-                    '0 12px 40px rgba(107, 138, 255, 0.4)',
-                    '0 8px 32px rgba(107, 138, 255, 0.3)',
+                    '0 10px 40px rgba(16, 185, 129, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
+                    '0 15px 50px rgba(16, 185, 129, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.4)',
+                    '0 10px 40px rgba(16, 185, 129, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)',
                   ]
-                : '0 4px 16px rgba(107, 138, 255, 0.2)',
+                : '0 4px 16px rgba(100, 116, 139, 0.2)',
             }}
             transition={{
-              duration: 3,
+              duration: 2.5,
               repeat: Infinity,
               ease: 'easeInOut',
             }}
           >
-            {/* Inner core */}
+            {/* Inner highlight */}
             <motion.div
-              className="w-16 h-16 rounded-full bg-white"
+              className="w-20 h-20 rounded-full"
+              style={{
+                background: 'radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1))',
+              }}
               animate={{
-                scale: isActive ? [1, 1.15, 1] : 1,
-                opacity: isActive ? [0.9, 1, 0.9] : 0.8,
+                scale: isActive ? [1, 1.2, 1] : 1,
+                opacity: isActive ? [0.7, 1, 0.7] : 0.5,
               }}
               transition={{
                 duration: 2,
@@ -105,36 +151,70 @@ export default function AudioVisualizer({ audioLevel, isActive, isSpeaking }: Au
               }}
             />
           </motion.div>
+
+          {/* Orbital rings */}
+          {isActive && (
+            <motion.div
+              className="absolute inset-0 rounded-full border-2 border-emerald-400/30"
+              style={{
+                width: '140px',
+                height: '140px',
+                left: '-6px',
+                top: '-6px',
+              }}
+              animate={{
+                rotate: 360,
+                scale: [1, 1.1, 1],
+              }}
+              transition={{
+                rotate: {
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: 'linear',
+                },
+                scale: {
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                },
+              }}
+            />
+          )}
         </motion.div>
       </div>
 
-      {/* Frequency bars - minimal and elegant */}
-      <div className="absolute inset-0 flex items-end justify-center gap-1.5 p-6 opacity-30">
+      {/* Frequency bars with gradient */}
+      <div className="absolute inset-0 flex items-end justify-center gap-1 p-8 opacity-25">
         {bars.map((height, i) => (
           <motion.div
             key={i}
-            className="flex-1 rounded-full bg-gradient-to-t from-primary-500 to-primary-400"
+            className="flex-1 rounded-full"
             style={{
-              maxWidth: '6px',
+              background: 'linear-gradient(to top, #10b981, #34d399)',
+              maxWidth: '8px',
             }}
             initial={{ height: '4px' }}
             animate={{
-              height: isActive ? `${Math.max(height * 80, 4)}%` : '4px',
+              height: isActive ? `${Math.max(height * 100, 4)}%` : '4px',
             }}
             transition={{
-              duration: 0.15,
+              duration: 0.12,
               ease: 'easeOut',
             }}
           />
         ))}
       </div>
 
-      {/* Status text */}
-      <div className="absolute bottom-4 left-0 right-0 text-center">
-        <motion.p
-          className="text-xs font-medium text-primary-600"
+      {/* Status text with badge */}
+      <div className="absolute bottom-6 left-0 right-0 flex justify-center">
+        <motion.div
+          className={`px-4 py-2 rounded-full backdrop-blur-md border ${
+            isActive
+              ? 'bg-emerald-500/10 border-emerald-400/30'
+              : 'bg-midnight-500/10 border-midnight-400/30'
+          }`}
           animate={{
-            opacity: isActive ? [0.6, 1, 0.6] : 0.4,
+            scale: isActive ? [1, 1.05, 1] : 1,
           }}
           transition={{
             duration: 2,
@@ -142,8 +222,12 @@ export default function AudioVisualizer({ audioLevel, isActive, isSpeaking }: Au
             ease: 'easeInOut',
           }}
         >
-          {isSpeaking ? 'Speaking...' : isActive ? 'Listening...' : 'Inactive'}
-        </motion.p>
+          <p className={`text-xs font-semibold ${
+            isActive ? 'text-emerald-600' : 'text-midnight-600'
+          }`}>
+            {isSpeaking ? '🎙️ AI Speaking' : isActive ? '👂 Listening' : '⏸️ Inactive'}
+          </p>
+        </motion.div>
       </div>
     </div>
   )
