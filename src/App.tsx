@@ -5,6 +5,8 @@ import AudioVisualizer from './components/AudioVisualizer'
 import Transcript from './components/Transcript'
 import CallControls from './components/CallControls'
 import StatusIndicator from './components/StatusIndicator'
+import ModeSelector from './components/ModeSelector'
+import ChatInterface from './components/ChatInterface'
 
 // Backend URL - change this to your Railway URL
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001'
@@ -18,12 +20,20 @@ interface TranscriptMessage {
 }
 
 function App() {
+  // Mode state
+  const [appMode, setAppMode] = useState<'voice' | 'chat'>('voice')
+
+  // Voice AI state
   const [socket, setSocket] = useState<Socket | null>(null)
   const [callStatus, setCallStatus] = useState<CallStatus>('disconnected')
   const [isMuted, setIsMuted] = useState(false)
   const [transcript, setTranscript] = useState<TranscriptMessage[]>([])
   const [audioLevel, setAudioLevel] = useState(0)
   const [textInput, setTextInput] = useState('')
+
+  // Chat AI state
+  const [chatMessages, setChatMessages] = useState<TranscriptMessage[]>([])
+  const [isChatWaiting, setIsChatWaiting] = useState(false)
 
   const mediaRecorderRef = useRef<MediaRecorder | null>(null)
   const audioContextRef = useRef<AudioContext | null>(null)
@@ -100,6 +110,13 @@ function App() {
       addTranscript('system', `Error: ${data.message}`)
     })
 
+    // Chat-specific events
+    newSocket.on('chat-response', (data: { text: string }) => {
+      console.log('💬 Chat response:', data.text)
+      addChatMessage('ai', data.text)
+      setIsChatWaiting(false)
+    })
+
     setSocket(newSocket)
 
     return () => {
@@ -113,6 +130,27 @@ function App() {
       text,
       timestamp: new Date()
     }])
+  }
+
+  const addChatMessage = (type: 'user' | 'ai' | 'system', text: string) => {
+    setChatMessages(prev => [...prev, {
+      type,
+      text,
+      timestamp: new Date()
+    }])
+  }
+
+  const handleSendChatMessage = (text: string) => {
+    if (!socket || !text.trim()) return
+
+    // Add user message to chat
+    addChatMessage('user', text)
+
+    // Set waiting state
+    setIsChatWaiting(true)
+
+    // Send to backend
+    socket.emit('chat-message', { text: text.trim() })
   }
 
   const startCall = async () => {
@@ -370,71 +408,90 @@ function App() {
           {/* Header with gradient accent */}
           <div className="relative px-8 pt-8 pb-6 border-b border-midnight-700">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 via-gold-400 to-gold-500" />
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between mb-4">
               <div>
                 <h1 className="text-3xl font-bold text-white tracking-tight">
-                  Voice AI
+                  {appMode === 'voice' ? '🎙️ Voice AI' : '💬 Chat AI'}
                 </h1>
                 <p className="text-sm text-emerald-300 mt-1 font-medium">
-                  Intelligent voice assistant with Google Workspace
+                  {appMode === 'voice'
+                    ? 'Intelligent voice assistant with Google Workspace'
+                    : 'Intelligent text assistant with Google Workspace'
+                  }
                 </p>
               </div>
-              <StatusIndicator status={callStatus} />
+              {appMode === 'voice' && <StatusIndicator status={callStatus} />}
             </div>
+            {/* Mode Selector */}
+            <ModeSelector mode={appMode} onModeChange={setAppMode} />
           </div>
 
           {/* Content */}
           <div className="p-8 space-y-6 bg-gradient-to-b from-midnight-800 to-midnight-900">
-            {/* Audio Visualizer */}
-            <AudioVisualizer
-              audioLevel={audioLevel}
-              isActive={callStatus === 'listening' || callStatus === 'ai-speaking'}
-              isSpeaking={callStatus === 'ai-speaking'}
-            />
-
-            {/* Transcript */}
-            <Transcript messages={transcript} />
-
-            {/* Controls */}
-            <CallControls
-              callStatus={callStatus}
-              isMuted={isMuted}
-              onStartCall={startCall}
-              onEndCall={endCall}
-              onToggleMute={toggleMute}
-            />
-
-            {/* Text Input (only visible during active call) */}
-            {(callStatus === 'listening' || callStatus === 'ai-speaking' || callStatus === 'processing') && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-                className="flex items-center gap-3"
-              >
-                <input
-                  type="text"
-                  value={textInput}
-                  onChange={(e) => setTextInput(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' && !e.shiftKey) {
-                      e.preventDefault()
-                      sendTextMessage()
-                    }
-                  }}
-                  placeholder="Or type your message..."
-                  className="flex-1 px-4 py-3 bg-midnight-700 text-white placeholder-midnight-400 rounded-xl border-2 border-emerald-500/30 focus:border-emerald-500 focus:outline-none transition-all duration-200"
+            {appMode === 'voice' ? (
+              <>
+                {/* Voice Mode */}
+                {/* Audio Visualizer */}
+                <AudioVisualizer
+                  audioLevel={audioLevel}
+                  isActive={callStatus === 'listening' || callStatus === 'ai-speaking'}
+                  isSpeaking={callStatus === 'ai-speaking'}
                 />
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={sendTextMessage}
-                  disabled={!textInput.trim()}
-                  className="px-6 py-3 bg-gradient-to-br from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 disabled:opacity-50 disabled:cursor-not-allowed text-midnight-900 font-bold rounded-xl shadow-glow-gold transition-all duration-200"
-                >
-                  Send
-                </motion.button>
-              </motion.div>
+
+                {/* Transcript */}
+                <Transcript messages={transcript} />
+
+                {/* Controls */}
+                <CallControls
+                  callStatus={callStatus}
+                  isMuted={isMuted}
+                  onStartCall={startCall}
+                  onEndCall={endCall}
+                  onToggleMute={toggleMute}
+                />
+
+                {/* Text Input (only visible during active call) */}
+                {(callStatus === 'listening' || callStatus === 'ai-speaking' || callStatus === 'processing') && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    className="flex items-center gap-3"
+                  >
+                    <input
+                      type="text"
+                      value={textInput}
+                      onChange={(e) => setTextInput(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' && !e.shiftKey) {
+                          e.preventDefault()
+                          sendTextMessage()
+                        }
+                      }}
+                      placeholder="Or type your message..."
+                      className="flex-1 px-4 py-3 bg-midnight-700 text-white placeholder-midnight-400 rounded-xl border-2 border-emerald-500/30 focus:border-emerald-500 focus:outline-none transition-all duration-200"
+                    />
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={sendTextMessage}
+                      disabled={!textInput.trim()}
+                      className="px-6 py-3 bg-gradient-to-br from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 disabled:opacity-50 disabled:cursor-not-allowed text-midnight-900 font-bold rounded-xl shadow-glow-gold transition-all duration-200"
+                    >
+                      Send
+                    </motion.button>
+                  </motion.div>
+                )}
+              </>
+            ) : (
+              <>
+                {/* Chat Mode */}
+                <ChatInterface
+                  messages={chatMessages}
+                  onSendMessage={handleSendChatMessage}
+                  isWaiting={isChatWaiting}
+                />
+              </>
             )}
           </div>
         </div>
