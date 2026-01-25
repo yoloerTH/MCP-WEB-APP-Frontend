@@ -23,6 +23,7 @@ function App() {
   const [isMuted, setIsMuted] = useState(false)
   const [transcript, setTranscript] = useState<TranscriptMessage[]>([])
   const [audioLevel, setAudioLevel] = useState(0)
+  const [textInput, setTextInput] = useState('')
 
   const mediaRecorderRef = useRef<MediaRecorder | null>(null)
   const audioContextRef = useRef<AudioContext | null>(null)
@@ -238,6 +239,32 @@ function App() {
     }
   }
 
+  const sendTextMessage = () => {
+    if (!socket || !textInput.trim()) return
+
+    const message = textInput.trim()
+
+    // Trigger barge-in if AI is speaking
+    if (currentAudioRef.current) {
+      console.log('🛑 Barge-in via text input - stopping AI audio')
+      currentAudioRef.current.pause()
+      currentAudioRef.current.currentTime = 0
+      currentAudioRef.current.src = ''
+      currentAudioRef.current = null
+      audioQueueRef.current = []
+      isPlayingAudioRef.current = false
+    }
+
+    // Add to transcript
+    addTranscript('user', message)
+
+    // Send to backend
+    socket.emit('text-message', { text: message })
+
+    // Clear input
+    setTextInput('')
+  }
+
   const visualizeAudio = () => {
     if (!analyserRef.current) return
 
@@ -376,6 +403,39 @@ function App() {
               onEndCall={endCall}
               onToggleMute={toggleMute}
             />
+
+            {/* Text Input (only visible during active call) */}
+            {(callStatus === 'listening' || callStatus === 'ai-speaking' || callStatus === 'processing') && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                className="flex items-center gap-3"
+              >
+                <input
+                  type="text"
+                  value={textInput}
+                  onChange={(e) => setTextInput(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                      e.preventDefault()
+                      sendTextMessage()
+                    }
+                  }}
+                  placeholder="Or type your message..."
+                  className="flex-1 px-4 py-3 bg-midnight-700 text-white placeholder-midnight-400 rounded-xl border-2 border-emerald-500/30 focus:border-emerald-500 focus:outline-none transition-all duration-200"
+                />
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={sendTextMessage}
+                  disabled={!textInput.trim()}
+                  className="px-6 py-3 bg-gradient-to-br from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 disabled:opacity-50 disabled:cursor-not-allowed text-midnight-900 font-bold rounded-xl shadow-glow-gold transition-all duration-200"
+                >
+                  Send
+                </motion.button>
+              </motion.div>
+            )}
           </div>
         </div>
 
