@@ -29,24 +29,29 @@ export default function Transcript({ messages }: TranscriptProps) {
 
   return (
     <div>
-      <h3 className="text-sm font-semibold text-neutral-600 mb-3">
-        Conversation
+      <h3 className="text-sm font-bold text-midnight-700 mb-3 flex items-center gap-2">
+        <span>Conversation</span>
+        {messages.length > 0 && (
+          <span className="text-xs font-medium text-midnight-500 bg-midnight-100 px-2 py-0.5 rounded-full">
+            {messages.length}
+          </span>
+        )}
       </h3>
 
       <div
         ref={scrollRef}
-        className="h-64 overflow-y-auto space-y-3 bg-neutral-50 rounded-xl p-4 border border-neutral-200"
+        className="h-64 overflow-y-auto space-y-3 bg-gradient-to-br from-midnight-50/50 to-transparent rounded-xl p-4 border border-midnight-200/50"
       >
         <AnimatePresence initial={false}>
           {messages.length === 0 ? (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="flex items-center justify-center h-full text-center text-neutral-400 text-sm"
+              className="flex items-center justify-center h-full text-center text-midnight-400 text-sm"
             >
               <div>
-                <p>No messages yet</p>
-                <p className="text-xs mt-1">Start a call to begin</p>
+                <p className="font-medium">No messages yet</p>
+                <p className="text-xs mt-1 text-midnight-300">Start a call to begin conversation</p>
               </div>
             </motion.div>
           ) : (
@@ -61,18 +66,18 @@ export default function Transcript({ messages }: TranscriptProps) {
               >
                 <div className={`max-w-[85%] ${message.type === 'system' ? 'w-full' : ''}`}>
                   <div
-                    className={`p-3 rounded-2xl ${
+                    className={`p-3.5 rounded-2xl shadow-soft ${
                       message.type === 'user'
-                        ? 'bg-white border border-neutral-200 text-neutral-800'
+                        ? 'bg-white border border-midnight-200 text-midnight-800'
                         : message.type === 'ai'
-                        ? 'bg-primary-500 text-white'
-                        : 'bg-neutral-100 border border-neutral-200 text-neutral-500 text-center text-xs'
+                        ? 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-glow-emerald'
+                        : 'bg-midnight-100 border border-midnight-200 text-midnight-600 text-center text-xs'
                     }`}
                   >
                     {/* Label for non-system messages */}
                     {message.type !== 'system' && (
-                      <div className={`text-[10px] font-medium mb-1 ${
-                        message.type === 'user' ? 'text-neutral-500' : 'text-primary-100'
+                      <div className={`text-[10px] font-bold mb-1 uppercase tracking-wider ${
+                        message.type === 'user' ? 'text-midnight-500' : 'text-emerald-100'
                       }`}>
                         {message.type === 'user' ? 'You' : 'AI Assistant'}
                       </div>
@@ -80,18 +85,18 @@ export default function Transcript({ messages }: TranscriptProps) {
 
                     {/* Message text */}
                     <div className={`text-sm leading-relaxed ${
-                      message.type === 'system' ? 'italic' : ''
+                      message.type === 'system' ? 'italic font-medium' : 'font-medium'
                     }`}>
                       {message.text}
                     </div>
 
                     {/* Timestamp */}
-                    <div className={`text-[10px] mt-1 ${
+                    <div className={`text-[10px] mt-1.5 font-medium ${
                       message.type === 'user'
-                        ? 'text-neutral-400'
+                        ? 'text-midnight-400'
                         : message.type === 'ai'
-                        ? 'text-primary-200'
-                        : 'text-neutral-400'
+                        ? 'text-emerald-200'
+                        : 'text-midnight-400'
                     }`}>
                       {formatTime(message.timestamp)}
                     </div>

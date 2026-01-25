@@ -28,9 +28,23 @@ export default function CallControls({
           whileTap={{ scale: 0.98 }}
           onClick={onStartCall}
           disabled={callStatus === 'connecting'}
-          className="px-8 py-3.5 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl shadow-soft transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="relative px-10 py-4 bg-gradient-to-br from-coral-500 to-coral-600 hover:from-coral-600 hover:to-coral-700 text-white font-bold rounded-xl shadow-glow-coral transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden group"
         >
-          {callStatus === 'connecting' ? 'Connecting...' : 'Start Call'}
+          {/* Shimmer effect */}
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+            animate={{
+              x: ['-100%', '200%'],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+          />
+          <span className="relative z-10">
+            {callStatus === 'connecting' ? 'Connecting...' : 'Start Call'}
+          </span>
         </motion.button>
       ) : (
         <>
@@ -39,14 +53,14 @@ export default function CallControls({
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={onToggleMute}
-            className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-200 ${
+            className={`w-14 h-14 rounded-xl flex items-center justify-center transition-all duration-200 shadow-soft ${
               isMuted
-                ? 'bg-neutral-200 text-neutral-500'
-                : 'bg-primary-100 text-primary-600'
+                ? 'bg-neutral-200 text-neutral-600 border border-neutral-300'
+                : 'bg-emerald-100 text-emerald-600 border border-emerald-300'
             }`}
           >
             <svg
-              className="w-5 h-5"
+              className="w-6 h-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -74,7 +88,7 @@ export default function CallControls({
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={onEndCall}
-            className="px-8 py-3.5 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-xl shadow-soft transition-all duration-200"
+            className="px-10 py-4 bg-gradient-to-br from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold rounded-xl shadow-soft transition-all duration-200"
           >
             End Call
           </motion.button>
