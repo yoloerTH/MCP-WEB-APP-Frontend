@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
+import { useState, useEffect } from 'react'
 
 interface LandingPageProps {
   onGetStarted: () => void
@@ -71,173 +72,382 @@ const GoogleServiceIcon = ({ service }: { service: string }) => {
 }
 
 export default function LandingPage({ onGetStarted }: LandingPageProps) {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const { scrollYProgress } = useScroll()
+  const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 })
+
+  const backgroundY = useTransform(smoothProgress, [0, 1], ['0%', '30%'])
+  const headerOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY })
+    }
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [])
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-midnight-900 via-midnight-800 to-midnight-900 text-white overflow-x-hidden">
+    <div className="min-h-screen bg-[#0a0e1a] text-white overflow-x-hidden relative">
+      {/* Load Fonts */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+        * {
+          font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .font-display {
+          font-family: 'Space Grotesk', sans-serif;
+          font-weight: 700;
+          letter-spacing: -0.04em;
+        }
+
+        .font-mono {
+          font-family: 'JetBrains Mono', monospace;
+        }
+      `}</style>
+
+      {/* Dynamic gradient background */}
+      <motion.div
+        className="fixed inset-0 pointer-events-none opacity-40"
+        style={{ y: backgroundY }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-transparent to-amber-500/20" />
+        <div
+          className="absolute w-[800px] h-[800px] bg-emerald-500/10 rounded-full blur-[120px]"
+          style={{
+            left: `${mousePosition.x - 400}px`,
+            top: `${mousePosition.y - 400}px`,
+            transition: 'all 0.3s ease-out'
+          }}
+        />
+      </motion.div>
+
+      {/* Noise texture overlay */}
+      <div className="fixed inset-0 pointer-events-none opacity-[0.015] mix-blend-overlay">
+        <svg className="w-full h-full">
+          <filter id="noise">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/>
+          </filter>
+          <rect width="100%" height="100%" filter="url(#noise)"/>
+        </svg>
+      </div>
+
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-midnight-900/80 backdrop-blur-md border-b border-emerald-500/20">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <motion.nav
+        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#0a0e1a]/80 border-b border-emerald-500/10"
+        style={{ opacity: headerOpacity }}
+      >
+        <div className="max-w-[1400px] mx-auto px-8 py-5 flex items-center justify-between">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-3"
+            className="flex items-center gap-4"
           >
-            <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-500/30">
-              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="10" stroke="white" strokeWidth="2"/>
-                <circle cx="8" cy="10" r="1.5" fill="white"/>
-                <circle cx="16" cy="10" r="1.5" fill="white"/>
-                <path d="M8 15c0 2 1.79 3 4 3s4-1 4-3" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-              </svg>
+            <div className="relative">
+              <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full" />
+              <div className="relative w-11 h-11 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-2xl shadow-emerald-500/50 border border-emerald-400/30">
+                <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                  <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+              </div>
             </div>
-            <span className="text-xl font-bold">AI Assistant</span>
+            <div>
+              <span className="text-xl font-display tracking-tight">AI Assistant</span>
+              <div className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">Workspace Edition</div>
+            </div>
           </motion.div>
+
           <motion.button
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             onClick={onGetStarted}
-            className="px-6 py-2.5 bg-gradient-to-br from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-midnight-900 font-bold rounded-xl shadow-lg shadow-gold-500/30 transition-all duration-200"
+            className="group relative px-7 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-lg font-semibold text-sm overflow-hidden shadow-xl shadow-emerald-500/25 border border-emerald-400/30"
           >
-            Get Started
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="relative flex items-center gap-2">
+              Launch Platform
+              <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </span>
           </motion.button>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-7xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <motion.h1
-              className="text-5xl md:text-7xl font-bold mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <span className="bg-gradient-to-r from-emerald-400 via-emerald-300 to-gold-400 bg-clip-text text-transparent">
-                Your AI-Powered
-                <br />
-                Google Workspace Assistant
-              </span>
-            </motion.h1>
-            <motion.p
-              className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              Control your entire Google Workspace ecosystem with voice or chat.
-              Powered by cutting-edge AI technology.
-            </motion.p>
-            <motion.div
-              className="flex flex-wrap items-center justify-center gap-4 mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(16, 185, 129, 0.4)" }}
-                whileTap={{ scale: 0.95 }}
-                onClick={onGetStarted}
-                className="px-8 py-4 bg-gradient-to-br from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-bold rounded-xl shadow-xl shadow-emerald-500/30 text-lg transition-all duration-300"
-              >
-                Try Voice Mode
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(245, 158, 11, 0.4)" }}
-                whileTap={{ scale: 0.95 }}
-                onClick={onGetStarted}
-                className="px-8 py-4 bg-gradient-to-br from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-midnight-900 font-bold rounded-xl shadow-xl shadow-gold-500/30 text-lg transition-all duration-300"
-              >
-                Try Chat Mode
-              </motion.button>
-            </motion.div>
-          </motion.div>
-
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
-          >
-            {[
-              { value: '35+', label: 'AI Tools' },
-              { value: '8', label: 'Google Services' },
-              { value: '2', label: 'Modes' },
-              { value: '24/7', label: 'Available' },
-            ].map((stat, idx) => (
+      <section className="relative pt-32 pb-24 px-8 min-h-[90vh] flex items-center">
+        <div className="max-w-[1400px] mx-auto w-full">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left: Content */}
+            <div className="space-y-8">
               <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.9 + idx * 0.1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="bg-midnight-800/50 border border-emerald-500/20 rounded-2xl p-6 backdrop-blur-sm hover:border-emerald-500/50 transition-all duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+                className="space-y-6"
               >
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-br from-emerald-400 to-gold-400 bg-clip-text text-transparent mb-2">
-                  {stat.value}
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full backdrop-blur-sm">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+                  <span className="text-xs font-mono uppercase tracking-wider text-emerald-300">Live & Operational</span>
                 </div>
-                <div className="text-sm text-gray-400 font-medium">{stat.label}</div>
+
+                <h1 className="font-display text-6xl lg:text-7xl xl:text-8xl leading-[0.95] tracking-tight">
+                  <span className="block text-white">Your AI-Powered</span>
+                  <span className="block bg-gradient-to-r from-emerald-400 via-emerald-300 to-amber-400 bg-clip-text text-transparent">
+                    Workspace
+                  </span>
+                  <span className="block text-white">Command Center</span>
+                </h1>
+
+                <p className="text-xl text-gray-400 leading-relaxed max-w-xl">
+                  Control your entire Google Workspace through natural voice commands or intelligent chat.
+                  <span className="text-emerald-300 font-medium"> 35+ AI tools</span> at your fingertips.
+                </p>
               </motion.div>
-            ))}
-          </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                className="flex flex-wrap gap-4"
+              >
+                <motion.button
+                  whileHover={{ scale: 1.02, boxShadow: "0 20px 60px rgba(16, 185, 129, 0.4)" }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={onGetStarted}
+                  className="group relative px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl font-semibold text-lg overflow-hidden shadow-2xl shadow-emerald-500/30 border border-emerald-400/30"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <span className="relative">Try Voice Mode</span>
+                </motion.button>
+
+                <motion.button
+                  whileHover={{ scale: 1.02, boxShadow: "0 20px 60px rgba(245, 158, 11, 0.4)" }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={onGetStarted}
+                  className="group relative px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 rounded-xl font-semibold text-lg overflow-hidden shadow-2xl shadow-amber-500/30 border border-amber-400/30"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <span className="relative">Try Chat Mode</span>
+                </motion.button>
+              </motion.div>
+
+              {/* Stats */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                className="grid grid-cols-3 gap-6 pt-8"
+              >
+                {[
+                  { value: '35+', label: 'AI Tools', accent: 'emerald' },
+                  { value: '8', label: 'Services', accent: 'amber' },
+                  { value: '24/7', label: 'Uptime', accent: 'emerald' },
+                ].map((stat, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.6 + idx * 0.1, duration: 0.5 }}
+                    whileHover={{ y: -4 }}
+                    className="relative group"
+                  >
+                    <div className={`absolute inset-0 bg-${stat.accent}-500/5 blur-xl rounded-2xl group-hover:bg-${stat.accent}-500/10 transition-all duration-300`} />
+                    <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-5 group-hover:border-emerald-500/30 transition-all duration-300">
+                      <div className={`font-display text-4xl bg-gradient-to-br from-${stat.accent}-400 to-${stat.accent}-500 bg-clip-text text-transparent`}>
+                        {stat.value}
+                      </div>
+                      <div className="text-sm text-gray-400 font-medium mt-1">{stat.label}</div>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* Right: Visual Element - Mini AI Hub Preview */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4, duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              className="relative h-[600px] hidden lg:block"
+            >
+              {/* Glow effects */}
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-amber-500/10 rounded-3xl blur-3xl" />
+
+              {/* Main container */}
+              <div className="relative h-full flex items-center justify-center">
+                {/* Center AI core */}
+                <motion.div
+                  animate={{
+                    boxShadow: [
+                      "0 0 40px rgba(16, 185, 129, 0.3)",
+                      "0 0 80px rgba(16, 185, 129, 0.5)",
+                      "0 0 40px rgba(16, 185, 129, 0.3)"
+                    ]
+                  }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                  className="relative w-32 h-32 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-3xl flex items-center justify-center border border-emerald-400/30 shadow-2xl z-10"
+                >
+                  <svg className="w-16 h-16 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  </svg>
+                </motion.div>
+
+                {/* Orbiting service icons */}
+                {[
+                  { service: 'gmail', angle: 0 },
+                  { service: 'calendar', angle: 45 },
+                  { service: 'drive', angle: 90 },
+                  { service: 'docs', angle: 135 },
+                  { service: 'sheets', angle: 180 },
+                  { service: 'contacts', angle: 225 },
+                  { service: 'tasks', angle: 270 },
+                  { service: 'meet', angle: 315 },
+                ].map((item, idx) => {
+                  const radius = 200
+                  const angleRad = (item.angle - 90) * (Math.PI / 180)
+                  const x = Math.cos(angleRad) * radius
+                  const y = Math.sin(angleRad) * radius
+
+                  return (
+                    <motion.div
+                      key={item.service}
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.6 + idx * 0.08, duration: 0.6 }}
+                      whileHover={{ scale: 1.2, rotate: 360, transition: { duration: 0.6 } }}
+                      className="absolute top-1/2 left-1/2 w-16 h-16"
+                      style={{
+                        transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`
+                      }}
+                    >
+                      <div className="relative group">
+                        <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-xl group-hover:bg-emerald-500/40 transition-all duration-300" />
+                        <div className="relative bg-[#0a0e1a]/90 backdrop-blur-md border border-white/10 rounded-xl p-2 shadow-xl group-hover:border-emerald-500/50 transition-all duration-300">
+                          <GoogleServiceIcon service={item.service} />
+                        </div>
+                      </div>
+
+                      {/* Connection line */}
+                      <svg
+                        className="absolute top-1/2 left-1/2 pointer-events-none"
+                        style={{
+                          width: `${Math.abs(radius)}px`,
+                          height: '2px',
+                          transformOrigin: 'left center',
+                          transform: `translate(-50%, -50%) rotate(${item.angle}deg)`
+                        }}
+                      >
+                        <motion.line
+                          x1="0"
+                          y1="1"
+                          x2={Math.abs(radius)}
+                          y2="1"
+                          stroke="url(#gradient)"
+                          strokeWidth="1"
+                          strokeDasharray="4,4"
+                          initial={{ pathLength: 0, opacity: 0 }}
+                          animate={{ pathLength: 1, opacity: 0.3 }}
+                          transition={{ duration: 1.5, delay: 0.8 + idx * 0.08 }}
+                        />
+                        <defs>
+                          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#10b981" stopOpacity="0.5" />
+                            <stop offset="100%" stopColor="#10b981" stopOpacity="0" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </motion.div>
+                  )
+                })}
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* AI Brain Hub Visualization */}
-      <section className="py-20 px-6 bg-midnight-800/30">
-        <div className="max-w-7xl mx-auto">
+      {/* AI Brain Hub Detailed Section */}
+      <section className="relative py-32 px-8 bg-gradient-to-b from-transparent via-emerald-500/5 to-transparent">
+        <div className="max-w-[1400px] mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-20 space-y-4"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Intelligent <span className="bg-gradient-to-r from-emerald-400 to-gold-400 bg-clip-text text-transparent">Connection</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full backdrop-blur-sm mb-4">
+              <span className="text-xs font-mono uppercase tracking-wider text-emerald-300">Architecture</span>
+            </div>
+            <h2 className="font-display text-5xl lg:text-6xl tracking-tight">
+              <span className="text-white">Intelligent </span>
+              <span className="bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Connection Hub</span>
             </h2>
-            <p className="text-lg text-gray-400">Your AI assistant seamlessly integrates with Google Workspace</p>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Your AI assistant seamlessly orchestrates every Google Workspace tool
+            </p>
           </motion.div>
 
-          {/* AI Brain Hub - Desktop */}
-          <div className="hidden md:block relative max-w-5xl mx-auto" style={{ height: '600px' }}>
+          {/* Large Interactive Hub */}
+          <div className="relative h-[700px] max-w-5xl mx-auto">
             {/* Center AI Brain */}
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
+              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20"
             >
-              <motion.div
-                animate={{
-                  boxShadow: [
-                    "0 0 30px rgba(16, 185, 129, 0.3)",
-                    "0 0 60px rgba(16, 185, 129, 0.5)",
-                    "0 0 30px rgba(16, 185, 129, 0.3)"
-                  ]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full w-32 h-32 flex items-center justify-center relative"
-              >
-                <svg className="w-16 h-16 text-white" viewBox="0 0 24 24" fill="none">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
-                  <circle cx="8" cy="10" r="1.5" fill="currentColor"/>
-                  <circle cx="16" cy="10" r="1.5" fill="currentColor"/>
-                  <path d="M8 15c0 2 1.79 3 4 3s4-1 4-3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-                <div className="absolute -bottom-8 text-center whitespace-nowrap">
-                  <p className="text-sm font-bold text-emerald-400">AI Assistant</p>
+              <div className="relative group">
+                {/* Pulsing glow rings */}
+                <motion.div
+                  animate={{
+                    scale: [1, 1.3, 1],
+                    opacity: [0.5, 0.2, 0.5]
+                  }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                  className="absolute inset-0 bg-emerald-500/30 blur-3xl rounded-full"
+                />
+                <motion.div
+                  animate={{
+                    scale: [1, 1.5, 1],
+                    opacity: [0.3, 0.1, 0.3]
+                  }}
+                  transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
+                  className="absolute inset-0 bg-amber-500/20 blur-3xl rounded-full"
+                />
+
+                {/* Main brain container */}
+                <motion.div
+                  whileHover={{ scale: 1.05, rotate: 5 }}
+                  transition={{ duration: 0.4 }}
+                  className="relative w-48 h-48 bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 rounded-3xl flex items-center justify-center border-2 border-emerald-400/50 shadow-2xl shadow-emerald-500/50"
+                >
+                  <svg className="w-24 h-24 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  </svg>
+
+                  {/* Corner accents */}
+                  <div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-white/50" />
+                  <div className="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-white/50" />
+                  <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-white/50" />
+                  <div className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-white/50" />
+                </motion.div>
+
+                <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
+                  <div className="font-display text-xl text-white">AI Assistant</div>
+                  <div className="text-sm text-emerald-400 text-center font-mono">Neural Core</div>
                 </div>
-              </motion.div>
+              </div>
             </motion.div>
 
-            {/* Google Services in circle around AI */}
+            {/* Google Services in Orbit */}
             {[
               { service: 'gmail', name: 'Gmail', angle: 0, tools: 3 },
               { service: 'calendar', name: 'Calendar', angle: 45, tools: 6 },
@@ -248,7 +458,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
               { service: 'tasks', name: 'Tasks', angle: 270, tools: 5 },
               { service: 'meet', name: 'Meet', angle: 315, tools: 5 },
             ].map((item, idx) => {
-              const radius = 240
+              const radius = 280
               const angleRad = (item.angle - 90) * (Math.PI / 180)
               const x = Math.cos(angleRad) * radius
               const y = Math.sin(angleRad) * radius
@@ -259,358 +469,407 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.3 + idx * 0.1 }}
-                  className="absolute top-1/2 left-1/2 z-20"
+                  transition={{ duration: 0.6, delay: 0.3 + idx * 0.08, ease: "backOut" }}
+                  className="absolute top-1/2 left-1/2 z-10"
                   style={{
                     transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`
                   }}
                 >
-                  {/* Connection line */}
+                  {/* Connection Line */}
                   <svg
-                    className="absolute top-1/2 left-1/2 pointer-events-none"
+                    className="absolute top-1/2 left-1/2 pointer-events-none -z-10"
                     style={{
-                      width: `${Math.abs(radius)}px`,
-                      height: '2px',
+                      width: `${Math.abs(radius) - 60}px`,
+                      height: '3px',
                       transformOrigin: 'left center',
                       transform: `translate(-${radius < 0 ? 0 : 100}%, -50%) rotate(${item.angle + (radius < 0 ? 180 : 0)}deg)`
                     }}
                   >
                     <motion.line
                       x1="0"
-                      y1="1"
-                      x2={Math.abs(radius)}
-                      y2="1"
-                      stroke="url(#gradient)"
+                      y1="1.5"
+                      x2={Math.abs(radius) - 60}
+                      y2="1.5"
+                      stroke="url(#service-gradient)"
                       strokeWidth="2"
-                      strokeDasharray="5,5"
-                      initial={{ pathLength: 0 }}
-                      whileInView={{ pathLength: 1 }}
+                      strokeDasharray="6,6"
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      whileInView={{ pathLength: 1, opacity: 0.4 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 1.5, delay: 0.5 + idx * 0.1 }}
+                      transition={{ duration: 1.2, delay: 0.5 + idx * 0.08 }}
                     />
                     <defs>
-                      <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#10b981" stopOpacity="0.5" />
-                        <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.2" />
+                      <linearGradient id="service-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#10b981" stopOpacity="0.6" />
+                        <stop offset="100%" stopColor="#10b981" stopOpacity="0.1" />
                       </linearGradient>
                     </defs>
                   </svg>
 
                   <motion.div
-                    whileHover={{ scale: 1.1, y: -5 }}
-                    className="bg-midnight-800 border-2 border-emerald-500/30 rounded-xl p-3 hover:border-emerald-500 transition-all duration-300 cursor-pointer shadow-lg"
+                    whileHover={{ scale: 1.15, rotate: 360 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="group relative cursor-pointer"
                   >
-                    <div className="w-12 h-12 mb-2">
-                      <GoogleServiceIcon service={item.service} />
+                    {/* Hover glow */}
+                    <div className="absolute inset-0 bg-emerald-500/0 group-hover:bg-emerald-500/30 blur-2xl rounded-2xl transition-all duration-500" />
+
+                    {/* Service card */}
+                    <div className="relative bg-[#0a0e1a]/95 backdrop-blur-xl border border-white/10 group-hover:border-emerald-500/50 rounded-2xl p-4 shadow-2xl transition-all duration-300">
+                      <div className="w-16 h-16 mb-2">
+                        <GoogleServiceIcon service={item.service} />
+                      </div>
+                      <div className="text-sm font-semibold text-white">{item.name}</div>
+                      <div className="text-xs text-emerald-400 font-mono">{item.tools} tools</div>
                     </div>
-                    <p className="text-xs font-bold text-center whitespace-nowrap">{item.name}</p>
-                    <p className="text-[10px] text-emerald-400 text-center">{item.tools} tools</p>
                   </motion.div>
                 </motion.div>
               )
             })}
           </div>
-
-          {/* AI Brain Hub - Mobile */}
-          <div className="md:hidden relative max-w-sm mx-auto" style={{ height: '700px' }}>
-            {/* Center AI Brain */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="absolute top-20 left-1/2 transform -translate-x-1/2 z-10"
-            >
-              <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-full w-24 h-24 flex items-center justify-center shadow-xl shadow-emerald-500/30">
-                <svg className="w-12 h-12 text-white" viewBox="0 0 24 24" fill="none">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
-                  <circle cx="8" cy="10" r="1.5" fill="currentColor"/>
-                  <circle cx="16" cy="10" r="1.5" fill="currentColor"/>
-                  <path d="M8 15c0 2 1.79 3 4 3s4-1 4-3" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-              </div>
-              <p className="text-sm font-bold text-emerald-400 text-center mt-2">AI Assistant</p>
-            </motion.div>
-
-            {/* Google Services */}
-            {[
-              { service: 'gmail', name: 'Gmail', angle: 0, tools: 3 },
-              { service: 'calendar', name: 'Calendar', angle: 45, tools: 6 },
-              { service: 'drive', name: 'Drive', angle: 90, tools: 6 },
-              { service: 'docs', name: 'Docs', angle: 135, tools: 5 },
-              { service: 'sheets', name: 'Sheets', angle: 180, tools: 5 },
-              { service: 'contacts', name: 'Contacts', angle: 225, tools: 4 },
-              { service: 'tasks', name: 'Tasks', angle: 270, tools: 5 },
-              { service: 'meet', name: 'Meet', angle: 315, tools: 5 },
-            ].map((item, idx) => {
-              const radius = 140
-              const angleRad = (item.angle - 90) * (Math.PI / 180)
-              const x = Math.cos(angleRad) * radius
-              const y = Math.sin(angleRad) * radius
-
-              return (
-                <motion.div
-                  key={item.service}
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.3 + idx * 0.1 }}
-                  className="absolute z-20"
-                  style={{
-                    top: `calc(20% + ${y}px)`,
-                    left: `calc(50% + ${x}px)`,
-                    transform: 'translate(-50%, -50%)'
-                  }}
-                >
-                  <div className="bg-midnight-800 border-2 border-emerald-500/30 rounded-xl p-2 shadow-lg">
-                    <div className="w-10 h-10 mb-1">
-                      <GoogleServiceIcon service={item.service} />
-                    </div>
-                    <p className="text-[10px] font-bold text-center whitespace-nowrap">{item.name}</p>
-                    <p className="text-[8px] text-emerald-400 text-center">{item.tools} tools</p>
-                  </div>
-                </motion.div>
-              )
-            })}
-          </div>
         </div>
       </section>
 
-      {/* Productivity Infographic - Before/After */}
-      <section className="py-20 px-6 bg-midnight-900/50">
-        <div className="max-w-6xl mx-auto">
+      {/* Productivity Transformation */}
+      <section className="relative py-32 px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-amber-500/5 to-transparent" />
+
+        <div className="max-w-[1400px] mx-auto relative">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-20 space-y-4"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Boost Your <span className="bg-gradient-to-r from-emerald-400 to-gold-400 bg-clip-text text-transparent">Productivity</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full backdrop-blur-sm mb-4">
+              <span className="text-xs font-mono uppercase tracking-wider text-amber-300">Transformation</span>
+            </div>
+            <h2 className="font-display text-5xl lg:text-6xl tracking-tight">
+              <span className="text-white">Productivity </span>
+              <span className="bg-gradient-to-r from-amber-400 to-emerald-400 bg-clip-text text-transparent">Multiplied</span>
             </h2>
-            <p className="text-lg text-gray-400">See the difference AI automation makes</p>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              See the dramatic difference AI automation makes to your workflow
+            </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-2 gap-8 relative">
+            {/* Connection arrow */}
+            <div className="hidden lg:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+              <motion.div
+                initial={{ scale: 0, rotate: -180 }}
+                whileInView={{ scale: 1, rotate: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, duration: 0.8, ease: "backOut" }}
+                className="w-20 h-20 bg-gradient-to-r from-red-500 via-amber-500 to-emerald-500 rounded-full flex items-center justify-center shadow-2xl border-4 border-[#0a0e1a]"
+              >
+                <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </motion.div>
+            </div>
+
             {/* Before */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-br from-red-900/20 to-red-800/20 border-2 border-red-500/30 rounded-2xl p-8"
+              transition={{ duration: 0.8 }}
+              className="relative group"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">❌</span>
+              <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-red-600/5 blur-2xl rounded-3xl" />
+              <div className="relative bg-gradient-to-br from-red-950/40 to-red-900/20 border-2 border-red-500/30 rounded-3xl p-10 backdrop-blur-sm h-full">
+                {/* Header */}
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-16 h-16 bg-red-500/20 border-2 border-red-500/50 rounded-2xl flex items-center justify-center">
+                    <svg className="w-8 h-8 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-display text-3xl text-red-400">Before</h3>
+                    <p className="text-sm text-gray-400 font-mono">Manual Workflow</p>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-red-400">Before</h3>
-              </div>
-              <ul className="space-y-4">
-                {[
-                  'Manually switching between multiple Google apps',
-                  'Typing every email and document from scratch',
-                  'Forgetting calendar events and tasks',
-                  'Wasting time on repetitive actions',
-                  'Losing track of important information',
-                  'Hours spent on routine workspace tasks'
-                ].map((item, idx) => (
-                  <motion.li
-                    key={idx}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                    className="flex items-start gap-3 text-gray-300"
-                  >
-                    <span className="text-red-400 mt-1">•</span>
-                    <span>{item}</span>
-                  </motion.li>
-                ))}
-              </ul>
-              <div className="mt-6 text-center">
-                <p className="text-3xl font-bold text-red-400">5-10 hours/week</p>
-                <p className="text-sm text-gray-400">wasted on manual work</p>
+
+                {/* Pain points */}
+                <ul className="space-y-4 mb-8">
+                  {[
+                    'Constantly switching between multiple Google apps',
+                    'Typing every single email and document manually',
+                    'Missing calendar events and forgetting tasks',
+                    'Wasting hours on repetitive workspace actions',
+                    'Losing track of important information and files',
+                    'Drowning in context-switching overhead'
+                  ].map((item, idx) => (
+                    <motion.li
+                      key={idx}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.08 }}
+                      className="flex items-start gap-3 text-gray-300"
+                    >
+                      <div className="w-6 h-6 rounded-full bg-red-500/20 border border-red-500/40 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg className="w-3 h-3 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </div>
+                      <span className="leading-relaxed">{item}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+
+                {/* Metric */}
+                <div className="pt-8 border-t border-red-500/20">
+                  <div className="text-center space-y-2">
+                    <div className="font-display text-5xl text-red-400">5-10 hrs</div>
+                    <div className="text-sm text-gray-400 uppercase tracking-wider font-mono">Wasted Weekly</div>
+                  </div>
+                </div>
               </div>
             </motion.div>
 
             {/* After */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-br from-emerald-900/20 to-emerald-800/20 border-2 border-emerald-500/30 rounded-2xl p-8"
+              transition={{ duration: 0.8 }}
+              className="relative group"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">✓</span>
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 blur-2xl rounded-3xl" />
+              <div className="relative bg-gradient-to-br from-emerald-950/40 to-emerald-900/20 border-2 border-emerald-500/30 rounded-3xl p-10 backdrop-blur-sm h-full">
+                {/* Header */}
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-16 h-16 bg-emerald-500/20 border-2 border-emerald-500/50 rounded-2xl flex items-center justify-center">
+                    <svg className="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-display text-3xl text-emerald-400">After</h3>
+                    <p className="text-sm text-gray-400 font-mono">AI-Powered Workflow</p>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-emerald-400">After</h3>
-              </div>
-              <ul className="space-y-4">
-                {[
-                  'Voice or chat commands control everything',
-                  'AI drafts emails and documents instantly',
-                  'Never miss an event with smart reminders',
-                  'Automate repetitive workspace actions',
-                  'AI remembers and retrieves information',
-                  'Focus on what matters most'
-                ].map((item, idx) => (
-                  <motion.li
-                    key={idx}
-                    initial={{ opacity: 0, x: 10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                    className="flex items-start gap-3 text-gray-300"
-                  >
-                    <span className="text-emerald-400 mt-1">✓</span>
-                    <span>{item}</span>
-                  </motion.li>
-                ))}
-              </ul>
-              <div className="mt-6 text-center">
-                <p className="text-3xl font-bold text-emerald-400">80% time saved</p>
-                <p className="text-sm text-gray-400">focus on high-value work</p>
+
+                {/* Benefits */}
+                <ul className="space-y-4 mb-8">
+                  {[
+                    'Voice or chat commands control everything instantly',
+                    'AI drafts emails and documents in seconds',
+                    'Never miss events with intelligent reminders',
+                    'Automate repetitive tasks across all services',
+                    'AI remembers and retrieves any information',
+                    'Focus entirely on high-value strategic work'
+                  ].map((item, idx) => (
+                    <motion.li
+                      key={idx}
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.08 }}
+                      className="flex items-start gap-3 text-gray-300"
+                    >
+                      <div className="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg className="w-3 h-3 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span className="leading-relaxed">{item}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+
+                {/* Metric */}
+                <div className="pt-8 border-t border-emerald-500/20">
+                  <div className="text-center space-y-2">
+                    <div className="font-display text-5xl text-emerald-400">80% Faster</div>
+                    <div className="text-sm text-gray-400 uppercase tracking-wider font-mono">Time Saved</div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
-
-          {/* Arrow between */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
-          >
-            <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-emerald-500 rounded-full flex items-center justify-center text-white text-3xl animate-pulse">
-              →
-            </div>
-          </motion.div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-20 px-6 bg-midnight-800/30">
-        <div className="max-w-7xl mx-auto">
+      {/* Features Grid */}
+      <section className="relative py-32 px-8">
+        <div className="max-w-[1400px] mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-20 space-y-4"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Powerful <span className="bg-gradient-to-r from-emerald-400 to-gold-400 bg-clip-text text-transparent">Features</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full backdrop-blur-sm mb-4">
+              <span className="text-xs font-mono uppercase tracking-wider text-emerald-300">Capabilities</span>
+            </div>
+            <h2 className="font-display text-5xl lg:text-6xl tracking-tight">
+              <span className="text-white">Enterprise-Grade </span>
+              <span className="bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Features</span>
             </h2>
-            <p className="text-lg text-gray-400">Everything you need to supercharge your productivity</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
                 title: 'Voice Control',
                 desc: 'Natural speech recognition with real-time transcription and audio feedback',
-                gradient: 'from-emerald-500 to-emerald-600'
+                gradient: 'from-emerald-500 to-emerald-600',
+                icon: (
+                  <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                  </svg>
+                )
               },
               {
                 title: 'Chat Interface',
-                desc: 'Type your commands and get instant responses with full conversation history',
-                gradient: 'from-gold-500 to-gold-600'
+                desc: 'Type commands and get instant intelligent responses with full context',
+                gradient: 'from-amber-500 to-amber-600',
+                icon: (
+                  <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                )
               },
               {
                 title: 'Secure Authentication',
-                desc: 'Industry-standard OAuth 2.0 keeps your Google data safe and private',
-                gradient: 'from-blue-500 to-blue-600'
+                desc: 'Industry-standard OAuth 2.0 keeps your data safe and encrypted',
+                gradient: 'from-blue-500 to-blue-600',
+                icon: (
+                  <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                )
               },
               {
                 title: 'Real-time Processing',
-                desc: 'Lightning-fast AI responses with instant updates and notifications',
-                gradient: 'from-purple-500 to-purple-600'
+                desc: 'Lightning-fast AI responses with WebSocket connections for instant updates',
+                gradient: 'from-purple-500 to-purple-600',
+                icon: (
+                  <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                )
               },
               {
                 title: 'Smart Context',
-                desc: 'AI understands your intent and executes complex multi-step workflows',
-                gradient: 'from-pink-500 to-pink-600'
+                desc: 'AI understands intent and executes complex multi-step workflows automatically',
+                gradient: 'from-pink-500 to-pink-600',
+                icon: (
+                  <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                )
               },
               {
                 title: 'Always Available',
-                desc: 'Cloud-powered infrastructure ensures 24/7 uptime and global access',
-                gradient: 'from-cyan-500 to-cyan-600'
+                desc: 'Cloud infrastructure ensures 24/7 global availability and reliability',
+                gradient: 'from-cyan-500 to-cyan-600',
+                icon: (
+                  <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                )
               },
             ].map((feature, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1, duration: 0.6 }}
-                whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="bg-gradient-to-br from-midnight-800 to-midnight-700 border border-emerald-500/20 rounded-2xl p-8 hover:border-emerald-500/50 transition-all duration-300 group"
+                transition={{ delay: idx * 0.08, duration: 0.6 }}
+                whileHover={{ y: -8 }}
+                className="group relative"
               >
-                <div className={`w-14 h-14 bg-gradient-to-br ${feature.gradient} rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
+                {/* Hover glow */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 blur-xl rounded-3xl transition-opacity duration-500`} />
+
+                {/* Card */}
+                <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 group-hover:border-emerald-500/30 rounded-2xl p-8 h-full transition-all duration-300">
+                  {/* Icon */}
+                  <div className={`w-14 h-14 bg-gradient-to-br ${feature.gradient} rounded-xl flex items-center justify-center mb-6 p-3 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    {feature.icon}
+                  </div>
+
+                  {/* Content */}
+                  <h3 className="font-display text-xl text-white mb-3">{feature.title}</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed">{feature.desc}</p>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-white">{feature.title}</h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{feature.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-6">
+      {/* Final CTA */}
+      <section className="relative py-32 px-8">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            className="space-y-8"
           >
-            <motion.h2
-              className="text-4xl md:text-5xl font-bold mb-6"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              Ready to Transform Your Workflow?
-            </motion.h2>
-            <motion.p
-              className="text-xl text-gray-400 mb-8"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-            >
-              Start using your AI assistant today. No credit card required.
-            </motion.p>
+            <div className="space-y-6">
+              <h2 className="font-display text-5xl lg:text-6xl tracking-tight">
+                <span className="block text-white mb-2">Ready to Transform</span>
+                <span className="block bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">
+                  Your Workflow?
+                </span>
+              </h2>
+              <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+                Start using your AI assistant today. No credit card required.
+              </p>
+            </div>
+
             <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-              whileHover={{ scale: 1.05, boxShadow: "0 25px 50px rgba(16, 185, 129, 0.4)" }}
+              whileHover={{ scale: 1.05, boxShadow: "0 25px 70px rgba(16, 185, 129, 0.5)" }}
               whileTap={{ scale: 0.95 }}
               onClick={onGetStarted}
-              className="px-10 py-5 bg-gradient-to-br from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-bold rounded-xl shadow-2xl shadow-emerald-500/30 text-xl transition-all duration-300"
+              className="group relative px-12 py-5 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl font-display text-xl overflow-hidden shadow-2xl shadow-emerald-500/30 border border-emerald-400/30"
             >
-              Get Started Free
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="relative flex items-center gap-3">
+                Launch Platform
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </span>
             </motion.button>
           </motion.div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-emerald-500/20 py-8 px-6 bg-midnight-900">
-        <div className="max-w-7xl mx-auto text-center text-sm text-gray-400">
-          <p className="mb-2">
-            Built with care using React, TypeScript, and Tailwind CSS
-          </p>
-          <p className="text-xs">
-            Powered by Google Workspace API • Deployed on Railway & Netlify
-          </p>
+      <footer className="border-t border-white/10 py-12 px-8 bg-[#0a0e1a]/50 backdrop-blur-xl">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center border border-emerald-400/30">
+                <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                  <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <div>
+                <div className="font-display text-sm text-white">AI Assistant</div>
+                <div className="text-xs text-gray-500 font-mono">Workspace Edition</div>
+              </div>
+            </div>
+
+            <div className="text-center md:text-right">
+              <p className="text-sm text-gray-400 mb-1">
+                Built with precision using React, TypeScript, and Tailwind CSS
+              </p>
+              <p className="text-xs text-gray-500 font-mono">
+                Powered by Google Workspace API • Deployed on Railway & Netlify
+              </p>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
