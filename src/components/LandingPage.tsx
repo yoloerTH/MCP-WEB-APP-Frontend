@@ -180,9 +180,9 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
       </motion.nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 px-8 min-h-[90vh] flex items-center">
+      <section className="relative pt-20 pb-12 px-8 min-h-screen flex items-center">
         <div className="max-w-[1400px] mx-auto w-full">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
             {/* Left: Content */}
             <div className="space-y-8">
               <motion.div
@@ -274,13 +274,13 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4, duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-              className="relative h-[600px] hidden lg:block"
+              className="relative w-full h-[500px] hidden lg:flex items-center justify-center"
             >
               {/* Glow effects */}
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-amber-500/10 rounded-3xl blur-3xl" />
 
-              {/* Main container */}
-              <div className="relative h-full flex items-center justify-center">
+              {/* Main container with proper positioning */}
+              <div className="relative w-[450px] h-[450px]">
                 {/* Center AI core */}
                 <motion.div
                   animate={{
@@ -291,15 +291,15 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                     ]
                   }}
                   transition={{ duration: 3, repeat: Infinity }}
-                  className="relative w-32 h-32 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-3xl flex items-center justify-center border border-emerald-400/30 shadow-2xl z-10"
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center border border-emerald-400/30 shadow-2xl z-20"
                 >
-                  <svg className="w-16 h-16 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg className="w-12 h-12 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M12 2L2 7l10 5 10-5-10-5z"/>
                     <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
                   </svg>
                 </motion.div>
 
-                {/* Orbiting service icons */}
+                {/* Orbiting service icons - FIXED positioning */}
                 {[
                   { service: 'gmail', angle: 0 },
                   { service: 'calendar', angle: 45 },
@@ -310,8 +310,8 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                   { service: 'tasks', angle: 270 },
                   { service: 'meet', angle: 315 },
                 ].map((item, idx) => {
-                  const radius = 200
-                  const angleRad = (item.angle - 90) * (Math.PI / 180)
+                  const radius = 170
+                  const angleRad = (item.angle * Math.PI) / 180
                   const x = Math.cos(angleRad) * radius
                   const y = Math.sin(angleRad) * radius
 
@@ -321,48 +321,38 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                       initial={{ opacity: 0, scale: 0 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.6 + idx * 0.08, duration: 0.6 }}
-                      whileHover={{ scale: 1.2, rotate: 360, transition: { duration: 0.6 } }}
-                      className="absolute top-1/2 left-1/2 w-16 h-16"
+                      whileHover={{ scale: 1.15, transition: { duration: 0.3 } }}
+                      className="absolute z-10"
                       style={{
+                        left: '50%',
+                        top: '50%',
                         transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`
                       }}
                     >
-                      <div className="relative group">
-                        <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-xl group-hover:bg-emerald-500/40 transition-all duration-300" />
-                        <div className="relative bg-[#0a0e1a]/90 backdrop-blur-md border border-white/10 rounded-xl p-2 shadow-xl group-hover:border-emerald-500/50 transition-all duration-300">
+                      <div className="relative group w-12 h-12">
+                        <div className="absolute inset-0 bg-emerald-500/20 blur-lg rounded-lg group-hover:bg-emerald-500/40 transition-all duration-300" />
+                        <div className="relative bg-[#0a0e1a]/95 backdrop-blur-sm border border-white/10 rounded-lg p-1.5 shadow-xl group-hover:border-emerald-500/50 transition-all duration-300">
                           <GoogleServiceIcon service={item.service} />
                         </div>
                       </div>
 
-                      {/* Connection line */}
-                      <svg
+                      {/* Connection line - FIXED */}
+                      <div
                         className="absolute top-1/2 left-1/2 pointer-events-none"
                         style={{
-                          width: `${Math.abs(radius)}px`,
-                          height: '2px',
-                          transformOrigin: 'left center',
-                          transform: `translate(-50%, -50%) rotate(${item.angle}deg)`
+                          width: `${radius}px`,
+                          height: '1px',
+                          transformOrigin: '0 0',
+                          transform: `rotate(${item.angle + 180}deg)`
                         }}
                       >
-                        <motion.line
-                          x1="0"
-                          y1="1"
-                          x2={Math.abs(radius)}
-                          y2="1"
-                          stroke="url(#gradient)"
-                          strokeWidth="1"
-                          strokeDasharray="4,4"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          animate={{ pathLength: 1, opacity: 0.3 }}
-                          transition={{ duration: 1.5, delay: 0.8 + idx * 0.08 }}
+                        <motion.div
+                          className="h-full border-t border-dashed border-emerald-500/30"
+                          initial={{ scaleX: 0 }}
+                          animate={{ scaleX: 1 }}
+                          transition={{ duration: 1, delay: 0.7 + idx * 0.08 }}
                         />
-                        <defs>
-                          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#10b981" stopOpacity="0.5" />
-                            <stop offset="100%" stopColor="#10b981" stopOpacity="0" />
-                          </linearGradient>
-                        </defs>
-                      </svg>
+                      </div>
                     </motion.div>
                   )
                 })}
@@ -394,15 +384,16 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
           </motion.div>
 
           {/* Large Interactive Hub */}
-          <div className="relative h-[700px] max-w-5xl mx-auto">
-            {/* Center AI Brain */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20"
-            >
+          <div className="relative w-full h-[700px] max-w-5xl mx-auto flex items-center justify-center">
+            <div className="relative w-[700px] h-[700px]">
+              {/* Center AI Brain */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
+              >
               <div className="relative group">
                 {/* Pulsing glow rings */}
                 <motion.div
@@ -447,64 +438,54 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
               </div>
             </motion.div>
 
-            {/* Google Services in Orbit */}
-            {[
-              { service: 'gmail', name: 'Gmail', angle: 0, tools: 3 },
-              { service: 'calendar', name: 'Calendar', angle: 45, tools: 6 },
-              { service: 'drive', name: 'Drive', angle: 90, tools: 6 },
-              { service: 'docs', name: 'Docs', angle: 135, tools: 5 },
-              { service: 'sheets', name: 'Sheets', angle: 180, tools: 5 },
-              { service: 'contacts', name: 'Contacts', angle: 225, tools: 4 },
-              { service: 'tasks', name: 'Tasks', angle: 270, tools: 5 },
-              { service: 'meet', name: 'Meet', angle: 315, tools: 5 },
-            ].map((item, idx) => {
-              const radius = 280
-              const angleRad = (item.angle - 90) * (Math.PI / 180)
-              const x = Math.cos(angleRad) * radius
-              const y = Math.sin(angleRad) * radius
+              {/* Google Services in Orbit - FIXED */}
+              {[
+                { service: 'gmail', name: 'Gmail', angle: 0, tools: 3 },
+                { service: 'calendar', name: 'Calendar', angle: 45, tools: 6 },
+                { service: 'drive', name: 'Drive', angle: 90, tools: 6 },
+                { service: 'docs', name: 'Docs', angle: 135, tools: 5 },
+                { service: 'sheets', name: 'Sheets', angle: 180, tools: 5 },
+                { service: 'contacts', name: 'Contacts', angle: 225, tools: 4 },
+                { service: 'tasks', name: 'Tasks', angle: 270, tools: 5 },
+                { service: 'meet', name: 'Meet', angle: 315, tools: 5 },
+              ].map((item, idx) => {
+                const radius = 280
+                const angleRad = (item.angle * Math.PI) / 180
+                const x = Math.cos(angleRad) * radius
+                const y = Math.sin(angleRad) * radius
 
-              return (
-                <motion.div
-                  key={item.service}
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.3 + idx * 0.08, ease: "backOut" }}
-                  className="absolute top-1/2 left-1/2 z-10"
-                  style={{
-                    transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`
-                  }}
-                >
-                  {/* Connection Line */}
-                  <svg
-                    className="absolute top-1/2 left-1/2 pointer-events-none -z-10"
+                return (
+                  <motion.div
+                    key={item.service}
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.3 + idx * 0.08, ease: "backOut" }}
+                    className="absolute z-10"
                     style={{
-                      width: `${Math.abs(radius) - 60}px`,
-                      height: '3px',
-                      transformOrigin: 'left center',
-                      transform: `translate(-${radius < 0 ? 0 : 100}%, -50%) rotate(${item.angle + (radius < 0 ? 180 : 0)}deg)`
+                      left: '50%',
+                      top: '50%',
+                      transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`
                     }}
                   >
-                    <motion.line
-                      x1="0"
-                      y1="1.5"
-                      x2={Math.abs(radius) - 60}
-                      y2="1.5"
-                      stroke="url(#service-gradient)"
-                      strokeWidth="2"
-                      strokeDasharray="6,6"
-                      initial={{ pathLength: 0, opacity: 0 }}
-                      whileInView={{ pathLength: 1, opacity: 0.4 }}
+                  {/* Connection Line - FIXED */}
+                  <div
+                    className="absolute top-1/2 left-1/2 pointer-events-none -z-10"
+                    style={{
+                      width: `${radius - 50}px`,
+                      height: '2px',
+                      transformOrigin: '0 0',
+                      transform: `rotate(${item.angle + 180}deg)`
+                    }}
+                  >
+                    <motion.div
+                      className="h-full border-t-2 border-dashed border-emerald-500/40"
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 1.2, delay: 0.5 + idx * 0.08 }}
                     />
-                    <defs>
-                      <linearGradient id="service-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#10b981" stopOpacity="0.6" />
-                        <stop offset="100%" stopColor="#10b981" stopOpacity="0.1" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
+                  </div>
 
                   <motion.div
                     whileHover={{ scale: 1.15, rotate: 360 }}
@@ -525,12 +506,13 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                   </motion.div>
                 </motion.div>
               )
-            })}
+              })}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Productivity Transformation */}
+      {/* Productivity Transformation - Animated Workflow Journey */}
       <section className="relative py-32 px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-amber-500/5 to-transparent" />
 
@@ -542,151 +524,164 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
             className="text-center mb-20 space-y-4"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full backdrop-blur-sm mb-4">
-              <span className="text-xs font-mono uppercase tracking-wider text-amber-300">Transformation</span>
+              <span className="text-xs font-mono uppercase tracking-wider text-amber-300">Impact Metrics</span>
             </div>
             <h2 className="font-display text-5xl lg:text-6xl tracking-tight">
               <span className="text-white">Productivity </span>
-              <span className="bg-gradient-to-r from-amber-400 to-emerald-400 bg-clip-text text-transparent">Multiplied</span>
+              <span className="bg-gradient-to-r from-amber-400 to-emerald-400 bg-clip-text text-transparent">Amplified</span>
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              See the dramatic difference AI automation makes to your workflow
+              Real metrics from AI-powered workspace automation
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-8 relative">
-            {/* Connection arrow */}
-            <div className="hidden lg:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+          {/* Animated Metrics Dashboard */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {[
+              { value: 80, suffix: '%', label: 'Time Saved', desc: 'On routine tasks', color: 'emerald' },
+              { value: 10, suffix: 'hrs', label: 'Weekly Gain', desc: 'Back to your schedule', color: 'amber' },
+              { value: 5, suffix: 'x', label: 'Faster Workflows', desc: 'Task completion speed', color: 'blue' },
+              { value: 35, suffix: '+', label: 'AI Tools', desc: 'At your command', color: 'purple' },
+            ].map((metric, idx) => (
               <motion.div
-                initial={{ scale: 0, rotate: -180 }}
-                whileInView={{ scale: 1, rotate: 0 }}
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.5, duration: 0.8, ease: "backOut" }}
-                className="w-20 h-20 bg-gradient-to-r from-red-500 via-amber-500 to-emerald-500 rounded-full flex items-center justify-center shadow-2xl border-4 border-[#0a0e1a]"
+                transition={{ delay: idx * 0.1, duration: 0.6 }}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                className="relative group"
               >
-                <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
+                <div className={`absolute inset-0 bg-gradient-to-br from-${metric.color}-500/20 to-${metric.color}-600/10 blur-2xl rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 group-hover:border-emerald-500/30 rounded-2xl p-8 transition-all duration-300">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 + 0.3, duration: 0.8, type: "spring" }}
+                    className="font-display text-6xl bg-gradient-to-br from-emerald-400 to-amber-400 bg-clip-text text-transparent mb-2"
+                  >
+                    {metric.value}{metric.suffix}
+                  </motion.div>
+                  <div className="font-semibold text-lg text-white mb-1">{metric.label}</div>
+                  <div className="text-sm text-gray-400">{metric.desc}</div>
+                </div>
               </motion.div>
-            </div>
+            ))}
+          </div>
 
-            {/* Before */}
+          {/* Workflow Journey Animation */}
+          <div className="relative">
             <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative group"
+              className="text-center mb-12"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-red-600/5 blur-2xl rounded-3xl" />
-              <div className="relative bg-gradient-to-br from-red-950/40 to-red-900/20 border-2 border-red-500/30 rounded-3xl p-10 backdrop-blur-sm h-full">
-                {/* Header */}
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-16 h-16 bg-red-500/20 border-2 border-red-500/50 rounded-2xl flex items-center justify-center">
-                    <svg className="w-8 h-8 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-display text-3xl text-red-400">Before</h3>
-                    <p className="text-sm text-gray-400 font-mono">Manual Workflow</p>
-                  </div>
-                </div>
-
-                {/* Pain points */}
-                <ul className="space-y-4 mb-8">
-                  {[
-                    'Constantly switching between multiple Google apps',
-                    'Typing every single email and document manually',
-                    'Missing calendar events and forgetting tasks',
-                    'Wasting hours on repetitive workspace actions',
-                    'Losing track of important information and files',
-                    'Drowning in context-switching overhead'
-                  ].map((item, idx) => (
-                    <motion.li
-                      key={idx}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: idx * 0.08 }}
-                      className="flex items-start gap-3 text-gray-300"
-                    >
-                      <div className="w-6 h-6 rounded-full bg-red-500/20 border border-red-500/40 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <svg className="w-3 h-3 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                      </div>
-                      <span className="leading-relaxed">{item}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-
-                {/* Metric */}
-                <div className="pt-8 border-t border-red-500/20">
-                  <div className="text-center space-y-2">
-                    <div className="font-display text-5xl text-red-400">5-10 hrs</div>
-                    <div className="text-sm text-gray-400 uppercase tracking-wider font-mono">Wasted Weekly</div>
-                  </div>
-                </div>
-              </div>
+              <h3 className="font-display text-3xl text-white mb-2">Your Day, Transformed</h3>
+              <p className="text-gray-400">See how AI automation revolutionizes your workflow</p>
             </motion.div>
 
-            {/* After */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-emerald-600/10 blur-2xl rounded-3xl" />
-              <div className="relative bg-gradient-to-br from-emerald-950/40 to-emerald-900/20 border-2 border-emerald-500/30 rounded-3xl p-10 backdrop-blur-sm h-full">
-                {/* Header */}
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-16 h-16 bg-emerald-500/20 border-2 border-emerald-500/50 rounded-2xl flex items-center justify-center">
-                    <svg className="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-display text-3xl text-emerald-400">After</h3>
-                    <p className="text-sm text-gray-400 font-mono">AI-Powered Workflow</p>
-                  </div>
-                </div>
+            {/* Animated Workflow Steps */}
+            <div className="relative max-w-4xl mx-auto">
+              {/* Progress line */}
+              <div className="absolute top-1/2 left-0 right-0 h-1 bg-white/5 -translate-y-1/2 hidden md:block" />
+              <motion.div
+                className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-amber-500 -translate-y-1/2 hidden md:block"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 2, ease: "easeInOut" }}
+                style={{ transformOrigin: "left" }}
+              />
 
-                {/* Benefits */}
-                <ul className="space-y-4 mb-8">
-                  {[
-                    'Voice or chat commands control everything instantly',
-                    'AI drafts emails and documents in seconds',
-                    'Never miss events with intelligent reminders',
-                    'Automate repetitive tasks across all services',
-                    'AI remembers and retrieves any information',
-                    'Focus entirely on high-value strategic work'
-                  ].map((item, idx) => (
-                    <motion.li
-                      key={idx}
-                      initial={{ opacity: 0, x: 20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+              <div className="grid md:grid-cols-3 gap-8 relative">
+                {[
+                  {
+                    icon: (
+                      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                      </svg>
+                    ),
+                    title: 'Speak Your Need',
+                    desc: 'Natural voice command or quick chat message',
+                    color: 'emerald'
+                  },
+                  {
+                    icon: (
+                      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    ),
+                    title: 'AI Executes',
+                    desc: 'Intelligent processing across all Google services',
+                    color: 'amber'
+                  },
+                  {
+                    icon: (
+                      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    ),
+                    title: 'Done Instantly',
+                    desc: 'Task completed, time saved, focus maintained',
+                    color: 'emerald'
+                  },
+                ].map((step, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.2 + 0.5, duration: 0.6 }}
+                    className="relative"
+                  >
+                    {/* Animated number badge */}
+                    <motion.div
+                      initial={{ scale: 0, rotate: -180 }}
+                      whileInView={{ scale: 1, rotate: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: idx * 0.08 }}
-                      className="flex items-start gap-3 text-gray-300"
+                      transition={{ delay: idx * 0.2 + 0.7, duration: 0.6, type: "spring" }}
+                      className={`w-16 h-16 bg-gradient-to-br from-${step.color}-500 to-${step.color}-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl shadow-${step.color}-500/30 relative z-10`}
                     >
-                      <div className="w-6 h-6 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <svg className="w-3 h-3 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      {step.icon}
+                    </motion.div>
+
+                    <div className="text-center">
+                      <h4 className="font-display text-xl text-white mb-2">{step.title}</h4>
+                      <p className="text-sm text-gray-400">{step.desc}</p>
+                    </div>
+
+                    {/* Arrow connector for mobile */}
+                    {idx < 2 && (
+                      <div className="md:hidden flex justify-center my-6">
+                        <svg className="w-6 h-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
                       </div>
-                      <span className="leading-relaxed">{item}</span>
-                    </motion.li>
-                  ))}
-                </ul>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
 
-                {/* Metric */}
-                <div className="pt-8 border-t border-emerald-500/20">
-                  <div className="text-center space-y-2">
-                    <div className="font-display text-5xl text-emerald-400">80% Faster</div>
-                    <div className="text-sm text-gray-400 uppercase tracking-wider font-mono">Time Saved</div>
-                  </div>
+            {/* Call to action in this section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 1.2 }}
+              className="text-center mt-16"
+            >
+              <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-emerald-500/10 to-amber-500/10 border border-emerald-500/20 rounded-full backdrop-blur-sm">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+                  <span className="text-sm font-mono text-emerald-300">Real-time automation</span>
+                </div>
+                <div className="w-px h-4 bg-white/10" />
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse" />
+                  <span className="text-sm font-mono text-amber-300">Zero learning curve</span>
                 </div>
               </div>
             </motion.div>
