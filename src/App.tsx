@@ -7,6 +7,7 @@ import CallControls from './components/CallControls'
 import StatusIndicator from './components/StatusIndicator'
 import ModeSelector from './components/ModeSelector'
 import ChatInterface from './components/ChatInterface'
+import LandingPage from './components/LandingPage'
 
 // Backend URL - change this to your Railway URL
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001'
@@ -20,6 +21,9 @@ interface TranscriptMessage {
 }
 
 function App() {
+  // Landing page state
+  const [hasStarted, setHasStarted] = useState(false)
+
   // Mode state
   const [appMode, setAppMode] = useState<'voice' | 'chat'>('voice')
 
@@ -390,6 +394,11 @@ function App() {
       // Continue to next audio even on error
       processAudioQueue()
     }
+  }
+
+  // Show landing page if user hasn't started
+  if (!hasStarted) {
+    return <LandingPage onGetStarted={() => setHasStarted(true)} />
   }
 
   return (
