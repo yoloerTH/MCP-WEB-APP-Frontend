@@ -217,6 +217,21 @@ function App() {
       return
     }
 
+    // CRITICAL: Unlock audio IMMEDIATELY in user gesture context (synchronous)
+    if (!audioUnlockedRef.current) {
+      try {
+        console.log('🔓 Unlocking audio in user gesture context...')
+        const silentAudio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA')
+        silentAudio.volume = 0
+        // Fire immediately - don't await (must be synchronous)
+        silentAudio.play().catch(e => console.warn('Silent audio failed:', e))
+        audioUnlockedRef.current = true
+        console.log('✅ Audio unlocked synchronously')
+      } catch (e) {
+        console.warn('⚠️ Audio unlock error:', e)
+      }
+    }
+
     try {
       setCallStatus('connecting')
       console.log('🎤 Requesting microphone access...')
@@ -251,10 +266,16 @@ function App() {
       source.connect(analyser)
       console.log('✅ AudioContext ready')
 
-      // Unlock audio for iOS/mobile browsers (must be in user gesture handler)
-      console.log('🔓 Unlocking audio for mobile...')
-      await unlockAudio()
-      console.log('✅ Audio unlock complete')
+      // Resume AudioContext if suspended (after initial unlock)
+      if (audioContext.state === 'suspended') {
+        console.log('🔓 Resuming AudioContext...')
+        try {
+          await audioContext.resume()
+          console.log('✅ AudioContext resumed')
+        } catch (e) {
+          console.warn('⚠️ Could not resume AudioContext:', e)
+        }
+      }
 
       // Start visualization loop
       visualizeAudio()
