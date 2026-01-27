@@ -172,24 +172,40 @@ function App() {
     // iOS/Safari audio unlock: Play a silent audio to enable autoplay
     if (!audioUnlockedRef.current) {
       try {
-        // Create and play a silent audio element
+        // Create and play a silent audio element with timeout
         const silentAudio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA')
         silentAudio.volume = 0
-        await silentAudio.play()
+
+        // Add timeout to prevent hanging
+        await Promise.race([
+          silentAudio.play(),
+          new Promise((_, reject) =>
+            setTimeout(() => reject(new Error('Audio unlock timeout')), 2000)
+          )
+        ])
+
         audioUnlockedRef.current = true
         console.log('✅ Audio unlocked for iOS/mobile browsers')
       } catch (e) {
-        console.warn('⚠️ Could not unlock audio:', e)
+        console.warn('⚠️ Could not unlock audio (non-critical):', e)
+        // Mark as unlocked anyway - not critical, we'll try to play audio regardless
+        audioUnlockedRef.current = true
       }
     }
 
     // Resume AudioContext if suspended (required on mobile browsers)
     if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
       try {
-        await audioContextRef.current.resume()
+        await Promise.race([
+          audioContextRef.current.resume(),
+          new Promise((_, reject) =>
+            setTimeout(() => reject(new Error('AudioContext resume timeout')), 2000)
+          )
+        ])
         console.log('✅ AudioContext resumed')
       } catch (e) {
-        console.warn('⚠️ Could not resume AudioContext:', e)
+        console.warn('⚠️ Could not resume AudioContext (non-critical):', e)
+        // Continue anyway - audio might still work
       }
     }
   }
@@ -223,6 +239,7 @@ function App() {
       audioStreamRef.current = stream
 
       // Setup audio context for visualization
+      console.log('🔧 Setting up AudioContext...')
       const audioContext = new AudioContext()
       audioContextRef.current = audioContext
 
@@ -232,29 +249,51 @@ function App() {
 
       const source = audioContext.createMediaStreamSource(stream)
       source.connect(analyser)
+      console.log('✅ AudioContext ready')
 
       // Unlock audio for iOS/mobile browsers (must be in user gesture handler)
+      console.log('🔓 Unlocking audio for mobile...')
       await unlockAudio()
+      console.log('✅ Audio unlock complete')
 
       // Start visualization loop
       visualizeAudio()
 
       // Setup MediaRecorder for streaming with mobile compatibility
+      console.log('🎙️ Detecting supported audio formats...')
       let options: MediaRecorderOptions = {}
 
-      // Check supported MIME types (iOS Safari needs different format)
-      if (MediaRecorder.isTypeSupported('audio/webm;codecs=opus')) {
-        options.mimeType = 'audio/webm;codecs=opus'
-      } else if (MediaRecorder.isTypeSupported('audio/mp4')) {
-        options.mimeType = 'audio/mp4'
-      } else if (MediaRecorder.isTypeSupported('audio/webm')) {
-        options.mimeType = 'audio/webm'
+      // Try formats in order of iOS compatibility
+      const formats = [
+        'audio/mp4',
+        'audio/webm;codecs=opus',
+        'audio/webm',
+        ''
+      ]
+
+      for (const format of formats) {
+        if (format === '' || MediaRecorder.isTypeSupported(format)) {
+          if (format !== '') {
+            options.mimeType = format
+          }
+          console.log('✅ Selected audio format:', format || 'default')
+          break
+        }
       }
-      // If none supported, use default (no mimeType)
 
-      console.log('🎤 Using audio format:', options.mimeType || 'default')
+      console.log('🎙️ Creating MediaRecorder...')
+      let mediaRecorder: MediaRecorder
+      try {
+        mediaRecorder = new MediaRecorder(stream, options)
+        console.log('✅ MediaRecorder created successfully')
+      } catch (error) {
+        console.error('❌ MediaRecorder creation failed with options:', options, error)
+        // Try without any options (absolute fallback)
+        console.log('🔄 Retrying MediaRecorder without options...')
+        mediaRecorder = new MediaRecorder(stream)
+        console.log('✅ MediaRecorder created with default settings')
+      }
 
-      const mediaRecorder = new MediaRecorder(stream, options)
       mediaRecorderRef.current = mediaRecorder
 
       mediaRecorder.ondataavailable = (event) => {
