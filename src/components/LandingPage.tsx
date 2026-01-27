@@ -129,10 +129,15 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={onGetStarted}
-            className="group relative px-7 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-lg font-semibold text-sm overflow-hidden shadow-xl shadow-emerald-500/25 border border-emerald-400/30"
+            onTouchEnd={(e) => {
+              e.preventDefault()
+              onGetStarted()
+            }}
+            className="group relative px-7 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-lg font-semibold text-sm overflow-hidden shadow-xl shadow-emerald-500/25 border border-emerald-400/30 cursor-pointer touch-manipulation"
+            style={{ WebkitTapHighlightColor: 'transparent' }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <span className="relative flex items-center gap-2">
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+            <span className="relative flex items-center gap-2 pointer-events-none">
               Launch Platform
               <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -183,20 +188,30 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                   whileHover={{ scale: 1.02, boxShadow: "0 20px 60px rgba(16, 185, 129, 0.4)" }}
                   whileTap={{ scale: 0.98 }}
                   onClick={onGetStarted}
-                  className="group relative px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl font-semibold text-lg overflow-hidden shadow-2xl shadow-emerald-500/30 border border-emerald-400/30"
+                  onTouchEnd={(e) => {
+                    e.preventDefault()
+                    onGetStarted()
+                  }}
+                  className="group relative px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl font-semibold text-lg overflow-hidden shadow-2xl shadow-emerald-500/30 border border-emerald-400/30 cursor-pointer touch-manipulation"
+                  style={{ WebkitTapHighlightColor: 'transparent' }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <span className="relative">Try Voice Mode</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <span className="relative pointer-events-none">Try Voice Mode</span>
                 </motion.button>
 
                 <motion.button
                   whileHover={{ scale: 1.02, boxShadow: "0 20px 60px rgba(245, 158, 11, 0.4)" }}
                   whileTap={{ scale: 0.98 }}
                   onClick={onGetStarted}
-                  className="group relative px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 rounded-xl font-semibold text-lg overflow-hidden shadow-2xl shadow-amber-500/30 border border-amber-400/30"
+                  onTouchEnd={(e) => {
+                    e.preventDefault()
+                    onGetStarted()
+                  }}
+                  className="group relative px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 rounded-xl font-semibold text-lg overflow-hidden shadow-2xl shadow-amber-500/30 border border-amber-400/30 cursor-pointer touch-manipulation"
+                  style={{ WebkitTapHighlightColor: 'transparent' }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <span className="relative">Try Chat Mode</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <span className="relative pointer-events-none">Try Chat Mode</span>
                 </motion.button>
               </motion.div>
 
@@ -796,10 +811,15 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
               whileHover={{ scale: 1.05, boxShadow: "0 25px 70px rgba(16, 185, 129, 0.5)" }}
               whileTap={{ scale: 0.95 }}
               onClick={onGetStarted}
-              className="group relative px-12 py-5 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl font-display text-xl overflow-hidden shadow-2xl shadow-emerald-500/30 border border-emerald-400/30"
+              onTouchEnd={(e) => {
+                e.preventDefault()
+                onGetStarted()
+              }}
+              className="group relative px-12 py-5 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl font-display text-xl overflow-hidden shadow-2xl shadow-emerald-500/30 border border-emerald-400/30 cursor-pointer touch-manipulation"
+              style={{ WebkitTapHighlightColor: 'transparent' }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <span className="relative flex items-center gap-3">
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <span className="relative flex items-center gap-3 pointer-events-none">
                 Launch Platform
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />

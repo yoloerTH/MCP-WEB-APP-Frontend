@@ -451,17 +451,25 @@ function App() {
 
   // Show landing page if user hasn't started
   if (!hasStarted) {
-    return <LandingPage onGetStarted={async () => {
+    return <LandingPage onGetStarted={() => {
       // Unlock audio on first user interaction (landing page button click)
+      // CRITICAL: Must be synchronous for iOS Safari to maintain user gesture context
       try {
         const silentAudio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA')
         silentAudio.volume = 0
-        await silentAudio.play()
-        audioUnlockedRef.current = true
-        console.log('✅ Audio unlocked via landing page interaction')
+        // Fire and forget - don't await (iOS needs immediate state change)
+        silentAudio.play()
+          .then(() => {
+            audioUnlockedRef.current = true
+            console.log('✅ Audio unlocked via landing page interaction')
+          })
+          .catch(e => {
+            console.warn('⚠️ Could not unlock audio on landing page:', e)
+          })
       } catch (e) {
-        console.warn('⚠️ Could not unlock audio on landing page:', e)
+        console.warn('⚠️ Audio unlock error:', e)
       }
+      // Immediately update state (synchronous, no await)
       setHasStarted(true)
     }} />
   }
