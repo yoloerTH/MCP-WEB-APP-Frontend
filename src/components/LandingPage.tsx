@@ -5,46 +5,23 @@ interface LandingPageProps {
   onGetStarted: () => void
 }
 
-// Google Service Icons as SVG components
+// Google Service Icons - Using official PNG icons
 const GoogleServiceIcon = ({ service }: { service: string }) => {
-  const icons: Record<string, JSX.Element> = {
-    gmail: (
-      <svg viewBox="0 0 48 48" className="w-full h-full">
-        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
-        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
-        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
-        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
-      </svg>
-    ),
-    calendar: (
-      <svg viewBox="0 0 48 48" className="w-full h-full">
-        <rect width="48" height="48" fill="#4285F4" rx="8"/>
-        <path fill="#fff" d="M10 18h28v20a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V18z"/>
-        <path fill="#4285F4" d="M10 12a2 2 0 0 1 2-2h24a2 2 0 0 1 2 2v10H10V12z"/>
-        <text x="24" y="34" fontSize="18" fontWeight="bold" fill="#4285F4" textAnchor="middle">31</text>
-      </svg>
-    ),
-    drive: (
-      <svg viewBox="0 0 48 48" className="w-full h-full">
-        <path fill="#0066DA" d="M15 32.5 8.5 44h31L46 32.5H15z"/>
-        <path fill="#00AC47" d="M16 31 2 31 15.5 4.5 29.5 4.5z"/>
-        <path fill="#EA4335" d="M31 31 17.5 4.5h27L46 31z"/>
-      </svg>
-    ),
-    docs: (
-      <svg viewBox="0 0 48 48" className="w-full h-full">
-        <path fill="#4285F4" d="M37 45H11c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h18l10 10v30c0 1.1-.9 2-2 2z"/>
-        <path fill="#F1F1F1" d="M29 3v8c0 1.1.9 2 2 2h8l-10-10z"/>
-        <path fill="#fff" d="M15 20h18v2H15zm0 4h18v2H15zm0 4h12v2H15z"/>
-      </svg>
-    ),
-    sheets: (
-      <svg viewBox="0 0 48 48" className="w-full h-full">
-        <path fill="#0F9D58" d="M37 45H11c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h18l10 10v30c0 1.1-.9 2-2 2z"/>
-        <path fill="#F1F1F1" d="M29 3v8c0 1.1.9 2 2 2h8l-10-10z"/>
-        <path fill="#fff" d="M15 20h18v2H15zm0 4h18v2H15zm0 4h18v2H15zm0 4h18v2H15z"/>
-      </svg>
-    ),
+  // For services with official icons, use PNG. For others, use simple SVG
+  const hasOfficialIcon = ['gmail', 'calendar', 'drive', 'docs', 'sheets', 'meet'].includes(service)
+
+  if (hasOfficialIcon) {
+    return (
+      <img
+        src={`/google-icons/${service}.png`}
+        alt={service}
+        className="w-full h-full object-contain"
+      />
+    )
+  }
+
+  // Fallback SVG icons for Contacts and Tasks
+  const fallbackIcons: Record<string, JSX.Element> = {
     contacts: (
       <svg viewBox="0 0 48 48" className="w-full h-full">
         <rect width="48" height="48" fill="#1976D2" rx="8"/>
@@ -58,17 +35,10 @@ const GoogleServiceIcon = ({ service }: { service: string }) => {
         <path fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" d="M12 24l6 6 12-12"/>
         <circle cx="24" cy="24" r="16" fill="none" stroke="#fff" strokeWidth="2"/>
       </svg>
-    ),
-    meet: (
-      <svg viewBox="0 0 48 48" className="w-full h-full">
-        <rect width="48" height="48" fill="#00897B" rx="8"/>
-        <path fill="#fff" d="M32 22v4l8 6V16l-8 6zm-16-6h16v16H16z"/>
-        <circle cx="38" cy="12" r="6" fill="#EA4335"/>
-      </svg>
     )
   }
 
-  return icons[service] || null
+  return fallbackIcons[service] || null
 }
 
 export default function LandingPage({ onGetStarted }: LandingPageProps) {
@@ -279,9 +249,9 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
               {/* Glow effects */}
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-amber-500/10 rounded-3xl blur-3xl" />
 
-              {/* Main container with proper positioning */}
-              <div className="relative w-[450px] h-[450px]">
-                {/* Center AI core */}
+              {/* Main container with proper positioning - optimized size */}
+              <div className="relative w-[420px] h-[420px]">
+                {/* Center AI core - better symmetry */}
                 <motion.div
                   animate={{
                     boxShadow: [
@@ -291,9 +261,9 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                     ]
                   }}
                   transition={{ duration: 3, repeat: Infinity }}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center border border-emerald-400/30 shadow-2xl z-20"
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center border-2 border-emerald-400/40 shadow-2xl z-20"
                 >
-                  <svg className="w-12 h-12 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg className="w-10 h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <path d="M12 2L2 7l10 5 10-5-10-5z"/>
                     <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
                   </svg>
@@ -310,7 +280,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                   { service: 'tasks', angle: 270 },
                   { service: 'meet', angle: 315 },
                 ].map((item, idx) => {
-                  const radius = 170
+                  const radius = 160
                   const angleRad = (item.angle * Math.PI) / 180
                   const x = Math.cos(angleRad) * radius
                   const y = Math.sin(angleRad) * radius
@@ -325,13 +295,17 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                         x: x,
                         y: y
                       }}
-                      transition={{ delay: 0.6 + idx * 0.08, duration: 0.6 }}
-                      whileHover={{ scale: 1.15, transition: { duration: 0.3 } }}
+                      transition={{ delay: 0.6 + idx * 0.08, duration: 0.6, ease: "easeOut" }}
+                      whileHover={{
+                        scale: 1.08,
+                        y: y - 5,
+                        transition: { duration: 0.4, ease: "easeOut" }
+                      }}
                       className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
                     >
-                      <div className="relative group w-12 h-12">
-                        <div className="absolute inset-0 bg-emerald-500/20 blur-lg rounded-lg group-hover:bg-emerald-500/40 transition-all duration-300" />
-                        <div className="relative bg-[#0a0e1a]/95 backdrop-blur-sm border border-white/10 rounded-lg p-1.5 shadow-xl group-hover:border-emerald-500/50 transition-all duration-300">
+                      <div className="relative group w-14 h-14">
+                        <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-xl group-hover:bg-emerald-500/40 transition-all duration-500 ease-out" />
+                        <div className="relative bg-[#0a0e1a]/95 backdrop-blur-sm border border-white/10 rounded-xl p-2 shadow-xl group-hover:border-emerald-500/60 group-hover:shadow-2xl group-hover:shadow-emerald-500/20 transition-all duration-500 ease-out">
                           <GoogleServiceIcon service={item.service} />
                         </div>
                       </div>
@@ -383,10 +357,10 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
             </p>
           </motion.div>
 
-          {/* Large Interactive Hub */}
+          {/* Large Interactive Hub - optimized */}
           <div className="relative w-full h-[700px] max-w-5xl mx-auto flex items-center justify-center">
-            <div className="relative w-[700px] h-[700px]">
-              {/* Center AI Brain */}
+            <div className="relative w-[680px] h-[680px]">
+              {/* Center AI Brain - better symmetry */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.5 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -413,27 +387,26 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                   className="absolute inset-0 bg-amber-500/20 blur-3xl rounded-full"
                 />
 
-                {/* Main brain container */}
+                {/* Main brain container - more symmetrical */}
                 <motion.div
-                  whileHover={{ scale: 1.05, rotate: 5 }}
-                  transition={{ duration: 0.4 }}
-                  className="relative w-48 h-48 bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 rounded-3xl flex items-center justify-center border-2 border-emerald-400/50 shadow-2xl shadow-emerald-500/50"
+                  whileHover={{ scale: 1.03, transition: { duration: 0.5, ease: "easeOut" } }}
+                  className="relative w-40 h-40 bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 rounded-3xl flex items-center justify-center border-2 border-emerald-400/60 shadow-2xl shadow-emerald-500/50"
                 >
-                  <svg className="w-24 h-24 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <svg className="w-20 h-20 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M12 2L2 7l10 5 10-5-10-5z"/>
                     <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
                   </svg>
 
                   {/* Corner accents */}
-                  <div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-white/50" />
-                  <div className="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-white/50" />
-                  <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-white/50" />
-                  <div className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-white/50" />
+                  <div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-white/60" />
+                  <div className="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-white/60" />
+                  <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-white/60" />
+                  <div className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-white/60" />
                 </motion.div>
 
-                <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
+                <div className="absolute -bottom-14 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-center">
                   <div className="font-display text-xl text-white">AI Assistant</div>
-                  <div className="text-sm text-emerald-400 text-center font-mono">Neural Core</div>
+                  <div className="text-sm text-emerald-400 font-mono">Neural Core</div>
                 </div>
               </div>
             </motion.div>
@@ -449,7 +422,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 { service: 'tasks', name: 'Tasks', angle: 270, tools: 5 },
                 { service: 'meet', name: 'Meet', angle: 315, tools: 5 },
               ].map((item, idx) => {
-                const radius = 280
+                const radius = 270
                 const angleRad = (item.angle * Math.PI) / 180
                 const x = Math.cos(angleRad) * radius
                 const y = Math.sin(angleRad) * radius
@@ -472,7 +445,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                     <div
                       className="absolute top-1/2 left-1/2 pointer-events-none -z-10"
                       style={{
-                        width: `${radius - 50}px`,
+                        width: `${radius - 45}px`,
                         height: '2px',
                         transformOrigin: '0 0',
                         transform: `rotate(${item.angle + 180}deg)`
@@ -488,20 +461,23 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                     </div>
 
                     <motion.div
-                      whileHover={{ scale: 1.15, rotate: 360 }}
-                      transition={{ duration: 0.5, ease: "easeOut" }}
+                      whileHover={{
+                        scale: 1.1,
+                        y: -8,
+                        transition: { duration: 0.5, ease: "easeOut" }
+                      }}
                       className="group relative cursor-pointer"
                     >
                       {/* Hover glow */}
-                      <div className="absolute inset-0 bg-emerald-500/0 group-hover:bg-emerald-500/30 blur-2xl rounded-2xl transition-all duration-500" />
+                      <div className="absolute inset-0 bg-emerald-500/0 group-hover:bg-emerald-500/30 blur-2xl rounded-2xl transition-all duration-500 ease-out" />
 
-                      {/* Service card */}
-                      <div className="relative bg-[#0a0e1a]/95 backdrop-blur-xl border border-white/10 group-hover:border-emerald-500/50 rounded-2xl p-4 shadow-2xl transition-all duration-300">
-                        <div className="w-16 h-16 mb-2">
+                      {/* Service card - better sizing */}
+                      <div className="relative bg-[#0a0e1a]/95 backdrop-blur-xl border border-white/10 group-hover:border-emerald-500/60 group-hover:shadow-2xl group-hover:shadow-emerald-500/20 rounded-2xl p-4 shadow-2xl transition-all duration-500 ease-out">
+                        <div className="w-16 h-16 mb-2 flex items-center justify-center">
                           <GoogleServiceIcon service={item.service} />
                         </div>
-                        <div className="text-sm font-semibold text-white">{item.name}</div>
-                        <div className="text-xs text-emerald-400 font-mono">{item.tools} tools</div>
+                        <div className="text-sm font-semibold text-white text-center">{item.name}</div>
+                        <div className="text-xs text-emerald-400 font-mono text-center">{item.tools} tools</div>
                       </div>
                     </motion.div>
                   </motion.div>
