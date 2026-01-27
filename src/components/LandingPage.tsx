@@ -299,7 +299,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                   </svg>
                 </motion.div>
 
-                {/* Orbiting service icons - FIXED positioning */}
+                {/* Orbiting service icons - PROPERLY FIXED with Framer Motion */}
                 {[
                   { service: 'gmail', angle: 0 },
                   { service: 'calendar', angle: 45 },
@@ -319,15 +319,15 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                     <motion.div
                       key={item.service}
                       initial={{ opacity: 0, scale: 0 }}
-                      animate={{ opacity: 1, scale: 1 }}
+                      animate={{
+                        opacity: 1,
+                        scale: 1,
+                        x: x,
+                        y: y
+                      }}
                       transition={{ delay: 0.6 + idx * 0.08, duration: 0.6 }}
                       whileHover={{ scale: 1.15, transition: { duration: 0.3 } }}
-                      className="absolute z-10"
-                      style={{
-                        left: '50%',
-                        top: '50%',
-                        transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`
-                      }}
+                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
                     >
                       <div className="relative group w-12 h-12">
                         <div className="absolute inset-0 bg-emerald-500/20 blur-lg rounded-lg group-hover:bg-emerald-500/40 transition-all duration-300" />
@@ -336,9 +336,9 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                         </div>
                       </div>
 
-                      {/* Connection line - FIXED */}
+                      {/* Connection line - wrapped in non-motion div */}
                       <div
-                        className="absolute top-1/2 left-1/2 pointer-events-none"
+                        className="absolute top-1/2 left-1/2 pointer-events-none -z-10"
                         style={{
                           width: `${radius}px`,
                           height: '1px',
@@ -438,7 +438,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
               </div>
             </motion.div>
 
-              {/* Google Services in Orbit - FIXED */}
+              {/* Google Services in Orbit - PROPERLY FIXED with Framer Motion */}
               {[
                 { service: 'gmail', name: 'Gmail', angle: 0, tools: 3 },
                 { service: 'calendar', name: 'Calendar', angle: 45, tools: 6 },
@@ -458,54 +458,54 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                   <motion.div
                     key={item.service}
                     initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    whileInView={{
+                      opacity: 1,
+                      scale: 1,
+                      x: x,
+                      y: y
+                    }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.3 + idx * 0.08, ease: "backOut" }}
-                    className="absolute z-10"
-                    style={{
-                      left: '50%',
-                      top: '50%',
-                      transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`
-                    }}
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
                   >
-                  {/* Connection Line - FIXED */}
-                  <div
-                    className="absolute top-1/2 left-1/2 pointer-events-none -z-10"
-                    style={{
-                      width: `${radius - 50}px`,
-                      height: '2px',
-                      transformOrigin: '0 0',
-                      transform: `rotate(${item.angle + 180}deg)`
-                    }}
-                  >
-                    <motion.div
-                      className="h-full border-t-2 border-dashed border-emerald-500/40"
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1.2, delay: 0.5 + idx * 0.08 }}
-                    />
-                  </div>
-
-                  <motion.div
-                    whileHover={{ scale: 1.15, rotate: 360 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                    className="group relative cursor-pointer"
-                  >
-                    {/* Hover glow */}
-                    <div className="absolute inset-0 bg-emerald-500/0 group-hover:bg-emerald-500/30 blur-2xl rounded-2xl transition-all duration-500" />
-
-                    {/* Service card */}
-                    <div className="relative bg-[#0a0e1a]/95 backdrop-blur-xl border border-white/10 group-hover:border-emerald-500/50 rounded-2xl p-4 shadow-2xl transition-all duration-300">
-                      <div className="w-16 h-16 mb-2">
-                        <GoogleServiceIcon service={item.service} />
-                      </div>
-                      <div className="text-sm font-semibold text-white">{item.name}</div>
-                      <div className="text-xs text-emerald-400 font-mono">{item.tools} tools</div>
+                    {/* Connection Line - wrapped in non-motion div */}
+                    <div
+                      className="absolute top-1/2 left-1/2 pointer-events-none -z-10"
+                      style={{
+                        width: `${radius - 50}px`,
+                        height: '2px',
+                        transformOrigin: '0 0',
+                        transform: `rotate(${item.angle + 180}deg)`
+                      }}
+                    >
+                      <motion.div
+                        className="h-full border-t-2 border-dashed border-emerald-500/40"
+                        initial={{ scaleX: 0 }}
+                        whileInView={{ scaleX: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.2, delay: 0.5 + idx * 0.08 }}
+                      />
                     </div>
+
+                    <motion.div
+                      whileHover={{ scale: 1.15, rotate: 360 }}
+                      transition={{ duration: 0.5, ease: "easeOut" }}
+                      className="group relative cursor-pointer"
+                    >
+                      {/* Hover glow */}
+                      <div className="absolute inset-0 bg-emerald-500/0 group-hover:bg-emerald-500/30 blur-2xl rounded-2xl transition-all duration-500" />
+
+                      {/* Service card */}
+                      <div className="relative bg-[#0a0e1a]/95 backdrop-blur-xl border border-white/10 group-hover:border-emerald-500/50 rounded-2xl p-4 shadow-2xl transition-all duration-300">
+                        <div className="w-16 h-16 mb-2">
+                          <GoogleServiceIcon service={item.service} />
+                        </div>
+                        <div className="text-sm font-semibold text-white">{item.name}</div>
+                        <div className="text-xs text-emerald-400 font-mono">{item.tools} tools</div>
+                      </div>
+                    </motion.div>
                   </motion.div>
-                </motion.div>
-              )
+                )
               })}
             </div>
           </div>
