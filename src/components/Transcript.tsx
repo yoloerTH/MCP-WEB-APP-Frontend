@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useRef } from 'react'
+import FormattedText from './FormattedText'
 
 interface TranscriptMessage {
   type: 'user' | 'ai' | 'system'
@@ -84,11 +85,12 @@ export default function Transcript({ messages }: TranscriptProps) {
                     )}
 
                     {/* Message text */}
-                    <div className={`text-sm leading-relaxed ${
-                      message.type === 'system' ? 'italic font-medium' : 'font-medium'
-                    }`}>
-                      {message.text}
-                    </div>
+                    <FormattedText
+                      text={message.text}
+                      className={`text-sm leading-relaxed ${
+                        message.type === 'system' ? 'italic font-medium' : 'font-medium'
+                      }`}
+                    />
 
                     {/* Timestamp */}
                     <div className={`text-[10px] mt-1.5 font-medium ${

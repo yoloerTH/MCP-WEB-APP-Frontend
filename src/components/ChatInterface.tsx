@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import FormattedText from './FormattedText'
 
 interface ChatMessage {
   type: 'user' | 'ai' | 'system'
@@ -101,11 +102,12 @@ export default function ChatInterface({ messages, onSendMessage, isWaiting }: Ch
                     )}
 
                     {/* Message text */}
-                    <div className={`text-sm leading-relaxed ${
-                      message.type === 'system' ? 'italic font-medium' : 'font-medium'
-                    }`}>
-                      {message.text}
-                    </div>
+                    <FormattedText
+                      text={message.text}
+                      className={`text-sm leading-relaxed ${
+                        message.type === 'system' ? 'italic font-medium' : 'font-medium'
+                      }`}
+                    />
 
                     {/* Timestamp */}
                     <div className={`text-[10px] mt-1.5 font-medium ${
