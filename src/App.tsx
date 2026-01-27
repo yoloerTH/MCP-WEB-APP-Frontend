@@ -103,13 +103,12 @@ function App() {
 
     newSocket.on('barge-in', () => {
       console.log('🛑 Barge-in detected - stopping AI audio')
-      // Stop and cleanup current audio immediately
+      // Stop playback but keep audio element for reuse
       if (currentAudioRef.current) {
         try {
           currentAudioRef.current.pause()
           currentAudioRef.current.currentTime = 0
-          currentAudioRef.current.src = '' // Clear source to fully stop
-          currentAudioRef.current = null
+          // Don't destroy the element - we need to reuse it for iOS
         } catch (e) {
           console.error('Error stopping audio:', e)
         }
@@ -168,48 +167,6 @@ function App() {
     socket.emit('chat-message', { text: text.trim() })
   }
 
-  const unlockAudio = async () => {
-    // iOS/Safari audio unlock: Play a silent audio to enable autoplay
-    if (!audioUnlockedRef.current) {
-      try {
-        // Create and play a silent audio element with timeout
-        const silentAudio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA')
-        silentAudio.volume = 0
-
-        // Add timeout to prevent hanging
-        await Promise.race([
-          silentAudio.play(),
-          new Promise((_, reject) =>
-            setTimeout(() => reject(new Error('Audio unlock timeout')), 2000)
-          )
-        ])
-
-        audioUnlockedRef.current = true
-        console.log('✅ Audio unlocked for iOS/mobile browsers')
-      } catch (e) {
-        console.warn('⚠️ Could not unlock audio (non-critical):', e)
-        // Mark as unlocked anyway - not critical, we'll try to play audio regardless
-        audioUnlockedRef.current = true
-      }
-    }
-
-    // Resume AudioContext if suspended (required on mobile browsers)
-    if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
-      try {
-        await Promise.race([
-          audioContextRef.current.resume(),
-          new Promise((_, reject) =>
-            setTimeout(() => reject(new Error('AudioContext resume timeout')), 2000)
-          )
-        ])
-        console.log('✅ AudioContext resumed')
-      } catch (e) {
-        console.warn('⚠️ Could not resume AudioContext (non-critical):', e)
-        // Continue anyway - audio might still work
-      }
-    }
-  }
-
   const startCall = async () => {
     if (!socket) {
       console.error('❌ Socket not connected')
@@ -217,18 +174,25 @@ function App() {
       return
     }
 
-    // CRITICAL: Unlock audio IMMEDIATELY in user gesture context (synchronous)
-    if (!audioUnlockedRef.current) {
+    // CRITICAL: Create and unlock ONE Audio element in user gesture context
+    // This element will be reused for ALL audio playback (iOS requirement)
+    if (!currentAudioRef.current) {
       try {
-        console.log('🔓 Unlocking audio in user gesture context...')
-        const silentAudio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA')
-        silentAudio.volume = 0
-        // Fire immediately - don't await (must be synchronous)
-        silentAudio.play().catch(e => console.warn('Silent audio failed:', e))
+        console.log('🔓 Creating reusable Audio element in user gesture context...')
+        const audioElement = new Audio()
+        audioElement.volume = 1.0
+        audioElement.preload = 'auto'
+
+        // Play silent audio to unlock (iOS requirement)
+        audioElement.src = 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA'
+        audioElement.play().catch(e => console.warn('Silent play failed:', e))
+
+        // Store for reuse
+        currentAudioRef.current = audioElement
         audioUnlockedRef.current = true
-        console.log('✅ Audio unlocked synchronously')
+        console.log('✅ Reusable Audio element created and unlocked')
       } catch (e) {
-        console.warn('⚠️ Audio unlock error:', e)
+        console.warn('⚠️ Audio element creation error:', e)
       }
     }
 
@@ -384,10 +348,12 @@ function App() {
     // Stop any playing audio and clear queue
     if (currentAudioRef.current) {
       currentAudioRef.current.pause()
+      currentAudioRef.current.src = '' // Clear source
       currentAudioRef.current = null
     }
     audioQueueRef.current = []
     isPlayingAudioRef.current = false
+    audioUnlockedRef.current = false // Reset unlock flag for next call
 
     setCallStatus('connected')
     addTranscript('system', 'Call ended')
@@ -408,12 +374,11 @@ function App() {
     const message = textInput.trim()
 
     // Trigger barge-in if AI is speaking
-    if (currentAudioRef.current) {
+    if (currentAudioRef.current && isPlayingAudioRef.current) {
       console.log('🛑 Barge-in via text input - stopping AI audio')
       currentAudioRef.current.pause()
       currentAudioRef.current.currentTime = 0
-      currentAudioRef.current.src = ''
-      currentAudioRef.current = null
+      // Don't clear the audio element itself - just stop playback
       audioQueueRef.current = []
       isPlayingAudioRef.current = false
     }
@@ -469,27 +434,37 @@ function App() {
     isPlayingAudioRef.current = true
 
     try {
-      // Ensure audio is unlocked (should be already, but double-check)
-      if (!audioUnlockedRef.current) {
-        await unlockAudio()
-      }
-
       // Resume AudioContext if needed (can get suspended on mobile)
       if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
         await audioContextRef.current.resume()
       }
 
-      const audio = new Audio(`data:audio/wav;base64,${base64Audio}`)
-      currentAudioRef.current = audio
+      // CRITICAL: Reuse the SAME Audio element (created during startCall)
+      // Creating new Audio elements on iOS will be blocked
+      const audio = currentAudioRef.current
 
-      // Set volume explicitly (helps on some mobile devices)
-      audio.volume = 1.0
+      if (!audio) {
+        console.error('❌ No audio element available')
+        processAudioQueue()
+        return
+      }
 
-      // CRITICAL: Set preload to auto for better mobile compatibility
-      audio.preload = 'auto'
-
-      // Load the audio first (important for iOS)
+      // Update the src to new audio (this works on already-unlocked element)
+      audio.src = `data:audio/wav;base64,${base64Audio}`
       audio.load()
+
+      // Setup event handlers
+      audio.onended = () => {
+        console.log('✅ Audio playback ended')
+        // Play next audio in queue
+        processAudioQueue()
+      }
+
+      audio.onerror = (e) => {
+        console.error('❌ Audio playback error:', e)
+        // Continue to next audio even on error
+        processAudioQueue()
+      }
 
       // Handle the play() promise (critical for mobile browsers)
       const playPromise = audio.play()
@@ -505,33 +480,11 @@ function App() {
             // If still getting NotAllowedError, try to unlock again
             if (error.name === 'NotAllowedError') {
               console.warn('⚠️ Audio still blocked - user may need to interact with page')
-              audioUnlockedRef.current = false
             }
 
             // Try to continue to next audio
-            if (currentAudioRef.current === audio) {
-              currentAudioRef.current = null
-            }
             processAudioQueue()
           })
-      }
-
-      audio.onended = () => {
-        console.log('✅ Audio playback ended')
-        if (currentAudioRef.current === audio) {
-          currentAudioRef.current = null
-        }
-        // Play next audio in queue
-        processAudioQueue()
-      }
-
-      audio.onerror = (e) => {
-        console.error('❌ Audio playback error:', e)
-        if (currentAudioRef.current === audio) {
-          currentAudioRef.current = null
-        }
-        // Continue to next audio even on error
-        processAudioQueue()
       }
     } catch (error) {
       console.error('❌ Failed to play audio:', error)
