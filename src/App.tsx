@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { io, Socket } from 'socket.io-client'
 import AudioVisualizer from './components/AudioVisualizer'
@@ -21,11 +22,11 @@ interface TranscriptMessage {
 }
 
 function App() {
-  // Landing page state
-  const [hasStarted, setHasStarted] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
 
-  // Mode state
-  const [appMode, setAppMode] = useState<'voice' | 'chat'>('voice')
+  // Determine mode based on route
+  const appMode: 'voice' | 'chat' = location.pathname === '/chatai' ? 'chat' : 'voice'
 
   // Voice AI state
   const [socket, setSocket] = useState<Socket | null>(null)
@@ -493,9 +494,9 @@ function App() {
     }
   }
 
-  // Show landing page if user hasn't started
-  if (!hasStarted) {
-    return <LandingPage onGetStarted={() => {
+  // Landing page component with navigation
+  const LandingPageWithNav = () => (
+    <LandingPage onGetStarted={(mode?: 'voice' | 'chat') => {
       // Unlock audio on first user interaction (landing page button click)
       // CRITICAL: Must be synchronous for iOS Safari to maintain user gesture context
       try {
@@ -513,12 +514,13 @@ function App() {
       } catch (e) {
         console.warn('⚠️ Audio unlock error:', e)
       }
-      // Immediately update state (synchronous, no await)
-      setHasStarted(true)
+      // Navigate to the appropriate route
+      navigate(mode === 'chat' ? '/chatai' : '/voiceai')
     }} />
-  }
+  )
 
-  return (
+  // Voice/Chat AI component
+  const AIInterface = () => (
     <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-midnight-soft relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute inset-0 bg-gradient-glow opacity-60 pointer-events-none" />
@@ -549,7 +551,10 @@ function App() {
               {appMode === 'voice' && <StatusIndicator status={callStatus} />}
             </div>
             {/* Mode Selector */}
-            <ModeSelector mode={appMode} onModeChange={setAppMode} />
+            <ModeSelector
+              mode={appMode}
+              onModeChange={(mode) => navigate(mode === 'chat' ? '/chatai' : '/voiceai')}
+            />
           </div>
 
           {/* Content */}
@@ -635,6 +640,14 @@ function App() {
         </motion.div>
       </motion.div>
     </div>
+  )
+
+  return (
+    <Routes>
+      <Route path="/" element={<LandingPageWithNav />} />
+      <Route path="/voiceai" element={<AIInterface />} />
+      <Route path="/chatai" element={<AIInterface />} />
+    </Routes>
   )
 }
 

@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
 interface LandingPageProps {
-  onGetStarted: () => void
+  onGetStarted: (mode?: 'voice' | 'chat') => void
 }
 
 // Google Service Icons - Using official PNG icons
@@ -128,10 +128,10 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
             animate={{ opacity: 1, x: 0 }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            onClick={onGetStarted}
+            onClick={() => onGetStarted('voice')}
             onTouchEnd={(e) => {
               e.preventDefault()
-              onGetStarted()
+              onGetStarted('voice')
             }}
             className="group relative px-7 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-lg font-semibold text-sm overflow-hidden shadow-xl shadow-emerald-500/25 border border-emerald-400/30 cursor-pointer touch-manipulation"
             style={{ WebkitTapHighlightColor: 'transparent' }}
@@ -187,10 +187,10 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 <motion.button
                   whileHover={{ scale: 1.02, boxShadow: "0 20px 60px rgba(16, 185, 129, 0.4)" }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={onGetStarted}
+                  onClick={() => onGetStarted('voice')}
                   onTouchEnd={(e) => {
                     e.preventDefault()
-                    onGetStarted()
+                    onGetStarted('voice')
                   }}
                   className="group relative px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl font-semibold text-lg overflow-hidden shadow-2xl shadow-emerald-500/30 border border-emerald-400/30 cursor-pointer touch-manipulation"
                   style={{ WebkitTapHighlightColor: 'transparent' }}
@@ -202,10 +202,10 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 <motion.button
                   whileHover={{ scale: 1.02, boxShadow: "0 20px 60px rgba(245, 158, 11, 0.4)" }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={onGetStarted}
+                  onClick={() => onGetStarted('chat')}
                   onTouchEnd={(e) => {
                     e.preventDefault()
-                    onGetStarted()
+                    onGetStarted('chat')
                   }}
                   className="group relative px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 rounded-xl font-semibold text-lg overflow-hidden shadow-2xl shadow-amber-500/30 border border-amber-400/30 cursor-pointer touch-manipulation"
                   style={{ WebkitTapHighlightColor: 'transparent' }}
@@ -810,10 +810,10 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: "0 25px 70px rgba(16, 185, 129, 0.5)" }}
               whileTap={{ scale: 0.95 }}
-              onClick={onGetStarted}
+              onClick={() => onGetStarted('voice')}
               onTouchEnd={(e) => {
                 e.preventDefault()
-                onGetStarted()
+                onGetStarted('voice')
               }}
               className="group relative px-12 py-5 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl font-display text-xl overflow-hidden shadow-2xl shadow-emerald-500/30 border border-emerald-400/30 cursor-pointer touch-manipulation"
               style={{ WebkitTapHighlightColor: 'transparent' }}
