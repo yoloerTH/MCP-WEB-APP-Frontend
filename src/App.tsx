@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { io, Socket } from 'socket.io-client'
 import AudioVisualizer from './components/AudioVisualizer'
@@ -26,6 +26,7 @@ function App() {
   const location = useLocation()
 
   // Determine mode based on route
+  const isLandingPage = location.pathname === '/'
   const appMode: 'voice' | 'chat' = location.pathname === '/chatai' ? 'chat' : 'voice'
 
   // Voice AI state
@@ -494,33 +495,35 @@ function App() {
     }
   }
 
-  // Landing page component with navigation
-  const LandingPageWithNav = () => (
-    <LandingPage onGetStarted={(mode?: 'voice' | 'chat') => {
-      // Unlock audio on first user interaction (landing page button click)
-      // CRITICAL: Must be synchronous for iOS Safari to maintain user gesture context
-      try {
-        const silentAudio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA')
-        silentAudio.volume = 0
-        // Fire and forget - don't await (iOS needs immediate state change)
-        silentAudio.play()
-          .then(() => {
-            audioUnlockedRef.current = true
-            console.log('✅ Audio unlocked via landing page interaction')
-          })
-          .catch(e => {
-            console.warn('⚠️ Could not unlock audio on landing page:', e)
-          })
-      } catch (e) {
-        console.warn('⚠️ Audio unlock error:', e)
-      }
-      // Navigate to the appropriate route
-      navigate(mode === 'chat' ? '/chatai' : '/voiceai')
-    }} />
-  )
+  const handleGetStarted = (mode?: 'voice' | 'chat') => {
+    // Unlock audio on first user interaction (landing page button click)
+    // CRITICAL: Must be synchronous for iOS Safari to maintain user gesture context
+    try {
+      const silentAudio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA')
+      silentAudio.volume = 0
+      // Fire and forget - don't await (iOS needs immediate state change)
+      silentAudio.play()
+        .then(() => {
+          audioUnlockedRef.current = true
+          console.log('✅ Audio unlocked via landing page interaction')
+        })
+        .catch(e => {
+          console.warn('⚠️ Could not unlock audio on landing page:', e)
+        })
+    } catch (e) {
+      console.warn('⚠️ Audio unlock error:', e)
+    }
+    // Navigate to the appropriate route
+    navigate(mode === 'chat' ? '/chatai' : '/voiceai')
+  }
 
-  // Voice/Chat AI component
-  const AIInterface = () => (
+  // Show landing page
+  if (isLandingPage) {
+    return <LandingPage onGetStarted={handleGetStarted} />
+  }
+
+  // Show voice/chat AI interface
+  return (
     <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-midnight-soft relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute inset-0 bg-gradient-glow opacity-60 pointer-events-none" />
@@ -640,14 +643,6 @@ function App() {
         </motion.div>
       </motion.div>
     </div>
-  )
-
-  return (
-    <Routes>
-      <Route path="/" element={<LandingPageWithNav />} />
-      <Route path="/voiceai" element={<AIInterface />} />
-      <Route path="/chatai" element={<AIInterface />} />
-    </Routes>
   )
 }
 
