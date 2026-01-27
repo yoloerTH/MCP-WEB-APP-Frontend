@@ -50,13 +50,23 @@ function App() {
 
   // Initialize socket connection
   useEffect(() => {
+    console.log('🔌 Connecting to backend:', BACKEND_URL)
     const newSocket = io(BACKEND_URL, {
       transports: ['websocket', 'polling'],
+      reconnection: true,
+      reconnectionDelay: 1000,
+      reconnectionAttempts: 5,
     })
 
     newSocket.on('connect', () => {
       console.log('✅ Connected to backend:', newSocket.id)
       setCallStatus('connected')
+    })
+
+    newSocket.on('connect_error', (error) => {
+      console.error('❌ Socket connection error:', error.message)
+      setCallStatus('disconnected')
+      addTranscript('system', `Connection error: ${error.message}. Please check your internet connection.`)
     })
 
     newSocket.on('disconnect', () => {
@@ -185,13 +195,31 @@ function App() {
   }
 
   const startCall = async () => {
-    if (!socket) return
+    if (!socket) {
+      console.error('❌ Socket not connected')
+      addTranscript('system', 'Connection error. Please refresh the page.')
+      return
+    }
 
     try {
       setCallStatus('connecting')
+      console.log('🎤 Requesting microphone access...')
 
-      // Get microphone access
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+      // Get microphone access with timeout (iOS can hang here)
+      const stream = await Promise.race([
+        navigator.mediaDevices.getUserMedia({
+          audio: {
+            echoCancellation: true,
+            noiseSuppression: true,
+            autoGainControl: true,
+          }
+        }),
+        new Promise<MediaStream>((_, reject) =>
+          setTimeout(() => reject(new Error('Microphone request timed out after 10 seconds')), 10000)
+        )
+      ])
+
+      console.log('✅ Microphone access granted')
       audioStreamRef.current = stream
 
       // Setup audio context for visualization
@@ -261,12 +289,15 @@ function App() {
           errorMessage = 'No microphone found. Please connect a microphone and try again.'
         } else if (error.name === 'NotSupportedError') {
           errorMessage = 'Your browser doesn\'t support audio recording. Try using Chrome or Safari.'
+        } else if (error.message && error.message.includes('timeout')) {
+          errorMessage = 'Microphone request timed out. Please check your browser settings and permissions, then try again.'
         } else {
           errorMessage = `Error: ${error.message}`
         }
       }
 
       addTranscript('system', errorMessage)
+      alert(errorMessage) // Show alert on mobile for better visibility
     }
   }
 
