@@ -8,7 +8,7 @@ interface LandingPageProps {
 // Google Service Icons - Using official PNG icons
 const GoogleServiceIcon = ({ service }: { service: string }) => {
   // For services with official icons, use PNG. For others, use simple SVG
-  const hasOfficialIcon = ['gmail', 'calendar', 'drive', 'docs', 'sheets', 'meet'].includes(service)
+  const hasOfficialIcon = ['gmail', 'calendar', 'drive', 'docs', 'sheets', 'meet', 'tasks'].includes(service)
 
   if (hasOfficialIcon) {
     return (
@@ -20,20 +20,13 @@ const GoogleServiceIcon = ({ service }: { service: string }) => {
     )
   }
 
-  // Fallback SVG icons for Contacts and Tasks
+  // Fallback SVG icon for Contacts only
   const fallbackIcons: Record<string, JSX.Element> = {
     contacts: (
       <svg viewBox="0 0 48 48" className="w-full h-full">
         <rect width="48" height="48" fill="#1976D2" rx="8"/>
         <circle cx="24" cy="18" r="6" fill="#fff"/>
         <path fill="#fff" d="M24 26c-6 0-11 3-11 6v4h22v-4c0-3-5-6-11-6z"/>
-      </svg>
-    ),
-    tasks: (
-      <svg viewBox="0 0 48 48" className="w-full h-full">
-        <rect width="48" height="48" fill="#4285F4" rx="8"/>
-        <path fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" d="M12 24l6 6 12-12"/>
-        <circle cx="24" cy="24" r="16" fill="none" stroke="#fff" strokeWidth="2"/>
       </svg>
     )
   }
@@ -249,25 +242,27 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
               {/* Glow effects */}
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-amber-500/10 rounded-3xl blur-3xl" />
 
-              {/* Main container with proper positioning - optimized size */}
-              <div className="relative w-[420px] h-[420px]">
-                {/* Center AI core - better symmetry */}
-                <motion.div
-                  animate={{
-                    boxShadow: [
-                      "0 0 40px rgba(16, 185, 129, 0.3)",
-                      "0 0 80px rgba(16, 185, 129, 0.5)",
-                      "0 0 40px rgba(16, 185, 129, 0.3)"
-                    ]
-                  }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center border-2 border-emerald-400/40 shadow-2xl z-20"
-                >
-                  <svg className="w-10 h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-                  </svg>
-                </motion.div>
+              {/* Main container with proper positioning - optimized size and centered */}
+              <div className="relative w-[420px] h-[420px] mx-auto">
+                {/* Center AI core - perfectly centered */}
+                <div className="absolute inset-0 flex items-center justify-center z-20">
+                  <motion.div
+                    animate={{
+                      boxShadow: [
+                        "0 0 40px rgba(16, 185, 129, 0.3)",
+                        "0 0 80px rgba(16, 185, 129, 0.5)",
+                        "0 0 40px rgba(16, 185, 129, 0.3)"
+                      ]
+                    }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center border-2 border-emerald-400/40 shadow-2xl"
+                  >
+                    <svg className="w-10 h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                      <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                  </motion.div>
+                </div>
 
                 {/* Orbiting service icons - PROPERLY FIXED with Framer Motion */}
                 {[
@@ -359,57 +354,57 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
 
           {/* Large Interactive Hub - optimized */}
           <div className="relative w-full h-[700px] max-w-5xl mx-auto flex items-center justify-center">
-            <div className="relative w-[680px] h-[680px]">
-              {/* Center AI Brain - better symmetry */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
-              >
-              <div className="relative group">
-                {/* Pulsing glow rings */}
+            <div className="relative w-[680px] h-[680px] mx-auto">
+              {/* Center AI Brain - perfectly centered */}
+              <div className="absolute inset-0 flex items-center justify-center z-20">
                 <motion.div
-                  animate={{
-                    scale: [1, 1.3, 1],
-                    opacity: [0.5, 0.2, 0.5]
-                  }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                  className="absolute inset-0 bg-emerald-500/30 blur-3xl rounded-full"
-                />
-                <motion.div
-                  animate={{
-                    scale: [1, 1.5, 1],
-                    opacity: [0.3, 0.1, 0.3]
-                  }}
-                  transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
-                  className="absolute inset-0 bg-amber-500/20 blur-3xl rounded-full"
-                />
-
-                {/* Main brain container - more symmetrical */}
-                <motion.div
-                  whileHover={{ scale: 1.03, transition: { duration: 0.5, ease: "easeOut" } }}
-                  className="relative w-40 h-40 bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 rounded-3xl flex items-center justify-center border-2 border-emerald-400/60 shadow-2xl shadow-emerald-500/50"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+                  className="relative group"
                 >
-                  <svg className="w-20 h-20 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-                  </svg>
+                  {/* Pulsing glow rings */}
+                  <motion.div
+                    animate={{
+                      scale: [1, 1.3, 1],
+                      opacity: [0.5, 0.2, 0.5]
+                    }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    className="absolute inset-0 bg-emerald-500/30 blur-3xl rounded-full"
+                  />
+                  <motion.div
+                    animate={{
+                      scale: [1, 1.5, 1],
+                      opacity: [0.3, 0.1, 0.3]
+                    }}
+                    transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
+                    className="absolute inset-0 bg-amber-500/20 blur-3xl rounded-full"
+                  />
 
-                  {/* Corner accents */}
-                  <div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-white/60" />
-                  <div className="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-white/60" />
-                  <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-white/60" />
-                  <div className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-white/60" />
+                  {/* Main brain container - perfectly centered */}
+                  <motion.div
+                    whileHover={{ scale: 1.03, transition: { duration: 0.5, ease: "easeOut" } }}
+                    className="relative w-40 h-40 bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 rounded-3xl flex items-center justify-center border-2 border-emerald-400/60 shadow-2xl shadow-emerald-500/50"
+                  >
+                    <svg className="w-20 h-20 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                      <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+
+                    {/* Corner accents */}
+                    <div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-white/60" />
+                    <div className="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-white/60" />
+                    <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-white/60" />
+                    <div className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-white/60" />
+                  </motion.div>
+
+                  <div className="absolute -bottom-14 left-1/2 -translate-x-1/2 whitespace-nowrap text-center">
+                    <div className="font-display text-xl text-white">AI Assistant</div>
+                    <div className="text-sm text-emerald-400 font-mono">Neural Core</div>
+                  </div>
                 </motion.div>
-
-                <div className="absolute -bottom-14 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-center">
-                  <div className="font-display text-xl text-white">AI Assistant</div>
-                  <div className="text-sm text-emerald-400 font-mono">Neural Core</div>
-                </div>
               </div>
-            </motion.div>
 
               {/* Google Services in Orbit - PROPERLY FIXED with Framer Motion */}
               {[
