@@ -46,6 +46,7 @@ function App() {
   const currentAudioRef = useRef<HTMLAudioElement | null>(null)
   const audioQueueRef = useRef<string[]>([])
   const isPlayingAudioRef = useRef<boolean>(false)
+  const audioUnlockedRef = useRef<boolean>(false)
 
   // Initialize socket connection
   useEffect(() => {
@@ -157,6 +158,32 @@ function App() {
     socket.emit('chat-message', { text: text.trim() })
   }
 
+  const unlockAudio = async () => {
+    // iOS/Safari audio unlock: Play a silent audio to enable autoplay
+    if (!audioUnlockedRef.current) {
+      try {
+        // Create and play a silent audio element
+        const silentAudio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA')
+        silentAudio.volume = 0
+        await silentAudio.play()
+        audioUnlockedRef.current = true
+        console.log('✅ Audio unlocked for iOS/mobile browsers')
+      } catch (e) {
+        console.warn('⚠️ Could not unlock audio:', e)
+      }
+    }
+
+    // Resume AudioContext if suspended (required on mobile browsers)
+    if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
+      try {
+        await audioContextRef.current.resume()
+        console.log('✅ AudioContext resumed')
+      } catch (e) {
+        console.warn('⚠️ Could not resume AudioContext:', e)
+      }
+    }
+  }
+
   const startCall = async () => {
     if (!socket) return
 
@@ -177,6 +204,9 @@ function App() {
 
       const source = audioContext.createMediaStreamSource(stream)
       source.connect(analyser)
+
+      // Unlock audio for iOS/mobile browsers (must be in user gesture handler)
+      await unlockAudio()
 
       // Start visualization loop
       visualizeAudio()
@@ -335,7 +365,7 @@ function App() {
     }
   }
 
-  const processAudioQueue = () => {
+  const processAudioQueue = async () => {
     // If queue is empty, stop
     if (audioQueueRef.current.length === 0) {
       isPlayingAudioRef.current = false
@@ -348,11 +378,27 @@ function App() {
     isPlayingAudioRef.current = true
 
     try {
+      // Ensure audio is unlocked (should be already, but double-check)
+      if (!audioUnlockedRef.current) {
+        await unlockAudio()
+      }
+
+      // Resume AudioContext if needed (can get suspended on mobile)
+      if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
+        await audioContextRef.current.resume()
+      }
+
       const audio = new Audio(`data:audio/wav;base64,${base64Audio}`)
       currentAudioRef.current = audio
 
       // Set volume explicitly (helps on some mobile devices)
       audio.volume = 1.0
+
+      // CRITICAL: Set preload to auto for better mobile compatibility
+      audio.preload = 'auto'
+
+      // Load the audio first (important for iOS)
+      audio.load()
 
       // Handle the play() promise (critical for mobile browsers)
       const playPromise = audio.play()
@@ -364,6 +410,13 @@ function App() {
           })
           .catch((error) => {
             console.error('❌ Audio play() rejected:', error.name, error.message)
+
+            // If still getting NotAllowedError, try to unlock again
+            if (error.name === 'NotAllowedError') {
+              console.warn('⚠️ Audio still blocked - user may need to interact with page')
+              audioUnlockedRef.current = false
+            }
+
             // Try to continue to next audio
             if (currentAudioRef.current === audio) {
               currentAudioRef.current = null
@@ -398,7 +451,19 @@ function App() {
 
   // Show landing page if user hasn't started
   if (!hasStarted) {
-    return <LandingPage onGetStarted={() => setHasStarted(true)} />
+    return <LandingPage onGetStarted={async () => {
+      // Unlock audio on first user interaction (landing page button click)
+      try {
+        const silentAudio = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA')
+        silentAudio.volume = 0
+        await silentAudio.play()
+        audioUnlockedRef.current = true
+        console.log('✅ Audio unlocked via landing page interaction')
+      } catch (e) {
+        console.warn('⚠️ Could not unlock audio on landing page:', e)
+      }
+      setHasStarted(true)
+    }} />
   }
 
   return (
