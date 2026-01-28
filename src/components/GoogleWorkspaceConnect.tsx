@@ -27,7 +27,6 @@ export function GoogleWorkspaceConnect() {
   const [isConnected, setIsConnected] = useState(false)
   const [isChecking, setIsChecking] = useState(true)
   const [showModal, setShowModal] = useState(false)
-  const [isConnecting, setIsConnecting] = useState(false)
   const [connectionStatus, setConnectionStatus] = useState<'idle' | 'connecting' | 'success' | 'error'>('idle')
 
   useEffect(() => {
@@ -69,7 +68,6 @@ export function GoogleWorkspaceConnect() {
     if (!user) return
 
     setConnectionStatus('connecting')
-    setIsConnecting(true)
 
     // Listen for postMessage from OAuth popup
     const handleMessage = (event: MessageEvent) => {
@@ -93,7 +91,6 @@ export function GoogleWorkspaceConnect() {
         setConnectionStatus('success')
         localStorage.setItem(`workspace_connected_${user.id}`, 'true')
         setIsConnected(true)
-        setIsConnecting(false)
 
         // Close modal after success animation
         setTimeout(() => {
@@ -108,7 +105,6 @@ export function GoogleWorkspaceConnect() {
 
         // Mark as failed
         setConnectionStatus('error')
-        setIsConnecting(false)
 
         // Remove listener
         window.removeEventListener('message', handleMessage)
@@ -124,7 +120,8 @@ export function GoogleWorkspaceConnect() {
     const left = window.screen.width / 2 - width / 2
     const top = window.screen.height / 2 - height / 2
 
-    const oauthWindow = window.open(
+    // Open popup (no need to store reference with postMessage pattern)
+    window.open(
       `${MCP_SERVER_URL}/oauth/start?userId=${user.id}`,
       'Google Workspace OAuth',
       `width=${width},height=${height},left=${left},top=${top}`
@@ -134,7 +131,6 @@ export function GoogleWorkspaceConnect() {
     const timeoutId = setTimeout(() => {
       console.warn('OAuth timeout - no response received')
       setConnectionStatus('error')
-      setIsConnecting(false)
       window.removeEventListener('message', handleMessage)
     }, 120000) // 2 minutes
 
