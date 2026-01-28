@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { io, Socket } from 'socket.io-client'
+import { useAuth } from './hooks/useAuth'
 import AudioVisualizer from './components/AudioVisualizer'
 import Transcript from './components/Transcript'
 import CallControls from './components/CallControls'
@@ -9,6 +10,8 @@ import StatusIndicator from './components/StatusIndicator'
 import ModeSelector from './components/ModeSelector'
 import ChatInterface from './components/ChatInterface'
 import LandingPage from './components/LandingPage'
+import { ProtectedRoute } from './components/ProtectedRoute'
+import { GoogleWorkspaceConnect } from './components/GoogleWorkspaceConnect'
 
 // Backend URL - change this to your Railway URL
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001'
@@ -24,6 +27,7 @@ interface TranscriptMessage {
 function App() {
   const navigate = useNavigate()
   const location = useLocation()
+  const { user } = useAuth()
 
   // Determine mode based on route
   const isLandingPage = location.pathname === '/'
@@ -54,6 +58,9 @@ function App() {
   useEffect(() => {
     console.log('🔌 Connecting to backend:', BACKEND_URL)
     const newSocket = io(BACKEND_URL, {
+      auth: {
+        userId: user?.id || null
+      },
       transports: ['websocket', 'polling'],
       reconnection: true,
       reconnectionDelay: 1000,
@@ -138,7 +145,7 @@ function App() {
     return () => {
       newSocket.close()
     }
-  }, [])
+  }, [user])
 
   const addTranscript = (type: 'user' | 'ai' | 'system', text: string) => {
     setTranscript(prev => [...prev, {
@@ -524,6 +531,7 @@ function App() {
 
   // Show voice/chat AI interface
   return (
+    <ProtectedRoute>
     <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-midnight-soft relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute inset-0 bg-gradient-glow opacity-60 pointer-events-none" />
@@ -562,6 +570,9 @@ function App() {
 
           {/* Content */}
           <div className="p-8 space-y-6 bg-gradient-to-b from-midnight-800 to-midnight-900">
+            {/* Google Workspace Connection */}
+            <GoogleWorkspaceConnect />
+
             {appMode === 'voice' ? (
               <>
                 {/* Voice Mode */}
@@ -643,6 +654,7 @@ function App() {
         </motion.div>
       </motion.div>
     </div>
+    </ProtectedRoute>
   )
 }
 
