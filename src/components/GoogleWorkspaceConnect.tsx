@@ -8,18 +8,19 @@ interface WorkspaceService {
   id: string
   name: string
   icon: string
+  iconType: 'image' | 'emoji'
   description: string
 }
 
 const WORKSPACE_SERVICES: WorkspaceService[] = [
-  { id: 'gmail', name: 'Gmail', icon: '📧', description: 'Read, send, and manage emails' },
-  { id: 'calendar', name: 'Calendar', icon: '📅', description: 'View and create events' },
-  { id: 'drive', name: 'Drive', icon: '📁', description: 'Access and organize files' },
-  { id: 'docs', name: 'Docs', icon: '📝', description: 'Create and edit documents' },
-  { id: 'sheets', name: 'Sheets', icon: '📊', description: 'Manage spreadsheets' },
-  { id: 'contacts', name: 'Contacts', icon: '👤', description: 'View and update contacts' },
-  { id: 'tasks', name: 'Tasks', icon: '✓', description: 'Create and track tasks' },
-  { id: 'meet', name: 'Meet', icon: '📹', description: 'Schedule video meetings' },
+  { id: 'gmail', name: 'Gmail', icon: '/google-icons/gmail.png', iconType: 'image', description: 'Read, send, and manage emails' },
+  { id: 'calendar', name: 'Calendar', icon: '/google-icons/calendar.png', iconType: 'image', description: 'View and create events' },
+  { id: 'drive', name: 'Drive', icon: '/google-icons/drive.png', iconType: 'image', description: 'Access and organize files' },
+  { id: 'docs', name: 'Docs', icon: '/google-icons/docs.png', iconType: 'image', description: 'Create and edit documents' },
+  { id: 'sheets', name: 'Sheets', icon: '/google-icons/sheets.png', iconType: 'image', description: 'Manage spreadsheets' },
+  { id: 'contacts', name: 'Contacts', icon: '👤', iconType: 'emoji', description: 'View and update contacts' },
+  { id: 'tasks', name: 'Tasks', icon: '/google-icons/tasks.png', iconType: 'image', description: 'Create and track tasks' },
+  { id: 'meet', name: 'Meet', icon: '/google-icons/meet.png', iconType: 'image', description: 'Schedule video meetings' },
 ]
 
 export function GoogleWorkspaceConnect() {
@@ -288,10 +289,17 @@ export function GoogleWorkspaceConnect() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: index * 0.05 }}
-                    className="text-2xl"
                     title={service.name}
                   >
-                    {service.icon}
+                    {service.iconType === 'image' ? (
+                      <img
+                        src={service.icon}
+                        alt={service.name}
+                        className="w-8 h-8 object-contain"
+                      />
+                    ) : (
+                      <span className="text-2xl">{service.icon}</span>
+                    )}
                   </motion.div>
                 ))}
               </div>
@@ -392,7 +400,17 @@ export function GoogleWorkspaceConnect() {
                               transition={{ delay: 0.3 + index * 0.05 }}
                               className="flex items-center gap-3 p-3 rounded-xl bg-gray-800/50 border border-gray-700/50 hover:border-emerald-500/30 hover:bg-gray-800/70 transition-all duration-200"
                             >
-                              <span className="text-2xl">{service.icon}</span>
+                              <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center">
+                                {service.iconType === 'image' ? (
+                                  <img
+                                    src={service.icon}
+                                    alt={service.name}
+                                    className="w-8 h-8 object-contain"
+                                  />
+                                ) : (
+                                  <span className="text-2xl">{service.icon}</span>
+                                )}
+                              </div>
                               <div className="flex-1 min-w-0">
                                 <p className="text-white font-medium text-sm">{service.name}</p>
                                 <p className="text-gray-500 text-xs truncate">{service.description}</p>
