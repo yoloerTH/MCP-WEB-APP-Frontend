@@ -145,7 +145,7 @@ function App() {
     return () => {
       newSocket.close()
     }
-  }, [user])
+  }, [user?.id]) // Only reconnect when user ID changes, not on every auth event
 
   const addTranscript = (type: 'user' | 'ai' | 'system', text: string) => {
     setTranscript(prev => [...prev, {
