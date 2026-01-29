@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { AuthButton } from './AuthButton'
 
@@ -37,6 +38,7 @@ const GoogleServiceIcon = ({ service }: { service: string }) => {
 }
 
 export default function LandingPage({ onGetStarted }: LandingPageProps) {
+  const navigate = useNavigate()
   const { user, signInWithGoogle } = useAuth()
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [currentScenario, setCurrentScenario] = useState(0)
@@ -202,7 +204,17 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
+            className="flex items-center gap-6"
           >
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/inspiration')}
+              className="text-sm font-semibold text-emerald-300 hover:text-emerald-200 transition-colors"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Explore AI Hub
+            </motion.button>
             <AuthButton />
           </motion.div>
         </div>

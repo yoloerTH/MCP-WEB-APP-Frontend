@@ -2,13 +2,37 @@ import { createContext, useEffect, useState, ReactNode } from 'react'
 import { User, Session, AuthError } from '@supabase/supabase-js'
 import { supabase } from '../lib/supabase'
 
+export interface PersonalizationData {
+  id?: string
+  user_id?: string
+  full_name?: string
+  preferred_name?: string
+  occupation_type?: 'student' | 'professional' | 'business_owner' | 'freelancer' | 'other'
+  job_title?: string
+  company_organization?: string
+  industry?: string
+  primary_work_focus?: string
+  common_tools?: string[]
+  typical_tasks?: string[]
+  communication_style?: 'formal' | 'casual' | 'concise' | 'detailed'
+  timezone?: string
+  ai_context_summary?: string
+  completed_onboarding?: boolean
+  created_at?: string
+  updated_at?: string
+}
+
 interface AuthContextType {
   user: User | null
   session: Session | null
   loading: boolean
   error: AuthError | null
+  hasPersonalization: boolean
+  personalizationData: PersonalizationData | null
   signInWithGoogle: () => Promise<void>
   signOut: () => Promise<void>
+  fetchPersonalization: () => Promise<void>
+  updatePersonalization: (data: PersonalizationData) => Promise<void>
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined)
@@ -22,6 +46,65 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [session, setSession] = useState<Session | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<AuthError | null>(null)
+  const [hasPersonalization, setHasPersonalization] = useState(false)
+  const [personalizationData, setPersonalizationData] = useState<PersonalizationData | null>(null)
+
+  const fetchPersonalization = async () => {
+    if (!user?.id) {
+      setHasPersonalization(false)
+      setPersonalizationData(null)
+      return
+    }
+
+    try {
+      const { data, error } = await supabase
+        .from('user_personalization')
+        .select('*')
+        .eq('user_id', user.id)
+        .single()
+
+      if (error) {
+        if (error.code === 'PGRST116') {
+          // No rows found - user hasn't completed personalization
+          setHasPersonalization(false)
+          setPersonalizationData(null)
+        } else {
+          console.error('Error fetching personalization:', error)
+        }
+      } else {
+        setPersonalizationData(data)
+        setHasPersonalization(data?.completed_onboarding === true)
+      }
+    } catch (err) {
+      console.error('Error fetching personalization:', err)
+    }
+  }
+
+  const updatePersonalization = async (data: PersonalizationData) => {
+    if (!user?.id) {
+      throw new Error('User not authenticated')
+    }
+
+    try {
+      const payload = {
+        ...data,
+        user_id: user.id,
+        completed_onboarding: true,
+      }
+
+      const { error } = await supabase
+        .from('user_personalization')
+        .upsert(payload, { onConflict: 'user_id' })
+
+      if (error) throw error
+
+      // Refetch personalization data
+      await fetchPersonalization()
+    } catch (err) {
+      console.error('Error updating personalization:', err)
+      throw err
+    }
+  }
 
   useEffect(() => {
     // Get initial session
@@ -33,6 +116,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
       setSession(session)
       setUser(session?.user ?? null)
       setLoading(false)
+
+      // Fetch personalization if user exists
+      if (session?.user) {
+        fetchPersonalization()
+      }
     })
 
     // Listen for auth changes
@@ -44,6 +132,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
       setUser(session?.user ?? null)
       setLoading(false)
       setError(null)
+
+      // Fetch personalization when user signs in
+      if (session?.user) {
+        fetchPersonalization()
+      } else {
+        setHasPersonalization(false)
+        setPersonalizationData(null)
+      }
     })
 
     return () => subscription.unsubscribe()
@@ -87,8 +183,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
     session,
     loading,
     error,
+    hasPersonalization,
+    personalizationData,
     signInWithGoogle,
     signOut,
+    fetchPersonalization,
+    updatePersonalization,
   }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
