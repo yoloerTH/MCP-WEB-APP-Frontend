@@ -17,26 +17,14 @@ function App() {
     const isSettingsPage = location.pathname === '/settings'
     const isInspirationPage = location.pathname === '/inspiration'
 
-    console.log('🎯 Modal decision:', {
-      user: !!user,
-      personalizationLoading,
-      hasPersonalization,
-      pathname: location.pathname,
-      isLandingPage,
-      isSettingsPage,
-      isInspirationPage
-    })
-
     // Only show modal if:
     // 1. User exists
     // 2. Personalization data has finished loading
     // 3. User doesn't have personalization
     // 4. Not on excluded pages
     if (user && !personalizationLoading && !hasPersonalization && !isLandingPage && !isSettingsPage && !isInspirationPage) {
-      console.log('✅ Showing personalization modal')
       setShowPersonalizationModal(true)
     } else {
-      console.log('❌ Not showing personalization modal')
       setShowPersonalizationModal(false)
     }
   }, [user, hasPersonalization, personalizationLoading, location.pathname])

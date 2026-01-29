@@ -54,10 +54,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   const fetchPersonalization = async (userId?: string) => {
     const targetUserId = userId || user?.id
-    console.log('🔍 fetchPersonalization called, userId param:', userId, 'user.id:', user?.id, 'using:', targetUserId)
 
     if (!targetUserId) {
-      console.log('❌ No user ID available, skipping fetch')
       setHasPersonalization(false)
       setPersonalizationData(null)
       setPersonalizationLoading(false)
@@ -67,13 +65,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     // Prevent duplicate fetches for the same user
     if (lastFetchedUserIdRef.current === targetUserId) {
-      console.log('⏭️ Already fetched for this user, skipping')
       return
     }
 
     lastFetchedUserIdRef.current = targetUserId
     setPersonalizationLoading(true)
-    console.log('⏳ Fetching personalization from Supabase for user:', targetUserId)
 
     try {
       const { data, error } = await supabase
@@ -83,24 +79,20 @@ export function AuthProvider({ children }: AuthProviderProps) {
         .maybeSingle()
 
       if (error) {
-        console.error('❌ Error fetching personalization:', error)
+        console.error('Error fetching personalization:', error)
         setHasPersonalization(false)
         setPersonalizationData(null)
       } else if (data) {
-        console.log('✅ Personalization data loaded:', data)
-        console.log('✅ completed_onboarding:', data.completed_onboarding)
         setPersonalizationData(data)
         setHasPersonalization(data.completed_onboarding === true)
       } else {
-        console.log('ℹ️ No personalization data exists yet')
         setHasPersonalization(false)
         setPersonalizationData(null)
       }
     } catch (err) {
-      console.error('❌ Error fetching personalization:', err)
+      console.error('Error fetching personalization:', err)
     } finally {
       setPersonalizationLoading(false)
-      console.log('✅ Personalization loading complete. hasPersonalization:', hasPersonalization)
     }
   }
 
