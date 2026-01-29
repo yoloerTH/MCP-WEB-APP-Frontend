@@ -53,7 +53,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const lastFetchedUserIdRef = useRef<string | null>(null)
 
   const fetchPersonalization = async () => {
+    console.log('🔍 fetchPersonalization called, user.id:', user?.id)
+
     if (!user?.id) {
+      console.log('❌ No user ID, skipping fetch')
       setHasPersonalization(false)
       setPersonalizationData(null)
       setPersonalizationLoading(false)
@@ -63,11 +66,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     // Prevent duplicate fetches for the same user
     if (lastFetchedUserIdRef.current === user.id) {
+      console.log('⏭️ Already fetched for this user, skipping')
       return
     }
 
     lastFetchedUserIdRef.current = user.id
     setPersonalizationLoading(true)
+    console.log('⏳ Fetching personalization from Supabase...')
 
     try {
       const { data, error } = await supabase
@@ -77,21 +82,24 @@ export function AuthProvider({ children }: AuthProviderProps) {
         .maybeSingle()
 
       if (error) {
-        console.error('Error fetching personalization:', error)
+        console.error('❌ Error fetching personalization:', error)
         setHasPersonalization(false)
         setPersonalizationData(null)
       } else if (data) {
+        console.log('✅ Personalization data loaded:', data)
+        console.log('✅ completed_onboarding:', data.completed_onboarding)
         setPersonalizationData(data)
         setHasPersonalization(data.completed_onboarding === true)
       } else {
-        // No personalization data exists yet
+        console.log('ℹ️ No personalization data exists yet')
         setHasPersonalization(false)
         setPersonalizationData(null)
       }
     } catch (err) {
-      console.error('Error fetching personalization:', err)
+      console.error('❌ Error fetching personalization:', err)
     } finally {
       setPersonalizationLoading(false)
+      console.log('✅ Personalization loading complete. hasPersonalization:', hasPersonalization)
     }
   }
 
