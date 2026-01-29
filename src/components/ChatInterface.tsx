@@ -40,7 +40,7 @@ export default function ChatInterface({ messages, onSendMessage, isWaiting }: Ch
   }
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col flex-1 min-h-0">
       {/* Header */}
       <div className="mb-3 flex-shrink-0">
         <h3 className="text-sm font-bold text-emerald-300 flex items-center gap-2">
@@ -56,7 +56,7 @@ export default function ChatInterface({ messages, onSendMessage, isWaiting }: Ch
       {/* Messages */}
       <div
         ref={scrollRef}
-        className="flex-1 overflow-y-auto space-y-4 bg-gradient-to-br from-midnight-900/80 to-midnight-800/50 rounded-xl p-4 border border-emerald-500/20 mb-4"
+        className="flex-1 min-h-0 overflow-y-auto space-y-4 bg-gradient-to-br from-midnight-900/80 to-midnight-800/50 rounded-xl p-4 border border-emerald-500/20 mb-4"
         style={{
           scrollbarWidth: 'thin',
           scrollbarColor: '#10b981 transparent'
@@ -163,8 +163,8 @@ export default function ChatInterface({ messages, onSendMessage, isWaiting }: Ch
         )}
       </div>
 
-      {/* Input */}
-      <div className="flex items-center gap-3">
+      {/* Input - Fixed at bottom */}
+      <div className="flex-shrink-0 flex items-center gap-3">
         <input
           type="text"
           value={input}
