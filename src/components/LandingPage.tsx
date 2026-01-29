@@ -41,6 +41,8 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [currentScenario, setCurrentScenario] = useState(0)
   const [isCarouselPaused, setIsCarouselPaused] = useState(false)
+  const [showNav, setShowNav] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
   const { scrollYProgress } = useScroll()
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 })
 
@@ -53,6 +55,29 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
     window.addEventListener('mousemove', handleMouseMove)
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
+
+  // Scroll direction detection for nav hide/show
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+
+      if (currentScrollY < 10) {
+        // Always show nav at top of page
+        setShowNav(true)
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling down - hide nav
+        setShowNav(false)
+      } else {
+        // Scrolling up - show nav
+        setShowNav(true)
+      }
+
+      setLastScrollY(currentScrollY)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [lastScrollY])
 
   // Auto-scroll carousel
   useEffect(() => {
@@ -147,7 +172,12 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#0a0e1a]/80 border-b border-emerald-500/10">
+      <motion.nav
+        initial={{ y: 0 }}
+        animate={{ y: showNav ? 0 : -100 }}
+        transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#0a0e1a]/90 border-b border-emerald-500/10"
+      >
         <div className="max-w-[1400px] mx-auto px-8 py-5 flex items-center justify-between">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -176,7 +206,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
             <AuthButton />
           </motion.div>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-12 px-8 min-h-screen flex items-center">
