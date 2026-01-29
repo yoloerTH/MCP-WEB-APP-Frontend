@@ -32,7 +32,7 @@ interface AuthContextType {
   personalizationLoading: boolean
   signInWithGoogle: () => Promise<void>
   signOut: () => Promise<void>
-  fetchPersonalization: () => Promise<void>
+  fetchPersonalization: (userId?: string) => Promise<void>
   updatePersonalization: (data: PersonalizationData) => Promise<void>
 }
 
@@ -52,11 +52,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [personalizationLoading, setPersonalizationLoading] = useState(false)
   const lastFetchedUserIdRef = useRef<string | null>(null)
 
-  const fetchPersonalization = async () => {
-    console.log('🔍 fetchPersonalization called, user.id:', user?.id)
+  const fetchPersonalization = async (userId?: string) => {
+    const targetUserId = userId || user?.id
+    console.log('🔍 fetchPersonalization called, userId param:', userId, 'user.id:', user?.id, 'using:', targetUserId)
 
-    if (!user?.id) {
-      console.log('❌ No user ID, skipping fetch')
+    if (!targetUserId) {
+      console.log('❌ No user ID available, skipping fetch')
       setHasPersonalization(false)
       setPersonalizationData(null)
       setPersonalizationLoading(false)
@@ -65,20 +66,20 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
 
     // Prevent duplicate fetches for the same user
-    if (lastFetchedUserIdRef.current === user.id) {
+    if (lastFetchedUserIdRef.current === targetUserId) {
       console.log('⏭️ Already fetched for this user, skipping')
       return
     }
 
-    lastFetchedUserIdRef.current = user.id
+    lastFetchedUserIdRef.current = targetUserId
     setPersonalizationLoading(true)
-    console.log('⏳ Fetching personalization from Supabase...')
+    console.log('⏳ Fetching personalization from Supabase for user:', targetUserId)
 
     try {
       const { data, error } = await supabase
         .from('user_personalization')
         .select('*')
-        .eq('user_id', user.id)
+        .eq('user_id', targetUserId)
         .maybeSingle()
 
       if (error) {
@@ -121,9 +122,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       if (error) throw error
 
-      // Reset ref to allow refetch and then refetch personalization data
+      // Reset ref to allow refetch and then refetch personalization data - pass user ID directly
       lastFetchedUserIdRef.current = null
-      await fetchPersonalization()
+      await fetchPersonalization(user.id)
     } catch (err) {
       console.error('Error updating personalization:', err)
       throw err
@@ -141,9 +142,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
       setUser(session?.user ?? null)
       setLoading(false)
 
-      // Fetch personalization if user exists
-      if (session?.user) {
-        fetchPersonalization()
+      // Fetch personalization if user exists - pass ID directly
+      if (session?.user?.id) {
+        fetchPersonalization(session.user.id)
       }
     })
 
@@ -157,9 +158,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
       setLoading(false)
       setError(null)
 
-      // Fetch personalization when user signs in
-      if (session?.user) {
-        fetchPersonalization()
+      // Fetch personalization when user signs in - pass ID directly from session
+      if (session?.user?.id) {
+        fetchPersonalization(session.user.id)
       } else {
         setHasPersonalization(false)
         setPersonalizationData(null)
