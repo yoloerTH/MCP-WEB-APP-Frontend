@@ -3,7 +3,7 @@ export interface UseCase {
   title: string
   description: string
   category: 'email' | 'calendar' | 'documents' | 'multi-service' | 'quick-tasks'
-  icon: string
+  icon: string // Path to icon (e.g., '/google-icons/gmail.png') or emoji
   examplePrompt: string
   tags: string[] // For smart weighting
   difficulty: 'beginner' | 'intermediate' | 'advanced'
@@ -16,7 +16,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Draft Professional Email',
     description: 'Compose emails with proper tone and formatting',
     category: 'email',
-    icon: '✉️',
+    icon: '/google-icons/gmail.png',
     examplePrompt: 'Draft an email to my team about the project update',
     tags: ['gmail', 'writing', 'communication', 'professional'],
     difficulty: 'beginner'
@@ -26,7 +26,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Email Follow-up Automation',
     description: 'Send follow-up emails to unread messages',
     category: 'email',
-    icon: '🔄',
+    icon: '/google-icons/gmail.png',
     examplePrompt: 'Send follow-ups to emails I haven\'t replied to this week',
     tags: ['gmail', 'automation', 'business_owner', 'professional'],
     difficulty: 'intermediate'
@@ -36,7 +36,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Email Summary Report',
     description: 'Get a summary of important emails from today',
     category: 'email',
-    icon: '📊',
+    icon: '/google-icons/gmail.png',
     examplePrompt: 'Summarize my emails from today',
     tags: ['gmail', 'analysis', 'productivity', 'professional'],
     difficulty: 'beginner'
@@ -46,7 +46,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Bulk Email Organization',
     description: 'Archive, label, or delete emails matching criteria',
     category: 'email',
-    icon: '📁',
+    icon: '/google-icons/gmail.png',
     examplePrompt: 'Archive all promotional emails from last month',
     tags: ['gmail', 'organization', 'productivity'],
     difficulty: 'intermediate'
@@ -56,7 +56,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Schedule Email Send',
     description: 'Draft an email to be sent at a specific time',
     category: 'email',
-    icon: '⏰',
+    icon: '/google-icons/gmail.png',
     examplePrompt: 'Draft email to send tomorrow at 9am about the meeting',
     tags: ['gmail', 'scheduling', 'professional'],
     difficulty: 'intermediate'
@@ -66,7 +66,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Email to Contact Lookup',
     description: 'Find someone\'s email and send a message',
     category: 'email',
-    icon: '🔍',
+    icon: '/google-icons/gmail.png',
     examplePrompt: 'Find John\'s email and send him the report',
     tags: ['gmail', 'contacts', 'business_owner', 'professional'],
     difficulty: 'intermediate'
@@ -76,7 +76,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Email Template Creation',
     description: 'Create reusable email templates for common messages',
     category: 'email',
-    icon: '📝',
+    icon: '/google-icons/gmail.png',
     examplePrompt: 'Create a template for weekly status updates',
     tags: ['gmail', 'templates', 'professional'],
     difficulty: 'intermediate'
@@ -86,7 +86,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Priority Inbox Filter',
     description: 'Identify and highlight urgent emails',
     category: 'email',
-    icon: '⚡',
+    icon: '/google-icons/gmail.png',
     examplePrompt: 'Show me urgent emails from my boss',
     tags: ['gmail', 'filtering', 'productivity', 'professional'],
     difficulty: 'beginner'
@@ -98,7 +98,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Schedule Meeting',
     description: 'Create calendar events with attendees and details',
     category: 'calendar',
-    icon: '📅',
+    icon: '/google-icons/calendar.png',
     examplePrompt: 'Schedule a team meeting next Tuesday at 2pm',
     tags: ['calendar', 'scheduling', 'meetings', 'professional'],
     difficulty: 'beginner'
@@ -108,7 +108,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Find Available Time Slots',
     description: 'Check calendar for open times to schedule meetings',
     category: 'calendar',
-    icon: '🕒',
+    icon: '/google-icons/calendar.png',
     examplePrompt: 'When am I free this week for a 1-hour meeting?',
     tags: ['calendar', 'scheduling', 'productivity'],
     difficulty: 'beginner'
@@ -118,7 +118,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Daily Schedule Overview',
     description: 'Get a summary of your day\'s appointments',
     category: 'calendar',
-    icon: '🌅',
+    icon: '/google-icons/calendar.png',
     examplePrompt: 'What\'s on my calendar today?',
     tags: ['calendar', 'planning', 'productivity'],
     difficulty: 'beginner'
@@ -128,7 +128,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Reschedule Events',
     description: 'Move meetings to different times automatically',
     category: 'calendar',
-    icon: '↔️',
+    icon: '/google-icons/calendar.png',
     examplePrompt: 'Move all my meetings from Friday to next Monday',
     tags: ['calendar', 'rescheduling', 'professional'],
     difficulty: 'intermediate'
@@ -138,7 +138,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Recurring Event Setup',
     description: 'Create repeating calendar events',
     category: 'calendar',
-    icon: '🔁',
+    icon: '/google-icons/calendar.png',
     examplePrompt: 'Create a weekly standup meeting every Monday at 10am',
     tags: ['calendar', 'recurring', 'professional'],
     difficulty: 'intermediate'
@@ -148,7 +148,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Block Focus Time',
     description: 'Reserve calendar blocks for deep work',
     category: 'calendar',
-    icon: '🎯',
+    icon: '/google-icons/calendar.png',
     examplePrompt: 'Block 2 hours tomorrow morning for focused work',
     tags: ['calendar', 'productivity', 'focus'],
     difficulty: 'beginner'
@@ -158,7 +158,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Event Reminders',
     description: 'Set custom reminders for important events',
     category: 'calendar',
-    icon: '🔔',
+    icon: '/google-icons/calendar.png',
     examplePrompt: 'Remind me about the dentist appointment 1 day before',
     tags: ['calendar', 'reminders', 'personal'],
     difficulty: 'beginner'
@@ -168,7 +168,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Meeting Conflict Resolution',
     description: 'Identify and resolve scheduling conflicts',
     category: 'calendar',
-    icon: '⚠️',
+    icon: '/google-icons/calendar.png',
     examplePrompt: 'Show me any calendar conflicts this week',
     tags: ['calendar', 'conflicts', 'professional'],
     difficulty: 'intermediate'
@@ -180,7 +180,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Create New Document',
     description: 'Generate docs with outlines and content',
     category: 'documents',
-    icon: '📄',
+    icon: '/google-icons/docs.png',
     examplePrompt: 'Create a document about project updates',
     tags: ['docs', 'writing', 'student', 'professional'],
     difficulty: 'beginner'
@@ -190,7 +190,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Research Paper Outline',
     description: 'Build structured academic document outlines',
     category: 'documents',
-    icon: '🎓',
+    icon: '/google-icons/docs.png',
     examplePrompt: 'Create an outline for my research paper on AI',
     tags: ['docs', 'research', 'student', 'academic'],
     difficulty: 'intermediate'
@@ -200,7 +200,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Find and Share File',
     description: 'Locate documents in Drive and share with team',
     category: 'documents',
-    icon: '🔗',
+    icon: '/google-icons/drive.png',
     examplePrompt: 'Find my presentation and share it with the team',
     tags: ['drive', 'sharing', 'collaboration', 'professional'],
     difficulty: 'beginner'
@@ -210,7 +210,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Spreadsheet Data Analysis',
     description: 'Analyze data in Google Sheets and summarize insights',
     category: 'documents',
-    icon: '📈',
+    icon: '/google-icons/sheets.png',
     examplePrompt: 'Analyze the sales data in my spreadsheet',
     tags: ['sheets', 'data', 'analysis', 'business_owner'],
     difficulty: 'intermediate'
@@ -220,7 +220,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Document Template Generation',
     description: 'Create reusable document templates',
     category: 'documents',
-    icon: '📋',
+    icon: '/google-icons/docs.png',
     examplePrompt: 'Create a meeting notes template',
     tags: ['docs', 'templates', 'professional'],
     difficulty: 'beginner'
@@ -230,7 +230,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Folder Organization',
     description: 'Organize Drive files into structured folders',
     category: 'documents',
-    icon: '🗂️',
+    icon: '/google-icons/drive.png',
     examplePrompt: 'Organize my Drive files by project',
     tags: ['drive', 'organization', 'productivity'],
     difficulty: 'intermediate'
@@ -240,7 +240,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Presentation Creation',
     description: 'Build slide decks with content and structure',
     category: 'documents',
-    icon: '🎬',
+    icon: '/google-icons/sheets.png',
     examplePrompt: 'Create a presentation about quarterly results',
     tags: ['slides', 'presentations', 'business_owner', 'professional'],
     difficulty: 'intermediate'
@@ -250,7 +250,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Document Version Comparison',
     description: 'Compare different versions of a document',
     category: 'documents',
-    icon: '🔄',
+    icon: '/google-icons/docs.png',
     examplePrompt: 'What changed in the latest version of the contract?',
     tags: ['docs', 'versioning', 'professional'],
     difficulty: 'advanced'
@@ -262,7 +262,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Meeting Notes to Email',
     description: 'Create meeting notes in Docs and email to attendees',
     category: 'multi-service',
-    icon: '🤝',
+    icon: '👥',
     examplePrompt: 'Create meeting notes and email them to the team',
     tags: ['docs', 'gmail', 'meetings', 'professional'],
     difficulty: 'intermediate'
@@ -272,7 +272,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Event with Document',
     description: 'Schedule meeting and create agenda document',
     category: 'multi-service',
-    icon: '📅📄',
+    icon: '🔗',
     examplePrompt: 'Schedule a planning meeting and create an agenda',
     tags: ['calendar', 'docs', 'meetings', 'professional'],
     difficulty: 'intermediate'
@@ -282,7 +282,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Email to Calendar Event',
     description: 'Convert email details into calendar appointment',
     category: 'multi-service',
-    icon: '✉️📅',
+    icon: '🔗',
     examplePrompt: 'Add the event from John\'s email to my calendar',
     tags: ['gmail', 'calendar', 'scheduling'],
     difficulty: 'intermediate'
@@ -292,7 +292,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Weekly Report Generation',
     description: 'Compile weekly data into document and email',
     category: 'multi-service',
-    icon: '📊✉️',
+    icon: '/google-icons/sheets.png',
     examplePrompt: 'Create weekly report from my calendar and email it to my manager',
     tags: ['calendar', 'docs', 'gmail', 'professional', 'reports'],
     difficulty: 'advanced'
@@ -312,7 +312,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Share Drive File via Email',
     description: 'Locate file in Drive and email link to recipient',
     category: 'multi-service',
-    icon: '📎',
+    icon: '/google-icons/drive.png',
     examplePrompt: 'Find the Q4 report and email it to Sarah',
     tags: ['drive', 'gmail', 'sharing', 'professional'],
     difficulty: 'beginner'
@@ -322,7 +322,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Survey Creation and Distribution',
     description: 'Create Google Form and email to distribution list',
     category: 'multi-service',
-    icon: '📝✉️',
+    icon: '📝',
     examplePrompt: 'Create a feedback form and send it to the team',
     tags: ['forms', 'gmail', 'feedback', 'professional'],
     difficulty: 'intermediate'
@@ -332,7 +332,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Data Export to Sheet',
     description: 'Export email or calendar data to spreadsheet',
     category: 'multi-service',
-    icon: '📊',
+    icon: '/google-icons/sheets.png',
     examplePrompt: 'Export this week\'s meeting attendees to a spreadsheet',
     tags: ['calendar', 'sheets', 'data', 'analysis'],
     difficulty: 'advanced'
@@ -352,7 +352,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Automated Status Updates',
     description: 'Compile calendar, email, and docs into status update',
     category: 'multi-service',
-    icon: '🔄',
+    icon: '/google-icons/docs.png',
     examplePrompt: 'Create a status update from my week\'s activities',
     tags: ['calendar', 'gmail', 'docs', 'professional', 'reports'],
     difficulty: 'advanced'
@@ -364,7 +364,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Quick Email Check',
     description: 'Check for urgent or important emails',
     category: 'quick-tasks',
-    icon: '⚡',
+    icon: '/google-icons/gmail.png',
     examplePrompt: 'Any urgent emails?',
     tags: ['gmail', 'quick', 'productivity'],
     difficulty: 'beginner'
@@ -374,7 +374,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Next Meeting Info',
     description: 'Get details about your next appointment',
     category: 'quick-tasks',
-    icon: '⏭️',
+    icon: '/google-icons/calendar.png',
     examplePrompt: 'What\'s my next meeting?',
     tags: ['calendar', 'quick', 'scheduling'],
     difficulty: 'beginner'
@@ -384,7 +384,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Quick File Search',
     description: 'Find a specific file in Drive',
     category: 'quick-tasks',
-    icon: '🔎',
+    icon: '/google-icons/drive.png',
     examplePrompt: 'Find my resume',
     tags: ['drive', 'quick', 'search'],
     difficulty: 'beginner'
@@ -404,7 +404,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Cancel Meeting',
     description: 'Remove event from calendar and notify attendees',
     category: 'quick-tasks',
-    icon: '❌',
+    icon: '/google-icons/calendar.png',
     examplePrompt: 'Cancel my 3pm meeting',
     tags: ['calendar', 'quick', 'scheduling'],
     difficulty: 'beginner'
@@ -414,7 +414,7 @@ export const USE_CASES: UseCase[] = [
     title: 'Quick Reply',
     description: 'Send a brief response to an email',
     category: 'quick-tasks',
-    icon: '💬',
+    icon: '/google-icons/gmail.png',
     examplePrompt: 'Reply to Sarah\'s email saying I\'ll be there',
     tags: ['gmail', 'quick', 'communication'],
     difficulty: 'beginner'

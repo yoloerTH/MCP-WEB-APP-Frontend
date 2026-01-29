@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState, ReactNode } from 'react'
+import { createContext, useEffect, useState, useRef, ReactNode } from 'react'
 import { User, Session, AuthError } from '@supabase/supabase-js'
 import { supabase } from '../lib/supabase'
 
@@ -48,32 +48,41 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [error, setError] = useState<AuthError | null>(null)
   const [hasPersonalization, setHasPersonalization] = useState(false)
   const [personalizationData, setPersonalizationData] = useState<PersonalizationData | null>(null)
+  const lastFetchedUserIdRef = useRef<string | null>(null)
 
   const fetchPersonalization = async () => {
     if (!user?.id) {
       setHasPersonalization(false)
       setPersonalizationData(null)
+      lastFetchedUserIdRef.current = null
       return
     }
+
+    // Prevent duplicate fetches for the same user
+    if (lastFetchedUserIdRef.current === user.id) {
+      return
+    }
+
+    lastFetchedUserIdRef.current = user.id
 
     try {
       const { data, error } = await supabase
         .from('user_personalization')
         .select('*')
         .eq('user_id', user.id)
-        .single()
+        .maybeSingle()
 
       if (error) {
-        if (error.code === 'PGRST116') {
-          // No rows found - user hasn't completed personalization
-          setHasPersonalization(false)
-          setPersonalizationData(null)
-        } else {
-          console.error('Error fetching personalization:', error)
-        }
-      } else {
+        console.error('Error fetching personalization:', error)
+        setHasPersonalization(false)
+        setPersonalizationData(null)
+      } else if (data) {
         setPersonalizationData(data)
-        setHasPersonalization(data?.completed_onboarding === true)
+        setHasPersonalization(data.completed_onboarding === true)
+      } else {
+        // No personalization data exists yet
+        setHasPersonalization(false)
+        setPersonalizationData(null)
       }
     } catch (err) {
       console.error('Error fetching personalization:', err)
@@ -98,7 +107,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       if (error) throw error
 
-      // Refetch personalization data
+      // Reset ref to allow refetch and then refetch personalization data
+      lastFetchedUserIdRef.current = null
       await fetchPersonalization()
     } catch (err) {
       console.error('Error updating personalization:', err)

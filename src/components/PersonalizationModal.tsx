@@ -139,14 +139,14 @@ export function PersonalizationModal({ isOpen, onClose }: PersonalizationModalPr
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-2xl"
+            className="relative w-full max-w-2xl max-h-[95vh] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Glow Effect */}
             <div className="absolute -inset-4 bg-gradient-to-r from-emerald-500/20 via-gold-400/20 to-gold-500/20 blur-3xl opacity-50" />
 
             {/* Modal Card */}
-            <div className="relative bg-gradient-to-br from-midnight-800/95 to-midnight-900/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-emerald-500/20 overflow-hidden">
+            <div className="relative bg-gradient-to-br from-midnight-800/95 to-midnight-900/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-emerald-500/20 overflow-hidden flex flex-col h-full">
               {/* Header Accent */}
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 via-gold-400 to-gold-500" />
 
@@ -199,8 +199,14 @@ export function PersonalizationModal({ isOpen, onClose }: PersonalizationModalPr
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="px-8 py-8">
+              {/* Content - Scrollable Area */}
+              <div
+                className="px-8 py-8 max-h-[60vh] overflow-y-auto"
+                style={{
+                  scrollbarWidth: 'thin',
+                  scrollbarColor: '#10b981 transparent'
+                }}
+              >
                 <AnimatePresence mode="wait">
                   {/* Step 1: Basic Info */}
                   {step === 1 && (

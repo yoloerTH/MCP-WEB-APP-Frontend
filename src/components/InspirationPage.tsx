@@ -337,9 +337,17 @@ export function InspirationPage() {
                 {/* Icon */}
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 10 }}
-                  className="text-5xl mb-4"
+                  className="mb-4"
                 >
-                  {useCase.icon}
+                  {useCase.icon.startsWith('/') ? (
+                    <img
+                      src={useCase.icon}
+                      alt={useCase.title}
+                      className="w-14 h-14 object-contain"
+                    />
+                  ) : (
+                    <span className="text-5xl">{useCase.icon}</span>
+                  )}
                 </motion.div>
 
                 {/* Title */}

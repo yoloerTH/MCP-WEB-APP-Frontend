@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { io, Socket } from 'socket.io-client'
 import { useAuth } from './hooks/useAuth'
 import AudioVisualizer from './components/AudioVisualizer'
@@ -47,6 +47,19 @@ function VoiceAIApp() {
 
   // User menu state
   const [showUserMenu, setShowUserMenu] = useState(false)
+  const [showTooltip, setShowTooltip] = useState(true)
+
+  // Hide tooltip after 10 seconds or when menu is opened
+  useEffect(() => {
+    const timer = setTimeout(() => setShowTooltip(false), 10000)
+    return () => clearTimeout(timer)
+  }, [])
+
+  useEffect(() => {
+    if (showUserMenu) {
+      setShowTooltip(false)
+    }
+  }, [showUserMenu])
 
   const mediaRecorderRef = useRef<MediaRecorder | null>(null)
   const audioContextRef = useRef<AudioContext | null>(null)
@@ -57,6 +70,7 @@ function VoiceAIApp() {
   const isPlayingAudioRef = useRef<boolean>(false)
   const audioUnlockedRef = useRef<boolean>(false)
   const userMenuRef = useRef<HTMLDivElement>(null)
+  const previousUserIdRef = useRef<string | null>(null)
 
   // Close user menu when clicking outside
   useEffect(() => {
@@ -77,10 +91,19 @@ function VoiceAIApp() {
 
   // Initialize socket connection
   useEffect(() => {
+    const currentUserId = user?.id || null
+
+    // Only reconnect if user ID actually changed
+    if (previousUserIdRef.current === currentUserId) {
+      return
+    }
+
+    previousUserIdRef.current = currentUserId
     console.log('🔌 Connecting to backend:', BACKEND_URL)
+
     const newSocket = io(BACKEND_URL, {
       auth: {
-        userId: user?.id || null
+        userId: currentUserId
       },
       transports: ['websocket', 'polling'],
       reconnection: true,
@@ -589,21 +612,61 @@ function VoiceAIApp() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setShowUserMenu(!showUserMenu)}
-                    className="p-2 rounded-xl bg-midnight-700/50 hover:bg-midnight-700 border border-emerald-500/30 hover:border-emerald-500/50 transition-all"
+                    className="p-2 rounded-xl bg-midnight-700/50 hover:bg-midnight-700 border border-emerald-500/30 hover:border-emerald-500/50 transition-all relative"
                   >
                     <svg className="w-6 h-6 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
+
+                    {/* Pulsing Badge */}
+                    {showTooltip && (
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        className="absolute -top-1 -right-1"
+                      >
+                        <motion.div
+                          animate={{
+                            scale: [1, 1.2, 1],
+                            opacity: [1, 0.8, 1]
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                          className="w-3 h-3 bg-gold-400 rounded-full"
+                        />
+                      </motion.div>
+                    )}
                   </motion.button>
 
+                  {/* Gentle Tooltip */}
+                  <AnimatePresence>
+                    {showTooltip && !showUserMenu && (
+                      <motion.div
+                        initial={{ opacity: 0, x: 10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 10 }}
+                        className="absolute right-0 top-12 z-40 whitespace-nowrap"
+                      >
+                        <div className="bg-gradient-to-br from-gold-400 to-gold-500 text-midnight-900 px-4 py-2 rounded-lg shadow-lg shadow-gold-400/30 text-sm font-semibold relative">
+                          <div className="absolute -top-2 right-4 w-0 h-0 border-l-8 border-r-8 border-b-8 border-transparent border-b-gold-400" />
+                          ✨ Explore inspiring ideas
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
                   {/* Dropdown Menu */}
-                  {showUserMenu && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      className="absolute right-0 mt-2 w-56 bg-midnight-800 backdrop-blur-xl rounded-xl border border-emerald-500/20 shadow-2xl overflow-hidden z-50"
-                    >
+                  <AnimatePresence>
+                    {showUserMenu && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="absolute right-0 mt-2 w-56 bg-midnight-800 backdrop-blur-xl rounded-xl border border-emerald-500/20 shadow-2xl overflow-hidden z-50"
+                      >
                       <div className="p-3 border-b border-midnight-700">
                         <p className="text-xs text-midnight-400">Signed in as</p>
                         <p className="text-sm text-white truncate">{user?.email}</p>
@@ -654,6 +717,7 @@ function VoiceAIApp() {
                       </div>
                     </motion.div>
                   )}
+                  </AnimatePresence>
                 </div>
               </div>
             </div>
