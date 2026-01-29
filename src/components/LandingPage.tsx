@@ -65,20 +65,33 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
     <div className="min-h-screen bg-[#0a0e1a] text-white overflow-x-hidden relative">
       {/* Load Fonts */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
         * {
-          font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+          font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         .font-display {
-          font-family: 'Space Grotesk', sans-serif;
-          font-weight: 700;
+          font-family: 'Sora', sans-serif;
+          font-weight: 800;
           letter-spacing: -0.04em;
         }
 
         .font-mono {
           font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Custom scrollbar for carousel */
+        .carousel-container::-webkit-scrollbar {
+          height: 6px;
+        }
+        .carousel-container::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 10px;
+        }
+        .carousel-container::-webkit-scrollbar-thumb {
+          background: linear-gradient(to right, #10b981, #f59e0b);
+          border-radius: 10px;
         }
       `}</style>
 
@@ -671,112 +684,348 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="relative py-32 px-8">
-        <div className="max-w-[1400px] mx-auto">
+      {/* Real-World Scenarios Carousel */}
+      <section className="relative py-32 px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/5 to-transparent" />
+
+        <div className="max-w-[1400px] mx-auto relative">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-16 space-y-4"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full backdrop-blur-sm mb-4">
+              <span className="text-xs font-mono uppercase tracking-wider text-emerald-300">Real Impact</span>
+            </div>
+            <h2 className="font-display text-5xl lg:text-7xl tracking-tight leading-[1.1]">
+              <span className="text-white">Multi-Service </span>
+              <span className="bg-gradient-to-r from-emerald-400 via-amber-400 to-emerald-400 bg-clip-text text-transparent">
+                Orchestration
+              </span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Watch your AI assistant combine multiple Google services in a single command
+            </p>
+          </motion.div>
+
+          {/* Horizontal Scrolling Carousel */}
+          <div className="relative">
+            <div className="carousel-container flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth">
+              {[
+                {
+                  title: 'Meeting Orchestration',
+                  command: '"Schedule team sync for tomorrow at 2pm"',
+                  services: [
+                    { name: 'meet', label: 'Meet', color: 'emerald' },
+                    { name: 'calendar', label: 'Calendar', color: 'blue' },
+                    { name: 'gmail', label: 'Gmail', color: 'red' }
+                  ],
+                  result: 'Creates Google Meet link, adds event to your calendar, and sends confirmation emails to all attendees',
+                  gradient: 'from-emerald-500/20 to-blue-500/20',
+                  accentColor: 'emerald'
+                },
+                {
+                  title: 'Data & Documentation',
+                  command: '"Generate monthly sales report from Q4 data"',
+                  services: [
+                    { name: 'sheets', label: 'Sheets', color: 'green' },
+                    { name: 'docs', label: 'Docs', color: 'blue' },
+                    { name: 'tasks', label: 'Tasks', color: 'purple' }
+                  ],
+                  result: 'Pulls data from Google Sheets, generates formatted report in Docs, and creates follow-up tasks',
+                  gradient: 'from-green-500/20 to-purple-500/20',
+                  accentColor: 'green'
+                },
+                {
+                  title: 'Team Coordination',
+                  command: '"Plan team lunch next Friday at noon"',
+                  services: [
+                    { name: 'calendar', label: 'Calendar', color: 'blue' },
+                    { name: 'gmail', label: 'Gmail', color: 'red' }
+                  ],
+                  result: 'Creates calendar event and sends personalized invitations to all team members automatically',
+                  gradient: 'from-blue-500/20 to-amber-500/20',
+                  accentColor: 'amber'
+                }
+              ].map((scenario, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: 100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.15, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+                  className="flex-shrink-0 w-[90vw] md:w-[600px] snap-center"
+                >
+                  <div className="group relative h-full">
+                    {/* Holographic glow */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${scenario.gradient} blur-3xl opacity-30 group-hover:opacity-50 transition-opacity duration-700`} />
+
+                    {/* Glass card */}
+                    <div className="relative bg-white/[0.03] backdrop-blur-2xl border border-white/10 group-hover:border-emerald-500/30 rounded-3xl p-8 h-full transition-all duration-500 shadow-2xl">
+                      {/* Header */}
+                      <div className="mb-8">
+                        <div className={`inline-flex items-center gap-2 px-3 py-1.5 bg-${scenario.accentColor}-500/10 border border-${scenario.accentColor}-500/20 rounded-full mb-4`}>
+                          <div className={`w-1.5 h-1.5 bg-${scenario.accentColor}-400 rounded-full`} />
+                          <span className={`text-xs font-mono uppercase tracking-wider text-${scenario.accentColor}-300`}>
+                            Scenario {idx + 1}
+                          </span>
+                        </div>
+                        <h3 className="font-display text-3xl text-white mb-3 leading-tight">
+                          {scenario.title}
+                        </h3>
+                        <div className="relative">
+                          <div className="absolute -left-2 top-0 bottom-0 w-1 bg-gradient-to-b from-emerald-500 to-amber-500 rounded-full" />
+                          <p className="text-lg text-emerald-300 font-medium pl-6 italic">
+                            {scenario.command}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Service Flow Visualization */}
+                      <div className="mb-8">
+                        <div className="flex items-center justify-between gap-4 relative">
+                          {/* Animated connection line */}
+                          <div className="absolute top-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald-500 via-amber-500 to-emerald-500 -translate-y-1/2 opacity-30" />
+
+                          {scenario.services.map((service, serviceIdx) => (
+                            <motion.div
+                              key={serviceIdx}
+                              initial={{ scale: 0, opacity: 0 }}
+                              whileInView={{ scale: 1, opacity: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: idx * 0.15 + serviceIdx * 0.1 + 0.3, duration: 0.5, type: "spring" }}
+                              className="relative z-10 flex-1"
+                            >
+                              <div className="flex flex-col items-center gap-2">
+                                {/* Service icon */}
+                                <motion.div
+                                  whileHover={{ scale: 1.1, y: -4 }}
+                                  className="relative group/icon"
+                                >
+                                  <div className={`absolute inset-0 bg-${service.color}-500/20 blur-xl rounded-2xl`} />
+                                  <div className="relative w-16 h-16 bg-[#0a0e1a]/90 backdrop-blur-sm border border-white/20 rounded-2xl p-2.5 shadow-xl">
+                                    <GoogleServiceIcon service={service.name} />
+                                  </div>
+                                </motion.div>
+
+                                {/* Service label */}
+                                <span className="text-xs font-medium text-gray-400">
+                                  {service.label}
+                                </span>
+                              </div>
+
+                              {/* Arrow connector */}
+                              {serviceIdx < scenario.services.length - 1 && (
+                                <motion.div
+                                  initial={{ scaleX: 0 }}
+                                  whileInView={{ scaleX: 1 }}
+                                  viewport={{ once: true }}
+                                  transition={{ delay: idx * 0.15 + serviceIdx * 0.1 + 0.5, duration: 0.4 }}
+                                  className="absolute top-8 -right-2 w-8 h-[2px] bg-gradient-to-r from-emerald-500 to-amber-500"
+                                  style={{ transformOrigin: 'left' }}
+                                >
+                                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[6px] border-l-amber-500" />
+                                </motion.div>
+                              )}
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Result */}
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2">
+                          <div className="w-6 h-6 bg-emerald-500/20 rounded-lg flex items-center justify-center">
+                            <svg className="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                          </div>
+                          <span className="text-sm font-semibold text-emerald-400 uppercase tracking-wide">Result</span>
+                        </div>
+                        <p className="text-gray-300 leading-relaxed">
+                          {scenario.result}
+                        </p>
+                      </div>
+
+                      {/* Service count badge */}
+                      <div className="absolute top-8 right-8">
+                        <div className="relative">
+                          <div className={`absolute inset-0 bg-${scenario.accentColor}-500/30 blur-lg rounded-full`} />
+                          <div className={`relative w-12 h-12 bg-gradient-to-br from-${scenario.accentColor}-500 to-${scenario.accentColor}-600 rounded-full flex items-center justify-center border-2 border-white/10 shadow-xl`}>
+                            <span className="font-display text-xl text-white">{scenario.services.length}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Scroll hint */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, x: [0, 10, 0] }}
+              transition={{ delay: 1, duration: 2, repeat: Infinity }}
+              className="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:flex items-center gap-2 text-emerald-400"
+            >
+              <span className="text-sm font-mono">Scroll</span>
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technical Architecture Section */}
+      <section className="relative py-32 px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-amber-500/5 to-transparent" />
+
+        <div className="max-w-[1400px] mx-auto relative">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-20 space-y-4"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full backdrop-blur-sm mb-4">
-              <span className="text-xs font-mono uppercase tracking-wider text-emerald-300">Capabilities</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full backdrop-blur-sm mb-4">
+              <span className="text-xs font-mono uppercase tracking-wider text-amber-300">Infrastructure</span>
             </div>
-            <h2 className="font-display text-5xl lg:text-6xl tracking-tight">
-              <span className="text-white">Enterprise-Grade </span>
-              <span className="bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Features</span>
+            <h2 className="font-display text-5xl lg:text-7xl tracking-tight leading-[1.1]">
+              <span className="text-white">Distributed </span>
+              <span className="bg-gradient-to-r from-amber-400 via-emerald-400 to-amber-400 bg-clip-text text-transparent">
+                AI Infrastructure
+              </span>
             </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Powered by cutting-edge intelligent orchestration and real-time service mesh technology
+            </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: 'Voice Control',
-                desc: 'Natural speech recognition with real-time transcription and audio feedback',
-                gradient: 'from-emerald-500 to-emerald-600',
-                icon: (
-                  <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                  </svg>
-                )
-              },
-              {
-                title: 'Chat Interface',
-                desc: 'Type commands and get instant intelligent responses with full context',
-                gradient: 'from-amber-500 to-amber-600',
-                icon: (
-                  <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                  </svg>
-                )
-              },
-              {
-                title: 'Secure Authentication',
-                desc: 'Industry-standard OAuth 2.0 keeps your data safe and encrypted',
-                gradient: 'from-blue-500 to-blue-600',
-                icon: (
-                  <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
-                )
-              },
-              {
-                title: 'Real-time Processing',
-                desc: 'Lightning-fast AI responses with WebSocket connections for instant updates',
-                gradient: 'from-purple-500 to-purple-600',
-                icon: (
-                  <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                )
-              },
-              {
-                title: 'Smart Context',
-                desc: 'AI understands intent and executes complex multi-step workflows automatically',
-                gradient: 'from-pink-500 to-pink-600',
-                icon: (
-                  <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                  </svg>
-                )
-              },
-              {
-                title: 'Always Available',
-                desc: 'Cloud infrastructure ensures 24/7 global availability and reliability',
-                gradient: 'from-cyan-500 to-cyan-600',
-                icon: (
-                  <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                )
-              },
-            ].map((feature, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.08, duration: 0.6 }}
-                whileHover={{ y: -8 }}
-                className="group relative"
-              >
-                {/* Hover glow */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 blur-xl rounded-3xl transition-opacity duration-500`} />
+          {/* Architecture Visualization */}
+          <div className="relative max-w-5xl mx-auto">
+            {/* Central Orchestration Layer */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              className="relative mb-16"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 via-amber-500/20 to-emerald-500/20 blur-3xl" />
 
-                {/* Card */}
-                <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 group-hover:border-emerald-500/30 rounded-2xl p-8 h-full transition-all duration-300">
-                  {/* Icon */}
-                  <div className={`w-14 h-14 bg-gradient-to-br ${feature.gradient} rounded-xl flex items-center justify-center mb-6 p-3 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    {feature.icon}
-                  </div>
-
-                  {/* Content */}
-                  <h3 className="font-display text-xl text-white mb-3">{feature.title}</h3>
-                  <p className="text-sm text-gray-400 leading-relaxed">{feature.desc}</p>
+              <div className="relative bg-white/[0.02] backdrop-blur-2xl border border-white/10 rounded-3xl p-12 text-center">
+                <div className="inline-flex items-center justify-center gap-4 mb-6">
+                  <motion.div
+                    animate={{
+                      boxShadow: [
+                        "0 0 40px rgba(16, 185, 129, 0.3)",
+                        "0 0 80px rgba(245, 158, 11, 0.5)",
+                        "0 0 40px rgba(16, 185, 129, 0.3)"
+                      ]
+                    }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    className="w-20 h-20 bg-gradient-to-br from-emerald-500 via-amber-500 to-emerald-500 rounded-2xl flex items-center justify-center border-2 border-white/20"
+                  >
+                    <svg className="w-10 h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                      <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                  </motion.div>
                 </div>
-              </motion.div>
-            ))}
+
+                <h3 className="font-display text-3xl text-white mb-3">Intelligent Orchestration Layer</h3>
+                <p className="text-gray-400 max-w-2xl mx-auto mb-6">
+                  Neural coordination engine that intelligently routes and executes commands across distributed services
+                </p>
+
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                  {['Real-time Service Mesh', 'AI Intent Parser', 'Dynamic Load Balancer', 'Context Engine'].map((feature, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3 + idx * 0.1, duration: 0.4 }}
+                      className="px-4 py-2 bg-white/5 border border-emerald-500/20 rounded-full text-sm text-emerald-300 font-medium"
+                    >
+                      {feature}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Distributed AI Servers */}
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                {
+                  title: 'Processing Nodes',
+                  desc: 'High-performance computation clusters',
+                  stats: ['< 100ms latency', '99.9% uptime', 'Auto-scaling'],
+                  icon: (
+                    <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                    </svg>
+                  ),
+                  gradient: 'from-emerald-500 to-emerald-600'
+                },
+                {
+                  title: 'Data Pipeline',
+                  desc: 'Secure encrypted data flows',
+                  stats: ['End-to-end encryption', 'Zero-knowledge', 'GDPR compliant'],
+                  icon: (
+                    <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                    </svg>
+                  ),
+                  gradient: 'from-amber-500 to-amber-600'
+                },
+                {
+                  title: 'Neural Cache',
+                  desc: 'Smart context & prediction layer',
+                  stats: ['Contextual memory', 'Pattern learning', 'Adaptive routing'],
+                  icon: (
+                    <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  ),
+                  gradient: 'from-blue-500 to-blue-600'
+                }
+              ].map((node, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.15, duration: 0.6 }}
+                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                  className="group relative"
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${node.gradient} opacity-0 group-hover:opacity-10 blur-2xl rounded-3xl transition-opacity duration-500`} />
+
+                  <div className="relative bg-white/[0.03] backdrop-blur-2xl border border-white/10 group-hover:border-emerald-500/30 rounded-2xl p-6 h-full transition-all duration-300">
+                    <div className={`w-14 h-14 bg-gradient-to-br ${node.gradient} rounded-xl flex items-center justify-center mb-4 p-3 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                      {node.icon}
+                    </div>
+
+                    <h4 className="font-display text-xl text-white mb-2">{node.title}</h4>
+                    <p className="text-sm text-gray-400 mb-4">{node.desc}</p>
+
+                    <div className="space-y-2">
+                      {node.stats.map((stat, statIdx) => (
+                        <div key={statIdx} className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
+                          <span className="text-xs text-gray-500 font-mono">{stat}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
