@@ -29,6 +29,7 @@ interface AuthContextType {
   error: AuthError | null
   hasPersonalization: boolean
   personalizationData: PersonalizationData | null
+  personalizationLoading: boolean
   signInWithGoogle: () => Promise<void>
   signOut: () => Promise<void>
   fetchPersonalization: () => Promise<void>
@@ -48,12 +49,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [error, setError] = useState<AuthError | null>(null)
   const [hasPersonalization, setHasPersonalization] = useState(false)
   const [personalizationData, setPersonalizationData] = useState<PersonalizationData | null>(null)
+  const [personalizationLoading, setPersonalizationLoading] = useState(false)
   const lastFetchedUserIdRef = useRef<string | null>(null)
 
   const fetchPersonalization = async () => {
     if (!user?.id) {
       setHasPersonalization(false)
       setPersonalizationData(null)
+      setPersonalizationLoading(false)
       lastFetchedUserIdRef.current = null
       return
     }
@@ -64,6 +67,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
 
     lastFetchedUserIdRef.current = user.id
+    setPersonalizationLoading(true)
 
     try {
       const { data, error } = await supabase
@@ -86,6 +90,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
       }
     } catch (err) {
       console.error('Error fetching personalization:', err)
+    } finally {
+      setPersonalizationLoading(false)
     }
   }
 
@@ -195,6 +201,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     error,
     hasPersonalization,
     personalizationData,
+    personalizationLoading,
     signInWithGoogle,
     signOut,
     fetchPersonalization,

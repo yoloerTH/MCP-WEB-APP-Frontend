@@ -7,7 +7,7 @@ import { Settings } from './components/Settings'
 import { PersonalizationModal } from './components/PersonalizationModal'
 
 function App() {
-  const { user, hasPersonalization } = useAuth()
+  const { user, hasPersonalization, personalizationLoading } = useAuth()
   const location = useLocation()
   const [showPersonalizationModal, setShowPersonalizationModal] = useState(false)
 
@@ -17,12 +17,17 @@ function App() {
     const isSettingsPage = location.pathname === '/settings'
     const isInspirationPage = location.pathname === '/inspiration'
 
-    if (user && !hasPersonalization && !isLandingPage && !isSettingsPage && !isInspirationPage) {
+    // Only show modal if:
+    // 1. User exists
+    // 2. Personalization data has finished loading
+    // 3. User doesn't have personalization
+    // 4. Not on excluded pages
+    if (user && !personalizationLoading && !hasPersonalization && !isLandingPage && !isSettingsPage && !isInspirationPage) {
       setShowPersonalizationModal(true)
     } else {
       setShowPersonalizationModal(false)
     }
-  }, [user, hasPersonalization, location.pathname])
+  }, [user, hasPersonalization, personalizationLoading, location.pathname])
 
   const handleCloseModal = () => {
     setShowPersonalizationModal(false)
