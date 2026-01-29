@@ -39,6 +39,8 @@ const GoogleServiceIcon = ({ service }: { service: string }) => {
 export default function LandingPage({ onGetStarted }: LandingPageProps) {
   const { user, signInWithGoogle } = useAuth()
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [currentScenario, setCurrentScenario] = useState(0)
+  const [isCarouselPaused, setIsCarouselPaused] = useState(false)
   const { scrollYProgress } = useScroll()
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 })
 
@@ -52,6 +54,30 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
     window.addEventListener('mousemove', handleMouseMove)
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
+
+  // Auto-scroll carousel
+  useEffect(() => {
+    if (isCarouselPaused) return
+
+    const carouselInterval = setInterval(() => {
+      setCurrentScenario((prev) => (prev + 1) % 3)
+    }, 5000) // Change scenario every 5 seconds
+
+    return () => clearInterval(carouselInterval)
+  }, [isCarouselPaused])
+
+  // Scroll carousel container when currentScenario changes
+  useEffect(() => {
+    const carouselContainer = document.querySelector('.carousel-container')
+    if (carouselContainer) {
+      const cardWidth = carouselContainer.querySelector('.scenario-card')?.clientWidth || 0
+      const gap = 24 // 1.5rem = 24px
+      carouselContainer.scrollTo({
+        left: currentScenario * (cardWidth + gap),
+        behavior: 'smooth'
+      })
+    }
+  }, [currentScenario])
 
   const handleGetStartedClick = (mode?: 'voice' | 'chat') => {
     if (!user) {
@@ -168,11 +194,6 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
                 className="space-y-6"
               >
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full backdrop-blur-sm">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-                  <span className="text-xs font-mono uppercase tracking-wider text-emerald-300">Live & Operational</span>
-                </div>
-
                 <h1 className="font-display text-6xl lg:text-7xl xl:text-8xl leading-[0.95] tracking-tight">
                   <span className="block text-white">Your AI-Powered</span>
                   <span className="block bg-gradient-to-r from-emerald-400 via-emerald-300 to-amber-400 bg-clip-text text-transparent">
@@ -267,9 +288,9 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-amber-500/10 rounded-3xl blur-3xl" />
 
               {/* Main container with proper positioning - optimized size and centered */}
-              <div className="relative w-[420px] h-[420px] mx-auto">
+              <div className="relative w-[420px] h-[420px] mx-auto flex items-center justify-center">
                 {/* Center AI core - perfectly centered */}
-                <div className="absolute inset-0 flex items-center justify-center z-20">
+                <div className="absolute z-20">
                   <motion.div
                     animate={{
                       boxShadow: [
@@ -310,31 +331,37 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                       initial={{ opacity: 0, scale: 0 }}
                       animate={{
                         opacity: 1,
-                        scale: 1,
-                        x: x,
-                        y: y
+                        scale: 1
                       }}
                       transition={{ delay: 0.6 + idx * 0.08, duration: 0.6, ease: "easeOut" }}
-                      whileHover={{
-                        scale: 1.08,
-                        y: y - 5,
-                        transition: { duration: 0.4, ease: "easeOut" }
+                      className="absolute z-10"
+                      style={{
+                        left: `calc(50% + ${x}px)`,
+                        top: `calc(50% + ${y}px)`,
+                        transform: 'translate(-50%, -50%)'
                       }}
-                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
                     >
-                      <div className="relative group w-14 h-14">
-                        <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-xl group-hover:bg-emerald-500/40 transition-all duration-500 ease-out" />
-                        <div className="relative bg-[#0a0e1a]/95 backdrop-blur-sm border border-white/10 rounded-xl p-2 shadow-xl group-hover:border-emerald-500/60 group-hover:shadow-2xl group-hover:shadow-emerald-500/20 transition-all duration-500 ease-out">
+                      <motion.div
+                        whileHover={{
+                          scale: 1.15,
+                          transition: { duration: 0.3, ease: "easeOut" }
+                        }}
+                        className="relative group w-14 h-14 cursor-pointer"
+                      >
+                        <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-xl group-hover:bg-emerald-500/50 transition-all duration-300" />
+                        <div className="relative bg-[#0a0e1a]/95 backdrop-blur-sm border border-white/10 rounded-xl p-2 shadow-xl group-hover:border-emerald-500/80 group-hover:shadow-2xl group-hover:shadow-emerald-500/30 transition-all duration-300">
                           <GoogleServiceIcon service={item.service} />
                         </div>
-                      </div>
+                      </motion.div>
 
-                      {/* Connection line - wrapped in non-motion div */}
+                      {/* Connection line */}
                       <div
-                        className="absolute top-1/2 left-1/2 pointer-events-none -z-10"
+                        className="absolute pointer-events-none -z-10"
                         style={{
-                          width: `${radius}px`,
+                          width: `${radius - 28}px`,
                           height: '1px',
+                          left: '50%',
+                          top: '50%',
                           transformOrigin: '0 0',
                           transform: `rotate(${item.angle + 180}deg)`
                         }}
@@ -378,9 +405,9 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
 
           {/* Large Interactive Hub - optimized */}
           <div className="relative w-full h-[700px] max-w-5xl mx-auto flex items-center justify-center">
-            <div className="relative w-[680px] h-[680px] mx-auto">
+            <div className="relative w-[680px] h-[680px] mx-auto flex items-center justify-center">
               {/* Center AI Brain - perfectly centered */}
-              <div className="absolute inset-0 flex items-center justify-center z-20">
+              <div className="absolute z-20">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.5 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -408,8 +435,8 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
 
                   {/* Main brain container - perfectly centered */}
                   <motion.div
-                    whileHover={{ scale: 1.03, transition: { duration: 0.5, ease: "easeOut" } }}
-                    className="relative w-40 h-40 bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 rounded-3xl flex items-center justify-center border-2 border-emerald-400/60 shadow-2xl shadow-emerald-500/50"
+                    whileHover={{ scale: 1.05, transition: { duration: 0.3, ease: "easeOut" } }}
+                    className="relative w-40 h-40 bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 rounded-3xl flex items-center justify-center border-2 border-emerald-400/60 shadow-2xl shadow-emerald-500/50 cursor-pointer"
                   >
                     <svg className="w-20 h-20 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M12 2L2 7l10 5 10-5-10-5z"/>
@@ -452,20 +479,25 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{
                       opacity: 1,
-                      scale: 1,
-                      x: x,
-                      y: y
+                      scale: 1
                     }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.3 + idx * 0.08, ease: "backOut" }}
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+                    className="absolute z-10"
+                    style={{
+                      left: `calc(50% + ${x}px)`,
+                      top: `calc(50% + ${y}px)`,
+                      transform: 'translate(-50%, -50%)'
+                    }}
                   >
-                    {/* Connection Line - wrapped in non-motion div */}
+                    {/* Connection Line */}
                     <div
-                      className="absolute top-1/2 left-1/2 pointer-events-none -z-10"
+                      className="absolute pointer-events-none -z-10"
                       style={{
-                        width: `${radius - 45}px`,
+                        width: `${radius - 80}px`,
                         height: '2px',
+                        left: '50%',
+                        top: '50%',
                         transformOrigin: '0 0',
                         transform: `rotate(${item.angle + 180}deg)`
                       }}
@@ -481,17 +513,16 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
 
                     <motion.div
                       whileHover={{
-                        scale: 1.1,
-                        y: -8,
-                        transition: { duration: 0.5, ease: "easeOut" }
+                        scale: 1.15,
+                        transition: { duration: 0.3, ease: "easeOut" }
                       }}
                       className="group relative cursor-pointer"
                     >
                       {/* Hover glow */}
-                      <div className="absolute inset-0 bg-emerald-500/0 group-hover:bg-emerald-500/30 blur-2xl rounded-2xl transition-all duration-500 ease-out" />
+                      <div className="absolute inset-0 bg-emerald-500/20 group-hover:bg-emerald-500/50 blur-2xl rounded-2xl transition-all duration-300" />
 
                       {/* Service card - better sizing */}
-                      <div className="relative bg-[#0a0e1a]/95 backdrop-blur-xl border border-white/10 group-hover:border-emerald-500/60 group-hover:shadow-2xl group-hover:shadow-emerald-500/20 rounded-2xl p-4 shadow-2xl transition-all duration-500 ease-out">
+                      <div className="relative bg-[#0a0e1a]/95 backdrop-blur-xl border border-white/10 group-hover:border-emerald-500/80 group-hover:shadow-2xl group-hover:shadow-emerald-500/30 rounded-2xl p-4 shadow-2xl transition-all duration-300">
                         <div className="w-16 h-16 mb-2 flex items-center justify-center">
                           <GoogleServiceIcon service={item.service} />
                         </div>
@@ -711,7 +742,11 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
 
           {/* Horizontal Scrolling Carousel */}
           <div className="relative">
-            <div className="carousel-container flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth">
+            <div
+              className="carousel-container flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth"
+              onMouseEnter={() => setIsCarouselPaused(true)}
+              onMouseLeave={() => setIsCarouselPaused(false)}
+            >
               {[
                 {
                   title: 'Meeting Orchestration',
@@ -755,7 +790,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.15, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-                  className="flex-shrink-0 w-[90vw] md:w-[600px] snap-center"
+                  className="scenario-card flex-shrink-0 w-[90vw] md:w-[600px] snap-center"
                 >
                   <div className="group relative h-full">
                     {/* Holographic glow */}
@@ -875,6 +910,26 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </motion.div>
+
+            {/* Carousel Indicators */}
+            <div className="flex items-center justify-center gap-3 mt-8">
+              {[0, 1, 2].map((idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentScenario(idx)}
+                  className="group relative"
+                  aria-label={`Go to scenario ${idx + 1}`}
+                >
+                  <div
+                    className={`h-1.5 rounded-full transition-all duration-500 ${
+                      currentScenario === idx
+                        ? 'w-12 bg-gradient-to-r from-emerald-500 to-amber-500'
+                        : 'w-1.5 bg-white/20 group-hover:bg-white/40'
+                    }`}
+                  />
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </section>
