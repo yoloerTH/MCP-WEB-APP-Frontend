@@ -188,11 +188,8 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
           >
             <div className="relative">
               <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full" />
-              <div className="relative w-11 h-11 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-2xl shadow-emerald-500/50 border border-emerald-400/30">
-                <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                  <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-                </svg>
+              <div className="relative w-14 h-14 flex items-center justify-center">
+                <img src="/logo-transparent.png" alt="Naurra.ai Logo" className="w-full h-full object-contain" />
               </div>
             </div>
             <div>
@@ -338,12 +335,9 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                       ]
                     }}
                     transition={{ duration: 3, repeat: Infinity }}
-                    className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center border-2 border-emerald-400/40 shadow-2xl"
+                    className="w-24 h-24 bg-[#0a0e1a]/80 backdrop-blur-sm rounded-2xl flex items-center justify-center border-2 border-emerald-400/40 shadow-2xl p-3"
                   >
-                    <svg className="w-10 h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                      <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
+                    <img src="/logo-transparent.png" alt="Naurra.ai" className="w-full h-full object-contain" />
                   </motion.div>
                 </div>
 
@@ -484,9 +478,9 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
 
           {/* Large Interactive Hub - optimized */}
           <div className="relative w-full h-[700px] max-w-5xl mx-auto flex items-center justify-center">
-            <div className="relative w-[680px] h-[680px] mx-auto flex items-center justify-center">
+            <div className="relative w-[680px] h-[680px] mx-auto flex items-center justify-center" style={{ transform: 'translate(-50px, 0px)' }}>
               {/* Center AI Brain - perfectly centered */}
-              <div className="absolute z-20" style={{ transform: 'translate(50px, 60px)' }}>
+              <div className="absolute z-20" style={{ transform: 'translate(45px, 48px)' }}>
                 <motion.div
                   initial={{ opacity: 0, scale: 0.5 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -515,18 +509,15 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                   {/* Main brain container - perfectly centered */}
                   <motion.div
                     whileHover={{ scale: 1.05, transition: { duration: 0.3, ease: "easeOut" } }}
-                    className="relative w-40 h-40 bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 rounded-3xl flex items-center justify-center border-2 border-emerald-400/60 shadow-2xl shadow-emerald-500/50 cursor-pointer"
+                    className="relative w-40 h-40 bg-[#0a0e1a]/90 backdrop-blur-sm rounded-3xl flex items-center justify-center border-2 border-emerald-400/60 shadow-2xl shadow-emerald-500/50 cursor-pointer p-7"
                   >
-                    <svg className="w-20 h-20 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                      <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
+                    <img src="/logo-transparent.png" alt="Naurra.ai" className="w-full h-full object-contain" />
 
                     {/* Corner accents */}
-                    <div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-white/60" />
-                    <div className="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-white/60" />
-                    <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-white/60" />
-                    <div className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-white/60" />
+                    <div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-emerald-400/60" />
+                    <div className="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-emerald-400/60" />
+                    <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-emerald-400/60" />
+                    <div className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-emerald-400/60" />
                   </motion.div>
 
                   <div className="absolute -bottom-14 left-1/2 -translate-x-1/2 whitespace-nowrap text-center">
@@ -1146,12 +1137,9 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                       ]
                     }}
                     transition={{ duration: 3, repeat: Infinity }}
-                    className="w-20 h-20 bg-gradient-to-br from-emerald-500 via-amber-500 to-emerald-500 rounded-2xl flex items-center justify-center border-2 border-white/20"
+                    className="w-24 h-24 bg-[#0a0e1a]/90 backdrop-blur-sm rounded-2xl flex items-center justify-center border-2 border-emerald-400/60 shadow-2xl p-4"
                   >
-                    <svg className="w-10 h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                      <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
+                    <img src="/logo-transparent.png" alt="Naurra.ai" className="w-full h-full object-contain" />
                   </motion.div>
                 </div>
 
@@ -1299,11 +1287,8 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
         <div className="max-w-[1400px] mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center border border-emerald-400/30">
-                <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                  <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-                </svg>
+              <div className="w-12 h-12 flex items-center justify-center">
+                <img src="/logo-transparent.png" alt="Naurra.ai Logo" className="w-full h-full object-contain" />
               </div>
               <div>
                 <div className="font-display text-sm bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Naurra.ai</div>
