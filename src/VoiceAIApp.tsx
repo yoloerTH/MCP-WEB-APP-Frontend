@@ -584,7 +584,7 @@ function VoiceAIApp() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="w-full max-w-3xl relative z-10"
+        className="w-full max-w-[1400px] px-4 relative z-10"
       >
         {/* Main card with premium styling */}
         <div className="bg-midnight-800 backdrop-blur-xl rounded-3xl shadow-glow-midnight border border-emerald-500/20 overflow-hidden">

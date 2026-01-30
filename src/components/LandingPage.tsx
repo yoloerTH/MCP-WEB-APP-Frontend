@@ -328,7 +328,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
               {/* Main container with proper positioning - optimized size and centered */}
               <div className="relative w-[420px] h-[420px] mx-auto flex items-center justify-center">
                 {/* Center AI core - perfectly centered */}
-                <div className="absolute z-20">
+                <div className="absolute z-20" style={{ transform: 'translate(28px, 22px)' }}>
                   <motion.div
                     animate={{
                       boxShadow: [
@@ -392,24 +392,65 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                         </div>
                       </motion.div>
 
-                      {/* Connection line */}
+                      {/* Connection line - Enhanced with flowing particles */}
                       <div
                         className="absolute pointer-events-none -z-10"
                         style={{
                           width: `${radius - 28}px`,
-                          height: '1px',
+                          height: '3px',
                           left: '50%',
                           top: '50%',
                           transformOrigin: '0 0',
                           transform: `rotate(${item.angle + 180}deg)`
                         }}
                       >
+                        {/* Base line with gradient */}
                         <motion.div
-                          className="h-full border-t border-dashed border-emerald-500/30"
+                          className="absolute inset-0 overflow-hidden rounded-full"
                           initial={{ scaleX: 0 }}
                           animate={{ scaleX: 1 }}
                           transition={{ duration: 1, delay: 0.7 + idx * 0.08 }}
+                          style={{
+                            background: 'linear-gradient(90deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.3) 50%, rgba(16, 185, 129, 0.1) 100%)'
+                          }}
                         />
+
+                        {/* Flowing gradient pulse */}
+                        <motion.div
+                          className="absolute inset-0 rounded-full"
+                          style={{
+                            background: 'linear-gradient(90deg, transparent 0%, rgba(16, 185, 129, 0.8) 50%, transparent 100%)',
+                            width: '40%'
+                          }}
+                          animate={{
+                            x: ['-100%', '260%']
+                          }}
+                          transition={{
+                            duration: 3,
+                            delay: idx * 0.3,
+                            repeat: Infinity,
+                            ease: 'linear'
+                          }}
+                        />
+
+                        {/* Energy particles */}
+                        {[0, 1, 2].map((particleIdx) => (
+                          <motion.div
+                            key={particleIdx}
+                            className="absolute top-1/2 -translate-y-1/2 w-1 h-1 bg-emerald-400 rounded-full shadow-[0_0_8px_rgba(16,185,129,0.8)]"
+                            animate={{
+                              x: ['-4px', `${radius - 24}px`],
+                              opacity: [0, 1, 1, 0],
+                              scale: [0.5, 1.2, 1, 0.8]
+                            }}
+                            transition={{
+                              duration: 2.5,
+                              delay: idx * 0.2 + particleIdx * 0.8,
+                              repeat: Infinity,
+                              ease: 'easeInOut'
+                            }}
+                          />
+                        ))}
                       </div>
                     </motion.div>
                   )
@@ -445,7 +486,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
           <div className="relative w-full h-[700px] max-w-5xl mx-auto flex items-center justify-center">
             <div className="relative w-[680px] h-[680px] mx-auto flex items-center justify-center">
               {/* Center AI Brain - perfectly centered */}
-              <div className="absolute z-20">
+              <div className="absolute z-20" style={{ transform: 'translate(50px, 60px)' }}>
                 <motion.div
                   initial={{ opacity: 0, scale: 0.5 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -528,24 +569,109 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                       transform: 'translate(-50%, -50%)'
                     }}
                   >
-                    {/* Connection Line */}
+                    {/* Connection Line - Enhanced with flowing energy */}
                     <div
                       className="absolute pointer-events-none -z-10"
                       style={{
                         width: `${radius - 80}px`,
-                        height: '2px',
+                        height: '4px',
                         left: '50%',
                         top: '50%',
                         transformOrigin: '0 0',
                         transform: `rotate(${item.angle + 180}deg)`
                       }}
                     >
+                      {/* Base fiber line */}
                       <motion.div
-                        className="h-full border-t-2 border-dashed border-emerald-500/40"
+                        className="absolute inset-0 overflow-hidden rounded-full"
                         initial={{ scaleX: 0 }}
                         whileInView={{ scaleX: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 1.2, delay: 0.5 + idx * 0.08 }}
+                        style={{
+                          background: 'linear-gradient(90deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.4) 50%, rgba(16, 185, 129, 0.15) 100%)'
+                        }}
+                      />
+
+                      {/* Dual flowing pulses for more energy */}
+                      <motion.div
+                        className="absolute inset-0 rounded-full"
+                        style={{
+                          background: 'linear-gradient(90deg, transparent 0%, rgba(245, 158, 11, 0.9) 50%, transparent 100%)',
+                          width: '30%',
+                          filter: 'blur(2px)'
+                        }}
+                        animate={{
+                          x: ['-100%', '340%']
+                        }}
+                        transition={{
+                          duration: 2.5,
+                          delay: idx * 0.25,
+                          repeat: Infinity,
+                          ease: 'linear'
+                        }}
+                      />
+
+                      <motion.div
+                        className="absolute inset-0 rounded-full"
+                        style={{
+                          background: 'linear-gradient(90deg, transparent 0%, rgba(16, 185, 129, 1) 50%, transparent 100%)',
+                          width: '25%',
+                          filter: 'blur(1px)'
+                        }}
+                        animate={{
+                          x: ['-100%', '400%']
+                        }}
+                        transition={{
+                          duration: 3.5,
+                          delay: idx * 0.4,
+                          repeat: Infinity,
+                          ease: 'linear'
+                        }}
+                      />
+
+                      {/* Data particles traveling the fiber */}
+                      {[0, 1, 2, 3].map((particleIdx) => (
+                        <motion.div
+                          key={particleIdx}
+                          className="absolute top-1/2 -translate-y-1/2 rounded-full"
+                          style={{
+                            width: particleIdx % 2 === 0 ? '3px' : '2px',
+                            height: particleIdx % 2 === 0 ? '3px' : '2px',
+                            backgroundColor: particleIdx % 2 === 0 ? '#10b981' : '#f59e0b',
+                            boxShadow: particleIdx % 2 === 0
+                              ? '0 0 10px rgba(16, 185, 129, 0.9), 0 0 20px rgba(16, 185, 129, 0.5)'
+                              : '0 0 10px rgba(245, 158, 11, 0.9), 0 0 20px rgba(245, 158, 11, 0.5)'
+                          }}
+                          animate={{
+                            x: ['-6px', `${radius - 74}px`],
+                            opacity: [0, 1, 1, 0.8, 0],
+                            scale: [0.3, 1.5, 1.2, 1, 0.5]
+                          }}
+                          transition={{
+                            duration: 3,
+                            delay: idx * 0.15 + particleIdx * 0.7,
+                            repeat: Infinity,
+                            ease: 'easeInOut'
+                          }}
+                        />
+                      ))}
+
+                      {/* Subtle glow effect */}
+                      <motion.div
+                        className="absolute inset-0 rounded-full blur-sm"
+                        style={{
+                          background: 'rgba(16, 185, 129, 0.2)'
+                        }}
+                        animate={{
+                          opacity: [0.2, 0.5, 0.2]
+                        }}
+                        transition={{
+                          duration: 2,
+                          delay: idx * 0.1,
+                          repeat: Infinity,
+                          ease: 'easeInOut'
+                        }}
                       />
                     </div>
 
