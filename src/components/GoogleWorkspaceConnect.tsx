@@ -72,8 +72,10 @@ export function GoogleWorkspaceConnect() {
 
     // Listen for postMessage from OAuth popup
     const handleMessage = (event: MessageEvent) => {
-      // Verify origin for security
+      // Verify origin for security - extract origin from MCP_SERVER_URL
+      const mcpOrigin = new URL(MCP_SERVER_URL).origin
       const allowedOrigins = [
+        mcpOrigin,
         'https://mcp-google-production-032a.up.railway.app',
         'http://localhost:3000'
       ]
