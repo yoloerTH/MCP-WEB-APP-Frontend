@@ -145,19 +145,6 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
           background: linear-gradient(to right, #10b981, #f59e0b);
           border-radius: 10px;
         }
-        @media (min-width: 1024px) {
-          .orbital-container {
-            transform: translate(-50px, 0px);
-          }
-          .logo-position {
-            transform: translate(45px, 48px);
-          }
-        }
-        @media (max-width: 1023px) {
-          .logo-position {
-            transform: translate(0px, 20px);
-          }
-        }
       `}</style>
 
       {/* Dynamic gradient background */}
@@ -193,28 +180,28 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
         transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
         className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#0a0e1a]/90 border-b border-emerald-500/10"
       >
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5 flex items-center justify-between">
+        <div className="max-w-[1400px] mx-auto px-8 py-5 flex items-center justify-between">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-2 sm:gap-3 lg:gap-4"
+            className="flex items-center gap-4"
           >
             <div className="relative">
               <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full" />
-              <div className="relative w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 flex items-center justify-center">
+              <div className="relative w-14 h-14 flex items-center justify-center">
                 <img src="/logo-transparent.png" alt="Naurra.ai Logo" className="w-full h-full object-contain" />
               </div>
             </div>
             <div>
-              <span className="text-lg sm:text-xl lg:text-2xl font-display tracking-tight bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Naurra.ai</span>
-              <div className="text-[9px] sm:text-[10px] font-mono text-emerald-400 uppercase tracking-widest">AI Workspace</div>
+              <span className="text-2xl font-display tracking-tight bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Naurra.ai</span>
+              <div className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">AI Workspace</div>
             </div>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-3 sm:gap-4 lg:gap-6"
+            className="flex items-center gap-6"
           >
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -242,7 +229,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
                 className="space-y-6"
               >
-                <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[0.95] tracking-tight">
+                <h1 className="font-display text-5xl lg:text-6xl xl:text-7xl leading-[0.95] tracking-tight">
                   <span className="block text-white">Meet</span>
                   <span className="block bg-gradient-to-r from-emerald-400 via-emerald-300 to-amber-400 bg-clip-text text-transparent">
                     Naurra.ai
@@ -250,7 +237,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                   <span className="block text-white">Your AI Workspace Partner</span>
                 </h1>
 
-                <p className="text-base sm:text-lg lg:text-xl text-gray-400 leading-relaxed max-w-xl">
+                <p className="text-xl text-gray-400 leading-relaxed max-w-xl">
                   Control your entire Google Workspace through natural voice commands or intelligent chat with Naurra.ai.
                   <span className="text-emerald-300 font-medium"> 35+ AI tools</span> at your fingertips.
                 </p>
@@ -270,7 +257,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                     e.preventDefault()
                     handleGetStartedClick('voice')
                   }}
-                  className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-lg sm:rounded-xl font-semibold text-base sm:text-lg overflow-hidden shadow-2xl shadow-emerald-500/30 border border-emerald-400/30 cursor-pointer touch-manipulation"
+                  className="group relative px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl font-semibold text-lg overflow-hidden shadow-2xl shadow-emerald-500/30 border border-emerald-400/30 cursor-pointer touch-manipulation"
                   style={{ WebkitTapHighlightColor: 'transparent' }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
@@ -285,7 +272,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                     e.preventDefault()
                     handleGetStartedClick('chat')
                   }}
-                  className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-amber-500 to-amber-600 rounded-lg sm:rounded-xl font-semibold text-base sm:text-lg overflow-hidden shadow-2xl shadow-amber-500/30 border border-amber-400/30 cursor-pointer touch-manipulation"
+                  className="group relative px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 rounded-xl font-semibold text-lg overflow-hidden shadow-2xl shadow-amber-500/30 border border-amber-400/30 cursor-pointer touch-manipulation"
                   style={{ WebkitTapHighlightColor: 'transparent' }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
@@ -490,10 +477,10 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
           </motion.div>
 
           {/* Large Interactive Hub - optimized */}
-          <div className="relative w-full h-[450px] sm:h-[550px] lg:h-[700px] max-w-5xl mx-auto flex items-center justify-center overflow-hidden px-4">
-            <div className="orbital-container relative w-[85vw] max-w-[340px] h-[85vw] max-h-[340px] sm:w-[480px] sm:h-[480px] sm:max-w-none sm:max-h-none lg:w-[680px] lg:h-[680px] mx-auto flex items-center justify-center">
+          <div className="relative w-full h-[700px] max-w-5xl mx-auto flex items-center justify-center">
+            <div className="relative w-[680px] h-[680px] mx-auto flex items-center justify-center" style={{ transform: 'translate(-50px, 0px)' }}>
               {/* Center AI Brain - perfectly centered */}
-              <div className="absolute z-20 logo-position">
+              <div className="absolute z-20" style={{ transform: 'translate(45px, 48px)' }}>
                 <motion.div
                   initial={{ opacity: 0, scale: 0.5 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -522,7 +509,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                   {/* Main brain container - perfectly centered */}
                   <motion.div
                     whileHover={{ scale: 1.05, transition: { duration: 0.3, ease: "easeOut" } }}
-                    className="relative w-28 h-28 sm:w-32 sm:h-32 lg:w-40 lg:h-40 bg-[#0a0e1a]/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl flex items-center justify-center border-2 border-emerald-400/60 shadow-2xl shadow-emerald-500/50 cursor-pointer p-5 sm:p-6 lg:p-7"
+                    className="relative w-40 h-40 bg-[#0a0e1a]/90 backdrop-blur-sm rounded-3xl flex items-center justify-center border-2 border-emerald-400/60 shadow-2xl shadow-emerald-500/50 cursor-pointer p-7"
                   >
                     <img src="/logo-transparent.png" alt="Naurra.ai" className="w-full h-full object-contain" />
 
@@ -1313,9 +1300,24 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
               <p className="text-sm text-gray-400 mb-1">
                 Built with precision using React, TypeScript, and Tailwind CSS
               </p>
-              <p className="text-xs text-gray-500 font-mono">
+              <p className="text-xs text-gray-500 font-mono mb-2">
                 Powered by Google Workspace API • Deployed on Railway & Netlify
               </p>
+              <div className="flex items-center justify-center md:justify-end gap-4 text-xs">
+                <button
+                  onClick={() => navigate('/privacy')}
+                  className="text-gray-500 hover:text-emerald-400 transition-colors"
+                >
+                  Privacy Policy
+                </button>
+                <span className="text-gray-700">•</span>
+                <button
+                  onClick={() => navigate('/terms')}
+                  className="text-gray-500 hover:text-emerald-400 transition-colors"
+                >
+                  Terms of Service
+                </button>
+              </div>
             </div>
           </div>
         </div>

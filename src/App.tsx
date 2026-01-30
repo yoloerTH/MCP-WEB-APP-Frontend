@@ -5,6 +5,8 @@ import VoiceAIApp from './VoiceAIApp'
 import { InspirationPage } from './components/InspirationPage'
 import { Settings } from './components/Settings'
 import { PersonalizationModal } from './components/PersonalizationModal'
+import PrivacyPolicy from './components/PrivacyPolicy'
+import TermsOfService from './components/TermsOfService'
 
 function App() {
   const { user, hasPersonalization, personalizationLoading } = useAuth()
@@ -53,6 +55,8 @@ function App() {
         <Route path="/chatai" element={<VoiceAIApp />} />
         <Route path="/inspiration" element={<InspirationPage />} />
         <Route path="/settings" element={<Settings />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsOfService />} />
       </Routes>
 
       {/* Personalization Modal - Shows on first login */}

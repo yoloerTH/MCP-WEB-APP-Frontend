@@ -587,23 +587,29 @@ function VoiceAIApp() {
         className="w-full max-w-[1400px] px-4 relative z-10"
       >
         {/* Main card with premium styling */}
-        <div className="bg-midnight-800 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-glow-midnight border border-emerald-500/20 overflow-hidden">
+        <div className="bg-midnight-800 backdrop-blur-xl rounded-3xl shadow-glow-midnight border border-emerald-500/20 overflow-hidden">
           {/* Header with gradient accent */}
-          <div className="relative px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 pb-4 sm:pb-6 border-b border-midnight-700">
+          <div className="relative px-8 pt-8 pb-6 border-b border-midnight-700">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 via-gold-400 to-gold-500" />
-            <div className="flex items-center justify-between mb-3 sm:mb-4 gap-2">
-              <div className="min-w-0 flex-1">
-                <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white tracking-tight truncate">
-                  {appMode === 'voice' ? '🎙️ ' : '💬 '}
-                  <span className="bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Naurra.ai</span>
-                  {appMode === 'voice' ? ' Voice' : ' Chat'}
-                </h1>
-                <p className="text-xs sm:text-sm text-emerald-300 mt-1 font-medium truncate">
-                  {appMode === 'voice'
-                    ? 'Your intelligent voice assistant for Google Workspace'
-                    : 'Your intelligent chat assistant for Google Workspace'
-                  }
-                </p>
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-4">
+                <div className="relative w-14 h-14 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full" />
+                  <img src="/logo-transparent.png" alt="Naurra.ai Logo" className="relative w-full h-full object-contain" />
+                </div>
+                <div>
+                  <h1 className="text-3xl font-bold text-white tracking-tight">
+                    {appMode === 'voice' ? '🎙️ ' : '💬 '}
+                    <span className="bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Naurra.ai</span>
+                    {appMode === 'voice' ? ' Voice' : ' Chat'}
+                  </h1>
+                  <p className="text-sm text-emerald-300 mt-1 font-medium">
+                    {appMode === 'voice'
+                      ? 'Your intelligent voice assistant for Google Workspace'
+                      : 'Your intelligent chat assistant for Google Workspace'
+                    }
+                  </p>
+                </div>
               </div>
               <div className="flex items-center gap-4">
                 {appMode === 'voice' && <StatusIndicator status={callStatus} />}
@@ -731,7 +737,7 @@ function VoiceAIApp() {
           </div>
 
           {/* Content */}
-          <div className="p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-6 bg-gradient-to-b from-midnight-800 to-midnight-900">
+          <div className="p-8 space-y-6 bg-gradient-to-b from-midnight-800 to-midnight-900">
             {/* Google Workspace Connection */}
             <GoogleWorkspaceConnect />
 
