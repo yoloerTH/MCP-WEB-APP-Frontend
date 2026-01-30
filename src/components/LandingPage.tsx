@@ -1304,19 +1304,19 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 Powered by Google Workspace API • Deployed on Railway & Netlify
               </p>
               <div className="flex items-center justify-center md:justify-end gap-4 text-xs">
-                <button
-                  onClick={() => navigate('/privacy')}
-                  className="text-gray-500 hover:text-emerald-400 transition-colors"
+                <a
+                  href="/privacy"
+                  className="text-gray-500 hover:text-emerald-400 transition-colors underline"
                 >
                   Privacy Policy
-                </button>
+                </a>
                 <span className="text-gray-700">•</span>
-                <button
-                  onClick={() => navigate('/terms')}
-                  className="text-gray-500 hover:text-emerald-400 transition-colors"
+                <a
+                  href="/terms"
+                  className="text-gray-500 hover:text-emerald-400 transition-colors underline"
                 >
                   Terms of Service
-                </button>
+                </a>
               </div>
             </div>
           </div>
