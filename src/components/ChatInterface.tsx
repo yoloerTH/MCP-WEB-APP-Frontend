@@ -40,9 +40,9 @@ export default function ChatInterface({ messages, onSendMessage, isWaiting }: Ch
   }
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-[600px]">
       {/* Header */}
-      <div className="mb-3 flex-shrink-0">
+      <div className="mb-4">
         <h3 className="text-sm font-bold text-emerald-300 flex items-center gap-2">
           <span>Chat Conversation</span>
           {messages.length > 0 && (
@@ -57,10 +57,6 @@ export default function ChatInterface({ messages, onSendMessage, isWaiting }: Ch
       <div
         ref={scrollRef}
         className="flex-1 overflow-y-auto space-y-4 bg-gradient-to-br from-midnight-900/80 to-midnight-800/50 rounded-xl p-4 border border-emerald-500/20 mb-4"
-        style={{
-          scrollbarWidth: 'thin',
-          scrollbarColor: '#10b981 transparent'
-        }}
       >
         <AnimatePresence initial={false}>
           {messages.length === 0 ? (

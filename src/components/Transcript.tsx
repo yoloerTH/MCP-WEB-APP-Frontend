@@ -41,11 +41,7 @@ export default function Transcript({ messages }: TranscriptProps) {
 
       <div
         ref={scrollRef}
-        className="max-h-[40vh] overflow-y-auto space-y-3 bg-gradient-to-br from-midnight-900/80 to-midnight-800/50 rounded-xl p-4 border border-emerald-500/20"
-        style={{
-          scrollbarWidth: 'thin',
-          scrollbarColor: '#10b981 transparent'
-        }}
+        className="h-64 overflow-y-auto space-y-3 bg-gradient-to-br from-midnight-900/80 to-midnight-800/50 rounded-xl p-4 border border-emerald-500/20"
       >
         <AnimatePresence initial={false}>
           {messages.length === 0 ? (

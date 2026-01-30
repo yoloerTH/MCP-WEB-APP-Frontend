@@ -576,7 +576,7 @@ function VoiceAIApp() {
   // Show voice/chat AI interface
   return (
     <ProtectedRoute>
-    <div className="h-screen flex flex-col bg-gradient-midnight-soft relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-midnight-soft relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute inset-0 bg-gradient-glow opacity-60 pointer-events-none" />
 
@@ -584,19 +584,19 @@ function VoiceAIApp() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="flex-1 flex flex-col max-w-6xl w-full mx-auto p-4 sm:p-6 relative z-10"
+        className="w-full max-w-3xl relative z-10"
       >
         {/* Main card with premium styling */}
-        <div className="bg-midnight-800 backdrop-blur-xl rounded-3xl shadow-glow-midnight border border-emerald-500/20 overflow-hidden flex flex-col flex-1">
+        <div className="bg-midnight-800 backdrop-blur-xl rounded-3xl shadow-glow-midnight border border-emerald-500/20 overflow-hidden">
           {/* Header with gradient accent */}
-          <div className="relative px-4 sm:px-8 pt-6 pb-4 border-b border-midnight-700 flex-shrink-0">
+          <div className="relative px-8 pt-8 pb-6 border-b border-midnight-700">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 via-gold-400 to-gold-500" />
-            <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center justify-between mb-4">
               <div>
-                <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                <h1 className="text-3xl font-bold text-white tracking-tight">
                   {appMode === 'voice' ? '🎙️ Voice AI' : '💬 Chat AI'}
                 </h1>
-                <p className="text-xs sm:text-sm text-emerald-300 mt-1 font-medium">
+                <p className="text-sm text-emerald-300 mt-1 font-medium">
                   {appMode === 'voice'
                     ? 'Intelligent voice assistant with Google Workspace'
                     : 'Intelligent text assistant with Google Workspace'
@@ -728,8 +728,8 @@ function VoiceAIApp() {
             />
           </div>
 
-          {/* Content - Scrollable */}
-          <div className="flex-1 overflow-y-auto px-4 sm:px-8 py-4 sm:py-6 space-y-4 sm:space-y-6 bg-gradient-to-b from-midnight-800 to-midnight-900">
+          {/* Content */}
+          <div className="p-8 space-y-6 bg-gradient-to-b from-midnight-800 to-midnight-900">
             {/* Google Workspace Connection */}
             <GoogleWorkspaceConnect />
 
@@ -801,18 +801,17 @@ function VoiceAIApp() {
           </div>
         </div>
 
-      </motion.div>
-
-      {/* Footer - Fixed at bottom */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3 }}
-        className="text-center py-3 flex-shrink-0 relative z-10"
-      >
-        <p className="text-xs text-emerald-300/70 font-medium">
-          Powered by advanced AI • Secured with enterprise-grade encryption
-        </p>
+        {/* Footer */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="text-center mt-6 space-y-2"
+        >
+          <p className="text-xs text-emerald-300/70 font-medium">
+            Powered by advanced AI • Secured with enterprise-grade encryption
+          </p>
+        </motion.div>
       </motion.div>
     </div>
     </ProtectedRoute>
