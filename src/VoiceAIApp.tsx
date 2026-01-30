@@ -729,87 +729,73 @@ function VoiceAIApp() {
           </div>
 
           {/* Content - Scrollable */}
-          <div className="flex-1 flex flex-col min-h-0 bg-gradient-to-b from-midnight-800 to-midnight-900">
+          <div className="flex-1 overflow-y-auto px-4 sm:px-8 py-4 sm:py-6 space-y-4 sm:space-y-6 bg-gradient-to-b from-midnight-800 to-midnight-900">
+            {/* Google Workspace Connection */}
+            <GoogleWorkspaceConnect />
+
             {appMode === 'voice' ? (
               <>
-                {/* Voice Mode - Scrollable content */}
-                <div className="flex-1 overflow-y-auto px-4 sm:px-8 py-4 sm:py-6 space-y-4 sm:space-y-6">
-                  {/* Google Workspace Connection */}
-                  <GoogleWorkspaceConnect />
+                {/* Voice Mode */}
+                {/* Audio Visualizer */}
+                <AudioVisualizer
+                  audioLevel={audioLevel}
+                  isActive={callStatus === 'listening' || callStatus === 'ai-speaking'}
+                  isSpeaking={callStatus === 'ai-speaking'}
+                />
 
-                  {/* Audio Visualizer */}
-                  <AudioVisualizer
-                    audioLevel={audioLevel}
-                    isActive={callStatus === 'listening' || callStatus === 'ai-speaking'}
-                    isSpeaking={callStatus === 'ai-speaking'}
-                  />
+                {/* Transcript */}
+                <Transcript messages={transcript} />
 
-                  {/* Transcript */}
-                  <Transcript messages={transcript} />
-                </div>
+                {/* Controls */}
+                <CallControls
+                  callStatus={callStatus}
+                  isMuted={isMuted}
+                  onStartCall={startCall}
+                  onEndCall={endCall}
+                  onToggleMute={toggleMute}
+                />
 
-                {/* Controls - Fixed at bottom */}
-                <div className="flex-shrink-0 px-4 sm:px-8 py-4 space-y-4 border-t border-midnight-700/50">
-                  <CallControls
-                    callStatus={callStatus}
-                    isMuted={isMuted}
-                    onStartCall={startCall}
-                    onEndCall={endCall}
-                    onToggleMute={toggleMute}
-                  />
-
-                  {/* Text Input (only visible during active call) */}
-                  {(callStatus === 'listening' || callStatus === 'ai-speaking' || callStatus === 'processing') && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      className="flex items-center gap-3"
+                {/* Text Input (only visible during active call) */}
+                {(callStatus === 'listening' || callStatus === 'ai-speaking' || callStatus === 'processing') && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    className="flex items-center gap-3"
+                  >
+                    <input
+                      type="text"
+                      value={textInput}
+                      onChange={(e) => setTextInput(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' && !e.shiftKey) {
+                          e.preventDefault()
+                          sendTextMessage()
+                        }
+                      }}
+                      placeholder="Or type your message..."
+                      className="flex-1 px-4 py-3 bg-midnight-700 text-white placeholder-midnight-400 rounded-xl border-2 border-emerald-500/30 focus:border-emerald-500 focus:outline-none transition-all duration-200"
+                    />
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={sendTextMessage}
+                      disabled={!textInput.trim()}
+                      className="px-6 py-3 bg-gradient-to-br from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 disabled:opacity-50 disabled:cursor-not-allowed text-midnight-900 font-bold rounded-xl shadow-glow-gold transition-all duration-200"
                     >
-                      <input
-                        type="text"
-                        value={textInput}
-                        onChange={(e) => setTextInput(e.target.value)}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter' && !e.shiftKey) {
-                            e.preventDefault()
-                            sendTextMessage()
-                          }
-                        }}
-                        placeholder="Or type your message..."
-                        className="flex-1 px-4 py-3 bg-midnight-700 text-white placeholder-midnight-400 rounded-xl border-2 border-emerald-500/30 focus:border-emerald-500 focus:outline-none transition-all duration-200"
-                      />
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={sendTextMessage}
-                        disabled={!textInput.trim()}
-                        className="px-6 py-3 bg-gradient-to-br from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 disabled:opacity-50 disabled:cursor-not-allowed text-midnight-900 font-bold rounded-xl shadow-glow-gold transition-all duration-200"
-                      >
-                        Send
-                      </motion.button>
-                    </motion.div>
-                  )}
-                </div>
+                      Send
+                    </motion.button>
+                  </motion.div>
+                )}
               </>
             ) : (
               <>
-                {/* Chat Mode - Full height container */}
-                <div className="flex-1 flex flex-col min-h-0 px-4 sm:px-8 py-4 sm:py-6">
-                  {/* Google Workspace Connection */}
-                  <div className="mb-4">
-                    <GoogleWorkspaceConnect />
-                  </div>
-
-                  {/* Chat Interface takes remaining space */}
-                  <div className="flex-1 flex flex-col min-h-0">
-                    <ChatInterface
-                      messages={chatMessages}
-                      onSendMessage={handleSendChatMessage}
-                      isWaiting={isChatWaiting}
-                    />
-                  </div>
-                </div>
+                {/* Chat Mode */}
+                <ChatInterface
+                  messages={chatMessages}
+                  onSendMessage={handleSendChatMessage}
+                  isWaiting={isChatWaiting}
+                />
               </>
             )}
           </div>
