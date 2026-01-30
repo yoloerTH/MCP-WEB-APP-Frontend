@@ -196,8 +196,8 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
               </div>
             </div>
             <div>
-              <span className="text-xl font-display tracking-tight">AI Assistant</span>
-              <div className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">Workspace Edition</div>
+              <span className="text-2xl font-display tracking-tight bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Naurra.ai</span>
+              <div className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">AI Workspace</div>
             </div>
           </motion.div>
 
@@ -232,16 +232,16 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
                 className="space-y-6"
               >
-                <h1 className="font-display text-6xl lg:text-7xl xl:text-8xl leading-[0.95] tracking-tight">
-                  <span className="block text-white">Your AI-Powered</span>
+                <h1 className="font-display text-5xl lg:text-6xl xl:text-7xl leading-[0.95] tracking-tight">
+                  <span className="block text-white">Meet</span>
                   <span className="block bg-gradient-to-r from-emerald-400 via-emerald-300 to-amber-400 bg-clip-text text-transparent">
-                    Workspace
+                    Naurra.ai
                   </span>
-                  <span className="block text-white">Command Center</span>
+                  <span className="block text-white">Your AI Workspace Partner</span>
                 </h1>
 
                 <p className="text-xl text-gray-400 leading-relaxed max-w-xl">
-                  Control your entire Google Workspace through natural voice commands or intelligent chat.
+                  Control your entire Google Workspace through natural voice commands or intelligent chat with Naurra.ai.
                   <span className="text-emerald-300 font-medium"> 35+ AI tools</span> at your fingertips.
                 </p>
               </motion.div>
@@ -478,7 +478,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
               <span className="bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Connection Hub</span>
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Your AI assistant seamlessly orchestrates every Google Workspace tool
+              Naurra.ai seamlessly orchestrates every Google Workspace tool
             </p>
           </motion.div>
 
@@ -530,7 +530,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                   </motion.div>
 
                   <div className="absolute -bottom-14 left-1/2 -translate-x-1/2 whitespace-nowrap text-center">
-                    <div className="font-display text-xl text-white">AI Assistant</div>
+                    <div className="font-display text-xl bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Naurra.ai</div>
                     <div className="text-sm text-emerald-400 font-mono">Neural Core</div>
                   </div>
                 </motion.div>
@@ -800,7 +800,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                   {
                     icon: (
                       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
                       </svg>
                     ),
                     title: 'AI Executes',
@@ -900,7 +900,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
               </span>
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Watch your AI assistant combine multiple Google services in a single command
+              Watch Naurra.ai combine multiple Google services in a single command
             </p>
           </motion.div>
 
@@ -1208,7 +1208,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                   stats: ['Contextual memory', 'Pattern learning', 'Adaptive routing'],
                   icon: (
                     <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z" />
                     </svg>
                   ),
                   gradient: 'from-blue-500 to-blue-600'
@@ -1267,7 +1267,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 </span>
               </h2>
               <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                Start using your AI assistant today. No credit card required.
+                Start using Naurra.ai today. No credit card required.
               </p>
             </div>
 
@@ -1306,8 +1306,8 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 </svg>
               </div>
               <div>
-                <div className="font-display text-sm text-white">AI Assistant</div>
-                <div className="text-xs text-gray-500 font-mono">Workspace Edition</div>
+                <div className="font-display text-sm bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Naurra.ai</div>
+                <div className="text-xs text-gray-500 font-mono">AI Workspace Platform</div>
               </div>
             </div>
 

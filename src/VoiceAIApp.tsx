@@ -594,12 +594,14 @@ function VoiceAIApp() {
             <div className="flex items-center justify-between mb-4">
               <div>
                 <h1 className="text-3xl font-bold text-white tracking-tight">
-                  {appMode === 'voice' ? '🎙️ Voice AI' : '💬 Chat AI'}
+                  {appMode === 'voice' ? '🎙️ ' : '💬 '}
+                  <span className="bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Naurra.ai</span>
+                  {appMode === 'voice' ? ' Voice' : ' Chat'}
                 </h1>
                 <p className="text-sm text-emerald-300 mt-1 font-medium">
                   {appMode === 'voice'
-                    ? 'Intelligent voice assistant with Google Workspace'
-                    : 'Intelligent text assistant with Google Workspace'
+                    ? 'Your intelligent voice assistant for Google Workspace'
+                    : 'Your intelligent chat assistant for Google Workspace'
                   }
                 </p>
               </div>
