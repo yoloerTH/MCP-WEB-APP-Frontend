@@ -30,7 +30,7 @@ export default function AudioVisualizer({ audioLevel, isActive, isSpeaking }: Au
   }, [audioLevel, isActive])
 
   return (
-    <div className="relative h-72 rounded-2xl overflow-hidden bg-gradient-to-br from-midnight-900 via-midnight-800 to-midnight-900 border border-emerald-500/30 shadow-glow-emerald">
+    <div className="relative h-64 sm:h-72 rounded-xl sm:rounded-2xl overflow-hidden bg-gradient-to-br from-midnight-900 via-midnight-800 to-midnight-900 border border-emerald-500/30 shadow-glow-emerald">
       {/* Ambient glow effect */}
       {isActive && (
         <motion.div
