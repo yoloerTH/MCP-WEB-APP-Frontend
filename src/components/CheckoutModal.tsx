@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
+import { supabase } from '../lib/supabase'
 
 // Initialize Stripe (you'll need to add your publishable key)
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || '')
@@ -45,19 +46,36 @@ function CheckoutForm({ planId, amount, period, onClose }: Omit<CheckoutModalPro
         throw new Error(pmError.message)
       }
 
-      // TODO: Call your backend to create subscription
-      console.log('Payment Method:', paymentMethod)
-      console.log('Plan:', planId, 'Amount:', amount)
+      // Call Supabase edge function to create subscription
+      const { data: sessionData } = await supabase.auth.getSession()
 
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000))
+      if (!sessionData.session) {
+        throw new Error('Not authenticated')
+      }
+
+      const { data, error: apiError } = await supabase.functions.invoke('create-subscription', {
+        body: {
+          planId: planId,
+          paymentMethodId: paymentMethod.id,
+        },
+      })
+
+      if (apiError) {
+        throw new Error(apiError.message || 'Failed to create subscription')
+      }
+
+      if (!data.success) {
+        throw new Error(data.error || 'Failed to create subscription')
+      }
+
+      console.log('Subscription created:', data.subscription)
 
       setSuccess(true)
 
-      // Close modal after success
+      // Close modal after success and redirect to dashboard
       setTimeout(() => {
         onClose()
-        // TODO: Redirect to dashboard or success page
+        window.location.href = '/chatai' // Redirect to main app
       }, 2000)
 
     } catch (err: any) {

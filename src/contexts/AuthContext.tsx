@@ -22,6 +22,20 @@ export interface PersonalizationData {
   updated_at?: string
 }
 
+export interface SubscriptionData {
+  id?: string
+  plan_type: 'trial' | 'monthly' | 'yearly'
+  status: 'active' | 'canceled' | 'past_due' | 'trialing' | 'expired'
+  is_active: boolean
+  is_trialing: boolean
+  trial_ends_at?: string
+  current_period_end?: string
+  cancel_at_period_end?: boolean
+  stripe_customer_id?: string
+  stripe_subscription_id?: string
+  days_remaining?: number
+}
+
 interface AuthContextType {
   user: User | null
   session: Session | null
@@ -30,10 +44,15 @@ interface AuthContextType {
   hasPersonalization: boolean
   personalizationData: PersonalizationData | null
   personalizationLoading: boolean
+  subscription: SubscriptionData | null
+  subscriptionLoading: boolean
+  hasActiveSubscription: boolean
+  isTrialAvailable: boolean
   signInWithGoogle: () => Promise<void>
   signOut: () => Promise<void>
   fetchPersonalization: (userId?: string) => Promise<void>
   updatePersonalization: (data: PersonalizationData) => Promise<void>
+  fetchSubscription: () => Promise<void>
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined)
@@ -50,6 +69,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [hasPersonalization, setHasPersonalization] = useState(false)
   const [personalizationData, setPersonalizationData] = useState<PersonalizationData | null>(null)
   const [personalizationLoading, setPersonalizationLoading] = useState(false)
+  const [subscription, setSubscription] = useState<SubscriptionData | null>(null)
+  const [subscriptionLoading, setSubscriptionLoading] = useState(false)
+  const [hasActiveSubscription, setHasActiveSubscription] = useState(false)
+  const [isTrialAvailable, setIsTrialAvailable] = useState(true)
   const lastFetchedUserIdRef = useRef<string | null>(null)
 
   const fetchPersonalization = async (userId?: string) => {
@@ -131,6 +154,49 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
   }
 
+  const fetchSubscription = async () => {
+    if (!user?.id) {
+      console.log('❌ No user, skipping subscription fetch')
+      setSubscription(null)
+      setHasActiveSubscription(false)
+      setIsTrialAvailable(true)
+      setSubscriptionLoading(false)
+      return
+    }
+
+    setSubscriptionLoading(true)
+    console.log('⏳ Fetching subscription status for user:', user.id)
+
+    try {
+      const { data, error } = await supabase.functions.invoke('subscription-status', {
+        body: {},
+      })
+
+      if (error) {
+        console.error('❌ Error fetching subscription:', error)
+        setSubscription(null)
+        setHasActiveSubscription(false)
+        setIsTrialAvailable(true)
+      } else if (data?.subscription) {
+        console.log('✅ Subscription data loaded:', data.subscription)
+        setSubscription(data.subscription)
+        setHasActiveSubscription(data.subscription.is_active)
+        setIsTrialAvailable(data.isTrialAvailable || false)
+      } else {
+        console.log('ℹ️ No subscription exists')
+        setSubscription(null)
+        setHasActiveSubscription(false)
+        setIsTrialAvailable(data?.isTrialAvailable !== false)
+      }
+    } catch (err) {
+      console.error('❌ Error fetching subscription:', err)
+      setSubscription(null)
+      setHasActiveSubscription(false)
+    } finally {
+      setSubscriptionLoading(false)
+    }
+  }
+
   useEffect(() => {
     // Get initial session
     supabase.auth.getSession().then(({ data: { session }, error }) => {
@@ -142,9 +208,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
       setUser(session?.user ?? null)
       setLoading(false)
 
-      // Fetch personalization if user exists - pass ID directly
+      // Fetch personalization and subscription if user exists
       if (session?.user?.id) {
         fetchPersonalization(session.user.id)
+        fetchSubscription()
       }
     })
 
@@ -158,12 +225,16 @@ export function AuthProvider({ children }: AuthProviderProps) {
       setLoading(false)
       setError(null)
 
-      // Fetch personalization when user signs in - pass ID directly from session
+      // Fetch personalization and subscription when user signs in
       if (session?.user?.id) {
         fetchPersonalization(session.user.id)
+        fetchSubscription()
       } else {
         setHasPersonalization(false)
         setPersonalizationData(null)
+        setSubscription(null)
+        setHasActiveSubscription(false)
+        setIsTrialAvailable(true)
       }
     })
 
@@ -211,10 +282,15 @@ export function AuthProvider({ children }: AuthProviderProps) {
     hasPersonalization,
     personalizationData,
     personalizationLoading,
+    subscription,
+    subscriptionLoading,
+    hasActiveSubscription,
+    isTrialAvailable,
     signInWithGoogle,
     signOut,
     fetchPersonalization,
     updatePersonalization,
+    fetchSubscription,
   }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

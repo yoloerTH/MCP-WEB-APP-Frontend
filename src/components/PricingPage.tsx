@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import CheckoutModal from './CheckoutModal'
+import { supabase } from '../lib/supabase'
 
 type BillingPeriod = 'monthly' | 'yearly'
 
@@ -78,7 +79,7 @@ export default function PricingPage() {
     }
   ]
 
-  const handlePlanSelect = (planId: string) => {
+  const handlePlanSelect = async (planId: string) => {
     if (!user) {
       // Redirect to sign in
       navigate('/')
@@ -86,10 +87,28 @@ export default function PricingPage() {
     }
 
     if (planId === 'trial') {
-      // Start trial
-      console.log('Starting trial...')
-      // TODO: Implement trial activation in backend
-      alert('Trial activation will be implemented soon!')
+      // Start trial via edge function
+      try {
+        const { data, error } = await supabase.functions.invoke('activate-trial', {
+          body: {},
+        })
+
+        if (error) {
+          alert(`Error activating trial: ${error.message}`)
+          return
+        }
+
+        if (!data.success) {
+          alert(data.error || 'Failed to activate trial')
+          return
+        }
+
+        // Success! Redirect to app
+        alert(data.message || 'Trial activated successfully!')
+        navigate('/chatai')
+      } catch (err: any) {
+        alert(`Error: ${err.message || 'Failed to activate trial'}`)
+      }
     } else {
       // Open checkout modal
       const plan = plans.find(p => p.id === planId)
