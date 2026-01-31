@@ -66,7 +66,14 @@ export function GoogleWorkspaceConnect() {
   }
 
   const handleProceedWithOAuth = () => {
-    if (!user) return
+    if (!user) {
+      console.error('❌ No user found')
+      return
+    }
+
+    console.log('🔐 Starting OAuth flow...')
+    console.log('MCP Server URL:', MCP_SERVER_URL)
+    console.log('User ID:', user.id)
 
     setConnectionStatus('connecting')
 
@@ -123,12 +130,24 @@ export function GoogleWorkspaceConnect() {
     const left = window.screen.width / 2 - width / 2
     const top = window.screen.height / 2 - height / 2
 
+    const oauthUrl = `${MCP_SERVER_URL}/oauth/start?userId=${user.id}`
+    console.log('🌐 Opening OAuth popup:', oauthUrl)
+
     // Open popup (no need to store reference with postMessage pattern)
-    window.open(
-      `${MCP_SERVER_URL}/oauth/start?userId=${user.id}`,
+    const popup = window.open(
+      oauthUrl,
       'Google Workspace OAuth',
       `width=${width},height=${height},left=${left},top=${top}`
     )
+
+    if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+      console.error('❌ Popup was blocked! Please allow popups for this site.')
+      setConnectionStatus('error')
+      alert('Popup was blocked! Please allow popups for naurra.ai and try again.')
+      return
+    }
+
+    console.log('✅ Popup opened successfully')
 
     // Timeout fallback (only if no message received after 2 minutes)
     const timeoutId = setTimeout(() => {

@@ -7,6 +7,7 @@ import { Settings } from './components/Settings'
 import { PersonalizationModal } from './components/PersonalizationModal'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import TermsOfService from './components/TermsOfService'
+import PricingPage from './components/PricingPage'
 
 function App() {
   const { user, hasPersonalization, personalizationLoading } = useAuth()
@@ -57,6 +58,7 @@ function App() {
         <Route path="/settings" element={<Settings />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
+        <Route path="/pricing" element={<PricingPage />} />
       </Routes>
 
       {/* Personalization Modal - Shows on first login */}
