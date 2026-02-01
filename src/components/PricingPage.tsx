@@ -21,7 +21,7 @@ interface PricingPlan {
 
 export default function PricingPage() {
   const navigate = useNavigate()
-  const { user } = useAuth()
+  const { user, fetchSubscription } = useAuth()
   const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>('monthly')
   const [checkoutPlan, setCheckoutPlan] = useState<{ planId: 'monthly' | 'yearly'; amount: number; period: string } | null>(null)
 
@@ -103,8 +103,9 @@ export default function PricingPage() {
           return
         }
 
-        // Success! Redirect to app
+        // Success! Refresh subscription state BEFORE navigating
         alert(data.message || 'Trial activated successfully!')
+        await fetchSubscription() // ✅ Wait for subscription to refresh
         navigate('/chatai')
       } catch (err: any) {
         alert(`Error: ${err.message || 'Failed to activate trial'}`)

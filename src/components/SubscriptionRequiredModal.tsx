@@ -54,8 +54,8 @@ export default function SubscriptionRequiredModal({
         throw new Error(data.error || 'Failed to activate trial')
       }
 
-      // Success - notify parent to refresh subscription state
-      onSubscribed()
+      // Success - notify parent to refresh subscription state and WAIT for it
+      await onSubscribed()
     } catch (err: any) {
       setError(err.message || 'Failed to activate trial')
     } finally {

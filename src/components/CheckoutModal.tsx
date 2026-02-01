@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import { supabase } from '../lib/supabase'
+import { useAuth } from '../hooks/useAuth'
 
 // Initialize Stripe with publishable key
 const stripePublishableKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY
@@ -24,6 +26,8 @@ interface CheckoutModalProps {
 function CheckoutForm({ planId, amount, period, onClose }: Omit<CheckoutModalProps, 'isOpen'>) {
   const stripe = useStripe()
   const elements = useElements()
+  const navigate = useNavigate()
+  const { fetchSubscription } = useAuth()
   const [isProcessing, setIsProcessing] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [success, setSuccess] = useState(false)
@@ -73,10 +77,11 @@ function CheckoutForm({ planId, amount, period, onClose }: Omit<CheckoutModalPro
 
       setSuccess(true)
 
-      // Close modal after success and redirect to dashboard
-      setTimeout(() => {
+      // Refresh subscription state and redirect
+      setTimeout(async () => {
+        await fetchSubscription() // ✅ Wait for subscription to refresh
         onClose()
-        window.location.href = '/chatai' // Redirect to main app
+        navigate('/chatai') // Navigate after subscription is loaded
       }, 2000)
 
     } catch (err: any) {
