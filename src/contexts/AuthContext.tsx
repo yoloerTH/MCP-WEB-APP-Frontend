@@ -168,23 +168,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
     console.log('⏳ Fetching subscription status for user:', user.id)
 
     try {
-      // Get session and explicitly pass auth header
-      const { data: { session } } = await supabase.auth.getSession()
-
-      if (!session) {
-        console.error('❌ No session available')
-        setSubscription(null)
-        setHasActiveSubscription(false)
-        setIsTrialAvailable(true)
-        setSubscriptionLoading(false)
-        return
-      }
-
-      const { data, error } = await supabase.functions.invoke('subscription-status', {
-        headers: {
-          Authorization: `Bearer ${session.access_token}`,
-        },
-      })
+      // Supabase automatically includes apikey + Authorization
+      const { data, error } = await supabase.functions.invoke('subscription-status')
 
       if (error) {
         console.error('❌ Error fetching subscription:', error)

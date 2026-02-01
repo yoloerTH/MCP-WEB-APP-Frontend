@@ -53,17 +53,8 @@ function CheckoutForm({ planId, amount, period, onClose }: Omit<CheckoutModalPro
       }
 
       // Call Supabase edge function to create subscription
-      // Get session and explicitly pass auth header
-      const { data: { session } } = await supabase.auth.getSession()
-
-      if (!session) {
-        throw new Error('Not authenticated. Please sign in again.')
-      }
-
+      // Supabase automatically includes apikey + Authorization
       const { data, error: apiError } = await supabase.functions.invoke('create-subscription', {
-        headers: {
-          Authorization: `Bearer ${session.access_token}`,
-        },
         body: {
           planId: planId,
           paymentMethodId: paymentMethod.id,
