@@ -52,7 +52,7 @@ interface AuthContextType {
   signOut: () => Promise<void>
   fetchPersonalization: (userId?: string) => Promise<void>
   updatePersonalization: (data: PersonalizationData) => Promise<void>
-  fetchSubscription: () => Promise<void>
+  fetchSubscription: (userId?: string) => Promise<void>
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined)
@@ -154,9 +154,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
   }
 
-  const fetchSubscription = async () => {
-    if (!user?.id) {
-      console.log('❌ No user, skipping subscription fetch')
+  const fetchSubscription = async (userId?: string) => {
+    const targetUserId = userId || user?.id
+    console.log('🔍 fetchSubscription called, userId param:', userId, 'user.id:', user?.id, 'using:', targetUserId)
+
+    if (!targetUserId) {
+      console.log('❌ No user ID available, skipping subscription fetch')
       setSubscription(null)
       setHasActiveSubscription(false)
       setIsTrialAvailable(true)
@@ -165,7 +168,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
 
     setSubscriptionLoading(true)
-    console.log('⏳ Fetching subscription status for user:', user.id)
+    console.log('⏳ Fetching subscription status for user:', targetUserId)
 
     try {
       // Supabase automatically includes apikey + Authorization
@@ -210,7 +213,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       // Fetch personalization and subscription if user exists
       if (session?.user?.id) {
         fetchPersonalization(session.user.id)
-        fetchSubscription()
+        fetchSubscription(session.user.id)
       }
     })
 
@@ -227,7 +230,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       // Fetch personalization and subscription when user signs in
       if (session?.user?.id) {
         fetchPersonalization(session.user.id)
-        fetchSubscription()
+        fetchSubscription(session.user.id)
       } else {
         setHasPersonalization(false)
         setPersonalizationData(null)
