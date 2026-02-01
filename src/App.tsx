@@ -10,6 +10,7 @@ import TermsOfService from './components/TermsOfService'
 import PricingPage from './components/PricingPage'
 import SubscriptionRequiredModal from './components/SubscriptionRequiredModal'
 import MobileNotice from './components/MobileNotice'
+import ContactUs from './components/ContactUs'
 
 function App() {
   const {
@@ -101,6 +102,7 @@ function App() {
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/pricing" element={<PricingPage />} />
+        <Route path="/contact" element={<ContactUs />} />
       </Routes>
 
       {/* Personalization Modal - Shows on first login */}

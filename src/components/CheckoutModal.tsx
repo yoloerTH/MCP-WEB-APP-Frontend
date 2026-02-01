@@ -198,11 +198,22 @@ function CheckoutForm({ planId, amount, period, onClose }: Omit<CheckoutModalPro
       </button>
 
       {/* Security Note */}
-      <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
-        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-        </svg>
-        <span>Secured by Stripe. Your card details are never stored.</span>
+      <div className="space-y-2">
+        <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+          <span>Secured by Stripe. Your card details are never stored.</span>
+        </div>
+        <div className="text-center text-xs text-gray-600">
+          Questions?{' '}
+          <button
+            onClick={() => navigate('/contact')}
+            className="text-emerald-400 hover:text-emerald-300 transition-colors underline"
+          >
+            Contact support
+          </button>
+        </div>
       </div>
     </form>
   )

@@ -387,9 +387,12 @@ export default function PricingPage() {
         >
           <p className="text-gray-400">
             Have questions?{' '}
-            <a href="mailto:support@naurra.ai" className="text-emerald-400 hover:text-emerald-300 transition-colors underline">
+            <button
+              onClick={() => navigate('/contact')}
+              className="text-emerald-400 hover:text-emerald-300 transition-colors underline"
+            >
               Contact our team
-            </a>
+            </button>
           </p>
         </motion.div>
       </div>

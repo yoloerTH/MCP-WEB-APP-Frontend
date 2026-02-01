@@ -1326,6 +1326,13 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 >
                   Terms of Service
                 </a>
+                <span className="text-gray-700">•</span>
+                <a
+                  href="/contact"
+                  className="text-gray-500 hover:text-emerald-400 transition-colors underline"
+                >
+                  Contact Us
+                </a>
               </div>
             </div>
           </div>

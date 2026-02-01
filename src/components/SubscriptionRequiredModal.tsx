@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 import { useAuth } from '../hooks/useAuth'
 import CheckoutModal from './CheckoutModal'
@@ -25,6 +26,7 @@ export default function SubscriptionRequiredModal({
   onSubscribed,
 }: SubscriptionRequiredModalProps) {
   const { user } = useAuth()
+  const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [checkoutPlan, setCheckoutPlan] = useState<{
@@ -389,10 +391,21 @@ export default function SubscriptionRequiredModal({
                   </div>
 
                   {/* Footer Note */}
-                  <p className="text-center text-sm text-gray-500">
-                    You must choose a plan to continue. All plans include full
-                    access to 35+ AI-powered tools.
-                  </p>
+                  <div className="text-center space-y-2">
+                    <p className="text-sm text-gray-500">
+                      You must choose a plan to continue. All plans include full
+                      access to 35+ AI-powered tools.
+                    </p>
+                    <p className="text-xs text-gray-600">
+                      Need help?{' '}
+                      <button
+                        onClick={() => navigate('/contact')}
+                        className="text-emerald-400 hover:text-emerald-300 transition-colors underline"
+                      >
+                        Contact our team
+                      </button>
+                    </p>
+                  </div>
                 </div>
               </motion.div>
             </div>

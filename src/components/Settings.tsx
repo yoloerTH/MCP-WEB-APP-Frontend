@@ -450,8 +450,17 @@ export function Settings() {
 
             {/* Footer Actions */}
             <div className="px-8 py-6 bg-midnight-900/50 border-t border-midnight-700 flex items-center justify-between">
-              <div className="text-sm text-midnight-400" style={{ fontFamily: 'Outfit, sans-serif' }}>
-                Changes are saved to your profile
+              <div className="flex items-center gap-4">
+                <div className="text-sm text-midnight-400" style={{ fontFamily: 'Outfit, sans-serif' }}>
+                  Changes are saved to your profile
+                </div>
+                <button
+                  onClick={() => navigate('/contact')}
+                  className="text-sm text-emerald-400 hover:text-emerald-300 transition-colors underline"
+                  style={{ fontFamily: 'Outfit, sans-serif' }}
+                >
+                  Contact Support
+                </button>
               </div>
               <motion.button
                 whileHover={{ scale: 1.05 }}
