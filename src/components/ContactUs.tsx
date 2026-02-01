@@ -264,21 +264,6 @@ export default function ContactUs() {
           </motion.div>
         )}
 
-        {/* Alternative Contact Methods */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-12 text-center"
-        >
-          <p className="text-gray-400 text-sm mb-4">Or reach us directly at</p>
-          <a
-            href="mailto:support@naurra.ai"
-            className="text-emerald-400 hover:text-emerald-300 transition-colors font-semibold"
-          >
-            support@naurra.ai
-          </a>
-        </motion.div>
       </div>
     </div>
   )
