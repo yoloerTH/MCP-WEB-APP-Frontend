@@ -9,6 +9,7 @@ import PrivacyPolicy from './components/PrivacyPolicy'
 import TermsOfService from './components/TermsOfService'
 import PricingPage from './components/PricingPage'
 import SubscriptionRequiredModal from './components/SubscriptionRequiredModal'
+import MobileNotice from './components/MobileNotice'
 
 function App() {
   const {
@@ -113,6 +114,9 @@ function App() {
         isOpen={showSubscriptionModal}
         onSubscribed={handleSubscribed}
       />
+
+      {/* Mobile Notice - Shows on mobile devices only */}
+      <MobileNotice />
     </>
   )
 }
