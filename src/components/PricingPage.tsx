@@ -90,21 +90,8 @@ export default function PricingPage() {
     if (planId === 'trial') {
       // Start trial via edge function
       try {
-        // Get current session for auth token
-        const { data: sessionData } = await supabase.auth.getSession()
-
-        if (!sessionData.session) {
-          alert('Please sign in to activate trial')
-          navigate('/')
-          return
-        }
-
-        const { data, error } = await supabase.functions.invoke('activate-trial', {
-          headers: {
-            Authorization: `Bearer ${sessionData.session.access_token}`,
-          },
-          body: {},
-        })
+        // Supabase client automatically includes Authorization header
+        const { data, error } = await supabase.functions.invoke('activate-trial')
 
         if (error) {
           alert(`Error activating trial: ${error.message}`)

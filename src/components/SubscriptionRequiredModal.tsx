@@ -43,22 +43,8 @@ export default function SubscriptionRequiredModal({
     setError(null)
 
     try {
-      // Get current session for auth token
-      const { data: sessionData } = await supabase.auth.getSession()
-
-      if (!sessionData.session) {
-        throw new Error('Please sign in to activate trial')
-      }
-
-      const { data, error: apiError } = await supabase.functions.invoke(
-        'activate-trial',
-        {
-          headers: {
-            Authorization: `Bearer ${sessionData.session.access_token}`,
-          },
-          body: {},
-        }
-      )
+      // Supabase client automatically includes Authorization header
+      const { data, error: apiError } = await supabase.functions.invoke('activate-trial')
 
       if (apiError) {
         throw new Error(apiError.message || 'Failed to activate trial')
