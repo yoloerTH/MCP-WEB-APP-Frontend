@@ -4,8 +4,14 @@ import { loadStripe } from '@stripe/stripe-js'
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import { supabase } from '../lib/supabase'
 
-// Initialize Stripe (you'll need to add your publishable key)
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || '')
+// Initialize Stripe with publishable key
+const stripePublishableKey = import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY
+
+if (!stripePublishableKey) {
+  console.error('❌ VITE_STRIPE_PUBLISHABLE_KEY is not set in environment variables')
+}
+
+const stripePromise = stripePublishableKey ? loadStripe(stripePublishableKey) : null
 
 interface CheckoutModalProps {
   isOpen: boolean
@@ -203,6 +209,43 @@ function CheckoutForm({ planId, amount, period, onClose }: Omit<CheckoutModalPro
 }
 
 export default function CheckoutModal({ isOpen, onClose, planId, amount, period }: CheckoutModalProps) {
+  // Check if Stripe is properly initialized
+  if (!stripePromise) {
+    return (
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={onClose}
+              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50"
+            />
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="relative w-full max-w-lg bg-[#0a0e1a] border border-red-500/30 rounded-3xl p-8"
+              >
+                <h2 className="text-2xl font-bold text-white mb-4">Configuration Error</h2>
+                <p className="text-gray-400 mb-6">
+                  Stripe is not properly configured. Please ensure VITE_STRIPE_PUBLISHABLE_KEY is set in your .env file and restart the development server.
+                </p>
+                <button
+                  onClick={onClose}
+                  className="w-full py-3 bg-red-500/20 hover:bg-red-500/30 rounded-xl font-semibold transition-all"
+                >
+                  Close
+                </button>
+              </motion.div>
+            </div>
+          </>
+        )}
+      </AnimatePresence>
+    )
+  }
+
   return (
     <AnimatePresence>
       {isOpen && (

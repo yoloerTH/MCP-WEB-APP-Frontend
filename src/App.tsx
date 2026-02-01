@@ -8,44 +8,85 @@ import { PersonalizationModal } from './components/PersonalizationModal'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import TermsOfService from './components/TermsOfService'
 import PricingPage from './components/PricingPage'
+import SubscriptionRequiredModal from './components/SubscriptionRequiredModal'
 
 function App() {
-  const { user, hasPersonalization, personalizationLoading } = useAuth()
+  const {
+    user,
+    hasPersonalization,
+    personalizationLoading,
+    hasActiveSubscription,
+    subscriptionLoading,
+    fetchSubscription,
+  } = useAuth()
   const location = useLocation()
   const [showPersonalizationModal, setShowPersonalizationModal] = useState(false)
+  const [showSubscriptionModal, setShowSubscriptionModal] = useState(false)
 
-  // Show personalization modal on first login (not on landing page)
+  // Show subscription modal FIRST, then personalization modal
   useEffect(() => {
     const isLandingPage = location.pathname === '/'
-    const isSettingsPage = location.pathname === '/settings'
-    const isInspirationPage = location.pathname === '/inspiration'
+    const isPricingPage = location.pathname === '/pricing'
+    const isPublicPage = isLandingPage || isPricingPage || location.pathname === '/privacy' || location.pathname === '/terms'
 
     console.log('🎯 Modal decision:', {
       user: !!user,
       personalizationLoading,
       hasPersonalization,
+      subscriptionLoading,
+      hasActiveSubscription,
       pathname: location.pathname,
-      isLandingPage,
-      isSettingsPage,
-      isInspirationPage
+      isPublicPage,
     })
 
-    // Only show modal if:
-    // 1. User exists
-    // 2. Personalization data has finished loading
-    // 3. User doesn't have personalization
-    // 4. Not on excluded pages
-    if (user && !personalizationLoading && !hasPersonalization && !isLandingPage && !isSettingsPage && !isInspirationPage) {
-      console.log('✅ Showing personalization modal')
-      setShowPersonalizationModal(true)
-    } else {
-      console.log('❌ Not showing personalization modal')
+    // Priority 1: Show subscription modal FIRST (before personalization)
+    if (
+      user &&
+      !subscriptionLoading &&
+      !hasActiveSubscription &&
+      !isPublicPage
+    ) {
+      console.log('✅ Showing subscription modal (Priority 1)')
+      setShowSubscriptionModal(true)
       setShowPersonalizationModal(false)
+      return
     }
-  }, [user, hasPersonalization, personalizationLoading, location.pathname])
+
+    // Priority 2: Show personalization modal AFTER subscription is active
+    if (
+      user &&
+      hasActiveSubscription &&
+      !personalizationLoading &&
+      !hasPersonalization &&
+      !isPublicPage
+    ) {
+      console.log('✅ Showing personalization modal (Priority 2)')
+      setShowPersonalizationModal(true)
+      setShowSubscriptionModal(false)
+      return
+    }
+
+    // No modals needed - user has both subscription and personalization
+    console.log('❌ Not showing any modals - user is fully set up')
+    setShowPersonalizationModal(false)
+    setShowSubscriptionModal(false)
+  }, [
+    user,
+    hasPersonalization,
+    personalizationLoading,
+    hasActiveSubscription,
+    subscriptionLoading,
+    location.pathname,
+  ])
 
   const handleCloseModal = () => {
     setShowPersonalizationModal(false)
+  }
+
+  const handleSubscribed = async () => {
+    // Refresh subscription status
+    await fetchSubscription()
+    setShowSubscriptionModal(false)
   }
 
   return (
@@ -65,6 +106,12 @@ function App() {
       <PersonalizationModal
         isOpen={showPersonalizationModal}
         onClose={handleCloseModal}
+      />
+
+      {/* Subscription Required Modal - Shows after personalization if no subscription */}
+      <SubscriptionRequiredModal
+        isOpen={showSubscriptionModal}
+        onSubscribed={handleSubscribed}
       />
     </>
   )

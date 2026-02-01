@@ -80,9 +80,10 @@ export default function PricingPage() {
   ]
 
   const handlePlanSelect = async (planId: string) => {
+    // Check authentication first
     if (!user) {
-      // Redirect to sign in
-      navigate('/')
+      alert('Please sign in first to choose a plan')
+      navigate('/', { state: { returnTo: '/pricing' } })
       return
     }
 
