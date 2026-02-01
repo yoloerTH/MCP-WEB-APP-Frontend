@@ -60,6 +60,9 @@ function CheckoutForm({ planId, amount, period, onClose }: Omit<CheckoutModalPro
       }
 
       const { data, error: apiError } = await supabase.functions.invoke('create-subscription', {
+        headers: {
+          Authorization: `Bearer ${sessionData.session.access_token}`,
+        },
         body: {
           planId: planId,
           paymentMethodId: paymentMethod.id,

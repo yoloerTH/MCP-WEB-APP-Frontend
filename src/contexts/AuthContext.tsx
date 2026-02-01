@@ -168,7 +168,22 @@ export function AuthProvider({ children }: AuthProviderProps) {
     console.log('⏳ Fetching subscription status for user:', user.id)
 
     try {
+      // Get current session to ensure we have a valid auth token
+      const { data: sessionData } = await supabase.auth.getSession()
+
+      if (!sessionData.session) {
+        console.error('❌ No session available')
+        setSubscription(null)
+        setHasActiveSubscription(false)
+        setIsTrialAvailable(true)
+        setSubscriptionLoading(false)
+        return
+      }
+
       const { data, error } = await supabase.functions.invoke('subscription-status', {
+        headers: {
+          Authorization: `Bearer ${sessionData.session.access_token}`,
+        },
         body: {},
       })
 

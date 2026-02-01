@@ -43,9 +43,21 @@ export default function SubscriptionRequiredModal({
     setError(null)
 
     try {
+      // Get current session for auth token
+      const { data: sessionData } = await supabase.auth.getSession()
+
+      if (!sessionData.session) {
+        throw new Error('Please sign in to activate trial')
+      }
+
       const { data, error: apiError } = await supabase.functions.invoke(
         'activate-trial',
-        { body: {} }
+        {
+          headers: {
+            Authorization: `Bearer ${sessionData.session.access_token}`,
+          },
+          body: {},
+        }
       )
 
       if (apiError) {
@@ -111,21 +123,16 @@ export default function SubscriptionRequiredModal({
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ delay: 0.2, type: 'spring' }}
-                      className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-amber-500 rounded-full flex items-center justify-center mx-auto mb-6"
+                      className="relative w-24 h-24 mx-auto mb-6"
                     >
-                      <svg
-                        className="w-10 h-10 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M13 10V3L4 14h7v7l9-11h-7z"
-                        />
-                      </svg>
+                      {/* Glow effect behind logo */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/30 to-amber-500/30 blur-2xl rounded-full" />
+                      {/* Logo */}
+                      <img
+                        src="/logo-transparent.png"
+                        alt="Naurra.ai"
+                        className="relative w-full h-full object-contain"
+                      />
                     </motion.div>
 
                     <h2 className="text-4xl font-bold text-white mb-3">
