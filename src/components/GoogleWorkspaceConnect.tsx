@@ -474,7 +474,7 @@ export function GoogleWorkspaceConnect() {
                           <div>
                             <h4 className="text-amber-300 font-semibold text-sm mb-1">Access Required</h4>
                             <p className="text-amber-200/70 text-xs leading-relaxed">
-                              Our Google Cloud project is private. You need to request access before you can connect your Google Workspace account.
+                              In order to have access to our technology, you need to request access before you can connect your Google Workspace account.
                             </p>
                           </div>
                         </div>
