@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 
 const MCP_SERVER_URL = import.meta.env.VITE_MCP_SERVER_URL || 'http://localhost:3000'
@@ -25,6 +26,7 @@ const WORKSPACE_SERVICES: WorkspaceService[] = [
 
 export function GoogleWorkspaceConnect() {
   const { user } = useAuth()
+  const navigate = useNavigate()
   const [isConnected, setIsConnected] = useState(false)
   const [isChecking, setIsChecking] = useState(true)
   const [showModal, setShowModal] = useState(false)
@@ -171,6 +173,21 @@ export function GoogleWorkspaceConnect() {
     if (!user) return
     localStorage.removeItem(`workspace_connected_${user.id}`)
     setIsConnected(false)
+  }
+
+  const handleRequestAccess = () => {
+    if (!user) {
+      console.error('❌ No user found')
+      return
+    }
+
+    // Navigate to contact page with pre-filled data
+    navigate('/contact', {
+      state: {
+        subject: 'Google Workspace Access Request',
+        message: `Hi Naurra.ai Team,\n\nI would like to request access to connect my Google Workspace account to use your AI assistant services.\n\nMy email: ${user.email}\n\nThank you!`
+      }
+    })
   }
 
   if (!user) return null
@@ -441,11 +458,33 @@ export function GoogleWorkspaceConnect() {
                         </div>
                       </div>
 
-                      {/* Privacy notice */}
+                      {/* Access requirement notice */}
                       <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.7 }}
+                        className="mb-4 p-4 rounded-xl bg-amber-500/10 border border-amber-500/20"
+                      >
+                        <div className="flex gap-3">
+                          <div className="flex-shrink-0 mt-0.5">
+                            <svg className="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h4 className="text-amber-300 font-semibold text-sm mb-1">Access Required</h4>
+                            <p className="text-amber-200/70 text-xs leading-relaxed">
+                              Our Google Cloud project is private. You need to request access before you can connect your Google Workspace account.
+                            </p>
+                          </div>
+                        </div>
+                      </motion.div>
+
+                      {/* Privacy notice */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.75 }}
                         className="mb-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20"
                       >
                         <div className="flex gap-3">
@@ -468,24 +507,27 @@ export function GoogleWorkspaceConnect() {
                         <motion.button
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.75 }}
+                          transition={{ delay: 0.8 }}
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
-                          onClick={handleCloseModal}
-                          className="flex-1 px-6 py-3 rounded-xl bg-gray-800 text-gray-300 font-semibold hover:bg-gray-700 transition-colors duration-200"
+                          onClick={handleRequestAccess}
+                          className="flex-1 px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-white font-semibold shadow-lg shadow-amber-500/30 hover:shadow-amber-500/50 transition-all duration-200 flex items-center justify-center gap-2"
                         >
-                          Maybe Later
+                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                          </svg>
+                          <span>Request Access</span>
                         </motion.button>
                         <motion.button
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.8 }}
+                          transition={{ delay: 0.85 }}
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                           onClick={handleProceedWithOAuth}
                           className="flex-1 px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-semibold shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all duration-200 flex items-center justify-center gap-2"
                         >
-                          <span>Continue with Google</span>
+                          <span>I Already Have Access</span>
                           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                           </svg>

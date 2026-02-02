@@ -1,16 +1,29 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 
 export default function ContactUs() {
   const navigate = useNavigate()
+  const location = useLocation()
   const { user } = useAuth()
   const [formData, setFormData] = useState({
     email: user?.email || '',
     subject: '',
     message: ''
   })
+
+  // Pre-fill form data from navigation state
+  useEffect(() => {
+    if (location.state) {
+      const { subject, message } = location.state as { subject?: string; message?: string }
+      setFormData(prev => ({
+        ...prev,
+        subject: subject || prev.subject,
+        message: message || prev.message
+      }))
+    }
+  }, [location.state])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState<string | null>(null)
