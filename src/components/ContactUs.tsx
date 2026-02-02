@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
+import { SEO } from './SEO'
 
 export default function ContactUs() {
   const navigate = useNavigate()
@@ -76,6 +77,13 @@ export default function ContactUs() {
 
   return (
     <div className="min-h-screen bg-[#0a0e1a] text-white overflow-hidden">
+      <SEO
+        title="Contact Us - Naurra.ai | Get in Touch with Our Team"
+        description="Have questions about Naurra.ai? Contact our support team for help with AI workspace automation, technical support, or partnership inquiries."
+        keywords="contact Naurra, AI assistant support, workspace automation help, customer service, technical support"
+        url="/contact"
+      />
+
       {/* Animated background */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-amber-500/5" />

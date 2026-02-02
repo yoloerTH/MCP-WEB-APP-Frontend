@@ -11,6 +11,8 @@ import PricingPage from './components/PricingPage'
 import SubscriptionRequiredModal from './components/SubscriptionRequiredModal'
 import MobileNotice from './components/MobileNotice'
 import ContactUs from './components/ContactUs'
+import BlogPage from './components/BlogPage'
+import BlogPostPage from './components/BlogPostPage'
 
 function App() {
   const {
@@ -103,6 +105,8 @@ function App() {
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
       </Routes>
 
       {/* Personalization Modal - Shows on first login */}

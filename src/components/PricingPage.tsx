@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import CheckoutModal from './CheckoutModal'
 import { supabase } from '../lib/supabase'
+import { SEO } from './SEO'
 
 type BillingPeriod = 'monthly' | 'yearly'
 
@@ -127,6 +128,13 @@ export default function PricingPage() {
 
   return (
     <div className="min-h-screen bg-[#0a0e1a] text-white overflow-hidden">
+      <SEO
+        title="Pricing Plans - Naurra.ai | Affordable AI Workspace Assistant"
+        description="Choose the perfect plan for your needs. Start with a 3-day free trial. Monthly plans from $79/month. Get AI-powered control of your entire Google Workspace."
+        keywords="AI assistant pricing, workspace automation pricing, Google Workspace AI cost, affordable AI tools, productivity software pricing"
+        url="/pricing"
+      />
+
       {/* Animated background */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-amber-500/5" />
