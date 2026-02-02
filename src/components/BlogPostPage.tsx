@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll } from 'framer-motion'
 import { useParams, useNavigate } from 'react-router-dom'
 import { SEO } from './SEO'
 import { StructuredData } from './StructuredData'
@@ -10,11 +10,9 @@ export default function BlogPostPage() {
   const navigate = useNavigate()
   const [post, setPost] = useState<BlogPost | null>(null)
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([])
-  const [activeSection, setActiveSection] = useState('')
   const [copySuccess, setCopySuccess] = useState(false)
 
   const { scrollYProgress } = useScroll()
-  const progressWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
 
   useEffect(() => {
     if (slug) {
@@ -71,7 +69,7 @@ export default function BlogPostPage() {
     const elements: JSX.Element[] = []
     let key = 0
 
-    lines.forEach((line, index) => {
+    lines.forEach((line) => {
       // H1
       if (line.startsWith('# ')) {
         elements.push(

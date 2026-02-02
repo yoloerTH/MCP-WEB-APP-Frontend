@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { SEO } from './SEO'
-import { blogPosts, getFeaturedPosts, getAllCategories, getAllTags, BlogPost } from '../data/blogPosts'
+import { blogPosts, getFeaturedPosts, getAllCategories, getAllTags } from '../data/blogPosts'
 
 export default function BlogPage() {
   const navigate = useNavigate()
