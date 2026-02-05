@@ -125,6 +125,15 @@ export function InspirationPage() {
             >
               Chat AI
             </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/contact')}
+              className="px-5 py-2.5 bg-midnight-700/50 hover:bg-midnight-700 border border-amber-400/30 hover:border-amber-400/50 text-amber-300 rounded-xl font-medium transition-all backdrop-blur-sm"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Contact Us
+            </motion.button>
           </div>
         </div>
       </motion.header>

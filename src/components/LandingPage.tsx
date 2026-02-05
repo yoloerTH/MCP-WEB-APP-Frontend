@@ -241,6 +241,15 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
             >
               Explore AI Hub
             </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/contact')}
+              className="text-sm font-semibold text-amber-400 hover:text-amber-300 transition-colors"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Contact
+            </motion.button>
             <AuthButton />
           </motion.div>
         </div>
@@ -1349,7 +1358,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 <span className="text-gray-700">•</span>
                 <a
                   href="/contact"
-                  className="text-gray-500 hover:text-emerald-400 transition-colors underline"
+                  className="text-amber-400 hover:text-amber-300 transition-colors underline font-semibold"
                 >
                   Contact Us
                 </a>
