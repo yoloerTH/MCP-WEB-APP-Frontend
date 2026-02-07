@@ -73,15 +73,25 @@ function CheckoutForm({ planId, amount, period, onClose }: Omit<CheckoutModalPro
         throw new Error(data.error || 'Failed to create subscription')
       }
 
-      console.log('Subscription created:', data.subscription)
+      // Confirm the payment with clientSecret — this actually charges the card
+      const clientSecret = data.clientSecret
+      if (clientSecret) {
+        const { error: confirmError } = await stripe.confirmCardPayment(clientSecret)
+
+        if (confirmError) {
+          throw new Error(confirmError.message || 'Payment was declined. Please try a different card.')
+        }
+      }
+
+      console.log('Subscription created and payment confirmed:', data.subscription)
 
       setSuccess(true)
 
       // Refresh subscription state and redirect
       setTimeout(async () => {
-        await fetchSubscription() // ✅ Wait for subscription to refresh
+        await fetchSubscription()
         onClose()
-        navigate('/chatai') // Navigate after subscription is loaded
+        navigate('/chatai')
       }, 2000)
 
     } catch (err: any) {

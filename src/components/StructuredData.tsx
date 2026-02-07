@@ -23,7 +23,7 @@ export function StructuredData({ type, data }: StructuredDataProps) {
       },
       sameAs: [
         'https://twitter.com/naurra_ai',
-        'https://linkedin.com/company/naurra-ai'
+        'https://www.linkedin.com/company/109405415'
       ]
     },
     software: {
