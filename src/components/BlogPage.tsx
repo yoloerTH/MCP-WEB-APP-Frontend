@@ -48,40 +48,15 @@ export default function BlogPage() {
         url="/blog"
       />
 
-      {/* Animated Background */}
+      {/* Background */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-amber-500/5" />
-        <motion.div
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.15, 0.25, 0.15],
-            rotate: [0, 90, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute top-0 -right-1/4 w-[1000px] h-[1000px] bg-gradient-to-br from-emerald-500/20 to-transparent rounded-full blur-[150px]"
-        />
-        <motion.div
-          animate={{
-            scale: [1.3, 1, 1.3],
-            opacity: [0.1, 0.2, 0.1],
-            rotate: [90, 0, 90],
-          }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 5
-          }}
-          className="absolute bottom-0 -left-1/4 w-[1000px] h-[1000px] bg-gradient-to-tr from-amber-500/20 to-transparent rounded-full blur-[150px]"
-        />
+        <div className="absolute top-0 -right-1/4 w-[800px] h-[800px] bg-emerald-500/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 -left-1/4 w-[800px] h-[800px] bg-amber-500/10 rounded-full blur-[120px]" />
       </div>
 
       {/* Header */}
-      <nav className="relative border-b border-emerald-500/10 backdrop-blur-xl bg-[#0a0e1a]/90 sticky top-0 z-40">
+      <nav className="relative border-b border-emerald-500/10 bg-[#0a0e1a]/95 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 flex items-center justify-between">
           <button
             onClick={() => navigate('/')}
@@ -127,7 +102,7 @@ export default function BlogPage() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-500/10 to-amber-500/10 border border-emerald-500/20 rounded-full backdrop-blur-sm mb-8"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-500/10 to-amber-500/10 border border-emerald-500/20 rounded-full mb-8"
           >
             <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-xs font-mono uppercase tracking-widest text-emerald-300">AI Insights & Guides</span>
@@ -164,14 +139,13 @@ export default function BlogPage() {
         >
           {/* Search Bar */}
           <div className="relative max-w-2xl mx-auto mb-10">
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-amber-500/20 rounded-2xl blur-xl" />
             <div className="relative">
               <input
                 type="text"
                 placeholder="Search articles, topics, or keywords..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-6 py-4 pl-14 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500/50 focus:ring-2 focus:ring-emerald-500/20 transition-all"
+                className="w-full px-6 py-4 pl-14 bg-white/5 border border-white/10 rounded-2xl text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500/50 focus:ring-2 focus:ring-emerald-500/20 transition-all"
               />
               <svg className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -269,11 +243,8 @@ export default function BlogPage() {
                   onClick={() => handlePostClick(post.slug)}
                   className="group relative cursor-pointer"
                 >
-                  {/* Glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/0 via-emerald-500/20 to-amber-500/0 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
                   {/* Card */}
-                  <div className="relative bg-gradient-to-br from-gray-800/40 to-gray-900/40 backdrop-blur-xl border border-gray-700/50 rounded-3xl overflow-hidden hover:border-emerald-500/30 transition-all duration-500">
+                  <div className="relative bg-gradient-to-br from-gray-800/60 to-gray-900/60 border border-gray-700/50 rounded-3xl overflow-hidden hover:border-emerald-500/30 transition-all duration-300">
                     {/* Featured Badge */}
                     <div className="absolute top-6 right-6 z-10">
                       <div className="px-3 py-1.5 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full text-xs font-bold text-white shadow-lg shadow-amber-500/30">
@@ -384,17 +355,14 @@ export default function BlogPage() {
                 {filteredPosts.map((post, index) => (
                   <motion.article
                     key={post.slug}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.05 }}
+                    transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.3) }}
                     onClick={() => handlePostClick(post.slug)}
                     className="group relative cursor-pointer"
                   >
-                    {/* Glow effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/0 via-emerald-500/10 to-amber-500/0 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
                     {/* Card */}
-                    <div className="relative h-full bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-xl border border-gray-700/50 rounded-2xl overflow-hidden hover:border-emerald-500/30 transition-all duration-500 flex flex-col">
+                    <div className="relative h-full bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl overflow-hidden hover:border-emerald-500/30 transition-all duration-300 flex flex-col">
                       <div className="p-6 flex-1 flex flex-col">
                         {/* Category & Reading Time */}
                         <div className="flex items-center justify-between mb-4">
@@ -457,8 +425,7 @@ export default function BlogPage() {
           transition={{ duration: 0.8, delay: 1 }}
           className="mt-32 relative"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 via-emerald-400/20 to-amber-500/20 rounded-3xl blur-3xl" />
-          <div className="relative bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-xl border border-gray-700/50 rounded-3xl p-12 lg:p-16 text-center">
+          <div className="relative bg-gradient-to-br from-gray-800/60 to-gray-900/60 border border-gray-700/50 rounded-3xl p-12 lg:p-16 text-center">
             <h2 className="font-display text-4xl lg:text-5xl text-white mb-6">
               Ready to Transform Your Workspace?
             </h2>
@@ -482,7 +449,7 @@ export default function BlogPage() {
       </div>
 
       {/* Footer */}
-      <footer className="relative border-t border-gray-700/50 bg-[#0a0e1a]/90 backdrop-blur-xl mt-32">
+      <footer className="relative border-t border-gray-700/50 bg-[#0a0e1a] mt-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
