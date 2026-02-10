@@ -31,7 +31,7 @@ function App() {
   useEffect(() => {
     const isLandingPage = location.pathname === '/'
     const isPricingPage = location.pathname === '/pricing'
-    const isPublicPage = isLandingPage || isPricingPage || location.pathname === '/privacy' || location.pathname === '/terms'
+    const isPublicPage = isLandingPage || isPricingPage || location.pathname === '/privacy' || location.pathname === '/terms' || location.pathname === '/contact'
 
     console.log('🎯 Modal decision:', {
       user: !!user,
