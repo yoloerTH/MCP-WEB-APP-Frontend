@@ -1297,6 +1297,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
               </p>
             </div>
 
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: "0 25px 70px rgba(16, 185, 129, 0.5)" }}
               whileTap={{ scale: 0.95 }}
@@ -1316,6 +1317,20 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 </svg>
               </span>
             </motion.button>
+
+              <a
+                href="https://apps.apple.com/app/naurra-ai/id6759445443"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+              >
+                <img
+                  src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                  alt="Download on the App Store"
+                  className="h-[52px]"
+                />
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -1333,6 +1348,20 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 <div className="text-xs text-gray-500 font-mono">AI Workspace Platform</div>
               </div>
             </div>
+
+            {/* App Store Badge */}
+            <a
+              href="https://apps.apple.com/app/naurra-ai/id6759445443"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0 hover:opacity-80 transition-opacity"
+            >
+              <img
+                src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                alt="Download on the App Store"
+                className="h-10"
+              />
+            </a>
 
             <div className="text-center md:text-right">
               <p className="text-sm text-gray-400 mb-1">
