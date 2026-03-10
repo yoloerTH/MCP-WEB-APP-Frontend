@@ -316,6 +316,19 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                   <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                   <span className="relative pointer-events-none">{user ? 'Try Chat Mode' : 'Sign in to Start'}</span>
                 </motion.button>
+
+                <a
+                  href="https://apps.apple.com/app/naurra-ai/id6759445443"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-80 transition-opacity"
+                >
+                  <img
+                    src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                    alt="Download on the App Store"
+                    className="h-[52px]"
+                  />
+                </a>
               </motion.div>
 
               {/* Stats */}
