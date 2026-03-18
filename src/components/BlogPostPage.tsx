@@ -127,28 +127,6 @@ export default function BlogPostPage() {
     return elements
   }
 
-  const articleSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: post.title,
-    description: post.description,
-    image: post.image,
-    datePublished: post.publishedAt,
-    dateModified: post.updatedAt || post.publishedAt,
-    author: {
-      '@type': 'Person',
-      name: post.author.name
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'Naurra.ai',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://naurra.ai/logo-transparent.png'
-      }
-    }
-  }
-
   return (
     <div className="min-h-screen bg-[#0a0e1a] text-white overflow-x-hidden">
       <SEO
@@ -160,7 +138,14 @@ export default function BlogPostPage() {
         publishedTime={post.publishedAt}
         modifiedTime={post.updatedAt}
       />
-      <StructuredData type="organization" data={articleSchema} />
+      <StructuredData type="article" data={{
+        title: post.title,
+        description: post.description,
+        image: `https://naurra.ai${post.image}`,
+        publishedAt: post.publishedAt,
+        updatedAt: post.updatedAt,
+        url: `https://naurra.ai/blog/${post.slug}`
+      }} />
 
       {/* Reading Progress Bar */}
       <motion.div

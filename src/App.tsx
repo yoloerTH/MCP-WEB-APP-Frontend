@@ -13,6 +13,7 @@ import MobileNotice from './components/MobileNotice'
 import ContactUs from './components/ContactUs'
 import BlogPage from './components/BlogPage'
 import BlogPostPage from './components/BlogPostPage'
+import ComparePage from './components/ComparePage'
 
 function App() {
   const {
@@ -31,7 +32,7 @@ function App() {
   useEffect(() => {
     const isLandingPage = location.pathname === '/'
     const isPricingPage = location.pathname === '/pricing'
-    const isPublicPage = isLandingPage || isPricingPage || location.pathname === '/privacy' || location.pathname === '/terms' || location.pathname === '/contact'
+    const isPublicPage = isLandingPage || isPricingPage || location.pathname === '/privacy' || location.pathname === '/terms' || location.pathname === '/contact' || location.pathname === '/compare'
 
     console.log('🎯 Modal decision:', {
       user: !!user,
@@ -107,6 +108,7 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
+        <Route path="/compare" element={<ComparePage />} />
       </Routes>
 
       {/* Personalization Modal - Shows on first login */}

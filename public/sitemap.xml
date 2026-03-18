@@ -52,6 +52,14 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- Compare -->
+  <url>
+    <loc>https://naurra.ai/compare</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Privacy Policy -->
   <url>
     <loc>https://naurra.ai/privacy</loc>

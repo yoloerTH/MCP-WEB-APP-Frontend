@@ -5,6 +5,7 @@ import { useAuth } from '../hooks/useAuth'
 import CheckoutModal from './CheckoutModal'
 import { supabase } from '../lib/supabase'
 import { SEO } from './SEO'
+import { StructuredData, pricingPageFAQs } from './StructuredData'
 
 type BillingPeriod = 'monthly' | 'yearly'
 
@@ -386,15 +387,40 @@ export default function PricingPage() {
           </div>
         </motion.div>
 
-        {/* FAQ Teaser */}
+        {/* FAQ Section */}
+        <StructuredData type="faq" data={{ faqs: pricingPageFAQs }} />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="mt-16 text-center"
+          className="mt-24 max-w-3xl mx-auto"
         >
-          <p className="text-gray-400">
-            Have questions?{' '}
+          <h2 className="font-display text-3xl lg:text-4xl tracking-tight text-center mb-10">
+            <span className="text-white">Pricing </span>
+            <span className="bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">FAQ</span>
+          </h2>
+          <div className="space-y-3">
+            {pricingPageFAQs.map((faq, idx) => (
+              <details
+                key={idx}
+                className="group bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-emerald-500/30 transition-colors"
+              >
+                <summary className="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+                  <h3 className="text-white font-medium pr-4">{faq.question}</h3>
+                  <span className="text-emerald-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-45">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                    </svg>
+                  </span>
+                </summary>
+                <div className="px-6 pb-5 text-gray-400 text-sm leading-relaxed border-t border-white/5 pt-4">
+                  {faq.answer}
+                </div>
+              </details>
+            ))}
+          </div>
+          <p className="text-center mt-8 text-gray-500 text-sm">
+            Still have questions?{' '}
             <button
               onClick={() => navigate('/contact')}
               className="text-emerald-400 hover:text-emerald-300 transition-colors underline"

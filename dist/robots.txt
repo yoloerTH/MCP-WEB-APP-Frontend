@@ -8,6 +8,7 @@ Allow: /chatai
 Allow: /pricing
 Allow: /inspiration
 Allow: /contact
+Allow: /compare
 Allow: /privacy
 Allow: /terms
 
@@ -16,6 +17,10 @@ Disallow: /settings
 
 # Sitemap location
 Sitemap: https://naurra.ai/sitemap.xml
+
+# LLM context file
+# See https://llmstxt.org/
+Allow: /llms.txt
 
 # Crawl delay (optional - prevents aggressive crawling)
 Crawl-delay: 1

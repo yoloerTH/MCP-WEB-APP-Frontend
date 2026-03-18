@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { AuthButton } from './AuthButton'
 import { SEO } from './SEO'
-import { StructuredData } from './StructuredData'
+import { StructuredData, landingPageFAQs } from './StructuredData'
 
 interface LandingPageProps {
   onGetStarted: (mode?: 'voice' | 'chat') => void
@@ -125,6 +125,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
       />
       <StructuredData type="organization" />
       <StructuredData type="software" />
+      <StructuredData type="faq" data={{ faqs: landingPageFAQs }} />
 
       {/* Load Fonts */}
       <style>{`
@@ -1284,6 +1285,51 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="relative py-32 px-8">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-16 space-y-4"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full backdrop-blur-sm mb-4">
+              <span className="text-xs font-mono uppercase tracking-wider text-emerald-300">FAQ</span>
+            </div>
+            <h2 className="font-display text-4xl lg:text-5xl tracking-tight">
+              <span className="text-white">Frequently Asked </span>
+              <span className="bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Questions</span>
+            </h2>
+          </motion.div>
+
+          <div className="space-y-4">
+            {landingPageFAQs.map((faq, idx) => (
+              <motion.details
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.05, duration: 0.4 }}
+                className="group bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-emerald-500/30 transition-colors"
+              >
+                <summary className="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+                  <h3 className="text-white font-medium text-lg pr-4">{faq.question}</h3>
+                  <span className="text-emerald-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-45">
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                    </svg>
+                  </span>
+                </summary>
+                <div className="px-6 pb-5 text-gray-400 leading-relaxed border-t border-white/5 pt-4">
+                  {faq.answer}
+                </div>
+              </motion.details>
+            ))}
           </div>
         </div>
       </section>
