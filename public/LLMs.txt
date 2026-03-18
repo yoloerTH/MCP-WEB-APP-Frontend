@@ -1,0 +1,40 @@
+# Naurra.ai - AI-Powered Workspace Assistant | Voice & Chat AI
+
+> Comprehensive information about an AI-driven workspace automation platform that integrates Google Workspace tools through voice and chat commands, enabling efficient task management and collaboration.
+
+Naurra.ai is an AI-powered assistant designed to streamline Google Workspace management through natural language voice commands and chat interactions. It orchestrates multiple tools such as Gmail, Calendar, Drive, Docs, Sheets, Contacts, Tasks, and Meet, providing a unified interface for productivity enhancement. The platform emphasizes real-time automation, intelligent orchestration, and scalable infrastructure, making routine tasks faster and workflows more efficient. This llms.txt provides structured details about Naurra.ai’s features, architecture, use scenarios, and core content for understanding its capabilities and architecture.
+
+## Core Content
+
+- Overview of Naurra.ai and its purpose as an AI workspace assistant
+- Key features including voice & chat control over Google Workspace tools
+- List of 35+ AI tools integrated into the platform
+- Workflow automation scenarios such as scheduling meetings, generating reports, and team coordination
+- Impact metrics demonstrating time savings, faster workflows, and productivity gains
+- Infrastructure architecture details, including Neural Core, intelligent orchestration, real-time service mesh, and neural cache
+- How Naurra.ai enables multi-service orchestration through natural language commands
+
+## Infrastructure and Architecture
+
+- Distributed AI infrastructure with real-time orchestration
+- Intelligent routing via Neural coordination engine
+- High-performance processing nodes with <100ms latency, auto-scaling, and 99.9% uptime
+- Secure data pipelines with end-to-end encryption and GDPR compliance
+- Neural cache for context-aware predictions and adaptive routing
+- Components like AI Intent Parser, Dynamic Load Balancer, and Context Engine
+
+## Use Scenarios
+
+- Meeting orchestration creating Google Meet links and calendar events with emails
+- Data & documentation generation pulling data from Sheets, creating reports in Docs, and task creation
+- Team coordination scheduling and inviting participants automatically
+
+## Resources
+
+- Sign-in page for starting to use Naurra.ai
+- Website primary pages including architecture overview and key functionalities
+
+## Optional
+
+- Additional details on developer integration or API capabilities
+- Support or documentation links
