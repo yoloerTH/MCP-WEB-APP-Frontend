@@ -22,8 +22,12 @@ export function StructuredData({ type, data }: StructuredDataProps) {
         url: 'https://naurra.ai/contact'
       },
       sameAs: [
-        'https://twitter.com/naurra_ai',
-        'https://www.linkedin.com/company/109405415'
+        'https://www.linkedin.com/company/109405415',
+        'https://www.instagram.com/naurra.ai/',
+        'https://www.facebook.com/profile.php?id=61588566855794',
+        'https://x.com/Naurra_ai',
+        'https://www.youtube.com/@naurra_ai',
+        'https://www.reddit.com/user/naurra_ai/'
       ]
     },
     software: {

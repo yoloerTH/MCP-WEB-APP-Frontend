@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { USE_CASES, CATEGORY_INFO, UseCase } from '../data/useCases'
+import { SEO } from './SEO'
 
 type CategoryFilter = 'all' | 'email' | 'calendar' | 'documents' | 'multi-service' | 'quick-tasks'
 
@@ -90,6 +91,12 @@ export function InspirationPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-midnight-900 via-midnight-800 to-midnight-900 relative overflow-hidden">
+      <SEO
+        title="Inspiration - Naurra.ai | Voice Command Examples & Use Cases"
+        description="Discover what you can do with Naurra.ai. Browse 35+ voice command examples for Gmail, Calendar, Drive, Docs, and Sheets automation."
+        keywords="voice command examples, AI assistant use cases, Google Workspace commands, productivity examples, Naurra inspiration"
+        url="/inspiration"
+      />
       {/* Ambient background effects */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl" />
