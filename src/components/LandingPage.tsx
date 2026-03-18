@@ -218,6 +218,15 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/compare')}
+              className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Compare
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => navigate('/blog')}
               className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
               style={{ fontFamily: 'Outfit, sans-serif' }}
