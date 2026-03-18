@@ -135,6 +135,12 @@ export default function PricingPage() {
         keywords="AI assistant pricing, workspace automation pricing, Google Workspace AI cost, affordable AI tools, productivity software pricing"
         url="/pricing"
       />
+      <StructuredData type="breadcrumb" data={{
+        items: [
+          { name: 'Home', url: 'https://naurra.ai/' },
+          { name: 'Pricing', url: 'https://naurra.ai/pricing' }
+        ]
+      }} />
 
       {/* Animated background */}
       <div className="fixed inset-0 pointer-events-none">

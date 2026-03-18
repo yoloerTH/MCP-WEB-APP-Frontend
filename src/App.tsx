@@ -32,7 +32,7 @@ function App() {
   useEffect(() => {
     const isLandingPage = location.pathname === '/'
     const isPricingPage = location.pathname === '/pricing'
-    const isPublicPage = isLandingPage || isPricingPage || location.pathname === '/privacy' || location.pathname === '/terms' || location.pathname === '/contact' || location.pathname === '/compare'
+    const isPublicPage = isLandingPage || isPricingPage || location.pathname === '/privacy' || location.pathname === '/terms' || location.pathname === '/contact' || location.pathname === '/compare' || location.pathname === '/blog' || location.pathname.startsWith('/blog/')
 
     console.log('🎯 Modal decision:', {
       user: !!user,

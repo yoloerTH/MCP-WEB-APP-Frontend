@@ -138,6 +138,13 @@ export default function BlogPostPage() {
         publishedTime={post.publishedAt}
         modifiedTime={post.updatedAt}
       />
+      <StructuredData type="breadcrumb" data={{
+        items: [
+          { name: 'Home', url: 'https://naurra.ai/' },
+          { name: 'Blog', url: 'https://naurra.ai/blog' },
+          { name: post.title, url: `https://naurra.ai/blog/${post.slug}` }
+        ]
+      }} />
       <StructuredData type="article" data={{
         title: post.title,
         description: post.description,

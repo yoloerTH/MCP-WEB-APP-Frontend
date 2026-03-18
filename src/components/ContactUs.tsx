@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { SEO } from './SEO'
+import { StructuredData } from './StructuredData'
 
 export default function ContactUs() {
   const navigate = useNavigate()
@@ -83,6 +84,12 @@ export default function ContactUs() {
         keywords="contact Naurra, AI assistant support, workspace automation help, customer service, technical support"
         url="/contact"
       />
+      <StructuredData type="breadcrumb" data={{
+        items: [
+          { name: 'Home', url: 'https://naurra.ai/' },
+          { name: 'Contact', url: 'https://naurra.ai/contact' }
+        ]
+      }} />
 
       {/* Animated background */}
       <div className="fixed inset-0 pointer-events-none">

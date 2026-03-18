@@ -199,6 +199,12 @@ export default function ComparePage() {
         keywords="Naurra vs Google Assistant, best AI assistant for Google Workspace, AI voice assistant comparison, Naurra vs Siri, Google Workspace AI tools comparison, voice assistant for Gmail"
         url="/compare"
       />
+      <StructuredData type="breadcrumb" data={{
+        items: [
+          { name: 'Home', url: 'https://naurra.ai/' },
+          { name: 'Compare', url: 'https://naurra.ai/compare' }
+        ]
+      }} />
       <StructuredData type="faq" data={{
         faqs: [
           {

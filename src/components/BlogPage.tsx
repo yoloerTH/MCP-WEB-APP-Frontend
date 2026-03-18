@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { SEO } from './SEO'
+import { StructuredData } from './StructuredData'
 import { blogPosts, getFeaturedPosts, getAllCategories, getAllTags } from '../data/blogPosts'
 
 export default function BlogPage() {
@@ -47,6 +48,12 @@ export default function BlogPage() {
         keywords="AI blog, workspace automation articles, productivity tips, Google Workspace tutorials, voice AI guides, AI assistant insights"
         url="/blog"
       />
+      <StructuredData type="breadcrumb" data={{
+        items: [
+          { name: 'Home', url: 'https://naurra.ai/' },
+          { name: 'Blog', url: 'https://naurra.ai/blog' }
+        ]
+      }} />
 
       {/* Background */}
       <div className="fixed inset-0 pointer-events-none">
