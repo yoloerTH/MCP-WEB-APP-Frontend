@@ -181,13 +181,10 @@ export function GoogleWorkspaceConnect() {
       return
     }
 
-    // Navigate to contact page with pre-filled data
-    navigate('/contact', {
-      state: {
-        subject: 'Google Workspace Access Request',
-        message: `Hi Naurra.ai Team,\n\nI would like to request access to connect my Google Workspace account to use your AI assistant services.\n\nMy email: ${user.email}\n\nThank you!`
-      }
-    })
+    // Navigate to contact page with pre-filled data via URL params (survives full page loads in Astro)
+    const subject = encodeURIComponent('Google Workspace Access Request')
+    const message = encodeURIComponent(`Hi Naurra.ai Team,\n\nI would like to request access to connect my Google Workspace account to use your AI assistant services.\n\nMy email: ${user.email}\n\nThank you!`)
+    window.location.href = `/contact?subject=${subject}&message=${message}`
   }
 
   if (!user) return null

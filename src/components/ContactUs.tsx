@@ -15,10 +15,15 @@ export default function ContactUs() {
     message: ''
   })
 
-  // Pre-fill form data from navigation state
+  // Pre-fill form data from navigation state or URL params
   useEffect(() => {
-    if (location.state) {
-      const { subject, message } = location.state as { subject?: string; message?: string }
+    const params = new URLSearchParams(window.location.search)
+    const stateSubject = (location.state as any)?.subject
+    const stateMessage = (location.state as any)?.message
+    const subject = stateSubject || params.get('subject')
+    const message = stateMessage || params.get('message')
+
+    if (subject || message) {
       setFormData(prev => ({
         ...prev,
         subject: subject || prev.subject,
