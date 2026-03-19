@@ -1,0 +1,1 @@
+import{r}from"./index.DnAXTA8P.js";import{C as o}from"./SEO.CL_9NdMF.js";function n(){const t=r.useContext(o);if(t===void 0)throw new Error("useAuth must be used within an AuthProvider");return t}export{n as u};

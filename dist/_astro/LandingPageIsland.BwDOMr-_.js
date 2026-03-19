@@ -1,0 +1,1 @@
+import{j as a}from"./SEO.CL_9NdMF.js";import{P as n}from"./PageIsland.Cd6WWaSZ.js";import{L as o}from"./LandingPage.BGMJwxAs.js";function d(){const t=(e="voice")=>{window.location.href=e==="chat"?"/chatai":"/voiceai"};return a.jsx(n,{children:a.jsx(o,{onGetStarted:t})})}export{d as default};

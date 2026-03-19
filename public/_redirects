@@ -1,1 +1,2 @@
-/* /index.html 200
+# Astro generates HTML for all routes.
+# No SPA catch-all needed - each page has its own index.html.
