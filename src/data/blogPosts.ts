@@ -92,7 +92,7 @@ AI workspace automation is no longer optional—it's essential for modern produc
     category: 'Productivity',
     tags: ['AI', 'Automation', 'Google Workspace', 'Productivity', 'Voice AI'],
     featured: true,
-    image: '/logo-transparent.png',
+    image: '/blog/ai-workspace-automation-2026.png',
     readingTime: 6,
     keywords: 'AI workspace automation, Google Workspace productivity, voice AI assistant, workplace automation 2026'
   },
@@ -211,7 +211,7 @@ Ready to experience Voice AI? Try Naurra.ai free for 3 days.
     category: 'Comparison',
     tags: ['Voice AI', 'Virtual Assistants', 'ROI', 'Productivity'],
     featured: true,
-    image: '/logo-transparent.png',
+    image: '/blog/voice-ai-vs-traditional-assistants.png',
     readingTime: 5,
     keywords: 'voice AI vs virtual assistant, AI assistant ROI, virtual assistant cost comparison, productivity tools 2026'
   },
@@ -333,7 +333,7 @@ Email doesn't have to be overwhelming. With the right automation strategy, you c
     category: 'Tutorials',
     tags: ['Gmail', 'Email Automation', 'Productivity', 'Tips'],
     featured: false,
-    image: '/logo-transparent.png',
+    image: '/blog/gmail-automation-tips.png',
     readingTime: 7,
     keywords: 'Gmail automation tips, email management AI, inbox zero automation, Gmail productivity hacks'
   },
@@ -526,7 +526,7 @@ Your calendar should work for you, not against you. AI-powered calendar manageme
     category: 'Productivity',
     tags: ['Calendar', 'AI Scheduling', 'Time Management', 'Google Calendar'],
     featured: false,
-    image: '/logo-transparent.png',
+    image: '/blog/google-calendar-ai-scheduling.png',
     readingTime: 8,
     keywords: 'AI calendar scheduling, Google Calendar automation, smart scheduling assistant, meeting management AI'
   },
@@ -765,7 +765,7 @@ Voice commands aren't just faster—they fundamentally change how you work. By r
     category: 'Productivity',
     tags: ['Voice Commands', 'Productivity', 'AI Assistant', 'Efficiency'],
     featured: true,
-    image: '/logo-transparent.png',
+    image: '/blog/boost-productivity-voice-commands.png',
     readingTime: 9,
     keywords: 'voice commands productivity, voice AI assistant benefits, increase productivity with AI, voice control efficiency'
   },
@@ -921,7 +921,7 @@ A well-organized Google Drive isn't just satisfying—it's a productivity multip
     category: 'Tutorials',
     tags: ['Google Drive', 'File Management', 'Organization', 'AI', 'Productivity'],
     featured: false,
-    image: '/logo-transparent.png',
+    image: '/blog/google-drive-organization-ai.png',
     readingTime: 7,
     keywords: 'Google Drive organization, AI file management, organize Google Drive, cloud storage automation, file search AI'
   },
@@ -1093,7 +1093,7 @@ Remote work doesn't have to mean more chaos. With AI handling coordination, comm
     category: 'Remote Work',
     tags: ['Remote Work', 'Teams', 'Collaboration', 'AI', 'Communication'],
     featured: true,
-    image: '/logo-transparent.png',
+    image: '/blog/ai-for-remote-teams-2026.png',
     readingTime: 8,
     keywords: 'AI remote teams, remote work productivity, distributed team tools, AI collaboration software, remote team management 2026'
   },
@@ -1294,7 +1294,7 @@ As a small business owner, your time is your most valuable asset. Every hour spe
     category: 'Business',
     tags: ['Small Business', 'Automation', 'Productivity', 'ROI', 'Entrepreneurship'],
     featured: false,
-    image: '/logo-transparent.png',
+    image: '/blog/small-business-ai-automation.png',
     readingTime: 8,
     keywords: 'small business AI automation, save time small business, AI for entrepreneurs, business productivity tools, automate admin tasks'
   },
@@ -1493,7 +1493,7 @@ Document creation shouldn't eat up your workday. With AI automation, you can cre
     category: 'Tutorials',
     tags: ['Google Docs', 'Google Sheets', 'Document Automation', 'AI', 'Spreadsheets'],
     featured: false,
-    image: '/logo-transparent.png',
+    image: '/blog/google-docs-sheets-ai-automation.png',
     readingTime: 7,
     keywords: 'Google Docs automation, Google Sheets AI, automate document creation, AI spreadsheet builder, Google Workspace documents'
   },
@@ -1706,7 +1706,7 @@ Email isn't going away, but the way we write emails is evolving. AI doesn't repl
     category: 'Communication',
     tags: ['Email', 'Communication', 'Professional Development', 'AI Writing', 'Business'],
     featured: false,
-    image: '/logo-transparent.png',
+    image: '/blog/ai-email-etiquette-professional-communication.png',
     readingTime: 8,
     keywords: 'AI email writing, professional email etiquette, email automation, business communication AI, write better emails'
   },
@@ -1894,7 +1894,7 @@ The professionals and companies that embrace these trends today will define the 
     category: 'Industry Insights',
     tags: ['Future of Work', 'AI Trends', 'Workplace', 'Innovation', '2026'],
     featured: true,
-    image: '/logo-transparent.png',
+    image: '/blog/future-of-work-ai-trends-2026.png',
     readingTime: 9,
     keywords: 'future of work AI, AI workplace trends 2026, voice AI future, autonomous AI agents, AI productivity trends'
   },
@@ -2012,7 +2012,7 @@ Stop managing your tools. Start letting your tools manage themselves.
     category: 'Productivity',
     tags: ['Team Communication', 'Google Workspace', 'AI', 'Productivity', 'Collaboration'],
     featured: false,
-    image: '/logo-transparent.png',
+    image: '/blog/streamline-team-communication-google-workspace.png',
     readingTime: 7,
     keywords: 'streamline team communication Google Workspace, AI team communication, Google Workspace collaboration, improve team productivity AI, voice AI workspace'
   },
@@ -2150,7 +2150,7 @@ The best part? You don't need to adopt five different tools. One AI assistant th
     category: 'Industry Insights',
     tags: ['AI Platforms', 'Meetings', 'Communication', 'Automation', 'Comparison'],
     featured: true,
-    image: '/logo-transparent.png',
+    image: '/blog/ai-platforms-automating-meetings-communication.png',
     readingTime: 8,
     keywords: 'AI platforms automating meetings communication, best AI meeting tools 2026, meeting automation software, AI communication tools, automate meetings and emails'
   },
@@ -2320,7 +2320,7 @@ The professionals who adopt voice-first workflows today will be the most product
     category: 'Tutorials',
     tags: ['Voice Commands', 'Google Workspace', 'Tutorial', 'Productivity', 'Voice AI'],
     featured: false,
-    image: '/logo-transparent.png',
+    image: '/blog/google-workspace-voice-commands-guide.png',
     readingTime: 9,
     keywords: 'Google Workspace voice commands, voice control Gmail Calendar Drive, AI voice assistant Google Workspace, voice commands productivity, manage Google Workspace by voice'
   }
