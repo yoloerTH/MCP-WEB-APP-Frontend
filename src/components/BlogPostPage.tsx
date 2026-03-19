@@ -63,20 +63,58 @@ export default function BlogPostPage() {
     setTimeout(() => setCopySuccess(false), 2000)
   }
 
+  // Format inline markdown (bold, italic, inline code)
+  const renderInline = (text: string, keyPrefix: number = 0): any => {
+    // Handle inline code first
+    if (text.includes('`')) {
+      const parts = text.split('`')
+      return parts.map((part, i) =>
+        i % 2 === 1
+          ? <code key={`${keyPrefix}-code-${i}`} className="bg-white/10 text-emerald-300 px-1.5 py-0.5 rounded text-base font-mono">{part}</code>
+          : renderBoldItalic(part, keyPrefix * 100 + i)
+      )
+    }
+    return renderBoldItalic(text, keyPrefix)
+  }
+
+  const renderBoldItalic = (text: string, keyPrefix: number = 0): any => {
+    if (text.includes('**')) {
+      const parts = text.split('**')
+      return parts.map((part, i) =>
+        i % 2 === 1
+          ? <strong key={`${keyPrefix}-b-${i}`} className="text-emerald-300 font-semibold">{part}</strong>
+          : part
+      )
+    }
+    if (text.includes('*')) {
+      const parts = text.split('*')
+      return parts.map((part, i) =>
+        i % 2 === 1
+          ? <em key={`${keyPrefix}-i-${i}`} className="text-emerald-200">{part}</em>
+          : part
+      )
+    }
+    return text
+  }
+
   // Format markdown content to React elements
   const renderContent = () => {
     const lines = post.content.split('\n')
     const elements: JSX.Element[] = []
     let key = 0
+    let i = 0
 
-    lines.forEach((line) => {
+    while (i < lines.length) {
+      const line = lines[i]
+
       // H1
       if (line.startsWith('# ')) {
         elements.push(
           <h1 key={key++} className="font-display text-5xl lg:text-6xl text-white mb-8 leading-tight">
-            {line.replace(/^#\s+/, '')}
+            {renderInline(line.replace(/^#\s+/, ''), key)}
           </h1>
         )
+        i++
       }
       // H2
       else if (line.startsWith('## ')) {
@@ -89,40 +127,151 @@ export default function BlogPostPage() {
             className="font-display text-3xl lg:text-4xl text-white mb-6 mt-16 leading-tight scroll-mt-32"
           >
             <span className="inline-block mr-4 text-emerald-400">//</span>
-            {text}
+            {renderInline(text, key)}
           </h2>
         )
+        i++
       }
       // H3
       else if (line.startsWith('### ')) {
         elements.push(
           <h3 key={key++} className="font-display text-2xl lg:text-3xl text-white mb-4 mt-12 leading-tight">
-            {line.replace(/^###\s+/, '')}
+            {renderInline(line.replace(/^###\s+/, ''), key)}
           </h3>
+        )
+        i++
+      }
+      // Horizontal rule
+      else if (line.trim() === '---') {
+        elements.push(
+          <hr key={key++} className="border-white/10 my-12" />
+        )
+        i++
+      }
+      // Table (starts with |)
+      else if (line.trim().startsWith('|')) {
+        const tableRows: string[][] = []
+        let hasHeader = false
+
+        while (i < lines.length && lines[i].trim().startsWith('|')) {
+          const row = lines[i].trim()
+          // Skip separator row (|---|---|)
+          if (row.match(/^\|[\s\-:|]+\|$/)) {
+            hasHeader = true
+            i++
+            continue
+          }
+          const cells = row.split('|').filter((_, idx, arr) => idx > 0 && idx < arr.length - 1).map(c => c.trim())
+          tableRows.push(cells)
+          i++
+        }
+
+        if (tableRows.length > 0) {
+          const headerRow = hasHeader ? tableRows[0] : null
+          const bodyRows = hasHeader ? tableRows.slice(1) : tableRows
+
+          elements.push(
+            <div key={key++} className="overflow-x-auto mb-8 rounded-xl border border-white/10">
+              <table className="w-full text-left">
+                {headerRow && (
+                  <thead>
+                    <tr className="bg-white/5 border-b border-white/10">
+                      {headerRow.map((cell, ci) => (
+                        <th key={ci} className="px-5 py-3 text-sm font-semibold text-emerald-300 uppercase tracking-wider">
+                          {renderInline(cell, key * 100 + ci)}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                )}
+                <tbody>
+                  {bodyRows.map((row, ri) => (
+                    <tr key={ri} className={`border-b border-white/5 ${ri % 2 === 0 ? 'bg-white/[0.02]' : ''}`}>
+                      {row.map((cell, ci) => (
+                        <td key={ci} className="px-5 py-3 text-gray-300 text-base">
+                          {renderInline(cell, key * 1000 + ri * 100 + ci)}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )
+        }
+      }
+      // Blockquote
+      else if (line.trim().startsWith('>')) {
+        const quoteLines: string[] = []
+        while (i < lines.length && lines[i].trim().startsWith('>')) {
+          quoteLines.push(lines[i].trim().replace(/^>\s*/, ''))
+          i++
+        }
+        elements.push(
+          <blockquote key={key++} className="border-l-4 border-emerald-500/50 pl-6 py-3 my-6 bg-emerald-500/5 rounded-r-lg">
+            {quoteLines.map((ql, qi) => (
+              <p key={qi} className="text-lg text-emerald-200/80 italic leading-relaxed">
+                {renderInline(ql, key * 100 + qi)}
+              </p>
+            ))}
+          </blockquote>
+        )
+      }
+      // Unordered list
+      else if (line.trim().startsWith('- ')) {
+        const items: string[] = []
+        while (i < lines.length && lines[i].trim().startsWith('- ')) {
+          items.push(lines[i].trim().replace(/^-\s+/, ''))
+          i++
+        }
+        elements.push(
+          <ul key={key++} className="space-y-3 mb-6 ml-2">
+            {items.map((item, ii) => (
+              <li key={ii} className="flex items-start gap-3 text-lg text-gray-300 leading-relaxed">
+                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
+                <span>{renderInline(item, key * 100 + ii)}</span>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+      // Ordered list
+      else if (line.trim().match(/^\d+\.\s/)) {
+        const items: string[] = []
+        while (i < lines.length && lines[i].trim().match(/^\d+\.\s/)) {
+          items.push(lines[i].trim().replace(/^\d+\.\s+/, ''))
+          i++
+        }
+        elements.push(
+          <ol key={key++} className="space-y-3 mb-6 ml-2">
+            {items.map((item, ii) => (
+              <li key={ii} className="flex items-start gap-3 text-lg text-gray-300 leading-relaxed">
+                <span className="mt-0.5 w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-sm flex items-center justify-center flex-shrink-0 font-semibold">
+                  {ii + 1}
+                </span>
+                <span>{renderInline(item, key * 100 + ii)}</span>
+              </li>
+            ))}
+          </ol>
         )
       }
       // Paragraph
       else if (line.trim() && !line.startsWith('#')) {
-        // Bold text
-        let content: any = line
-        if (line.includes('**')) {
-          const parts = line.split('**')
-          content = parts.map((part, i) =>
-            i % 2 === 1 ? <strong key={i} className="text-emerald-300 font-semibold">{part}</strong> : part
-          )
-        }
-
         elements.push(
           <p key={key++} className="text-lg text-gray-300 leading-relaxed mb-6">
-            {content}
+            {renderInline(line, key)}
           </p>
         )
+        i++
       }
       // Empty line
-      else if (!line.trim() && elements.length > 0) {
-        elements.push(<div key={key++} className="h-4" />)
+      else {
+        if (elements.length > 0) {
+          elements.push(<div key={key++} className="h-2" />)
+        }
+        i++
       }
-    })
+    }
 
     return elements
   }
