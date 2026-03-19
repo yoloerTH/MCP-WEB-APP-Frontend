@@ -17,6 +17,7 @@ import { Settings } from '../Settings'
 import { PersonalizationModal } from '../PersonalizationModal'
 import SubscriptionRequiredModal from '../SubscriptionRequiredModal'
 import MobileNotice from '../MobileNotice'
+import OnboardingWalkthrough, { hasCompletedOnboarding } from '../OnboardingWalkthrough'
 
 /** Known app routes that React Router should handle client-side */
 const APP_ROUTES = ['/voiceai', '/chatai', '/settings', '/inspiration']
@@ -45,6 +46,7 @@ function AppModals() {
   const {
     user,
     hasPersonalization,
+    personalizationData,
     personalizationLoading,
     hasActiveSubscription,
     subscriptionLoading,
@@ -53,6 +55,7 @@ function AppModals() {
   const location = useLocation()
   const [showPersonalizationModal, setShowPersonalizationModal] = useState(false)
   const [showSubscriptionModal, setShowSubscriptionModal] = useState(false)
+  const [showOnboarding, setShowOnboarding] = useState(false)
 
   useEffect(() => {
     // Priority 1: Show subscription modal
@@ -71,6 +74,11 @@ function AppModals() {
 
     setShowPersonalizationModal(false)
     setShowSubscriptionModal(false)
+
+    // Show onboarding walkthrough if fully set up but hasn't seen it
+    if (user && hasActiveSubscription && hasPersonalization && !hasCompletedOnboarding()) {
+      setShowOnboarding(true)
+    }
   }, [user, hasPersonalization, personalizationLoading, hasActiveSubscription, subscriptionLoading, location.pathname])
 
   const handleSubscribed = async () => {
@@ -88,6 +96,12 @@ function AppModals() {
         isOpen={showSubscriptionModal}
         onSubscribed={handleSubscribed}
       />
+      {showOnboarding && (
+        <OnboardingWalkthrough
+          preferredName={personalizationData?.preferred_name}
+          onComplete={() => setShowOnboarding(false)}
+        />
+      )}
       <MobileNotice />
     </>
   )
