@@ -14,11 +14,13 @@ import ContactUs from './components/ContactUs'
 import BlogPage from './components/BlogPage'
 import BlogPostPage from './components/BlogPostPage'
 import ComparePage from './components/ComparePage'
+import OnboardingWalkthrough, { hasCompletedOnboarding } from './components/OnboardingWalkthrough'
 
 function App() {
   const {
     user,
     hasPersonalization,
+    personalizationData,
     personalizationLoading,
     hasActiveSubscription,
     subscriptionLoading,
@@ -27,6 +29,7 @@ function App() {
   const location = useLocation()
   const [showPersonalizationModal, setShowPersonalizationModal] = useState(false)
   const [showSubscriptionModal, setShowSubscriptionModal] = useState(false)
+  const [showOnboarding, setShowOnboarding] = useState(false)
 
   // Show subscription modal FIRST, then personalization modal
   useEffect(() => {
@@ -75,6 +78,17 @@ function App() {
     console.log('❌ Not showing any modals - user is fully set up')
     setShowPersonalizationModal(false)
     setShowSubscriptionModal(false)
+
+    // Show onboarding walkthrough if user is fully set up but hasn't seen it yet
+    if (
+      user &&
+      hasActiveSubscription &&
+      hasPersonalization &&
+      !hasCompletedOnboarding() &&
+      !isPublicPage
+    ) {
+      setShowOnboarding(true)
+    }
   }, [
     user,
     hasPersonalization,
@@ -122,6 +136,14 @@ function App() {
         isOpen={showSubscriptionModal}
         onSubscribed={handleSubscribed}
       />
+
+      {/* Onboarding Walkthrough - Shows after subscription + personalization */}
+      {showOnboarding && (
+        <OnboardingWalkthrough
+          preferredName={personalizationData?.preferred_name}
+          onComplete={() => setShowOnboarding(false)}
+        />
+      )}
 
       {/* Mobile Notice - Shows on mobile devices only */}
       <MobileNotice />
