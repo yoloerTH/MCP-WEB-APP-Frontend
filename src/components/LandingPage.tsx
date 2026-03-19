@@ -127,10 +127,8 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
       <StructuredData type="software" />
       <StructuredData type="faq" data={{ faqs: landingPageFAQs }} />
 
-      {/* Load Fonts */}
+      {/* Font classes - fonts loaded via Astro head */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
-
         * {
           font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
         }
