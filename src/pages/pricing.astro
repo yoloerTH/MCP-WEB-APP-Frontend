@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import PricingPageIsland from '../components/islands/PricingPageIsland'
+import { pricingPageFAQs } from '../components/StructuredData'
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: pricingPageFAQs.map((faq: { question: string; answer: string }) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer
+    }
+  }))
+}
+---
+
+<BaseLayout
+  title="Pricing - Naurra.ai | AI Workspace Assistant Plans"
+  description="Choose the right Naurra.ai plan. Start with a free 3-day trial, then choose monthly ($79/mo) or yearly ($799/yr). Full access to voice AI, chat AI, and 35+ tools."
+  keywords="Naurra.ai pricing, AI assistant cost, Google Workspace automation pricing, voice AI subscription"
+  url="https://naurra.ai/pricing"
+  structuredData={[faqSchema]}
+>
+  <PricingPageIsland client:only="react" />
+</BaseLayout>

@@ -1,5 +1,5 @@
-import { createContext, useEffect, useState, useRef, ReactNode } from 'react'
-import { User, Session, AuthError } from '@supabase/supabase-js'
+import { createContext, useEffect, useState, useRef, type ReactNode } from 'react'
+import type { User, Session, AuthError } from '@supabase/supabase-js'
 import { supabase } from '../lib/supabase'
 
 export interface PersonalizationData {

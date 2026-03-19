@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import LandingPageIsland from '../components/islands/LandingPageIsland'
+import { landingPageFAQs } from '../components/StructuredData'
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Naurra.ai',
+  url: 'https://naurra.ai',
+  logo: 'https://naurra.ai/logo-transparent.png',
+  description: 'AI-powered workspace assistant for Google Workspace. Control Gmail, Calendar, Drive, Docs, and more through natural voice commands or chat.',
+  foundingDate: '2025',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'Customer Support',
+    email: 'support@naurra.ai',
+    url: 'https://naurra.ai/contact'
+  },
+  sameAs: [
+    'https://www.linkedin.com/company/109405415',
+    'https://www.instagram.com/naurra.ai/',
+    'https://www.facebook.com/profile.php?id=61588566855794',
+    'https://x.com/Naurra_ai',
+    'https://www.youtube.com/@naurra_ai',
+    'https://www.reddit.com/user/naurra_ai/'
+  ]
+}
+
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Naurra.ai',
+  applicationCategory: 'ProductivityApplication',
+  operatingSystem: 'iOS, Web Browser',
+  offers: [
+    {
+      '@type': 'Offer',
+      name: 'Monthly Plan',
+      price: '79.00',
+      priceCurrency: 'USD',
+      priceValidUntil: '2026-12-31',
+      availability: 'https://schema.org/InStock',
+      url: 'https://naurra.ai/pricing'
+    },
+    {
+      '@type': 'Offer',
+      name: 'Yearly Plan',
+      price: '799.00',
+      priceCurrency: 'USD',
+      priceValidUntil: '2026-12-31',
+      availability: 'https://schema.org/InStock',
+      url: 'https://naurra.ai/pricing'
+    }
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    ratingCount: '150',
+    bestRating: '5',
+    worstRating: '1'
+  },
+  description: 'Naurra.ai is the voice-first AI assistant for Google Workspace. Control Gmail, Calendar, Drive, Docs, Sheets, Meet, Tasks, and Contacts with natural voice commands or chat.',
+  featureList: 'Voice-controlled email management, AI-powered calendar scheduling, Automated document creation, Smart file organization, Natural language commands, Multi-service orchestration, 35+ integrated AI tools, iOS native app',
+  screenshot: 'https://naurra.ai/logo-transparent.png',
+  softwareVersion: '1.0',
+  downloadUrl: 'https://apps.apple.com/app/naurra-ai/id6759445443',
+  installUrl: 'https://apps.apple.com/app/naurra-ai/id6759445443',
+  author: {
+    '@type': 'Organization',
+    name: 'Naurra.ai',
+    url: 'https://naurra.ai'
+  }
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: landingPageFAQs.map((faq: { question: string; answer: string }) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer
+    }
+  }))
+}
+---
+
+<BaseLayout
+  title="Naurra.ai - AI-Powered Workspace Assistant | Google Workspace Automation"
+  description="Your intelligent AI assistant for Google Workspace. Control your entire workspace through natural voice commands or chat. 35+ AI tools at your fingertips."
+  keywords="AI assistant, Google Workspace, voice AI, chat AI, productivity, automation, Naurra, workspace management"
+  url="https://naurra.ai/"
+  structuredData={[organizationSchema, softwareSchema, faqSchema]}
+>
+  <LandingPageIsland client:only="react" />
+</BaseLayout>

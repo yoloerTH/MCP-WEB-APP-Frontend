@@ -3,7 +3,7 @@ import { motion, useScroll } from 'framer-motion'
 import { useParams, useNavigate } from 'react-router-dom'
 import { SEO } from './SEO'
 import { StructuredData } from './StructuredData'
-import { getPostBySlug, getRelatedPosts, BlogPost } from '../data/blogPosts'
+import { getPostBySlug, getRelatedPosts, type BlogPost } from '../data/blogPosts'
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>()

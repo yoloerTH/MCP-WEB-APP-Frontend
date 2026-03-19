@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
-import { USE_CASES, CATEGORY_INFO, UseCase } from '../data/useCases'
+import { USE_CASES, CATEGORY_INFO, type UseCase } from '../data/useCases'
 import { SEO } from './SEO'
 
 type CategoryFilter = 'all' | 'email' | 'calendar' | 'documents' | 'multi-service' | 'quick-tasks'
