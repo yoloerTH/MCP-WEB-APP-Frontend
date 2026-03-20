@@ -12,6 +12,14 @@
     <priority>1.0</priority>
   </url>
 
+  <!-- Company / Custom AI Solutions -->
+  <url>
+    <loc>https://naurra.ai/company</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Voice AI -->
   <url>
     <loc>https://naurra.ai/voiceai</loc>

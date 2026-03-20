@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import CompanyPageIsland from '../components/islands/CompanyPageIsland'
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What types of businesses do you work with?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'We work with businesses of all sizes across multiple industries — from startups to established enterprises. Our clients span HVAC, legal, automotive, travel, fashion, e-commerce, wellness, and more. If your business has manual processes that could benefit from AI automation, we can help.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'How long does a typical project take?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Most projects are delivered within 4-8 weeks, depending on complexity. We start with a discovery phase (1 week), followed by architecture design, rapid development with weekly demos, and deployment. You see working progress from week one — not after months of waiting.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What does a custom AI solution cost?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Every project is scoped individually based on your needs. We offer fixed-price engagements so you know exactly what you\'re paying upfront. Contact us for a free consultation and we\'ll provide a detailed proposal within 48 hours.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you offer ongoing support after deployment?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. We offer ongoing support and optimization packages. AI systems improve over time with fine-tuning and monitoring, and we partner with you long-term to ensure your solution keeps delivering results as your business evolves.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'Can you integrate AI with our existing tools and systems?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Absolutely. We specialize in integrating AI into existing workflows — whether that\'s Salesforce, Google Workspace, Slack, WhatsApp, custom CRMs, or legacy systems. Our solutions work alongside what you already use, not replace it.'
+      }
+    },
+    {
+      '@type': 'Question',
+      name: 'What makes Naurra different from other AI agencies?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'We\'re not a generic agency — we\'re engineers who build and ship. Our founder has personally delivered every project in our portfolio. You work directly with the people who write the code, not account managers who relay messages. That means faster delivery, better communication, and solutions that actually work.'
+      }
+    }
+  ]
+}
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Naurra.ai - Custom AI Solutions',
+  description: 'We build custom AI agents, workflow automation, and intelligent systems for businesses. Proven results across HVAC, legal, automotive, travel, fashion, and e-commerce.',
+  url: 'https://naurra.ai/company',
+  logo: 'https://naurra.ai/logo-transparent.png',
+  image: 'https://naurra.ai/og-default.png',
+  priceRange: '$$',
+  areaServed: 'Worldwide',
+  serviceType: ['AI Development', 'Workflow Automation', 'Custom Software Development', 'AI Consulting', 'Chatbot Development'],
+  knowsAbout: ['Artificial Intelligence', 'Machine Learning', 'Natural Language Processing', 'Workflow Automation', 'Google Workspace', 'LLM Integration'],
+  founder: {
+    '@type': 'Person',
+    name: 'Athanasios-Ioannis Panagiotakopoulos',
+    jobTitle: 'CEO & AI Engineer',
+    url: 'https://naurra.ai/company'
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'Sales',
+    email: 'support@naurra.ai',
+    url: 'https://naurra.ai/contact'
+  }
+}
+---
+
+<BaseLayout
+  title="Custom AI Solutions for Business | Naurra.ai"
+  description="We build custom AI agents, workflow automation, and intelligent systems for businesses. Proven results across HVAC, legal, automotive, travel, fashion, and e-commerce. Get a free consultation."
+  keywords="AI agents for business, custom AI solutions, AI automation company, AI workflow automation, business AI integration, custom AI development, AI consulting, enterprise AI solutions, AI chatbot for business, hire AI engineer"
+  url="https://naurra.ai/company"
+  structuredData={[faqSchema, serviceSchema]}
+>
+  <CompanyPageIsland client:only="react" />
+</BaseLayout>
