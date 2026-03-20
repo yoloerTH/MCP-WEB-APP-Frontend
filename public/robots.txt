@@ -1,19 +1,11 @@
 # Robots.txt for Naurra.ai
-# Allow all crawlers to access public pages
 
 User-agent: *
 Allow: /
-Allow: /voiceai
-Allow: /chatai
-Allow: /pricing
-Allow: /inspiration
-Allow: /contact
-Allow: /compare
-Allow: /privacy
-Allow: /terms
 
 # Disallow private/authenticated pages
 Disallow: /settings
+Disallow: /api/
 
 # Sitemap location
 Sitemap: https://naurra.ai/sitemap.xml

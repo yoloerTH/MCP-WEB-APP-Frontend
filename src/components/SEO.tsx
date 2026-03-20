@@ -48,10 +48,17 @@ export function SEO({
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@Naurra_ai" />
+      <meta name="twitter:creator" content="@Naurra_ai" />
       <meta name="twitter:url" content={fullUrl} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={fullImage} />
+
+      {/* OG Image dimensions */}
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:type" content="image/png" />
     </Helmet>
   )
 }

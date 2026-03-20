@@ -106,7 +106,7 @@ export function StructuredData({ type, data }: StructuredDataProps) {
           name: 'Monthly Plan',
           price: '79.00',
           priceCurrency: 'USD',
-          priceValidUntil: '2026-12-31',
+          priceValidUntil: '2027-12-31',
           availability: 'https://schema.org/InStock',
           url: 'https://naurra.ai/pricing'
         },
@@ -115,18 +115,13 @@ export function StructuredData({ type, data }: StructuredDataProps) {
           name: 'Yearly Plan',
           price: '799.00',
           priceCurrency: 'USD',
-          priceValidUntil: '2026-12-31',
+          priceValidUntil: '2027-12-31',
           availability: 'https://schema.org/InStock',
           url: 'https://naurra.ai/pricing'
         }
       ],
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.8',
-        ratingCount: '150',
-        bestRating: '5',
-        worstRating: '1'
-      },
+      // NOTE: Only add aggregateRating when backed by real, verifiable review data.
+      // Google can penalize unverified ratings in structured data.
       description: 'Naurra.ai is the voice-first AI assistant for Google Workspace. Control Gmail, Calendar, Drive, Docs, Sheets, Meet, Tasks, and Contacts with natural voice commands or chat. 35+ pre-built AI workflows for multi-service orchestration.',
       featureList: 'Voice-controlled email management, AI-powered calendar scheduling, Automated document creation, Smart file organization, Natural language commands, Multi-service orchestration, 35+ integrated AI tools, iOS native app',
       screenshot: 'https://naurra.ai/logo-transparent.png',
