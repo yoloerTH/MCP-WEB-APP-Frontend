@@ -243,6 +243,15 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/company')}
+              className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Company
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => navigate('/contact')}
               className="text-sm font-semibold text-amber-400 hover:text-amber-300 transition-colors"
               style={{ fontFamily: 'Outfit, sans-serif' }}
