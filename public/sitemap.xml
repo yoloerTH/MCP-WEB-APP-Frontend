@@ -198,4 +198,11 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://naurra.ai/blog/custom-ai-agents-for-business</loc>
+    <lastmod>2026-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
 </urlset>

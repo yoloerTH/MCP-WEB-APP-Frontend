@@ -63,9 +63,42 @@ export default function BlogPostPage() {
     setTimeout(() => setCopySuccess(false), 2000)
   }
 
-  // Format inline markdown (bold, italic, inline code)
+  // Format inline markdown (bold, italic, inline code, links)
   const renderInline = (text: string, keyPrefix: number = 0): any => {
-    // Handle inline code first
+    // Handle markdown links first [text](url)
+    const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g
+    if (linkRegex.test(text)) {
+      const parts: any[] = []
+      let lastIndex = 0
+      linkRegex.lastIndex = 0
+      let match
+      while ((match = linkRegex.exec(text)) !== null) {
+        if (match.index > lastIndex) {
+          parts.push(renderInlineInner(text.slice(lastIndex, match.index), keyPrefix * 100 + lastIndex))
+        }
+        const isExternal = match[2].startsWith('http')
+        parts.push(
+          <a
+            key={`${keyPrefix}-link-${match.index}`}
+            href={match[2]}
+            {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2 transition-colors"
+          >
+            {match[1]}
+          </a>
+        )
+        lastIndex = match.index + match[0].length
+      }
+      if (lastIndex < text.length) {
+        parts.push(renderInlineInner(text.slice(lastIndex), keyPrefix * 100 + lastIndex))
+      }
+      return parts
+    }
+    return renderInlineInner(text, keyPrefix)
+  }
+
+  const renderInlineInner = (text: string, keyPrefix: number = 0): any => {
+    // Handle inline code
     if (text.includes('`')) {
       const parts = text.split('`')
       return parts.map((part, i) =>
