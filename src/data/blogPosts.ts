@@ -3375,6 +3375,216 @@ We've built custom automation for [HVAC quotation systems, automotive sourcing, 
     image: '/blog/automate-google-workspace-in-5-minutes.png',
     readingTime: 10,
     keywords: 'automate Google Workspace, Google Workspace automation, automate Gmail, automate Google Calendar, AI Google Workspace, Google Workspace AI assistant, automate email with AI, voice commands Google Workspace, how to automate Google Workspace 2026, Google Workspace productivity'
+  },
+  {
+    slug: 'is-ai-safe-for-your-business-data',
+    title: 'Is AI Safe for Your Business Data? The Questions You Should Be Asking',
+    description: 'Your AI assistant can read your emails, calendar, and files. But should you trust it? Here are the 8 security questions every business should ask before connecting AI to their data.',
+    content: `
+# Is AI Safe for Your Business Data? The Questions You Should Be Asking
+
+**TL;DR:** AI tools that access your business data aren't inherently safe or unsafe — it depends entirely on *how* they're built. Most businesses never ask the right questions before granting access. This guide gives you the 8 questions that actually matter, what good answers look like, and how to evaluate any AI tool's security before letting it near your data.
+
+---
+
+Here's a scenario that plays out in companies every day.
+
+Someone on the team finds an AI tool. It looks great — summarizes emails, organizes files, drafts documents. They connect their Google account, grant permissions, and start using it. Productivity goes up.
+
+Six months later, someone in IT asks: "Wait — what exactly does that tool have access to?"
+
+The answer is usually: everything. Gmail, Calendar, Drive, Docs, contacts, meeting recordings. Every client contract, every financial spreadsheet, every internal discussion. And nobody ever checked what the tool does with that data.
+
+This isn't hypothetical. A 2025 Gartner survey found that **67% of employees have connected AI tools to work accounts without IT approval**. Not out of malice — out of convenience. The tools make sign-up so easy that nobody stops to ask the hard questions.
+
+So let's ask them now.
+
+## Why This Matters More Than You Think
+
+When you connect an AI to your Google Workspace (or Microsoft 365, or Slack, or your CRM), you're not just giving it access to one app. You're giving it a window into your entire business:
+
+- **Gmail** — Client communications, contracts, negotiations, internal discussions, passwords people emailed to each other (we all know it happens)
+- **Calendar** — Who you meet with, how often, what you discuss, your daily patterns
+- **Drive** — Every document your company has ever created — financial models, strategy decks, employee records, legal agreements
+- **Docs/Sheets** — Active working documents, potentially containing unpublished plans, pricing models, customer data
+
+An AI with full Workspace access knows more about your business than most of your employees do. The security question isn't optional — it's existential.
+
+## The 8 Questions That Actually Matter
+
+Most security pages are designed to reassure, not inform. They say "we take security seriously" and "your data is protected" without explaining what that actually means.
+
+Here are the questions that cut through the marketing:
+
+### 1. "How does authentication work?"
+
+**What you're really asking:** Does this tool ever see my password?
+
+**Good answer:** OAuth 2.0 — the industry standard. When you "Sign in with Google," you're authenticating directly with Google. The AI tool receives a *token* — a limited-access key — not your actual credentials. You can revoke this token anytime without changing your password.
+
+**Red flag:** Any tool that asks you to enter your Google password directly into their interface. This means they're storing your credentials on their servers. If they get breached, attackers have your actual password.
+
+**What to check:** Look at the sign-in flow. If it redirects you to accounts.google.com for authentication, that's OAuth. If it has its own login form asking for your Google email and password — run.
+
+> Naurra uses Google OAuth 2.0 exclusively. We never see, store, or have access to your password. Authentication happens entirely through Google's servers.
+
+### 2. "What permissions does it request — and are they minimal?"
+
+**What you're really asking:** Does this tool ask for more access than it needs?
+
+**Good answer:** The tool requests only the specific permissions (called "scopes" in OAuth) it needs to function. An email assistant should request Gmail access — it shouldn't also request access to your Google Ads account, YouTube channel, or Google Pay.
+
+**Red flag:** Overly broad permissions. Some tools request "full account access" when they only need to read emails. This is the digital equivalent of giving someone the keys to your entire office when they only need access to the mailroom.
+
+**What to check:** When you see the Google permissions screen during sign-up, read it carefully. Every permission listed should have an obvious reason tied to the tool's functionality.
+
+### 3. "Is my data used to train AI models?"
+
+**What you're really asking:** When I connect my business data, does it become part of the AI's training dataset — potentially accessible to other users?
+
+This is the big one. And the answer varies wildly across the industry.
+
+**Good answer:** "No. Your data is used solely to process your requests and is not used for model training, fine-tuning, or any purpose beyond serving you directly."
+
+**Red flag:** Vague language like "we may use data to improve our services" — this often means your data gets fed into training pipelines. Your confidential client emails could theoretically influence responses given to other users.
+
+**What to check:** Look for an explicit, unambiguous statement. Not "we take your privacy seriously" — that means nothing. Look for: "Your data is not used to train our models." Period.
+
+> Naurra does not use your data for model training. Your emails, documents, calendar entries, and files are processed to fulfill your requests and nothing else. They are not stored for training, not shared with third parties, and not used to improve models.
+
+### 4. "Where is my data processed and stored?"
+
+**What you're really asking:** Where in the world does my data go, and how long does it stay there?
+
+**Good answer:** Data is processed in transit (to execute your command), with minimal or zero persistent storage. The AI reads your email to summarize it, sends you the summary, and doesn't keep a copy of the email on its servers.
+
+**Red flag:** Tools that download and store copies of your entire inbox, full Drive contents, or complete calendar history "for performance." This creates a second copy of your business data on servers you don't control.
+
+**What to check:** Ask directly — or check the privacy policy for language about data retention. How long do they keep your data after you revoke access? Good answers: "immediately deleted" or "within 30 days." Bad answers: silence on the topic.
+
+### 5. "What happens if you get breached?"
+
+**What you're really asking:** If attackers compromise your servers, what do they get?
+
+This is the question nobody asks because nobody wants to think about it. But it's the most important one.
+
+**Good answer:** "If our servers were compromised, attackers would not gain access to your Google data because we don't store it. They would find revocable OAuth tokens, which you can invalidate with one click."
+
+**Red flag:** If the tool stores copies of your data (emails, files, documents), a breach means attackers get all of it. If the tool stores your actual password, a breach means attackers can log into your Google account.
+
+**What to check:** The architecture matters. Stateless architectures (process data, don't store it) are fundamentally more secure than tools that maintain a local copy of your data.
+
+### 6. "Can I see what it accessed and when?"
+
+**What you're really asking:** Is there an audit trail?
+
+**Good answer:** Complete activity logs showing every action the AI took — what emails it read, what calendar events it accessed, what files it opened. You should be able to review this at any time.
+
+**Red flag:** No visibility into what the AI is doing with your data. "Trust us" is not a security policy.
+
+### 7. "Can I revoke access instantly?"
+
+**What you're really asking:** If I decide to stop using this tool, can I cut off access immediately and completely?
+
+**Good answer:** "Yes. Revoke access from your Google Account settings at any time, effective immediately."
+
+**Red flag:** No clear revocation process, or language suggesting data "may be retained for a reasonable period" after disconnection.
+
+**What to check:** Go to [myaccount.google.com/permissions](https://myaccount.google.com/permissions). Any properly built OAuth application will appear here. You should be able to remove it with one click.
+
+### 8. "Who else can see my data inside the tool?"
+
+**What you're really asking:** If my coworker also uses this tool, can they see my emails? Can the tool's employees see my data?
+
+**Good answer:** Strict user isolation — each user's data is completely separate. Internal access is logged, role-based, and limited to support situations with explicit consent.
+
+**Red flag:** Shared dashboards that aggregate data across users, or vague policies about internal access.
+
+## The Scorecard
+
+Before connecting any AI tool to your business data, run through this:
+
+| Question | Good Answer | Red Flag |
+|---|---|---|
+| Authentication | OAuth 2.0 (never sees password) | Asks for your actual password |
+| Permissions | Minimal, specific scopes | Requests "full account access" |
+| Training data | Explicit "no" | Vague "improve services" language |
+| Data storage | Stateless / minimal retention | Downloads copies of your data |
+| Breach impact | Only revocable tokens exposed | Stored data would be compromised |
+| Audit trail | Full activity logs available | No visibility into AI actions |
+| Revocation | Instant, one-click, complete | Unclear process or data retention |
+| Data isolation | Strict per-user separation | Shared access or vague policies |
+
+**Score it:** If a tool fails on 1-2 of these, proceed with caution. If it fails on 3 or more, don't connect it to your business data.
+
+## Common Misconceptions
+
+### "Big companies are automatically safer"
+
+Not necessarily. Larger companies have more complex data pipelines, more employees with potential access, and more incentive to use your data for model improvement. Some of the most concerning data-use policies belong to the largest AI companies.
+
+Size isn't a proxy for security. Architecture is.
+
+### "Free tools are less secure"
+
+The price of a tool has zero correlation with its security practices. Some free tools have excellent security architectures. Some expensive enterprise tools have terrible ones. Evaluate the practices, not the price tag.
+
+### "If Google approves the app, it's safe"
+
+Google's OAuth app verification checks that an app functions correctly and has a privacy policy. It does *not* verify that the company's security practices are good, that they won't use your data for training, or that their servers are hardened. App store approval is a minimum bar, not an endorsement.
+
+### "I have nothing sensitive in my Workspace"
+
+You almost certainly do. Salary discussions in email. Client contracts in Drive. Revenue numbers in Sheets. Meeting notes with strategic decisions. HR communications. Even if *you* don't handle sensitive data directly, your Workspace contains threads and documents shared by people who do.
+
+## For Teams: Additional Considerations
+
+If you're evaluating AI tools for a team or company, add these:
+
+**Compliance:** Does the tool meet your industry's requirements? HIPAA for healthcare, SOC 2 for SaaS, GDPR for EU operations. Ask for specific certifications, not just claims.
+
+**Admin controls:** Can IT manage which employees use the tool, what permissions are granted, and what data is accessible?
+
+**Exit strategy:** If you stop using the tool, what happens to your data? Is there complete deletion? Getting into a tool is easy — getting out cleanly matters more.
+
+**Incident response:** Does the company have a documented response plan? Will they notify you within a specific timeframe if your data is compromised?
+
+## How We Handle It
+
+We built Naurra's security model around one principle: **we should never be a liability to your data.**
+
+- **OAuth 2.0 only** — we never see or store your Google password
+- **Minimal scopes** — we request only the permissions needed for features you use
+- **Zero training on user data** — your data is never used to train models
+- **Stateless processing** — we process requests in real-time without storing copies of your Workspace data
+- **Instant revocation** — remove Naurra from your Google permissions anytime
+- **User isolation** — each account is completely separate
+
+We don't ask you to trust us — we ask you to verify. Check our [privacy policy](/privacy), review the OAuth scopes during sign-up, and test revocation yourself.
+
+For businesses with specialized security requirements or custom AI needs, we build [tailored solutions](/company) with security architectures designed for your specific compliance landscape.
+
+## The Bottom Line
+
+AI is not inherently safe or unsafe for your business data. It depends entirely on the architecture, policies, and practices of the specific tool you're using.
+
+The 8 questions in this guide work for evaluating *any* AI tool — not just ours. Use them before connecting anything to your business accounts. Share them with your team. Make them part of your approval process.
+
+The businesses that benefit most from AI aren't the ones who adopted fastest — they're the ones who adopted smartly. Security and productivity aren't trade-offs. With the right architecture, you get both.
+
+[Try Naurra →](/) or explore our [custom AI solutions](/company).
+`,
+    author: {
+      name: 'Thanos Panagiotakopoulos',
+      avatar: '/ceo-thanos.jpg',
+    },
+    publishedAt: '2026-03-22',
+    category: 'Security',
+    tags: ['Security', 'Data Privacy', 'Business AI', 'Google Workspace', 'Trust'],
+    featured: true,
+    image: '/blog/is-ai-safe-for-your-business-data.png',
+    readingTime: 11,
+    keywords: 'is AI safe for business, AI data security, AI privacy business data, is it safe to use AI with Google Workspace, AI data protection, business AI security risks, AI tool security checklist, should I trust AI with my data, AI OAuth security, enterprise AI security 2026'
   }
 ]
 
