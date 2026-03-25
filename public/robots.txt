@@ -1,0 +1,18 @@
+# Robots.txt for Naurra.ai
+
+User-agent: *
+Allow: /
+
+# Disallow private/authenticated pages
+Disallow: /settings
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://naurra.ai/sitemap.xml
+
+# LLM context file
+# See https://llmstxt.org/
+Allow: /llms.txt
+
+# Crawl delay (optional - prevents aggressive crawling)
+Crawl-delay: 1

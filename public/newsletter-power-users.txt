@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="color-scheme" content="dark">
+  <meta name="supported-color-schemes" content="dark">
+  <title>25,000 Emails a Year. One AI.</title>
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+    body { margin: 0; padding: 0; width: 100% !important; background-color: #060810; }
+    @media only screen and (max-width: 620px) {
+      .wrapper { width: 100% !important; padding: 0 14px !important; }
+      .hero-stat { font-size: 56px !important; line-height: 56px !important; }
+      .hero-title { font-size: 28px !important; line-height: 34px !important; }
+      .section-pad { padding: 32px 20px !important; }
+      .feature-cell { display: block !important; width: 100% !important; padding-bottom: 12px !important; }
+      .access-img { width: 100% !important; height: auto !important; }
+      .cta-btn { width: 100% !important; text-align: center !important; }
+      .stat-cell { display: block !important; width: 100% !important; text-align: center !important; padding: 16px 0 !important; border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.06) !important; }
+      .stat-cell-last { border-bottom: none !important; }
+      .mobile-center { text-align: center !important; }
+    }
+  </style>
+</head>
+<body style="margin:0; padding:0; background-color:#060810; font-family:'Outfit','Helvetica Neue',Helvetica,Arial,sans-serif;">
+
+<!-- Preheader -->
+<div style="display:none; max-height:0; overflow:hidden; mso-hide:all;">
+  Our power users handle 25,000+ emails a year with AI. Here's how Naurra makes that possible. &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+</div>
+
+<!-- Outer -->
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#060810;">
+<tr><td align="center" style="padding:0;">
+
+<!-- Main 600px -->
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" class="wrapper" style="max-width:600px; width:100%; background-color:#0a0e1a;">
+
+  <!-- ════════════════════════════════ -->
+  <!-- TOP BAR                         -->
+  <!-- ════════════════════════════════ -->
+  <tr><td style="padding:28px 40px 20px 40px; border-bottom:1px solid rgba(255,255,255,0.05);">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+      <td style="font-family:'Sora','Helvetica Neue',sans-serif; font-size:18px; font-weight:700; color:#ffffff; letter-spacing:-0.3px;">
+        <img src="https://naurra.ai/logo-transparent.png" alt="Naurra" width="24" height="24" style="display:inline-block; vertical-align:middle; width:24px; height:24px; margin-right:8px;">&nbsp;naurra<span style="color:#94a3b8; font-weight:400;">.ai</span>
+      </td>
+      <td align="right" style="font-family:'Outfit','Helvetica Neue',sans-serif; font-size:12px; color:#475569; letter-spacing:1.5px; text-transform:uppercase;">
+        March 2026
+      </td>
+    </tr>
+    </table>
+  </td></tr>
+
+  <!-- ════════════════════════════════ -->
+  <!-- HERO: The Big Number            -->
+  <!-- ════════════════════════════════ -->
+  <tr><td class="section-pad" style="padding:52px 40px 24px 40px;">
+
+    <!-- Oversized stat -->
+    <div class="hero-stat" style="font-family:'Sora',sans-serif; font-size:72px; font-weight:800; color:#10b981; line-height:72px; letter-spacing:-3px; margin:0 0 4px 0;">
+      25,000
+    </div>
+    <div style="font-family:'Outfit',sans-serif; font-size:14px; color:#475569; letter-spacing:2px; text-transform:uppercase; margin:0 0 28px 0;">
+      emails per year
+    </div>
+
+    <h1 class="hero-title" style="font-family:'Sora',sans-serif; font-size:34px; font-weight:700; color:#ffffff; line-height:40px; margin:0 0 0 0; letter-spacing:-0.5px;">
+      That's how much our<br>power users process.<br>
+      <span style="color:#f59e0b;">With one AI.</span>
+    </h1>
+
+  </td></tr>
+
+  <!-- Accent bar -->
+  <tr><td style="padding:0 40px 32px 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+    <tr><td style="width:48px; height:3px; background: linear-gradient(90deg, #10b981, #f59e0b); border-radius:2px;"></td></tr>
+    </table>
+  </td></tr>
+
+  <!-- Hero body -->
+  <tr><td style="padding:0 40px 40px 40px;">
+    <p style="font-family:'Outfit',sans-serif; font-size:16px; line-height:26px; color:#94a3b8; margin:0; max-width:480px;">
+      Some of our users don't just check email. They live in it. Thousands of messages a month, dozens of reports generated weekly, multiple Google Workspace tools running simultaneously. For them, Naurra isn't a nice-to-have. It's infrastructure.
+    </p>
+  </td></tr>
+
+  <!-- ════════════════════════════════ -->
+  <!-- THE PROBLEM                     -->
+  <!-- ════════════════════════════════ -->
+  <tr><td style="padding:0 40px 40px 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#121826; border:1px solid rgba(255,255,255,0.05); border-radius:16px;">
+    <tr><td style="padding:28px 28px;">
+
+      <p style="font-family:'Outfit',sans-serif; font-size:11px; color:#f59e0b; letter-spacing:2px; text-transform:uppercase; margin:0 0 12px 0; font-weight:500;">The reality without AI</p>
+
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+        <tr><td style="padding:6px 0;">
+          <span style="font-family:'Outfit',sans-serif; font-size:14px; color:#ef4444;">✗</span>
+          <span style="font-family:'Outfit',sans-serif; font-size:14px; color:#cbd5e1; margin-left:8px;">2+ hours every morning just triaging your inbox</span>
+        </td></tr>
+        <tr><td style="padding:6px 0;">
+          <span style="font-family:'Outfit',sans-serif; font-size:14px; color:#ef4444;">✗</span>
+          <span style="font-family:'Outfit',sans-serif; font-size:14px; color:#cbd5e1; margin-left:8px;">Important emails buried under newsletters and noise</span>
+        </td></tr>
+        <tr><td style="padding:6px 0;">
+          <span style="font-family:'Outfit',sans-serif; font-size:14px; color:#ef4444;">✗</span>
+          <span style="font-family:'Outfit',sans-serif; font-size:14px; color:#cbd5e1; margin-left:8px;">Reports compiled manually from scattered spreadsheets</span>
+        </td></tr>
+        <tr><td style="padding:6px 0;">
+          <span style="font-family:'Outfit',sans-serif; font-size:14px; color:#ef4444;">✗</span>
+          <span style="font-family:'Outfit',sans-serif; font-size:14px; color:#cbd5e1; margin-left:8px;">Context lost between email, calendar, and documents</span>
+        </td></tr>
+        <tr><td style="padding:6px 0;">
+          <span style="font-family:'Outfit',sans-serif; font-size:14px; color:#ef4444;">✗</span>
+          <span style="font-family:'Outfit',sans-serif; font-size:14px; color:#cbd5e1; margin-left:8px;">Follow-ups forgotten, deadlines missed, burnout building</span>
+        </td></tr>
+      </table>
+
+    </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ════════════════════════════════ -->
+  <!-- HOW NAURRA STREAMLINES IT       -->
+  <!-- ════════════════════════════════ -->
+  <tr><td class="section-pad" style="padding:8px 40px 12px 40px;">
+    <p style="font-family:'Outfit',sans-serif; font-size:11px; color:#10b981; letter-spacing:2px; text-transform:uppercase; margin:0 0 8px 0; font-weight:500;">How Naurra changes this</p>
+    <h2 style="font-family:'Sora',sans-serif; font-size:24px; font-weight:700; color:#ffffff; margin:0 0 24px 0; letter-spacing:-0.3px;">From overwhelmed to in control</h2>
+  </td></tr>
+
+  <!-- Feature 1: Intelligent Triage -->
+  <tr><td style="padding:0 40px 14px 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#121826; border:1px solid rgba(16,185,129,0.12); border-radius:14px;">
+    <tr><td style="padding:24px 24px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+      <tr>
+        <td style="width:40px; vertical-align:top;">
+          <div style="width:32px; height:32px; background-color:rgba(16,185,129,0.12); border-radius:10px; text-align:center; line-height:32px;">
+            <span style="font-size:16px;">📨</span>
+          </div>
+        </td>
+        <td style="padding-left:14px;">
+          <h3 style="font-family:'Sora',sans-serif; font-size:15px; font-weight:600; color:#ffffff; margin:0 0 6px 0;">Intelligent Email Triage</h3>
+          <p style="font-family:'Outfit',sans-serif; font-size:13px; color:#94a3b8; line-height:20px; margin:0;">
+            "Summarize my unread emails and flag anything from a client." One command replaces 45 minutes of scrolling. The AI reads, prioritizes, and surfaces what actually needs your attention.
+          </p>
+        </td>
+      </tr>
+      </table>
+    </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- Feature 2: Smart Replies -->
+  <tr><td style="padding:0 40px 14px 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#121826; border:1px solid rgba(16,185,129,0.12); border-radius:14px;">
+    <tr><td style="padding:24px 24px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+      <tr>
+        <td style="width:40px; vertical-align:top;">
+          <div style="width:32px; height:32px; background-color:rgba(16,185,129,0.12); border-radius:10px; text-align:center; line-height:32px;">
+            <span style="font-size:16px;">⚡</span>
+          </div>
+        </td>
+        <td style="padding-left:14px;">
+          <h3 style="font-family:'Sora',sans-serif; font-size:15px; font-weight:600; color:#ffffff; margin:0 0 6px 0;">Contextual Replies at Scale</h3>
+          <p style="font-family:'Outfit',sans-serif; font-size:13px; color:#94a3b8; line-height:20px; margin:0;">
+            "Reply to Sarah with the updated timeline and confirm Thursday's meeting." The AI understands who, what, and when. It drafts professional responses in your tone and sends them. No copy-pasting, no tab-switching.
+          </p>
+        </td>
+      </tr>
+      </table>
+    </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- Feature 3: Report Generation -->
+  <tr><td style="padding:0 40px 14px 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#121826; border:1px solid rgba(245,158,11,0.12); border-radius:14px;">
+    <tr><td style="padding:24px 24px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+      <tr>
+        <td style="width:40px; vertical-align:top;">
+          <div style="width:32px; height:32px; background-color:rgba(245,158,11,0.12); border-radius:10px; text-align:center; line-height:32px;">
+            <span style="font-size:16px;">📊</span>
+          </div>
+        </td>
+        <td style="padding-left:14px;">
+          <h3 style="font-family:'Sora',sans-serif; font-size:15px; font-weight:600; color:#ffffff; margin:0 0 6px 0;">Automated Report Generation</h3>
+          <p style="font-family:'Outfit',sans-serif; font-size:13px; color:#94a3b8; line-height:20px; margin:0;">
+            "Create a weekly summary from the Q1 spreadsheet and email it to the team." Naurra reads your Sheets data, generates a clean report in Docs, and distributes it. What used to take an hour every Friday now takes one sentence.
+          </p>
+        </td>
+      </tr>
+      </table>
+    </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- Feature 4: Cross-Tool Workflows -->
+  <tr><td style="padding:0 40px 44px 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#121826; border:1px solid rgba(245,158,11,0.12); border-radius:14px;">
+    <tr><td style="padding:24px 24px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+      <tr>
+        <td style="width:40px; vertical-align:top;">
+          <div style="width:32px; height:32px; background-color:rgba(245,158,11,0.12); border-radius:10px; text-align:center; line-height:32px;">
+            <span style="font-size:16px;">🔗</span>
+          </div>
+        </td>
+        <td style="padding-left:14px;">
+          <h3 style="font-family:'Sora',sans-serif; font-size:15px; font-weight:600; color:#ffffff; margin:0 0 6px 0;">Cross-Tool Workflows</h3>
+          <p style="font-family:'Outfit',sans-serif; font-size:13px; color:#94a3b8; line-height:20px; margin:0;">
+            "Prepare for my 2pm meeting. Pull recent emails from the client, find the contract in Drive, and check what we discussed last time." One command, three tools, complete context. That's the power of a connected AI agent.
+          </p>
+        </td>
+      </tr>
+      </table>
+    </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ════════════════════════════════ -->
+  <!-- STATS BAR                       -->
+  <!-- ════════════════════════════════ -->
+  <tr><td style="padding:0 40px 44px 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#121826; border:1px solid rgba(255,255,255,0.06); border-radius:16px;">
+    <tr>
+      <td class="stat-cell" align="center" style="padding:26px 0; width:33%; border-right:1px solid rgba(255,255,255,0.06);">
+        <div style="font-family:'Sora',sans-serif; font-size:30px; font-weight:700; color:#10b981; line-height:1;">13h+</div>
+        <div style="font-family:'Outfit',sans-serif; font-size:11px; color:#64748b; text-transform:uppercase; letter-spacing:1px; margin-top:6px;">Saved weekly</div>
+      </td>
+      <td class="stat-cell" align="center" style="padding:26px 0; width:34%; border-right:1px solid rgba(255,255,255,0.06);">
+        <div style="font-family:'Sora',sans-serif; font-size:30px; font-weight:700; color:#f59e0b; line-height:1;">25K+</div>
+        <div style="font-family:'Outfit',sans-serif; font-size:11px; color:#64748b; text-transform:uppercase; letter-spacing:1px; margin-top:6px;">Emails managed</div>
+      </td>
+      <td class="stat-cell stat-cell-last" align="center" style="padding:26px 0; width:33%;">
+        <div style="font-family:'Sora',sans-serif; font-size:30px; font-weight:700; color:#10b981; line-height:1;">8</div>
+        <div style="font-family:'Outfit',sans-serif; font-size:11px; color:#64748b; text-transform:uppercase; letter-spacing:1px; margin-top:6px;">Services connected</div>
+      </td>
+    </tr>
+    </table>
+  </td></tr>
+
+  <!-- ════════════════════════════════ -->
+  <!-- SOCIAL PROOF QUOTE              -->
+  <!-- ════════════════════════════════ -->
+  <tr><td style="padding:0 40px 44px 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-left:3px solid #10b981;">
+    <tr><td style="padding:0 0 0 24px;">
+      <p style="font-family:'Outfit',sans-serif; font-size:16px; color:#cbd5e1; line-height:26px; margin:0 0 14px 0; font-style:italic;">
+        "I used to spend my entire morning on email. Now I give Naurra three commands before my coffee is ready, and my inbox is handled. The weekly reports that took me an hour every Friday? One sentence. It's not a productivity hack. It's a different way of working."
+      </p>
+      <p style="font-family:'Sora',sans-serif; font-size:12px; color:#64748b; margin:0; letter-spacing:0.5px;">
+        NAURRA POWER USER &nbsp;·&nbsp; 25,000+ EMAILS/YEAR
+      </p>
+    </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ════════════════════════════════ -->
+  <!-- DIVIDER                         -->
+  <!-- ════════════════════════════════ -->
+  <tr><td style="padding:0 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr><td style="height:1px; background: linear-gradient(90deg, transparent, rgba(16,185,129,0.25), rgba(245,158,11,0.25), transparent);"></td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ════════════════════════════════ -->
+  <!-- ACCESS SECTION + SCREENSHOT     -->
+  <!-- ════════════════════════════════ -->
+  <tr><td class="section-pad" style="padding:44px 40px 16px 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:8px;">
+    <tr><td style="background-color:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.2); border-radius:20px; padding:5px 14px;">
+      <span style="font-family:'Outfit',sans-serif; font-size:11px; font-weight:500; color:#f59e0b; letter-spacing:1px; text-transform:uppercase;">Access Required</span>
+    </td></tr>
+    </table>
+
+    <h2 style="font-family:'Sora',sans-serif; font-size:24px; font-weight:700; color:#ffffff; margin:16px 0 10px 0; letter-spacing:-0.3px;">
+      Ready to connect your workspace?
+    </h2>
+    <p style="font-family:'Outfit',sans-serif; font-size:15px; line-height:24px; color:#94a3b8; margin:0 0 28px 0; max-width:460px;">
+      Naurra connects to 8 Google Workspace services to manage your email, calendar, documents, and more. Before you can connect, you'll need to request access. We review every request to ensure a quality experience for every user.
+    </p>
+  </td></tr>
+
+  <!-- Screenshot image -->
+  <tr><td style="padding:0 40px 8px 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-radius:16px; overflow:hidden; border:1px solid rgba(16,185,129,0.12);">
+    <tr><td>
+      <img src="https://gdpdhuofgvffjzhbeekn.supabase.co/storage/v1/object/public/NaurraMedia/Naurra%20Access.png" alt="Naurra Access Panel showing Gmail, Calendar, Drive, Docs, Sheets, Contacts, Tasks, and Meet integration" class="access-img" style="display:block; width:100%; height:auto; border-radius:15px;">
+    </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- Security note under screenshot -->
+  <tr><td style="padding:12px 40px 16px 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+      <td style="width:20px; vertical-align:top; padding-top:2px;">
+        <span style="font-size:13px;">🔒</span>
+      </td>
+      <td style="padding-left:8px;">
+        <p style="font-family:'Outfit',sans-serif; font-size:12px; color:#64748b; line-height:18px; margin:0;">
+          <span style="color:#94a3b8;">Secure by design.</span> OAuth 2.0 authentication. Your password is never stored. Your data is never used for training. You can disconnect anytime.
+        </p>
+      </td>
+    </tr>
+    </table>
+  </td></tr>
+
+  <!-- ════════════════════════════════ -->
+  <!-- CTA: Request Access             -->
+  <!-- ════════════════════════════════ -->
+  <tr><td style="padding:24px 40px 52px 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background: linear-gradient(135deg, #0f1d2a 0%, #121826 50%, #161222 100%); border:1px solid rgba(16,185,129,0.15); border-radius:16px;">
+    <tr><td align="center" style="padding:36px 28px;">
+
+      <h3 style="font-family:'Sora',sans-serif; font-size:22px; font-weight:700; color:#ffffff; margin:0 0 8px 0; letter-spacing:-0.3px;">
+        Join our power users
+      </h3>
+      <p style="font-family:'Outfit',sans-serif; font-size:14px; color:#64748b; margin:0 0 28px 0; line-height:22px; max-width:380px;">
+        Request access and connect your Google Workspace. Most requests are approved within 24 hours.
+      </p>
+
+      <!-- Two buttons -->
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td style="padding-right:10px;">
+          <a href="https://naurra.ai/contact" target="_blank" class="cta-btn" style="display:inline-block; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color:#ffffff; font-family:'Sora',sans-serif; font-size:14px; font-weight:600; text-decoration:none; padding:14px 28px; border-radius:12px; letter-spacing:0.2px; box-shadow: 0 4px 20px rgba(245,158,11,0.3);">
+            Request Access
+          </a>
+        </td>
+        <td style="padding-left:10px;">
+          <a href="https://naurra.ai/" target="_blank" class="cta-btn" style="display:inline-block; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color:#ffffff; font-family:'Sora',sans-serif; font-size:14px; font-weight:600; text-decoration:none; padding:14px 28px; border-radius:12px; letter-spacing:0.2px; box-shadow: 0 4px 20px rgba(16,185,129,0.3);">
+            I Have Access →
+          </a>
+        </td>
+      </tr>
+      </table>
+
+    </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ════════════════════════════════ -->
+  <!-- BLOG NUDGE                      -->
+  <!-- ════════════════════════════════ -->
+  <tr><td style="padding:0 40px 44px 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#121826; border:1px solid rgba(255,255,255,0.05); border-radius:14px;">
+    <tr><td style="padding:22px 24px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+      <tr>
+        <td>
+          <p style="font-family:'Outfit',sans-serif; font-size:10px; color:#10b981; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 4px 0;">From the blog</p>
+          <a href="https://naurra.ai/blog/automate-google-workspace-in-5-minutes" target="_blank" style="font-family:'Sora',sans-serif; font-size:14px; font-weight:600; color:#ffffff; text-decoration:none; line-height:20px;">
+            How to Automate Your Entire Google Workspace in 5 Minutes
+          </a>
+          <p style="font-family:'Outfit',sans-serif; font-size:12px; color:#64748b; margin:4px 0 0 0;">21 voice commands you can try right now.</p>
+        </td>
+        <td align="right" valign="middle" style="width:60px;">
+          <a href="https://naurra.ai/blog/automate-google-workspace-in-5-minutes" target="_blank" style="display:inline-block; width:36px; height:36px; background-color:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); border-radius:10px; text-align:center; line-height:36px; text-decoration:none; font-size:16px; color:#10b981;">
+            →
+          </a>
+        </td>
+      </tr>
+      </table>
+    </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ════════════════════════════════ -->
+  <!-- FOOTER                          -->
+  <!-- ════════════════════════════════ -->
+  <tr><td style="padding:0 40px 40px 40px; border-top:1px solid rgba(255,255,255,0.04);">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="padding-top:32px;">
+    <tr>
+      <td>
+        <span style="font-family:'Sora',sans-serif; font-size:15px; font-weight:700; color:#ffffff; letter-spacing:-0.3px;">
+          <img src="https://naurra.ai/logo-transparent.png" alt="Naurra" width="20" height="20" style="display:inline-block; vertical-align:middle; width:20px; height:20px; margin-right:6px;">&nbsp;naurra<span style="color:#64748b; font-weight:400;">.ai</span>
+        </span>
+      </td>
+      <td align="right" class="footer-links">
+        <a href="https://naurra.ai" target="_blank" style="font-family:'Outfit',sans-serif; font-size:12px; color:#64748b; text-decoration:none; margin-left:16px;">Website</a>
+        <a href="https://naurra.ai/blog" target="_blank" style="font-family:'Outfit',sans-serif; font-size:12px; color:#64748b; text-decoration:none; margin-left:16px;">Blog</a>
+        <a href="https://naurra.ai/company" target="_blank" style="font-family:'Outfit',sans-serif; font-size:12px; color:#64748b; text-decoration:none; margin-left:16px;">Company</a>
+        <a href="https://naurra.ai/contact" target="_blank" style="font-family:'Outfit',sans-serif; font-size:12px; color:#64748b; text-decoration:none; margin-left:16px;">Contact</a>
+      </td>
+    </tr>
+    </table>
+
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:20px 0;">
+    <tr><td style="height:1px; background-color:rgba(255,255,255,0.04);"></td></tr>
+    </table>
+
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+      <td style="font-family:'Outfit',sans-serif; font-size:11px; color:#334155; line-height:18px;">
+        You're receiving this because you're a Naurra.ai user.<br>
+        <a href="https://naurra.ai/privacy" target="_blank" style="color:#475569; text-decoration:underline;">Privacy Policy</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://naurra.ai/terms" target="_blank" style="color:#475569; text-decoration:underline;">Terms</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#" style="color:#475569; text-decoration:underline;">Unsubscribe</a>
+      </td>
+      <td align="right" valign="bottom">
+        <span style="font-family:'Outfit',sans-serif; font-size:11px; color:#1e293b;">© 2026 Naurra.ai</span>
+      </td>
+    </tr>
+    </table>
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+
+</body>
+</html>

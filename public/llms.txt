@@ -1,0 +1,105 @@
+# Naurra.ai
+
+> Naurra.ai is the voice-first AI assistant for Google Workspace. It lets users control Gmail, Calendar, Drive, Docs, Sheets, Meet, Tasks, and Contacts through natural voice commands or chat — replacing manual clicks with conversation.
+
+## What Naurra.ai Does
+
+Naurra.ai is an AI-powered productivity platform that connects to Google Workspace and lets users manage all 8 Google services through natural language. Users speak or type commands like "Send an email to John about tomorrow's meeting" or "Create a project brief doc and share it with the team" and Naurra executes them instantly.
+
+Key differentiator: Naurra.ai performs multi-service orchestration — one voice command can trigger actions across multiple Google services simultaneously. For example, "Create a meeting agenda doc and email it to tomorrow's meeting attendees" checks Calendar, creates a Doc, and sends it via Gmail in one step.
+
+## Core Features
+
+- **Voice AI**: Real-time voice assistant with barge-in support (interrupt while AI is speaking)
+- **Chat AI**: Text-based interface for the same workspace commands
+- **Multi-Service Orchestration**: Single commands that span Gmail, Calendar, Drive, Docs, Sheets, Meet, Tasks, and Contacts
+- **35+ Pre-Built AI Workflows**: Ready-made automations for common productivity tasks
+- **Native iOS App**: Available on the Apple App Store (app ID: id6759445443)
+- **Web App**: Available at https://naurra.ai
+
+## Supported Google Workspace Services
+
+1. **Gmail** — Read, send, search, reply, forward, archive emails
+2. **Google Calendar** — Create, view, update, delete events; check availability
+3. **Google Drive** — Find, organize, share, create files and folders
+4. **Google Docs** — Create, edit, and share documents
+5. **Google Sheets** — Create, update, and query spreadsheets
+6. **Google Meet** — Schedule and manage video meetings
+7. **Google Tasks** — Create and manage task lists
+8. **Google Contacts** — Look up and manage contact information
+
+## Example Voice Commands
+
+- "Check my emails from today"
+- "Schedule a meeting with Sarah next Tuesday at 2pm"
+- "Create a new document called Project Brief"
+- "Find the Q4 sales report in Drive"
+- "Send a follow-up email to today's meeting attendees"
+- "What does my calendar look like this week?"
+- "Create a spreadsheet for expense tracking"
+- "Move all Q4 reports to the Finance folder"
+
+## Multi-Step Command Examples
+
+- "Check my calendar for today, summarize my unread emails, and tell me what I need to focus on"
+- "Create a meeting agenda doc and email it to the attendees of my 2pm meeting"
+- "Pull the deadlines from my project spreadsheet and create calendar events for each one"
+- "Draft a status update email based on what I did today and send it to my manager"
+
+## Pricing
+
+- **Free Trial**: 3 days, full access, no credit card required
+- **Monthly**: $79/month
+- **Yearly**: $799/year (save 16%)
+
+All plans include full voice and chat AI, all 8 Google Workspace integrations, and 35+ AI tools.
+
+## Technical Details
+
+- Real-time voice processing with Deepgram Nova-3 (speech-to-text) and Cartesia Sonic-3 (text-to-speech)
+- LLM-powered intent parsing and response generation
+- Secure OAuth 2.0 Google authentication
+- End-to-end encryption, GDPR compliant
+- Sub-100ms orchestration latency
+- 99.9% uptime
+
+## Company
+
+- **Website**: https://naurra.ai
+- **iOS App**: https://apps.apple.com/app/naurra-ai/id6759445443
+- **LinkedIn**: https://www.linkedin.com/company/109405415
+- **X (Twitter)**: https://x.com/Naurra_ai
+- **Instagram**: https://www.instagram.com/naurra.ai/
+- **YouTube**: https://www.youtube.com/@naurra_ai
+- **Reddit**: https://www.reddit.com/user/naurra_ai/
+- **Facebook**: https://www.facebook.com/profile.php?id=61588566855794
+- **Contact**: https://naurra.ai/contact
+
+## Pages
+
+- https://naurra.ai/ — Homepage and landing page
+- https://naurra.ai/voiceai — Voice AI interface
+- https://naurra.ai/chatai — Chat AI interface
+- https://naurra.ai/pricing — Pricing plans
+- https://naurra.ai/blog — Blog with productivity articles and tutorials
+- https://naurra.ai/inspiration — Voice command examples and use cases
+- https://naurra.ai/contact — Contact form
+- https://naurra.ai/privacy — Privacy policy
+- https://naurra.ai/terms — Terms of service
+
+## Frequently Asked Questions
+
+**What is Naurra.ai?**
+Naurra.ai is an AI-powered voice and chat assistant for Google Workspace. It lets you control Gmail, Calendar, Drive, Docs, Sheets, Meet, Tasks, and Contacts through natural voice commands or text chat.
+
+**How is Naurra.ai different from Google Assistant or Siri?**
+Naurra.ai is purpose-built for Google Workspace productivity. It executes complex multi-step workflows across multiple Google services in a single command — something general-purpose assistants cannot do.
+
+**What Google services does Naurra.ai support?**
+Naurra.ai integrates with 8 Google Workspace services: Gmail, Google Calendar, Google Drive, Google Docs, Google Sheets, Google Meet, Google Tasks, and Google Contacts.
+
+**Is my data secure?**
+Yes. Naurra.ai uses end-to-end encryption, secure OAuth for Google authentication, and never stores your Google credentials. The platform is GDPR compliant.
+
+**Is there a mobile app?**
+Yes. Naurra.ai is available as a native iOS app on the Apple App Store, plus a web app at naurra.ai.

@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import FormattedText from './FormattedText'
 
 interface ChatMessage {
   type: 'user' | 'ai' | 'system'
@@ -42,10 +43,10 @@ export default function ChatInterface({ messages, onSendMessage, isWaiting }: Ch
     <div className="flex flex-col h-[600px]">
       {/* Header */}
       <div className="mb-4">
-        <h3 className="text-sm font-bold text-emerald-300 flex items-center gap-2">
+        <h3 className="text-sm font-bold text-emerald-400/80 flex items-center gap-2 tracking-wide">
           <span>Chat Conversation</span>
           {messages.length > 0 && (
-            <span className="text-xs font-medium text-gold-300 bg-gold-500/20 px-2 py-0.5 rounded-full border border-gold-500/30">
+            <span className="text-xs font-medium text-emerald-300 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
               {messages.length}
             </span>
           )}
@@ -55,7 +56,7 @@ export default function ChatInterface({ messages, onSendMessage, isWaiting }: Ch
       {/* Messages */}
       <div
         ref={scrollRef}
-        className="flex-1 overflow-y-auto space-y-4 bg-gradient-to-br from-midnight-900/80 to-midnight-800/50 rounded-xl p-4 border border-emerald-500/20 mb-4"
+        className="flex-1 overflow-y-auto space-y-4 bg-white/[0.02] rounded-xl p-4 border border-white/[0.06] mb-4"
       >
         <AnimatePresence initial={false}>
           {messages.length === 0 ? (
@@ -83,37 +84,38 @@ export default function ChatInterface({ messages, onSendMessage, isWaiting }: Ch
               >
                 <div className={`max-w-[85%] ${message.type === 'system' ? 'w-full' : ''}`}>
                   <div
-                    className={`p-3.5 rounded-2xl shadow-soft ${
+                    className={`p-3.5 rounded-2xl ${
                       message.type === 'user'
-                        ? 'bg-midnight-700 border border-midnight-600 text-white'
+                        ? 'bg-white/[0.05] border border-white/[0.08] text-white'
                         : message.type === 'ai'
-                        ? 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-glow-emerald'
-                        : 'bg-gold-500/20 border border-gold-500/50 text-gold-200 text-center text-xs'
+                        ? 'bg-gradient-to-br from-emerald-500/90 to-emerald-600/90 text-white shadow-[0_0_30px_-10px_rgba(16,185,129,0.3)]'
+                        : 'bg-amber-500/10 border border-amber-500/20 text-amber-200 text-center text-xs'
                     }`}
                   >
                     {/* Label */}
                     {message.type !== 'system' && (
                       <div className={`text-[10px] font-bold mb-1 uppercase tracking-wider ${
-                        message.type === 'user' ? 'text-midnight-400' : 'text-emerald-100'
+                        message.type === 'user' ? 'text-white/40' : 'text-emerald-100/80'
                       }`}>
                         {message.type === 'user' ? 'You' : 'AI Assistant'}
                       </div>
                     )}
 
                     {/* Message text */}
-                    <div className={`text-sm leading-relaxed ${
-                      message.type === 'system' ? 'italic font-medium' : 'font-medium'
-                    }`}>
-                      {message.text}
-                    </div>
+                    <FormattedText
+                      text={message.text}
+                      className={`text-sm leading-relaxed ${
+                        message.type === 'system' ? 'italic font-medium' : 'font-medium'
+                      }`}
+                    />
 
                     {/* Timestamp */}
                     <div className={`text-[10px] mt-1.5 font-medium ${
                       message.type === 'user'
-                        ? 'text-midnight-400'
+                        ? 'text-white/30'
                         : message.type === 'ai'
-                        ? 'text-emerald-200'
-                        : 'text-gold-300'
+                        ? 'text-emerald-200/70'
+                        : 'text-amber-300/60'
                     }`}>
                       {formatTime(message.timestamp)}
                     </div>
@@ -131,7 +133,7 @@ export default function ChatInterface({ messages, onSendMessage, isWaiting }: Ch
             animate={{ opacity: 1, y: 0 }}
             className="flex justify-start"
           >
-            <div className="bg-emerald-500/20 border border-emerald-500/50 px-4 py-3 rounded-2xl">
+            <div className="bg-emerald-500/10 border border-emerald-500/20 px-4 py-3 rounded-2xl">
               <div className="flex items-center gap-2">
                 <div className="flex gap-1">
                   <motion.div
@@ -171,14 +173,14 @@ export default function ChatInterface({ messages, onSendMessage, isWaiting }: Ch
           }}
           placeholder="Type your message..."
           disabled={isWaiting}
-          className="flex-1 px-4 py-3 bg-midnight-700 text-white placeholder-midnight-400 rounded-xl border-2 border-emerald-500/30 focus:border-emerald-500 focus:outline-none transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex-1 px-4 py-3 bg-white/[0.04] text-white placeholder-white/30 rounded-xl border border-white/[0.08] focus:border-emerald-500/50 focus:bg-white/[0.06] focus:outline-none transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
         />
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={handleSend}
           disabled={!input.trim() || isWaiting}
-          className="px-6 py-3 bg-gradient-to-br from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 disabled:opacity-50 disabled:cursor-not-allowed text-midnight-900 font-bold rounded-xl shadow-glow-gold transition-all duration-200"
+          className="px-6 py-3 bg-gradient-to-br from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold rounded-xl shadow-[0_0_20px_-5px_rgba(16,185,129,0.4)] transition-all duration-200"
         >
           Send
         </motion.button>

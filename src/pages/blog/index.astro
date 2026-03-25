@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import BlogPageIsland from '../../components/islands/BlogPageIsland'
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://naurra.ai/' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://naurra.ai/blog' }
+  ]
+}
+---
+
+<BaseLayout
+  title="Blog - Naurra.ai | AI Workspace Automation Insights & Tutorials"
+  description="Explore expert articles on AI workspace automation, productivity tips, Google Workspace optimization, and voice AI tutorials. Stay ahead with Naurra.ai's latest insights."
+  keywords="AI blog, workspace automation articles, productivity tips, Google Workspace tutorials, voice AI guides, AI assistant insights"
+  url="https://naurra.ai/blog"
+  structuredData={[breadcrumbSchema]}
+>
+  <BlogPageIsland client:only="react" />
+</BaseLayout>

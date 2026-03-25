@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="color-scheme" content="dark">
+  <meta name="supported-color-schemes" content="dark">
+  <title>Naurra.ai — We Now Build Custom AI for Your Business</title>
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Reset */
+    body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+    img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+    body { margin: 0; padding: 0; width: 100% !important; background-color: #060810; }
+
+    @media only screen and (max-width: 620px) {
+      .wrapper { width: 100% !important; padding: 0 16px !important; }
+      .hero-title { font-size: 32px !important; line-height: 38px !important; }
+      .hero-sub { font-size: 15px !important; }
+      .case-table { width: 100% !important; }
+      .case-cell { display: block !important; width: 100% !important; padding-bottom: 16px !important; }
+      .stat-num { font-size: 28px !important; }
+      .section-pad { padding: 32px 20px !important; }
+      .cta-btn { width: 100% !important; text-align: center !important; }
+      .footer-links a { display: block !important; margin-bottom: 8px !important; }
+      .mobile-hide { display: none !important; }
+    }
+  </style>
+</head>
+<body style="margin:0; padding:0; background-color:#060810; font-family:'Outfit','Helvetica Neue',Helvetica,Arial,sans-serif;">
+
+<!-- Preheader (hidden text for email clients) -->
+<div style="display:none; max-height:0; overflow:hidden; mso-hide:all;">
+  We now build custom AI agents for businesses — 7 real projects, 7 industries, real results. See what we can build for you. &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+</div>
+
+<!-- Outer wrapper -->
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#060810;">
+<tr><td align="center" style="padding: 0;">
+
+<!-- Main container 600px -->
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" class="wrapper" style="max-width:600px; width:100%; background-color:#0a0e1a;">
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- TOP BAR — Logo + Date              -->
+  <!-- ═══════════════════════════════════ -->
+  <tr><td style="padding: 28px 40px 20px 40px; border-bottom: 1px solid rgba(255,255,255,0.06);">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+      <td style="font-family:'Sora','Helvetica Neue',sans-serif; font-size:18px; font-weight:700; color:#ffffff; letter-spacing:-0.3px;">
+        <span style="color:#10b981;">●</span>&nbsp;&nbsp;naurra<span style="color:#94a3b8; font-weight:400;">.ai</span>
+      </td>
+      <td align="right" style="font-family:'Outfit','Helvetica Neue',sans-serif; font-size:12px; color:#475569; letter-spacing:1.5px; text-transform:uppercase;">
+        March 2026
+      </td>
+    </tr>
+    </table>
+  </td></tr>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- HERO SECTION                       -->
+  <!-- ═══════════════════════════════════ -->
+  <tr><td class="section-pad" style="padding: 56px 40px 48px 40px;">
+
+    <!-- Eyebrow -->
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+    <tr><td style="background-color:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); border-radius:20px; padding:6px 16px;">
+      <span style="font-family:'Outfit',sans-serif; font-size:11px; font-weight:500; color:#10b981; letter-spacing:1.2px; text-transform:uppercase;">New Announcement</span>
+    </td></tr>
+    </table>
+
+    <!-- Hero Title -->
+    <h1 class="hero-title" style="font-family:'Sora','Helvetica Neue',sans-serif; font-size:38px; font-weight:700; color:#ffffff; line-height:44px; margin:24px 0 0 0; letter-spacing:-0.5px;">
+      We don't just assist<br>your workspace.<br>
+      <span style="color:#10b981;">We build AI for<br>your business.</span>
+    </h1>
+
+    <!-- Separator dash -->
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:28px 0;">
+    <tr><td style="width:48px; height:3px; background: linear-gradient(90deg, #10b981, #f59e0b); border-radius:2px;"></td></tr>
+    </table>
+
+    <!-- Hero body -->
+    <p class="hero-sub" style="font-family:'Outfit',sans-serif; font-size:16px; line-height:26px; color:#94a3b8; margin:0 0 32px 0; max-width:460px;">
+      You know Naurra as your AI workspace assistant. Today we're opening up what we've been doing behind the scenes — <span style="color:#e2e8f0;">building custom AI agents and automation systems for businesses across 7 industries</span>, with measurable results from day one.
+    </p>
+
+    <!-- CTA Button -->
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+    <tr><td>
+      <a href="https://naurra.ai/company" target="_blank" class="cta-btn" style="display:inline-block; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color:#ffffff; font-family:'Sora',sans-serif; font-size:14px; font-weight:600; text-decoration:none; padding:14px 32px; border-radius:12px; letter-spacing:0.2px; box-shadow: 0 4px 24px rgba(16,185,129,0.3);">
+        Explore Our Work →
+      </a>
+    </td></tr>
+    </table>
+
+  </td></tr>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- STATS BAR — Social proof           -->
+  <!-- ═══════════════════════════════════ -->
+  <tr><td style="padding: 0 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#121826; border:1px solid rgba(255,255,255,0.06); border-radius:16px;">
+    <tr>
+      <td align="center" style="padding:24px 0; width:33%; border-right:1px solid rgba(255,255,255,0.06);">
+        <div class="stat-num" style="font-family:'Sora',sans-serif; font-size:32px; font-weight:700; color:#10b981; line-height:1;">7</div>
+        <div style="font-family:'Outfit',sans-serif; font-size:11px; color:#64748b; text-transform:uppercase; letter-spacing:1px; margin-top:6px;">Industries</div>
+      </td>
+      <td align="center" style="padding:24px 0; width:34%; border-right:1px solid rgba(255,255,255,0.06);">
+        <div class="stat-num" style="font-family:'Sora',sans-serif; font-size:32px; font-weight:700; color:#f59e0b; line-height:1;">100%</div>
+        <div style="font-family:'Outfit',sans-serif; font-size:11px; color:#64748b; text-transform:uppercase; letter-spacing:1px; margin-top:6px;">Delivered</div>
+      </td>
+      <td align="center" style="padding:24px 0; width:33%;">
+        <div class="stat-num" style="font-family:'Sora',sans-serif; font-size:32px; font-weight:700; color:#10b981; line-height:1;">4–8w</div>
+        <div style="font-family:'Outfit',sans-serif; font-size:11px; color:#64748b; text-transform:uppercase; letter-spacing:1px; margin-top:6px;">Avg. Delivery</div>
+      </td>
+    </tr>
+    </table>
+  </td></tr>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- CASE STUDIES SECTION               -->
+  <!-- ═══════════════════════════════════ -->
+  <tr><td class="section-pad" style="padding: 52px 40px 20px 40px;">
+    <p style="font-family:'Outfit',sans-serif; font-size:11px; color:#10b981; letter-spacing:2px; text-transform:uppercase; margin:0 0 8px 0; font-weight:500;">Real Projects, Real Results</p>
+    <h2 style="font-family:'Sora',sans-serif; font-size:24px; font-weight:700; color:#ffffff; margin:0 0 8px 0; letter-spacing:-0.3px;">What We've Built</h2>
+    <p style="font-family:'Outfit',sans-serif; font-size:14px; color:#64748b; margin:0 0 32px 0;">A glimpse at projects shipped this year.</p>
+  </td></tr>
+
+  <!-- Case Study 1: Automotive -->
+  <tr><td style="padding: 0 40px 16px 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#121826; border:1px solid rgba(251,191,36,0.15); border-radius:16px;">
+    <tr><td style="padding:28px 28px 24px 28px;">
+      <!-- Tag -->
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;">
+      <tr><td style="background-color:rgba(251,191,36,0.1); border:1px solid rgba(251,191,36,0.2); border-radius:8px; padding:4px 12px;">
+        <span style="font-family:'Outfit',sans-serif; font-size:10px; font-weight:500; color:#f59e0b; letter-spacing:0.8px; text-transform:uppercase;">Automotive</span>
+      </td></tr>
+      </table>
+      <h3 style="font-family:'Sora',sans-serif; font-size:18px; font-weight:600; color:#ffffff; margin:0 0 10px 0;">AI Vehicle Sourcing System</h3>
+      <p style="font-family:'Outfit',sans-serif; font-size:14px; color:#94a3b8; line-height:22px; margin:0 0 20px 0;">
+        Automated scraping of 50+ marketplaces with AI filtering, profit margin calculations, and instant deal alerts. Client saw profit in week one.
+      </p>
+      <!-- Result badge -->
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td style="background-color:rgba(251,191,36,0.08); border-radius:10px; padding:12px 20px;">
+          <span style="font-family:'Sora',sans-serif; font-size:22px; font-weight:700; color:#f59e0b;">$$$</span>
+          <span style="font-family:'Outfit',sans-serif; font-size:13px; color:#94a3b8; margin-left:8px;">profit from week one</span>
+        </td>
+      </tr>
+      </table>
+    </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- Case Study 2: Legal -->
+  <tr><td style="padding: 0 40px 16px 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#121826; border:1px solid rgba(139,92,246,0.15); border-radius:16px;">
+    <tr><td style="padding:28px 28px 24px 28px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;">
+      <tr><td style="background-color:rgba(139,92,246,0.1); border:1px solid rgba(139,92,246,0.2); border-radius:8px; padding:4px 12px;">
+        <span style="font-family:'Outfit',sans-serif; font-size:10px; font-weight:500; color:#8b5cf6; letter-spacing:0.8px; text-transform:uppercase;">Legal</span>
+      </td></tr>
+      </table>
+      <h3 style="font-family:'Sora',sans-serif; font-size:18px; font-weight:600; color:#ffffff; margin:0 0 10px 0;">Lease AI Analyser</h3>
+      <p style="font-family:'Outfit',sans-serif; font-size:14px; color:#94a3b8; line-height:22px; margin:0 0 20px 0;">
+        Upload a commercial lease → get a full risk analysis with NPV calculations, clause-by-clause breakdown, and red flags in under 60 seconds.
+      </p>
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td style="background-color:rgba(139,92,246,0.08); border-radius:10px; padding:12px 20px;">
+          <span style="font-family:'Sora',sans-serif; font-size:22px; font-weight:700; color:#8b5cf6;">Days → Minutes</span>
+          <span style="font-family:'Outfit',sans-serif; font-size:13px; color:#94a3b8; margin-left:8px;">review time</span>
+        </td>
+      </tr>
+      </table>
+    </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- Case Study 3: HVAC -->
+  <tr><td style="padding: 0 40px 16px 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#121826; border:1px solid rgba(16,185,129,0.15); border-radius:16px;">
+    <tr><td style="padding:28px 28px 24px 28px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;">
+      <tr><td style="background-color:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); border-radius:8px; padding:4px 12px;">
+        <span style="font-family:'Outfit',sans-serif; font-size:10px; font-weight:500; color:#10b981; letter-spacing:0.8px; text-transform:uppercase;">HVAC / SaaS</span>
+      </td></tr>
+      </table>
+      <h3 style="font-family:'Sora',sans-serif; font-size:18px; font-weight:600; color:#ffffff; margin:0 0 10px 0;">MEP Quotation Intelligence</h3>
+      <p style="font-family:'Outfit',sans-serif; font-size:14px; color:#94a3b8; line-height:22px; margin:0 0 20px 0;">
+        GPT-4 powered system that reads technical drawings, extracts requirements, and generates accurate HVAC quotations automatically.
+      </p>
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td style="background-color:rgba(16,185,129,0.08); border-radius:10px; padding:12px 20px;">
+          <span style="font-family:'Sora',sans-serif; font-size:22px; font-weight:700; color:#10b981;">95%</span>
+          <span style="font-family:'Outfit',sans-serif; font-size:13px; color:#94a3b8; margin-left:8px;">faster quotations</span>
+        </td>
+      </tr>
+      </table>
+    </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- Case Study 4: Multi-channel -->
+  <tr><td style="padding: 0 40px 16px 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#121826; border:1px solid rgba(59,130,246,0.15); border-radius:16px;">
+    <tr><td style="padding:28px 28px 24px 28px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;">
+      <tr><td style="background-color:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.2); border-radius:8px; padding:4px 12px;">
+        <span style="font-family:'Outfit',sans-serif; font-size:10px; font-weight:500; color:#3b82f6; letter-spacing:0.8px; text-transform:uppercase;">Multi-Channel CRM</span>
+      </td></tr>
+      </table>
+      <h3 style="font-family:'Sora',sans-serif; font-size:18px; font-weight:600; color:#ffffff; margin:0 0 10px 0;">AI Communication Suite</h3>
+      <p style="font-family:'Outfit',sans-serif; font-size:14px; color:#94a3b8; line-height:22px; margin:0 0 20px 0;">
+        Unified WhatsApp, Telegram, email, and web chat into one AI-powered inbox with Salesforce sync. Every customer, every channel, one brain.
+      </p>
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td style="background-color:rgba(59,130,246,0.08); border-radius:10px; padding:12px 20px;">
+          <span style="font-family:'Sora',sans-serif; font-size:22px; font-weight:700; color:#3b82f6;">4 Channels</span>
+          <span style="font-family:'Outfit',sans-serif; font-size:13px; color:#94a3b8; margin-left:8px;">unified under one AI</span>
+        </td>
+      </tr>
+      </table>
+    </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- See all projects link -->
+  <tr><td align="center" style="padding: 12px 40px 48px 40px;">
+    <a href="https://naurra.ai/company" target="_blank" style="font-family:'Outfit',sans-serif; font-size:14px; color:#10b981; text-decoration:none; font-weight:500; letter-spacing:0.2px;">
+      View all 7 case studies →
+    </a>
+  </td></tr>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- DIVIDER — Decorative               -->
+  <!-- ═══════════════════════════════════ -->
+  <tr><td style="padding:0 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+      <td style="height:1px; background: linear-gradient(90deg, transparent, rgba(16,185,129,0.3), rgba(245,158,11,0.3), transparent);"></td>
+    </tr>
+    </table>
+  </td></tr>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- WHAT WE DO — Services strip        -->
+  <!-- ═══════════════════════════════════ -->
+  <tr><td class="section-pad" style="padding: 48px 40px 44px 40px;">
+    <p style="font-family:'Outfit',sans-serif; font-size:11px; color:#f59e0b; letter-spacing:2px; text-transform:uppercase; margin:0 0 8px 0; font-weight:500;">Our Capabilities</p>
+    <h2 style="font-family:'Sora',sans-serif; font-size:22px; font-weight:700; color:#ffffff; margin:0 0 24px 0; letter-spacing:-0.3px;">What We Can Build for You</h2>
+
+    <!-- Services list — two columns -->
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" class="case-table">
+    <tr>
+      <td class="case-cell" valign="top" width="50%" style="padding-right:12px; padding-bottom:18px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+          <tr>
+            <td style="width:28px; vertical-align:top; padding-top:2px;">
+              <span style="color:#10b981; font-size:14px;">◆</span>
+            </td>
+            <td>
+              <span style="font-family:'Sora',sans-serif; font-size:13px; font-weight:600; color:#e2e8f0;">AI Agents</span><br>
+              <span style="font-family:'Outfit',sans-serif; font-size:12px; color:#64748b; line-height:18px;">Autonomous systems that think, decide, and act</span>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td class="case-cell" valign="top" width="50%" style="padding-left:12px; padding-bottom:18px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+          <tr>
+            <td style="width:28px; vertical-align:top; padding-top:2px;">
+              <span style="color:#10b981; font-size:14px;">◆</span>
+            </td>
+            <td>
+              <span style="font-family:'Sora',sans-serif; font-size:13px; font-weight:600; color:#e2e8f0;">Workflow Automation</span><br>
+              <span style="font-family:'Outfit',sans-serif; font-size:12px; color:#64748b; line-height:18px;">Eliminate manual processes end-to-end</span>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td class="case-cell" valign="top" width="50%" style="padding-right:12px; padding-bottom:18px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+          <tr>
+            <td style="width:28px; vertical-align:top; padding-top:2px;">
+              <span style="color:#f59e0b; font-size:14px;">◆</span>
+            </td>
+            <td>
+              <span style="font-family:'Sora',sans-serif; font-size:13px; font-weight:600; color:#e2e8f0;">LLM Integration</span><br>
+              <span style="font-family:'Outfit',sans-serif; font-size:12px; color:#64748b; line-height:18px;">GPT-4, Claude, Gemini wired into your stack</span>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td class="case-cell" valign="top" width="50%" style="padding-left:12px; padding-bottom:18px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+          <tr>
+            <td style="width:28px; vertical-align:top; padding-top:2px;">
+              <span style="color:#f59e0b; font-size:14px;">◆</span>
+            </td>
+            <td>
+              <span style="font-family:'Sora',sans-serif; font-size:13px; font-weight:600; color:#e2e8f0;">Multi-Channel Bots</span><br>
+              <span style="font-family:'Outfit',sans-serif; font-size:12px; color:#64748b; line-height:18px;">WhatsApp, Telegram, web, email — one brain</span>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td class="case-cell" valign="top" width="50%" style="padding-right:12px; padding-bottom:4px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+          <tr>
+            <td style="width:28px; vertical-align:top; padding-top:2px;">
+              <span style="color:#10b981; font-size:14px;">◆</span>
+            </td>
+            <td>
+              <span style="font-family:'Sora',sans-serif; font-size:13px; font-weight:600; color:#e2e8f0;">Document Intelligence</span><br>
+              <span style="font-family:'Outfit',sans-serif; font-size:12px; color:#64748b; line-height:18px;">Parse, analyze, extract from any document</span>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td class="case-cell" valign="top" width="50%" style="padding-left:12px; padding-bottom:4px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+          <tr>
+            <td style="width:28px; vertical-align:top; padding-top:2px;">
+              <span style="color:#10b981; font-size:14px;">◆</span>
+            </td>
+            <td>
+              <span style="font-family:'Sora',sans-serif; font-size:13px; font-weight:600; color:#e2e8f0;">Full-Stack Platforms</span><br>
+              <span style="font-family:'Outfit',sans-serif; font-size:12px; color:#64748b; line-height:18px;">Complete apps from UI to infrastructure</span>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    </table>
+  </td></tr>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- BLOG CTA CARD                      -->
+  <!-- ═══════════════════════════════════ -->
+  <tr><td style="padding: 0 40px 48px 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background: linear-gradient(135deg, #0f1d2a 0%, #121826 50%, #1a1520 100%); border:1px solid rgba(16,185,129,0.12); border-radius:16px;">
+    <tr><td style="padding:32px 28px;">
+      <!-- Blog badge -->
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;">
+      <tr><td style="background-color:rgba(16,185,129,0.08); border-radius:6px; padding:3px 10px;">
+        <span style="font-family:'Outfit',sans-serif; font-size:10px; font-weight:500; color:#10b981; letter-spacing:1.5px; text-transform:uppercase;">📖 New on the Blog</span>
+      </td></tr>
+      </table>
+
+      <h3 style="font-family:'Sora',sans-serif; font-size:19px; font-weight:700; color:#ffffff; margin:0 0 10px 0; line-height:26px;">
+        Custom AI Agents for Business:<br>
+        <span style="color:#94a3b8; font-weight:400;">How Companies Are Automating Operations in 2026</span>
+      </h3>
+      <p style="font-family:'Outfit',sans-serif; font-size:14px; color:#64748b; line-height:22px; margin:0 0 24px 0;">
+        A deep dive into all 7 case studies — the problems, the AI solutions, and the measurable business impact. Includes an ROI framework you can apply to your own operations.
+      </p>
+
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td>
+          <a href="https://naurra.ai/blog/custom-ai-agents-for-business" target="_blank" style="display:inline-block; background-color:transparent; color:#10b981; font-family:'Sora',sans-serif; font-size:14px; font-weight:600; text-decoration:none; padding:12px 24px; border-radius:10px; border:1px solid rgba(16,185,129,0.3); letter-spacing:0.2px;">
+            Read the Full Article →
+          </a>
+        </td>
+        <td style="padding-left:16px;">
+          <span style="font-family:'Outfit',sans-serif; font-size:12px; color:#475569;">11 min read</span>
+        </td>
+      </tr>
+      </table>
+    </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- PERSONAL NOTE — from Thanos        -->
+  <!-- ═══════════════════════════════════ -->
+  <tr><td style="padding: 0 40px 48px 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-left:3px solid #10b981;">
+    <tr><td style="padding:0 0 0 24px;">
+      <p style="font-family:'Outfit',sans-serif; font-size:15px; color:#cbd5e1; line-height:24px; margin:0 0 16px 0; font-style:italic;">
+        "Every project on that page was built by our team from zero. No templates, no shortcuts. If you've ever thought 'I wish AI could handle this for my business' — let's talk. The first consultation is always free."
+      </p>
+      <p style="font-family:'Sora',sans-serif; font-size:13px; color:#ffffff; margin:0; font-weight:600;">
+        Thanos Panagiotakopoulos
+      </p>
+      <p style="font-family:'Outfit',sans-serif; font-size:12px; color:#64748b; margin:4px 0 0 0;">
+        CEO & AI Engineer, Naurra.ai
+      </p>
+    </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- FINAL CTA                          -->
+  <!-- ═══════════════════════════════════ -->
+  <tr><td style="padding: 0 40px 52px 40px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#121826; border:1px solid rgba(255,255,255,0.06); border-radius:16px;">
+    <tr><td align="center" style="padding:36px 28px;">
+      <h3 style="font-family:'Sora',sans-serif; font-size:20px; font-weight:700; color:#ffffff; margin:0 0 8px 0;">Ready to automate your business?</h3>
+      <p style="font-family:'Outfit',sans-serif; font-size:14px; color:#64748b; margin:0 0 24px 0;">Free consultation. Fixed-price proposals. Results from week one.</p>
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td>
+          <a href="https://naurra.ai/contact" target="_blank" class="cta-btn" style="display:inline-block; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color:#ffffff; font-family:'Sora',sans-serif; font-size:14px; font-weight:600; text-decoration:none; padding:14px 36px; border-radius:12px; letter-spacing:0.2px; box-shadow: 0 4px 24px rgba(16,185,129,0.3);">
+            Get a Free Consultation
+          </a>
+        </td>
+      </tr>
+      </table>
+    </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- FOOTER                             -->
+  <!-- ═══════════════════════════════════ -->
+  <tr><td style="padding: 0 40px 40px 40px; border-top:1px solid rgba(255,255,255,0.04);">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="padding-top:32px;">
+    <tr>
+      <td>
+        <span style="font-family:'Sora',sans-serif; font-size:15px; font-weight:700; color:#ffffff; letter-spacing:-0.3px;">
+          <span style="color:#10b981;">●</span>&nbsp;&nbsp;naurra<span style="color:#64748b; font-weight:400;">.ai</span>
+        </span>
+      </td>
+      <td align="right" class="footer-links">
+        <a href="https://naurra.ai" target="_blank" style="font-family:'Outfit',sans-serif; font-size:12px; color:#64748b; text-decoration:none; margin-left:16px;">Website</a>
+        <a href="https://naurra.ai/blog" target="_blank" style="font-family:'Outfit',sans-serif; font-size:12px; color:#64748b; text-decoration:none; margin-left:16px;">Blog</a>
+        <a href="https://naurra.ai/company" target="_blank" style="font-family:'Outfit',sans-serif; font-size:12px; color:#64748b; text-decoration:none; margin-left:16px;">Company</a>
+        <a href="https://naurra.ai/contact" target="_blank" style="font-family:'Outfit',sans-serif; font-size:12px; color:#64748b; text-decoration:none; margin-left:16px;">Contact</a>
+      </td>
+    </tr>
+    </table>
+
+    <!-- Separator -->
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:20px 0;">
+    <tr><td style="height:1px; background-color:rgba(255,255,255,0.04);"></td></tr>
+    </table>
+
+    <!-- Legal -->
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+      <td style="font-family:'Outfit',sans-serif; font-size:11px; color:#334155; line-height:18px;">
+        You're receiving this because you're a Naurra.ai user.<br>
+        <a href="https://naurra.ai/privacy" target="_blank" style="color:#475569; text-decoration:underline;">Privacy Policy</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://naurra.ai/terms" target="_blank" style="color:#475569; text-decoration:underline;">Terms</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="#" style="color:#475569; text-decoration:underline;">Unsubscribe</a>
+      </td>
+      <td align="right" valign="bottom">
+        <span style="font-family:'Outfit',sans-serif; font-size:11px; color:#1e293b;">© 2026 Naurra.ai</span>
+      </td>
+    </tr>
+    </table>
+  </td></tr>
+
+</table>
+<!-- /Main container -->
+
+</td></tr>
+</table>
+<!-- /Outer wrapper -->
+
+</body>
+</html>

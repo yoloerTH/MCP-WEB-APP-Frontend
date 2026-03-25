@@ -1,83 +1,56 @@
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../hooks/useAuth'
+import { AuthButton } from './AuthButton'
+import { SEO } from './SEO'
+import { StructuredData, landingPageFAQs } from './StructuredData'
 
 interface LandingPageProps {
-  onGetStarted: () => void
+  onGetStarted: (mode?: 'voice' | 'chat') => void
 }
 
-// Google Service Icons as SVG components
+// Google Service Icons - Using official PNG icons
 const GoogleServiceIcon = ({ service }: { service: string }) => {
-  const icons: Record<string, JSX.Element> = {
-    gmail: (
-      <svg viewBox="0 0 48 48" className="w-full h-full">
-        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
-        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
-        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
-        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
-      </svg>
-    ),
-    calendar: (
-      <svg viewBox="0 0 48 48" className="w-full h-full">
-        <rect width="48" height="48" fill="#4285F4" rx="8"/>
-        <path fill="#fff" d="M10 18h28v20a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V18z"/>
-        <path fill="#4285F4" d="M10 12a2 2 0 0 1 2-2h24a2 2 0 0 1 2 2v10H10V12z"/>
-        <text x="24" y="34" fontSize="18" fontWeight="bold" fill="#4285F4" textAnchor="middle">31</text>
-      </svg>
-    ),
-    drive: (
-      <svg viewBox="0 0 48 48" className="w-full h-full">
-        <path fill="#0066DA" d="M15 32.5 8.5 44h31L46 32.5H15z"/>
-        <path fill="#00AC47" d="M16 31 2 31 15.5 4.5 29.5 4.5z"/>
-        <path fill="#EA4335" d="M31 31 17.5 4.5h27L46 31z"/>
-      </svg>
-    ),
-    docs: (
-      <svg viewBox="0 0 48 48" className="w-full h-full">
-        <path fill="#4285F4" d="M37 45H11c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h18l10 10v30c0 1.1-.9 2-2 2z"/>
-        <path fill="#F1F1F1" d="M29 3v8c0 1.1.9 2 2 2h8l-10-10z"/>
-        <path fill="#fff" d="M15 20h18v2H15zm0 4h18v2H15zm0 4h12v2H15z"/>
-      </svg>
-    ),
-    sheets: (
-      <svg viewBox="0 0 48 48" className="w-full h-full">
-        <path fill="#0F9D58" d="M37 45H11c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h18l10 10v30c0 1.1-.9 2-2 2z"/>
-        <path fill="#F1F1F1" d="M29 3v8c0 1.1.9 2 2 2h8l-10-10z"/>
-        <path fill="#fff" d="M15 20h18v2H15zm0 4h18v2H15zm0 4h18v2H15zm0 4h18v2H15z"/>
-      </svg>
-    ),
+  // For services with official icons, use PNG. For others, use simple SVG
+  const hasOfficialIcon = ['gmail', 'calendar', 'drive', 'docs', 'sheets', 'meet', 'tasks'].includes(service)
+
+  if (hasOfficialIcon) {
+    return (
+      <img
+        src={`/google-icons/${service}.png`}
+        alt={service}
+        className="w-full h-full object-contain"
+      />
+    )
+  }
+
+  // Fallback SVG icon for Contacts only
+  const fallbackIcons: Record<string, JSX.Element> = {
     contacts: (
       <svg viewBox="0 0 48 48" className="w-full h-full">
         <rect width="48" height="48" fill="#1976D2" rx="8"/>
         <circle cx="24" cy="18" r="6" fill="#fff"/>
         <path fill="#fff" d="M24 26c-6 0-11 3-11 6v4h22v-4c0-3-5-6-11-6z"/>
       </svg>
-    ),
-    tasks: (
-      <svg viewBox="0 0 48 48" className="w-full h-full">
-        <rect width="48" height="48" fill="#4285F4" rx="8"/>
-        <path fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" d="M12 24l6 6 12-12"/>
-        <circle cx="24" cy="24" r="16" fill="none" stroke="#fff" strokeWidth="2"/>
-      </svg>
-    ),
-    meet: (
-      <svg viewBox="0 0 48 48" className="w-full h-full">
-        <rect width="48" height="48" fill="#00897B" rx="8"/>
-        <path fill="#fff" d="M32 22v4l8 6V16l-8 6zm-16-6h16v16H16z"/>
-        <circle cx="38" cy="12" r="6" fill="#EA4335"/>
-      </svg>
     )
   }
 
-  return icons[service] || null
+  return fallbackIcons[service] || null
 }
 
 export default function LandingPage({ onGetStarted }: LandingPageProps) {
+  const navigate = useNavigate()
+  const { user, signInWithGoogle } = useAuth()
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [currentScenario, setCurrentScenario] = useState(0)
+  const [isCarouselPaused, setIsCarouselPaused] = useState(false)
+  const [showNav, setShowNav] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
   const { scrollYProgress } = useScroll()
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 })
 
   const backgroundY = useTransform(smoothProgress, [0, 1], ['0%', '30%'])
-  const headerOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -87,24 +60,100 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
     return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
 
+  // Scroll direction detection for nav hide/show
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+
+      if (currentScrollY < 10) {
+        // Always show nav at top of page
+        setShowNav(true)
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling down - hide nav
+        setShowNav(false)
+      } else {
+        // Scrolling up - show nav
+        setShowNav(true)
+      }
+
+      setLastScrollY(currentScrollY)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [lastScrollY])
+
+  // Auto-scroll carousel
+  useEffect(() => {
+    if (isCarouselPaused) return
+
+    const carouselInterval = setInterval(() => {
+      setCurrentScenario((prev) => (prev + 1) % 3)
+    }, 5000) // Change scenario every 5 seconds
+
+    return () => clearInterval(carouselInterval)
+  }, [isCarouselPaused])
+
+  // Scroll carousel container when currentScenario changes
+  useEffect(() => {
+    const carouselContainer = document.querySelector('.carousel-container')
+    if (carouselContainer) {
+      const cardWidth = carouselContainer.querySelector('.scenario-card')?.clientWidth || 0
+      const gap = 24 // 1.5rem = 24px
+      carouselContainer.scrollTo({
+        left: currentScenario * (cardWidth + gap),
+        behavior: 'smooth'
+      })
+    }
+  }, [currentScenario])
+
+  const handleGetStartedClick = (mode?: 'voice' | 'chat') => {
+    if (!user) {
+      signInWithGoogle()
+    } else {
+      onGetStarted(mode)
+    }
+  }
+
   return (
     <div className="min-h-screen bg-[#0a0e1a] text-white overflow-x-hidden relative">
-      {/* Load Fonts */}
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+      <SEO
+        title="Naurra.ai - AI-Powered Workspace Assistant | Voice & Chat AI"
+        description="Transform your Google Workspace with Naurra.ai - the intelligent AI assistant that controls Gmail, Calendar, Drive, Docs, and more through natural voice commands or chat. 35+ AI-powered productivity tools."
+        keywords="AI assistant, Google Workspace, voice AI, chat AI, productivity tools, Gmail automation, Calendar AI, Drive management, workspace automation, AI productivity"
+        url="/"
+      />
+      <StructuredData type="organization" />
+      <StructuredData type="software" />
+      <StructuredData type="faq" data={{ faqs: landingPageFAQs }} />
 
+      {/* Font classes - fonts loaded via Astro head */}
+      <style>{`
         * {
-          font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+          font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         .font-display {
-          font-family: 'Space Grotesk', sans-serif;
-          font-weight: 700;
+          font-family: 'Sora', sans-serif;
+          font-weight: 800;
           letter-spacing: -0.04em;
         }
 
         .font-mono {
           font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Custom scrollbar for carousel */
+        .carousel-container::-webkit-scrollbar {
+          height: 6px;
+        }
+        .carousel-container::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 10px;
+        }
+        .carousel-container::-webkit-scrollbar-thumb {
+          background: linear-gradient(to right, #10b981, #f59e0b);
+          border-radius: 10px;
         }
       `}</style>
 
@@ -124,20 +173,13 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
         />
       </motion.div>
 
-      {/* Noise texture overlay */}
-      <div className="fixed inset-0 pointer-events-none opacity-[0.015] mix-blend-overlay">
-        <svg className="w-full h-full">
-          <filter id="noise">
-            <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/>
-          </filter>
-          <rect width="100%" height="100%" filter="url(#noise)"/>
-        </svg>
-      </div>
 
       {/* Navigation */}
       <motion.nav
-        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#0a0e1a]/80 border-b border-emerald-500/10"
-        style={{ opacity: headerOpacity }}
+        initial={{ y: 0 }}
+        animate={{ y: showNav ? 0 : -100 }}
+        transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#0a0e1a]/90 border-b border-emerald-500/10"
       >
         <div className="max-w-[1400px] mx-auto px-8 py-5 flex items-center justify-between">
           <motion.div
@@ -147,40 +189,82 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
           >
             <div className="relative">
               <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full" />
-              <div className="relative w-11 h-11 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-2xl shadow-emerald-500/50 border border-emerald-400/30">
-                <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                  <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-                </svg>
+              <div className="relative w-14 h-14 flex items-center justify-center">
+                <img src="/logo-transparent.png" alt="Naurra.ai Logo" className="w-full h-full object-contain" />
               </div>
             </div>
             <div>
-              <span className="text-xl font-display tracking-tight">AI Assistant</span>
-              <div className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">Workspace Edition</div>
+              <span className="text-2xl font-display tracking-tight bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Naurra.ai</span>
+              <div className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">AI Workspace</div>
             </div>
           </motion.div>
 
-          <motion.button
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={onGetStarted}
-            className="group relative px-7 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-lg font-semibold text-sm overflow-hidden shadow-xl shadow-emerald-500/25 border border-emerald-400/30"
+            className="flex items-center gap-6"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            <span className="relative flex items-center gap-2">
-              Launch Platform
-              <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </span>
-          </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/compare')}
+              className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Compare
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/blog')}
+              className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Blog
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/pricing')}
+              className="text-sm font-semibold text-emerald-300 hover:text-emerald-200 transition-colors"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Pricing
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/inspiration')}
+              className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Explore AI Hub
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/company')}
+              className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Company
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/contact')}
+              className="text-sm font-semibold text-amber-400 hover:text-amber-300 transition-colors"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Contact
+            </motion.button>
+            <AuthButton />
+          </motion.div>
         </div>
       </motion.nav>
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-12 px-8 min-h-screen flex items-center">
+      <section className="relative pt-32 pb-12 px-8 min-h-screen flex items-center">
         <div className="max-w-[1400px] mx-auto w-full">
           <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
             {/* Left: Content */}
@@ -191,21 +275,16 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
                 className="space-y-6"
               >
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full backdrop-blur-sm">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-                  <span className="text-xs font-mono uppercase tracking-wider text-emerald-300">Live & Operational</span>
-                </div>
-
-                <h1 className="font-display text-6xl lg:text-7xl xl:text-8xl leading-[0.95] tracking-tight">
-                  <span className="block text-white">Your AI-Powered</span>
+                <h1 className="font-display text-5xl lg:text-6xl xl:text-7xl leading-[0.95] tracking-tight">
+                  <span className="block text-white">Meet</span>
                   <span className="block bg-gradient-to-r from-emerald-400 via-emerald-300 to-amber-400 bg-clip-text text-transparent">
-                    Workspace
+                    Naurra.ai
                   </span>
-                  <span className="block text-white">Command Center</span>
+                  <span className="block text-white">Your AI Workspace Partner</span>
                 </h1>
 
                 <p className="text-xl text-gray-400 leading-relaxed max-w-xl">
-                  Control your entire Google Workspace through natural voice commands or intelligent chat.
+                  Control your entire Google Workspace through natural voice commands or intelligent chat with Naurra.ai.
                   <span className="text-emerald-300 font-medium"> 35+ AI tools</span> at your fingertips.
                 </p>
               </motion.div>
@@ -219,22 +298,45 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 <motion.button
                   whileHover={{ scale: 1.02, boxShadow: "0 20px 60px rgba(16, 185, 129, 0.4)" }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={onGetStarted}
-                  className="group relative px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl font-semibold text-lg overflow-hidden shadow-2xl shadow-emerald-500/30 border border-emerald-400/30"
+                  onClick={() => handleGetStartedClick('voice')}
+                  onTouchEnd={(e) => {
+                    e.preventDefault()
+                    handleGetStartedClick('voice')
+                  }}
+                  className="group relative px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl font-semibold text-lg overflow-hidden shadow-2xl shadow-emerald-500/30 border border-emerald-400/30 cursor-pointer touch-manipulation"
+                  style={{ WebkitTapHighlightColor: 'transparent' }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <span className="relative">Try Voice Mode</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <span className="relative pointer-events-none">{user ? 'Try Voice Mode' : 'Sign in to Start'}</span>
                 </motion.button>
 
                 <motion.button
                   whileHover={{ scale: 1.02, boxShadow: "0 20px 60px rgba(245, 158, 11, 0.4)" }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={onGetStarted}
-                  className="group relative px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 rounded-xl font-semibold text-lg overflow-hidden shadow-2xl shadow-amber-500/30 border border-amber-400/30"
+                  onClick={() => handleGetStartedClick('chat')}
+                  onTouchEnd={(e) => {
+                    e.preventDefault()
+                    handleGetStartedClick('chat')
+                  }}
+                  className="group relative px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 rounded-xl font-semibold text-lg overflow-hidden shadow-2xl shadow-amber-500/30 border border-amber-400/30 cursor-pointer touch-manipulation"
+                  style={{ WebkitTapHighlightColor: 'transparent' }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <span className="relative">Try Chat Mode</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <span className="relative pointer-events-none">{user ? 'Try Chat Mode' : 'Sign in to Start'}</span>
                 </motion.button>
+
+                <a
+                  href="https://apps.apple.com/app/naurra-ai/id6759445443"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-80 transition-opacity"
+                >
+                  <img
+                    src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                    alt="Download on the App Store"
+                    className="h-[52px]"
+                  />
+                </a>
               </motion.div>
 
               {/* Stats */}
@@ -279,25 +381,24 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
               {/* Glow effects */}
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-amber-500/10 rounded-3xl blur-3xl" />
 
-              {/* Main container with proper positioning */}
-              <div className="relative w-[450px] h-[450px]">
-                {/* Center AI core */}
-                <motion.div
-                  animate={{
-                    boxShadow: [
-                      "0 0 40px rgba(16, 185, 129, 0.3)",
-                      "0 0 80px rgba(16, 185, 129, 0.5)",
-                      "0 0 40px rgba(16, 185, 129, 0.3)"
-                    ]
-                  }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center border border-emerald-400/30 shadow-2xl z-20"
-                >
-                  <svg className="w-12 h-12 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-                  </svg>
-                </motion.div>
+              {/* Main container with proper positioning - optimized size and centered */}
+              <div className="relative w-[420px] h-[420px] mx-auto flex items-center justify-center">
+                {/* Center AI core - perfectly centered */}
+                <div className="absolute z-20" style={{ transform: 'translate(28px, 22px)' }}>
+                  <motion.div
+                    animate={{
+                      boxShadow: [
+                        "0 0 40px rgba(16, 185, 129, 0.3)",
+                        "0 0 80px rgba(16, 185, 129, 0.5)",
+                        "0 0 40px rgba(16, 185, 129, 0.3)"
+                      ]
+                    }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    className="w-24 h-24 bg-[#0a0e1a]/80 backdrop-blur-sm rounded-2xl flex items-center justify-center border-2 border-emerald-400/40 shadow-2xl p-3"
+                  >
+                    <img src="/logo-transparent.png" alt="Naurra.ai" className="w-full h-full object-contain" />
+                  </motion.div>
+                </div>
 
                 {/* Orbiting service icons - PROPERLY FIXED with Framer Motion */}
                 {[
@@ -310,7 +411,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                   { service: 'tasks', angle: 270 },
                   { service: 'meet', angle: 315 },
                 ].map((item, idx) => {
-                  const radius = 170
+                  const radius = 160
                   const angleRad = (item.angle * Math.PI) / 180
                   const x = Math.cos(angleRad) * radius
                   const y = Math.sin(angleRad) * radius
@@ -321,37 +422,88 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                       initial={{ opacity: 0, scale: 0 }}
                       animate={{
                         opacity: 1,
-                        scale: 1,
-                        x: x,
-                        y: y
+                        scale: 1
                       }}
-                      transition={{ delay: 0.6 + idx * 0.08, duration: 0.6 }}
-                      whileHover={{ scale: 1.15, transition: { duration: 0.3 } }}
-                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+                      transition={{ delay: 0.6 + idx * 0.08, duration: 0.6, ease: "easeOut" }}
+                      className="absolute z-10"
+                      style={{
+                        left: `calc(50% + ${x}px)`,
+                        top: `calc(50% + ${y}px)`,
+                        transform: 'translate(-50%, -50%)'
+                      }}
                     >
-                      <div className="relative group w-12 h-12">
-                        <div className="absolute inset-0 bg-emerald-500/20 blur-lg rounded-lg group-hover:bg-emerald-500/40 transition-all duration-300" />
-                        <div className="relative bg-[#0a0e1a]/95 backdrop-blur-sm border border-white/10 rounded-lg p-1.5 shadow-xl group-hover:border-emerald-500/50 transition-all duration-300">
+                      <motion.div
+                        whileHover={{
+                          scale: 1.15,
+                          transition: { duration: 0.3, ease: "easeOut" }
+                        }}
+                        className="relative group w-14 h-14 cursor-pointer"
+                      >
+                        <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-xl group-hover:bg-emerald-500/50 transition-all duration-300" />
+                        <div className="relative bg-[#0a0e1a]/95 backdrop-blur-sm border border-white/10 rounded-xl p-2 shadow-xl group-hover:border-emerald-500/80 group-hover:shadow-2xl group-hover:shadow-emerald-500/30 transition-all duration-300">
                           <GoogleServiceIcon service={item.service} />
                         </div>
-                      </div>
+                      </motion.div>
 
-                      {/* Connection line - wrapped in non-motion div */}
+                      {/* Connection line - Enhanced with flowing particles */}
                       <div
-                        className="absolute top-1/2 left-1/2 pointer-events-none -z-10"
+                        className="absolute pointer-events-none -z-10"
                         style={{
-                          width: `${radius}px`,
-                          height: '1px',
+                          width: `${radius - 28}px`,
+                          height: '3px',
+                          left: '50%',
+                          top: '50%',
                           transformOrigin: '0 0',
                           transform: `rotate(${item.angle + 180}deg)`
                         }}
                       >
+                        {/* Base line with gradient */}
                         <motion.div
-                          className="h-full border-t border-dashed border-emerald-500/30"
+                          className="absolute inset-0 overflow-hidden rounded-full"
                           initial={{ scaleX: 0 }}
                           animate={{ scaleX: 1 }}
                           transition={{ duration: 1, delay: 0.7 + idx * 0.08 }}
+                          style={{
+                            background: 'linear-gradient(90deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.3) 50%, rgba(16, 185, 129, 0.1) 100%)'
+                          }}
                         />
+
+                        {/* Flowing gradient pulse */}
+                        <motion.div
+                          className="absolute inset-0 rounded-full"
+                          style={{
+                            background: 'linear-gradient(90deg, transparent 0%, rgba(16, 185, 129, 0.8) 50%, transparent 100%)',
+                            width: '40%'
+                          }}
+                          animate={{
+                            x: ['-100%', '260%']
+                          }}
+                          transition={{
+                            duration: 3,
+                            delay: idx * 0.3,
+                            repeat: Infinity,
+                            ease: 'linear'
+                          }}
+                        />
+
+                        {/* Energy particles */}
+                        {[0, 1, 2].map((particleIdx) => (
+                          <motion.div
+                            key={particleIdx}
+                            className="absolute top-1/2 -translate-y-1/2 w-1 h-1 bg-emerald-400 rounded-full shadow-[0_0_8px_rgba(16,185,129,0.8)]"
+                            animate={{
+                              x: ['-4px', `${radius - 24}px`],
+                              opacity: [0, 1, 1, 0],
+                              scale: [0.5, 1.2, 1, 0.8]
+                            }}
+                            transition={{
+                              duration: 2.5,
+                              delay: idx * 0.2 + particleIdx * 0.8,
+                              repeat: Infinity,
+                              ease: 'easeInOut'
+                            }}
+                          />
+                        ))}
                       </div>
                     </motion.div>
                   )
@@ -379,64 +531,60 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
               <span className="bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Connection Hub</span>
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Your AI assistant seamlessly orchestrates every Google Workspace tool
+              Naurra.ai seamlessly orchestrates every Google Workspace tool
             </p>
           </motion.div>
 
-          {/* Large Interactive Hub */}
+          {/* Large Interactive Hub - optimized */}
           <div className="relative w-full h-[700px] max-w-5xl mx-auto flex items-center justify-center">
-            <div className="relative w-[700px] h-[700px]">
-              {/* Center AI Brain */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
-              >
-              <div className="relative group">
-                {/* Pulsing glow rings */}
+            <div className="relative w-[680px] h-[680px] mx-auto flex items-center justify-center" style={{ transform: 'translate(-50px, 0px)' }}>
+              {/* Center AI Brain - perfectly centered */}
+              <div className="absolute z-20" style={{ transform: 'translate(45px, 48px)' }}>
                 <motion.div
-                  animate={{
-                    scale: [1, 1.3, 1],
-                    opacity: [0.5, 0.2, 0.5]
-                  }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                  className="absolute inset-0 bg-emerald-500/30 blur-3xl rounded-full"
-                />
-                <motion.div
-                  animate={{
-                    scale: [1, 1.5, 1],
-                    opacity: [0.3, 0.1, 0.3]
-                  }}
-                  transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
-                  className="absolute inset-0 bg-amber-500/20 blur-3xl rounded-full"
-                />
-
-                {/* Main brain container */}
-                <motion.div
-                  whileHover={{ scale: 1.05, rotate: 5 }}
-                  transition={{ duration: 0.4 }}
-                  className="relative w-48 h-48 bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 rounded-3xl flex items-center justify-center border-2 border-emerald-400/50 shadow-2xl shadow-emerald-500/50"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+                  className="relative group"
                 >
-                  <svg className="w-24 h-24 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-                  </svg>
+                  {/* Pulsing glow rings */}
+                  <motion.div
+                    animate={{
+                      scale: [1, 1.3, 1],
+                      opacity: [0.5, 0.2, 0.5]
+                    }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    className="absolute inset-0 bg-emerald-500/30 blur-3xl rounded-full"
+                  />
+                  <motion.div
+                    animate={{
+                      scale: [1, 1.5, 1],
+                      opacity: [0.3, 0.1, 0.3]
+                    }}
+                    transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
+                    className="absolute inset-0 bg-amber-500/20 blur-3xl rounded-full"
+                  />
 
-                  {/* Corner accents */}
-                  <div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-white/50" />
-                  <div className="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-white/50" />
-                  <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-white/50" />
-                  <div className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-white/50" />
+                  {/* Main brain container - perfectly centered */}
+                  <motion.div
+                    whileHover={{ scale: 1.05, transition: { duration: 0.3, ease: "easeOut" } }}
+                    className="relative w-40 h-40 bg-[#0a0e1a]/90 backdrop-blur-sm rounded-3xl flex items-center justify-center border-2 border-emerald-400/60 shadow-2xl shadow-emerald-500/50 cursor-pointer p-7"
+                  >
+                    <img src="/logo-transparent.png" alt="Naurra.ai" className="w-full h-full object-contain" />
+
+                    {/* Corner accents */}
+                    <div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-emerald-400/60" />
+                    <div className="absolute top-2 right-2 w-4 h-4 border-r-2 border-t-2 border-emerald-400/60" />
+                    <div className="absolute bottom-2 left-2 w-4 h-4 border-l-2 border-b-2 border-emerald-400/60" />
+                    <div className="absolute bottom-2 right-2 w-4 h-4 border-r-2 border-b-2 border-emerald-400/60" />
+                  </motion.div>
+
+                  <div className="absolute -bottom-14 left-1/2 -translate-x-1/2 whitespace-nowrap text-center">
+                    <div className="font-display text-xl bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Naurra.ai</div>
+                    <div className="text-sm text-emerald-400 font-mono">Neural Core</div>
+                  </div>
                 </motion.div>
-
-                <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
-                  <div className="font-display text-xl text-white">AI Assistant</div>
-                  <div className="text-sm text-emerald-400 text-center font-mono">Neural Core</div>
-                </div>
               </div>
-            </motion.div>
 
               {/* Google Services in Orbit - PROPERLY FIXED with Framer Motion */}
               {[
@@ -449,7 +597,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 { service: 'tasks', name: 'Tasks', angle: 270, tools: 5 },
                 { service: 'meet', name: 'Meet', angle: 315, tools: 5 },
               ].map((item, idx) => {
-                const radius = 280
+                const radius = 270
                 const angleRad = (item.angle * Math.PI) / 180
                 const x = Math.cos(angleRad) * radius
                 const y = Math.sin(angleRad) * radius
@@ -460,48 +608,140 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{
                       opacity: 1,
-                      scale: 1,
-                      x: x,
-                      y: y
+                      scale: 1
                     }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.3 + idx * 0.08, ease: "backOut" }}
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+                    className="absolute z-10"
+                    style={{
+                      left: `calc(50% + ${x}px)`,
+                      top: `calc(50% + ${y}px)`,
+                      transform: 'translate(-50%, -50%)'
+                    }}
                   >
-                    {/* Connection Line - wrapped in non-motion div */}
+                    {/* Connection Line - Enhanced with flowing energy */}
                     <div
-                      className="absolute top-1/2 left-1/2 pointer-events-none -z-10"
+                      className="absolute pointer-events-none -z-10"
                       style={{
-                        width: `${radius - 50}px`,
-                        height: '2px',
+                        width: `${radius - 80}px`,
+                        height: '4px',
+                        left: '50%',
+                        top: '50%',
                         transformOrigin: '0 0',
                         transform: `rotate(${item.angle + 180}deg)`
                       }}
                     >
+                      {/* Base fiber line */}
                       <motion.div
-                        className="h-full border-t-2 border-dashed border-emerald-500/40"
+                        className="absolute inset-0 overflow-hidden rounded-full"
                         initial={{ scaleX: 0 }}
                         whileInView={{ scaleX: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 1.2, delay: 0.5 + idx * 0.08 }}
+                        style={{
+                          background: 'linear-gradient(90deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.4) 50%, rgba(16, 185, 129, 0.15) 100%)'
+                        }}
+                      />
+
+                      {/* Dual flowing pulses for more energy */}
+                      <motion.div
+                        className="absolute inset-0 rounded-full"
+                        style={{
+                          background: 'linear-gradient(90deg, transparent 0%, rgba(245, 158, 11, 0.9) 50%, transparent 100%)',
+                          width: '30%',
+                          filter: 'blur(2px)'
+                        }}
+                        animate={{
+                          x: ['-100%', '340%']
+                        }}
+                        transition={{
+                          duration: 2.5,
+                          delay: idx * 0.25,
+                          repeat: Infinity,
+                          ease: 'linear'
+                        }}
+                      />
+
+                      <motion.div
+                        className="absolute inset-0 rounded-full"
+                        style={{
+                          background: 'linear-gradient(90deg, transparent 0%, rgba(16, 185, 129, 1) 50%, transparent 100%)',
+                          width: '25%',
+                          filter: 'blur(1px)'
+                        }}
+                        animate={{
+                          x: ['-100%', '400%']
+                        }}
+                        transition={{
+                          duration: 3.5,
+                          delay: idx * 0.4,
+                          repeat: Infinity,
+                          ease: 'linear'
+                        }}
+                      />
+
+                      {/* Data particles traveling the fiber */}
+                      {[0, 1, 2, 3].map((particleIdx) => (
+                        <motion.div
+                          key={particleIdx}
+                          className="absolute top-1/2 -translate-y-1/2 rounded-full"
+                          style={{
+                            width: particleIdx % 2 === 0 ? '3px' : '2px',
+                            height: particleIdx % 2 === 0 ? '3px' : '2px',
+                            backgroundColor: particleIdx % 2 === 0 ? '#10b981' : '#f59e0b',
+                            boxShadow: particleIdx % 2 === 0
+                              ? '0 0 10px rgba(16, 185, 129, 0.9), 0 0 20px rgba(16, 185, 129, 0.5)'
+                              : '0 0 10px rgba(245, 158, 11, 0.9), 0 0 20px rgba(245, 158, 11, 0.5)'
+                          }}
+                          animate={{
+                            x: ['-6px', `${radius - 74}px`],
+                            opacity: [0, 1, 1, 0.8, 0],
+                            scale: [0.3, 1.5, 1.2, 1, 0.5]
+                          }}
+                          transition={{
+                            duration: 3,
+                            delay: idx * 0.15 + particleIdx * 0.7,
+                            repeat: Infinity,
+                            ease: 'easeInOut'
+                          }}
+                        />
+                      ))}
+
+                      {/* Subtle glow effect */}
+                      <motion.div
+                        className="absolute inset-0 rounded-full blur-sm"
+                        style={{
+                          background: 'rgba(16, 185, 129, 0.2)'
+                        }}
+                        animate={{
+                          opacity: [0.2, 0.5, 0.2]
+                        }}
+                        transition={{
+                          duration: 2,
+                          delay: idx * 0.1,
+                          repeat: Infinity,
+                          ease: 'easeInOut'
+                        }}
                       />
                     </div>
 
                     <motion.div
-                      whileHover={{ scale: 1.15, rotate: 360 }}
-                      transition={{ duration: 0.5, ease: "easeOut" }}
+                      whileHover={{
+                        scale: 1.15,
+                        transition: { duration: 0.3, ease: "easeOut" }
+                      }}
                       className="group relative cursor-pointer"
                     >
                       {/* Hover glow */}
-                      <div className="absolute inset-0 bg-emerald-500/0 group-hover:bg-emerald-500/30 blur-2xl rounded-2xl transition-all duration-500" />
+                      <div className="absolute inset-0 bg-emerald-500/20 group-hover:bg-emerald-500/50 blur-2xl rounded-2xl transition-all duration-300" />
 
-                      {/* Service card */}
-                      <div className="relative bg-[#0a0e1a]/95 backdrop-blur-xl border border-white/10 group-hover:border-emerald-500/50 rounded-2xl p-4 shadow-2xl transition-all duration-300">
-                        <div className="w-16 h-16 mb-2">
+                      {/* Service card - better sizing */}
+                      <div className="relative bg-[#0a0e1a]/95 backdrop-blur-xl border border-white/10 group-hover:border-emerald-500/80 group-hover:shadow-2xl group-hover:shadow-emerald-500/30 rounded-2xl p-4 shadow-2xl transition-all duration-300">
+                        <div className="w-16 h-16 mb-2 flex items-center justify-center">
                           <GoogleServiceIcon service={item.service} />
                         </div>
-                        <div className="text-sm font-semibold text-white">{item.name}</div>
-                        <div className="text-xs text-emerald-400 font-mono">{item.tools} tools</div>
+                        <div className="text-sm font-semibold text-white text-center">{item.name}</div>
+                        <div className="text-xs text-emerald-400 font-mono text-center">{item.tools} tools</div>
                       </div>
                     </motion.div>
                   </motion.div>
@@ -610,7 +850,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                   {
                     icon: (
                       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
                       </svg>
                     ),
                     title: 'AI Executes',
@@ -689,111 +929,413 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
         </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="relative py-32 px-8">
-        <div className="max-w-[1400px] mx-auto">
+      {/* Real-World Scenarios Carousel */}
+      <section className="relative py-32 px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/5 to-transparent" />
+
+        <div className="max-w-[1400px] mx-auto relative">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-16 space-y-4"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full backdrop-blur-sm mb-4">
+              <span className="text-xs font-mono uppercase tracking-wider text-emerald-300">Real Impact</span>
+            </div>
+            <h2 className="font-display text-5xl lg:text-7xl tracking-tight leading-[1.1]">
+              <span className="text-white">Multi-Service </span>
+              <span className="bg-gradient-to-r from-emerald-400 via-amber-400 to-emerald-400 bg-clip-text text-transparent">
+                Orchestration
+              </span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Watch Naurra.ai combine multiple Google services in a single command
+            </p>
+          </motion.div>
+
+          {/* Horizontal Scrolling Carousel */}
+          <div className="relative">
+            <div
+              className="carousel-container flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth"
+              onMouseEnter={() => setIsCarouselPaused(true)}
+              onMouseLeave={() => setIsCarouselPaused(false)}
+            >
+              {[
+                {
+                  title: 'Meeting Orchestration',
+                  command: '"Schedule team sync for tomorrow at 2pm"',
+                  services: [
+                    { name: 'meet', label: 'Meet', color: 'emerald' },
+                    { name: 'calendar', label: 'Calendar', color: 'blue' },
+                    { name: 'gmail', label: 'Gmail', color: 'red' }
+                  ],
+                  result: 'Creates Google Meet link, adds event to your calendar, and sends confirmation emails to all attendees',
+                  gradient: 'from-emerald-500/20 to-blue-500/20',
+                  accentColor: 'emerald'
+                },
+                {
+                  title: 'Data & Documentation',
+                  command: '"Generate monthly sales report from Q4 data"',
+                  services: [
+                    { name: 'sheets', label: 'Sheets', color: 'green' },
+                    { name: 'docs', label: 'Docs', color: 'blue' },
+                    { name: 'tasks', label: 'Tasks', color: 'purple' }
+                  ],
+                  result: 'Pulls data from Google Sheets, generates formatted report in Docs, and creates follow-up tasks',
+                  gradient: 'from-green-500/20 to-purple-500/20',
+                  accentColor: 'green'
+                },
+                {
+                  title: 'Team Coordination',
+                  command: '"Plan team lunch next Friday at noon"',
+                  services: [
+                    { name: 'calendar', label: 'Calendar', color: 'blue' },
+                    { name: 'gmail', label: 'Gmail', color: 'red' }
+                  ],
+                  result: 'Creates calendar event and sends personalized invitations to all team members automatically',
+                  gradient: 'from-blue-500/20 to-amber-500/20',
+                  accentColor: 'amber'
+                }
+              ].map((scenario, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: 100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.15, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+                  className="scenario-card flex-shrink-0 w-[90vw] md:w-[600px] snap-center"
+                >
+                  <div className="group relative h-full">
+                    {/* Holographic glow */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${scenario.gradient} blur-3xl opacity-30 group-hover:opacity-50 transition-opacity duration-700`} />
+
+                    {/* Glass card */}
+                    <div className="relative bg-white/[0.03] backdrop-blur-2xl border border-white/10 group-hover:border-emerald-500/30 rounded-3xl p-8 h-full transition-all duration-500 shadow-2xl">
+                      {/* Header */}
+                      <div className="mb-8">
+                        <div className={`inline-flex items-center gap-2 px-3 py-1.5 bg-${scenario.accentColor}-500/10 border border-${scenario.accentColor}-500/20 rounded-full mb-4`}>
+                          <div className={`w-1.5 h-1.5 bg-${scenario.accentColor}-400 rounded-full`} />
+                          <span className={`text-xs font-mono uppercase tracking-wider text-${scenario.accentColor}-300`}>
+                            Scenario {idx + 1}
+                          </span>
+                        </div>
+                        <h3 className="font-display text-3xl text-white mb-3 leading-tight">
+                          {scenario.title}
+                        </h3>
+                        <div className="relative">
+                          <div className="absolute -left-2 top-0 bottom-0 w-1 bg-gradient-to-b from-emerald-500 to-amber-500 rounded-full" />
+                          <p className="text-lg text-emerald-300 font-medium pl-6 italic">
+                            {scenario.command}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Service Flow Visualization */}
+                      <div className="mb-8">
+                        <div className="flex items-center justify-between gap-4 relative">
+                          {/* Animated connection line */}
+                          <div className="absolute top-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald-500 via-amber-500 to-emerald-500 -translate-y-1/2 opacity-30" />
+
+                          {scenario.services.map((service, serviceIdx) => (
+                            <motion.div
+                              key={serviceIdx}
+                              initial={{ scale: 0, opacity: 0 }}
+                              whileInView={{ scale: 1, opacity: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: idx * 0.15 + serviceIdx * 0.1 + 0.3, duration: 0.5, type: "spring" }}
+                              className="relative z-10 flex-1"
+                            >
+                              <div className="flex flex-col items-center gap-2">
+                                {/* Service icon */}
+                                <motion.div
+                                  whileHover={{ scale: 1.1, y: -4 }}
+                                  className="relative group/icon"
+                                >
+                                  <div className={`absolute inset-0 bg-${service.color}-500/20 blur-xl rounded-2xl`} />
+                                  <div className="relative w-16 h-16 bg-[#0a0e1a]/90 backdrop-blur-sm border border-white/20 rounded-2xl p-2.5 shadow-xl">
+                                    <GoogleServiceIcon service={service.name} />
+                                  </div>
+                                </motion.div>
+
+                                {/* Service label */}
+                                <span className="text-xs font-medium text-gray-400">
+                                  {service.label}
+                                </span>
+                              </div>
+
+                              {/* Arrow connector */}
+                              {serviceIdx < scenario.services.length - 1 && (
+                                <motion.div
+                                  initial={{ scaleX: 0 }}
+                                  whileInView={{ scaleX: 1 }}
+                                  viewport={{ once: true }}
+                                  transition={{ delay: idx * 0.15 + serviceIdx * 0.1 + 0.5, duration: 0.4 }}
+                                  className="absolute top-8 -right-2 w-8 h-[2px] bg-gradient-to-r from-emerald-500 to-amber-500"
+                                  style={{ transformOrigin: 'left' }}
+                                >
+                                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[6px] border-l-amber-500" />
+                                </motion.div>
+                              )}
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Result */}
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2">
+                          <div className="w-6 h-6 bg-emerald-500/20 rounded-lg flex items-center justify-center">
+                            <svg className="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                          </div>
+                          <span className="text-sm font-semibold text-emerald-400 uppercase tracking-wide">Result</span>
+                        </div>
+                        <p className="text-gray-300 leading-relaxed">
+                          {scenario.result}
+                        </p>
+                      </div>
+
+                      {/* Service count badge */}
+                      <div className="absolute top-8 right-8">
+                        <div className="relative">
+                          <div className={`absolute inset-0 bg-${scenario.accentColor}-500/30 blur-lg rounded-full`} />
+                          <div className={`relative w-12 h-12 bg-gradient-to-br from-${scenario.accentColor}-500 to-${scenario.accentColor}-600 rounded-full flex items-center justify-center border-2 border-white/10 shadow-xl`}>
+                            <span className="font-display text-xl text-white">{scenario.services.length}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Scroll hint */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, x: [0, 10, 0] }}
+              transition={{ delay: 1, duration: 2, repeat: Infinity }}
+              className="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:flex items-center gap-2 text-emerald-400"
+            >
+              <span className="text-sm font-mono">Scroll</span>
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </motion.div>
+
+            {/* Carousel Indicators */}
+            <div className="flex items-center justify-center gap-3 mt-8">
+              {[0, 1, 2].map((idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentScenario(idx)}
+                  className="group relative"
+                  aria-label={`Go to scenario ${idx + 1}`}
+                >
+                  <div
+                    className={`h-1.5 rounded-full transition-all duration-500 ${
+                      currentScenario === idx
+                        ? 'w-12 bg-gradient-to-r from-emerald-500 to-amber-500'
+                        : 'w-1.5 bg-white/20 group-hover:bg-white/40'
+                    }`}
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technical Architecture Section */}
+      <section className="relative py-32 px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-amber-500/5 to-transparent" />
+
+        <div className="max-w-[1400px] mx-auto relative">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             className="text-center mb-20 space-y-4"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full backdrop-blur-sm mb-4">
-              <span className="text-xs font-mono uppercase tracking-wider text-emerald-300">Capabilities</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full backdrop-blur-sm mb-4">
+              <span className="text-xs font-mono uppercase tracking-wider text-amber-300">Infrastructure</span>
             </div>
-            <h2 className="font-display text-5xl lg:text-6xl tracking-tight">
-              <span className="text-white">Enterprise-Grade </span>
-              <span className="bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Features</span>
+            <h2 className="font-display text-5xl lg:text-7xl tracking-tight leading-[1.1]">
+              <span className="text-white">Distributed </span>
+              <span className="bg-gradient-to-r from-amber-400 via-emerald-400 to-amber-400 bg-clip-text text-transparent">
+                AI Infrastructure
+              </span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Powered by cutting-edge intelligent orchestration and real-time service mesh technology
+            </p>
+          </motion.div>
+
+          {/* Architecture Visualization */}
+          <div className="relative max-w-5xl mx-auto">
+            {/* Central Orchestration Layer */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              className="relative mb-16"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 via-amber-500/20 to-emerald-500/20 blur-3xl" />
+
+              <div className="relative bg-white/[0.02] backdrop-blur-2xl border border-white/10 rounded-3xl p-12 text-center">
+                <div className="inline-flex items-center justify-center gap-4 mb-6">
+                  <motion.div
+                    animate={{
+                      boxShadow: [
+                        "0 0 40px rgba(16, 185, 129, 0.3)",
+                        "0 0 80px rgba(245, 158, 11, 0.5)",
+                        "0 0 40px rgba(16, 185, 129, 0.3)"
+                      ]
+                    }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    className="w-24 h-24 bg-[#0a0e1a]/90 backdrop-blur-sm rounded-2xl flex items-center justify-center border-2 border-emerald-400/60 shadow-2xl p-4"
+                  >
+                    <img src="/logo-transparent.png" alt="Naurra.ai" className="w-full h-full object-contain" />
+                  </motion.div>
+                </div>
+
+                <h3 className="font-display text-3xl text-white mb-3">Intelligent Orchestration Layer</h3>
+                <p className="text-gray-400 max-w-2xl mx-auto mb-6">
+                  Neural coordination engine that intelligently routes and executes commands across distributed services
+                </p>
+
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                  {['Real-time Service Mesh', 'AI Intent Parser', 'Dynamic Load Balancer', 'Context Engine'].map((feature, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3 + idx * 0.1, duration: 0.4 }}
+                      className="px-4 py-2 bg-white/5 border border-emerald-500/20 rounded-full text-sm text-emerald-300 font-medium"
+                    >
+                      {feature}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Distributed AI Servers */}
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                {
+                  title: 'Processing Nodes',
+                  desc: 'High-performance computation clusters',
+                  stats: ['< 100ms latency', '99.9% uptime', 'Auto-scaling'],
+                  icon: (
+                    <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
+                    </svg>
+                  ),
+                  gradient: 'from-emerald-500 to-emerald-600'
+                },
+                {
+                  title: 'Data Pipeline',
+                  desc: 'Secure encrypted data flows',
+                  stats: ['End-to-end encryption', 'Zero-knowledge', 'GDPR compliant'],
+                  icon: (
+                    <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                    </svg>
+                  ),
+                  gradient: 'from-amber-500 to-amber-600'
+                },
+                {
+                  title: 'Neural Cache',
+                  desc: 'Smart context & prediction layer',
+                  stats: ['Contextual memory', 'Pattern learning', 'Adaptive routing'],
+                  icon: (
+                    <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z" />
+                    </svg>
+                  ),
+                  gradient: 'from-blue-500 to-blue-600'
+                }
+              ].map((node, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.15, duration: 0.6 }}
+                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                  className="group relative"
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${node.gradient} opacity-0 group-hover:opacity-10 blur-2xl rounded-3xl transition-opacity duration-500`} />
+
+                  <div className="relative bg-white/[0.03] backdrop-blur-2xl border border-white/10 group-hover:border-emerald-500/30 rounded-2xl p-6 h-full transition-all duration-300">
+                    <div className={`w-14 h-14 bg-gradient-to-br ${node.gradient} rounded-xl flex items-center justify-center mb-4 p-3 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                      {node.icon}
+                    </div>
+
+                    <h4 className="font-display text-xl text-white mb-2">{node.title}</h4>
+                    <p className="text-sm text-gray-400 mb-4">{node.desc}</p>
+
+                    <div className="space-y-2">
+                      {node.stats.map((stat, statIdx) => (
+                        <div key={statIdx} className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
+                          <span className="text-xs text-gray-500 font-mono">{stat}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="relative py-32 px-8">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-16 space-y-4"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full backdrop-blur-sm mb-4">
+              <span className="text-xs font-mono uppercase tracking-wider text-emerald-300">FAQ</span>
+            </div>
+            <h2 className="font-display text-4xl lg:text-5xl tracking-tight">
+              <span className="text-white">Frequently Asked </span>
+              <span className="bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Questions</span>
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: 'Voice Control',
-                desc: 'Natural speech recognition with real-time transcription and audio feedback',
-                gradient: 'from-emerald-500 to-emerald-600',
-                icon: (
-                  <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                  </svg>
-                )
-              },
-              {
-                title: 'Chat Interface',
-                desc: 'Type commands and get instant intelligent responses with full context',
-                gradient: 'from-amber-500 to-amber-600',
-                icon: (
-                  <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                  </svg>
-                )
-              },
-              {
-                title: 'Secure Authentication',
-                desc: 'Industry-standard OAuth 2.0 keeps your data safe and encrypted',
-                gradient: 'from-blue-500 to-blue-600',
-                icon: (
-                  <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
-                )
-              },
-              {
-                title: 'Real-time Processing',
-                desc: 'Lightning-fast AI responses with WebSocket connections for instant updates',
-                gradient: 'from-purple-500 to-purple-600',
-                icon: (
-                  <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                )
-              },
-              {
-                title: 'Smart Context',
-                desc: 'AI understands intent and executes complex multi-step workflows automatically',
-                gradient: 'from-pink-500 to-pink-600',
-                icon: (
-                  <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                  </svg>
-                )
-              },
-              {
-                title: 'Always Available',
-                desc: 'Cloud infrastructure ensures 24/7 global availability and reliability',
-                gradient: 'from-cyan-500 to-cyan-600',
-                icon: (
-                  <svg className="w-full h-full" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                )
-              },
-            ].map((feature, idx) => (
-              <motion.div
+          <div className="space-y-4">
+            {landingPageFAQs.map((faq, idx) => (
+              <motion.details
                 key={idx}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.08, duration: 0.6 }}
-                whileHover={{ y: -8 }}
-                className="group relative"
+                transition={{ delay: idx * 0.05, duration: 0.4 }}
+                className="group bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:border-emerald-500/30 transition-colors"
               >
-                {/* Hover glow */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 blur-xl rounded-3xl transition-opacity duration-500`} />
-
-                {/* Card */}
-                <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 group-hover:border-emerald-500/30 rounded-2xl p-8 h-full transition-all duration-300">
-                  {/* Icon */}
-                  <div className={`w-14 h-14 bg-gradient-to-br ${feature.gradient} rounded-xl flex items-center justify-center mb-6 p-3 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    {feature.icon}
-                  </div>
-
-                  {/* Content */}
-                  <h3 className="font-display text-xl text-white mb-3">{feature.title}</h3>
-                  <p className="text-sm text-gray-400 leading-relaxed">{feature.desc}</p>
+                <summary className="flex items-center justify-between px-6 py-5 cursor-pointer list-none">
+                  <h3 className="text-white font-medium text-lg pr-4">{faq.question}</h3>
+                  <span className="text-emerald-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-45">
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                    </svg>
+                  </span>
+                </summary>
+                <div className="px-6 pb-5 text-gray-400 leading-relaxed border-t border-white/5 pt-4">
+                  {faq.answer}
                 </div>
-              </motion.div>
+              </motion.details>
             ))}
           </div>
         </div>
@@ -817,24 +1359,44 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 </span>
               </h2>
               <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                Start using your AI assistant today. No credit card required.
+                Start using Naurra.ai today. No credit card required.
               </p>
             </div>
 
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: "0 25px 70px rgba(16, 185, 129, 0.5)" }}
               whileTap={{ scale: 0.95 }}
-              onClick={onGetStarted}
-              className="group relative px-12 py-5 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl font-display text-xl overflow-hidden shadow-2xl shadow-emerald-500/30 border border-emerald-400/30"
+              onClick={() => handleGetStartedClick('voice')}
+              onTouchEnd={(e) => {
+                e.preventDefault()
+                handleGetStartedClick('voice')
+              }}
+              className="group relative px-12 py-5 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl font-display text-xl overflow-hidden shadow-2xl shadow-emerald-500/30 border border-emerald-400/30 cursor-pointer touch-manipulation"
+              style={{ WebkitTapHighlightColor: 'transparent' }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <span className="relative flex items-center gap-3">
-                Launch Platform
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <span className="relative flex items-center gap-3 pointer-events-none">
+                {user ? 'Launch Platform' : 'Sign in to Get Started'}
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </span>
             </motion.button>
+
+              <a
+                href="https://apps.apple.com/app/naurra-ai/id6759445443"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+              >
+                <img
+                  src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                  alt="Download on the App Store"
+                  className="h-[52px]"
+                />
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -844,25 +1406,80 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
         <div className="max-w-[1400px] mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center border border-emerald-400/30">
-                <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                  <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-                </svg>
+              <div className="w-12 h-12 flex items-center justify-center">
+                <img src="/logo-transparent.png" alt="Naurra.ai Logo" className="w-full h-full object-contain" />
               </div>
               <div>
-                <div className="font-display text-sm text-white">AI Assistant</div>
-                <div className="text-xs text-gray-500 font-mono">Workspace Edition</div>
+                <div className="font-display text-sm bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Naurra.ai</div>
+                <div className="text-xs text-gray-500 font-mono">AI Workspace Platform</div>
               </div>
+            </div>
+
+            {/* Social Media & App Store */}
+            <div className="flex flex-col items-center gap-4">
+              <div className="flex items-center gap-3">
+                <a href="https://www.linkedin.com/company/109405415" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-emerald-400 transition-colors" aria-label="LinkedIn">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/naurra.ai/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-emerald-400 transition-colors" aria-label="Instagram">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61588566855794" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-emerald-400 transition-colors" aria-label="Facebook">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="https://x.com/Naurra_ai" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-emerald-400 transition-colors" aria-label="X (Twitter)">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@naurra_ai" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-emerald-400 transition-colors" aria-label="YouTube">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="https://www.reddit.com/user/naurra_ai/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-emerald-400 transition-colors" aria-label="Reddit">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 01-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 01.042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 014.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 01.14-.197.35.35 0 01.238-.042l2.906.617a1.214 1.214 0 011.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 00-.231.094.33.33 0 000 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 000-.462.342.342 0 00-.462 0c-.545.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.345.345 0 00-.205-.095z"/></svg>
+                </a>
+              </div>
+              <a
+                href="https://apps.apple.com/app/naurra-ai/id6759445443"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-shrink-0 hover:opacity-80 transition-opacity"
+              >
+                <img
+                  src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                  alt="Download on the App Store"
+                  className="h-10"
+                />
+              </a>
             </div>
 
             <div className="text-center md:text-right">
               <p className="text-sm text-gray-400 mb-1">
                 Built with precision using React, TypeScript, and Tailwind CSS
               </p>
-              <p className="text-xs text-gray-500 font-mono">
+              <p className="text-xs text-gray-500 font-mono mb-2">
                 Powered by Google Workspace API • Deployed on Railway & Netlify
               </p>
+              <div className="flex items-center justify-center md:justify-end gap-4 text-xs">
+                <a
+                  href="/privacy"
+                  className="text-gray-500 hover:text-emerald-400 transition-colors underline"
+                >
+                  Privacy Policy
+                </a>
+                <span className="text-gray-700">•</span>
+                <a
+                  href="/terms"
+                  className="text-gray-500 hover:text-emerald-400 transition-colors underline"
+                >
+                  Terms of Service
+                </a>
+                <span className="text-gray-700">•</span>
+                <a
+                  href="/contact"
+                  className="text-amber-400 hover:text-amber-300 transition-colors underline font-semibold"
+                >
+                  Contact Us
+                </a>
+              </div>
             </div>
           </div>
         </div>

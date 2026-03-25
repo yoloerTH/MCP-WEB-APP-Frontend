@@ -1,6 +1,6 @@
-# 🎤 Voice AI Client - Holographic Interface
+# 🎤 Naurra.ai - AI Workspace Platform
 
-Beautiful, futuristic voice AI interface for real-time conversations with your AI assistant that has full Google Workspace access.
+Beautiful, futuristic interface for real-time conversations with Naurra.ai, your intelligent AI assistant with full Google Workspace access.
 
 ![Status](https://img.shields.io/badge/status-production%20ready-success)
 ![Tech](https://img.shields.io/badge/tech-React%20%2B%20TypeScript-blue)
