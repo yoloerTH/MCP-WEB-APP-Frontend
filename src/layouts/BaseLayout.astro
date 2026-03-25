@@ -74,6 +74,37 @@ const fullImage = image.startsWith('http') ? image : `https://naurra.ai${image}`
       <script type="application/ld+json" set:html={JSON.stringify(data)} />
     ))}
 
+    {/* Google Analytics 4 with Consent Mode v2 */}
+    {/* GA4 Measurement ID: G-935ESYEYQ1 */}
+    <script is:inline>
+      // Set default consent to denied (GDPR compliant)
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'wait_for_update': 500
+      });
+      gtag('js', new Date());
+      gtag('config', 'G-935ESYEYQ1', {
+        send_page_view: true,
+        cookie_flags: 'SameSite=None;Secure'
+      });
+
+      // Check for existing consent
+      (function() {
+        var consent = localStorage.getItem('naurra_cookie_consent');
+        if (consent === 'accepted') {
+          gtag('consent', 'update', {
+            'analytics_storage': 'granted'
+          });
+        }
+      })();
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-935ESYEYQ1" is:inline></script>
+
     {/* Google Fonts - all fonts preloaded in head to avoid render-blocking @import */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -81,6 +112,54 @@ const fullImage = image.startsWith('http') ? image : `https://naurra.ai${image}`
   </head>
   <body>
     <slot />
+
+    {/* Cookie Consent Banner */}
+    <div id="cookie-banner" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:9999; padding:0 16px 16px;">
+      <div style="max-width:480px; margin:0 auto; background:#0f172a; border:1px solid rgba(52,211,153,0.2); border-radius:16px; padding:20px 24px; box-shadow:0 -4px 24px rgba(0,0,0,0.3); font-family:'DM Sans',system-ui,sans-serif;">
+        <p style="color:#e2e8f0; font-size:14px; line-height:1.5; margin:0 0 16px;">
+          We use cookies to understand how you use our site and improve your experience.
+          <a href="/privacy" style="color:#34d399; text-decoration:underline;">Privacy Policy</a>
+        </p>
+        <div style="display:flex; gap:10px; justify-content:flex-end;">
+          <button id="cookie-decline" style="padding:8px 18px; border-radius:10px; font-size:13px; font-weight:500; cursor:pointer; background:transparent; color:#94a3b8; border:1px solid #334155; font-family:'DM Sans',system-ui,sans-serif; transition:all 0.2s;">
+            Decline
+          </button>
+          <button id="cookie-accept" style="padding:8px 18px; border-radius:10px; font-size:13px; font-weight:600; cursor:pointer; background:linear-gradient(135deg,#10b981,#34d399); color:#0f172a; border:none; font-family:'DM Sans',system-ui,sans-serif; transition:all 0.2s;">
+            Accept
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script is:inline>
+      (function() {
+        var consent = localStorage.getItem('naurra_cookie_consent');
+        var banner = document.getElementById('cookie-banner');
+
+        // Only show banner if user hasn't made a choice yet
+        if (!consent && banner) {
+          banner.style.display = 'block';
+        }
+
+        var acceptBtn = document.getElementById('cookie-accept');
+        var declineBtn = document.getElementById('cookie-decline');
+
+        if (acceptBtn) {
+          acceptBtn.addEventListener('click', function() {
+            localStorage.setItem('naurra_cookie_consent', 'accepted');
+            gtag('consent', 'update', { 'analytics_storage': 'granted' });
+            banner.style.display = 'none';
+          });
+        }
+
+        if (declineBtn) {
+          declineBtn.addEventListener('click', function() {
+            localStorage.setItem('naurra_cookie_consent', 'declined');
+            banner.style.display = 'none';
+          });
+        }
+      })();
+    </script>
   </body>
 </html>
 

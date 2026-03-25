@@ -1,6 +1,6 @@
 # Naurra.ai
 
-> Naurra.ai is the voice-first AI assistant for Google Workspace. It lets users control Gmail, Calendar, Drive, Docs, Sheets, Meet, Tasks, and Contacts through natural voice commands or chat — replacing manual clicks with conversation.
+> Naurra.ai is the voice-first AI assistant for Google Workspace. It lets users control Gmail, Calendar, Drive, Docs, Sheets, Meet, Tasks, and Contacts through natural voice commands or chat — replacing manual clicks with conversation. Naurra.ai also builds custom AI agents and automation solutions for businesses across industries.
 
 ## What Naurra.ai Does
 
@@ -54,6 +54,20 @@ Key differentiator: Naurra.ai performs multi-service orchestration — one voice
 
 All plans include full voice and chat AI, all 8 Google Workspace integrations, and 35+ AI tools.
 
+## Custom AI Solutions for Business
+
+Naurra.ai also builds custom AI agents, workflow automation, and intelligent systems for businesses. Services include:
+
+- **Custom AI Agent Development**: Purpose-built AI agents that automate specific business operations
+- **Workflow Automation**: End-to-end automation of manual processes using AI
+- **AI Chatbot Development**: Customer-facing and internal chatbots with natural language understanding
+- **AI Consulting**: Strategy and implementation guidance for businesses adopting AI
+- **System Integration**: Connecting AI with existing tools like Salesforce, Slack, WhatsApp, CRMs, and legacy systems
+
+Projects are typically delivered within 4-8 weeks with fixed-price engagements. Industries served include HVAC, legal, automotive, travel, fashion, e-commerce, wellness, and more.
+
+Founded by Thanos Panagiotakopoulos (CEO & AI Engineer), who personally delivers every project. Contact support@naurra.ai or visit https://naurra.ai/contact for a free consultation.
+
 ## Technical Details
 
 - Real-time voice processing with Deepgram Nova-3 (speech-to-text) and Cartesia Sonic-3 (text-to-speech)
@@ -63,34 +77,10 @@ All plans include full voice and chat AI, all 8 Google Workspace integrations, a
 - Sub-100ms orchestration latency
 - 99.9% uptime
 
-## Company
-
-- **Website**: https://naurra.ai
-- **iOS App**: https://apps.apple.com/app/naurra-ai/id6759445443
-- **LinkedIn**: https://www.linkedin.com/company/109405415
-- **X (Twitter)**: https://x.com/Naurra_ai
-- **Instagram**: https://www.instagram.com/naurra.ai/
-- **YouTube**: https://www.youtube.com/@naurra_ai
-- **Reddit**: https://www.reddit.com/user/naurra_ai/
-- **Facebook**: https://www.facebook.com/profile.php?id=61588566855794
-- **Contact**: https://naurra.ai/contact
-
-## Pages
-
-- https://naurra.ai/ — Homepage and landing page
-- https://naurra.ai/voiceai — Voice AI interface
-- https://naurra.ai/chatai — Chat AI interface
-- https://naurra.ai/pricing — Pricing plans
-- https://naurra.ai/blog — Blog with productivity articles and tutorials
-- https://naurra.ai/inspiration — Voice command examples and use cases
-- https://naurra.ai/contact — Contact form
-- https://naurra.ai/privacy — Privacy policy
-- https://naurra.ai/terms — Terms of service
-
 ## Frequently Asked Questions
 
 **What is Naurra.ai?**
-Naurra.ai is an AI-powered voice and chat assistant for Google Workspace. It lets you control Gmail, Calendar, Drive, Docs, Sheets, Meet, Tasks, and Contacts through natural voice commands or text chat.
+Naurra.ai is an AI-powered voice and chat assistant for Google Workspace. It lets you control Gmail, Calendar, Drive, Docs, Sheets, Meet, Tasks, and Contacts through natural voice commands or text chat. Naurra.ai also builds custom AI solutions for businesses.
 
 **How is Naurra.ai different from Google Assistant or Siri?**
 Naurra.ai is purpose-built for Google Workspace productivity. It executes complex multi-step workflows across multiple Google services in a single command — something general-purpose assistants cannot do.
@@ -103,3 +93,56 @@ Yes. Naurra.ai uses end-to-end encryption, secure OAuth for Google authenticatio
 
 **Is there a mobile app?**
 Yes. Naurra.ai is available as a native iOS app on the Apple App Store, plus a web app at naurra.ai.
+
+**Does Naurra.ai build custom AI solutions?**
+Yes. Naurra.ai builds custom AI agents, chatbots, and workflow automation for businesses of all sizes. Projects are scoped individually with fixed pricing and delivered within 4-8 weeks.
+
+**Who founded Naurra.ai?**
+Naurra.ai was founded in 2025 by Thanos Panagiotakopoulos, a CEO & AI Engineer who personally builds and delivers every project.
+
+## Pages
+
+- [Homepage](https://naurra.ai/): Landing page with product overview, features, and pricing
+- [Voice AI](https://naurra.ai/voiceai): Voice AI assistant interface
+- [Chat AI](https://naurra.ai/chatai): Chat AI assistant interface
+- [Pricing](https://naurra.ai/pricing): Subscription plans and free trial details
+- [Compare](https://naurra.ai/compare): Feature comparison vs Google Assistant, Siri, and AI chatbots
+- [Custom AI Solutions](https://naurra.ai/company): Custom AI agent development, consulting, and portfolio
+- [Blog](https://naurra.ai/blog): Articles on AI productivity, automation, and business strategy
+- [Inspiration](https://naurra.ai/inspiration): Voice command examples and use cases
+- [Contact](https://naurra.ai/contact): Contact form and support
+- [Privacy Policy](https://naurra.ai/privacy): Data privacy and GDPR compliance
+- [Terms of Service](https://naurra.ai/terms): Terms and conditions
+
+## Company
+
+- **Founded**: 2025
+- **Founder**: Thanos Panagiotakopoulos, CEO & AI Engineer
+- **Website**: [naurra.ai](https://naurra.ai)
+- **iOS App**: [Apple App Store](https://apps.apple.com/app/naurra-ai/id6759445443)
+- **LinkedIn**: [Naurra.ai](https://www.linkedin.com/company/109405415)
+- **X (Twitter)**: [@Naurra_ai](https://x.com/Naurra_ai)
+- **Instagram**: [@naurra.ai](https://www.instagram.com/naurra.ai/)
+- **YouTube**: [@naurra_ai](https://www.youtube.com/@naurra_ai)
+- **Reddit**: [u/naurra_ai](https://www.reddit.com/user/naurra_ai/)
+- **Facebook**: [Naurra.ai](https://www.facebook.com/profile.php?id=61588566855794)
+- **Contact**: [naurra.ai/contact](https://naurra.ai/contact)
+
+## Optional
+
+Additional resources for deeper context:
+
+- [AI Workspace Automation Guide](https://naurra.ai/blog/ai-workspace-automation-2026): Complete guide to AI-powered workspace automation in 2026
+- [Voice AI vs Traditional Assistants](https://naurra.ai/blog/voice-ai-vs-traditional-assistants): Comparison of voice AI and traditional virtual assistants
+- [Custom AI Agents for Business](https://naurra.ai/blog/custom-ai-agents-for-business): How companies are automating operations with custom AI agents
+- [AI Agent vs Chatbot](https://naurra.ai/blog/ai-agent-vs-chatbot-what-your-business-actually-needs): What businesses actually need — AI agents or chatbots
+- [Gmail Automation Tips](https://naurra.ai/blog/gmail-automation-tips): 10 Gmail automation tips that save hours
+- [Google Workspace Voice Commands Guide](https://naurra.ai/blog/google-workspace-voice-commands-guide): Complete guide to voice commands for Google Workspace
+- [AI for Small Business](https://naurra.ai/blog/small-business-ai-automation): How small businesses save 20+ hours per week with AI
+- [Is AI Safe for Business Data?](https://naurra.ai/blog/is-ai-safe-for-your-business-data): Security and privacy considerations for business AI
+- [The Non-Technical Guide to AI](https://naurra.ai/blog/non-technical-guide-to-ai-for-business-owners): AI explained for business owners without technical background
+- [How to Automate Repetitive Tasks](https://naurra.ai/blog/how-to-automate-repetitive-tasks): Save 10+ hours every week by automating repetitive work
+- [AI for Remote Teams](https://naurra.ai/blog/ai-for-remote-teams-2026): How distributed teams stay productive with AI in 2026
+- [A Day in the Life: Solo Founder with AI](https://naurra.ai/blog/a-day-in-the-life-solo-founder-with-ai): How a solo founder runs a business with AI
+- [The Hidden Cost of Not Using AI](https://naurra.ai/blog/the-hidden-cost-of-not-using-ai-in-2026): What businesses lose by not adopting AI in 2026
+- [AI for Founders Who Hate AI](https://naurra.ai/blog/ai-for-founders-who-hate-ai): A skeptic's guide to useful AI for business
