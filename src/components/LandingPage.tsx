@@ -1454,12 +1454,6 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
             </div>
 
             <div className="text-center md:text-right">
-              <p className="text-sm text-gray-400 mb-1">
-                Built with precision using React, TypeScript, and Tailwind CSS
-              </p>
-              <p className="text-xs text-gray-500 font-mono mb-2">
-                Powered by Google Workspace API • Deployed on Railway & Netlify
-              </p>
               <div className="flex items-center justify-center md:justify-end gap-4 text-xs">
                 <a
                   href="/privacy"
