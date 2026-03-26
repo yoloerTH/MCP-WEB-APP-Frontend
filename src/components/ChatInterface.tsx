@@ -1,6 +1,48 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import FormattedText from './FormattedText'
+import { useAuth } from '../hooks/useAuth'
+
+const StyleIcons = {
+  formal: (
+    <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="2" width="12" height="12" rx="2" />
+      <line x1="5" y1="5.5" x2="11" y2="5.5" />
+      <line x1="5" y1="8" x2="11" y2="8" />
+      <line x1="5" y1="10.5" x2="9" y2="10.5" />
+    </svg>
+  ),
+  casual: (
+    <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2 3h12v8a1 1 0 01-1 1H6l-3 2.5V12H2a1 1 0 01-1-1V4a1 1 0 011-1z" />
+      <circle cx="5.5" cy="7.5" r="0.5" fill="currentColor" stroke="none" />
+      <circle cx="8" cy="7.5" r="0.5" fill="currentColor" stroke="none" />
+      <circle cx="10.5" cy="7.5" r="0.5" fill="currentColor" stroke="none" />
+    </svg>
+  ),
+  concise: (
+    <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="2,8 6,12 14,4" />
+    </svg>
+  ),
+  detailed: (
+    <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="2" y1="3" x2="14" y2="3" />
+      <line x1="2" y1="6" x2="14" y2="6" />
+      <line x1="2" y1="9" x2="14" y2="9" />
+      <line x1="2" y1="12" x2="10" y2="12" />
+    </svg>
+  ),
+}
+
+const STYLES = [
+  { value: 'formal', label: 'Formal' },
+  { value: 'casual', label: 'Casual' },
+  { value: 'concise', label: 'Concise' },
+  { value: 'detailed', label: 'Detailed' },
+] as const
+
+type StyleValue = typeof STYLES[number]['value']
 
 interface ChatMessage {
   type: 'user' | 'ai' | 'system'
@@ -17,6 +59,33 @@ interface ChatInterfaceProps {
 export default function ChatInterface({ messages, onSendMessage, isWaiting }: ChatInterfaceProps) {
   const [input, setInput] = useState('')
   const scrollRef = useRef<HTMLDivElement>(null)
+  const { personalizationData, updatePersonalization } = useAuth()
+  const [activeStyle, setActiveStyle] = useState<StyleValue>('concise')
+  const [isSavingStyle, setIsSavingStyle] = useState(false)
+
+  // Sync from Supabase on load
+  useEffect(() => {
+    if (personalizationData?.communication_style) {
+      setActiveStyle(personalizationData.communication_style)
+    }
+  }, [personalizationData])
+
+  const handleStyleChange = async (style: StyleValue) => {
+    if (style === activeStyle || isSavingStyle) return
+    setActiveStyle(style)
+    setIsSavingStyle(true)
+    try {
+      await updatePersonalization({ ...personalizationData, communication_style: style })
+    } catch (e) {
+      console.error('Failed to save style:', e)
+      // Revert on failure
+      if (personalizationData?.communication_style) {
+        setActiveStyle(personalizationData.communication_style)
+      }
+    } finally {
+      setIsSavingStyle(false)
+    }
+  }
 
   // Auto-scroll to bottom when new messages arrive
   useEffect(() => {
@@ -184,6 +253,28 @@ export default function ChatInterface({ messages, onSendMessage, isWaiting }: Ch
         >
           Send
         </motion.button>
+      </div>
+
+      {/* Conversation Style Selector */}
+      <div className="flex items-center gap-2 mt-2.5 px-1">
+        <span className="text-[11px] text-white/30 font-medium uppercase tracking-wider shrink-0">Style</span>
+        <div className="flex gap-1.5">
+          {STYLES.map((style) => (
+            <button
+              key={style.value}
+              onClick={() => handleStyleChange(style.value)}
+              disabled={isSavingStyle}
+              className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all duration-200 ${
+                activeStyle === style.value
+                  ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                  : 'text-white/35 hover:text-white/60 hover:bg-white/[0.04] border border-transparent'
+              } ${isSavingStyle ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+            >
+              {StyleIcons[style.value]}
+              <span>{style.label}</span>
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   )
