@@ -1,8 +1,5 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
-import { SEO } from './SEO'
-import { StructuredData } from './StructuredData'
 
 const comparisonData = [
   {
@@ -185,7 +182,6 @@ const differentiators = [
 ]
 
 export default function ComparePage() {
-  const navigate = useNavigate()
   const [hoveredRow, setHoveredRow] = useState<number | null>(null)
 
   // Count Naurra wins
@@ -193,39 +189,6 @@ export default function ComparePage() {
 
   return (
     <div className="min-h-screen bg-[#0a0e1a] text-white overflow-hidden">
-      <SEO
-        title="Naurra.ai vs Google Assistant vs Siri — AI Workspace Assistant Comparison"
-        description="Compare Naurra.ai with Google Assistant, Siri, and AI chatbots for Google Workspace automation. See why Naurra.ai is the only voice AI purpose-built for Gmail, Calendar, Drive, Docs, and Sheets."
-        keywords="Naurra vs Google Assistant, best AI assistant for Google Workspace, AI voice assistant comparison, Naurra vs Siri, Google Workspace AI tools comparison, voice assistant for Gmail"
-        url="/compare"
-      />
-      <StructuredData type="breadcrumb" data={{
-        items: [
-          { name: 'Home', url: 'https://naurra.ai/' },
-          { name: 'Compare', url: 'https://naurra.ai/compare' }
-        ]
-      }} />
-      <StructuredData type="faq" data={{
-        faqs: [
-          {
-            question: 'How is Naurra.ai different from Google Assistant for Google Workspace?',
-            answer: 'Naurra.ai is purpose-built for Google Workspace productivity, offering full control over 8 Google services through voice commands. Unlike Google Assistant, which handles basic queries, Naurra.ai supports multi-service orchestration — one command can create a document, pull data from a spreadsheet, and email it to your team. It also includes 35+ pre-built workflows that Google Assistant does not offer.'
-          },
-          {
-            question: 'Can Siri manage Google Workspace?',
-            answer: 'Siri is designed for the Apple ecosystem and does not integrate with Google Workspace services like Gmail, Google Calendar, Google Drive, Docs, or Sheets. Naurra.ai is specifically built to control all 8 Google Workspace services through natural voice commands.'
-          },
-          {
-            question: 'What is the best AI assistant for Google Workspace in 2026?',
-            answer: 'Naurra.ai is the leading voice-first AI assistant purpose-built for Google Workspace. It is the only tool that offers multi-service orchestration (one command spanning Gmail, Calendar, Drive, Docs, Sheets), 35+ pre-built workflows, both voice and chat modes, and a native iOS app — all designed specifically for Google Workspace productivity.'
-          },
-          {
-            question: 'Can ChatGPT or other AI chatbots control Google Workspace?',
-            answer: 'General-purpose AI chatbots like ChatGPT do not have direct integration with Google Workspace. They cannot send emails, create calendar events, manage Drive files, or edit Google Docs. Naurra.ai connects directly to your Google Workspace through secure OAuth and executes real actions across all 8 Google services.'
-          }
-        ]
-      }} />
-
       {/* Background */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-amber-500/5" />
@@ -244,7 +207,7 @@ export default function ComparePage() {
       {/* Header */}
       <nav className="relative border-b border-emerald-500/10 backdrop-blur-xl bg-[#0a0e1a]/90 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex items-center justify-between">
-          <button onClick={() => navigate('/')} className="flex items-center gap-3 group">
+          <a href="/" className="flex items-center gap-3 group">
             <div className="relative w-10 h-10 flex items-center justify-center">
               <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full group-hover:bg-emerald-500/30 transition-all" />
               <img src="/logo-transparent.png" alt="Naurra.ai" className="w-full h-full object-contain relative z-10" />
@@ -252,13 +215,13 @@ export default function ComparePage() {
             <span className="font-display text-xl tracking-tight bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">
               Naurra.ai
             </span>
-          </button>
+          </a>
           <div className="flex items-center gap-5">
-            <button onClick={() => navigate('/pricing')} className="text-sm text-gray-400 hover:text-emerald-300 transition-colors" style={{ fontFamily: 'Outfit, sans-serif' }}>Pricing</button>
-            <button onClick={() => navigate('/blog')} className="text-sm text-gray-400 hover:text-emerald-300 transition-colors" style={{ fontFamily: 'Outfit, sans-serif' }}>Blog</button>
-            <button onClick={() => navigate('/')} className="text-sm text-emerald-300 hover:text-emerald-200 transition-colors">
-              ← Home
-            </button>
+            <a href="/pricing" className="text-sm text-gray-400 hover:text-emerald-300 transition-colors" style={{ fontFamily: 'Outfit, sans-serif' }}>Pricing</a>
+            <a href="/blog" className="text-sm text-gray-400 hover:text-emerald-300 transition-colors" style={{ fontFamily: 'Outfit, sans-serif' }}>Blog</a>
+            <a href="/" className="text-sm text-emerald-300 hover:text-emerald-200 transition-colors">
+              &larr; Home
+            </a>
           </div>
         </div>
       </nav>
@@ -336,7 +299,7 @@ export default function ComparePage() {
                   <div className="px-4 py-5 text-center bg-emerald-500/[0.06] border-x border-emerald-500/10 relative">
                     <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald-400 to-amber-400" />
                     <div className="flex flex-col items-center gap-1">
-                      <img src="/logo-transparent.png" alt="Naurra.ai" className="w-6 h-6 object-contain" />
+                      <img src="/logo-transparent.png" alt="Naurra.ai" className="w-6 h-6 object-contain" loading="lazy" />
                       <span className="font-display text-sm text-emerald-300">Naurra.ai</span>
                     </div>
                   </div>
@@ -544,14 +507,14 @@ export default function ComparePage() {
                 Start your free 3-day trial. No credit card required. Experience the only AI assistant built specifically for Google Workspace.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <motion.button
+                <motion.a
+                  href="/pricing"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
-                  onClick={() => navigate('/pricing')}
-                  className="px-8 py-3.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40"
+                  className="px-8 py-3.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 inline-block"
                 >
                   Start Free Trial
-                </motion.button>
+                </motion.a>
                 <a
                   href="https://apps.apple.com/app/naurra-ai/id6759445443"
                   target="_blank"
@@ -562,6 +525,7 @@ export default function ComparePage() {
                     src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                     alt="Download on the App Store"
                     className="h-12"
+                    loading="lazy"
                   />
                 </a>
               </div>
@@ -571,9 +535,9 @@ export default function ComparePage() {
 
         {/* Bottom nav */}
         <div className="text-center text-sm text-gray-500">
-          <button onClick={() => navigate('/')} className="text-emerald-400 hover:text-emerald-300 transition-colors">
-            ← Back to Naurra.ai
-          </button>
+          <a href="/" className="text-emerald-400 hover:text-emerald-300 transition-colors">
+            &larr; Back to Naurra.ai
+          </a>
         </div>
       </div>
     </div>

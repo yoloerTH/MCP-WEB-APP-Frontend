@@ -1,13 +1,8 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { useNavigate, useLocation } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
-import { SEO } from './SEO'
-import { StructuredData } from './StructuredData'
 
 export default function ContactUs() {
-  const navigate = useNavigate()
-  const location = useLocation()
   const { user } = useAuth()
   const [formData, setFormData] = useState({
     email: user?.email || '',
@@ -15,13 +10,11 @@ export default function ContactUs() {
     message: ''
   })
 
-  // Pre-fill form data from navigation state or URL params
+  // Pre-fill form data from URL params
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
-    const stateSubject = (location.state as any)?.subject
-    const stateMessage = (location.state as any)?.message
-    const subject = stateSubject || params.get('subject')
-    const message = stateMessage || params.get('message')
+    const subject = params.get('subject')
+    const message = params.get('message')
 
     if (subject || message) {
       setFormData(prev => ({
@@ -30,7 +23,7 @@ export default function ContactUs() {
         message: message || prev.message
       }))
     }
-  }, [location.state])
+  }, [])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -64,7 +57,7 @@ export default function ContactUs() {
 
       // Redirect after success
       setTimeout(() => {
-        navigate('/')
+        window.location.href = '/'
       }, 3000)
 
     } catch (err: any) {
@@ -83,19 +76,6 @@ export default function ContactUs() {
 
   return (
     <div className="min-h-screen bg-[#0a0e1a] text-white overflow-hidden">
-      <SEO
-        title="Contact Us - Naurra.ai | Get in Touch with Our Team"
-        description="Have questions about Naurra.ai? Contact our support team for help with AI workspace automation, technical support, or partnership inquiries."
-        keywords="contact Naurra, AI assistant support, workspace automation help, customer service, technical support"
-        url="/contact"
-      />
-      <StructuredData type="breadcrumb" data={{
-        items: [
-          { name: 'Home', url: 'https://naurra.ai/' },
-          { name: 'Contact', url: 'https://naurra.ai/contact' }
-        ]
-      }} />
-
       {/* Animated background */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-amber-500/5" />
@@ -138,12 +118,12 @@ export default function ContactUs() {
               Naurra.ai
             </span>
           </div>
-          <button
-            onClick={() => navigate('/')}
+          <a
+            href="/"
             className="text-sm text-emerald-300 hover:text-emerald-200 transition-colors"
           >
             ← Back to Home
-          </button>
+          </a>
         </div>
       </nav>
 

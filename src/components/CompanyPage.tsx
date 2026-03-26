@@ -1,8 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import { SEO } from './SEO'
-import { StructuredData } from './StructuredData'
 
 /* ═══════════════════════════════════════════════════════════════════
    CASE STUDIES — framed as Problem → Solution → Impact
@@ -175,7 +172,6 @@ const companyFAQs = [
 /* ═══════════════════════════════════════════════════════════════════ */
 
 export default function CompanyPage() {
-  const navigate = useNavigate()
   const [activeProject, setActiveProject] = useState(0)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
@@ -183,23 +179,6 @@ export default function CompanyPage() {
 
   return (
     <div className="min-h-screen bg-[#0a0e1a] text-white overflow-hidden">
-      <SEO
-        title="Custom AI Solutions for Business | Naurra.ai"
-        description="We build custom AI agents, workflow automation, and intelligent systems for businesses. Proven results across HVAC, legal, automotive, travel, fashion, and e-commerce. Get a free consultation."
-        keywords="AI agents for business, custom AI solutions, AI automation company, AI workflow automation, business AI integration, custom AI development, AI consulting, enterprise AI solutions, AI chatbot for business"
-        url="/company"
-        type="website"
-      />
-      <StructuredData
-        type="breadcrumb"
-        data={{
-          items: [
-            { name: 'Home', url: 'https://naurra.ai/' },
-            { name: 'Company', url: 'https://naurra.ai/company' },
-          ],
-        }}
-      />
-
       {/* ── AMBIENT BACKGROUND ── */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-amber-500/5" />
@@ -230,9 +209,9 @@ export default function CompanyPage() {
             {[{ label: 'Product', href: '/' }, { label: 'Pricing', href: '/pricing' }, { label: 'Blog', href: '/blog' }, { label: 'Contact', href: '/contact' }].map((link) => (
               <a key={link.label} href={link.href} className="text-sm text-gray-400 hover:text-emerald-400 transition-colors">{link.label}</a>
             ))}
-            <motion.button whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} onClick={() => navigate('/contact')} className="px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white text-sm font-semibold rounded-xl shadow-lg shadow-emerald-500/25 transition-all">
+            <motion.a href="/contact" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white text-sm font-semibold rounded-xl shadow-lg shadow-emerald-500/25 transition-all">
               Get a Free Consultation
-            </motion.button>
+            </motion.a>
           </div>
         </div>
       </nav>
@@ -318,14 +297,14 @@ export default function CompanyPage() {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="flex flex-col sm:flex-row items-start gap-4"
             >
-              <motion.button
+              <motion.a
+                href="/contact"
                 whileHover={{ scale: 1.03, boxShadow: '0 20px 60px rgba(16, 185, 129, 0.35)' }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => navigate('/contact')}
-                className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-semibold rounded-xl shadow-lg shadow-emerald-500/30 transition-all text-lg"
+                className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-semibold rounded-xl shadow-lg shadow-emerald-500/30 transition-all text-lg inline-block"
               >
                 Get a Free Consultation
-              </motion.button>
+              </motion.a>
               <motion.a
                 href="#projects"
                 whileHover={{ scale: 1.03 }}
@@ -501,6 +480,7 @@ export default function CompanyPage() {
                                 src={(project as any).testimonial.image}
                                 alt="Client testimonial for automotive sourcing project"
                                 className="w-full h-48 sm:h-full object-cover"
+                                loading="lazy"
                               />
                             </div>
                             {/* Quote */}
@@ -685,7 +665,7 @@ export default function CompanyPage() {
                 {/* Photo */}
                 <div className="relative w-full lg:w-5/12 flex-shrink-0">
                   <div className="relative h-80 lg:h-full min-h-[420px] overflow-hidden">
-                    <img src="/ceo-thanos.jpg" alt="Thanos Panagiotakopoulos - CEO & AI Engineer at Naurra.ai" className="absolute inset-0 w-full h-full object-cover object-top" />
+                    <img src="/ceo-thanos.jpg" alt="Thanos Panagiotakopoulos - CEO & AI Engineer at Naurra.ai" className="absolute inset-0 w-full h-full object-cover object-top" loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e1a] via-[#0a0e1a]/20 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-[#0a0e1a]/80" />
                     <div className="absolute bottom-6 left-6 lg:hidden">
                       <h3 className="text-2xl font-display font-extrabold text-white">Thanos Panagiotakopoulos</h3>
@@ -788,14 +768,14 @@ export default function CompanyPage() {
               <p className="text-gray-400 text-lg mb-8 max-w-xl mx-auto">
                 Tell us about your business challenge. We'll respond within 24 hours with an honest assessment of how AI can help.
               </p>
-              <motion.button
+              <motion.a
+                href="/contact"
                 whileHover={{ scale: 1.03, boxShadow: '0 25px 70px rgba(16, 185, 129, 0.4)' }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => navigate('/contact')}
-                className="px-10 py-5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white text-lg font-bold rounded-xl shadow-lg shadow-emerald-500/30 transition-all"
+                className="px-10 py-5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white text-lg font-bold rounded-xl shadow-lg shadow-emerald-500/30 transition-all inline-block"
               >
                 Let's Discuss Your Project
-              </motion.button>
+              </motion.a>
               <p className="text-gray-600 text-sm mt-5">Free consultation — No commitment required</p>
             </div>
           </motion.div>

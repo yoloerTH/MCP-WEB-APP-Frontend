@@ -570,7 +570,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                     whileHover={{ scale: 1.05, transition: { duration: 0.3, ease: "easeOut" } }}
                     className="relative w-40 h-40 bg-[#0a0e1a]/90 backdrop-blur-sm rounded-3xl flex items-center justify-center border-2 border-emerald-400/60 shadow-2xl shadow-emerald-500/50 cursor-pointer p-7"
                   >
-                    <img src="/logo-transparent.png" alt="Naurra.ai" className="w-full h-full object-contain" />
+                    <img src="/logo-transparent.png" alt="Naurra.ai" className="w-full h-full object-contain" loading="lazy" />
 
                     {/* Corner accents */}
                     <div className="absolute top-2 left-2 w-4 h-4 border-l-2 border-t-2 border-emerald-400/60" />
@@ -1198,7 +1198,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                     transition={{ duration: 3, repeat: Infinity }}
                     className="w-24 h-24 bg-[#0a0e1a]/90 backdrop-blur-sm rounded-2xl flex items-center justify-center border-2 border-emerald-400/60 shadow-2xl p-4"
                   >
-                    <img src="/logo-transparent.png" alt="Naurra.ai" className="w-full h-full object-contain" />
+                    <img src="/logo-transparent.png" alt="Naurra.ai" className="w-full h-full object-contain" loading="lazy" />
                   </motion.div>
                 </div>
 
@@ -1394,6 +1394,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                   src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                   alt="Download on the App Store"
                   className="h-[52px]"
+                  loading="lazy"
                 />
               </a>
             </div>
@@ -1407,7 +1408,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 flex items-center justify-center">
-                <img src="/logo-transparent.png" alt="Naurra.ai Logo" className="w-full h-full object-contain" />
+                <img src="/logo-transparent.png" alt="Naurra.ai Logo" className="w-full h-full object-contain" loading="lazy" />
               </div>
               <div>
                 <div className="font-display text-sm bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Naurra.ai</div>
@@ -1447,6 +1448,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                   src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                   alt="Download on the App Store"
                   className="h-10"
+                  loading="lazy"
                 />
               </a>
             </div>

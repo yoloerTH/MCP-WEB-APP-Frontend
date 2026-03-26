@@ -360,6 +360,7 @@ export function InspirationPage() {
                       src={useCase.icon}
                       alt={useCase.title}
                       className="w-14 h-14 object-contain"
+                      loading="lazy"
                     />
                   ) : (
                     <span className="text-5xl">{useCase.icon}</span>

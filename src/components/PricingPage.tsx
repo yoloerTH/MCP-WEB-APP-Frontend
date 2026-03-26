@@ -1,11 +1,9 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import CheckoutModal from './CheckoutModal'
 import { supabase } from '../lib/supabase'
-import { SEO } from './SEO'
-import { StructuredData, pricingPageFAQs } from './StructuredData'
+import { pricingPageFAQs } from './StructuredData'
 
 type BillingPeriod = 'monthly' | 'yearly'
 
@@ -22,7 +20,6 @@ interface PricingPlan {
 }
 
 export default function PricingPage() {
-  const navigate = useNavigate()
   const { user, fetchSubscription } = useAuth()
   const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>('monthly')
   const [checkoutPlan, setCheckoutPlan] = useState<{ planId: 'monthly' | 'yearly'; amount: number; period: string } | null>(null)
@@ -85,7 +82,7 @@ export default function PricingPage() {
     // Check authentication first
     if (!user) {
       alert('Please sign in first to choose a plan')
-      navigate('/', { state: { returnTo: '/pricing' } })
+      window.location.href = '/'
       return
     }
 
@@ -107,8 +104,8 @@ export default function PricingPage() {
 
         // Success! Refresh subscription state BEFORE navigating
         alert(data.message || 'Trial activated successfully!')
-        await fetchSubscription() // ✅ Wait for subscription to refresh
-        navigate('/chatai')
+        await fetchSubscription()
+        window.location.href = '/chatai'
       } catch (err: any) {
         alert(`Error: ${err.message || 'Failed to activate trial'}`)
       }
@@ -129,19 +126,6 @@ export default function PricingPage() {
 
   return (
     <div className="min-h-screen bg-[#0a0e1a] text-white overflow-hidden">
-      <SEO
-        title="Pricing Plans - Naurra.ai | Affordable AI Workspace Assistant"
-        description="Choose the perfect plan for your needs. Start with a 3-day free trial. Monthly plans from $79/month. Get AI-powered control of your entire Google Workspace."
-        keywords="AI assistant pricing, workspace automation pricing, Google Workspace AI cost, affordable AI tools, productivity software pricing"
-        url="/pricing"
-      />
-      <StructuredData type="breadcrumb" data={{
-        items: [
-          { name: 'Home', url: 'https://naurra.ai/' },
-          { name: 'Pricing', url: 'https://naurra.ai/pricing' }
-        ]
-      }} />
-
       {/* Animated background */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-amber-500/5" />
@@ -184,12 +168,12 @@ export default function PricingPage() {
               Naurra.ai
             </span>
           </div>
-          <button
-            onClick={() => navigate('/')}
+          <a
+            href="/"
             className="text-sm text-emerald-300 hover:text-emerald-200 transition-colors"
           >
             ← Back to Home
-          </button>
+          </a>
         </div>
       </nav>
 
@@ -394,7 +378,6 @@ export default function PricingPage() {
         </motion.div>
 
         {/* FAQ Section */}
-        <StructuredData type="faq" data={{ faqs: pricingPageFAQs }} />
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -427,12 +410,12 @@ export default function PricingPage() {
           </div>
           <p className="text-center mt-8 text-gray-500 text-sm">
             Still have questions?{' '}
-            <button
-              onClick={() => navigate('/contact')}
+            <a
+              href="/contact"
               className="text-emerald-400 hover:text-emerald-300 transition-colors underline"
             >
               Contact our team
-            </button>
+            </a>
           </p>
         </motion.div>
       </div>

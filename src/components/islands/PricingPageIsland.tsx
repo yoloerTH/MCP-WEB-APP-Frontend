@@ -1,10 +1,10 @@
-import PageIsland from './PageIsland'
+import { AuthProvider } from '../../contexts/AuthContext'
 import PricingPage from '../PricingPage'
 
 export default function PricingPageIsland() {
   return (
-    <PageIsland>
+    <AuthProvider>
       <PricingPage />
-    </PageIsland>
+    </AuthProvider>
   )
 }

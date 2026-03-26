@@ -1,18 +1,9 @@
-import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { SEO } from './SEO'
 
 export default function PrivacyPolicy() {
-  const navigate = useNavigate()
 
   return (
     <div className="min-h-screen bg-[#0a0e1a] text-white">
-      <SEO
-        title="Privacy Policy - Naurra.ai | How We Protect Your Data"
-        description="Learn how Naurra.ai handles your data. Our privacy policy covers data collection, Google Workspace permissions, security measures, and your rights."
-        keywords="privacy policy, data protection, Google Workspace security, AI assistant privacy, Naurra privacy"
-        url="/privacy"
-      />
       {/* Header */}
       <nav className="border-b border-emerald-500/10 backdrop-blur-xl bg-[#0a0e1a]/90">
         <div className="max-w-4xl mx-auto px-8 py-5 flex items-center justify-between">
@@ -25,12 +16,12 @@ export default function PrivacyPolicy() {
               Naurra.ai
             </span>
           </div>
-          <button
-            onClick={() => navigate('/')}
+          <a
+            href="/"
             className="text-sm text-emerald-300 hover:text-emerald-200 transition-colors"
           >
             ← Back to Home
-          </button>
+          </a>
         </div>
       </nav>
 
