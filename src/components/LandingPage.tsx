@@ -174,12 +174,30 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
       </motion.div>
 
 
+      {/* Free Tool Banner */}
+      <motion.div
+        initial={{ y: 0 }}
+        animate={{ y: showNav ? 0 : -140 }}
+        transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+        className="fixed top-0 left-0 right-0 z-[51] bg-gradient-to-r from-emerald-600/90 via-emerald-500/90 to-teal-500/90 backdrop-blur-sm"
+      >
+        <a
+          href="/tools/email-signature"
+          className="block py-2 text-center text-sm font-semibold text-white hover:text-emerald-100 transition-colors"
+          style={{ fontFamily: 'Outfit, sans-serif' }}
+        >
+          <span className="opacity-80 mr-2">New</span>
+          Free Email Signature Generator for Gmail
+          <span className="ml-2 inline-block opacity-70 text-xs">&rarr;</span>
+        </a>
+      </motion.div>
+
       {/* Navigation */}
       <motion.nav
         initial={{ y: 0 }}
-        animate={{ y: showNav ? 0 : -100 }}
+        animate={{ y: showNav ? 0 : -140 }}
         transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#0a0e1a]/90 border-b border-emerald-500/10"
+        className="fixed top-[36px] left-0 right-0 z-50 backdrop-blur-xl bg-[#0a0e1a]/90 border-b border-emerald-500/10"
       >
         <div className="max-w-[1400px] mx-auto px-8 py-5 flex items-center justify-between">
           <motion.div
@@ -264,7 +282,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
       </motion.nav>
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-12 px-8 min-h-screen flex items-center">
+      <section className="relative pt-40 pb-12 px-8 min-h-screen flex items-center">
         <div className="max-w-[1400px] mx-auto w-full">
           <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
             {/* Left: Content */}
