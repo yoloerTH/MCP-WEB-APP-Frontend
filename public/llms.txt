@@ -146,3 +146,4 @@ Additional resources for deeper context:
 - [A Day in the Life: Solo Founder with AI](https://naurra.ai/blog/a-day-in-the-life-solo-founder-with-ai): How a solo founder runs a business with AI
 - [The Hidden Cost of Not Using AI](https://naurra.ai/blog/the-hidden-cost-of-not-using-ai-in-2026): What businesses lose by not adopting AI in 2026
 - [AI for Founders Who Hate AI](https://naurra.ai/blog/ai-for-founders-who-hate-ai): A skeptic's guide to useful AI for business
+- [AI for Google Sheets](https://naurra.ai/blog/ai-for-google-sheets-formulas-analysis-automation): How AI automates formulas, data analysis, and reporting in Google Sheets
