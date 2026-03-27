@@ -78,9 +78,10 @@ const faqData = {
 >
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
-
-  .sig-page { font-family: 'Outfit', sans-serif; }
+  /* Fonts loaded via BaseLayout head */
+  .sig-page { font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif; }
+  .sig-page h1, .sig-page h2, .sig-page .font-display { font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.04em; }
+  .sig-page .font-mono { font-family: 'JetBrains Mono', monospace; }
 
   /* Noise texture overlay */
   .noise-bg::before {
@@ -245,7 +246,7 @@ const faqData = {
     background: none;
     border: none;
     color: #f1f5f9;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Sora', sans-serif;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
@@ -287,7 +288,7 @@ const faqData = {
     <header style="padding: 32px 0 16px; display: flex; align-items: center; justify-content: space-between;">
       <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
         <img src="/logo-transparent.png" alt="Naurra.ai" style="width: 36px; height: 36px; object-fit: contain;" />
-        <span style="font-size: 20px; font-weight: 700; background: linear-gradient(135deg, #10b981, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Naurra.ai</span>
+        <span class="font-display" style="font-size: 20px; background: linear-gradient(135deg, #10b981, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Naurra.ai</span>
       </a>
       <nav style="display: flex; gap: 24px; align-items: center;">
         <a href="/blog" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Blog</a>
@@ -301,7 +302,7 @@ const faqData = {
       <div style="display: inline-block; padding: 6px 16px; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); border-radius: 100px; margin-bottom: 20px;">
         <span style="font-size: 12px; font-weight: 600; color: #10b981; letter-spacing: 0.08em; text-transform: uppercase;">Free Tool -- No Signup Required</span>
       </div>
-      <h1 style="font-size: clamp(32px, 5vw, 52px); font-weight: 800; color: #f1f5f9; margin: 0 0 16px; line-height: 1.15; letter-spacing: -0.02em;">
+      <h1 style="font-family: 'Sora', sans-serif; font-size: clamp(32px, 5vw, 52px); font-weight: 800; color: #f1f5f9; margin: 0 0 16px; line-height: 1.15; letter-spacing: -0.04em;">
         Email Signature<br/>
         <span style="background: linear-gradient(135deg, #10b981, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Generator</span>
       </h1>
@@ -495,7 +496,7 @@ const faqData = {
 
     <!-- FAQ Section -->
     <section style="max-width: 720px; margin: 0 auto; padding: 32px 0 80px;">
-      <h2 style="font-size: 28px; font-weight: 800; color: #f1f5f9; text-align: center; margin-bottom: 40px; letter-spacing: -0.02em;">Frequently Asked Questions</h2>
+      <h2 style="font-family: 'Sora', sans-serif; font-size: 28px; font-weight: 800; color: #f1f5f9; text-align: center; margin-bottom: 40px; letter-spacing: -0.04em;">Frequently Asked Questions</h2>
 
       <div id="faq-list">
         <div class="faq-item">
