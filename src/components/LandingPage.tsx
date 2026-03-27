@@ -118,8 +118,8 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
   return (
     <div className="min-h-screen bg-[#0a0e1a] text-white overflow-x-hidden relative">
       <SEO
-        title="Naurra.ai - AI-Powered Workspace Assistant | Voice & Chat AI"
-        description="Transform your Google Workspace with Naurra.ai - the intelligent AI assistant that controls Gmail, Calendar, Drive, Docs, and more through natural voice commands or chat. 35+ AI-powered productivity tools."
+        title="Naurra.ai - AI Voice & Chat Assistant for Google Workspace"
+        description="Control Gmail, Calendar, Drive, Docs and Sheets with natural voice commands or chat. The AI assistant built for Google Workspace productivity."
         keywords="AI assistant, Google Workspace, voice AI, chat AI, productivity tools, Gmail automation, Calendar AI, Drive management, workspace automation, AI productivity"
         url="/"
       />

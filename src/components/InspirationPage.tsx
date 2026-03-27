@@ -92,8 +92,8 @@ export function InspirationPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-midnight-900 via-midnight-800 to-midnight-900 relative overflow-hidden">
       <SEO
-        title="Inspiration - Naurra.ai | Voice Command Examples & Use Cases"
-        description="Discover what you can do with Naurra.ai. Browse 35+ voice command examples for Gmail, Calendar, Drive, Docs, and Sheets automation."
+        title="AI Inspiration Hub | 40+ Voice Command Examples - Naurra.ai"
+        description="Browse 40+ real voice command examples for Gmail, Calendar, Drive, Docs and Sheets. See what Naurra.ai can automate in your Google Workspace."
         keywords="voice command examples, AI assistant use cases, Google Workspace commands, productivity examples, Naurra inspiration"
         url="/inspiration"
       />
