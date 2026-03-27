@@ -25,7 +25,7 @@ export default function SubscriptionRequiredModal({
   isOpen,
   onSubscribed,
 }: SubscriptionRequiredModalProps) {
-  const { user } = useAuth()
+  const { user, isTrialAvailable } = useAuth()
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -124,10 +124,12 @@ export default function SubscriptionRequiredModal({
                     </motion.div>
 
                     <h2 className="text-4xl font-bold text-white mb-3">
-                      Welcome to Naurra.ai!
+                      {isTrialAvailable ? 'Welcome to Naurra.ai!' : 'Choose Your Plan'}
                     </h2>
                     <p className="text-xl text-gray-400">
-                      Choose a plan to unlock AI-powered productivity
+                      {isTrialAvailable
+                        ? 'Choose a plan to unlock AI-powered productivity'
+                        : 'Your trial has ended. Subscribe to continue using Naurra.ai'}
                     </p>
                   </div>
 
@@ -143,9 +145,9 @@ export default function SubscriptionRequiredModal({
                   )}
 
                   {/* Plans Grid */}
-                  <div className="grid md:grid-cols-3 gap-6 mb-8">
-                    {/* Free Trial */}
-                    <motion.div
+                  <div className={`grid ${isTrialAvailable ? 'md:grid-cols-3' : 'md:grid-cols-2 max-w-2xl mx-auto'} gap-6 mb-8`}>
+                    {/* Free Trial - only show if trial hasn't been used */}
+                    {isTrialAvailable && <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.3 }}
@@ -222,7 +224,7 @@ export default function SubscriptionRequiredModal({
                           {loading ? 'Activating...' : 'Start Free Trial'}
                         </button>
                       </div>
-                    </motion.div>
+                    </motion.div>}
 
                     {/* Monthly Plan */}
                     <motion.div

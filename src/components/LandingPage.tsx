@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
+import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
@@ -47,6 +47,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
   const [isCarouselPaused, setIsCarouselPaused] = useState(false)
   const [showNav, setShowNav] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { scrollYProgress } = useScroll()
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 })
 
@@ -199,7 +200,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
         transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
         className="fixed top-[36px] left-0 right-0 z-50 backdrop-blur-xl bg-[#0a0e1a]/90 border-b border-emerald-500/10"
       >
-        <div className="max-w-[1400px] mx-auto px-8 py-5 flex items-center justify-between">
+        <div className="max-w-[1400px] mx-auto px-4 lg:px-8 py-3 lg:py-5 flex items-center justify-between">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -207,20 +208,21 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
           >
             <div className="relative">
               <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full" />
-              <div className="relative w-14 h-14 flex items-center justify-center">
+              <div className="relative w-10 h-10 lg:w-14 lg:h-14 flex items-center justify-center">
                 <img src="/logo-transparent.png" alt="Naurra.ai Logo" className="w-full h-full object-contain" />
               </div>
             </div>
             <div>
-              <span className="text-2xl font-display tracking-tight bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Naurra.ai</span>
-              <div className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest">AI Workspace</div>
+              <span className="text-xl lg:text-2xl font-display tracking-tight bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Naurra.ai</span>
+              <div className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest hidden sm:block">AI Workspace</div>
             </div>
           </motion.div>
 
+          {/* Desktop Nav Links */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-6"
+            className="hidden lg:flex items-center gap-6"
           >
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -278,8 +280,74 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
             </motion.button>
             <AuthButton />
           </motion.div>
+
+          {/* Mobile Hamburger */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden flex flex-col gap-[5px] p-2"
+            aria-label="Toggle menu"
+          >
+            <motion.span
+              animate={mobileMenuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+              className="block w-5 h-[2px] bg-white/80 rounded-full origin-center"
+            />
+            <motion.span
+              animate={mobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
+              className="block w-5 h-[2px] bg-white/80 rounded-full"
+            />
+            <motion.span
+              animate={mobileMenuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+              className="block w-5 h-[2px] bg-white/80 rounded-full origin-center"
+            />
+          </button>
         </div>
       </motion.nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+            />
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              className="fixed top-0 right-0 bottom-0 w-72 bg-[#0a0e1a]/95 backdrop-blur-xl border-l border-white/10 z-40 lg:hidden flex flex-col pt-24 px-6"
+            >
+              {[
+                { label: 'Compare', path: '/compare', color: 'text-gray-300' },
+                { label: 'Blog', path: '/blog', color: 'text-gray-300' },
+                { label: 'Pricing', path: '/pricing', color: 'text-emerald-400' },
+                { label: 'Explore AI Hub', path: '/inspiration', color: 'text-gray-300' },
+                { label: 'Company', path: '/company', color: 'text-gray-300' },
+                { label: 'Contact', path: '/contact', color: 'text-amber-400' },
+              ].map((item, i) => (
+                <motion.button
+                  key={item.path}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                  onClick={() => { navigate(item.path); setMobileMenuOpen(false) }}
+                  className={`py-4 text-left text-lg font-semibold ${item.color} hover:text-emerald-300 transition-colors border-b border-white/5`}
+                  style={{ fontFamily: 'Outfit, sans-serif' }}
+                >
+                  {item.label}
+                </motion.button>
+              ))}
+              <div className="mt-6">
+                <AuthButton />
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       {/* Hero Section */}
       <section className="relative pt-40 pb-12 px-8 min-h-screen flex items-center">
