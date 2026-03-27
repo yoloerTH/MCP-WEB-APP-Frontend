@@ -148,5 +148,9 @@ Additional resources for deeper context:
 - [AI for Founders Who Hate AI](https://naurra.ai/blog/ai-for-founders-who-hate-ai): A skeptic's guide to useful AI for business
 - [AI for Google Sheets](https://naurra.ai/blog/ai-for-google-sheets-formulas-analysis-automation): How AI automates formulas, data analysis, and reporting in Google Sheets
 
+- [How to Send Emails with Voice Commands in Gmail](https://naurra.ai/blog/how-to-send-emails-with-voice-commands-gmail): Step-by-step guide to sending, replying, and managing Gmail by voice
+- [How to Create Google Docs Without Typing](https://naurra.ai/blog/how-to-create-google-docs-without-typing): Create, dictate, and format Google Docs entirely by voice commands
+- [How to Manage Google Calendar with AI](https://naurra.ai/blog/how-to-manage-google-calendar-with-ai): Schedule meetings, check availability, and manage your calendar with AI
+
 ## Free Tools
 - [Email Signature Generator](https://naurra.ai/tools/email-signature): Free email signature generator for Gmail and Google Workspace with live preview and HTML export

@@ -87,7 +87,7 @@
   <!-- Blog Index -->
   <url>
     <loc>https://naurra.ai/blog</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-03-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
@@ -264,6 +264,27 @@
   <url>
     <loc>https://naurra.ai/blog/ai-for-google-sheets-formulas-analysis-automation</loc>
     <lastmod>2026-03-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://naurra.ai/blog/how-to-send-emails-with-voice-commands-gmail</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://naurra.ai/blog/how-to-create-google-docs-without-typing</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://naurra.ai/blog/how-to-manage-google-calendar-with-ai</loc>
+    <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

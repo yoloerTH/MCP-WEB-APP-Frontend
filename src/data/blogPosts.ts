@@ -4710,6 +4710,592 @@ You do not need to become a spreadsheet expert. You need a spreadsheet expert th
     image: '/blog/ai-for-google-sheets-formulas-analysis-automation.png',
     readingTime: 12,
     keywords: 'AI for Google Sheets, Google Sheets automation, AI formulas Google Sheets, automate Google Sheets, Google Sheets AI analysis, AI spreadsheet automation, Google Sheets voice commands, AI data analysis spreadsheet, Google Sheets tips 2026, automate spreadsheet reports'
+  },
+  {
+    slug: 'how-to-send-emails-with-voice-commands-gmail',
+    title: 'How to Send Emails with Voice Commands in Gmail (Step-by-Step)',
+    description: 'Learn how to compose, send, reply to, and manage Gmail emails using only your voice. A practical guide with real command examples for hands-free email productivity.',
+    content: `
+# How to Send Emails with Voice Commands in Gmail
+
+**TL;DR:** You can send, reply, search, and manage Gmail emails entirely by voice using an AI assistant like Naurra.ai. No typing required. This guide walks you through every command with real examples you can use today.
+
+If you spend more than an hour a day on email, you already know the pain: drafting messages, switching tabs, formatting replies, finding that one thread from last week. Now imagine handling all of that while your hands are free -- cooking, commuting, or just giving your wrists a break.
+
+Voice-controlled email is not science fiction. It works today, and it works well.
+
+## Why Voice Commands for Email?
+
+The average professional sends [40+ emails per day](https://naurra.ai/blog/gmail-automation-tips). At 2-3 minutes per email, that is nearly two hours of typing. Voice commands cut that time dramatically because:
+
+- **Speaking is 3x faster than typing** -- most people speak at 130 words per minute versus 40 typed
+- **No context switching** -- you stay in one interface instead of jumping between inbox, compose, and search
+- **Multitasking becomes possible** -- send a quick reply while reviewing notes, walking, or eating lunch
+- **Accessibility** -- for anyone with RSI, carpal tunnel, or mobility challenges, voice is a game-changer
+
+## What You Need to Get Started
+
+To send emails by voice in Gmail, you need an AI assistant that connects to your Google Workspace account. Here is what the setup looks like with Naurra.ai:
+
+**Step 1:** Sign up at [naurra.ai](/) and connect your Google Workspace account
+
+**Step 2:** Grant Gmail permissions (read, compose, send). Naurra uses [secure OAuth scopes](/blog/is-ai-safe-for-your-business-data) and never stores your email content
+
+**Step 3:** Open the voice interface and start talking
+
+That is it. No browser extensions, no complex workflows, no Zapier chains.
+
+## Sending a New Email
+
+The most basic command. Just say who, what, and Naurra handles the rest:
+
+**"Send an email to sarah@company.com about the Q3 report"**
+
+Naurra will:
+1. Open a new compose window
+2. Fill in the recipient
+3. Generate a subject line ("Q3 Report")
+4. Draft a professional email body
+5. Show you a preview before sending
+
+You can be more specific:
+
+**"Send an email to David Chen. Subject: Meeting reschedule. Body: Hi David, can we move our Thursday call to Friday at 2pm? Let me know if that works."**
+
+Or keep it casual:
+
+**"Email Mike -- running 10 minutes late to lunch"**
+
+### Adding CC and BCC
+
+**"Send an email to anna@team.com, CC john@team.com, about the design review"**
+
+**"Email the sales team, BCC my manager, with this month's pipeline numbers"**
+
+## Replying to Emails
+
+You do not need to open the email first. Just reference the conversation:
+
+**"Reply to Sarah's last email and say: Sounds good, let's go with option B"**
+
+**"Reply to the email from accounting about the invoice -- tell them I approved it"**
+
+**"Reply all to the marketing thread and confirm I'll attend the brainstorm"**
+
+Naurra finds the right thread, understands the context, and drafts an appropriate reply.
+
+## Searching and Finding Emails
+
+Voice search is where things get powerful. No more hunting through folders:
+
+**"Find emails from John in the last week"**
+
+**"Show me unread emails about the project proposal"**
+
+**"Search for the attachment David sent me about the budget"**
+
+**"Find all emails from @clientdomain.com in March"**
+
+This connects to the same [Gmail search operators](https://naurra.ai/blog/gmail-automation-tips) you already know, but without the typing.
+
+## Managing Your Inbox by Voice
+
+Beyond sending and searching, you can organize your entire inbox:
+
+### Starring and Labeling
+**"Star the last email from my manager"**
+
+**"Label the design feedback thread as 'Priority'"**
+
+### Archiving and Deleting
+**"Archive all read emails from newsletters"**
+
+**"Delete the spam emails from this week"**
+
+### Forwarding
+**"Forward the contract email from legal to my co-founder"**
+
+## Real-World Workflows
+
+Here is how a typical voice-powered email morning looks:
+
+**8:00 AM -- Quick triage while making coffee:**
+"What emails came in overnight?"
+"Reply to the urgent ones: Tell Lisa I'll review the doc by noon. Tell Marcus the meeting is confirmed."
+
+**10:30 AM -- Between meetings:**
+"Send a follow-up email to everyone from yesterday's call -- thank them for attending and share the action items"
+
+**2:00 PM -- Hands-free while reviewing documents:**
+"Reply to the client email and say we'll have the proposal ready by Friday"
+
+**5:00 PM -- End of day:**
+"Send a status update to my team about today's progress on the launch"
+
+This workflow saves [10+ hours per week](/blog/how-to-automate-repetitive-tasks) for most professionals.
+
+## Voice Email vs. Traditional Dictation
+
+You might be thinking: "Can't I just use Google's voice typing?" Here is the difference:
+
+| Feature | Google Voice Typing | Naurra.ai Voice Commands |
+|---------|-------------------|------------------------|
+| Dictate email body | Yes | Yes |
+| Auto-fill recipients | No | Yes |
+| Generate subject lines | No | Yes |
+| Reply to threads by reference | No | Yes |
+| Search emails by voice | No | Yes |
+| Manage inbox (star, label, archive) | No | Yes |
+| Works across Gmail + Calendar + Docs | No | Yes |
+
+Google voice typing is dictation. Naurra is a voice-controlled [AI assistant that understands intent](/blog/voice-ai-vs-traditional-assistants) and takes action.
+
+## Privacy and Security
+
+A common concern: "Is it safe to let AI access my email?"
+
+Short answer: yes, when done right. Naurra.ai uses:
+- **OAuth 2.0** -- you grant specific, revocable permissions
+- **No email storage** -- your messages are processed in real-time, not saved on Naurra servers
+- **Enterprise-grade encryption** -- all data in transit and at rest
+- **SOC 2 compliant practices**
+
+Read the full breakdown in our post on [AI data security for businesses](/blog/is-ai-safe-for-your-business-data).
+
+## Tips for Better Voice Emails
+
+1. **Be specific with names** -- "Email Sarah Chen" is better than "Email Sarah" if you have multiple Sarahs
+2. **State the subject first** -- it helps the AI structure the email better
+3. **Review before sending** -- Naurra always shows a preview. Take 2 seconds to confirm
+4. **Use natural language** -- you do not need special syntax. Talk like you are asking a colleague to send it for you
+5. **Combine with [calendar commands](/blog/google-calendar-ai-scheduling)** -- "Email the attendees of tomorrow's meeting and share the agenda"
+
+## Getting Started Today
+
+Voice-controlled email is the single biggest [productivity upgrade](/blog/boost-productivity-voice-commands) you can make in your workday. The setup takes under 2 minutes, and most people never go back to typing every email manually.
+
+**Ready to try it?** [Start your free 3-day trial](/pricing) and send your first voice email in the next 60 seconds. No credit card required.
+
+For teams and businesses that need custom email workflows, we also build [tailored AI solutions](/company) that integrate with your existing systems.
+    `,
+    author: {
+      name: 'Thanos Panagiotakopoulos',
+      avatar: '/ceo-thanos.jpg',
+    },
+    publishedAt: '2026-03-27',
+    category: 'Tutorials',
+    tags: ['Gmail', 'Voice Commands', 'Email Productivity', 'Google Workspace', 'Tutorials'],
+    featured: false,
+    image: '/blog/how-to-send-emails-with-voice-commands-gmail.png',
+    readingTime: 10,
+    keywords: 'send email voice commands Gmail, voice control Gmail, hands-free email, voice email assistant, Gmail voice commands, send email by voice, voice dictation Gmail, AI email assistant, Gmail automation voice, how to use voice for email'
+  },
+  {
+    slug: 'how-to-create-google-docs-without-typing',
+    title: 'How to Create Google Docs Without Typing a Single Word',
+    description: 'Create, edit, and format Google Docs entirely by voice. From blank documents to polished reports, learn how to go hands-free with AI voice commands.',
+    content: `
+# How to Create Google Docs Without Typing a Single Word
+
+**TL;DR:** You can create, dictate, format, and organize Google Docs using voice commands through an AI assistant. This guide covers everything from creating a blank doc to producing polished reports, proposals, and meeting notes -- all without touching the keyboard.
+
+Writing documents is one of those tasks that feels like it should be simple but somehow eats up hours. You open a blank page, stare at it, start typing, rewrite, format, and repeat. What if you could skip straight to the finished product by just talking?
+
+With voice-controlled AI, you can.
+
+## Why Go Hands-Free with Google Docs?
+
+Google Docs is the backbone of modern work -- proposals, reports, meeting notes, SOPs, project briefs. But creating documents traditionally means:
+
+- Staring at blank pages (the hardest part)
+- Switching between typing and formatting
+- Copy-pasting content from other sources
+- Manual organization and structuring
+
+Voice commands solve all of these. Instead of building a document piece by piece, you describe what you want and the AI handles the structure, formatting, and content.
+
+## Getting Set Up
+
+To create Google Docs by voice, you need Naurra.ai connected to your Google Workspace:
+
+**Step 1:** [Sign up at naurra.ai](/) and connect your Google account
+
+**Step 2:** Grant Google Docs and Drive permissions
+
+**Step 3:** Start talking
+
+The whole setup takes about 90 seconds.
+
+## Creating a New Document
+
+### From Scratch
+
+The simplest command:
+
+**"Create a new Google Doc called Q3 Marketing Report"**
+
+Naurra creates the document in your Drive and confirms the title. You can then start dictating content.
+
+### With Structure
+
+Be more descriptive and the AI builds the entire framework:
+
+**"Create a project proposal document for the website redesign. Include sections for executive summary, scope of work, timeline, budget, and team."**
+
+You will get a fully structured doc with headings, subheadings, and placeholder content ready for you to refine.
+
+### From a Template Pattern
+
+**"Create a meeting notes document for today's product sync. Include attendees, agenda, discussion points, and action items sections."**
+
+**"Create a weekly status report with sections for completed tasks, in progress, blockers, and next week's priorities."**
+
+## Dictating Content
+
+Once your document exists, dictating content is natural:
+
+**"In the Q3 Marketing Report, under the Executive Summary section, write: This quarter we focused on three key initiatives -- expanding our content strategy, launching the referral program, and optimizing our ad spend across channels."**
+
+Or simply:
+
+**"Add to the meeting notes: Sarah will finalize the design mockups by Friday. Marcus is handling the API integration. Target launch date is April 15th."**
+
+The AI understands context. You do not need to spell out formatting -- it handles paragraph breaks, capitalization, and punctuation naturally.
+
+## Formatting by Voice
+
+### Headings and Structure
+
+**"Add a heading called 'Budget Breakdown' to the report"**
+
+**"Create a bullet list of the three main deliverables"**
+
+**"Add a numbered list of steps for the onboarding process"**
+
+### Tables
+
+**"Add a table with columns for Task, Owner, Deadline, and Status"**
+
+**"Insert a comparison table for the three vendors we're evaluating"**
+
+### Text Styling
+
+**"Bold the project name in the first paragraph"**
+
+**"Add a horizontal line after the introduction"**
+
+## Real Document Examples
+
+Here are complete voice commands that produce production-ready documents:
+
+### Meeting Notes
+
+**"Create meeting notes for the Design Review on March 27. Attendees: Sarah, Marcus, Lisa, and me. Key discussion points: homepage redesign feedback was positive, mobile navigation needs rework, color palette approved. Action items: Sarah to update mobile wireframes by Friday, Marcus to prepare dev estimates by Monday, Lisa to schedule user testing for next week."**
+
+Result: A clean, structured meeting notes doc with all sections properly formatted.
+
+### Project Brief
+
+**"Create a project brief for the Customer Portal v2. Background: our current portal has a 23% drop-off rate and users report difficulty finding invoices. Goal: redesign the portal to reduce drop-off by 50% and add self-service invoice management. Success metrics: drop-off rate, support ticket volume, user satisfaction score. Timeline: 8 weeks starting April 1st."**
+
+### Weekly Report
+
+**"Create my weekly report. Completed this week: shipped the new search feature, fixed 12 bugs from QA, conducted 3 user interviews. In progress: payment integration, expected to finish next Tuesday. Blockers: waiting on API credentials from the payment provider. Next week priorities: complete payment flow, start testing, prepare demo for stakeholders."**
+
+## Organizing Documents in Drive
+
+Voice commands extend beyond the document itself to [file organization](/blog/google-drive-organization-ai):
+
+**"Move the Q3 report to the Marketing folder"**
+
+**"Share the project brief with the engineering team"**
+
+**"Create a folder called 'April Launch' and move all related docs into it"**
+
+## Voice Docs vs. Google Voice Typing
+
+Google Docs has built-in voice typing (Tools > Voice typing). Here is how it compares:
+
+| Feature | Google Voice Typing | Naurra.ai Voice Commands |
+|---------|-------------------|------------------------|
+| Dictate text | Yes | Yes |
+| Create new documents | No | Yes |
+| Add structure (headings, lists) | No | Yes |
+| Insert tables | No | Yes |
+| Generate content from prompts | No | Yes |
+| Organize in Drive | No | Yes |
+| Works with Gmail + Calendar too | No | Yes |
+
+Google voice typing is dictation within an open doc. Naurra is an [AI assistant that creates and manages documents end-to-end](/blog/google-docs-sheets-ai-automation).
+
+## Tips for Better Voice Documents
+
+1. **Start with structure** -- tell the AI what sections you want before dictating content. It produces much better results
+2. **Use natural language** -- "Add a section about pricing" works better than trying to dictate markdown or formatting codes
+3. **Review and refine** -- voice-created docs are 90% ready. A quick review pass catches anything the AI interpreted differently than you intended
+4. **Combine with other tools** -- "Create meeting notes from today's calendar event" pulls in attendee info and agenda automatically
+5. **Name documents clearly** -- "Create a doc called Q3 Report" is better than "Create a new document". Clear names help you find them later
+
+## Who Benefits Most?
+
+- **Founders and executives** who need to produce briefs, memos, and updates quickly. Read how [a solo founder uses AI daily](/blog/a-day-in-the-life-solo-founder-with-ai)
+- **People with accessibility needs** -- RSI, carpal tunnel, dyslexia, or visual impairments
+- **Professionals who think better out loud** -- some people compose better by speaking than typing
+- **Anyone who hates blank pages** -- voice commands eliminate writer's block by structuring the document for you
+
+## Getting Started
+
+Creating documents by voice is one of those things that sounds futuristic until you try it and realize it should have always worked this way.
+
+**[Start your free 3-day trial](/pricing)** and create your first voice-powered Google Doc in under a minute. For businesses that need document automation at scale, we build [custom AI workflows](/company) tailored to your templates and processes.
+    `,
+    author: {
+      name: 'Thanos Panagiotakopoulos',
+      avatar: '/ceo-thanos.jpg',
+    },
+    publishedAt: '2026-03-27',
+    category: 'Tutorials',
+    tags: ['Google Docs', 'Voice Commands', 'Document Automation', 'Productivity', 'Tutorials'],
+    featured: false,
+    image: '/blog/how-to-create-google-docs-without-typing.png',
+    readingTime: 11,
+    keywords: 'create Google Docs voice commands, hands-free Google Docs, voice dictation Google Docs, AI document creation, Google Docs without typing, voice controlled documents, AI writing assistant Google Docs, create documents by voice, Google Docs automation, voice to document'
+  },
+  {
+    slug: 'how-to-manage-google-calendar-with-ai',
+    title: 'How to Manage Google Calendar with AI: The Complete Guide',
+    description: 'Learn how to schedule meetings, check availability, reschedule events, and manage your entire Google Calendar using AI voice and chat commands.',
+    content: `
+# How to Manage Google Calendar with AI: The Complete Guide
+
+**TL;DR:** AI assistants can schedule meetings, check availability, handle rescheduling, set reminders, and manage your entire Google Calendar through natural language. This guide covers every calendar command you will ever need, with examples you can use right now.
+
+Calendar management is one of those invisible time sinks. You do not notice how much time you spend on it because the tasks are small -- a meeting here, a reschedule there, a quick availability check. But add it up and the average professional spends [5+ hours per week](/blog/google-calendar-ai-scheduling) just managing their schedule.
+
+AI changes that from hours to seconds.
+
+## Why AI for Calendar Management?
+
+Traditional calendar management means:
+
+- Opening Google Calendar, finding a time slot, clicking "Create event," filling in details, adding guests
+- Going back and forth over email to find a time that works for everyone
+- Manually updating events when plans change
+- Checking your calendar before responding to every meeting request
+
+With AI, all of this becomes a single sentence:
+
+**"Schedule a 30-minute call with Sarah next Tuesday afternoon"**
+
+Done. The AI checks your availability, finds a suitable slot, creates the event, and can even send the invite -- all from one command.
+
+## Getting Set Up
+
+Connect Naurra.ai to your Google Calendar:
+
+**Step 1:** [Sign up at naurra.ai](/) and connect your Google account
+
+**Step 2:** Grant Calendar permissions (read and write access)
+
+**Step 3:** Start managing your calendar by voice or chat
+
+Setup takes under 2 minutes. Your existing events, recurring meetings, and calendar settings are all preserved.
+
+## Scheduling New Events
+
+### Basic Scheduling
+
+**"Schedule a team meeting for tomorrow at 10am"**
+
+**"Create a 1-hour event called 'Design Review' on Friday at 2pm"**
+
+**"Add a lunch with Marcus on Thursday at noon"**
+
+### With Guests
+
+**"Schedule a call with sarah@company.com and marcus@company.com for next Monday at 3pm"**
+
+**"Set up a 30-minute sync with the marketing team on Wednesday morning"**
+
+### With Details
+
+**"Schedule a project kickoff meeting for April 3rd at 10am. Duration: 1 hour. Location: Conference Room B. Description: Review project scope, assign roles, and set milestones. Invite the engineering team."**
+
+The AI fills in every field -- title, time, duration, location, description, and guests.
+
+### Smart Scheduling
+
+The most powerful feature is contextual scheduling:
+
+**"Find a 45-minute slot this week for a call with Lisa"**
+
+Naurra checks both your calendar and (if Lisa is in your organization) her availability, then suggests times that work for both of you.
+
+**"Schedule something after my last meeting on Wednesday"**
+
+**"Find time for a 2-hour deep work block tomorrow"**
+
+## Checking Your Schedule
+
+### Today and Upcoming
+
+**"What's on my calendar today?"**
+
+**"What meetings do I have this week?"**
+
+**"Do I have anything on Friday afternoon?"**
+
+**"What's my next meeting?"**
+
+### Availability Checks
+
+**"Am I free tomorrow between 2 and 4pm?"**
+
+**"When is my first available slot on Thursday?"**
+
+**"Do I have any conflicts with a 3pm meeting on Monday?"**
+
+### Searching Events
+
+**"When is my next meeting with Sarah?"**
+
+**"Find all meetings with the word 'review' this month"**
+
+**"When was the last time I met with the design team?"**
+
+## Rescheduling and Modifying Events
+
+Plans change. AI makes rescheduling instant:
+
+**"Move tomorrow's standup to 11am"**
+
+**"Reschedule the design review to next week, same time"**
+
+**"Push my 2pm meeting back by 30 minutes"**
+
+**"Change the project kickoff location to the main conference room"**
+
+**"Add Marcus to Thursday's meeting"**
+
+**"Extend the team sync by 15 minutes"**
+
+### Canceling Events
+
+**"Cancel my 4pm call today"**
+
+**"Remove the Friday planning session"**
+
+**"Delete all recurring standup meetings"**
+
+## Setting Reminders
+
+Never miss a meeting or deadline:
+
+**"Remind me about the client call 15 minutes before"**
+
+**"Set a reminder for the proposal deadline on Friday at 9am"**
+
+**"Add a reminder to prepare the presentation by Thursday evening"**
+
+Reminders integrate with [Google Tasks](/blog/how-to-automate-repetitive-tasks) so they show up in your task list too.
+
+## Recurring Events
+
+**"Create a weekly team standup every Monday at 9am"**
+
+**"Schedule a bi-weekly 1:1 with my manager on Wednesdays at 2pm"**
+
+**"Set up a monthly budget review on the first Friday of each month"**
+
+**"Create a daily 15-minute planning block at 8:30am, weekdays only"**
+
+## Advanced Calendar Workflows
+
+### Combined with Email
+
+**"Email the attendees of tomorrow's product sync and share the agenda"**
+
+**"Send a reminder to everyone in the Friday meeting that they need to prepare their updates"**
+
+This is where AI calendar management becomes more powerful than any standalone calendar tool. It connects with [Gmail](/blog/how-to-send-emails-with-voice-commands-gmail), [Docs](/blog/how-to-create-google-docs-without-typing), and Drive in one unified workflow.
+
+### Meeting Preparation
+
+**"What meetings do I have tomorrow and what do I need to prepare?"**
+
+**"Create a meeting notes document for today's design review"**
+
+**"Show me the last email thread with the client before our call at 3pm"**
+
+### Time Blocking
+
+**"Block 2 hours tomorrow morning for deep work"**
+
+**"Add a focus time block every afternoon this week from 1 to 3pm"**
+
+**"Schedule a lunch break every day this week at 12:30"**
+
+## AI Calendar vs. Manual Management
+
+| Task | Manual (clicks + typing) | AI (one sentence) |
+|------|------------------------|-------------------|
+| Schedule a meeting | 6-8 clicks, 30-60 seconds | 1 command, 5 seconds |
+| Find available time | Check calendar, count slots | "When am I free?" |
+| Reschedule | Open event, edit, save | "Move it to Thursday" |
+| Add guests | Open event, type emails, save | "Add Sarah to the meeting" |
+| Check tomorrow's schedule | Open calendar, scroll | "What's tomorrow look like?" |
+| Set up recurring meeting | Create event, configure recurrence | "Weekly standup, Mondays 9am" |
+
+The time savings compound. Over a month, you save hours. Over a year, you save days.
+
+## Integration with Google Meet
+
+Calendar and Meet work together seamlessly:
+
+**"Schedule a video call with the remote team for Thursday"**
+
+Naurra automatically adds a Google Meet link to the calendar event.
+
+**"What's the Meet link for my next meeting?"**
+
+**"Start my 2pm meeting"** -- opens the Meet link directly.
+
+For more on how AI handles meetings end-to-end, read our guide on [AI platforms automating meetings](/blog/ai-platforms-automating-meetings-communication).
+
+## Privacy and Permissions
+
+Your calendar data is handled securely:
+
+- **OAuth 2.0 scopes** -- you control exactly what the AI can access
+- **No data storage** -- events are read and created in real-time, not cached
+- **Revocable access** -- disconnect at any time from your Google account settings
+- **Enterprise-grade security** -- read the full details in our [data security guide](/blog/is-ai-safe-for-your-business-data)
+
+## Tips for Better AI Calendar Management
+
+1. **Be specific with times** -- "Tuesday at 2pm" is clearer than "sometime Tuesday"
+2. **Include duration** -- if you do not specify, Naurra defaults to 30 minutes
+3. **Name events clearly** -- "Q3 Planning with Marketing" is better than "Meeting"
+4. **Use relative dates** -- "next Monday," "this Friday," "in 2 weeks" all work naturally
+5. **Combine commands** -- "Schedule a meeting with Sarah next week and email her the agenda" handles two actions at once
+
+## Getting Started
+
+AI calendar management is the gateway feature for most people. Once you experience scheduling a meeting in 5 seconds instead of 60, you start using voice commands for [everything else](/blog/boost-productivity-voice-commands) too.
+
+**[Try it free for 3 days](/pricing)** -- schedule your first meeting by voice and see the difference. For organizations that need advanced scheduling workflows (resource booking, multi-calendar coordination, automated reminders), we build [custom AI solutions](/company) for teams of any size.
+    `,
+    author: {
+      name: 'Thanos Panagiotakopoulos',
+      avatar: '/ceo-thanos.jpg',
+    },
+    publishedAt: '2026-03-27',
+    category: 'Tutorials',
+    tags: ['Google Calendar', 'AI Scheduling', 'Voice Commands', 'Productivity', 'Tutorials'],
+    featured: false,
+    image: '/blog/how-to-manage-google-calendar-with-ai.png',
+    readingTime: 12,
+    keywords: 'manage Google Calendar with AI, AI calendar assistant, voice commands Google Calendar, schedule meetings by voice, AI scheduling assistant, Google Calendar automation, smart calendar management, voice calendar commands, AI meeting scheduler, Google Calendar voice control'
   }
 ]
 

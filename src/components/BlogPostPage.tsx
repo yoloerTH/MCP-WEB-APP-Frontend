@@ -443,7 +443,7 @@ export default function BlogPostPage() {
               <img
                 src={post.author.avatar}
                 alt={post.author.name}
-                className="w-12 h-12 rounded-full border-2 border-emerald-500/30"
+                className="w-12 h-12 rounded-full border-2 border-emerald-500/30 object-cover"
               />
               <div>
                 <p className="font-semibold text-white">{post.author.name}</p>
