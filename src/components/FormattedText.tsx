@@ -1,14 +1,15 @@
 /**
  * FormattedText Component
  *
- * Renders AI responses with proper markdown formatting:
+ * Renders AI responses with polished markdown formatting:
  * - Bold, italic, inline code, links
- * - Headers (##, ###)
- * - Tables with proper alignment
+ * - Headers (H1, H2, H3) with distinct visual hierarchy
+ * - Tables with refined styling
  * - Code blocks (``` fenced)
+ * - Blockquotes (> syntax)
  * - Ordered and unordered lists (including nested/emoji)
  * - Horizontal rules
- * - Line breaks and spacing
+ * - Action prompts (auto-detected)
  */
 
 interface FormattedTextProps {
@@ -28,27 +29,27 @@ function processInline(line: string): string {
   let result = escapeHtml(line)
 
   // Inline code (must come before bold/italic to avoid conflicts)
-  result = result.replace(/`([^`]+)`/g, '<code class="bg-white/10 px-1.5 py-0.5 rounded text-[13px] font-mono">$1</code>')
+  result = result.replace(/`([^`]+)`/g, '<code class="bg-white/[0.12] px-1.5 py-0.5 rounded text-[13px] font-mono text-emerald-200">$1</code>')
 
   // Bold + italic
   result = result.replace(/\*\*\*(.+?)\*\*\*/g, '<strong class="font-bold"><em>$1</em></strong>')
 
   // Bold
-  result = result.replace(/\*\*(.+?)\*\*/g, '<strong class="font-bold">$1</strong>')
+  result = result.replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold">$1</strong>')
 
   // Italic
-  result = result.replace(/(?<!\*)\*([^*]+)\*(?!\*)/g, '<em class="italic">$1</em>')
+  result = result.replace(/(?<!\*)\*([^*]+)\*(?!\*)/g, '<em class="italic opacity-90">$1</em>')
 
   // Links [text](url)
   result = result.replace(
     /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
-    '<a href="$2" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 decoration-1 hover:opacity-80 transition-opacity">$1</a>'
+    '<a href="$2" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 decoration-1 decoration-emerald-300/40 hover:decoration-emerald-300 transition-all">$1</a>'
   )
 
   // Internal links [text](/path)
   result = result.replace(
     /\[([^\]]+)\]\(\/([^)]+)\)/g,
-    '<a href="/$2" class="underline underline-offset-2 decoration-1 hover:opacity-80 transition-opacity">$1</a>'
+    '<a href="/$2" class="underline underline-offset-2 decoration-1 decoration-emerald-300/40 hover:decoration-emerald-300 transition-all">$1</a>'
   )
 
   return result
@@ -61,6 +62,7 @@ type Block =
   | { type: 'ordered-item'; content: string; number: string; indent: number }
   | { type: 'table'; rows: string[][] }
   | { type: 'code-block'; language: string; content: string }
+  | { type: 'blockquote'; content: string }
   | { type: 'hr' }
   | { type: 'spacing' }
   | { type: 'action-prompt'; content: string }
@@ -99,6 +101,17 @@ function parseBlocks(text: string): Block[] {
     if (/^[-*_]{3,}$/.test(trimmed)) {
       blocks.push({ type: 'hr' })
       i++
+      continue
+    }
+
+    // Blockquote
+    if (trimmed.startsWith('> ')) {
+      const quoteLines: string[] = []
+      while (i < lines.length && lines[i].trim().startsWith('> ')) {
+        quoteLines.push(lines[i].trim().slice(2))
+        i++
+      }
+      blocks.push({ type: 'blockquote', content: quoteLines.join(' ') })
       continue
     }
 
@@ -189,19 +202,32 @@ export default function FormattedText({ text, className = '' }: FormattedTextPro
       {blocks.map((block, index) => {
         switch (block.type) {
           case 'spacing':
-            return <div key={index} className="h-2" />
+            return <div key={index} className="h-2.5" />
 
           case 'hr':
-            return <hr key={index} className="border-white/20 my-3" />
+            return <hr key={index} className="border-white/[0.12] my-4" />
 
-          case 'header':
+          case 'header': {
+            const Tag = `h${block.level}` as 'h1' | 'h2' | 'h3'
+            const styles = {
+              1: 'text-[17px] font-bold mt-4 mb-2 tracking-tight',
+              2: 'text-[15px] font-bold mt-3.5 mb-1.5 tracking-tight',
+              3: 'text-sm font-semibold mt-3 mb-1 uppercase tracking-wide opacity-90',
+            }
+            return (
+              <Tag
+                key={index}
+                className={styles[block.level as 1 | 2 | 3]}
+                dangerouslySetInnerHTML={{ __html: processInline(block.content) }}
+              />
+            )
+          }
+
+          case 'blockquote':
             return (
               <div
                 key={index}
-                className={`font-bold mt-3 mb-1.5 ${
-                  block.level === 1 ? 'text-base' :
-                  block.level === 2 ? 'text-[15px]' : 'text-sm'
-                }`}
+                className="border-l-2 border-emerald-300/40 pl-3.5 my-2.5 opacity-85 italic"
                 dangerouslySetInnerHTML={{ __html: processInline(block.content) }}
               />
             )
@@ -210,7 +236,7 @@ export default function FormattedText({ text, className = '' }: FormattedTextPro
             return (
               <div
                 key={index}
-                className="mt-2 mb-1 text-emerald-100 font-medium"
+                className="mt-3 mb-1 font-semibold opacity-95"
                 dangerouslySetInnerHTML={{ __html: processInline(block.content) }}
               />
             )
@@ -219,7 +245,7 @@ export default function FormattedText({ text, className = '' }: FormattedTextPro
             return (
               <div
                 key={index}
-                className="mb-0.5"
+                className="mb-1 leading-relaxed"
                 style={{ paddingLeft: `${Math.max(block.indent * 4, 8)}px` }}
                 dangerouslySetInnerHTML={{ __html: processInline(block.content) }}
               />
@@ -229,24 +255,24 @@ export default function FormattedText({ text, className = '' }: FormattedTextPro
             return (
               <div
                 key={index}
-                className="mb-0.5"
+                className="mb-1 leading-relaxed"
                 style={{ paddingLeft: `${Math.max(block.indent * 4, 8)}px` }}
                 dangerouslySetInnerHTML={{ __html: processInline(`${block.number}. ${block.content}`) }}
               />
             )
 
-          case 'table':
+          case 'table': {
             if (block.rows.length === 0) return null
             const [headerRow, ...bodyRows] = block.rows
             return (
-              <div key={index} className="my-3 overflow-x-auto rounded-lg border border-white/10">
+              <div key={index} className="my-3.5 overflow-x-auto rounded-xl border border-white/[0.08] bg-white/[0.02]">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="bg-white/[0.08]">
+                    <tr className="bg-white/[0.06]">
                       {headerRow.map((cell, ci) => (
                         <th
                           key={ci}
-                          className="px-3 py-2 text-left font-bold border-b border-white/10 whitespace-nowrap"
+                          className="px-3.5 py-2.5 text-left font-semibold border-b border-white/[0.1] whitespace-nowrap text-[13px] uppercase tracking-wider opacity-80"
                           dangerouslySetInnerHTML={{ __html: processInline(cell) }}
                         />
                       ))}
@@ -254,11 +280,11 @@ export default function FormattedText({ text, className = '' }: FormattedTextPro
                   </thead>
                   <tbody>
                     {bodyRows.map((row, ri) => (
-                      <tr key={ri} className={ri % 2 === 1 ? 'bg-white/[0.03]' : ''}>
+                      <tr key={ri} className={`transition-colors ${ri % 2 === 1 ? 'bg-white/[0.02]' : ''}`}>
                         {row.map((cell, ci) => (
                           <td
                             key={ci}
-                            className="px-3 py-1.5 border-b border-white/[0.06]"
+                            className="px-3.5 py-2 border-b border-white/[0.04] text-[13.5px]"
                             dangerouslySetInnerHTML={{ __html: processInline(cell) }}
                           />
                         ))}
@@ -268,17 +294,19 @@ export default function FormattedText({ text, className = '' }: FormattedTextPro
                 </table>
               </div>
             )
+          }
 
           case 'code-block':
             return (
-              <div key={index} className="my-3 rounded-lg overflow-hidden border border-white/10">
+              <div key={index} className="my-3.5 rounded-xl overflow-hidden border border-white/[0.08]">
                 {block.language && (
-                  <div className="px-3 py-1 bg-white/[0.08] text-[11px] font-mono text-white/50 uppercase tracking-wider">
+                  <div className="px-3.5 py-1.5 bg-white/[0.06] text-[11px] font-mono text-white/40 uppercase tracking-wider flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/60" />
                     {block.language}
                   </div>
                 )}
-                <pre className="px-3 py-2.5 bg-black/30 overflow-x-auto text-[13px] leading-relaxed">
-                  <code className="font-mono text-emerald-200/90">{block.content}</code>
+                <pre className="px-3.5 py-3 bg-black/25 overflow-x-auto text-[13px] leading-relaxed">
+                  <code className="font-mono text-emerald-200/85">{block.content}</code>
                 </pre>
               </div>
             )
@@ -287,7 +315,7 @@ export default function FormattedText({ text, className = '' }: FormattedTextPro
             return (
               <div
                 key={index}
-                className="mb-1"
+                className="mb-1.5 leading-relaxed"
                 dangerouslySetInnerHTML={{ __html: processInline(block.content) }}
               />
             )

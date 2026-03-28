@@ -130,8 +130,9 @@ export default function ChatInterface({ messages, onSendMessage, isWaiting }: Ch
         <AnimatePresence initial={false}>
           {messages.length === 0 ? (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ type: 'spring', stiffness: 200, damping: 20, delay: 0.1 }}
               className="flex items-center justify-center h-full text-center text-midnight-400 text-sm"
             >
               <div>
@@ -143,9 +144,24 @@ export default function ChatInterface({ messages, onSendMessage, isWaiting }: Ch
             messages.map((message, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.2 }}
+                initial={{
+                  opacity: 0,
+                  y: 16,
+                  x: message.type === 'user' ? 20 : message.type === 'ai' ? -20 : 0,
+                  scale: 0.96,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  x: 0,
+                  scale: 1,
+                }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 260,
+                  damping: 24,
+                  mass: 0.8,
+                }}
                 className={`flex ${
                   message.type === 'user' ? 'justify-end' :
                   message.type === 'system' ? 'justify-center' : 'justify-start'
@@ -198,30 +214,32 @@ export default function ChatInterface({ messages, onSendMessage, isWaiting }: Ch
         {/* Typing indicator */}
         {isWaiting && (
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20, scale: 0.96 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 260, damping: 24, mass: 0.8 }}
             className="flex justify-start"
           >
             <div className="bg-emerald-500/10 border border-emerald-500/20 px-4 py-3 rounded-2xl">
               <div className="flex items-center gap-2">
-                <div className="flex gap-1">
+                <div className="flex gap-1.5">
                   <motion.div
-                    className="w-2 h-2 bg-emerald-400 rounded-full"
-                    animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
-                    transition={{ duration: 1, repeat: Infinity, delay: 0 }}
+                    className="w-1.5 h-1.5 bg-emerald-400 rounded-full"
+                    animate={{ y: [0, -4, 0], opacity: [0.4, 1, 0.4] }}
+                    transition={{ duration: 0.8, repeat: Infinity, ease: 'easeInOut', delay: 0 }}
                   />
                   <motion.div
-                    className="w-2 h-2 bg-emerald-400 rounded-full"
-                    animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
-                    transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
+                    className="w-1.5 h-1.5 bg-emerald-400 rounded-full"
+                    animate={{ y: [0, -4, 0], opacity: [0.4, 1, 0.4] }}
+                    transition={{ duration: 0.8, repeat: Infinity, ease: 'easeInOut', delay: 0.15 }}
                   />
                   <motion.div
-                    className="w-2 h-2 bg-emerald-400 rounded-full"
-                    animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
-                    transition={{ duration: 1, repeat: Infinity, delay: 0.4 }}
+                    className="w-1.5 h-1.5 bg-emerald-400 rounded-full"
+                    animate={{ y: [0, -4, 0], opacity: [0.4, 1, 0.4] }}
+                    transition={{ duration: 0.8, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
                   />
                 </div>
-                <span className="text-xs text-emerald-300 font-medium">AI is typing...</span>
+                <span className="text-xs text-emerald-300/80 font-medium">Naurra is thinking...</span>
               </div>
             </div>
           </motion.div>
