@@ -216,8 +216,14 @@ function VoiceAIApp() {
     // Set waiting state
     setIsChatWaiting(true)
 
-    // Send to backend
-    socket.emit('chat-message', { text: text.trim() })
+    // Build chat history (exclude the message we just added — it's the current turn)
+    const history = chatMessages.map(m => ({
+      role: m.type === 'user' ? 'user' : 'assistant',
+      content: m.text,
+    }))
+
+    // Send to backend with history
+    socket.emit('chat-message', { text: text.trim(), history })
   }
 
   const startCall = async () => {
