@@ -29,9 +29,10 @@ function VoiceAIApp() {
   const location = useLocation()
   const { user, signOut } = useAuth()
 
-  // Determine mode based on route
-  const isLandingPage = location.pathname === '/'
-  const appMode: 'voice' | 'chat' = location.pathname === '/chatai' ? 'chat' : 'voice'
+  // Determine mode based on route (normalize trailing slash for Netlify)
+  const pathname = location.pathname.replace(/\/+$/, '') || '/'
+  const isLandingPage = pathname === '/'
+  const appMode: 'voice' | 'chat' = pathname === '/chatai' ? 'chat' : 'voice'
 
   // Voice AI state
   const [socket, setSocket] = useState<Socket | null>(null)
