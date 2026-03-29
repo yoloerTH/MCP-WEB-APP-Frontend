@@ -695,7 +695,10 @@ const faqData = {
     const label = state.bookingLabel || 'Schedule a Call'
     return `<table cellpadding="0" cellspacing="0" border="0"><tr>
       <td style="background:${c};padding:8px 20px;border-radius:6px;">
-        <a href="${state.bookingUrl}" target="_blank" style="color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:0.02em;">&#128197; ${label}</a>
+        <table cellpadding="0" cellspacing="0" border="0"><tr>
+          <td style="vertical-align:middle;padding-right:6px;">${icon('calendar', 16)}</td>
+          <td style="vertical-align:middle;"><a href="${state.bookingUrl}" target="_blank" style="color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:0.02em;">${label}</a></td>
+        </tr></table>
       </td>
     </tr></table>`
   }
@@ -876,7 +879,7 @@ const faqData = {
               </td></tr>
               ${state.tagline ? `<tr><td style="font-size:11px;color:#888;font-style:italic;padding-top:2px;">${state.tagline}</td></tr>` : ''}
               <tr><td style="padding-top:4px;">${contactLineSimple(c)}</td></tr>
-              ${state.bookingUrl ? `<tr><td style="padding-top:4px;"><a href="${state.bookingUrl}" target="_blank" style="color:${c};text-decoration:none;font-size:12px;font-weight:600;">&#128197; ${state.bookingLabel || 'Schedule a Call'}</a></td></tr>` : ''}
+              ${state.bookingUrl ? `<tr><td style="padding-top:4px;"><table cellpadding="0" cellspacing="0" border="0"><tr><td style="vertical-align:middle;padding-right:4px;">${icon('calendar', 14)}</td><td style="vertical-align:middle;"><a href="${state.bookingUrl}" target="_blank" style="color:${c};text-decoration:none;font-size:12px;font-weight:600;">${state.bookingLabel || 'Schedule a Call'}</a></td></tr></table></td></tr>` : ''}
               ${socialBlock(c) ? `<tr><td style="padding-top:6px;">${socialBlock(c)}</td></tr>` : ''}
             </table>
           </td>
