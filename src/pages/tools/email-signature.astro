@@ -413,6 +413,28 @@ const faqData = {
               <label class="sig-label">Instagram URL <span style="color: rgba(255,255,255,0.25); text-transform: none; font-weight: 400;">(optional)</span></label>
               <input class="sig-input" id="sig-instagram" type="url" placeholder="https://instagram.com/sarahchen" />
             </div>
+            <div>
+              <label class="sig-label">Facebook URL <span style="color: rgba(255,255,255,0.25); text-transform: none; font-weight: 400;">(optional)</span></label>
+              <input class="sig-input" id="sig-facebook" type="url" placeholder="https://facebook.com/sarahchen" />
+            </div>
+          </div>
+
+          <div class="section-divider"></div>
+
+          <!-- Extras -->
+          <div style="display: grid; gap: 14px; margin-bottom: 20px;">
+            <div>
+              <label class="sig-label">Company Tagline <span style="color: rgba(255,255,255,0.25); text-transform: none; font-weight: 400;">(optional)</span></label>
+              <input class="sig-input" id="sig-tagline" type="text" placeholder="Empowering businesses with AI" />
+            </div>
+            <div>
+              <label class="sig-label">Booking / CTA Link <span style="color: rgba(255,255,255,0.25); text-transform: none; font-weight: 400;">(optional)</span></label>
+              <input class="sig-input" id="sig-booking-url" type="url" placeholder="https://calendly.com/sarahchen" />
+            </div>
+            <div>
+              <label class="sig-label">CTA Button Text</label>
+              <input class="sig-input" id="sig-booking-label" type="text" placeholder="Schedule a Call" value="Schedule a Call" />
+            </div>
           </div>
 
           <div class="section-divider"></div>
@@ -579,6 +601,10 @@ const faqData = {
     linkedin: '',
     twitter: '',
     instagram: '',
+    facebook: '',
+    tagline: '',
+    bookingUrl: '',
+    bookingLabel: 'Schedule a Call',
     imageData: '',
     imageUrl: '',
     uploading: false
@@ -631,6 +657,7 @@ const faqData = {
 
   const ICON_BASE = 'https://gdpdhuofgvffjzhbeekn.supabase.co/storage/v1/object/public/NaurraMedia/icons'
 
+  // Icons are 80px PNGs (2x retina), displayed at requested size for crisp rendering
   function icon(name, size = 20) {
     return `<img src="${ICON_BASE}/${name}.png" width="${size}" height="${size}" style="width:${size}px;height:${size}px;display:block;" alt="${name}" />`
   }
@@ -639,14 +666,44 @@ const faqData = {
     return state.imageUrl || ''
   }
 
-  // Social media icons — real hosted PNGs (like Hotelyzer reference)
+  // Social media icons — real hosted PNGs at retina resolution
   function socialBlock(c) {
     const items = []
     if (state.linkedin) items.push(`<td style="padding-right:8px;"><a href="${state.linkedin}" target="_blank" style="text-decoration:none;">${icon('linkedin', 28)}</a></td>`)
     if (state.twitter) items.push(`<td style="padding-right:8px;"><a href="${state.twitter}" target="_blank" style="text-decoration:none;">${icon('twitter', 28)}</a></td>`)
     if (state.instagram) items.push(`<td style="padding-right:8px;"><a href="${state.instagram}" target="_blank" style="text-decoration:none;">${icon('instagram', 28)}</a></td>`)
+    if (state.facebook) items.push(`<td style="padding-right:8px;"><a href="${state.facebook}" target="_blank" style="text-decoration:none;">${icon('facebook', 28)}</a></td>`)
     if (items.length === 0) return ''
     return `<table cellpadding="0" cellspacing="0" border="0"><tr>${items.join('')}</tr></table>`
+  }
+
+  // Booking / CTA button — renders as a pill-shaped button
+  function bookingButton(c) {
+    if (!state.bookingUrl) return ''
+    const label = state.bookingLabel || 'Schedule a Call'
+    return `<table cellpadding="0" cellspacing="0" border="0"><tr>
+      <td style="padding-right:6px;vertical-align:middle;">${icon('calendar', 16)}</td>
+      <td style="vertical-align:middle;">
+        <a href="${state.bookingUrl}" target="_blank" style="color:${c};text-decoration:none;font-size:13px;font-weight:600;">${label}</a>
+      </td>
+    </tr></table>`
+  }
+
+  // Booking / CTA as a full-width prominent button (for creative/modern)
+  function bookingButtonBig(c) {
+    if (!state.bookingUrl) return ''
+    const label = state.bookingLabel || 'Schedule a Call'
+    return `<table cellpadding="0" cellspacing="0" border="0"><tr>
+      <td style="background:${c};padding:8px 20px;border-radius:6px;">
+        <a href="${state.bookingUrl}" target="_blank" style="color:#ffffff;text-decoration:none;font-size:13px;font-weight:700;letter-spacing:0.02em;">&#128197; ${label}</a>
+      </td>
+    </tr></table>`
+  }
+
+  // Tagline helper
+  function taglineRow(c, fontSize = 12) {
+    if (!state.tagline) return ''
+    return `<tr><td style="font-size:${fontSize}px;color:#888;font-style:italic;padding-top:6px;">${state.tagline}</td></tr>`
   }
 
   // Contact line with hosted icons + colored text
@@ -683,6 +740,10 @@ const faqData = {
       const display = state.website.replace(/^https?:\/\//, '').replace(/\/$/, '')
       rows.push(`<tr><td style="vertical-align:middle;padding-right:6px;padding-bottom:5px;">${icon('website', 16)}</td><td style="padding-bottom:5px;font-size:13px;"><a href="${state.website}" target="_blank" style="color:${c};text-decoration:none;">${display}</a></td></tr>`)
     }
+    if (state.bookingUrl) {
+      const label = state.bookingLabel || 'Schedule a Call'
+      rows.push(`<tr><td style="vertical-align:middle;padding-right:6px;padding-bottom:5px;">${icon('calendar', 16)}</td><td style="padding-bottom:5px;font-size:13px;"><a href="${state.bookingUrl}" target="_blank" style="color:${c};text-decoration:none;font-weight:600;">${label}</a></td></tr>`)
+    }
     if (rows.length === 0) return ''
     return `<table cellpadding="0" cellspacing="0" border="0">${rows.join('')}</table>`
   }
@@ -704,12 +765,14 @@ const faqData = {
       const img = getImage()
       return `<table cellpadding="0" cellspacing="0" border="0" style="font-family:${FONT};color:#333;">
         <tr>
-          ${img ? `<td style="padding-right:16px;vertical-align:top;">${imgTag(60, '50%')}</td>` : ''}
+          ${img ? `<td style="padding-right:16px;vertical-align:top;">${imgTag(64, '50%')}</td>` : ''}
           <td style="vertical-align:top;">
             <table cellpadding="0" cellspacing="0" border="0">
               <tr><td style="font-size:17px;font-weight:700;color:#1a1a1a;padding-bottom:2px;">${state.name || 'Your Name'}</td></tr>
-              ${state.title || state.company ? `<tr><td style="font-size:13px;color:#666;padding-bottom:8px;">${[state.title, state.company].filter(Boolean).join(' <span style="color:#d1d5db;">/</span> ')}</td></tr>` : ''}
-              <tr><td>${contactLine(c)}</td></tr>
+              ${state.title || state.company ? `<tr><td style="font-size:13px;color:#666;padding-bottom:2px;">${[state.title, state.company].filter(Boolean).join(' <span style="color:#d1d5db;">|</span> ')}</td></tr>` : ''}
+              ${taglineRow(c, 12)}
+              <tr><td style="padding-top:8px;">${contactLine(c)}</td></tr>
+              ${state.bookingUrl ? `<tr><td style="padding-top:8px;">${bookingButton(c)}</td></tr>` : ''}
               ${socialBlock(c) ? `<tr><td style="padding-top:10px;">${socialBlock(c)}</td></tr>` : ''}
             </table>
           </td>
@@ -721,22 +784,24 @@ const faqData = {
       const img = getImage()
       return `<table cellpadding="0" cellspacing="0" border="0" style="font-family:${FONT};color:#333;">
         <tr>
-          <td style="width:4px;background:${c};"></td>
+          <td style="width:4px;background:${c};border-radius:2px;"></td>
           <td style="padding-left:18px;">
             <table cellpadding="0" cellspacing="0" border="0">
               <tr>
-                ${img ? `<td style="padding-right:16px;vertical-align:top;">${imgTag(68, '10px')}</td>` : ''}
+                ${img ? `<td style="padding-right:16px;vertical-align:top;">${imgTag(70, '10px')}</td>` : ''}
                 <td style="vertical-align:top;">
                   <table cellpadding="0" cellspacing="0" border="0">
                     <tr><td style="font-size:18px;font-weight:700;color:#1a1a1a;">${state.name || 'Your Name'}</td></tr>
                     ${state.title ? `<tr><td style="font-size:13px;font-weight:600;color:${c};padding-top:2px;">${state.title}</td></tr>` : ''}
                     ${state.company ? `<tr><td style="font-size:13px;color:#888;padding-top:1px;">${state.company}</td></tr>` : ''}
+                    ${taglineRow(c, 11)}
                   </table>
                 </td>
               </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="border-top:1px solid #e5e7eb;padding-top:10px;padding-bottom:2px;">&nbsp;</td></tr></table>
+            <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="border-top:1px solid #e5e7eb;padding-top:10px;margin-top:10px;">&nbsp;</td></tr></table>
             <table cellpadding="0" cellspacing="0" border="0"><tr><td>${contactLine(c)}</td></tr></table>
+            ${state.bookingUrl ? `<table cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-top:10px;">${bookingButtonBig(c)}</td></tr></table>` : ''}
             ${socialBlock(c) ? `<table cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-top:10px;">${socialBlock(c)}</td></tr></table>` : ''}
           </td>
         </tr>
@@ -748,12 +813,13 @@ const faqData = {
       return `<table cellpadding="0" cellspacing="0" border="0" style="font-family:${FONT};color:#333;">
         <tr><td colspan="${img ? '2' : '1'}" style="border-bottom:3px solid ${c};padding-bottom:0;height:3px;"></td></tr>
         <tr>
-          ${img ? `<td style="padding-right:18px;padding-top:14px;vertical-align:top;">${imgTag(76, '6px')}</td>` : ''}
+          ${img ? `<td style="padding-right:18px;padding-top:14px;vertical-align:top;">${imgTag(80, '6px')}</td>` : ''}
           <td style="vertical-align:top;padding-top:14px;">
             <table cellpadding="0" cellspacing="0" border="0">
-              <tr><td style="font-size:19px;font-weight:700;color:#1a1a1a;text-transform:uppercase;letter-spacing:1px;">${state.name || 'Your Name'}</td></tr>
+              <tr><td style="font-size:18px;font-weight:700;color:#1a1a1a;text-transform:uppercase;letter-spacing:0.5px;">${state.name || 'Your Name'}</td></tr>
               ${state.title ? `<tr><td style="font-size:13px;color:#555;padding-top:3px;">${state.title}</td></tr>` : ''}
               ${state.company ? `<tr><td style="font-size:13px;font-weight:600;color:${c};padding-top:2px;">${state.company}</td></tr>` : ''}
+              ${taglineRow(c, 11)}
               <tr><td style="padding-top:10px;">
                 <table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="border-top:1px solid #e5e7eb;padding-top:10px;">&nbsp;</td></tr></table>
                 ${contactList(c)}
@@ -769,25 +835,27 @@ const faqData = {
       const img = getImage()
       return `<table cellpadding="0" cellspacing="0" border="0" style="font-family:${FONT};color:#333;">
         <tr>
-          ${img ? `<td style="padding-right:18px;vertical-align:top;">${imgTag(74, '50%')}</td>` : ''}
+          ${img ? `<td style="padding-right:18px;vertical-align:top;">${imgTag(78, '50%')}</td>` : ''}
           <td style="vertical-align:top;">
             <table cellpadding="0" cellspacing="0" border="0">
-              <tr><td style="font-size:24px;font-weight:800;color:${c};line-height:1.1;">${state.name || 'Your Name'}</td></tr>
-              ${state.title || state.company ? `<tr><td style="font-size:13px;color:#555;padding-top:4px;padding-bottom:10px;">${[state.title, state.company].filter(Boolean).join(' at ')}</td></tr>` : '<tr><td style="padding-bottom:10px;"></td></tr>'}
-              <tr><td>
+              <tr><td style="font-size:22px;font-weight:800;color:${c};line-height:1.1;">${state.name || 'Your Name'}</td></tr>
+              ${state.title || state.company ? `<tr><td style="font-size:13px;color:#555;padding-top:4px;">${[state.title, state.company].filter(Boolean).join(' at ')}</td></tr>` : ''}
+              ${taglineRow(c, 12)}
+              <tr><td style="padding-top:10px;">
                 <table cellpadding="0" cellspacing="0" border="0"><tr>
-                  <td style="background:${c};padding:7px 16px;border-radius:4px;">
+                  <td style="background:${c};padding:8px 18px;border-radius:6px;">
                     ${state.email ? `<a href="mailto:${state.email}" style="color:#fff;text-decoration:none;font-size:13px;font-weight:600;">${state.email}</a>` : `<span style="color:#fff;font-size:13px;font-weight:600;">your@email.com</span>`}
                   </td>
-                  ${state.phone ? `<td style="padding-left:12px;font-size:13px;color:#666;font-weight:500;">${state.phone}</td>` : ''}
+                  ${state.phone ? `<td style="padding-left:14px;font-size:13px;color:#666;font-weight:500;">${state.phone}</td>` : ''}
                 </tr></table>
               </td></tr>
-              ${state.website || socialBlock(c) ? `<tr><td style="padding-top:12px;">
+              ${state.website || state.bookingUrl || socialBlock(c) ? `<tr><td style="padding-top:12px;">
                 <table cellpadding="0" cellspacing="0" border="0"><tr>
                   ${state.website ? `<td style="padding-right:14px;vertical-align:middle;"><a href="${state.website}" target="_blank" style="color:${c};text-decoration:none;font-size:13px;font-weight:600;">${state.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}</a></td>` : ''}
                   ${socialBlock(c) ? `<td style="vertical-align:middle;">${socialBlock(c)}</td>` : ''}
                 </tr></table>
               </td></tr>` : ''}
+              ${state.bookingUrl ? `<tr><td style="padding-top:10px;">${bookingButtonBig(c)}</td></tr>` : ''}
             </table>
           </td>
         </tr>
@@ -804,9 +872,11 @@ const faqData = {
           <td style="vertical-align:middle;">
             <table cellpadding="0" cellspacing="0" border="0">
               <tr><td>
-                <span style="font-weight:700;font-size:14px;color:#1a1a1a;">${state.name || 'Your Name'}</span>${titleCompany ? `<span style="color:#d1d5db;"> &nbsp;/&nbsp; </span><span style="color:#666;">${titleCompany}</span>` : ''}
+                <span style="font-weight:700;font-size:14px;color:#1a1a1a;">${state.name || 'Your Name'}</span>${titleCompany ? `<span style="color:#d1d5db;"> &nbsp;|&nbsp; </span><span style="color:#666;">${titleCompany}</span>` : ''}
               </td></tr>
+              ${state.tagline ? `<tr><td style="font-size:11px;color:#888;font-style:italic;padding-top:2px;">${state.tagline}</td></tr>` : ''}
               <tr><td style="padding-top:4px;">${contactLineSimple(c)}</td></tr>
+              ${state.bookingUrl ? `<tr><td style="padding-top:4px;"><a href="${state.bookingUrl}" target="_blank" style="color:${c};text-decoration:none;font-size:12px;font-weight:600;">&#128197; ${state.bookingLabel || 'Schedule a Call'}</a></td></tr>` : ''}
               ${socialBlock(c) ? `<tr><td style="padding-top:6px;">${socialBlock(c)}</td></tr>` : ''}
             </table>
           </td>
@@ -836,6 +906,8 @@ const faqData = {
     'sig-name': 'name', 'sig-title': 'title', 'sig-company': 'company',
     'sig-email': 'email', 'sig-phone': 'phone', 'sig-website': 'website',
     'sig-linkedin': 'linkedin', 'sig-twitter': 'twitter', 'sig-instagram': 'instagram',
+    'sig-facebook': 'facebook', 'sig-tagline': 'tagline',
+    'sig-booking-url': 'bookingUrl', 'sig-booking-label': 'bookingLabel',
     'sig-image-url': 'imageUrl'
   }
 
@@ -1020,13 +1092,15 @@ const faqData = {
     // Build plain text manually for cleanliness
     const lines = []
     if (state.name) lines.push(state.name)
-    if (state.title && state.company) lines.push(`${state.title} / ${state.company}`)
+    if (state.title && state.company) lines.push(`${state.title} | ${state.company}`)
     else if (state.title) lines.push(state.title)
     else if (state.company) lines.push(state.company)
+    if (state.tagline) lines.push(state.tagline)
     if (state.email) lines.push(state.email)
     if (state.phone) lines.push(state.phone)
     if (state.website) lines.push(state.website)
-    const socials = [state.linkedin, state.twitter, state.instagram].filter(Boolean)
+    if (state.bookingUrl) lines.push(`${state.bookingLabel || 'Schedule a Call'}: ${state.bookingUrl}`)
+    const socials = [state.linkedin, state.twitter, state.instagram, state.facebook].filter(Boolean)
     if (socials.length) lines.push(socials.join(' | '))
     return lines.join('\n')
   }
