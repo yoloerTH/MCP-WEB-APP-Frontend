@@ -625,50 +625,63 @@ const faqData = {
   }
 
   // =========================================
-  // GMAIL-SAFE HELPERS (no SVG — Gmail strips it)
-  // Uses colored table-cell badges for social icons
+  // GMAIL-SAFE HELPERS
+  // Uses hosted PNG icons from Supabase bucket
   // =========================================
+
+  const ICON_BASE = 'https://gdpdhuofgvffjzhbeekn.supabase.co/storage/v1/object/public/NaurraMedia/icons'
+
+  function icon(name, size = 20) {
+    return `<img src="${ICON_BASE}/${name}.png" width="${size}" height="${size}" style="width:${size}px;height:${size}px;display:block;" alt="${name}" />`
+  }
 
   function getImage() {
     return state.imageUrl || ''
   }
 
-  // Social media badge-style buttons (Gmail-safe: colored table cells)
+  // Social media icons — real hosted PNGs (like Hotelyzer reference)
   function socialBlock(c) {
-    const badges = []
-    if (state.linkedin) badges.push(
-      `<td style="padding-right:6px;"><a href="${state.linkedin}" target="_blank" style="text-decoration:none;"><table cellpadding="0" cellspacing="0" border="0"><tr><td style="background:#0077B5;padding:4px 8px;border-radius:3px;"><span style="color:#ffffff;font-size:11px;font-weight:700;font-family:Arial,sans-serif;">in</span></td></tr></table></a></td>`
-    )
-    if (state.twitter) badges.push(
-      `<td style="padding-right:6px;"><a href="${state.twitter}" target="_blank" style="text-decoration:none;"><table cellpadding="0" cellspacing="0" border="0"><tr><td style="background:#000000;padding:4px 8px;border-radius:3px;"><span style="color:#ffffff;font-size:11px;font-weight:700;font-family:Arial,sans-serif;">X</span></td></tr></table></a></td>`
-    )
-    if (state.instagram) badges.push(
-      `<td style="padding-right:6px;"><a href="${state.instagram}" target="_blank" style="text-decoration:none;"><table cellpadding="0" cellspacing="0" border="0"><tr><td style="background:#E4405F;padding:4px 8px;border-radius:3px;"><span style="color:#ffffff;font-size:11px;font-weight:700;font-family:Arial,sans-serif;">ig</span></td></tr></table></a></td>`
-    )
-    if (badges.length === 0) return ''
-    return `<table cellpadding="0" cellspacing="0" border="0"><tr>${badges.join('')}</tr></table>`
+    const items = []
+    if (state.linkedin) items.push(`<td style="padding-right:8px;"><a href="${state.linkedin}" target="_blank" style="text-decoration:none;">${icon('linkedin', 28)}</a></td>`)
+    if (state.twitter) items.push(`<td style="padding-right:8px;"><a href="${state.twitter}" target="_blank" style="text-decoration:none;">${icon('twitter', 28)}</a></td>`)
+    if (state.instagram) items.push(`<td style="padding-right:8px;"><a href="${state.instagram}" target="_blank" style="text-decoration:none;">${icon('instagram', 28)}</a></td>`)
+    if (items.length === 0) return ''
+    return `<table cellpadding="0" cellspacing="0" border="0"><tr>${items.join('')}</tr></table>`
   }
 
-  // Contact line with colored accent text and clean separators
+  // Contact line with hosted icons + colored text
   function contactLine(c) {
     let parts = []
-    if (state.email) parts.push(`<a href="mailto:${state.email}" style="color:${c};text-decoration:none;font-size:13px;">${state.email}</a>`)
-    if (state.phone) parts.push(`<span style="color:#555;font-size:13px;">${state.phone}</span>`)
+    if (state.email) parts.push(`<td style="vertical-align:middle;padding-right:4px;">${icon('email', 16)}</td><td style="vertical-align:middle;padding-right:14px;"><a href="mailto:${state.email}" style="color:${c};text-decoration:none;font-size:13px;">${state.email}</a></td>`)
+    if (state.phone) parts.push(`<td style="vertical-align:middle;padding-right:4px;">${icon('phone', 16)}</td><td style="vertical-align:middle;padding-right:14px;"><span style="color:#555;font-size:13px;">${state.phone}</span></td>`)
     if (state.website) {
       const display = state.website.replace(/^https?:\/\//, '').replace(/\/$/, '')
-      parts.push(`<a href="${state.website}" target="_blank" style="color:${c};text-decoration:none;font-size:13px;">${display}</a>`)
+      parts.push(`<td style="vertical-align:middle;padding-right:4px;">${icon('website', 16)}</td><td style="vertical-align:middle;"><a href="${state.website}" target="_blank" style="color:${c};text-decoration:none;font-size:13px;">${display}</a></td>`)
     }
-    return parts.join(`<span style="color:#d1d5db;font-size:13px;">&nbsp;&nbsp;|&nbsp;&nbsp;</span>`)
+    if (parts.length === 0) return ''
+    return `<table cellpadding="0" cellspacing="0" border="0"><tr>${parts.join('')}</tr></table>`
   }
 
-  // Vertical contact list (for corporate template)
-  function contactList(c) {
-    let rows = []
-    if (state.email) rows.push(`<tr><td style="padding-bottom:4px;font-size:13px;"><a href="mailto:${state.email}" style="color:${c};text-decoration:none;">${state.email}</a></td></tr>`)
-    if (state.phone) rows.push(`<tr><td style="padding-bottom:4px;font-size:13px;color:#555;">${state.phone}</td></tr>`)
+  // Contact line simple (pipe-separated, no icons — for compact template)
+  function contactLineSimple(c) {
+    let parts = []
+    if (state.email) parts.push(`<a href="mailto:${state.email}" style="color:${c};text-decoration:none;font-size:12px;">${state.email}</a>`)
+    if (state.phone) parts.push(`<span style="color:#555;font-size:12px;">${state.phone}</span>`)
     if (state.website) {
       const display = state.website.replace(/^https?:\/\//, '').replace(/\/$/, '')
-      rows.push(`<tr><td style="padding-bottom:4px;font-size:13px;"><a href="${state.website}" target="_blank" style="color:${c};text-decoration:none;">${display}</a></td></tr>`)
+      parts.push(`<a href="${state.website}" target="_blank" style="color:${c};text-decoration:none;font-size:12px;">${display}</a>`)
+    }
+    return parts.join(`<span style="color:#d1d5db;">&nbsp;&middot;&nbsp;</span>`)
+  }
+
+  // Vertical contact list with icons (for corporate template)
+  function contactList(c) {
+    let rows = []
+    if (state.email) rows.push(`<tr><td style="vertical-align:middle;padding-right:6px;padding-bottom:5px;">${icon('email', 16)}</td><td style="padding-bottom:5px;font-size:13px;"><a href="mailto:${state.email}" style="color:${c};text-decoration:none;">${state.email}</a></td></tr>`)
+    if (state.phone) rows.push(`<tr><td style="vertical-align:middle;padding-right:6px;padding-bottom:5px;">${icon('phone', 16)}</td><td style="padding-bottom:5px;font-size:13px;color:#555;">${state.phone}</td></tr>`)
+    if (state.website) {
+      const display = state.website.replace(/^https?:\/\//, '').replace(/\/$/, '')
+      rows.push(`<tr><td style="vertical-align:middle;padding-right:6px;padding-bottom:5px;">${icon('website', 16)}</td><td style="padding-bottom:5px;font-size:13px;"><a href="${state.website}" target="_blank" style="color:${c};text-decoration:none;">${display}</a></td></tr>`)
     }
     if (rows.length === 0) return ''
     return `<table cellpadding="0" cellspacing="0" border="0">${rows.join('')}</table>`
@@ -784,10 +797,6 @@ const faqData = {
     compact(c) {
       const img = getImage()
       const titleCompany = [state.title, state.company].filter(Boolean).join(' / ')
-      const contactParts = []
-      if (state.email) contactParts.push(`<a href="mailto:${state.email}" style="color:${c};text-decoration:none;">${state.email}</a>`)
-      if (state.phone) contactParts.push(state.phone)
-      if (state.website) contactParts.push(`<a href="${state.website}" target="_blank" style="color:${c};text-decoration:none;">${state.website.replace(/^https?:\/\//, '').replace(/\/$/, '')}</a>`)
 
       return `<table cellpadding="0" cellspacing="0" border="0" style="font-family:${FONT};font-size:13px;color:#333;">
         <tr>
@@ -797,10 +806,8 @@ const faqData = {
               <tr><td>
                 <span style="font-weight:700;font-size:14px;color:#1a1a1a;">${state.name || 'Your Name'}</span>${titleCompany ? `<span style="color:#d1d5db;"> &nbsp;/&nbsp; </span><span style="color:#666;">${titleCompany}</span>` : ''}
               </td></tr>
-              <tr><td style="padding-top:3px;font-size:12px;color:#888;">
-                ${contactParts.join('<span style="color:#d1d5db;"> &nbsp;&middot;&nbsp; </span>')}
-                ${socialBlock(c) ? `<span style="margin-left:6px;vertical-align:middle;">${socialBlock(c)}</span>` : ''}
-              </td></tr>
+              <tr><td style="padding-top:4px;">${contactLineSimple(c)}</td></tr>
+              ${socialBlock(c) ? `<tr><td style="padding-top:6px;">${socialBlock(c)}</td></tr>` : ''}
             </table>
           </td>
         </tr>
