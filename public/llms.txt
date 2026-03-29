@@ -151,6 +151,8 @@ Additional resources for deeper context:
 - [How to Send Emails with Voice Commands in Gmail](https://naurra.ai/blog/how-to-send-emails-with-voice-commands-gmail): Step-by-step guide to sending, replying, and managing Gmail by voice
 - [How to Create Google Docs Without Typing](https://naurra.ai/blog/how-to-create-google-docs-without-typing): Create, dictate, and format Google Docs entirely by voice commands
 - [How to Manage Google Calendar with AI](https://naurra.ai/blog/how-to-manage-google-calendar-with-ai): Schedule meetings, check availability, and manage your calendar with AI
+- [Email Signature: Your Secret Weapon for Outreach](https://naurra.ai/blog/free-email-signature-generator-outreach): Why a professional email signature boosts reply rates by 32% and how to create one free
+- [7 Email Outreach Tips That Actually Get Replies](https://naurra.ai/blog/7-email-outreach-tips-that-actually-get-replies): Proven cold email strategies to increase reply rates from 1-5% to 15%+
 
 ## Free Tools
-- [Email Signature Generator](https://naurra.ai/tools/email-signature): Free email signature generator for Gmail and Google Workspace with live preview and HTML export
+- [Email Signature Generator](https://naurra.ai/tools/email-signature): Free email signature generator for Gmail and Google Workspace. 5 templates, booking link, social icons, one-click copy to Gmail
