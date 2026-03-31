@@ -98,6 +98,8 @@ function renderInlineFormatting(text: string): string {
   text = text.replace(/\*\*([^*]+)\*\*/g, '<strong class="text-emerald-300 font-semibold">$1</strong>')
   // Italic
   text = text.replace(/\*([^*]+)\*/g, '<em class="text-emerald-200">$1</em>')
+  // Double dashes to comma
+  text = text.replace(/\s--\s/g, ', ')
   return text
 }
 
