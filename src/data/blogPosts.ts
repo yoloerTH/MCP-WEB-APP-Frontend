@@ -5686,6 +5686,144 @@ Combine a polished signature with these 7 strategies, and your outreach will per
     image: '/blog/7-email-outreach-tips-that-actually-get-replies.png',
     readingTime: 9,
     keywords: 'email outreach tips, cold email reply rate, how to write cold emails, email outreach strategy 2026, cold email best practices, B2B email outreach, cold email subject lines, follow up email sequence, email outreach for sales, increase email reply rate'
+  },
+  {
+    slug: 'how-naurra-ai-analyzed-a-report-and-emailed-it-in-2-minutes',
+    title: 'How Naurra AI Analyzed a Report and Emailed It in 2 Minutes',
+    description: 'Watch Naurra AI analyze a Google Sheets quarterly report, generate a strategic summary in Google Docs, and email it to a colleague -- all in under 2 minutes.',
+    content: `
+# How Naurra AI Analyzed a Report and Emailed It in 2 Minutes
+
+**TL;DR:** In this live demo, Naurra AI takes a quarterly Google Sheets report, extracts strategic business insights (pricing recommendations, hiring plans, and infrastructure fixes), generates a formatted Google Docs report with structured tables, and emails it to a colleague with the correct permissions -- all through a single chat conversation in under 2 minutes.
+
+Imagine this scenario: your quarterly report just landed in Google Sheets. You need to analyze the numbers, pull out the key takeaways, write up a professional summary document, and send it to your team lead. How long does that take?
+
+If you are doing it manually -- reading through rows, writing the doc, formatting tables, composing the email -- you are looking at **1 to 3 hours** of focused work.
+
+With Naurra AI, the entire workflow takes **under 2 minutes**. Here is exactly how.
+
+## Watch the Full Demo
+
+{{youtube:6B5IjfLaLxg}}
+
+## The Scenario: From Raw Data to Strategic Report
+
+For this demo, we set up a realistic scenario that mirrors what happens every quarter in thousands of businesses:
+
+1. **A Google Sheets quarterly report** with financial data, regional performance metrics, and product analytics
+2. **The goal**: analyze the data, generate actionable business insights, create a formatted report, and share it via email
+
+This is not a toy example. The report contains the kind of multi-dimensional data (revenue by region, support tickets, product performance, latency metrics) that would normally require a business analyst to interpret.
+
+## Step 1: Analyze the Report
+
+The first request was simple and natural:
+
+> "Analyze my latest report and provide strategic, actionable insights for the business."
+
+Naurra immediately identified the Google Sheets report, read through all the data, and delivered something remarkable -- not just a summary of numbers, but **genuine strategic recommendations**.
+
+### What Naurra Produced
+
+Here is what stood out from the analysis:
+
+- **A 5% price increase recommendation for Europe** based on margin trends and competitive positioning
+- **A hiring plan for the APAC region** to reduce the growing volume of support tickets
+- **An infrastructure fix recommendation** -- specifically flagging latency issues in Berlin and suggesting a sync with the engineering lead (Marcus) to resolve them
+
+This is not just data processing. Naurra interpreted the numbers the way a **high-level business consultant** would: identifying patterns, connecting them to business outcomes, and recommending specific next steps with names, percentages, and timelines.
+
+## Step 2: Generate a Google Docs Report
+
+Next, we asked Naurra to go one step further:
+
+> "Generate a complete analysis report in Google Docs and send it to my colleague with the correct permissions."
+
+Naurra handled the entire workflow in a single action:
+
+1. **Created a new Google Doc** with a professional title and structure
+2. **Organized the analysis into sections** with clear headings
+3. **Used structured tables and clean formatting** -- exactly what you would expect from a professional quarterly report
+4. **Set the correct sharing permissions** so the recipient could access the document immediately
+
+The result was a polished, ready-to-share document. No manual formatting. No copy-pasting from Sheets to Docs. No fiddling with table layouts.
+
+## Step 3: Email It to a Colleague
+
+In the same request, Naurra also:
+
+- **Composed a professional email** explaining the context and purpose of the report
+- **Included a direct link** to the Google Doc
+- **Sent it via Gmail** with the predefined email format
+
+The recipient gets a clear, well-written email with everything they need to review the quarterly analysis. No ambiguity, no missing links, no permission errors.
+
+## The Result: 3 Services, 1 Conversation, 2 Minutes
+
+Let us recap what happened in a single chat conversation:
+
+| Step | What Naurra Did | Google Service |
+|------|----------------|----------------|
+| 1 | Read and analyzed quarterly data | Google Sheets |
+| 2 | Generated a formatted strategic report | Google Docs |
+| 3 | Sent the report via email with correct permissions | Gmail |
+
+Three Google Workspace services. One natural language conversation. Under 2 minutes.
+
+The same task done manually would involve switching between 3 apps, reading dozens of spreadsheet rows, writing and formatting a multi-page document, composing an email, and managing sharing permissions. **Conservatively, that is 1-3 hours of work.**
+
+## Why This Matters
+
+This demo showcases what makes Naurra AI fundamentally different from other AI tools:
+
+### Multi-Service Orchestration
+Most AI assistants can do one thing at a time: summarize an email, create a doc, or search your drive. Naurra executes **workflows that span multiple Google services** in a single command. Analyze a Sheet, create a Doc, send via Gmail -- all connected, all in one step.
+
+### Real Business Intelligence
+Naurra did not just extract numbers from the spreadsheet. It delivered the kind of analysis you would pay a consultant for: pricing strategy, headcount recommendations, infrastructure priorities. The AI understands context and produces [actionable insights, not just data summaries](/blog/ai-workspace-automation-2026).
+
+### Zero Manual Formatting
+The Google Doc came out with structured tables, proper headings, and professional formatting. No one had to manually adjust column widths or fix bullet points. This is the kind of polish that normally takes 30+ minutes of formatting work.
+
+### Correct Permissions by Default
+When Naurra shared the document, it set the right access level automatically. No "you don't have access" messages. No permission request loops. It just works.
+
+## What Else Can Naurra Do?
+
+The quarterly report workflow is just one example. Naurra AI can handle hundreds of different tasks across [all 8 Google Workspace services](/blog/google-workspace-voice-commands-guide):
+
+- **Gmail**: [Send, search, and manage emails by voice or chat](/blog/how-to-send-emails-with-voice-commands-gmail)
+- **Calendar**: [Schedule, reschedule, and manage meetings](/blog/how-to-manage-google-calendar-with-ai)
+- **Drive**: Organize files, find documents, manage sharing
+- **Docs**: [Create and edit documents without typing](/blog/how-to-create-google-docs-without-typing)
+- **Sheets**: [Analyze data, create formulas, generate reports](/blog/ai-for-google-sheets-formulas-analysis-automation)
+- **Meet**: Schedule and manage video meetings
+- **Tasks**: Create and track to-do lists
+- **Contacts**: Look up and manage contact information
+
+And the best part -- you can chain multiple services together in a single request, exactly like the demo above.
+
+Visit the [Inspiration page](/inspiration) to explore all the different types of requests you can run. The possibilities are practically unlimited thanks to Naurra's modern [MCP server technology](/blog/custom-ai-agents-for-business).
+
+## Try It Yourself
+
+The demo in the video used the **chat interface** with the detailed conversational style selected for maximum analytical depth. But you can also do everything by [voice commands](/blog/boost-productivity-voice-commands) -- just speak naturally and Naurra handles the rest.
+
+**[Start your free 3-day trial](/pricing)** and test it with your own Google Sheets reports. No credit card required.
+
+Or if you want to see more examples first, check out our guides on [automating your Google Workspace in 5 minutes](/blog/automate-google-workspace-in-5-minutes) and [how a solo founder runs their entire business with AI](/blog/a-day-in-the-life-solo-founder-with-ai).
+    `,
+    author: {
+      name: 'Thanos Panagiotakopoulos',
+      avatar: '/ceo-thanos.jpg',
+    },
+    publishedAt: '2026-03-31',
+    category: 'Tutorials',
+    tags: ['Google Sheets', 'Google Docs', 'Gmail', 'Automation', 'AI Strategy'],
+    featured: true,
+    image: '/blog/how-naurra-ai-analyzed-a-report-and-emailed-it-in-2-minutes.png',
+    readingTime: 7,
+    keywords: 'Naurra AI demo, Google Sheets AI analysis, AI quarterly report, automate Google Workspace, AI Google Docs, AI email report, multi-service AI automation, Google Workspace AI assistant, analyze spreadsheet with AI, AI business intelligence'
   }
 ]
 
