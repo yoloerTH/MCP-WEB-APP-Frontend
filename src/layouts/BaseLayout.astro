@@ -44,6 +44,7 @@ const fullImage = image.startsWith('http') ? image : `https://naurra.ai${image}`
     <meta name="author" content="Naurra.ai" />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={fullUrl} />
+    <link rel="alternate" type="application/rss+xml" title="Naurra.ai Blog RSS Feed" href="https://naurra.ai/rss.xml" />
 
     {/* Open Graph / Facebook */}
     <meta property="og:type" content={type} />

@@ -10,6 +10,30 @@ interface LandingPageProps {
   onGetStarted: (mode?: 'voice' | 'chat') => void
 }
 
+const demoVideos = [
+  {
+    id: 'JibWZQlZ2lU',
+    title: 'Inbox Triage to Meetings',
+    description: 'Watch Naurra summarize incoming emails, separate priorities, draft replies in bulk, and schedule the conversations that matter most.',
+    badge: 'Email Operations',
+    accent: 'from-emerald-500/20 to-amber-500/10',
+  },
+  {
+    id: '6B5IjfLaLxg',
+    title: 'Google Sheets to Strategy',
+    description: 'See spreadsheet data turned into a structured business report with insights, decisions, and share-ready output.',
+    badge: 'Business Intelligence',
+    accent: 'from-blue-500/20 to-emerald-500/10',
+  },
+  {
+    id: 'JibWZQlZ2lU',
+    title: 'Bulk Replies with Context',
+    description: 'Naurra builds a response plan by category, asks for confirmation, then executes with clean formatting and strong judgment.',
+    badge: 'Smart Execution',
+    accent: 'from-amber-500/20 to-emerald-500/10',
+  }
+]
+
 // Google Service Icons - Using official PNG icons
 const GoogleServiceIcon = ({ service }: { service: string }) => {
   // For services with official icons, use PNG. For others, use simple SVG
@@ -1373,6 +1397,106 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                           <span className="text-xs text-gray-500 font-mono">{stat}</span>
                         </div>
                       ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Demo Videos */}
+      <section className="relative py-32 px-8 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/5 to-transparent" />
+
+        <div className="max-w-[1400px] mx-auto relative">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-16 space-y-4"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full backdrop-blur-sm mb-4">
+              <span className="text-xs font-mono uppercase tracking-wider text-emerald-300">Live Demos</span>
+            </div>
+            <h2 className="font-display text-4xl lg:text-5xl tracking-tight">
+              <span className="text-white">See </span>
+              <span className="bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Naurra in Action</span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Real workflows, real output, real time saved across Gmail, Calendar, Docs, and Sheets.
+            </p>
+          </motion.div>
+
+          <div className="grid lg:grid-cols-[1.35fr_0.65fr] gap-8 items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="group relative"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/15 via-emerald-500/5 to-amber-500/10 blur-3xl rounded-[2rem] opacity-70" />
+              <div className="relative bg-white/[0.04] backdrop-blur-2xl border border-white/10 group-hover:border-emerald-500/30 rounded-[2rem] overflow-hidden transition-all duration-300">
+                <div className="p-6 lg:p-8 border-b border-white/10">
+                  <div className="flex flex-wrap items-center gap-3 mb-4">
+                    <span className="px-3 py-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-xs font-mono uppercase tracking-wider text-emerald-300">
+                      {demoVideos[0].badge}
+                    </span>
+                    <span className="text-xs text-gray-500 font-mono">Featured Workflow</span>
+                  </div>
+                  <h3 className="font-display text-3xl text-white mb-3">{demoVideos[0].title}</h3>
+                  <p className="text-gray-400 max-w-3xl leading-relaxed">{demoVideos[0].description}</p>
+                </div>
+
+                <div className="p-4 lg:p-6">
+                  <div className="relative aspect-video overflow-hidden rounded-3xl border border-white/10 bg-[#050816] shadow-2xl shadow-emerald-500/10">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${demoVideos[0].id}`}
+                      title={demoVideos[0].title}
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                      className="absolute inset-0 h-full w-full"
+                    />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <div className="space-y-8">
+              {demoVideos.slice(1).map((video, idx) => (
+                <motion.div
+                  key={`${video.title}-${idx}`}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.12, duration: 0.6 }}
+                  whileHover={{ y: -4 }}
+                  className="group relative"
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${video.accent} blur-3xl rounded-[1.75rem] opacity-70`} />
+                  <div className="relative bg-white/[0.04] backdrop-blur-2xl border border-white/10 group-hover:border-emerald-500/25 rounded-[1.75rem] overflow-hidden transition-all duration-300">
+                    <div className="relative aspect-video border-b border-white/10 bg-[#050816]">
+                      <iframe
+                        src={`https://www.youtube.com/embed/${video.id}`}
+                        title={video.title}
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                        className="absolute inset-0 h-full w-full"
+                      />
+                    </div>
+
+                    <div className="p-5">
+                      <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/[0.04] border border-white/10 rounded-full mb-3">
+                        <span className="text-[11px] font-mono uppercase tracking-wider text-emerald-300">{video.badge}</span>
+                      </div>
+                      <h3 className="font-display text-2xl text-white mb-2">{video.title}</h3>
+                      <p className="text-sm text-gray-400 leading-relaxed">{video.description}</p>
                     </div>
                   </div>
                 </motion.div>
