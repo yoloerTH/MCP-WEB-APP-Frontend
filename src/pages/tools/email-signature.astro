@@ -271,6 +271,39 @@ const faqData = {
   .faq-chevron { transition: transform 0.3s; width: 20px; height: 20px; flex-shrink: 0; }
   .faq-chevron.open { transform: rotate(180deg); }
 
+  .preset-btn {
+    padding: 14px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+  }
+  .preset-btn:hover {
+    transform: translateY(-2px);
+    border-color: rgba(16,185,129,0.28);
+    background: rgba(16,185,129,0.06);
+  }
+
+  .success-card {
+    display: none;
+    background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.04));
+    border: 1px solid rgba(16,185,129,0.22);
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .success-card.show { display: block; }
+
+  .insight-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 18px;
+    padding: 24px;
+    backdrop-filter: blur(10px);
+  }
+
   /* Responsive */
   @media (max-width: 1024px) {
     .sig-grid { flex-direction: column !important; }
@@ -312,6 +345,11 @@ const faqData = {
       <p style="font-size: 18px; color: rgba(255,255,255,0.5); max-width: 560px; margin: 0 auto; line-height: 1.6; font-weight: 400;">
         Create a polished, professional signature for Gmail and Google Workspace. Pick a template, customize it, copy it. Done in 30 seconds.
       </p>
+      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 24px;">
+        <div style="padding: 10px 14px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); font-size: 13px; color: rgba(255,255,255,0.62);">5 templates</div>
+        <div style="padding: 10px 14px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); font-size: 13px; color: rgba(255,255,255,0.62);">Works with Gmail, Outlook, Apple Mail</div>
+        <div style="padding: 10px 14px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); font-size: 13px; color: rgba(255,255,255,0.62);">Built for Google Workspace users</div>
+      </div>
     </section>
 
     <!-- Main Tool -->
@@ -320,6 +358,29 @@ const faqData = {
       <!-- LEFT: Form -->
       <div class="sig-form" style="width: 420px; flex-shrink: 0;">
         <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 28px; backdrop-filter: blur(12px);">
+
+          <!-- Persona Presets -->
+          <div style="margin-bottom: 24px;">
+            <label class="sig-label">Start with a Role</label>
+            <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+              <button class="preset-btn" data-preset="founder" type="button">
+                <div style="font-size: 13px; font-weight: 700; color: #f1f5f9; margin-bottom: 4px;">Founder</div>
+                <div style="font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.5;">Company-first signature with booking CTA</div>
+              </button>
+              <button class="preset-btn" data-preset="sales" type="button">
+                <div style="font-size: 13px; font-weight: 700; color: #f1f5f9; margin-bottom: 4px;">Sales</div>
+                <div style="font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.5;">Reply-focused signature built for outreach</div>
+              </button>
+              <button class="preset-btn" data-preset="consultant" type="button">
+                <div style="font-size: 13px; font-weight: 700; color: #f1f5f9; margin-bottom: 4px;">Consultant</div>
+                <div style="font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.5;">Clean authority-driven layout for clients</div>
+              </button>
+              <button class="preset-btn" data-preset="creator" type="button">
+                <div style="font-size: 13px; font-weight: 700; color: #f1f5f9; margin-bottom: 4px;">Creator</div>
+                <div style="font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.5;">Personal brand signature with social links</div>
+              </button>
+            </div>
+          </div>
 
           <!-- Template Selector -->
           <div style="margin-bottom: 24px;">
@@ -471,6 +532,26 @@ const faqData = {
       <div class="sig-preview" style="flex: 1; min-width: 0;">
         <div style="position: sticky; top: 24px;">
 
+          <div id="signature-success-card" class="success-card">
+            <div style="display: flex; align-items: flex-start; gap: 14px;">
+              <div style="width: 40px; height: 40px; border-radius: 12px; background: rgba(16,185,129,0.18); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-size: 16px; font-weight: 700; color: #f1f5f9; margin-bottom: 6px;">Your signature is ready</div>
+                <div style="font-size: 14px; color: rgba(255,255,255,0.62); line-height: 1.65; margin-bottom: 14px;">
+                  Next step: paste it into Gmail, then let Naurra.ai help you automate the emails you send, the follow-ups you track, and the meetings you book.
+                </div>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                  <a href="/pricing" style="padding: 10px 16px; border-radius: 10px; background: linear-gradient(135deg, #10b981, #059669); color: white; text-decoration: none; font-size: 13px; font-weight: 700;">Try Naurra Free</a>
+                  <a href="/blog/how-ai-organizes-emails-summaries-bulk-replies-and-meetings" style="padding: 10px 16px; border-radius: 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: #f1f5f9; text-decoration: none; font-size: 13px; font-weight: 600;">See AI Email Workflow</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- Preview -->
           <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 28px; backdrop-filter: blur(12px); margin-bottom: 20px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
@@ -502,6 +583,11 @@ const faqData = {
             <button id="btn-copy-text" class="copy-btn copy-btn-secondary">Copy Plain Text</button>
           </div>
 
+          <div style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
+            <button id="btn-copy-link" class="copy-btn copy-btn-secondary" type="button">Copy Tool Link</button>
+            <a href="/blog/free-email-signature-generator-outreach" style="padding: 12px 18px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.78); text-decoration: none; font-size: 14px; font-weight: 600;">Read Best Practices</a>
+          </div>
+
           <!-- Gmail Instructions -->
           <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 20px;">
             <h2 style="font-size: 14px; font-weight: 700; color: #f1f5f9; margin: 0 0 12px;">How to Add to Gmail</h2>
@@ -515,6 +601,36 @@ const faqData = {
             </ol>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 0 0 72px;">
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
+        <div class="insight-card">
+          <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #10b981; margin-bottom: 12px;">Templates by Use Case</div>
+          <h3 style="font-family: 'Sora', sans-serif; font-size: 22px; color: #f1f5f9; margin: 0 0 12px;">Use the right signature for the right role</h3>
+          <p style="font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.6); margin: 0 0 14px;">Founders benefit from a strong company name and booking CTA. Sales teams should make the next step obvious. Consultants should keep the layout cleaner and authority-driven. Creators should lean more into social proof and personal brand.</p>
+          <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.46); margin: 0;">That is why the generator now includes persona presets to help you start with the right structure.</p>
+        </div>
+        <div class="insight-card">
+          <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #10b981; margin-bottom: 12px;">Conversion Tips</div>
+          <h3 style="font-family: 'Sora', sans-serif; font-size: 22px; color: #f1f5f9; margin: 0 0 12px;">Small details can improve reply rates</h3>
+          <ul style="margin: 0; padding-left: 18px; color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.9;">
+            <li>Use a real name, title, and company</li>
+            <li>Add a booking link only if a meeting is the intended next step</li>
+            <li>Keep taglines short and specific</li>
+            <li>Prefer one strong CTA over several weak ones</li>
+            <li>Use a hosted image that loads reliably in Gmail</li>
+          </ul>
+        </div>
+        <div class="insight-card">
+          <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #10b981; margin-bottom: 12px;">Next Step</div>
+          <h3 style="font-family: 'Sora', sans-serif; font-size: 22px; color: #f1f5f9; margin: 0 0 12px;">From signature setup to email automation</h3>
+          <p style="font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.6); margin: 0 0 14px;">A polished signature helps you look credible. Naurra.ai helps you handle what comes after: inbox summaries, strategic replies, follow-ups, and meeting scheduling across Google Workspace.</p>
+          <a href="/blog/how-ai-organizes-emails-summaries-bulk-replies-and-meetings" style="display: inline-flex; align-items: center; gap: 8px; color: #10b981; text-decoration: none; font-size: 14px; font-weight: 700;">Explore the workflow
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </section>
@@ -558,6 +674,24 @@ const faqData = {
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
           </button>
           <div class="faq-a">Yes. Copy the HTML signature and paste it into any email client's signature settings. The table-based layout ensures consistent rendering across all major platforms.</div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width: 980px; margin: 0 auto; padding: 0 0 88px;">
+      <div style="text-align: center; margin-bottom: 28px;">
+        <div style="display: inline-block; padding: 6px 14px; border-radius: 999px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.16); color: #10b981; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">Setup Guide</div>
+        <h2 style="font-family: 'Sora', sans-serif; font-size: 30px; color: #f1f5f9; margin: 18px 0 10px; letter-spacing: -0.04em;">How to make your email signature work harder</h2>
+        <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.56); max-width: 760px; margin: 0 auto;">A strong signature should not just look good. It should increase trust, reduce friction, and support the specific action you want the reader to take next.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;">
+        <div class="insight-card">
+          <h3 style="font-family: 'Sora', sans-serif; font-size: 20px; color: #f1f5f9; margin: 0 0 12px;">What to include</h3>
+          <p style="font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.62); margin: 0;">Your full name, role, company, primary contact method, and one clear next step. That next step might be a website visit, a booking link, or a LinkedIn profile, but it should be intentional. Strong signatures remove uncertainty and make action easy.</p>
+        </div>
+        <div class="insight-card">
+          <h3 style="font-family: 'Sora', sans-serif; font-size: 20px; color: #f1f5f9; margin: 0 0 12px;">What to avoid</h3>
+          <p style="font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.62); margin: 0;">Do not overload your signature with too many links, oversized logos, or vague slogans. The best signatures feel clear and credible. They support communication instead of competing with it.</p>
         </div>
       </div>
     </section>
@@ -608,6 +742,41 @@ const faqData = {
     imageData: '',
     imageUrl: '',
     uploading: false
+  }
+
+  const presets = {
+    founder: {
+      template: 'modern',
+      color: '#10b981',
+      title: 'Founder & CEO',
+      company: 'Your Company',
+      tagline: 'Building smarter workflows with AI',
+      bookingLabel: 'Book a Call'
+    },
+    sales: {
+      template: 'corporate',
+      color: '#3b82f6',
+      title: 'Account Executive',
+      company: 'Your Company',
+      tagline: 'Helping teams move faster',
+      bookingLabel: 'Book a Demo'
+    },
+    consultant: {
+      template: 'minimal',
+      color: '#1a1a1a',
+      title: 'Consultant',
+      company: 'Independent',
+      tagline: 'Strategy, systems, and execution',
+      bookingLabel: 'Schedule a Consultation'
+    },
+    creator: {
+      template: 'creative',
+      color: '#ec4899',
+      title: 'Creator',
+      company: 'Personal Brand',
+      tagline: 'Content, insight, and community',
+      bookingLabel: 'Let us Connect'
+    }
   }
 
   // =========================================
@@ -904,6 +1073,31 @@ const faqData = {
     setTimeout(() => t.classList.remove('show'), 2200)
   }
 
+  function showSuccessCard() {
+    const card = document.getElementById('signature-success-card')
+    if (card) card.classList.add('show')
+  }
+
+  function syncFormFromState() {
+    Object.entries(fieldMap).forEach(([id, key]) => {
+      const el = document.getElementById(id)
+      if (el && typeof state[key] === 'string') {
+        el.value = state[key]
+      }
+    })
+
+    document.querySelectorAll('.tmpl-btn').forEach((b) => {
+      b.classList.toggle('active', b.dataset.template === state.template)
+    })
+
+    document.querySelectorAll('.color-swatch').forEach((s) => {
+      s.classList.toggle('active', s.dataset.color === state.color)
+    })
+
+    const customColor = document.getElementById('custom-color')
+    if (customColor) customColor.value = state.color
+  }
+
   // Input bindings
   const fieldMap = {
     'sig-name': 'name', 'sig-title': 'title', 'sig-company': 'company',
@@ -922,6 +1116,17 @@ const faqData = {
         render()
       })
     }
+  })
+
+  document.querySelectorAll('[data-preset]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const preset = presets[btn.dataset.preset]
+      if (!preset) return
+      Object.assign(state, preset)
+      syncFormFromState()
+      render()
+      showToast(`${btn.dataset.preset.charAt(0).toUpperCase() + btn.dataset.preset.slice(1)} preset applied`)
+    })
   })
 
   // Template selector
@@ -1053,7 +1258,8 @@ const faqData = {
           'text/plain': new Blob([htmlToPlainText(html)], { type: 'text/plain' })
         })
       ])
-      showToast('HTML signature copied -- paste into Gmail')
+      showToast('HTML signature copied - paste into Gmail')
+      showSuccessCard()
     } catch {
       // Fallback
       const ta = document.createElement('textarea')
@@ -1063,6 +1269,7 @@ const faqData = {
       document.execCommand('copy')
       document.body.removeChild(ta)
       showToast('Signature HTML copied')
+      showSuccessCard()
     }
   })
 
@@ -1072,6 +1279,7 @@ const faqData = {
     try {
       await navigator.clipboard.writeText(text)
       showToast('Plain text copied')
+      showSuccessCard()
     } catch {
       const ta = document.createElement('textarea')
       ta.value = text
@@ -1080,6 +1288,23 @@ const faqData = {
       document.execCommand('copy')
       document.body.removeChild(ta)
       showToast('Plain text copied')
+      showSuccessCard()
+    }
+  })
+
+  document.getElementById('btn-copy-link').addEventListener('click', async () => {
+    const link = 'https://naurra.ai/tools/email-signature'
+    try {
+      await navigator.clipboard.writeText(link)
+      showToast('Tool link copied')
+    } catch {
+      const ta = document.createElement('textarea')
+      ta.value = link
+      document.body.appendChild(ta)
+      ta.select()
+      document.execCommand('copy')
+      document.body.removeChild(ta)
+      showToast('Tool link copied')
     }
   })
 
