@@ -15,14 +15,57 @@ const faqSchema = {
     }
   }))
 }
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://naurra.ai/' },
+    { '@type': 'ListItem', position: 2, name: 'Pricing', item: 'https://naurra.ai/pricing' }
+  ]
+}
+
+const pricingPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Naurra.ai Pricing',
+  description: 'Pricing and plans for Naurra.ai, the AI assistant for Google Workspace automation.',
+  url: 'https://naurra.ai/pricing'
+}
+
+const offerSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Naurra.ai',
+  applicationCategory: 'ProductivityApplication',
+  operatingSystem: 'iOS, Web Browser',
+  offers: [
+    {
+      '@type': 'Offer',
+      name: 'Monthly Plan',
+      price: '79.00',
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      url: 'https://naurra.ai/pricing'
+    },
+    {
+      '@type': 'Offer',
+      name: 'Yearly Plan',
+      price: '799.00',
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      url: 'https://naurra.ai/pricing'
+    }
+  ]
+}
 ---
 
 <BaseLayout
-  title="Pricing & Plans | Free Trial Included - Naurra.ai"
-  description="Start free for 3 days, then $79/mo or $799/yr. Full access to voice AI, chat AI, and 35+ Google Workspace automation tools."
-  keywords="Naurra.ai pricing, AI assistant cost, Google Workspace automation pricing, voice AI subscription"
+  title="Naurra.ai Pricing | Google Workspace AI Assistant Plans"
+  description="View Naurra.ai pricing for Google Workspace automation. Start with a 3-day free trial, then choose monthly or yearly plans for voice AI, chat AI, and workflow automation."
+  keywords="Naurra.ai pricing, Google Workspace AI assistant pricing, AI automation pricing, voice AI subscription, Gmail and Calendar automation cost, workflow automation plans"
   url="https://naurra.ai/pricing"
-  structuredData={[faqSchema]}
+  structuredData={[breadcrumbSchema, pricingPageSchema, offerSchema, faqSchema]}
 >
   <PricingPageIsland client:load />
 </BaseLayout>

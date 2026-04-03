@@ -57,6 +57,15 @@ const faqSchema = {
   ]
 }
 
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://naurra.ai/' },
+    { '@type': 'ListItem', position: 2, name: 'Company', item: 'https://naurra.ai/company' }
+  ]
+}
+
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
@@ -86,10 +95,10 @@ const serviceSchema = {
 
 <BaseLayout
   title="Custom AI Solutions for Business | Naurra.ai"
-  description="We build custom AI agents, workflow automation, and intelligent systems for businesses. Proven results across HVAC, legal, automotive, travel, fashion, and e-commerce. Get a free consultation."
-  keywords="AI agents for business, custom AI solutions, AI automation company, AI workflow automation, business AI integration, custom AI development, AI consulting, enterprise AI solutions, AI chatbot for business, hire AI engineer"
+  description="We build custom AI agents, workflow automation, and intelligent systems for businesses. Proven results across HVAC, legal, automotive, travel, fashion, e-commerce, and more."
+  keywords="AI agents for business, custom AI solutions, AI automation company, workflow automation services, custom AI development, business AI integration, AI consulting, enterprise AI solutions, AI agency for business"
   url="https://naurra.ai/company"
-  structuredData={[faqSchema, serviceSchema]}
+  structuredData={[breadcrumbSchema, faqSchema, serviceSchema]}
 >
   <CompanyPageIsland client:load />
 </BaseLayout>

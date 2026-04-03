@@ -1,13 +1,31 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import ComparePageIsland from '../components/islands/ComparePageIsland'
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://naurra.ai/' },
+    { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://naurra.ai/compare' }
+  ]
+}
+
+const comparisonPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Compare Naurra.ai vs Google Assistant vs Siri vs AI Chatbots',
+  description: 'Feature-by-feature comparison of Naurra.ai with Google Assistant, Siri, and AI chatbots for Google Workspace automation.',
+  url: 'https://naurra.ai/compare'
+}
 ---
 
 <BaseLayout
-  title="Compare Naurra.ai vs Google Assistant vs Siri vs AI Chatbots"
-  description="See how Naurra.ai compares to Google Assistant, Siri, and AI chatbots for Google Workspace automation. Feature-by-feature comparison of voice AI assistants."
-  keywords="Naurra vs Google Assistant, voice AI comparison, AI assistant comparison, Google Workspace AI tools, Siri alternative"
+  title="Compare Naurra.ai vs Google Assistant, Siri, and AI Chatbots"
+  description="Compare Naurra.ai with Google Assistant, Siri, and AI chatbots for Google Workspace automation, voice commands, email workflows, scheduling, and multi-step execution."
+  keywords="Naurra vs Google Assistant, Naurra vs Siri, AI assistant comparison, Google Workspace AI tools, voice AI comparison, AI chatbot vs AI agent, compare AI assistants"
   url="https://naurra.ai/compare"
+  structuredData={[breadcrumbSchema, comparisonPageSchema]}
 >
   <ComparePageIsland client:load />
 </BaseLayout>
