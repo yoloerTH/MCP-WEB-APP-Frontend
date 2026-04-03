@@ -73,7 +73,32 @@ const fullImage = image.startsWith('http') ? image : `https://naurra.ai${image}`
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
 
-    {/* Structured Data */}
+    {/* Site-wide Organization Schema */}
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'Naurra.ai',
+      url: 'https://naurra.ai',
+      logo: 'https://naurra.ai/logo-transparent.png',
+      description: 'Custom AI solutions, workflow automation, and intelligent systems for businesses.',
+      founder: {
+        '@type': 'Person',
+        name: 'Athanasios-Ioannis Panagiotakopoulos',
+        jobTitle: 'CEO & AI Engineer'
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'Sales',
+        email: 'support@naurra.ai',
+        url: 'https://naurra.ai/contact'
+      },
+      sameAs: [
+        'https://www.linkedin.com/in/athanasios-ioannis-panagiotakopoulos-2362a9274/',
+        'https://x.com/Naurra_ai'
+      ]
+    })} />
+
+    {/* Page-specific Structured Data */}
     {structuredData.map((data) => (
       <script type="application/ld+json" set:html={JSON.stringify(data)} />
     ))}

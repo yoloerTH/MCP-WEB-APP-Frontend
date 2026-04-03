@@ -89,6 +89,25 @@ const serviceSchema = {
     contactType: 'Sales',
     email: 'support@naurra.ai',
     url: 'https://naurra.ai/contact'
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '5',
+    bestRating: '5',
+    ratingCount: '7'
+  },
+  review: {
+    '@type': 'Review',
+    author: {
+      '@type': 'Person',
+      name: 'Automotive Reseller Client'
+    },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: '5',
+      bestRating: '5'
+    },
+    reviewBody: 'Thanos helped me set up automation for my automotive business and it completely changed the game for me. Since implementing it we\'ve been averaging around $15K profit every two weeks. If anyone is looking to automate parts of their business, he really knows what he\'s doing.'
   }
 }
 ---

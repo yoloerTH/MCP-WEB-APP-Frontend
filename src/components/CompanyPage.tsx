@@ -95,60 +95,246 @@ const caseStudies = [
   },
 ]
 
+/* Service icon SVGs -- themed to each capability */
+/* Service icon SVGs -- themed to each capability */
+const serviceIcons: Record<string, (color: string) => JSX.Element> = {
+  'Custom AI Agents': (c) => (
+    <svg viewBox="0 0 120 120" fill="none" className="w-full h-full">
+      {/* Robot head */}
+      <rect x="34" y="32" width="52" height="44" rx="10" stroke={c} strokeWidth="1.5" opacity="0.7" />
+      {/* Antenna */}
+      <line x1="60" y1="32" x2="60" y2="18" stroke={c} strokeWidth="1.5" opacity="0.5" />
+      <circle cx="60" cy="15" r="4" stroke={c} strokeWidth="1.5" opacity="0.6" />
+      <circle cx="60" cy="15" r="1.5" fill={c} opacity="0.8" />
+      {/* Eyes */}
+      <circle cx="46" cy="50" r="6" stroke={c} strokeWidth="1.5" opacity="0.6" />
+      <circle cx="46" cy="50" r="2.5" fill={c} opacity="0.8" />
+      <circle cx="74" cy="50" r="6" stroke={c} strokeWidth="1.5" opacity="0.6" />
+      <circle cx="74" cy="50" r="2.5" fill={c} opacity="0.8" />
+      {/* Mouth - neutral straight */}
+      <line x1="50" y1="65" x2="70" y2="65" stroke={c} strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
+      {/* Ear connectors */}
+      <rect x="26" y="44" width="8" height="16" rx="3" stroke={c} strokeWidth="1.2" opacity="0.4" />
+      <rect x="86" y="44" width="8" height="16" rx="3" stroke={c} strokeWidth="1.2" opacity="0.4" />
+      {/* Signal waves from antenna */}
+      <path d="M48 10a16 16 0 0124 0" stroke={c} strokeWidth="1" opacity="0.25" fill="none" />
+      <path d="M43 5a22 22 0 0134 0" stroke={c} strokeWidth="1" opacity="0.15" fill="none" />
+      {/* Body hint */}
+      <path d="M42 76v10a6 6 0 006 6h24a6 6 0 006-6V76" stroke={c} strokeWidth="1.5" opacity="0.35" />
+      {/* Sparkle accents */}
+      <path d="M95 28l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill={c} opacity="0.4" />
+      <path d="M18 62l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z" fill={c} opacity="0.25" />
+    </svg>
+  ),
+  'Workflow Automation': (c) => (
+    <svg viewBox="0 0 120 120" fill="none" className="w-full h-full">
+      {/* Step nodes */}
+      <rect x="10" y="25" width="26" height="22" rx="5" stroke={c} strokeWidth="1.5" opacity="0.7" />
+      <rect x="47" y="25" width="26" height="22" rx="5" stroke={c} strokeWidth="1.5" opacity="0.7" />
+      <rect x="84" y="25" width="26" height="22" rx="5" stroke={c} strokeWidth="1.5" opacity="0.7" />
+      {/* Second row */}
+      <rect x="28" y="68" width="26" height="22" rx="5" stroke={c} strokeWidth="1.5" opacity="0.6" />
+      <rect x="66" y="68" width="26" height="22" rx="5" stroke={c} strokeWidth="1.5" opacity="0.6" />
+      {/* Arrow connectors row 1 */}
+      <path d="M36 36h11" stroke={c} strokeWidth="1.5" opacity="0.5" />
+      <path d="M44 33l3 3-3 3" stroke={c} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.5" />
+      <path d="M73 36h11" stroke={c} strokeWidth="1.5" opacity="0.5" />
+      <path d="M81 33l3 3-3 3" stroke={c} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.5" />
+      {/* Arrow connectors going down */}
+      <path d="M23 47v9a5 5 0 005 5h8" stroke={c} strokeWidth="1.5" opacity="0.4" fill="none" />
+      <path d="M33 58l3 3-3 3" stroke={c} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" opacity="0.4" />
+      <path d="M97 47v9a5 5 0 01-5 5h-8" stroke={c} strokeWidth="1.5" opacity="0.4" fill="none" />
+      <path d="M87 58l-3 3 3 3" stroke={c} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" opacity="0.4" />
+      {/* Arrow between row 2 */}
+      <path d="M54 79h12" stroke={c} strokeWidth="1.5" opacity="0.5" />
+      <path d="M63 76l3 3-3 3" stroke={c} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.5" />
+      {/* Gear inside first box */}
+      <circle cx="23" cy="36" r="6" stroke={c} strokeWidth="1" opacity="0.5" />
+      <circle cx="23" cy="36" r="2" fill={c} opacity="0.5" />
+      {/* Lightning in middle box */}
+      <path d="M62 30l-4 7h5l-4 7" stroke={c} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.6" />
+      {/* Check in last box */}
+      <path d="M92 34l4 4 8-8" stroke={c} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.6" />
+      {/* Loop arrow at bottom */}
+      <path d="M79 96a25 25 0 01-38 0" stroke={c} strokeWidth="1" strokeLinecap="round" opacity="0.25" strokeDasharray="3 3" />
+      <path d="M44 93l-3 3 3 3" stroke={c} strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" opacity="0.25" />
+    </svg>
+  ),
+  'LLM Integration': (c) => (
+    <svg viewBox="0 0 120 120" fill="none" className="w-full h-full">
+      {/* Chip body */}
+      <rect x="35" y="35" width="50" height="50" rx="6" stroke={c} strokeWidth="1.5" opacity="0.7" />
+      {/* Inner circuit ring */}
+      <rect x="46" y="46" width="28" height="28" rx="4" stroke={c} strokeWidth="1" opacity="0.35" />
+      {/* Center brain pattern instead of text */}
+      <circle cx="60" cy="56" r="3" fill={c} opacity="0.7" />
+      <circle cx="52" cy="62" r="2" fill={c} opacity="0.5" />
+      <circle cx="68" cy="62" r="2" fill={c} opacity="0.5" />
+      <circle cx="60" cy="68" r="2" fill={c} opacity="0.5" />
+      <line x1="60" y1="56" x2="52" y2="62" stroke={c} strokeWidth="0.8" opacity="0.4" />
+      <line x1="60" y1="56" x2="68" y2="62" stroke={c} strokeWidth="0.8" opacity="0.4" />
+      <line x1="52" y1="62" x2="60" y2="68" stroke={c} strokeWidth="0.8" opacity="0.4" />
+      <line x1="68" y1="62" x2="60" y2="68" stroke={c} strokeWidth="0.8" opacity="0.4" />
+      {/* Pins - top */}
+      {[44, 52, 60, 68, 76].map((x) => (
+        <line key={`t${x}`} x1={x} y1="35" x2={x} y2="22" stroke={c} strokeWidth="1.5" opacity="0.35" />
+        ))}
+      {/* Pins - bottom */}
+      {[44, 52, 60, 68, 76].map((x) => (
+        <line key={`b${x}`} x1={x} y1="85" x2={x} y2="98" stroke={c} strokeWidth="1.5" opacity="0.35" />
+      ))}
+      {/* Pins - left */}
+      {[44, 52, 60, 68, 76].map((y) => (
+        <line key={`l${y}`} x1="35" y1={y} x2="22" y2={y} stroke={c} strokeWidth="1.5" opacity="0.35" />
+      ))}
+      {/* Pins - right */}
+      {[44, 52, 60, 68, 76].map((y) => (
+        <line key={`r${y}`} x1="85" y1={y} x2="98" y2={y} stroke={c} strokeWidth="1.5" opacity="0.35" />
+      ))}
+      {/* Pin end dots */}
+      {[44, 52, 60, 68, 76].map((v) => (
+        <g key={`dots${v}`}>
+          <circle cx={v} cy="20" r="1.5" fill={c} opacity="0.25" />
+          <circle cx={v} cy="100" r="1.5" fill={c} opacity="0.25" />
+          <circle cx="20" cy={v} r="1.5" fill={c} opacity="0.25" />
+          <circle cx="100" cy={v} r="1.5" fill={c} opacity="0.25" />
+        </g>
+      ))}
+    </svg>
+  ),
+  'Multi-Channel Bots': (c) => (
+    <svg viewBox="0 0 120 120" fill="none" className="w-full h-full">
+      {/* Central brain */}
+      <circle cx="60" cy="60" r="16" stroke={c} strokeWidth="1.5" opacity="0.8" />
+      <circle cx="60" cy="60" r="6" fill={c} opacity="0.5" />
+      {/* Inner pulse rings */}
+      <circle cx="60" cy="60" r="10" stroke={c} strokeWidth="0.75" opacity="0.2" strokeDasharray="2 2" />
+      {/* Chat bubble - top left (WhatsApp) */}
+      <path d="M16 16h22a4 4 0 014 4v10a4 4 0 01-4 4H24l-4 4v-4h-4a4 4 0 01-4-4V20a4 4 0 014-4z" stroke={c} strokeWidth="1.2" opacity="0.6" />
+      <line x1="18" y1="23" x2="34" y2="23" stroke={c} strokeWidth="1" opacity="0.3" />
+      <line x1="18" y1="28" x2="30" y2="28" stroke={c} strokeWidth="1" opacity="0.25" />
+      {/* Chat bubble - top right (Telegram) */}
+      <path d="M82 16h22a4 4 0 014 4v10a4 4 0 01-4 4h-10l-4 4v-4h-4a4 4 0 01-4-4V20a4 4 0 014-4z" stroke={c} strokeWidth="1.2" opacity="0.6" />
+      <line x1="84" y1="23" x2="100" y2="23" stroke={c} strokeWidth="1" opacity="0.3" />
+      <line x1="84" y1="28" x2="96" y2="28" stroke={c} strokeWidth="1" opacity="0.25" />
+      {/* Chat bubble - bottom left (Slack) */}
+      <path d="M8 80h22a4 4 0 014 4v10a4 4 0 01-4 4H18l-4 4v-4H8a4 4 0 01-4-4V84a4 4 0 014-4z" stroke={c} strokeWidth="1.2" opacity="0.55" />
+      <line x1="10" y1="88" x2="26" y2="88" stroke={c} strokeWidth="1" opacity="0.25" />
+      <line x1="10" y1="93" x2="22" y2="93" stroke={c} strokeWidth="1" opacity="0.2" />
+      {/* Chat bubble - bottom right (Web) */}
+      <path d="M86 80h22a4 4 0 014 4v10a4 4 0 01-4 4H96l-4 4v-4h-6a4 4 0 01-4-4V84a4 4 0 014-4z" stroke={c} strokeWidth="1.2" opacity="0.55" />
+      <line x1="88" y1="88" x2="104" y2="88" stroke={c} strokeWidth="1" opacity="0.25" />
+      <line x1="88" y1="93" x2="100" y2="93" stroke={c} strokeWidth="1" opacity="0.2" />
+      {/* Connection lines from brain to bubbles */}
+      <line x1="48" y1="48" x2="36" y2="36" stroke={c} strokeWidth="1" opacity="0.3" />
+      <line x1="72" y1="48" x2="84" y2="36" stroke={c} strokeWidth="1" opacity="0.3" />
+      <line x1="48" y1="72" x2="32" y2="82" stroke={c} strokeWidth="1" opacity="0.25" />
+      <line x1="72" y1="72" x2="88" y2="82" stroke={c} strokeWidth="1" opacity="0.25" />
+      {/* Small data dots flowing along connections */}
+      <circle cx="42" cy="42" r="1.5" fill={c} opacity="0.6" />
+      <circle cx="78" cy="42" r="1.5" fill={c} opacity="0.6" />
+      <circle cx="40" cy="77" r="1.5" fill={c} opacity="0.4" />
+      <circle cx="80" cy="77" r="1.5" fill={c} opacity="0.4" />
+    </svg>
+  ),
+  'Document Intelligence': (c) => (
+    <svg viewBox="0 0 120 120" fill="none" className="w-full h-full">
+      {/* Document */}
+      <path d="M35 15h35l15 15v75a5 5 0 01-5 5H35a5 5 0 01-5-5V20a5 5 0 015-5z" stroke={c} strokeWidth="1.5" opacity="0.7" />
+      <path d="M70 15v15h15" stroke={c} strokeWidth="1.5" opacity="0.5" />
+      {/* Text lines */}
+      <line x1="42" y1="42" x2="78" y2="42" stroke={c} strokeWidth="1.5" opacity="0.25" />
+      <line x1="42" y1="52" x2="72" y2="52" stroke={c} strokeWidth="1.5" opacity="0.25" />
+      <line x1="42" y1="62" x2="75" y2="62" stroke={c} strokeWidth="1.5" opacity="0.25" />
+      <line x1="42" y1="72" x2="68" y2="72" stroke={c} strokeWidth="1.5" opacity="0.25" />
+      <line x1="42" y1="82" x2="78" y2="82" stroke={c} strokeWidth="1.5" opacity="0.25" />
+      <line x1="42" y1="92" x2="60" y2="92" stroke={c} strokeWidth="1.5" opacity="0.25" />
+      {/* Scanning beam */}
+      <rect x="38" y="58" width="44" height="10" rx="2" fill={c} opacity="0.08" />
+      <line x1="38" y1="63" x2="82" y2="63" stroke={c} strokeWidth="2" opacity="0.5" />
+      {/* Magnifying glass */}
+      <circle cx="88" cy="85" r="12" stroke={c} strokeWidth="1.5" opacity="0.6" />
+      <line x1="96" y1="93" x2="105" y2="102" stroke={c} strokeWidth="2.5" strokeLinecap="round" opacity="0.6" />
+      <circle cx="88" cy="85" r="5" stroke={c} strokeWidth="1" opacity="0.3" />
+    </svg>
+  ),
+  'Full-Stack Platforms': (c) => (
+    <svg viewBox="0 0 120 120" fill="none" className="w-full h-full">
+      {/* Browser window */}
+      <rect x="18" y="20" width="84" height="58" rx="5" stroke={c} strokeWidth="1.5" opacity="0.7" />
+      <line x1="18" y1="32" x2="102" y2="32" stroke={c} strokeWidth="1" opacity="0.4" />
+      {/* Browser dots */}
+      <circle cx="27" cy="26" r="2" fill={c} opacity="0.5" />
+      <circle cx="35" cy="26" r="2" fill={c} opacity="0.4" />
+      <circle cx="43" cy="26" r="2" fill={c} opacity="0.3" />
+      {/* Code lines inside browser */}
+      <line x1="26" y1="40" x2="50" y2="40" stroke={c} strokeWidth="1.5" opacity="0.3" />
+      <line x1="30" y1="48" x2="62" y2="48" stroke={c} strokeWidth="1.5" opacity="0.2" />
+      <line x1="30" y1="56" x2="55" y2="56" stroke={c} strokeWidth="1.5" opacity="0.2" />
+      <line x1="26" y1="64" x2="45" y2="64" stroke={c} strokeWidth="1.5" opacity="0.3" />
+      {/* Mobile phone */}
+      <rect x="75" y="55" width="28" height="48" rx="4" stroke={c} strokeWidth="1.5" opacity="0.6" />
+      <line x1="75" y1="62" x2="103" y2="62" stroke={c} strokeWidth="0.75" opacity="0.3" />
+      <line x1="75" y1="94" x2="103" y2="94" stroke={c} strokeWidth="0.75" opacity="0.3" />
+      <circle cx="89" cy="97.5" r="2" stroke={c} strokeWidth="1" opacity="0.3" />
+      {/* Mobile content */}
+      <line x1="80" y1="68" x2="98" y2="68" stroke={c} strokeWidth="1" opacity="0.2" />
+      <line x1="80" y1="74" x2="94" y2="74" stroke={c} strokeWidth="1" opacity="0.2" />
+      <line x1="80" y1="80" x2="96" y2="80" stroke={c} strokeWidth="1" opacity="0.2" />
+      {/* Cloud element */}
+      <path d="M62 15c-3 0-5.5 2-6.3 4.7a5.5 5.5 0 00-4.2 5.3 5.5 5.5 0 005.5 5.5h10a4.5 4.5 0 000-9c-.3 0-.5 0-.8.1A6.5 6.5 0 0062 15z" stroke={c} strokeWidth="1" opacity="0.35" />
+    </svg>
+  ),
+}
+
 const services = [
   {
+    num: '01',
     title: 'Custom AI Agents',
-    description: 'Autonomous agents that handle support, sales, and operations across any channel.',
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
-      </svg>
-    ),
+    value: '24/7 Autonomous Operations',
+    description: 'Intelligent agents that handle support, sales, and operations across every channel your customers use -- without human intervention.',
+    capabilities: ['Multi-channel deployment', 'Context-aware memory', 'CRM auto-sync'],
+    color: { from: '#34d399', to: '#2dd4bf', text: 'text-emerald-400', glow: 'rgba(52,211,153,0.15)' },
   },
   {
+    num: '02',
     title: 'Workflow Automation',
-    description: 'Transform manual processes into intelligent pipelines that run themselves.',
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25a2.25 2.25 0 01-2.25-2.25v-2.25z" />
-      </svg>
-    ),
+    value: 'Zero Manual Steps',
+    description: 'Transform repetitive, time-consuming processes into intelligent pipelines that execute, monitor, and self-correct.',
+    capabilities: ['End-to-end pipelines', 'Error self-healing', 'Real-time monitoring'],
+    color: { from: '#fbbf24', to: '#fb923c', text: 'text-amber-400', glow: 'rgba(251,191,36,0.15)' },
   },
   {
+    num: '03',
     title: 'LLM Integration',
-    description: 'Embed frontier AI models into your systems for intelligent document processing and decision support.',
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z" />
-      </svg>
-    ),
+    value: 'Frontier Models, Your Data',
+    description: 'Embed GPT-4, Claude, or Gemini into your existing systems for intelligent document processing and decision support.',
+    capabilities: ['RAG pipelines', 'Fine-tuned models', 'Secure data handling'],
+    color: { from: '#a78bfa', to: '#c084fc', text: 'text-violet-400', glow: 'rgba(167,139,250,0.15)' },
   },
   {
+    num: '04',
     title: 'Multi-Channel Bots',
-    description: 'Deploy intelligent bots on WhatsApp, Telegram, Slack, email, and web simultaneously.',
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
-      </svg>
-    ),
+    value: '1 Brain, Every Platform',
+    description: 'Deploy a single intelligent bot across WhatsApp, Telegram, Slack, email, and web -- with unified memory across all channels.',
+    capabilities: ['WhatsApp & Telegram', 'Slack & email', 'Unified conversation memory'],
+    color: { from: '#22d3ee', to: '#60a5fa', text: 'text-cyan-400', glow: 'rgba(34,211,238,0.15)' },
   },
   {
+    num: '05',
     title: 'Document Intelligence',
-    description: 'AI that reads, analyzes, and extracts insights from any business document in seconds.',
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9zm3.75 11.625a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
-      </svg>
-    ),
+    value: 'Seconds, Not Days',
+    description: 'AI that reads, analyzes, and extracts structured insights from contracts, invoices, leases, and any business document.',
+    capabilities: ['PDF & image parsing', 'Clause extraction', 'Risk flagging'],
+    color: { from: '#fb7185', to: '#f472b6', text: 'text-rose-400', glow: 'rgba(251,113,133,0.15)' },
   },
   {
+    num: '06',
     title: 'Full-Stack Platforms',
-    description: 'Web apps, mobile apps, SaaS — designed, built, and deployed end-to-end.',
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
-      </svg>
-    ),
+    value: 'Idea to Production',
+    description: 'Web apps, mobile apps, SaaS products -- designed, engineered, and deployed end-to-end with AI woven into the core.',
+    capabilities: ['React & Next.js', 'iOS & Android', 'Cloud infrastructure'],
+    color: { from: '#38bdf8', to: '#818cf8', text: 'text-sky-400', glow: 'rgba(56,189,248,0.15)' },
   },
 ]
 
@@ -178,7 +364,7 @@ export default function CompanyPage() {
   const project = caseStudies[activeProject]
 
   return (
-    <div className="min-h-screen bg-[#0a0e1a] text-white overflow-hidden">
+    <main className="min-h-screen bg-[#0a0e1a] text-white overflow-hidden">
       {/* ── AMBIENT BACKGROUND ── */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-amber-500/5" />
@@ -338,6 +524,205 @@ export default function CompanyPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════ */}
+      {/* SERVICES — Editorial vertical showcase                       */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      <section className="relative py-24 lg:py-32 overflow-hidden">
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+          {/* Section header */}
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-100px' }} className="mb-20 lg:mb-28">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-px w-[40px] bg-gradient-to-r from-amber-500 to-transparent" />
+              <span className="text-xs text-amber-400/60 uppercase tracking-[0.25em] font-semibold">Capabilities</span>
+            </div>
+            <h2 className="text-3xl lg:text-5xl font-display font-extrabold mb-4">
+              What we{' '}
+              <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">build.</span>
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl">
+              Six core systems. Each one engineered to eliminate a specific bottleneck in your business.
+            </p>
+          </motion.div>
+
+          {/* Service strips */}
+          <div className="space-y-0">
+            {services.map((service, i) => {
+              const isEven = i % 2 === 0
+              const IconComponent = serviceIcons[service.title]
+              return (
+                <motion.div
+                  key={service.title}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true, margin: '-80px' }}
+                  transition={{ duration: 0.7, delay: 0.1 }}
+                  className="group relative"
+                >
+                  {/* Top divider line */}
+                  <div className="h-px w-full" style={{ background: `linear-gradient(90deg, transparent, ${service.color.from}20, transparent)` }} />
+
+                  <div className={`relative py-14 lg:py-20 flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-start lg:items-center gap-10 lg:gap-16`}>
+
+                    {/* Oversized background number */}
+                    <div className="absolute top-1/2 -translate-y-1/2 pointer-events-none select-none" style={{ [isEven ? 'right' : 'left']: '-2%' }}>
+                      <motion.span
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="text-[12rem] sm:text-[16rem] lg:text-[20rem] font-display font-black leading-none"
+                        style={{
+                          background: `linear-gradient(135deg, ${service.color.from}06, ${service.color.to}03)`,
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                        }}
+                      >
+                        {service.num}
+                      </motion.span>
+                    </div>
+
+                    {/* Visual element side -- themed SVG illustration */}
+                    <div className="relative w-full lg:w-5/12 flex-shrink-0">
+                      <div className="relative aspect-[4/3] lg:aspect-square max-w-[320px] mx-auto lg:mx-0">
+                        {/* Ambient glow behind icon */}
+                        <div
+                          className="absolute inset-[15%] rounded-full blur-[80px] transition-opacity duration-700 opacity-30 group-hover:opacity-60"
+                          style={{ background: service.color.glow }}
+                        />
+
+                        {/* Outer rotating ring */}
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 30 + i * 5, repeat: Infinity, ease: 'linear' }}
+                          className="absolute inset-[5%] rounded-full border border-dashed opacity-[0.06]"
+                          style={{ borderColor: service.color.from }}
+                        />
+
+                        {/* Themed SVG illustration with gentle float */}
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.85 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.7, delay: 0.25 }}
+                          className="absolute inset-[12%]"
+                        >
+                          <motion.div
+                            animate={{ y: [0, -6, 0], rotate: [0, 1, 0, -1, 0] }}
+                            transition={{ duration: 6 + i * 0.8, repeat: Infinity, ease: 'easeInOut' }}
+                            className="w-full h-full group-hover:scale-105 transition-transform duration-500"
+                          >
+                            {IconComponent && IconComponent(service.color.from)}
+                          </motion.div>
+                        </motion.div>
+
+                        {/* Corner accents */}
+                        <div className="absolute top-0 left-0 w-10 h-10">
+                          <div className="absolute top-0 left-0 w-full h-px" style={{ background: `linear-gradient(90deg, ${service.color.from}30, transparent)` }} />
+                          <div className="absolute top-0 left-0 h-full w-px" style={{ background: `linear-gradient(180deg, ${service.color.from}30, transparent)` }} />
+                        </div>
+                        <div className="absolute bottom-0 right-0 w-10 h-10">
+                          <div className="absolute bottom-0 right-0 w-full h-px" style={{ background: `linear-gradient(270deg, ${service.color.to}30, transparent)` }} />
+                          <div className="absolute bottom-0 right-0 h-full w-px" style={{ background: `linear-gradient(0deg, ${service.color.to}30, transparent)` }} />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Content side */}
+                    <div className={`relative flex-1 ${isEven ? '' : 'lg:text-right'}`}>
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.15 }}
+                        className="mb-4"
+                      >
+                        <span
+                          className="text-sm font-semibold uppercase tracking-[0.2em]"
+                          style={{ color: service.color.from }}
+                        >
+                          {service.title}
+                        </span>
+                      </motion.div>
+
+                      <motion.h3
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.25 }}
+                        className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold leading-[1.1] mb-6"
+                        style={{
+                          background: `linear-gradient(135deg, ${service.color.from}, ${service.color.to})`,
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                        }}
+                      >
+                        {service.value}
+                      </motion.h3>
+
+                      <motion.p
+                        initial={{ opacity: 0, y: 15 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.35 }}
+                        className="text-gray-400 text-base lg:text-lg leading-relaxed max-w-lg mb-8"
+                        style={!isEven ? { marginLeft: 'auto' } : undefined}
+                      >
+                        {service.description}
+                      </motion.p>
+
+                      {/* Capabilities as inline flow */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.45 }}
+                        className={`flex flex-wrap items-center gap-x-4 gap-y-2 ${isEven ? '' : 'lg:justify-end'}`}
+                      >
+                        {service.capabilities.map((cap, ci) => (
+                          <span key={cap} className="flex items-center gap-3">
+                            {ci > 0 && (
+                              <span
+                                className="w-1 h-1 rounded-full flex-shrink-0"
+                                style={{ background: service.color.from, opacity: 0.4 }}
+                              />
+                            )}
+                            <span className="text-sm text-gray-500 font-medium">{cap}</span>
+                          </span>
+                        ))}
+                      </motion.div>
+                    </div>
+                  </div>
+                </motion.div>
+              )
+            })}
+            {/* Final divider */}
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+          </div>
+
+          {/* Internal links to pricing and blog */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-5"
+          >
+            <a
+              href="/pricing"
+              className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-semibold rounded-xl shadow-lg shadow-emerald-500/25 transition-all text-base"
+            >
+              View Pricing
+            </a>
+            <a
+              href="/blog/ai-workspace-automation-2026"
+              className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-emerald-500/30 text-white font-semibold rounded-xl transition-all text-base"
+            >
+              Read Our AI Automation Guide
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════ */}
       {/* PROJECTS — Interactive case study showcase                  */}
       {/* Click a project → full narrative expands                   */}
       {/* ═══════════════════════════════════════════════════════════ */}
@@ -478,7 +863,7 @@ export default function CompanyPage() {
                             <div className="sm:w-48 flex-shrink-0">
                               <img
                                 src={(project as any).testimonial.image}
-                                alt="Client testimonial for automotive sourcing project"
+                                alt={`Client testimonial for ${project.title} project`}
                                 className="w-full h-48 sm:h-full object-cover"
                                 loading="lazy"
                               />
@@ -503,45 +888,6 @@ export default function CompanyPage() {
                 </motion.div>
               </AnimatePresence>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════════════════════ */}
-      {/* SERVICES                                                    */}
-      {/* ═══════════════════════════════════════════════════════════ */}
-      <section className="relative py-24 lg:py-32">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/[0.02] to-transparent" />
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-100px' }} className="mb-16">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="h-px w-[40px] bg-gradient-to-r from-amber-500 to-transparent" />
-              <span className="text-xs text-amber-400/60 uppercase tracking-[0.25em] font-semibold">Services</span>
-            </div>
-            <h2 className="text-3xl lg:text-5xl font-display font-extrabold mb-4">
-              What we{' '}
-              <span className="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">build.</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {services.map((service, i) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                whileHover={{ y: -3, transition: { duration: 0.2 } }}
-                className="relative bg-white/[0.03] backdrop-blur-xl border border-white/[0.06] rounded-2xl p-7 hover:border-emerald-500/20 transition-all group"
-              >
-                <div className="w-12 h-12 flex items-center justify-center bg-emerald-500/10 border border-emerald-500/15 rounded-xl text-emerald-400 mb-5 group-hover:bg-emerald-500/20 group-hover:scale-110 transition-all duration-300">
-                  {service.icon}
-                </div>
-                <h3 className="text-lg font-display font-bold text-white mb-2">{service.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{service.description}</p>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
@@ -783,6 +1129,6 @@ export default function CompanyPage() {
       </section>
 
       <div className="h-12" />
-    </div>
+    </main>
   )
 }

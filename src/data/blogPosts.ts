@@ -12,6 +12,7 @@ export interface BlogPost {
   category: string
   tags: string[]
   featured: boolean
+  isPillar?: boolean
   image: string
   readingTime: number // in minutes
   keywords: string
@@ -340,6 +341,7 @@ If you want to move from experimentation into implementation, the smartest path 
     category: 'Productivity',
     tags: ['AI', 'Automation', 'Google Workspace', 'Productivity', 'Voice AI'],
     featured: true,
+    isPillar: true,
     image: '/blog/ai-workspace-automation-2026.png',
     readingTime: 13,
     keywords: 'AI workspace automation, Google Workspace automation, Gmail automation, Calendar AI scheduling, voice AI productivity, workplace automation 2026'
@@ -3013,7 +3015,8 @@ The professionals who adopt voice-first workflows today will be the most product
     updatedAt: '2026-04-03',
     category: 'Tutorials',
     tags: ['Voice Commands', 'Google Workspace', 'Tutorial', 'Productivity', 'Voice AI'],
-    featured: false,
+    featured: true,
+    isPillar: true,
     image: '/blog/google-workspace-voice-commands-guide.png',
     readingTime: 14,
     keywords: 'Google Workspace voice commands, Google Workspace voice AI, voice control Gmail Calendar Drive Docs Sheets, AI voice assistant Google Workspace, voice commands productivity, manage Google Workspace by voice, voice AI productivity, Google Workspace hands free workflows, business voice commands AI'
@@ -4799,6 +4802,7 @@ That clarity is enough to get moving.
     category: 'AI Strategy',
     tags: ['AI Strategy', 'Business AI', 'Beginners', 'Small Business', 'Productivity'],
     featured: true,
+    isPillar: true,
     image: '/blog/non-technical-guide-to-ai-for-business-owners.png',
     readingTime: 15,
     keywords: 'AI for business owners, non technical guide to AI, business AI explained simply, AI for beginners business, how to use AI in business, AI agent vs chatbot, small business AI guide 2026, custom AI for business, AI adoption for business owners, simple AI explanation business'
@@ -7178,6 +7182,7 @@ That is the kind of AI that actually saves time.
     category: 'Productivity',
     tags: ['Gmail', 'Email Automation', 'AI Scheduling', 'Google Workspace', 'Productivity'],
     featured: true,
+    isPillar: true,
     image: '/blog/gmail-automation-tips.png',
     readingTime: 13,
     keywords: 'AI email organization, summarize emails with AI, bulk email replies AI, schedule meetings from email, Gmail AI assistant, Google Workspace email automation, AI inbox management, AI email summary tool, organize inbox with AI, communication workflow AI, AI meeting and email coordination, Naurra.ai email workflow'
@@ -7820,6 +7825,10 @@ If you want the full workspace-level strategy behind this, go back to [AI worksp
 // Helper functions
 export const getFeaturedPosts = (): BlogPost[] => {
   return blogPosts.filter(post => post.featured)
+}
+
+export const getPillarPosts = (): BlogPost[] => {
+  return blogPosts.filter(post => post.isPillar)
 }
 
 export const getPostBySlug = (slug: string): BlogPost | undefined => {
