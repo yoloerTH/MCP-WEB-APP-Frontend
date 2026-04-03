@@ -144,6 +144,16 @@ Additional resources for deeper context:
 - [The Hidden Cost of Not Using AI](https://naurra.ai/blog/the-hidden-cost-of-not-using-ai-in-2026): What businesses lose by not adopting AI in 2026
 - [AI for Founders Who Hate AI](https://naurra.ai/blog/ai-for-founders-who-hate-ai): A skeptic's guide to useful AI for business
 - [AI for Google Sheets](https://naurra.ai/blog/ai-for-google-sheets-formulas-analysis-automation): How AI automates formulas, data analysis, and reporting in Google Sheets
+- [Smart Calendar Management: AI-Powered Scheduling](https://naurra.ai/blog/google-calendar-ai-scheduling): AI-powered scheduling, meeting management, and time blocking techniques
+- [How Voice Commands Can 3x Your Productivity](https://naurra.ai/blog/boost-productivity-voice-commands): The science behind voice productivity with 25+ voice commands that transform how you work
+- [Organize Google Drive Like a Pro with AI](https://naurra.ai/blog/google-drive-organization-ai): AI-powered file management to organize Google Drive, automate folder structures, and find any document in seconds
+- [Automate Google Docs & Sheets with AI](https://naurra.ai/blog/google-docs-sheets-ai-automation): Use AI to create, edit, and manage Google Docs and Sheets effortlessly
+- [AI-Powered Email Etiquette](https://naurra.ai/blog/ai-email-etiquette-professional-communication): Write better professional emails in half the time with AI assistance
+- [The Future of Work: 7 AI Trends in 2026](https://naurra.ai/blog/future-of-work-ai-trends-2026): From voice-first interfaces to autonomous agents, the AI trends reshaping workplaces
+- [Streamline Team Communication with AI](https://naurra.ai/blog/streamline-team-communication-google-workspace): Cut through noise and streamline team communication in Google Workspace using AI
+- [Best AI Platforms for Meetings and Communication](https://naurra.ai/blog/ai-platforms-automating-meetings-communication): Compare top AI platforms for automating meetings, scheduling, and follow-ups
+- [What the Perfect AI Looks Like for Your Business](https://naurra.ai/blog/what-the-perfect-ai-looks-like-for-your-business): The 7 attributes that separate real AI infrastructure from expensive toys
+- [Automate Your Entire Google Workspace in 5 Minutes](https://naurra.ai/blog/automate-google-workspace-in-5-minutes): Connect an AI agent to your Google Workspace and automate everything with voice commands
 
 - [How to Send Emails with Voice Commands in Gmail](https://naurra.ai/blog/how-to-send-emails-with-voice-commands-gmail): Step-by-step guide to sending, replying, and managing Gmail by voice
 - [How to Create Google Docs Without Typing](https://naurra.ai/blog/how-to-create-google-docs-without-typing): Create, dictate, and format Google Docs entirely by voice commands
