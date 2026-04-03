@@ -30,11 +30,11 @@ export default function PricingPage() {
       name: 'Free Trial',
       price: 0,
       period: '3 days',
-      description: 'Experience the full power of Naurra.ai',
+      description: 'Experience the full power of Naurra.ai before choosing a billing period',
       features: [
         'Full access to all features',
         'All Google Workspace tools',
-        'Unlimited voice & chat',
+        'Unlimited usage during your 3-day trial',
         '35+ AI tools',
         'No credit card required'
       ],
@@ -50,7 +50,7 @@ export default function PricingPage() {
       features: [
         'Full access to all features',
         'All Google Workspace integrations',
-        'Unlimited voice & chat',
+        'Unlimited usage for the full monthly billing period',
         '35+ AI-powered tools',
         'Priority support',
         'Cancel anytime'
@@ -68,7 +68,7 @@ export default function PricingPage() {
         'Everything in Monthly',
         'Save €149 per year',
         'All Google Workspace integrations',
-        'Unlimited voice & chat',
+        'Unlimited usage for the full yearly billing period',
         '35+ AI-powered tools',
         'Priority support',
         'Exclusive yearly perks'
@@ -207,7 +207,7 @@ export default function PricingPage() {
           </h1>
 
           <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-12">
-            Start with a free trial. Upgrade anytime to unlock continuous AI-powered productivity.
+            Start with a free trial, then choose the billing period that fits you best. Every plan includes unlimited usage for the full billing period.
           </p>
 
           {/* Billing Toggle */}

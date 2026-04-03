@@ -126,7 +126,7 @@ function CheckoutForm({ planId, amount, period, onClose }: Omit<CheckoutModalPro
         <div className="flex items-center justify-between mb-4">
           <div>
             <h3 className="text-lg font-semibold text-white capitalize">{planId} Plan</h3>
-            <p className="text-sm text-gray-400">Full access to Naurra.ai</p>
+            <p className="text-sm text-gray-400">Full access to Naurra.ai with unlimited usage for this billing period</p>
           </div>
           <div className="text-right">
             <div className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">
@@ -141,7 +141,7 @@ function CheckoutForm({ planId, amount, period, onClose }: Omit<CheckoutModalPro
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
-            <span>Cancel anytime</span>
+            <span>Unlimited usage included through the end of your billing period</span>
           </div>
         </div>
       </div>
@@ -214,6 +214,9 @@ function CheckoutForm({ planId, amount, period, onClose }: Omit<CheckoutModalPro
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
           </svg>
           <span>Secured by Stripe. Your card details are never stored.</span>
+        </div>
+        <div className="text-center text-xs text-gray-600">
+          Your plan renews by billing period unless canceled. Cancel anytime and keep access through the current period.
         </div>
         <div className="text-center text-xs text-gray-600">
           Questions?{' '}

@@ -18,8 +18,8 @@ interface SubscriptionRequiredModalProps {
  *
  * User must either:
  * 1. Start 3-day free trial (no card required)
- * 2. Subscribe to Monthly plan (€79/month)
- * 3. Subscribe to Yearly plan (€799/year)
+ * 2. Subscribe to Monthly plan (€79/month, unlimited within the billing period)
+ * 3. Subscribe to Yearly plan (€799/year, unlimited within the billing period)
  */
 export default function SubscriptionRequiredModal({
   isOpen,
@@ -214,6 +214,22 @@ export default function SubscriptionRequiredModal({
                             </svg>
                             35+ AI-powered tools
                           </li>
+                          <li className="flex items-start gap-2 text-sm text-gray-300">
+                            <svg
+                              className="w-5 h-5 text-emerald-400 flex-shrink-0"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M5 13l4 4L19 7"
+                              />
+                            </svg>
+                            Unlimited usage during the trial period
+                          </li>
                         </ul>
 
                         <button
@@ -277,6 +293,22 @@ export default function SubscriptionRequiredModal({
                               />
                             </svg>
                             3-day trial included
+                          </li>
+                          <li className="flex items-start gap-2 text-sm text-gray-300">
+                            <svg
+                              className="w-5 h-5 text-emerald-400 flex-shrink-0"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M5 13l4 4L19 7"
+                              />
+                            </svg>
+                            Unlimited usage within each monthly billing period
                           </li>
                           <li className="flex items-start gap-2 text-sm text-gray-300">
                             <svg
@@ -378,6 +410,22 @@ export default function SubscriptionRequiredModal({
                                 d="M5 13l4 4L19 7"
                               />
                             </svg>
+                            Unlimited usage within each yearly billing period
+                          </li>
+                          <li className="flex items-start gap-2 text-sm text-gray-300">
+                            <svg
+                              className="w-5 h-5 text-emerald-400 flex-shrink-0"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M5 13l4 4L19 7"
+                              />
+                            </svg>
                             Exclusive yearly perks
                           </li>
                         </ul>
@@ -396,7 +444,7 @@ export default function SubscriptionRequiredModal({
                   <div className="text-center space-y-2">
                     <p className="text-sm text-gray-500">
                       You must choose a plan to continue. All plans include full
-                      access to 35+ AI-powered tools.
+                      access to 35+ AI-powered tools with unlimited usage for the active billing period.
                     </p>
                     <p className="text-xs text-gray-600">
                       Need help?{' '}

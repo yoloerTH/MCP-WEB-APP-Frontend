@@ -52,7 +52,7 @@ Key differentiator: Naurra.ai performs multi-service orchestration — one voice
 - **Monthly**: $79/month
 - **Yearly**: $799/year (save 16%)
 
-All plans include full voice and chat AI, all 8 Google Workspace integrations, and 35+ AI tools.
+All plans include full voice and chat AI, all 8 Google Workspace integrations, 35+ AI tools, and unlimited usage within the active billing period.
 
 ## Custom AI Solutions for Business
 

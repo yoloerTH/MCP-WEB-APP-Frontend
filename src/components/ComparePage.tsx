@@ -504,7 +504,7 @@ export default function ComparePage() {
                 <span className="bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Difference?</span>
               </h2>
               <p className="text-gray-400 mb-8 max-w-lg mx-auto">
-                Start your free 3-day trial. No credit card required. Experience the only AI assistant built specifically for Google Workspace.
+                Start your free 3-day trial. No credit card required. Every paid plan includes unlimited usage for the full billing period.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <motion.a

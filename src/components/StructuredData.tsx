@@ -29,7 +29,7 @@ export const landingPageFAQs = [
   },
   {
     question: 'How much does Naurra.ai cost?',
-    answer: 'Naurra.ai offers a free 3-day trial with no credit card required. After the trial, plans start at $79/month or $799/year (save 16%). All plans include full access to voice and chat AI, all Google Workspace integrations, and 35+ AI-powered productivity tools.'
+    answer: 'Naurra.ai offers a free 3-day trial with no credit card required. After the trial, plans start at $79/month or $799/year (save 16%). All plans include full access to voice and chat AI, all Google Workspace integrations, 35+ AI-powered productivity tools, and unlimited usage within the active billing period.'
   },
   {
     question: 'Is my data secure with Naurra.ai?',
@@ -45,7 +45,7 @@ export const landingPageFAQs = [
 export const pricingPageFAQs = [
   {
     question: 'How does the free trial work?',
-    answer: 'The 3-day free trial gives you full access to all Naurra.ai features including voice and chat AI, all Google Workspace integrations, and 35+ AI tools. No credit card is required to start. After 3 days, you can choose a monthly or yearly plan to continue.'
+    answer: 'The 3-day free trial gives you full access to all Naurra.ai features including voice and chat AI, all Google Workspace integrations, 35+ AI tools, and unlimited usage during the trial period. No credit card is required to start. After 3 days, you can choose a monthly or yearly plan to continue.'
   },
   {
     question: 'Can I cancel my subscription anytime?',
@@ -57,7 +57,7 @@ export const pricingPageFAQs = [
   },
   {
     question: 'Is there a difference between monthly and yearly plans?',
-    answer: 'Both plans include identical features — full access to voice and chat AI, all 8 Google Workspace integrations, and 35+ AI-powered tools. The yearly plan at $799/year saves you 16% compared to paying $79/month ($948/year).'
+    answer: 'Both plans include identical features — full access to voice and chat AI, all 8 Google Workspace integrations, 35+ AI-powered tools, and unlimited usage for the duration of the billing period. The yearly plan at $799/year saves you 16% compared to paying $79/month ($948/year).'
   },
   {
     question: 'Do I need a Google Workspace account?',
@@ -122,8 +122,8 @@ export function StructuredData({ type, data }: StructuredDataProps) {
       ],
       // NOTE: Only add aggregateRating when backed by real, verifiable review data.
       // Google can penalize unverified ratings in structured data.
-      description: 'Naurra.ai is the voice-first AI assistant for Google Workspace. Control Gmail, Calendar, Drive, Docs, Sheets, Meet, Tasks, and Contacts with natural voice commands or chat. 35+ pre-built AI workflows for multi-service orchestration.',
-      featureList: 'Voice-controlled email management, AI-powered calendar scheduling, Automated document creation, Smart file organization, Natural language commands, Multi-service orchestration, 35+ integrated AI tools, iOS native app',
+      description: 'Naurra.ai is the voice-first AI assistant for Google Workspace. Control Gmail, Calendar, Drive, Docs, Sheets, Meet, Tasks, and Contacts with natural voice commands or chat. 35+ pre-built AI workflows and unlimited usage within each billing period.',
+      featureList: 'Voice-controlled email management, AI-powered calendar scheduling, Automated document creation, Smart file organization, Natural language commands, Multi-service orchestration, 35+ integrated AI tools, Unlimited usage within each billing period, iOS native app',
       screenshot: 'https://naurra.ai/logo-transparent.png',
       softwareVersion: '1.0',
       downloadUrl: 'https://apps.apple.com/app/naurra-ai/id6759445443',
