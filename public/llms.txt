@@ -103,13 +103,10 @@ Naurra.ai was founded in 2025 by Thanos Panagiotakopoulos, a CEO & AI Engineer w
 ## Pages
 
 - [Homepage](https://naurra.ai/): Landing page with product overview, features, and pricing
-- [Voice AI](https://naurra.ai/voiceai): Voice AI assistant interface
-- [Chat AI](https://naurra.ai/chatai): Chat AI assistant interface
 - [Pricing](https://naurra.ai/pricing): Subscription plans and free trial details
 - [Compare](https://naurra.ai/compare): Feature comparison vs Google Assistant, Siri, and AI chatbots
 - [Custom AI Solutions](https://naurra.ai/company): Custom AI agent development, consulting, and portfolio
 - [Blog](https://naurra.ai/blog): Articles on AI productivity, automation, and business strategy
-- [Inspiration](https://naurra.ai/inspiration): Voice command examples and use cases
 - [Contact](https://naurra.ai/contact): Contact form and support
 - [Privacy Policy](https://naurra.ai/privacy): Data privacy and GDPR compliance
 - [Terms of Service](https://naurra.ai/terms): Terms and conditions
@@ -151,6 +148,10 @@ Additional resources for deeper context:
 - [How to Send Emails with Voice Commands in Gmail](https://naurra.ai/blog/how-to-send-emails-with-voice-commands-gmail): Step-by-step guide to sending, replying, and managing Gmail by voice
 - [How to Create Google Docs Without Typing](https://naurra.ai/blog/how-to-create-google-docs-without-typing): Create, dictate, and format Google Docs entirely by voice commands
 - [How to Manage Google Calendar with AI](https://naurra.ai/blog/how-to-manage-google-calendar-with-ai): Schedule meetings, check availability, and manage your calendar with AI
+- [How AI Organizes Emails, Summaries, Bulk Replies, and Meetings](https://naurra.ai/blog/how-ai-organizes-emails-summaries-bulk-replies-and-meetings): Communication workflow guide for inbox triage, bulk replies, and scheduling with AI
+- [How to Turn Emails Into Tasks, Meetings, and Docs Automatically](https://naurra.ai/blog/how-to-turn-emails-into-tasks-meetings-and-docs-automatically): Turn email threads into structured execution across tasks, meetings, and documents
+- [How to Prepare for Client Meetings with AI in Under 5 Minutes](https://naurra.ai/blog/how-to-prepare-for-client-meetings-with-ai-in-under-5-minutes): Build a fast AI-driven client meeting briefing from Gmail, Calendar, and Drive
+- [Best Google Workspace Automations for Small Business Owners](https://naurra.ai/blog/best-google-workspace-automations-for-small-business-owners): High-ROI Gmail, Calendar, Docs, Drive, and admin automations for small businesses
 - [Email Signature: Your Secret Weapon for Outreach](https://naurra.ai/blog/free-email-signature-generator-outreach): Why a professional email signature boosts reply rates by 32% and how to create one free
 - [7 Email Outreach Tips That Actually Get Replies](https://naurra.ai/blog/7-email-outreach-tips-that-actually-get-replies): Proven cold email strategies to increase reply rates from 1-5% to 15%+
 - [How AI Turns Google Sheets Into Business Intelligence](https://naurra.ai/blog/how-ai-turns-google-sheets-into-business-intelligence): How AI analyzes spreadsheets, generates strategic reports, and distributes insights automatically
