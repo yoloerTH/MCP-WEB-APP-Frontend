@@ -56,12 +56,32 @@ interface ChatInterfaceProps {
   isWaiting?: boolean
 }
 
+const STARTER_PROMPTS = [
+  {
+    title: 'Unread emails',
+    prompt: 'Give me a quick overview of my unread emails from today. Keep it short and grouped by priority.',
+  },
+  {
+    title: 'Today calendar',
+    prompt: 'Summarize my calendar for today and highlight any meetings I should prepare for.',
+  },
+  {
+    title: 'Action items',
+    prompt: 'List the top action items I should focus on today from my recent workspace activity.',
+  },
+  {
+    title: 'Draft replies',
+    prompt: 'Show me the 3 most important emails that likely need a reply today.',
+  },
+] as const
+
 export default function ChatInterface({ messages, onSendMessage, isWaiting }: ChatInterfaceProps) {
   const [input, setInput] = useState('')
   const scrollRef = useRef<HTMLDivElement>(null)
   const { personalizationData, updatePersonalization } = useAuth()
   const [activeStyle, setActiveStyle] = useState<StyleValue>('concise')
   const [isSavingStyle, setIsSavingStyle] = useState(false)
+  const hasConversation = messages.length > 0
 
   // Sync from Supabase on load
   useEffect(() => {
@@ -100,6 +120,12 @@ export default function ChatInterface({ messages, onSendMessage, isWaiting }: Ch
     setInput('')
   }
 
+  const handlePromptClick = (prompt: string) => {
+    if (isWaiting) return
+    onSendMessage(prompt)
+    setInput('')
+  }
+
   const formatTime = (date: Date) => {
     return date.toLocaleTimeString('en-US', {
       hour: '2-digit',
@@ -109,7 +135,11 @@ export default function ChatInterface({ messages, onSendMessage, isWaiting }: Ch
   }
 
   return (
-    <div className="flex flex-col h-[600px]">
+    <motion.div
+      layout
+      transition={{ type: 'spring', stiffness: 140, damping: 22 }}
+      className={`flex flex-col ${hasConversation ? 'min-h-[700px] lg:min-h-[760px]' : 'min-h-[620px] lg:min-h-[660px]'}`}
+    >
       {/* Header */}
       <div className="mb-4">
         <h3 className="text-sm font-bold text-emerald-400/80 flex items-center gap-2 tracking-wide">
@@ -125,7 +155,9 @@ export default function ChatInterface({ messages, onSendMessage, isWaiting }: Ch
       {/* Messages */}
       <div
         ref={scrollRef}
-        className="flex-1 overflow-y-auto space-y-4 bg-white/[0.02] rounded-xl p-4 border border-white/[0.06] mb-4"
+        className={`flex-1 overflow-y-auto space-y-4 bg-white/[0.02] rounded-xl border border-white/[0.06] mb-4 transition-all duration-500 ${
+          hasConversation ? 'p-5 lg:p-6' : 'p-4 lg:p-5'
+        }`}
       >
         <AnimatePresence initial={false}>
           {messages.length === 0 ? (
@@ -135,9 +167,39 @@ export default function ChatInterface({ messages, onSendMessage, isWaiting }: Ch
               transition={{ type: 'spring', stiffness: 200, damping: 20, delay: 0.1 }}
               className="flex items-center justify-center h-full text-center text-midnight-400 text-sm"
             >
-              <div>
+              <div className="w-full max-w-3xl">
                 <p className="font-medium text-emerald-400">Start a conversation</p>
-                <p className="text-xs mt-1 text-midnight-400">Type your message below</p>
+                <p className="text-xs mt-1 text-midnight-400">Try a lightweight prompt to get moving quickly</p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6 text-left">
+                  {STARTER_PROMPTS.map((item, index) => (
+                    <motion.button
+                      key={item.title}
+                      type="button"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.12 + index * 0.06, duration: 0.28 }}
+                      whileHover={{ y: -2, scale: 1.01 }}
+                      whileTap={{ scale: 0.99 }}
+                      onClick={() => handlePromptClick(item.prompt)}
+                      disabled={isWaiting}
+                      className="group rounded-2xl border border-white/[0.08] bg-white/[0.03] hover:bg-white/[0.05] hover:border-emerald-500/25 px-4 py-4 transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <div>
+                          <p className="text-sm font-semibold text-white/90">{item.title}</p>
+                          <p className="text-xs leading-relaxed text-white/45 mt-1">{item.prompt}</p>
+                        </div>
+                        <span className="shrink-0 mt-0.5 text-emerald-300/60 group-hover:text-emerald-300 transition-colors">
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M3 8h10" />
+                            <path d="M9 4l4 4-4 4" />
+                          </svg>
+                        </span>
+                      </div>
+                    </motion.button>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ) : (
@@ -258,7 +320,7 @@ export default function ChatInterface({ messages, onSendMessage, isWaiting }: Ch
               handleSend()
             }
           }}
-          placeholder="Type your message..."
+          placeholder={hasConversation ? 'Type your message...' : 'Ask Naurra about your inbox, calendar, docs, or tasks...'}
           disabled={isWaiting}
           className="flex-1 px-4 py-3 bg-white/[0.04] text-white placeholder-white/30 rounded-xl border border-white/[0.08] focus:border-emerald-500/50 focus:bg-white/[0.06] focus:outline-none transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
         />
@@ -294,6 +356,6 @@ export default function ChatInterface({ messages, onSendMessage, isWaiting }: Ch
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }

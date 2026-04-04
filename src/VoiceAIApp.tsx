@@ -621,7 +621,9 @@ function VoiceAIApp() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="w-full max-w-[1400px] px-4 relative z-10"
+        className={`w-full px-4 relative z-10 transition-all duration-500 ${
+          appMode === 'chat' ? 'max-w-[1520px]' : 'max-w-[1400px]'
+        }`}
       >
         {/* Main card with premium styling */}
         <div className="bg-white/[0.03] backdrop-blur-xl rounded-3xl shadow-[0_0_80px_-20px_rgba(16,185,129,0.15)] border border-emerald-500/10 overflow-hidden">
