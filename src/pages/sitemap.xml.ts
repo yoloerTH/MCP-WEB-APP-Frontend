@@ -20,7 +20,7 @@ const staticPages: SitemapEntry[] = [
   { loc: `${SITE_URL}/contact`, lastmod: '2026-03-20', changefreq: 'monthly', priority: '0.6' },
   { loc: `${SITE_URL}/privacy`, lastmod: '2026-03-20', changefreq: 'yearly', priority: '0.3' },
   { loc: `${SITE_URL}/terms`, lastmod: '2026-03-20', changefreq: 'yearly', priority: '0.3' },
-  { loc: `${SITE_URL}/blog`, lastmod: '2026-04-03', changefreq: 'daily', priority: '0.9' },
+  { loc: `${SITE_URL}/blog`, lastmod: '2026-04-06', changefreq: 'daily', priority: '0.9' },
   { loc: `${SITE_URL}/tools/email-signature`, lastmod: '2026-03-29', changefreq: 'monthly', priority: '0.7' }
 ]
 
