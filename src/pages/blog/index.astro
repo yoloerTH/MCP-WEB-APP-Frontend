@@ -524,6 +524,15 @@ const totalPosts = blogPosts.length
 
       // Search input handler
       if (searchInput) {
+        // Pre-fill from ?q= URL param (powers Google sitelinks searchbox)
+        var urlParams = new URLSearchParams(window.location.search);
+        var initialQuery = urlParams.get('q');
+        if (initialQuery) {
+          searchInput.value = initialQuery;
+          currentSearch = initialQuery;
+          applyFilters();
+        }
+
         searchInput.addEventListener('input', function() {
           currentSearch = this.value;
           applyFilters();

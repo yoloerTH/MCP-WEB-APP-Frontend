@@ -30,7 +30,11 @@ const articleSchema = {
   image: `https://naurra.ai${post.image}`,
   author: {
     '@type': 'Person',
-    name: post.author.name
+    name: post.author.name,
+    url: 'https://naurra.ai/company',
+    sameAs: [
+      'https://www.linkedin.com/in/athanasios-ioannis-panagiotakopoulos-2362a9274/'
+    ]
   },
   publisher: {
     '@type': 'Organization',

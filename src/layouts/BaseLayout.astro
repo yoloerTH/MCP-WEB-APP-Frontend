@@ -73,6 +73,31 @@ const fullImage = image.startsWith('http') ? image : `https://naurra.ai${image}`
     <meta property="og:image:height" content="630" />
     <meta property="og:image:type" content="image/png" />
 
+    {/* Site-wide WebSite Schema with SearchAction (enables sitelinks searchbox) */}
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Naurra.ai',
+      url: 'https://naurra.ai',
+      description: 'Voice and chat AI assistant for Google Workspace.',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: 'https://naurra.ai/blog?q={search_term_string}'
+        },
+        'query-input': 'required name=search_term_string'
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Naurra.ai',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://naurra.ai/logo-transparent.png'
+        }
+      }
+    })} />
+
     {/* Site-wide Organization Schema */}
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
