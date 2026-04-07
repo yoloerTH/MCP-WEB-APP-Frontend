@@ -12,10 +12,10 @@ interface LandingPageProps {
 
 const demoVideos = [
   {
-    id: 'JibWZQlZ2lU',
-    title: 'Inbox Triage to Meetings',
-    description: 'Watch Naurra summarize incoming emails, separate priorities, draft replies in bulk, and schedule the conversations that matter most.',
-    badge: 'Email Operations',
+    id: 'XUlh2wumNjA',
+    title: 'The Hidden Cost of NOT Using AI',
+    description: 'A sharp breakdown of how businesses lose time, leads, and momentum when repetitive work stays manual instead of AI-assisted.',
+    badge: 'AI Strategy',
     accent: 'from-emerald-500/20 to-amber-500/10',
   },
   {

@@ -5062,6 +5062,10 @@ Invisible costs are still costs. They are just harder to see. So let us make the
 
 If you want the plain-English strategic version of this argument, start with our guide to [AI for business owners](/blog/non-technical-guide-to-ai-for-business-owners).
 
+{{youtube:XUlh2wumNjA}}
+
+If you would rather watch the business case than read the full breakdown first, this video walks through the same core argument: the real cost of delaying AI adoption is usually hidden in lost time, slower operations, and opportunities your competitors capture first.
+
 ## Cost #1: The Time Tax
 
 This is the most obvious one, but most businesses dramatically underestimate it.
