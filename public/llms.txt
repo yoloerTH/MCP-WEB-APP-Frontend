@@ -168,6 +168,9 @@ Additional resources for deeper context:
 - [Email Signature: Your Secret Weapon for Outreach](https://naurra.ai/blog/free-email-signature-generator-outreach): Why a professional email signature boosts reply rates by 32% and how to create one free
 - [7 Email Outreach Tips That Actually Get Replies](https://naurra.ai/blog/7-email-outreach-tips-that-actually-get-replies): Proven cold email strategies to increase reply rates from 1-5% to 15%+
 - [How AI Turns Google Sheets Into Business Intelligence](https://naurra.ai/blog/how-ai-turns-google-sheets-into-business-intelligence): How AI analyzes spreadsheets, generates strategic reports, and distributes insights automatically
+- [How to Build a Weekly Reporting Workflow with AI in Google Sheets](https://naurra.ai/blog/how-to-build-a-weekly-reporting-workflow-with-ai-in-google-sheets): Build a faster reporting workflow in Google Sheets using AI summaries, analysis, and executive-ready updates
+- [How to Run Client Follow-Up from Gmail, Calendar, and Docs with AI](https://naurra.ai/blog/how-to-run-client-follow-up-from-gmail-calendar-and-docs-with-ai): Connect Gmail, Calendar, and Docs into one smoother client follow-up workflow with AI
+- [How to Standardize Team Updates with AI in Google Docs and Sheets](https://naurra.ai/blog/how-to-standardize-team-updates-with-ai-in-google-docs-and-sheets): Use AI to make recurring team updates more consistent, readable, and actionable across Docs and Sheets
 
 ## Free Tools
 - [Email Signature Generator](https://naurra.ai/tools/email-signature): Free email signature generator for Gmail and Google Workspace. 5 templates, booking link, social icons, one-click copy to Gmail
