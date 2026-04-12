@@ -109,7 +109,8 @@ const faqData = {
   /* Form inputs */
   .sig-input {
     width: 100%;
-    padding: 10px 14px;
+    min-height: 46px;
+    padding: 12px 14px;
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 10px;
@@ -304,10 +305,219 @@ const faqData = {
     backdrop-filter: blur(10px);
   }
 
+  .top-shell {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .sig-header {
+    padding: 32px 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .sig-nav {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .hero-section {
+    text-align: center;
+    padding: 48px 0 40px;
+  }
+
+  .feature-pills {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+
+  .surface-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+    padding: 28px;
+    backdrop-filter: blur(12px);
+  }
+
+  .field-group {
+    display: grid;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .action-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+
+  .insight-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .guide-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
   /* Responsive */
   @media (max-width: 1024px) {
     .sig-grid { flex-direction: column !important; }
     .sig-form, .sig-preview { width: 100% !important; }
+    .sig-preview > div { position: static !important; }
+    .insight-grid,
+    .guide-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .top-shell {
+      padding: 0 16px;
+    }
+
+    .sig-header {
+      padding: 20px 0 12px;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .sig-nav {
+      width: 100%;
+      gap: 10px;
+      justify-content: flex-start;
+    }
+
+    .hero-section {
+      padding: 28px 0 28px;
+      text-align: left;
+    }
+
+    .hero-section p {
+      font-size: 16px !important;
+      margin: 0 !important;
+      max-width: none !important;
+    }
+
+    .feature-pills {
+      justify-content: flex-start;
+      margin-top: 18px;
+      gap: 10px;
+    }
+
+    .sig-grid {
+      gap: 18px !important;
+      padding-bottom: 44px !important;
+    }
+
+    .sig-form {
+      order: 2;
+    }
+
+    .sig-preview {
+      order: 1;
+    }
+
+    .surface-card,
+    .insight-card {
+      padding: 18px;
+      border-radius: 18px;
+    }
+
+    #template-selector {
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 10px !important;
+    }
+
+    .field-group {
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .action-row {
+      flex-direction: column;
+      margin-bottom: 16px;
+    }
+
+    .copy-btn,
+    .action-row > a {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+    }
+
+    .preview-card {
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .sig-header img {
+      width: 32px !important;
+      height: 32px !important;
+    }
+
+    .sig-nav a {
+      font-size: 13px !important;
+    }
+
+    .hero-section h1 {
+      font-size: clamp(30px, 12vw, 42px) !important;
+      line-height: 1.02 !important;
+      margin-bottom: 14px !important;
+    }
+
+    .hero-section h1 br {
+      display: none;
+    }
+
+    .surface-card {
+      padding: 16px;
+    }
+
+    #template-selector {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    .preset-btn {
+      padding: 12px;
+    }
+
+    .color-swatch,
+    #custom-color {
+      width: 32px !important;
+      height: 32px !important;
+    }
+
+    .copy-btn {
+      padding: 13px 18px;
+    }
+
+    .toast {
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      transform: translateY(100px);
+      text-align: center;
+      padding: 14px 18px;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+    }
   }
 </style>
 
@@ -318,15 +528,15 @@ const faqData = {
     <div style="position: absolute; bottom: -10%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(245,158,11,0.04) 0%, transparent 70%); border-radius: 50%;"></div>
   </div>
 
-  <div style="position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: 0 24px;">
+  <div class="top-shell">
 
     <!-- Header -->
-    <header style="padding: 32px 0 16px; display: flex; align-items: center; justify-content: space-between;">
+    <header class="sig-header">
       <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
         <img src="/logo-transparent.png" alt="Naurra.ai" style="width: 36px; height: 36px; object-fit: contain;" />
         <span class="font-display" style="font-size: 20px; background: linear-gradient(135deg, #10b981, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Naurra.ai</span>
       </a>
-      <nav style="display: flex; gap: 24px; align-items: center;">
+      <nav class="sig-nav">
         <a href="/blog" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Blog</a>
         <a href="/pricing" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Pricing</a>
         <a href="/" style="padding: 8px 20px; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25); border-radius: 8px; color: #10b981; text-decoration: none; font-size: 13px; font-weight: 600; transition: all 0.2s;" onmouseover="this.style.background='rgba(16,185,129,0.2)'" onmouseout="this.style.background='rgba(16,185,129,0.12)'">Try Naurra Free</a>
@@ -334,7 +544,7 @@ const faqData = {
     </header>
 
     <!-- Hero Section -->
-    <section style="text-align: center; padding: 48px 0 40px;">
+    <section class="hero-section">
       <div style="display: inline-block; padding: 6px 16px; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); border-radius: 100px; margin-bottom: 20px;">
         <span style="font-size: 12px; font-weight: 600; color: #10b981; letter-spacing: 0.08em; text-transform: uppercase;">Free Tool -- No Signup Required</span>
       </div>
@@ -345,7 +555,7 @@ const faqData = {
       <p style="font-size: 18px; color: rgba(255,255,255,0.5); max-width: 560px; margin: 0 auto; line-height: 1.6; font-weight: 400;">
         Create a polished, professional signature for Gmail and Google Workspace. Pick a template, customize it, copy it. Done in 30 seconds.
       </p>
-      <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 24px;">
+      <div class="feature-pills">
         <div style="padding: 10px 14px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); font-size: 13px; color: rgba(255,255,255,0.62);">5 templates</div>
         <div style="padding: 10px 14px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); font-size: 13px; color: rgba(255,255,255,0.62);">Works with Gmail, Outlook, Apple Mail</div>
         <div style="padding: 10px 14px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); font-size: 13px; color: rgba(255,255,255,0.62);">Built for Google Workspace users</div>
@@ -357,7 +567,7 @@ const faqData = {
 
       <!-- LEFT: Form -->
       <div class="sig-form" style="width: 420px; flex-shrink: 0;">
-        <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 28px; backdrop-filter: blur(12px);">
+        <div class="surface-card">
 
           <!-- Persona Presets -->
           <div style="margin-bottom: 24px;">
@@ -425,7 +635,7 @@ const faqData = {
           <div class="section-divider"></div>
 
           <!-- Personal Info -->
-          <div style="display: grid; gap: 14px; margin-bottom: 20px;">
+          <div class="field-group">
             <div>
               <label class="sig-label">Full Name</label>
               <input class="sig-input" id="sig-name" type="text" placeholder="Sarah Chen" />
@@ -443,7 +653,7 @@ const faqData = {
           <div class="section-divider"></div>
 
           <!-- Contact Info -->
-          <div style="display: grid; gap: 14px; margin-bottom: 20px;">
+          <div class="field-group">
             <div>
               <label class="sig-label">Email</label>
               <input class="sig-input" id="sig-email" type="email" placeholder="sarah@acme.com" />
@@ -461,7 +671,7 @@ const faqData = {
           <div class="section-divider"></div>
 
           <!-- Social Links -->
-          <div style="display: grid; gap: 14px; margin-bottom: 20px;">
+          <div class="field-group">
             <div>
               <label class="sig-label">LinkedIn URL</label>
               <input class="sig-input" id="sig-linkedin" type="url" placeholder="https://linkedin.com/in/sarahchen" />
@@ -483,7 +693,7 @@ const faqData = {
           <div class="section-divider"></div>
 
           <!-- Extras -->
-          <div style="display: grid; gap: 14px; margin-bottom: 20px;">
+          <div class="field-group">
             <div>
               <label class="sig-label">Company Tagline <span style="color: rgba(255,255,255,0.25); text-transform: none; font-weight: 400;">(optional)</span></label>
               <input class="sig-input" id="sig-tagline" type="text" placeholder="Empowering businesses with AI" />
@@ -553,7 +763,7 @@ const faqData = {
           </div>
 
           <!-- Preview -->
-          <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 28px; backdrop-filter: blur(12px); margin-bottom: 20px;">
+          <div class="surface-card" style="margin-bottom: 20px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
               <label class="sig-label" style="margin-bottom: 0;">Live Preview</label>
               <span style="font-size: 11px; color: rgba(255,255,255,0.25); font-weight: 500;">Updates as you type</span>
@@ -578,12 +788,12 @@ const faqData = {
           </div>
 
           <!-- Action Buttons -->
-          <div style="display: flex; gap: 12px; margin-bottom: 20px;">
+          <div class="action-row">
             <button id="btn-copy-html" class="copy-btn copy-btn-primary" style="flex: 1;">Copy HTML Signature</button>
             <button id="btn-copy-text" class="copy-btn copy-btn-secondary">Copy Plain Text</button>
           </div>
 
-          <div style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
+          <div class="action-row">
             <button id="btn-copy-link" class="copy-btn copy-btn-secondary" type="button">Copy Tool Link</button>
             <a href="/blog/free-email-signature-generator-outreach" style="padding: 12px 18px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.78); text-decoration: none; font-size: 14px; font-weight: 600;">Read Best Practices</a>
           </div>
@@ -606,7 +816,7 @@ const faqData = {
     </section>
 
     <section style="padding: 0 0 72px;">
-      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
+      <div class="insight-grid">
         <div class="insight-card">
           <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #10b981; margin-bottom: 12px;">Templates by Use Case</div>
           <h3 style="font-family: 'Sora', sans-serif; font-size: 22px; color: #f1f5f9; margin: 0 0 12px;">Use the right signature for the right role</h3>
@@ -684,7 +894,7 @@ const faqData = {
         <h2 style="font-family: 'Sora', sans-serif; font-size: 30px; color: #f1f5f9; margin: 18px 0 10px; letter-spacing: -0.04em;">How to make your email signature work harder</h2>
         <p style="font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.56); max-width: 760px; margin: 0 auto;">A strong signature should not just look good. It should increase trust, reduce friction, and support the specific action you want the reader to take next.</p>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;">
+      <div class="guide-grid">
         <div class="insight-card">
           <h3 style="font-family: 'Sora', sans-serif; font-size: 20px; color: #f1f5f9; margin: 0 0 12px;">What to include</h3>
           <p style="font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.62); margin: 0;">Your full name, role, company, primary contact method, and one clear next step. That next step might be a website visit, a booking link, or a LinkedIn profile, but it should be intentional. Strong signatures remove uncertainty and make action easy.</p>
