@@ -21,7 +21,10 @@ const staticPages: SitemapEntry[] = [
   { loc: `${SITE_URL}/privacy`, lastmod: '2026-03-20', changefreq: 'yearly', priority: '0.3' },
   { loc: `${SITE_URL}/terms`, lastmod: '2026-03-20', changefreq: 'yearly', priority: '0.3' },
   { loc: `${SITE_URL}/blog`, lastmod: '2026-04-10', changefreq: 'daily', priority: '0.9' },
-  { loc: `${SITE_URL}/tools/email-signature`, lastmod: '2026-03-29', changefreq: 'monthly', priority: '0.7' }
+  { loc: `${SITE_URL}/tools`, lastmod: '2026-04-13', changefreq: 'weekly', priority: '0.8' },
+  { loc: `${SITE_URL}/tools/email-signature`, lastmod: '2026-03-29', changefreq: 'monthly', priority: '0.7' },
+  { loc: `${SITE_URL}/tools/mailto-link-generator`, lastmod: '2026-04-13', changefreq: 'monthly', priority: '0.7' },
+  { loc: `${SITE_URL}/tools/meeting-agenda-builder`, lastmod: '2026-04-13', changefreq: 'monthly', priority: '0.7' }
 ]
 
 function xmlEscape(value: string): string {

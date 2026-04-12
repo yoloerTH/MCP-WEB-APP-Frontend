@@ -7,7 +7,7 @@ const mediaSupabaseKey = import.meta.env.VITE_MEDIA_SUPABASE_KEY || ''
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Free Email Signature Generator",
+  "name": "Free Gmail Signature Generator",
   "url": "https://naurra.ai/tools/email-signature",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Any",
@@ -16,7 +16,7 @@ const structuredData = {
     "price": "0",
     "priceCurrency": "USD"
   },
-  "description": "Create professional email signatures for Gmail and Google Workspace. Choose from 5 templates, customize colors, add your photo or logo, and copy to clipboard.",
+  "description": "Create a free Gmail signature with professional templates, custom colors, social links, and one-click copy for Gmail and Google Workspace.",
   "creator": {
     "@type": "Organization",
     "name": "Naurra.ai",
@@ -34,6 +34,14 @@ const faqData = {
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Click 'Copy HTML' in the generator, then go to Gmail Settings > General > Signature. Click in the signature editor and paste (Ctrl+V or Cmd+V). The formatted signature will appear with all your styling intact."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this a free Gmail signature generator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can create a Gmail signature for free, choose a template, customize your details, and copy the finished HTML signature into Gmail without signing up."
       }
     },
     {
@@ -73,9 +81,9 @@ const faqData = {
 ---
 
 <BaseLayout
-  title="Free Email Signature Generator for Gmail & Google Workspace"
-  description="Create professional email signatures in seconds. 5 beautiful templates, custom colors, image upload, one-click copy to Gmail. No signup required."
-  keywords="email signature generator, Gmail signature, Google Workspace signature, free email signature maker, professional email signature, HTML email signature, business email signature"
+  title="Free Gmail Signature Generator | Professional Email Signatures"
+  description="Create a free Gmail signature in seconds. Choose a professional email signature template, customize your details, and copy it into Gmail or Google Workspace."
+  keywords="gmail signature generator, free gmail signature generator, email signature generator for gmail, gmail signature maker, professional email signature, google workspace signature, html email signature"
   url="https://naurra.ai/tools/email-signature"
   structuredData={[structuredData, faqData]}
 >
@@ -375,6 +383,19 @@ const faqData = {
     gap: 20px;
   }
 
+  .seo-copy {
+    max-width: 900px;
+    margin: 0 auto 32px;
+    color: rgba(255,255,255,0.64);
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .seo-copy strong {
+    color: #f1f5f9;
+    font-weight: 700;
+  }
+
   /* Responsive */
   @media (max-width: 1024px) {
     .sig-grid { flex-direction: column !important; }
@@ -416,6 +437,11 @@ const faqData = {
       justify-content: flex-start;
       margin-top: 18px;
       gap: 10px;
+    }
+
+    .seo-copy {
+      font-size: 15px;
+      margin-bottom: 24px;
     }
 
     .sig-grid {
@@ -537,6 +563,7 @@ const faqData = {
         <span class="font-display" style="font-size: 20px; background: linear-gradient(135deg, #10b981, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Naurra.ai</span>
       </a>
       <nav class="sig-nav">
+        <a href="/tools" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">All Tools</a>
         <a href="/blog" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Blog</a>
         <a href="/pricing" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Pricing</a>
         <a href="/" style="padding: 8px 20px; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25); border-radius: 8px; color: #10b981; text-decoration: none; font-size: 13px; font-weight: 600; transition: all 0.2s;" onmouseover="this.style.background='rgba(16,185,129,0.2)'" onmouseout="this.style.background='rgba(16,185,129,0.12)'">Try Naurra Free</a>
@@ -549,7 +576,7 @@ const faqData = {
         <span style="font-size: 12px; font-weight: 600; color: #10b981; letter-spacing: 0.08em; text-transform: uppercase;">Free Tool -- No Signup Required</span>
       </div>
       <h1 style="font-family: 'Sora', sans-serif; font-size: clamp(32px, 5vw, 52px); font-weight: 800; color: #f1f5f9; margin: 0 0 16px; line-height: 1.15; letter-spacing: -0.04em;">
-        Email Signature<br/>
+        Free Gmail Signature<br/>
         <span style="background: linear-gradient(135deg, #10b981, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Generator</span>
       </h1>
       <p style="font-size: 18px; color: rgba(255,255,255,0.5); max-width: 560px; margin: 0 auto; line-height: 1.6; font-weight: 400;">
@@ -560,6 +587,15 @@ const faqData = {
         <div style="padding: 10px 14px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); font-size: 13px; color: rgba(255,255,255,0.62);">Works with Gmail, Outlook, Apple Mail</div>
         <div style="padding: 10px 14px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); font-size: 13px; color: rgba(255,255,255,0.62);">Built for Google Workspace users</div>
       </div>
+    </section>
+
+    <section class="seo-copy">
+      <p style="margin: 0 0 14px;">
+        This <strong>free Gmail signature generator</strong> is built for people who want a cleaner, more professional signature without touching HTML. Use it to create a <strong>professional email signature for Gmail</strong>, Google Workspace, Outlook, or Apple Mail, then paste it directly into your email client.
+      </p>
+      <p style="margin: 0;">
+        If your goal is outreach, sales, consulting, or founder-led communication, pair your signature with our <a href="/blog/free-email-signature-generator-outreach" style="color: #10b981; text-decoration: none; font-weight: 600;">email signature best-practices guide</a> and our <a href="/blog/how-ai-organizes-emails-summaries-bulk-replies-and-meetings" style="color: #10b981; text-decoration: none; font-weight: 600;">AI email workflow guide</a> to turn every email into a stronger conversion touchpoint.
+      </p>
     </section>
 
     <!-- Main Tool -->
@@ -818,6 +854,12 @@ const faqData = {
     <section style="padding: 0 0 72px;">
       <div class="insight-grid">
         <div class="insight-card">
+          <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #10b981; margin-bottom: 12px;">Why This Page Exists</div>
+          <h3 style="font-family: 'Sora', sans-serif; font-size: 22px; color: #f1f5f9; margin: 0 0 12px;">Built for Gmail signature search intent</h3>
+          <p style="font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.6); margin: 0 0 14px;">Most signature tools give you a generic editor. This page is designed specifically for people searching for a Gmail signature generator, a free Gmail signature maker, or an email signature generator for Google Workspace.</p>
+          <p style="font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.46); margin: 0;">That means clean templates, copy-ready HTML, and instructions that work inside Gmail settings without extra setup.</p>
+        </div>
+        <div class="insight-card">
           <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #10b981; margin-bottom: 12px;">Templates by Use Case</div>
           <h3 style="font-family: 'Sora', sans-serif; font-size: 22px; color: #f1f5f9; margin: 0 0 12px;">Use the right signature for the right role</h3>
           <p style="font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.6); margin: 0 0 14px;">Founders benefit from a strong company name and booking CTA. Sales teams should make the next step obvious. Consultants should keep the layout cleaner and authority-driven. Creators should lean more into social proof and personal brand.</p>
@@ -841,6 +883,19 @@ const faqData = {
           <a href="/blog/how-ai-organizes-emails-summaries-bulk-replies-and-meetings" style="display: inline-flex; align-items: center; gap: 8px; color: #10b981; text-decoration: none; font-size: 14px; font-weight: 700;">Explore the workflow
             <span aria-hidden="true">→</span>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width: 980px; margin: 0 auto; padding: 0 0 72px;">
+      <div class="guide-grid">
+        <div class="insight-card">
+          <h2 style="font-family: 'Sora', sans-serif; font-size: 22px; color: #f1f5f9; margin: 0 0 12px;">Who should use this Gmail signature generator?</h2>
+          <p style="font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.62); margin: 0;">Founders, consultants, sales teams, recruiters, agencies, and creators all benefit from a professional Gmail signature. The best signature generator for Gmail is not just about formatting. It helps readers trust the sender, verify the company, and know the next action to take.</p>
+        </div>
+        <div class="insight-card">
+          <h2 style="font-family: 'Sora', sans-serif; font-size: 22px; color: #f1f5f9; margin: 0 0 12px;">What makes a good email signature for Gmail?</h2>
+          <p style="font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.62); margin: 0;">A strong Gmail signature includes your real name, title, company, email, and one intentional CTA. Keep it compact, readable, and mobile-friendly. Avoid clutter, oversized logos, and too many links. Gmail-compatible HTML works best when the structure is simple and the assets are hosted reliably.</p>
         </div>
       </div>
     </section>

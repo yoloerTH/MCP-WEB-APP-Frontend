@@ -173,4 +173,24 @@ Additional resources for deeper context:
 - [How to Standardize Team Updates with AI in Google Docs and Sheets](https://naurra.ai/blog/how-to-standardize-team-updates-with-ai-in-google-docs-and-sheets): Use AI to make recurring team updates more consistent, readable, and actionable across Docs and Sheets
 
 ## Free Tools
-- [Email Signature Generator](https://naurra.ai/tools/email-signature): Free email signature generator for Gmail and Google Workspace. 5 templates, booking link, social icons, one-click copy to Gmail
+
+Naurra.ai publishes free, search-friendly productivity tools that help users solve focused Google Workspace and communication tasks quickly. These tools are separate from the main voice and chat assistant product, but they support related workflows and top-of-funnel discovery.
+
+- [Free Tools Hub](https://naurra.ai/tools): Browse all free Google Workspace productivity tools from Naurra.ai
+- [Free Gmail Signature Generator](https://naurra.ai/tools/email-signature): Create a professional email signature with 5 templates, social icons, booking links, custom colors, image upload, and one-click copy for Gmail
+- [Mailto Link Generator](https://naurra.ai/tools/mailto-link-generator): Build pre-filled email links with subject, body, CC, and BCC for websites, newsletters, and support pages
+- [Meeting Agenda Builder](https://naurra.ai/tools/meeting-agenda-builder): Create structured meeting agendas with timed sections, attendees, and notes. Copy as formatted text or Markdown for Google Docs
+
+## Tool Use Cases
+
+- **Gmail signature creation**: Build a professional Gmail signature for founders, sales teams, consultants, recruiters, agencies, and creators
+- **Google Workspace branding**: Standardize email signatures across Google Workspace users with consistent layout, CTA structure, and contact details
+- **Email outreach optimization**: Create a cleaner signature for outbound sales, client follow-up, consulting, and booking-driven email workflows
+- **Website contact links**: Generate mailto links for contact pages, newsletter CTAs, and customer support buttons
+- **Meeting preparation**: Build structured, time-boxed agendas and share them via email or Google Calendar before meetings
+
+## Recommended Tool-Related Reading
+
+- [Email Signature: Your Secret Weapon for Outreach](https://naurra.ai/blog/free-email-signature-generator-outreach): Why a professional email signature improves trust, reply rates, and conversions
+- [How AI Organizes Emails, Summaries, Bulk Replies, and Meetings](https://naurra.ai/blog/how-ai-organizes-emails-summaries-bulk-replies-and-meetings): Communication workflow guide for inbox triage, replies, and scheduling
+- [AI Calendar Scheduling](https://naurra.ai/blog/google-calendar-ai-scheduling): How AI handles scheduling so you can focus on real work
