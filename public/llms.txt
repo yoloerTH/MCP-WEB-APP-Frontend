@@ -171,6 +171,7 @@ Additional resources for deeper context:
 - [How to Build a Weekly Reporting Workflow with AI in Google Sheets](https://naurra.ai/blog/how-to-build-a-weekly-reporting-workflow-with-ai-in-google-sheets): Build a faster reporting workflow in Google Sheets using AI summaries, analysis, and executive-ready updates
 - [How to Run Client Follow-Up from Gmail, Calendar, and Docs with AI](https://naurra.ai/blog/how-to-run-client-follow-up-from-gmail-calendar-and-docs-with-ai): Connect Gmail, Calendar, and Docs into one smoother client follow-up workflow with AI
 - [How to Standardize Team Updates with AI in Google Docs and Sheets](https://naurra.ai/blog/how-to-standardize-team-updates-with-ai-in-google-docs-and-sheets): Use AI to make recurring team updates more consistent, readable, and actionable across Docs and Sheets
+- [Best Free Google Workspace Tools for Everyday Work](https://naurra.ai/blog/best-free-google-workspace-tools-for-everyday-work): Why focused utility tools for Gmail, meetings, and Google Workspace remove friction from the small tasks that interrupt real work
 
 ## Free Tools
 
@@ -194,3 +195,4 @@ Naurra.ai publishes free, search-friendly productivity tools that help users sol
 - [Email Signature: Your Secret Weapon for Outreach](https://naurra.ai/blog/free-email-signature-generator-outreach): Why a professional email signature improves trust, reply rates, and conversions
 - [How AI Organizes Emails, Summaries, Bulk Replies, and Meetings](https://naurra.ai/blog/how-ai-organizes-emails-summaries-bulk-replies-and-meetings): Communication workflow guide for inbox triage, replies, and scheduling
 - [AI Calendar Scheduling](https://naurra.ai/blog/google-calendar-ai-scheduling): How AI handles scheduling so you can focus on real work
+- [Best Free Google Workspace Tools for Everyday Work](https://naurra.ai/blog/best-free-google-workspace-tools-for-everyday-work): A practical guide to the new tools page and the recurring Google Workspace tasks these utilities solve
