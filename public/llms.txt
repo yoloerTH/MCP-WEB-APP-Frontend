@@ -129,6 +129,7 @@ Naurra.ai was founded in 2025 by Thanos Panagiotakopoulos, a CEO & AI Engineer w
 
 Additional resources for deeper context:
 
+- [Introducing Naurra AI: One Prompt. Your Whole Workspace, Done.](https://naurra.ai/blog/introducing-naurra-ai-one-prompt-whole-workspace-done): The Naurra AI launch film and the product story behind it — why the next AI interface for work is execution, not more prompting
 - [AI Workspace Automation Guide](https://naurra.ai/blog/ai-workspace-automation-2026): Complete guide to AI-powered workspace automation in 2026
 - [Voice AI vs Traditional Assistants](https://naurra.ai/blog/voice-ai-vs-traditional-assistants): Comparison of voice AI and traditional virtual assistants
 - [Custom AI Agents for Business](https://naurra.ai/blog/custom-ai-agents-for-business): How companies are automating operations with custom AI agents

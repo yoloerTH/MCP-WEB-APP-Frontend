@@ -20,6 +20,194 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'introducing-naurra-ai-one-prompt-whole-workspace-done',
+    title: 'Introducing Naurra AI: One Prompt. Your Whole Workspace, Done.',
+    description: 'We just launched the new Naurra AI video. Here is the product story behind it, what Naurra actually does, and why we believe the next AI interface for work is execution, not more prompting.',
+    content: `
+# Introducing Naurra AI: One Prompt. Your Whole Workspace, Done.
+
+**TL;DR:** We made a launch film for Naurra AI, but the bigger point is not the video. It is the shift in how work should happen. Instead of bouncing between Gmail, Calendar, Docs, Sheets, Drive, and meetings, you should be able to say what you want once and have the work move across your workspace.
+
+{{youtube:8qqW4-ynF34}}
+
+This video is the clearest expression of what we are building at Naurra:
+
+- one prompt instead of ten tabs
+- one flow instead of five disconnected apps
+- one operator for the messy coordination layer of work
+
+If you have ever felt like AI tools are impressive in demos but still leave you doing the real work manually, this is the gap we care about most.
+
+## Why we made this launch film
+
+Most AI product videos show speed. Fewer show relief.
+
+We wanted this launch film to feel like what modern work should feel like: calm, direct, fast, and quietly powerful. Not chaotic. Not overly futuristic. Not "look what the model can say." More like:
+
+> I know what I need done. The system understood me. The work moved.
+
+That is the experience we are aiming for.
+
+The film is built around a simple idea:
+
+**Less prompting. More done.**
+
+That line is not just a slogan. It is a product test.
+
+If the user still has to babysit every step, jump between tools, and re-explain context to every system, then the AI is still acting like a clever assistant instead of a real operator.
+
+## The problem we are actually solving
+
+Most work does not break because people are bad at their jobs.
+
+It breaks in the seams:
+
+- the follow-up email that gets delayed
+- the meeting that takes six messages to schedule
+- the notes that never become an action plan
+- the document that should have existed already
+- the spreadsheet update that gets postponed until Friday night
+
+This is why we have spent so much time writing about [AI workspace automation](/blog/ai-workspace-automation-2026), [the hidden cost of not using AI](/blog/the-hidden-cost-of-not-using-ai-in-2026), and what it looks like to run a company with [fewer tabs and less manual coordination](/blog/a-day-in-the-life-solo-founder-with-ai).
+
+The real drag on modern work is not a single big task. It is the accumulated friction of dozens of small ones.
+
+## What Naurra AI is meant to do
+
+Naurra AI is built to turn natural language into action across your workspace.
+
+That means one request can trigger work across:
+
+- Gmail
+- Google Calendar
+- Google Docs
+- Google Sheets
+- Google Drive
+- meeting prep and follow-up workflows
+
+Instead of prompting an AI just to get text back, the goal is to move the actual work forward.
+
+Examples:
+
+- "Reply to the client, suggest two times next week, and create an agenda doc."
+- "Summarize today's urgent emails and draft responses for the top three."
+- "Pull the key numbers from the sheet and turn them into a clean weekly update."
+- "Prepare me for my next meeting using the email thread, the calendar event, and the latest Drive files."
+
+That is the layer we think matters most: execution across the tools where work already lives.
+
+## Why "one prompt" matters
+
+"One prompt" is not about reducing typing for the sake of it.
+
+It is about reducing context switching.
+
+When people say they are overwhelmed at work, they often mean one of three things:
+
+- there are too many decisions
+- there are too many handoffs
+- there are too many places where the work can get stuck
+
+One-prompt workflows help because they compress coordination.
+
+Instead of:
+
+1. opening Gmail
+2. checking Calendar
+3. finding the right doc
+4. creating the follow-up
+5. remembering to send it later
+
+You start with intent, and the system handles the mechanical layer.
+
+That is where the time savings come from, but it is also where the mental relief comes from.
+
+## Why this matters for founders, operators, and small teams
+
+Large companies can sometimes hide inefficiency inside headcount.
+
+Founders and lean teams cannot.
+
+If you are running a company with a small team, operational drag is not a background annoyance. It directly shapes:
+
+- how fast you respond
+- how prepared you show up
+- how many follow-ups actually happen
+- how many opportunities quietly slip
+
+That is why this launch is especially relevant for:
+
+- founders
+- operators
+- agencies
+- client-facing teams
+- small businesses using Google Workspace
+
+For these teams, the best AI is not the one with the flashiest chat window. It is the one that removes admin gravity from the day.
+
+## The product principle behind the video
+
+We think the next useful AI products will be judged less by what they can generate and more by what they can complete.
+
+That means better AI products should feel:
+
+- faster to use
+- easier to trust
+- better connected to your actual systems
+- more useful after the first prompt, not just during it
+
+The launch film tries to capture that shift visually:
+
+- a clear premium interface
+- visible movement across workspace apps
+- a sense of compounding output
+- confidence instead of noise
+
+If the future of work is real, it should look more like coordinated execution and less like chat for chat's sake.
+
+## Watch the video, then imagine your own workflow
+
+The best way to watch this launch film is not as a brand piece. Watch it as a workflow question:
+
+**What part of your workday should already be one prompt away?**
+
+For some people, it is inbox triage.
+For others, it is scheduling.
+For others, it is meeting prep, follow-up, docs, reporting, or file retrieval.
+
+If you want to go deeper after the video, these are the best next reads:
+
+- [AI Workspace Automation in 2026: The Complete Guide](/blog/ai-workspace-automation-2026)
+- [The Hidden Cost of Not Using AI in 2026](/blog/the-hidden-cost-of-not-using-ai-in-2026)
+- [A Day in the Life: How a Solo Founder Runs a Business with AI](/blog/a-day-in-the-life-solo-founder-with-ai)
+- [How to Automate Your Entire Google Workspace in 5 Minutes](/blog/automate-google-workspace-in-5-minutes)
+
+## Final thought
+
+The point of Naurra AI is not to create another place where work gets discussed.
+
+It is to create a system where work actually moves.
+
+That is what this video is about.
+That is what the product is about.
+And that is the standard we want to keep building toward.
+
+If you want to see whether Naurra fits how your team works, explore the [pricing page](/pricing), compare it against other approaches on [/compare](/compare), or [contact us](/contact) for a more tailored walkthrough.
+    `,
+    author: {
+      name: 'Thanos Panagiotakopoulos',
+      avatar: '/ceo-thanos.jpg'
+    },
+    publishedAt: '2026-04-15',
+    updatedAt: '2026-04-15',
+    category: 'Product Updates',
+    tags: ['Product Launch', 'AI Workspace', 'Google Workspace', 'Productivity', 'Startup'],
+    featured: true,
+    image: '/blog/naurra-ai-launch-film-workspace-automation.png',
+    readingTime: 6,
+    keywords: 'Naurra AI launch, Naurra AI video, AI workspace launch, one prompt whole workspace, AI workspace automation, Google Workspace AI, startup launch video, AI operator for work, productivity AI launch'
+  },
+  {
     slug: 'ai-workspace-automation-2026',
     title: 'AI Workspace Automation in 2026: The Complete Guide',
     description: 'Discover how AI is transforming Google Workspace productivity. Learn the latest automation techniques, tools, and strategies that save 15+ hours per week.',

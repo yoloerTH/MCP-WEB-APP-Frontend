@@ -288,6 +288,24 @@ export default function BlogPostPage() {
           </ol>
         )
       }
+      // YouTube embed {{youtube:VIDEO_ID}}
+      else if (line.trim().match(/^\{\{youtube:([^}]+)\}\}$/)) {
+        const videoId = line.trim().match(/^\{\{youtube:([^}]+)\}\}$/)?.[1] || ''
+        elements.push(
+          <div key={key++} className="my-10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-emerald-500/5">
+            <div className="relative pt-[56.25%] h-0 overflow-hidden">
+              <iframe
+                src={`https://www.youtube.com/embed/${videoId}`}
+                title="YouTube video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="absolute top-0 left-0 w-full h-full border-0"
+              />
+            </div>
+          </div>
+        )
+        i++
+      }
       // Paragraph
       else if (line.trim() && !line.startsWith('#')) {
         elements.push(
