@@ -101,6 +101,22 @@ const faqSchema = post.isPillar ? (() => {
   }
 })() : null
 
+// HowTo schema for step-by-step tool posts (opt-in via post.howTo)
+const howToSchema = post.howTo ? {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: post.howTo.name,
+  description: post.howTo.description || post.description,
+  image: `https://naurra.ai${post.image}`,
+  ...(post.howTo.totalTime ? { totalTime: post.howTo.totalTime } : {}),
+  step: post.howTo.steps.map((s, idx) => ({
+    '@type': 'HowToStep',
+    position: idx + 1,
+    name: s.name,
+    text: s.text
+  }))
+} : null
+
 const formattedDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
   month: 'long',
   day: 'numeric',
@@ -292,7 +308,7 @@ const renderedContent = markdownToHtml(post.content)
   type="article"
   publishedTime={post.publishedAt}
   modifiedTime={post.updatedAt}
-  structuredData={[breadcrumbSchema, articleSchema, ...(faqSchema ? [faqSchema] : [])]}
+  structuredData={[breadcrumbSchema, articleSchema, ...(faqSchema ? [faqSchema] : []), ...(howToSchema ? [howToSchema] : [])]}
 >
   <div class="min-h-screen bg-[#0a0e1a] text-white overflow-x-hidden">
 

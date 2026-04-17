@@ -16,6 +16,12 @@ export interface BlogPost {
   image: string
   readingTime: number // in minutes
   keywords: string
+  howTo?: {
+    name: string
+    description?: string
+    totalTime?: string // ISO 8601 duration, e.g. 'PT1M'
+    steps: Array<{ name: string; text: string }>
+  }
 }
 
 export const blogPosts: BlogPost[] = [
@@ -3680,14 +3686,24 @@ If you're considering custom AI for your business, start here:
 
 At [Naurra.ai](/company), we build custom AI agents for businesses across industries. Every project in our portfolio was architected and delivered end-to-end — no templates, no shortcuts.
 
-**[Get a free consultation →](/contact)** — Tell us about your workflow and we'll give you an honest assessment of how AI can help.
+**[Get a free consultation →](/contact)** -- Tell us about your workflow and we'll give you an honest assessment of how AI can help.
+
+---
+
+## Going Deeper on Custom AI Agents
+
+If you want to keep reading, these companion posts go deeper on specific questions we hear most often:
+
+- **[Custom AI agents for small business: what they do and when to build one](/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one)** -- the small-business lens on scope, timing, and first projects that actually pay back.
+- **[How much do custom AI agents cost? Real pricing ranges for small business](/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business)** -- honest pricing ranges, what drives cost up or down, and how to budget your first build.
+- **[Custom AI agents vs. off-the-shelf AI: which one does your business need?](/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need)** -- when to buy, when to build, and the hybrid path most businesses actually end up on.
 `,
     author: {
       name: 'Thanos Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-03-20',
-    updatedAt: '2026-04-03',
+    updatedAt: '2026-04-18',
     category: 'Industry Insights',
     tags: ['AI Agents', 'Business Automation', 'Custom AI', 'Case Studies', 'ROI'],
     featured: true,
@@ -9501,6 +9517,19 @@ If you want the full automation layer on top, [try Naurra free for 3 days](/pric
     category: 'Productivity',
     tags: ['Gmail', 'Email Signature', 'Free Tools', 'Google Workspace'],
     featured: true,
+    howTo: {
+      name: 'How to create a clean Gmail signature in 60 seconds',
+      description: 'Use the free Naurra Gmail signature generator to build a branded HTML signature and paste it into Gmail -- no signup, no watermark.',
+      totalTime: 'PT1M',
+      steps: [
+        { name: 'Open the generator', text: 'Go to naurra.ai/tools/email-signature in your browser. No signup is required.' },
+        { name: 'Fill in your details', text: 'Enter your name, role, company, phone, email, and website. A live preview renders as you type.' },
+        { name: 'Add a photo or logo', text: 'Upload a square photo or your company logo. The tool crops and resizes it automatically for Gmail.' },
+        { name: 'Add a CTA link', text: 'Add an optional call to action such as "Book a meeting" or "See our work" pointing to your most valuable link.' },
+        { name: 'Pick a layout', text: 'Choose from the prebuilt layouts. Each one is tested to render reliably in Gmail on desktop and mobile.' },
+        { name: 'Copy and paste into Gmail', text: 'Click Copy Signature, then in Gmail open Settings, Signature, paste, and save. Your new signature is live on your next email.' }
+      ]
+    },
     image: '/blog/free-gmail-signature-generator-create-a-clean-signature-in-60-seconds.png',
     readingTime: 6,
     keywords: 'gmail signature generator, free gmail signature generator, gmail signature creator, signature creator for gmail, gmail email signature generator, free gmail signature, gmail signature maker, google workspace signature generator'
@@ -9804,7 +9833,20 @@ It pairs well with the rest of our [free Google Workspace tools](/tools). And if
     featured: true,
     image: '/blog/meeting-agenda-maker-how-to-build-agendas-that-keep-meetings-on-track.png',
     readingTime: 7,
-    keywords: 'meeting agenda maker, agenda builder, meeting agenda builder, free meeting agenda maker, meeting agenda template, how to build a meeting agenda, meeting agenda generator, team meeting agenda'
+    keywords: 'meeting agenda maker, agenda builder, meeting agenda builder, free meeting agenda maker, meeting agenda template, how to build a meeting agenda, meeting agenda generator, team meeting agenda',
+    howTo: {
+      name: 'How to build a meeting agenda that keeps meetings on track',
+      description: 'Use the free Naurra meeting agenda builder to draft a structured agenda with objectives, time budgets, decisions, and action items in under two minutes.',
+      totalTime: 'PT2M',
+      steps: [
+        { name: 'Open the agenda builder', text: 'Go to naurra.ai/tools/meeting-agenda-builder. No signup is required.' },
+        { name: 'Define the meeting goal', text: 'Write a concrete objective, for example "Approve the Q3 launch timeline," not a vague topic like "align on roadmap."' },
+        { name: 'Add attendees and roles', text: 'List who is attending and assign owners for each agenda item so accountability is clear before the meeting starts.' },
+        { name: 'Add topics with time budgets', text: 'Add each discussion topic with a time budget so the first topic does not eat the whole meeting.' },
+        { name: 'Name decisions and action items', text: 'Flag which items are decisions vs. discussion, and leave a block for action items with owner and due date.' },
+        { name: 'Export or share the agenda', text: 'Copy the agenda or export to Google Docs, then paste into the calendar invite so attendees see it before the call.' }
+      ]
+    }
   },
   {
     slug: 'custom-ai-agents-for-small-business-what-they-do-when-to-build-one',
