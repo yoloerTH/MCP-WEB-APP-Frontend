@@ -173,6 +173,12 @@ Additional resources for deeper context:
 - [How to Run Client Follow-Up from Gmail, Calendar, and Docs with AI](https://naurra.ai/blog/how-to-run-client-follow-up-from-gmail-calendar-and-docs-with-ai): Connect Gmail, Calendar, and Docs into one smoother client follow-up workflow with AI
 - [How to Standardize Team Updates with AI in Google Docs and Sheets](https://naurra.ai/blog/how-to-standardize-team-updates-with-ai-in-google-docs-and-sheets): Use AI to make recurring team updates more consistent, readable, and actionable across Docs and Sheets
 - [Best Free Google Workspace Tools for Everyday Work](https://naurra.ai/blog/best-free-google-workspace-tools-for-everyday-work): Why focused utility tools for Gmail, meetings, and Google Workspace remove friction from the small tasks that interrupt real work
+- [Free Gmail Signature Generator: Create a Clean Signature in 60 Seconds](https://naurra.ai/blog/free-gmail-signature-generator-create-a-clean-signature-in-60-seconds): Step-by-step guide to building a professional Gmail signature in under a minute using the free generator
+- [Free Gmail Signature Templates: 5 Clean Layouts That Work in Gmail](https://naurra.ai/blog/free-gmail-signature-templates-clean-layouts-that-work-in-gmail): Five Gmail signature templates for founders, sales reps, agencies, creators, and executives, with guidance on when to use each
+- [Meeting Agenda Maker: How to Build Agendas That Keep Meetings on Track](https://naurra.ai/blog/meeting-agenda-maker-how-to-build-agendas-that-keep-meetings-on-track): Practical guide to structuring weekly syncs, one-on-ones, client calls, kickoffs, and decision meetings using the free agenda builder
+- [Custom AI Agents for Small Business: What They Do and When to Build One](https://naurra.ai/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one): Plain-English guide to custom AI agents for small business — which workflows to automate first and how small teams deploy them
+- [How Much Do Custom AI Agents Cost? Real Pricing Ranges for 2026](https://naurra.ai/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business): Honest pricing ranges for custom AI agent projects by scope, with cost drivers and ROI math
+- [Custom AI Agents vs Off-the-Shelf AI: Which One Does Your Business Need?](https://naurra.ai/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need): Decision framework for choosing between custom AI agents and off-the-shelf SaaS AI tools for a given workflow
 
 ## Free Tools
 

@@ -13,14 +13,14 @@ type SitemapEntry = {
 }
 
 const staticPages: SitemapEntry[] = [
-  { loc: `${SITE_URL}/`, lastmod: '2026-04-03', changefreq: 'weekly', priority: '1.0' },
-  { loc: `${SITE_URL}/company`, lastmod: '2026-04-03', changefreq: 'monthly', priority: '0.9' },
+  { loc: `${SITE_URL}/`, lastmod: '2026-04-18', changefreq: 'weekly', priority: '1.0' },
+  { loc: `${SITE_URL}/company`, lastmod: '2026-04-18', changefreq: 'monthly', priority: '0.9' },
   { loc: `${SITE_URL}/pricing`, lastmod: '2026-04-03', changefreq: 'monthly', priority: '0.8' },
   { loc: `${SITE_URL}/compare`, lastmod: '2026-04-03', changefreq: 'monthly', priority: '0.8' },
   { loc: `${SITE_URL}/contact`, lastmod: '2026-03-20', changefreq: 'monthly', priority: '0.6' },
   { loc: `${SITE_URL}/privacy`, lastmod: '2026-03-20', changefreq: 'yearly', priority: '0.3' },
   { loc: `${SITE_URL}/terms`, lastmod: '2026-03-20', changefreq: 'yearly', priority: '0.3' },
-  { loc: `${SITE_URL}/blog`, lastmod: '2026-04-15', changefreq: 'daily', priority: '0.9' },
+  { loc: `${SITE_URL}/blog`, lastmod: '2026-04-18', changefreq: 'daily', priority: '0.9' },
   { loc: `${SITE_URL}/tools`, lastmod: '2026-04-13', changefreq: 'weekly', priority: '0.8' },
   { loc: `${SITE_URL}/tools/email-signature`, lastmod: '2026-04-13', changefreq: 'monthly', priority: '0.7' },
   { loc: `${SITE_URL}/tools/mailto-link-generator`, lastmod: '2026-04-13', changefreq: 'monthly', priority: '0.7' },
