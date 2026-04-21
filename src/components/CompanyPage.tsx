@@ -421,7 +421,7 @@ export default function CompanyPage() {
               className="flex items-center gap-3 mb-10"
             >
               <div className="h-px flex-1 max-w-[60px] bg-gradient-to-r from-emerald-500 to-transparent" />
-              <span className="text-emerald-400 text-xs uppercase tracking-[0.25em] font-semibold">Naurra AI Solutions</span>
+              <span className="text-emerald-400 text-xs uppercase tracking-[0.25em] font-semibold">Custom AI Agents for Small Business</span>
             </motion.div>
 
             <motion.h1
@@ -445,7 +445,7 @@ export default function CompanyPage() {
               transition={{ duration: 0.6, delay: 0.25 }}
               className="text-lg lg:text-xl text-gray-400 max-w-2xl leading-relaxed mb-12"
             >
-              We build AI systems that replace the repetitive, time-consuming work your team does every day — custom-engineered for your specific workflows, not generic templates.
+              We build <strong className="text-gray-200 font-semibold">custom AI agents</strong> for small business — quoting systems, custom CRMs, sales and support automation, and Google Workspace workflows. Purpose-engineered for your exact process, not generic templates.
             </motion.p>
 
             {/* Proof ticker — scrolling examples of what we automate */}
@@ -1094,6 +1094,68 @@ export default function CompanyPage() {
                   )}
                 </AnimatePresence>
               </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* Further Reading — topical cluster links                     */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      <section className="relative py-20 lg:py-24 border-t border-white/[0.04]">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} className="mb-12">
+            <span className="text-emerald-400 text-xs uppercase tracking-[0.25em] font-semibold">Further Reading</span>
+            <h2 className="text-3xl lg:text-4xl font-display font-extrabold mt-3">
+              Thinking about a{' '}
+              <span className="bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">custom AI build</span>?
+            </h2>
+            <p className="text-gray-400 mt-4 max-w-2xl">
+              Before we scope a project, most founders want to understand the landscape. These guides cover cost, timelines, what to automate first, and when custom beats off-the-shelf.
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              {
+                href: '/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one',
+                title: 'Custom AI Agents for Small Business: What They Do and When to Build One',
+                description: 'A plain-English guide to which workflows are worth automating and how small teams deploy agents without a six-figure budget.',
+              },
+              {
+                href: '/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business',
+                title: 'How Much Do Custom AI Agents Cost?',
+                description: 'Real pricing ranges for small business custom AI builds — what drives cost, what to expect, and how to scope a first project.',
+              },
+              {
+                href: '/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need',
+                title: 'Custom AI Agents vs Off-the-Shelf AI',
+                description: 'When a generic tool is enough, when you need a custom agent, and the decision framework we walk every new client through.',
+              },
+              {
+                href: '/blog/best-google-workspace-automations-for-small-business-owners',
+                title: 'Best Google Workspace Automations for Small Business Owners',
+                description: 'The highest-leverage Gmail, Calendar, Drive and Docs automations — which ones are worth off-the-shelf and which need a custom agent.',
+              },
+            ].map((post, i) => (
+              <motion.a
+                key={post.href}
+                href={post.href}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.4, delay: i * 0.06 }}
+                whileHover={{ y: -3 }}
+                className="group block bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] hover:border-emerald-500/30 rounded-2xl p-6 transition-all"
+              >
+                <h3 className="text-lg lg:text-xl font-display font-bold text-white group-hover:text-emerald-300 transition-colors mb-2 leading-snug">
+                  {post.title}
+                </h3>
+                <p className="text-gray-400 text-sm leading-relaxed mb-4">{post.description}</p>
+                <span className="text-emerald-400 text-xs uppercase tracking-[0.2em] font-semibold inline-flex items-center gap-2">
+                  Read guide
+                  <svg className="w-3 h-3 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14m-6-6l6 6-6 6"/></svg>
+                </span>
+              </motion.a>
             ))}
           </div>
         </div>

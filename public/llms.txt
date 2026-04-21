@@ -1,6 +1,6 @@
 # Naurra.ai
 
-> Naurra.ai is the voice-first AI assistant for Google Workspace. It lets users control Gmail, Calendar, Drive, Docs, Sheets, Meet, Tasks, and Contacts through natural voice commands or chat — replacing manual clicks with conversation. Naurra.ai also builds custom AI agents and automation solutions for businesses across industries.
+> Naurra.ai helps people and businesses save hours every week on Gmail, Google Calendar and Google Workspace. The product is a voice-first AI that runs Gmail, Calendar, Drive, Docs, Sheets, Meet, Tasks, and Contacts through natural voice commands or chat — replacing manual clicks with one prompt. Naurra.ai also builds custom AI agents for small business, including custom CRMs, AI quoting systems, sales and support automation, and Google Workspace workflows, with fixed-price engagements typically delivered in 4–8 weeks.
 
 ## What Naurra.ai Does
 
@@ -54,17 +54,18 @@ Key differentiator: Naurra.ai performs multi-service orchestration — one voice
 
 All plans include full voice and chat AI, all 8 Google Workspace integrations, 35+ AI tools, and unlimited usage within the active billing period.
 
-## Custom AI Solutions for Business
+## Custom AI Solutions for Small Business
 
-Naurra.ai also builds custom AI agents, workflow automation, and intelligent systems for businesses. Services include:
+Naurra.ai builds custom AI agents for small business — purpose-engineered software that automates the workflows your team does manually every day. Common engagements:
 
-- **Custom AI Agent Development**: Purpose-built AI agents that automate specific business operations
-- **Workflow Automation**: End-to-end automation of manual processes using AI
+- **Custom AI Agent Development**: Purpose-built AI agents for a specific business operation (quoting, lead intake, invoice triage, reporting)
+- **Custom CRM + AI Quoting Systems**: Lightweight custom CRMs with AI-powered quote generation that reads inbound leads, pulls pricing from your source of truth, drafts a branded quote in your voice, and logs everything in one dashboard
+- **Workflow Automation**: End-to-end automation of manual processes across Gmail, Google Calendar, Drive, Docs, Sheets, Slack, WhatsApp and CRMs
 - **AI Chatbot Development**: Customer-facing and internal chatbots with natural language understanding
-- **AI Consulting**: Strategy and implementation guidance for businesses adopting AI
-- **System Integration**: Connecting AI with existing tools like Salesforce, Slack, WhatsApp, CRMs, and legacy systems
+- **AI Consulting**: Strategy and implementation guidance for small businesses adopting AI
+- **System Integration**: Connecting AI with existing tools like Salesforce, Slack, WhatsApp, custom CRMs, and legacy systems
 
-Projects are typically delivered within 4-8 weeks with fixed-price engagements. Industries served include HVAC, legal, automotive, travel, fashion, e-commerce, wellness, and more.
+Typical pricing for small business custom AI builds: $5,000–$25,000 fixed-price, with ongoing AI and hosting costs of $150–$500/month. Most projects are delivered in 4–8 weeks. Industries served include HVAC, legal, automotive, travel, fashion, e-commerce, wellness, and more.
 
 Founded by Thanos Panagiotakopoulos (CEO & AI Engineer), who personally delivers every project. Contact support@naurra.ai or visit https://naurra.ai/contact for a free consultation.
 
@@ -179,6 +180,8 @@ Additional resources for deeper context:
 - [Custom AI Agents for Small Business: What They Do and When to Build One](https://naurra.ai/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one): Plain-English guide to custom AI agents for small business — which workflows to automate first and how small teams deploy them
 - [How Much Do Custom AI Agents Cost? Real Pricing Ranges for 2026](https://naurra.ai/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business): Honest pricing ranges for custom AI agent projects by scope, with cost drivers and ROI math
 - [Custom AI Agents vs Off-the-Shelf AI: Which One Does Your Business Need?](https://naurra.ai/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need): Decision framework for choosing between custom AI agents and off-the-shelf SaaS AI tools for a given workflow
+- [How to Use an AI Agent to Build a Custom CRM and Quoting System for a Small Business](https://naurra.ai/blog/ai-agent-custom-crm-quoting-system-small-business): Practical walkthrough of how small businesses replace spreadsheet CRMs and manual quoting with a custom AI agent — what it does, what it costs ($8K–$20K), and how fast it ships (4–6 weeks)
+- [How to Create a Mailto Link That Actually Converts](https://naurra.ai/blog/how-to-create-mailto-link-that-actually-converts): Copywriting rules and code examples for building mailto links that get clicked and replied to, with a free mailto link generator
 
 ## Free Tools
 
