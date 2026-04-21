@@ -5,6 +5,10 @@ export default defineConfig({
   integrations: [react()],
   output: 'static',
   site: 'https://naurra.ai',
+  trailingSlash: 'always',
+  build: {
+    format: 'directory',
+  },
   vite: {
     ssr: {
       noExternal: ['react-helmet-async'],

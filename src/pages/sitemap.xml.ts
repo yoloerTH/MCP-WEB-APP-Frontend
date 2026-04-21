@@ -14,17 +14,17 @@ type SitemapEntry = {
 
 const staticPages: SitemapEntry[] = [
   { loc: `${SITE_URL}/`, lastmod: '2026-04-21', changefreq: 'weekly', priority: '1.0' },
-  { loc: `${SITE_URL}/company`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.9' },
-  { loc: `${SITE_URL}/pricing`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.8' },
-  { loc: `${SITE_URL}/compare`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.8' },
-  { loc: `${SITE_URL}/contact`, lastmod: '2026-03-20', changefreq: 'monthly', priority: '0.6' },
-  { loc: `${SITE_URL}/privacy`, lastmod: '2026-03-20', changefreq: 'yearly', priority: '0.3' },
-  { loc: `${SITE_URL}/terms`, lastmod: '2026-03-20', changefreq: 'yearly', priority: '0.3' },
-  { loc: `${SITE_URL}/blog`, lastmod: '2026-04-21', changefreq: 'daily', priority: '0.9' },
-  { loc: `${SITE_URL}/tools`, lastmod: '2026-04-21', changefreq: 'weekly', priority: '0.8' },
-  { loc: `${SITE_URL}/tools/email-signature`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.7' },
-  { loc: `${SITE_URL}/tools/mailto-link-generator`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.7' },
-  { loc: `${SITE_URL}/tools/meeting-agenda-builder`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.7' }
+  { loc: `${SITE_URL}/company/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.9' },
+  { loc: `${SITE_URL}/pricing/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.8' },
+  { loc: `${SITE_URL}/compare/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.8' },
+  { loc: `${SITE_URL}/contact/`, lastmod: '2026-03-20', changefreq: 'monthly', priority: '0.6' },
+  { loc: `${SITE_URL}/privacy/`, lastmod: '2026-03-20', changefreq: 'yearly', priority: '0.3' },
+  { loc: `${SITE_URL}/terms/`, lastmod: '2026-03-20', changefreq: 'yearly', priority: '0.3' },
+  { loc: `${SITE_URL}/blog/`, lastmod: '2026-04-21', changefreq: 'daily', priority: '0.9' },
+  { loc: `${SITE_URL}/tools/`, lastmod: '2026-04-21', changefreq: 'weekly', priority: '0.8' },
+  { loc: `${SITE_URL}/tools/email-signature/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.7' },
+  { loc: `${SITE_URL}/tools/mailto-link-generator/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.7' },
+  { loc: `${SITE_URL}/tools/meeting-agenda-builder/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.7' }
 ]
 
 function xmlEscape(value: string): string {
@@ -38,7 +38,7 @@ function xmlEscape(value: string): string {
 
 export const GET: APIRoute = () => {
   const blogEntries: SitemapEntry[] = blogPosts.map((post) => ({
-    loc: `${SITE_URL}/blog/${post.slug}`,
+    loc: `${SITE_URL}/blog/${post.slug}/`,
     lastmod: post.updatedAt || post.publishedAt,
     changefreq: 'monthly',
     priority: post.featured ? '0.9' : '0.8'

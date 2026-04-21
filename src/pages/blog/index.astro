@@ -7,7 +7,7 @@ const breadcrumbSchema = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://naurra.ai/' },
-    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://naurra.ai/blog' }
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://naurra.ai/blog/' }
   ]
 }
 
@@ -16,13 +16,13 @@ const blogCollectionSchema = {
   '@type': 'CollectionPage',
   name: 'Naurra.ai Blog',
   description: 'AI workspace automation insights, voice AI tutorials, and productivity guides from Naurra.ai.',
-  url: 'https://naurra.ai/blog',
+  url: 'https://naurra.ai/blog/',
   mainEntity: {
     '@type': 'ItemList',
     itemListElement: blogPosts.slice(0, 20).map((post, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      url: `https://naurra.ai/blog/${post.slug}`,
+      url: `https://naurra.ai/blog/${post.slug}/`,
       name: post.title
     }))
   }
@@ -39,7 +39,7 @@ const totalPosts = blogPosts.length
   title="Blog - Naurra.ai | AI Workspace Automation Insights & Tutorials"
   description="Explore expert articles on AI workspace automation, productivity tips, Google Workspace optimization, and voice AI tutorials. Stay ahead with Naurra.ai's latest insights."
   keywords="AI blog, workspace automation articles, productivity tips, Google Workspace tutorials, voice AI guides, AI assistant insights"
-  url="https://naurra.ai/blog"
+  url="https://naurra.ai/blog/"
   structuredData={[breadcrumbSchema, blogCollectionSchema]}
 >
   <div class="min-h-screen bg-[#0a0e1a] text-white overflow-hidden">
