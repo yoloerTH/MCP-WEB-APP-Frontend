@@ -601,7 +601,7 @@ const faqData = {
     </section>
 
     <!-- Main Tool -->
-    <section class="sig-grid" style="display: flex; gap: 32px; padding-bottom: 64px; align-items: flex-start;">
+    <section id="signature-generator" class="sig-grid" style="display: flex; gap: 32px; padding-bottom: 64px; align-items: flex-start;">
 
       <!-- LEFT: Form -->
       <div class="sig-form" style="width: 420px; flex-shrink: 0;">
@@ -961,6 +961,95 @@ const faqData = {
           <p style="font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.62); margin: 0;">Do not overload your signature with too many links, oversized logos, or vague slogans. The best signatures feel clear and credible. They support communication instead of competing with it.</p>
         </div>
       </div>
+    </section>
+
+    <!-- Long-form Guide -->
+    <section style="max-width: 820px; margin: 0 auto; padding: 24px 20px 96px;">
+      <article style="color: rgba(255,255,255,0.78); font-size: 16px; line-height: 1.85;">
+        <div style="text-align: center; margin-bottom: 40px;">
+          <div style="display: inline-block; padding: 6px 14px; border-radius: 999px; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.16); color: #10b981; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">Complete Guide</div>
+          <h2 style="font-family: 'Sora', sans-serif; font-size: 36px; color: #f1f5f9; margin: 20px 0 12px; letter-spacing: -0.04em; line-height: 1.15;">How to Create a Professional Gmail Signature in 2026</h2>
+          <p style="font-size: 17px; color: rgba(255,255,255,0.56); max-width: 680px; margin: 0 auto;">Everything you need to build a Gmail signature that renders correctly, earns trust, and drives the next action — without paying for a signature tool.</p>
+        </div>
+
+        <p>A well-built Gmail signature is one of the highest-leverage pieces of real estate in your professional toolkit. Every email you send — replies, cold outreach, internal notes, client threads — carries it. A clean signature reinforces credibility. A sloppy one silently undercuts every message.</p>
+        <p>The challenge is that Gmail handles signatures in a quirky way. HTML support is partial. Images break unpredictably. What looks perfect on desktop often falls apart on mobile. This guide walks through the rules that matter, the mistakes to avoid, and how to use our <a href="#signature-generator" style="color: #10b981; font-weight: 600;">free Gmail signature generator</a> above to ship a signature that works everywhere in under two minutes.</p>
+
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 24px; color: #f1f5f9; margin: 40px 0 14px; letter-spacing: -0.03em;">Why most Gmail signatures look broken</h3>
+        <p>If you have ever pasted a signature from Word, Canva, or another email signature maker into Gmail and watched it implode, the cause is almost always the same: Gmail strips modern CSS. It renders table-based HTML the way Outlook 2003 does. Flexbox, grid, and most positioning rules are removed. Images without explicit width and height attributes shift around. External CSS stylesheets are discarded.</p>
+        <p>The fix is to use table-based layouts with inline styles, host images at stable public URLs, and keep the total height under 150 pixels so mobile clients do not chop the signature in half. Our generator does all of this for you. Every template is built from bulletproof HTML tables that have been tested in Gmail, Google Workspace, Outlook (desktop and web), Apple Mail, Yahoo Mail, and the iOS and Android Gmail apps.</p>
+
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 24px; color: #f1f5f9; margin: 40px 0 14px; letter-spacing: -0.03em;">The anatomy of a signature that converts</h3>
+        <p>A signature is a micro-landing-page. Treat it that way. The elements that belong, in order of importance:</p>
+        <ul style="padding-left: 22px; margin: 0 0 20px;">
+          <li style="margin-bottom: 10px;"><strong style="color: #f1f5f9;">Name and title.</strong> Full name, job title, company. Non-negotiable. This is the identity layer.</li>
+          <li style="margin-bottom: 10px;"><strong style="color: #f1f5f9;">One primary contact.</strong> Direct phone or booking link. Pick one. Listing five phone numbers tells the recipient you do not know how to be reached.</li>
+          <li style="margin-bottom: 10px;"><strong style="color: #f1f5f9;">A single next action.</strong> "Book a 15-minute call," "See portfolio," "Read case study." One CTA outperforms five links in every test I have seen.</li>
+          <li style="margin-bottom: 10px;"><strong style="color: #f1f5f9;">Logo or headshot.</strong> Not both. A logo signals brand; a headshot signals humanity. Pick based on the relationship you want to build.</li>
+          <li style="margin-bottom: 10px;"><strong style="color: #f1f5f9;">Social or portfolio links.</strong> Only those you actually maintain. A dead Twitter link is worse than no link.</li>
+          <li style="margin-bottom: 10px;"><strong style="color: #f1f5f9;">Legal or compliance text.</strong> If required by your industry (finance, legal, healthcare), keep it small and grayed out so it does not dominate.</li>
+        </ul>
+        <p>Everything else — motivational quotes, stock iconography, "save the earth, do not print this email" disclaimers — adds visual weight without adding value.</p>
+
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 24px; color: #f1f5f9; margin: 40px 0 14px; letter-spacing: -0.03em;">Signature templates by role</h3>
+        <p>Different roles need different signatures. The structure our generator produces adapts to each.</p>
+        <p><strong style="color: #f1f5f9;">Executives and founders.</strong> Keep it minimal. Name, title, company, one link (usually the company site or a calendar). The authority is implicit; you do not need to oversell.</p>
+        <p><strong style="color: #f1f5f9;">Sales and account executives.</strong> Add a calendar booking link as the primary CTA. Phone number visible. Company tagline optional. Goal: reduce the friction of "let's book a call" to a single click.</p>
+        <p><strong style="color: #f1f5f9;">Customer support and success.</strong> Include a help center link and a direct support channel. Add business hours if the team is not 24/7. Signatures here are part of the support experience, not decoration.</p>
+        <p><strong style="color: #f1f5f9;">Freelancers and consultants.</strong> Portfolio link is the primary CTA. Headshot over logo. Relevant social handle (Dribbble, GitHub, LinkedIn) based on your craft.</p>
+        <p><strong style="color: #f1f5f9;">Agencies and service businesses.</strong> Logo, team member name, role, and a case study or portfolio link. Keep the agency brand consistent across all team signatures — a mismatched set of signatures is one of the fastest ways to look unprofessional.</p>
+
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 24px; color: #f1f5f9; margin: 40px 0 14px; letter-spacing: -0.03em;">Gmail signature image sizes that actually work</h3>
+        <p>Images are where Gmail signatures most often break. A few rules that have held up across thousands of signatures:</p>
+        <ul style="padding-left: 22px; margin: 0 0 20px;">
+          <li style="margin-bottom: 10px;"><strong style="color: #f1f5f9;">Headshots:</strong> square, 120×120 pixels rendered, 2× resolution source (240×240) for Retina. PNG or JPG.</li>
+          <li style="margin-bottom: 10px;"><strong style="color: #f1f5f9;">Logos:</strong> horizontal, max 200 pixels wide, max 60 pixels tall. PNG with transparent background if your signature sits on anything other than pure white.</li>
+          <li style="margin-bottom: 10px;"><strong style="color: #f1f5f9;">Social icons:</strong> 20–24 pixel square, PNG. Any bigger and they dominate the signature.</li>
+          <li style="margin-bottom: 10px;"><strong style="color: #f1f5f9;">Total file size:</strong> under 200KB for the whole signature combined. Heavy signatures trigger Gmail's "clipped message" warning and get truncated.</li>
+          <li style="margin-bottom: 10px;"><strong style="color: #f1f5f9;">Hosting:</strong> images must be publicly accessible at a stable URL. Images pasted from your clipboard may appear to work in your own Gmail but will render as broken for recipients. Our generator hosts uploaded images on our CDN so they display everywhere.</li>
+        </ul>
+
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 24px; color: #f1f5f9; margin: 40px 0 14px; letter-spacing: -0.03em;">How to install your signature in Gmail (desktop)</h3>
+        <ol style="padding-left: 22px; margin: 0 0 20px;">
+          <li style="margin-bottom: 10px;">Click <strong style="color: #f1f5f9;">Copy HTML Signature</strong> in the generator above.</li>
+          <li style="margin-bottom: 10px;">In Gmail, click the gear icon, then <strong style="color: #f1f5f9;">See all settings</strong>.</li>
+          <li style="margin-bottom: 10px;">Scroll to the <strong style="color: #f1f5f9;">Signature</strong> section in the General tab.</li>
+          <li style="margin-bottom: 10px;">Click <strong style="color: #f1f5f9;">Create new</strong>, name your signature, and paste into the editor with Cmd+V (Mac) or Ctrl+V (Windows).</li>
+          <li style="margin-bottom: 10px;">Set it as the default for new emails and replies.</li>
+          <li style="margin-bottom: 10px;">Scroll down and click <strong style="color: #f1f5f9;">Save Changes</strong>. Gmail does not auto-save this page.</li>
+        </ol>
+        <p>Send yourself a test email to verify it renders correctly. Then send one from your phone to double-check mobile rendering. Signatures that look fine on desktop sometimes collapse awkwardly in narrow mobile viewports.</p>
+
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 24px; color: #f1f5f9; margin: 40px 0 14px; letter-spacing: -0.03em;">Gmail signature on mobile (iOS and Android)</h3>
+        <p>The mobile Gmail apps on iOS and Android use a separate, text-only signature by default. If you want your full HTML signature on mobile, the cleanest approach is to set your desktop signature and disable the mobile one — Gmail on mobile will then pull in your desktop signature when sending from a browser or when the account is configured correctly. For purely native mobile sending, most teams accept a stripped-down text signature and reserve the rich version for desktop replies, where the majority of deliberate outreach happens anyway.</p>
+
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 24px; color: #f1f5f9; margin: 40px 0 14px; letter-spacing: -0.03em;">Common mistakes to avoid</h3>
+        <ul style="padding-left: 22px; margin: 0 0 20px;">
+          <li style="margin-bottom: 10px;"><strong style="color: #f1f5f9;">Too many fonts.</strong> Pick one. Two at most. Mixing Arial, Times, and a custom font in the same signature reads as amateur.</li>
+          <li style="margin-bottom: 10px;"><strong style="color: #f1f5f9;">Low-contrast gray text.</strong> Signatures get read on every device from e-ink to OLED. Aim for WCAG AA contrast minimum on the important information.</li>
+          <li style="margin-bottom: 10px;"><strong style="color: #f1f5f9;">Copying from Word or Canva.</strong> Those exports include bloated markup that Gmail strips inconsistently. Use an HTML generator designed for email.</li>
+          <li style="margin-bottom: 10px;"><strong style="color: #f1f5f9;">Broken image hosts.</strong> Images hosted on Dropbox, Google Drive, or free image hosts frequently stop rendering. Use a dedicated signature image host.</li>
+          <li style="margin-bottom: 10px;"><strong style="color: #f1f5f9;">Forgetting to test replies.</strong> Gmail threads signatures differently on replies than on new emails. Test both.</li>
+          <li style="margin-bottom: 10px;"><strong style="color: #f1f5f9;">Legal boilerplate longer than the email.</strong> If your legal team insists, use small font and gray color so it does not overwhelm the core signature.</li>
+        </ul>
+
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 24px; color: #f1f5f9; margin: 40px 0 14px; letter-spacing: -0.03em;">Make your signature part of a larger workflow</h3>
+        <p>The signature is one tile in your email operating system. Once yours is dialed in, the next high-leverage moves are automating the emails themselves — scheduling follow-ups, drafting replies in your voice, triaging inbox noise. That is exactly what <a href="/" style="color: #10b981; font-weight: 600;">Naurra</a> does for Gmail and Google Workspace: one voice or chat request handles sending, scheduling, drafting agendas, and creating docs across your whole workspace.</p>
+        <p>And if you need more free email utilities, try the <a href="/tools/mailto-link-generator/" style="color: #10b981; font-weight: 600;">free mailto link generator</a> to build pre-filled email links for your site, or the <a href="/tools/meeting-agenda-builder/" style="color: #10b981; font-weight: 600;">meeting agenda builder</a> to structure your next call. All of them are free, no signup required.</p>
+
+        <h3 style="font-family: 'Sora', sans-serif; font-size: 24px; color: #f1f5f9; margin: 40px 0 14px; letter-spacing: -0.03em;">Further reading</h3>
+        <ul style="padding-left: 22px; margin: 0 0 20px;">
+          <li style="margin-bottom: 8px;"><a href="/blog/gmail-signature-generator-create-a-professional-signature-in-minutes/" style="color: #10b981;">Full guide: creating a professional Gmail signature in minutes</a></li>
+          <li style="margin-bottom: 8px;"><a href="/blog/free-google-workspace-tools/" style="color: #10b981;">The complete set of free Google Workspace tools</a></li>
+          <li style="margin-bottom: 8px;"><a href="/blog/how-to-turn-emails-into-tasks-meetings-and-docs-automatically/" style="color: #10b981;">Turn emails into tasks, meetings, and docs automatically</a></li>
+        </ul>
+
+        <div style="margin-top: 48px; padding: 28px 32px; border-radius: 16px; background: linear-gradient(135deg, rgba(16,185,129,0.08) 0%, rgba(251,191,36,0.06) 100%); border: 1px solid rgba(16,185,129,0.2); text-align: center;">
+          <p style="margin: 0 0 14px; color: rgba(255,255,255,0.9); font-size: 18px; font-weight: 600;">Ready to build your signature?</p>
+          <p style="margin: 0 0 18px; color: rgba(255,255,255,0.6); font-size: 15px;">Pick a template above, fill in your details, and copy the HTML. No signup. No watermark. Works in Gmail, Outlook, and every major client.</p>
+          <a href="#signature-generator" style="display: inline-block; padding: 12px 24px; border-radius: 10px; background: linear-gradient(135deg, #10b981, #059669); color: white; font-weight: 700; text-decoration: none; font-size: 15px;">Open the Signature Generator</a>
+        </div>
+      </article>
     </section>
 
     <!-- Footer -->

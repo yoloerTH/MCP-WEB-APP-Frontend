@@ -9703,7 +9703,9 @@ Pair it with the rest of our [free Google Workspace tools](/tools) for the small
     content: `
 # Meeting Agenda Maker: How to Build Agendas That Keep Meetings on Track
 
-**TL;DR:** Most meetings go sideways because nobody wrote a proper agenda. Our [free meeting agenda builder](/tools/meeting-agenda-builder) gives you a clean, timed, action-item-ready structure in under a minute. This guide covers what belongs in every agenda, which format to use for which meeting type, and how to keep the call from drifting.
+**TL;DR:** Most meetings go sideways because nobody wrote a proper agenda. Our [free meeting agenda builder](/tools/meeting-agenda-builder/) gives you a clean, timed, action-item-ready structure in under a minute. This guide covers what belongs in every agenda, which format to use for which meeting type, and how to keep the call from drifting.
+
+> **Want to skip straight to the tool?** [Open the free Meeting Agenda Builder](/tools/meeting-agenda-builder/) and have a structured, timed agenda in under two minutes. No signup. This guide is the background — the tool does the work.
 
 Almost every unproductive meeting has the same root cause: the agenda was missing, vague, or written five minutes before the call.
 
@@ -9819,9 +9821,9 @@ If you are running a lot of meetings in a given week, the real leverage is strin
 
 No signup. No account. No upsell.
 
-[Open the meeting agenda builder](/tools/meeting-agenda-builder) and build your next agenda in under two minutes.
+**→ [Open the free Meeting Agenda Builder](/tools/meeting-agenda-builder/)** and build your next agenda in under two minutes. Pick the meeting type, add attendees, set time budgets, and copy the finished agenda straight into your calendar invite.
 
-It pairs well with the rest of our [free Google Workspace tools](/tools). And if you want the full automation layer around your meetings, [try Naurra free for 3 days](/pricing).
+It pairs well with the rest of our [free Google Workspace tools](/tools/). And if you want the full automation layer around your meetings — scheduling, briefing, agendas, and follow-ups from a single voice request — [try Naurra free for 3 days](/pricing/).
     `,
     author: {
       name: 'Thanos Panagiotakopoulos',
