@@ -9,7 +9,7 @@ const structuredData = {
   "@type": "WebApplication",
   "name": "Free Gmail Signature Generator & Creator",
   "alternateName": ["Gmail Signature Creator", "Signature Creator for Gmail", "Gmail Signature Maker", "Email Signature Generator"],
-  "url": "https://naurra.ai/tools/email-signature",
+  "url": "https://naurra.ai/tools/email-signature/",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Any",
   "offers": {
@@ -565,9 +565,9 @@ const faqData = {
         <span class="font-display" style="font-size: 20px; background: linear-gradient(135deg, #10b981, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Naurra.ai</span>
       </a>
       <nav class="sig-nav">
-        <a href="/tools" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">All Tools</a>
-        <a href="/blog" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Blog</a>
-        <a href="/pricing" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Pricing</a>
+        <a href="/tools/" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">All Tools</a>
+        <a href="/blog/" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Blog</a>
+        <a href="/pricing/" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Pricing</a>
         <a href="/" style="padding: 8px 20px; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25); border-radius: 8px; color: #10b981; text-decoration: none; font-size: 13px; font-weight: 600; transition: all 0.2s;" onmouseover="this.style.background='rgba(16,185,129,0.2)'" onmouseout="this.style.background='rgba(16,185,129,0.12)'">Try Naurra Free</a>
       </nav>
     </header>
@@ -793,7 +793,7 @@ const faqData = {
                   Next step: paste it into Gmail, then let Naurra.ai help you automate the emails you send, the follow-ups you track, and the meetings you book.
                 </div>
                 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                  <a href="/pricing" style="padding: 10px 16px; border-radius: 10px; background: linear-gradient(135deg, #10b981, #059669); color: white; text-decoration: none; font-size: 13px; font-weight: 700;">Try Naurra Free</a>
+                  <a href="/pricing/" style="padding: 10px 16px; border-radius: 10px; background: linear-gradient(135deg, #10b981, #059669); color: white; text-decoration: none; font-size: 13px; font-weight: 700;">Try Naurra Free</a>
                   <a href="/blog/how-ai-organizes-emails-summaries-bulk-replies-and-meetings" style="padding: 10px 16px; border-radius: 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: #f1f5f9; text-decoration: none; font-size: 13px; font-weight: 600;">See AI Email Workflow</a>
                 </div>
               </div>
@@ -1649,7 +1649,7 @@ const faqData = {
   })
 
   document.getElementById('btn-copy-link').addEventListener('click', async () => {
-    const link = 'https://naurra.ai/tools/email-signature'
+    const link = 'https://naurra.ai/tools/email-signature/'
     try {
       await navigator.clipboard.writeText(link)
       showToast('Tool link copied')

@@ -6,8 +6,8 @@ const breadcrumbSchema = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://naurra.ai/' },
-    { '@type': 'ListItem', position: 2, name: 'Free Tools', item: 'https://naurra.ai/tools' },
-    { '@type': 'ListItem', position: 3, name: 'Meeting Agenda Builder', item: 'https://naurra.ai/tools/meeting-agenda-builder' }
+    { '@type': 'ListItem', position: 2, name: 'Free Tools', item: 'https://naurra.ai/tools/' },
+    { '@type': 'ListItem', position: 3, name: 'Meeting Agenda Builder', item: 'https://naurra.ai/tools/meeting-agenda-builder/' }
   ]
 }
 
@@ -16,7 +16,7 @@ const structuredData = {
   '@type': 'WebApplication',
   name: 'Free Meeting Agenda Builder & Maker',
   alternateName: ['Meeting Agenda Maker', 'Agenda Creator', 'AI Meeting Agenda Generator'],
-  url: 'https://naurra.ai/tools/meeting-agenda-builder',
+  url: 'https://naurra.ai/tools/meeting-agenda-builder/',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Any',
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
@@ -419,9 +419,9 @@ const faqData = {
         <span class="font-display" style="font-size: 20px; background: linear-gradient(135deg, #10b981, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Naurra.ai</span>
       </a>
       <nav style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap; justify-content: flex-end;">
-        <a href="/tools" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">All Tools</a>
-        <a href="/blog" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Blog</a>
-        <a href="/pricing" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Pricing</a>
+        <a href="/tools/" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">All Tools</a>
+        <a href="/blog/" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Blog</a>
+        <a href="/pricing/" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Pricing</a>
         <a href="/" style="padding: 8px 20px; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.25); border-radius: 8px; color: #10b981; text-decoration: none; font-size: 13px; font-weight: 600; transition: all 0.2s;" onmouseover="this.style.background='rgba(16,185,129,0.2)'" onmouseout="this.style.background='rgba(16,185,129,0.12)'">Try Naurra Free</a>
       </nav>
     </header>
@@ -620,7 +620,7 @@ const faqData = {
       <p style="font-size: 16px; color: rgba(255,255,255,0.5); max-width: 480px; margin: 0 auto 24px; line-height: 1.6;">This tool builds one agenda. <a href="/voiceai" style="color: #10b981; text-decoration: none; font-weight: 600;">Naurra</a> creates agendas, sends them to attendees, and sets up your calendar with a single voice command.</p>
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
         <a href="/" style="padding: 14px 28px; background: linear-gradient(135deg, #10b981, #059669); color: white; border-radius: 12px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 20px rgba(16,185,129,0.3);">Try Naurra Free</a>
-        <a href="/tools" style="padding: 14px 28px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); border-radius: 12px; text-decoration: none; font-weight: 600;">More free tools</a>
+        <a href="/tools/" style="padding: 14px 28px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); border-radius: 12px; text-decoration: none; font-weight: 600;">More free tools</a>
       </div>
     </section>
 
@@ -628,10 +628,10 @@ const faqData = {
     <footer style="border-top: 1px solid rgba(75,85,99,0.5); padding: 24px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
       <p style="font-size: 13px; color: rgba(255,255,255,0.3);">&copy; 2026 Naurra.ai</p>
       <div style="display: flex; gap: 20px;">
-        <a href="/privacy" style="font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none;">Privacy</a>
-        <a href="/terms" style="font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none;">Terms</a>
-        <a href="/tools" style="font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none;">All Tools</a>
-        <a href="/blog" style="font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none;">Blog</a>
+        <a href="/privacy/" style="font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none;">Privacy</a>
+        <a href="/terms/" style="font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none;">Terms</a>
+        <a href="/tools/" style="font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none;">All Tools</a>
+        <a href="/blog/" style="font-size: 13px; color: rgba(255,255,255,0.3); text-decoration: none;">Blog</a>
       </div>
     </footer>
   </div>

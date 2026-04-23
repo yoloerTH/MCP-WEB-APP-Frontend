@@ -217,8 +217,8 @@ export default function ComparePage() {
             </span>
           </a>
           <div className="flex items-center gap-5">
-            <a href="/pricing" className="text-sm text-gray-400 hover:text-emerald-300 transition-colors" style={{ fontFamily: 'Outfit, sans-serif' }}>Pricing</a>
-            <a href="/blog" className="text-sm text-gray-400 hover:text-emerald-300 transition-colors" style={{ fontFamily: 'Outfit, sans-serif' }}>Blog</a>
+            <a href="/pricing/" className="text-sm text-gray-400 hover:text-emerald-300 transition-colors" style={{ fontFamily: 'Outfit, sans-serif' }}>Pricing</a>
+            <a href="/blog/" className="text-sm text-gray-400 hover:text-emerald-300 transition-colors" style={{ fontFamily: 'Outfit, sans-serif' }}>Blog</a>
             <a href="/" className="text-sm text-emerald-300 hover:text-emerald-200 transition-colors">
               &larr; Home
             </a>
@@ -508,7 +508,7 @@ export default function ComparePage() {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <motion.a
-                  href="/pricing"
+                  href="/pricing/"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                   className="px-8 py-3.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 inline-block"

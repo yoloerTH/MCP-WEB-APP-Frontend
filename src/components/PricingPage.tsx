@@ -411,7 +411,7 @@ export default function PricingPage() {
           <p className="text-center mt-8 text-gray-500 text-sm">
             Still have questions?{' '}
             <a
-              href="/contact"
+              href="/contact/"
               className="text-emerald-400 hover:text-emerald-300 transition-colors underline"
             >
               Contact our team

@@ -83,7 +83,7 @@ export function StructuredData({ type, data }: StructuredDataProps) {
         '@type': 'ContactPoint',
         contactType: 'Customer Support',
         email: 'support@naurra.ai',
-        url: 'https://naurra.ai/contact'
+        url: 'https://naurra.ai/contact/'
       },
       sameAs: [
         'https://www.linkedin.com/company/109405415',
@@ -108,7 +108,7 @@ export function StructuredData({ type, data }: StructuredDataProps) {
           priceCurrency: 'USD',
           priceValidUntil: '2027-12-31',
           availability: 'https://schema.org/InStock',
-          url: 'https://naurra.ai/pricing'
+          url: 'https://naurra.ai/pricing/'
         },
         {
           '@type': 'Offer',
@@ -117,7 +117,7 @@ export function StructuredData({ type, data }: StructuredDataProps) {
           priceCurrency: 'USD',
           priceValidUntil: '2027-12-31',
           availability: 'https://schema.org/InStock',
-          url: 'https://naurra.ai/pricing'
+          url: 'https://naurra.ai/pricing/'
         }
       ],
       // NOTE: Only add aggregateRating when backed by real, verifiable review data.

@@ -395,7 +395,7 @@ export default function CompanyPage() {
             {[{ label: 'Product', href: '/' }, { label: 'Pricing', href: '/pricing' }, { label: 'Blog', href: '/blog' }, { label: 'Contact', href: '/contact' }].map((link) => (
               <a key={link.label} href={link.href} className="text-sm text-gray-400 hover:text-emerald-400 transition-colors">{link.label}</a>
             ))}
-            <motion.a href="/contact" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white text-sm font-semibold rounded-xl shadow-lg shadow-emerald-500/25 transition-all">
+            <motion.a href="/contact/" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white text-sm font-semibold rounded-xl shadow-lg shadow-emerald-500/25 transition-all">
               Get a Free Consultation
             </motion.a>
           </div>
@@ -484,7 +484,7 @@ export default function CompanyPage() {
               className="flex flex-col sm:flex-row items-start gap-4"
             >
               <motion.a
-                href="/contact"
+                href="/contact/"
                 whileHover={{ scale: 1.03, boxShadow: '0 20px 60px rgba(16, 185, 129, 0.35)' }}
                 whileTap={{ scale: 0.98 }}
                 className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-semibold rounded-xl shadow-lg shadow-emerald-500/30 transition-all text-lg inline-block"
@@ -707,7 +707,7 @@ export default function CompanyPage() {
             className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-5"
           >
             <a
-              href="/pricing"
+              href="/pricing/"
               className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-semibold rounded-xl shadow-lg shadow-emerald-500/25 transition-all text-base"
             >
               View Pricing
@@ -1177,7 +1177,7 @@ export default function CompanyPage() {
                 Tell us about your business challenge. We'll respond within 24 hours with an honest assessment of how AI can help.
               </p>
               <motion.a
-                href="/contact"
+                href="/contact/"
                 whileHover={{ scale: 1.03, boxShadow: '0 25px 70px rgba(16, 185, 129, 0.4)' }}
                 whileTap={{ scale: 0.98 }}
                 className="px-10 py-5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white text-lg font-bold rounded-xl shadow-lg shadow-emerald-500/30 transition-all inline-block"

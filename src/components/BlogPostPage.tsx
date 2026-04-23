@@ -44,7 +44,7 @@ export default function BlogPostPage() {
       return { text, id }
     })
 
-  const shareUrl = `https://naurra.ai/blog/${post.slug}`
+  const shareUrl = `https://naurra.ai/blog/${post.slug}/`
   const shareTitle = post.title
 
   const handleShare = (platform: string) => {
@@ -341,8 +341,8 @@ export default function BlogPostPage() {
       <StructuredData type="breadcrumb" data={{
         items: [
           { name: 'Home', url: 'https://naurra.ai/' },
-          { name: 'Blog', url: 'https://naurra.ai/blog' },
-          { name: post.title, url: `https://naurra.ai/blog/${post.slug}` }
+          { name: 'Blog', url: 'https://naurra.ai/blog/' },
+          { name: post.title, url: `https://naurra.ai/blog/${post.slug}/` }
         ]
       }} />
       <StructuredData type="article" data={{
@@ -351,7 +351,7 @@ export default function BlogPostPage() {
         image: `https://naurra.ai${post.image}`,
         publishedAt: post.publishedAt,
         updatedAt: post.updatedAt,
-        url: `https://naurra.ai/blog/${post.slug}`
+        url: `https://naurra.ai/blog/${post.slug}/`
       }} />
 
       {/* Reading Progress Bar */}

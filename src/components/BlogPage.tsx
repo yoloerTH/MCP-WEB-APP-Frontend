@@ -51,7 +51,7 @@ export default function BlogPage() {
       <StructuredData type="breadcrumb" data={{
         items: [
           { name: 'Home', url: 'https://naurra.ai/' },
-          { name: 'Blog', url: 'https://naurra.ai/blog' }
+          { name: 'Blog', url: 'https://naurra.ai/blog/' }
         ]
       }} />
 

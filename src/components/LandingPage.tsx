@@ -1666,21 +1666,21 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
             <div className="text-center md:text-right">
               <div className="flex items-center justify-center md:justify-end gap-4 text-xs">
                 <a
-                  href="/privacy"
+                  href="/privacy/"
                   className="text-gray-500 hover:text-emerald-400 transition-colors underline"
                 >
                   Privacy Policy
                 </a>
                 <span className="text-gray-700">•</span>
                 <a
-                  href="/terms"
+                  href="/terms/"
                   className="text-gray-500 hover:text-emerald-400 transition-colors underline"
                 >
                   Terms of Service
                 </a>
                 <span className="text-gray-700">•</span>
                 <a
-                  href="/contact"
+                  href="/contact/"
                   className="text-amber-400 hover:text-amber-300 transition-colors underline font-semibold"
                 >
                   Contact Us
