@@ -135,7 +135,7 @@ Additional resources for deeper context:
 - [Voice AI vs Traditional Assistants](https://naurra.ai/blog/voice-ai-vs-traditional-assistants): Comparison of voice AI and traditional virtual assistants
 - [Custom AI Agents for Business](https://naurra.ai/blog/custom-ai-agents-for-business): How companies are automating operations with custom AI agents
 - [AI Agent vs Chatbot](https://naurra.ai/blog/ai-agent-vs-chatbot-what-your-business-actually-needs): What businesses actually need — AI agents or chatbots
-- [Gmail Automation Tips](https://naurra.ai/blog/gmail-automation-tips): 10 Gmail automation tips that save hours
+- [Gmail Automation Tips](https://naurra.ai/blog/gmail-automation-tips): 10 Gmail automation tips that save hours, including a video demo of sending Gmail emails by voice with Naurra AI
 - [Google Workspace Voice Commands Guide](https://naurra.ai/blog/google-workspace-voice-commands-guide): Complete guide to voice commands for Google Workspace
 - [AI for Small Business](https://naurra.ai/blog/small-business-ai-automation): How small businesses save 20+ hours per week with AI
 - [Is AI Safe for Business Data?](https://naurra.ai/blog/is-ai-safe-for-your-business-data): Security and privacy considerations for business AI
@@ -182,6 +182,18 @@ Additional resources for deeper context:
 - [Custom AI Agents vs Off-the-Shelf AI: Which One Does Your Business Need?](https://naurra.ai/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need): Decision framework for choosing between custom AI agents and off-the-shelf SaaS AI tools for a given workflow
 - [How to Use an AI Agent to Build a Custom CRM and Quoting System for a Small Business](https://naurra.ai/blog/ai-agent-custom-crm-quoting-system-small-business): Practical walkthrough of how small businesses replace spreadsheet CRMs and manual quoting with a custom AI agent — what it does, what it costs ($8K–$20K), and how fast it ships (4–6 weeks)
 - [How to Create a Mailto Link That Actually Converts](https://naurra.ai/blog/how-to-create-mailto-link-that-actually-converts): Copywriting rules and code examples for building mailto links that get clicked and replied to, with a free mailto link generator
+
+## Video Library
+
+Official Naurra.ai product videos, each embedded inside a related blog post with VideoObject schema for search and AI discovery:
+
+- [Introducing Naurra AI — Launch Film](https://www.youtube.com/watch?v=8qqW4-ynF34): Product launch film — one prompt, your whole workspace, done. Embedded in [the launch post](https://naurra.ai/blog/introducing-naurra-ai-one-prompt-whole-workspace-done)
+- [Send Emails by Voice in Gmail with Naurra AI](https://www.youtube.com/watch?v=MLr0y_LceKE): Voice-to-email demo inside Gmail. Embedded in [10 Gmail Automation Tips](https://naurra.ai/blog/gmail-automation-tips)
+- [How AI Turns Google Sheets Into Business Intelligence](https://www.youtube.com/watch?v=6B5IjfLaLxg): Spreadsheet analysis and reporting demo. Embedded in [the Sheets BI post](https://naurra.ai/blog/how-ai-turns-google-sheets-into-business-intelligence)
+- [How AI Organizes Emails, Summaries, Bulk Replies and Meetings](https://www.youtube.com/watch?v=JibWZQlZ2lU): Gmail triage and bulk reply workflow demo. Embedded in [the email organization post](https://naurra.ai/blog/how-ai-organizes-emails-summaries-bulk-replies-and-meetings)
+- [The Hidden Cost of Not Using AI in 2026](https://www.youtube.com/watch?v=XUlh2wumNjA): Business case walkthrough. Embedded in [the hidden-cost post](https://naurra.ai/blog/the-hidden-cost-of-not-using-ai-in-2026)
+
+All videos are available at [@naurra_ai on YouTube](https://www.youtube.com/@naurra_ai).
 
 ## Free Tools
 

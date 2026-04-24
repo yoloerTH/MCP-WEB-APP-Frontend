@@ -661,8 +661,8 @@ Ready to experience Voice AI? [Try Naurra.ai free for 3 days](/pricing).
   },
   {
     slug: 'gmail-automation-tips',
-    title: '10 Gmail Automation Tips That Will Save You Hours',
-    description: 'Master Gmail automation with these expert tips. Learn how to use AI to manage emails, create smart filters, and achieve inbox zero effortlessly.',
+    title: '10 Gmail Automation Tips That Will Save You Hours (with Voice Demo)',
+    description: 'Master Gmail automation with expert tips and a hands-on video demo of sending Gmail emails by voice. Learn how to use AI to triage, reply, schedule, and reach inbox zero effortlessly.',
     content: `
 # 10 Gmail Automation Tips That Will Save You Hours
 
@@ -711,6 +711,21 @@ This works best for straightforward messages:
 - internal coordination
 
 **Time saved:** 2-3 minutes per email multiplied across the day adds up fast.
+
+### Watch: Sending Gmail emails by voice with Naurra AI
+
+See voice-powered email sending in action. In this short demo, Naurra AI drafts and sends a Gmail message end-to-end from a single spoken command — no typing, no clicking Compose, no switching tabs. This is exactly the workflow tip #2 describes.
+
+{{youtube:MLr0y_LceKE}}
+
+**What the video shows:**
+
+- Speaking a natural-language command like "Send an email to [recipient] about [topic]"
+- Naurra AI drafting the message with proper tone and context
+- Voice confirmation before sending, so nothing goes out unreviewed
+- The full send happening inside Gmail, not in a separate app
+
+If you want the deeper breakdown of the full Gmail workflow — triage, summaries, bulk replies, and meeting handoff — read [how AI organizes emails, summaries, bulk replies, and meetings](/blog/how-ai-organizes-emails-summaries-bulk-replies-and-meetings).
 
 ## 3. Automate categorization and labeling intelligently
 
@@ -879,13 +894,13 @@ Email doesn't have to be overwhelming. With the right automation strategy, you c
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-01-25',
-    updatedAt: '2026-04-03',
+    updatedAt: '2026-04-24',
     category: 'Tutorials',
-    tags: ['Gmail', 'Email Automation', 'Productivity', 'Tips'],
+    tags: ['Gmail', 'Email Automation', 'Productivity', 'Tips', 'Voice AI'],
     featured: false,
     image: '/blog/how-ai-organizes-emails-summaries-bulk-replies-and-meetings.png',
-    readingTime: 10,
-    keywords: 'Gmail automation tips, Gmail AI automation, email management AI, inbox zero automation, Gmail productivity hacks, automate Gmail workflow, AI email triage, Gmail follow up automation'
+    readingTime: 11,
+    keywords: 'Gmail automation tips, Gmail AI automation, send email by voice Gmail, voice email Gmail, email management AI, inbox zero automation, Gmail productivity hacks, automate Gmail workflow, AI email triage, Gmail follow up automation, Naurra AI Gmail demo'
   },
   {
     slug: 'google-calendar-ai-scheduling',
