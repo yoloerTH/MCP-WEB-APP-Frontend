@@ -72,7 +72,7 @@ export const GET: APIRoute = () => {
       <video:description>${xmlEscape(v.description)}</video:description>
       <video:content_loc>https://www.youtube.com/watch?v=${xmlEscape(v.videoId)}</video:content_loc>
       <video:player_loc allow_embed="yes">https://www.youtube.com/embed/${xmlEscape(v.videoId)}</video:player_loc>
-      <video:publication_date>${xmlEscape(v.publishedAt)}</video:publication_date>
+      <video:publication_date>${xmlEscape(v.publishedAt)}T09:00:00+00:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
       <video:requires_subscription>no</video:requires_subscription>
       <video:live>no</video:live>

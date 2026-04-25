@@ -115,7 +115,7 @@ const videoSchemas = uniqueVideoIds.map((videoId, idx) => ({
     `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`,
     `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
   ],
-  uploadDate: post.publishedAt,
+  uploadDate: `${post.publishedAt}T09:00:00+00:00`,
   contentUrl: `https://www.youtube.com/watch?v=${videoId}`,
   embedUrl: `https://www.youtube.com/embed/${videoId}`,
   publisher: {
