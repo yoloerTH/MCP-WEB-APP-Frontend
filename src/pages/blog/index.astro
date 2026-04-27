@@ -40,6 +40,12 @@ const totalPosts = blogPosts.length
   description="Explore expert articles on AI workspace automation, productivity tips, Google Workspace optimization, and voice AI tutorials. Stay ahead with Naurra.ai's latest insights."
   keywords="AI blog, workspace automation articles, productivity tips, Google Workspace tutorials, voice AI guides, AI assistant insights"
   url="https://naurra.ai/blog/"
+  lang="en"
+  alternates={[
+    { hreflang: 'en', href: 'https://naurra.ai/blog/' },
+    { hreflang: 'x-default', href: 'https://naurra.ai/blog/' },
+    { hreflang: 'el', href: 'https://naurra.ai/el/blog/' }
+  ]}
   structuredData={[breadcrumbSchema, blogCollectionSchema]}
 >
   <div class="min-h-screen bg-[#0a0e1a] text-white overflow-hidden">
@@ -64,6 +70,21 @@ const totalPosts = blogPosts.length
           </span>
         </a>
         <div class="flex items-center gap-4">
+          <div class="relative" data-lang-switcher>
+            <button type="button" data-lang-toggle class="text-sm text-gray-300 hover:text-emerald-200 transition-colors flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/10 hover:border-emerald-500/30 bg-white/5">
+              <span aria-hidden="true">🇬🇧</span>
+              <span>EN</span>
+              <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div data-lang-menu class="hidden absolute right-0 mt-2 w-44 bg-[#0f172a] border border-white/10 rounded-xl shadow-xl overflow-hidden z-50">
+              <a href="/blog/" class="flex items-center gap-2 px-4 py-2.5 text-sm text-emerald-300 bg-emerald-500/5">
+                <span aria-hidden="true">🇬🇧</span><span>English</span>
+              </a>
+              <a href="/el/blog/" hreflang="el" class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                <span aria-hidden="true">🇬🇷</span><span>Ελληνικά</span>
+              </a>
+            </div>
+          </div>
           <a href="/contact/" class="text-sm text-amber-400 hover:text-amber-300 transition-colors font-semibold">
             Contact
           </a>
@@ -420,6 +441,23 @@ const totalPosts = blogPosts.length
   </div>
 
   <!-- Search & Filter Script (vanilla JS) -->
+  <script is:inline>
+    (function() {
+      var wrap = document.querySelector('[data-lang-switcher]');
+      if (!wrap) return;
+      var toggle = wrap.querySelector('[data-lang-toggle]');
+      var menu = wrap.querySelector('[data-lang-menu]');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menu.classList.toggle('hidden');
+      });
+      document.addEventListener('click', function(e) {
+        if (!wrap.contains(e.target)) menu.classList.add('hidden');
+      });
+    })();
+  </script>
+
   <script is:inline>
     (function() {
       var searchInput = document.getElementById('blog-search');

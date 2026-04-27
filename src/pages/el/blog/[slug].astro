@@ -1,0 +1,333 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import { blogPosts, type BlogPost } from '../../../data/blogPosts'
+import { blogPostsEl, mergeWithEnglish } from '../../../data/blogPostsEl'
+import { markdownToHtml, extractH2Headings } from '../../../lib/markdown'
+import { UI_STRINGS, formatDate } from '../../../lib/i18n'
+
+export function getStaticPaths() {
+  return blogPostsEl
+    .map((tr) => {
+      const en = blogPosts.find((p) => p.slug === tr.enSlug)
+      if (!en) return null
+      const post = mergeWithEnglish(en, tr)
+      return {
+        params: { slug: tr.slug },
+        props: { post, enSlug: tr.enSlug }
+      }
+    })
+    .filter((x): x is NonNullable<typeof x> => x !== null)
+}
+
+const { post, enSlug } = Astro.props as { post: BlogPost; enSlug: string }
+const t = UI_STRINGS.el
+
+const elUrl = `https://naurra.ai/el/blog/${post.slug}/`
+const enUrl = `https://naurra.ai/blog/${enSlug}/`
+
+const alternates = [
+  { hreflang: 'en', href: enUrl },
+  { hreflang: 'x-default', href: enUrl },
+  { hreflang: 'el', href: elUrl }
+]
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t.home, item: 'https://naurra.ai/' },
+    { '@type': 'ListItem', position: 2, name: t.blog, item: 'https://naurra.ai/el/blog/' },
+    { '@type': 'ListItem', position: 3, name: post.title, item: elUrl }
+  ]
+}
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.description,
+  image: `https://naurra.ai${post.image}`,
+  inLanguage: 'el-GR',
+  author: {
+    '@type': 'Person',
+    name: post.author.name,
+    url: 'https://naurra.ai/company/',
+    sameAs: ['https://www.linkedin.com/in/athanasios-ioannis-panagiotakopoulos-2362a9274/']
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Naurra.ai',
+    logo: { '@type': 'ImageObject', url: 'https://naurra.ai/logo-transparent.png' }
+  },
+  datePublished: post.publishedAt,
+  dateModified: post.updatedAt || post.publishedAt,
+  keywords: post.keywords,
+  articleSection: post.category,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': elUrl },
+  translationOfWork: { '@type': 'BlogPosting', '@id': enUrl }
+}
+
+const headings = extractH2Headings(post.content)
+const renderedContent = markdownToHtml(post.content, { title: post.title, description: post.description })
+const formattedDate = formatDate(post.publishedAt, 'el')
+
+const videoIdMatches = Array.from(post.content.matchAll(/\{\{youtube:([^}]+)\}\}/g))
+const uniqueVideoIds = Array.from(new Set(videoIdMatches.map(m => m[1].trim())))
+const videoSchemas = uniqueVideoIds.map((videoId, idx) => ({
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  name: uniqueVideoIds.length > 1 ? `${post.title} — Video ${idx + 1}` : post.title,
+  description: post.description,
+  thumbnailUrl: [
+    `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`,
+    `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
+  ],
+  uploadDate: `${post.publishedAt}T09:00:00+00:00`,
+  contentUrl: `https://www.youtube.com/watch?v=${videoId}`,
+  embedUrl: `https://www.youtube.com/embed/${videoId}`,
+  inLanguage: 'el-GR',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Naurra.ai',
+    logo: { '@type': 'ImageObject', url: 'https://naurra.ai/logo-transparent.png' }
+  }
+}))
+
+const shareUrl = elUrl
+---
+
+<BaseLayout
+  title={`${post.title} - Naurra.ai Blog`}
+  description={post.description}
+  keywords={post.keywords}
+  image={`https://naurra.ai${post.image}`}
+  url={elUrl}
+  type="article"
+  publishedTime={post.publishedAt}
+  modifiedTime={post.updatedAt}
+  lang="el"
+  alternates={alternates}
+  structuredData={[breadcrumbSchema, articleSchema, ...videoSchemas]}
+>
+  <div class="min-h-screen bg-[#0a0e1a] text-white overflow-x-hidden">
+
+    <div id="reading-progress" class="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-emerald-400 to-amber-500 origin-left z-50" style="transform: scaleX(0);"></div>
+
+    <div class="fixed inset-0 pointer-events-none">
+      <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-amber-500/5"></div>
+      <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-emerald-500/20 to-transparent rounded-full blur-[120px] gentle-pulse"></div>
+    </div>
+
+    <nav class="relative border-b border-emerald-500/10 backdrop-blur-xl bg-[#0a0e1a]/90 sticky top-0 z-40">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="relative w-10 h-10 flex items-center justify-center">
+            <div class="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full group-hover:bg-emerald-500/30 transition-all"></div>
+            <img src="/logo-transparent.png" alt="Naurra.ai" class="w-full h-full object-contain relative z-10" />
+          </div>
+          <span class="font-display text-xl tracking-tight bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">
+            Naurra.ai
+          </span>
+        </a>
+        <div class="flex items-center gap-4">
+          <div class="relative" data-lang-switcher>
+            <button type="button" data-lang-toggle class="text-sm text-gray-300 hover:text-emerald-200 transition-colors flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/10 hover:border-emerald-500/30 bg-white/5">
+              <span aria-hidden="true">🇬🇷</span>
+              <span>EL</span>
+              <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+            </button>
+            <div data-lang-menu class="hidden absolute right-0 mt-2 w-44 bg-[#0f172a] border border-white/10 rounded-xl shadow-xl overflow-hidden z-50">
+              <a href={`/blog/${enSlug}/`} hreflang="en" class="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                <span aria-hidden="true">🇬🇧</span><span>English</span>
+              </a>
+              <a href={elUrl.replace('https://naurra.ai', '')} class="flex items-center gap-2 px-4 py-2.5 text-sm text-emerald-300 bg-emerald-500/5">
+                <span aria-hidden="true">🇬🇷</span><span>Ελληνικά</span>
+              </a>
+            </div>
+          </div>
+          <a href="/contact/" class="text-sm text-amber-400 hover:text-amber-300 transition-colors font-semibold">
+            {t.contact}
+          </a>
+          <a href="/el/blog/" class="text-sm text-emerald-300 hover:text-emerald-200 transition-colors flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            {t.backToBlog}
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="relative max-w-4xl mx-auto px-6 lg:px-8 pt-16 pb-12">
+      <div class="fade-in">
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full backdrop-blur-sm mb-8">
+          <div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+          <span class="text-sm font-mono uppercase tracking-widest text-emerald-300">{post.category}</span>
+        </div>
+
+        <h1 class="font-display text-5xl lg:text-6xl xl:text-7xl text-white mb-8 leading-[1.1] tracking-tight">
+          {post.title}
+        </h1>
+
+        <p class="text-xl lg:text-2xl text-gray-400 leading-relaxed mb-10">
+          {post.description}
+        </p>
+
+        <div class="flex flex-wrap items-center gap-6 pb-10 border-b border-gray-700/50">
+          <div class="flex items-center gap-3">
+            <img src={post.author.avatar} alt={post.author.name} class="w-12 h-12 rounded-full border-2 border-emerald-500/30" />
+            <div>
+              <p class="font-semibold text-white">{post.author.name}</p>
+              <p class="text-sm text-gray-500">{t.author}</p>
+            </div>
+          </div>
+          <div class="h-8 w-px bg-gray-700/50"></div>
+          <div class="flex items-center gap-2 text-gray-400">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <span>{formattedDate}</span>
+          </div>
+          <div class="h-8 w-px bg-gray-700/50"></div>
+          <div class="flex items-center gap-2 text-gray-400">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>{post.readingTime} {t.minRead}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8 pb-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+        {headings.length > 0 && (
+          <aside class="hidden lg:block lg:col-span-3 fade-in">
+            <div class="sticky top-32">
+              <div class="bg-gradient-to-br from-gray-800/30 to-gray-900/30 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-6">
+                <h3 class="font-display text-lg text-white mb-4 flex items-center gap-2">
+                  <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+                  </svg>
+                  {t.contents}
+                </h3>
+                <nav class="space-y-2">
+                  {headings.map((heading) => (
+                    <a href={`#${heading.id}`} class="block text-sm text-gray-400 hover:text-emerald-300 transition-colors py-1 border-l-2 border-transparent hover:border-emerald-500 pl-3">
+                      {heading.text}
+                    </a>
+                  ))}
+                </nav>
+              </div>
+            </div>
+          </aside>
+        )}
+
+        <article class={headings.length > 0 ? "lg:col-span-9 fade-in" : "lg:col-span-12 max-w-4xl mx-auto fade-in"}>
+          <div class="prose prose-invert prose-lg max-w-none" set:html={renderedContent} />
+
+          <div class="mt-16 pt-10 border-t border-gray-700/50">
+            <h3 class="font-display text-lg text-white mb-4">{t.taggedIn}</h3>
+            <div class="flex flex-wrap gap-2">
+              {post.tags.map((tag) => (
+                <a href="/el/blog/" class="px-4 py-2 bg-white/5 hover:bg-emerald-500/10 border border-white/10 hover:border-emerald-500/30 rounded-xl text-sm text-gray-400 hover:text-emerald-300 transition-all">
+                  #{tag}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="mt-12 pt-10 border-t border-gray-700/50">
+            <h3 class="font-display text-lg text-white mb-6">{t.shareArticle}</h3>
+            <div class="flex flex-wrap gap-3">
+              <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(shareUrl)}`} target="_blank" rel="noopener noreferrer" class="group px-6 py-3 bg-gradient-to-br from-gray-800/50 to-gray-900/50 hover:from-[#1DA1F2]/20 hover:to-[#1DA1F2]/10 border border-gray-700/50 hover:border-[#1DA1F2]/30 rounded-xl transition-all">
+                <span class="text-sm font-medium text-gray-300 group-hover:text-white">Twitter</span>
+              </a>
+              <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`} target="_blank" rel="noopener noreferrer" class="group px-6 py-3 bg-gradient-to-br from-gray-800/50 to-gray-900/50 hover:from-[#0A66C2]/20 hover:to-[#0A66C2]/10 border border-gray-700/50 hover:border-[#0A66C2]/30 rounded-xl transition-all">
+                <span class="text-sm font-medium text-gray-300 group-hover:text-white">LinkedIn</span>
+              </a>
+              <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`} target="_blank" rel="noopener noreferrer" class="group px-6 py-3 bg-gradient-to-br from-gray-800/50 to-gray-900/50 hover:from-[#1877F2]/20 hover:to-[#1877F2]/10 border border-gray-700/50 hover:border-[#1877F2]/30 rounded-xl transition-all">
+                <span class="text-sm font-medium text-gray-300 group-hover:text-white">Facebook</span>
+              </a>
+              <button id="copy-link-btn" class="group px-6 py-3 bg-gradient-to-br from-gray-800/50 to-gray-900/50 hover:from-emerald-500/20 hover:to-emerald-500/10 border border-gray-700/50 hover:border-emerald-500/30 rounded-xl transition-all">
+                <span id="copy-link-text" class="text-sm font-medium text-gray-300 group-hover:text-white">{t.copyLink}</span>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="mt-32 relative fade-in">
+        <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/20 via-emerald-400/20 to-amber-500/20 rounded-3xl blur-3xl"></div>
+        <div class="relative bg-gradient-to-br from-gray-800/60 to-gray-900/60 backdrop-blur-xl border border-gray-700/50 rounded-3xl p-12 lg:p-16 text-center">
+          <h2 class="font-display text-4xl lg:text-5xl text-white mb-6">{t.ctaTitle}</h2>
+          <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">{t.ctaBody}</p>
+          <a href="/pricing/" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-bold text-lg rounded-xl shadow-lg shadow-emerald-500/30 hover:shadow-emerald-500/50 transition-all">
+            {t.ctaButton}
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="relative border-t border-gray-700/50 bg-[#0a0e1a]/90 backdrop-blur-xl mt-32">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-3">
+            <img src="/logo-transparent.png" alt="Naurra.ai" class="w-8 h-8" loading="lazy" />
+            <span class="font-display text-lg bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Naurra.ai</span>
+          </div>
+          <p class="text-gray-500 text-sm">&copy; 2026 Naurra.ai. {t.footerTagline}</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script is:inline define:vars={{ shareUrl, copiedLabel: t.copied, copyLabel: t.copyLink }}>
+    (function() {
+      var progressBar = document.getElementById('reading-progress');
+      if (!progressBar) return;
+      var ticking = false;
+      function updateProgress() {
+        var scrollTop = window.scrollY || document.documentElement.scrollTop;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var progress = docHeight > 0 ? scrollTop / docHeight : 0;
+        progressBar.style.transform = 'scaleX(' + Math.min(progress, 1) + ')';
+        ticking = false;
+      }
+      window.addEventListener('scroll', function() {
+        if (!ticking) { requestAnimationFrame(updateProgress); ticking = true; }
+      }, { passive: true });
+    })();
+
+    (function() {
+      var wrap = document.querySelector('[data-lang-switcher]');
+      if (!wrap) return;
+      var toggle = wrap.querySelector('[data-lang-toggle]');
+      var menu = wrap.querySelector('[data-lang-menu]');
+      if (!toggle || !menu) return;
+      toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        menu.classList.toggle('hidden');
+      });
+      document.addEventListener('click', function(e) {
+        if (!wrap.contains(e.target)) menu.classList.add('hidden');
+      });
+    })();
+
+    (function() {
+      var btn = document.getElementById('copy-link-btn');
+      var label = document.getElementById('copy-link-text');
+      if (!btn || !label) return;
+      btn.addEventListener('click', function() {
+        navigator.clipboard.writeText(shareUrl).then(function() {
+          label.textContent = copiedLabel;
+          setTimeout(function() { label.textContent = copyLabel; }, 2000);
+        });
+      });
+    })();
+  </script>
+</BaseLayout>

@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro'
 import { blogPosts } from '../data/blogPosts'
+import { blogPostsEl } from '../data/blogPostsEl'
 
 export const prerender = true
 
@@ -12,12 +13,15 @@ type VideoEntry = {
   publishedAt: string
 }
 
+type AlternateEntry = { hreflang: string; href: string }
+
 type SitemapEntry = {
   loc: string
   lastmod: string
   changefreq: 'daily' | 'weekly' | 'monthly' | 'yearly'
   priority: string
   videos?: VideoEntry[]
+  alternates?: AlternateEntry[]
 }
 
 const staticPages: SitemapEntry[] = [
@@ -55,16 +59,72 @@ export const GET: APIRoute = () => {
       description: post.description,
       publishedAt: post.publishedAt
     }))
+    const enUrl = `${SITE_URL}/blog/${post.slug}/`
+    const tr = blogPostsEl.find((t) => t.enSlug === post.slug)
+    const alternates: AlternateEntry[] = tr
+      ? [
+          { hreflang: 'en', href: enUrl },
+          { hreflang: 'el', href: `${SITE_URL}/el/blog/${tr.slug}/` },
+          { hreflang: 'x-default', href: enUrl }
+        ]
+      : []
     return {
-      loc: `${SITE_URL}/blog/${post.slug}/`,
+      loc: enUrl,
       lastmod: post.updatedAt || post.publishedAt,
       changefreq: 'monthly',
       priority: post.featured ? '0.9' : '0.8',
-      videos: videos.length > 0 ? videos : undefined
+      videos: videos.length > 0 ? videos : undefined,
+      alternates: alternates.length > 0 ? alternates : undefined
     }
   })
 
-  const urls = [...staticPages, ...blogEntries]
+  const elBlogIndex: SitemapEntry[] = blogPostsEl.length > 0 ? [{
+    loc: `${SITE_URL}/el/blog/`,
+    lastmod: '2026-04-27',
+    changefreq: 'weekly',
+    priority: '0.9',
+    alternates: [
+      { hreflang: 'en', href: `${SITE_URL}/blog/` },
+      { hreflang: 'el', href: `${SITE_URL}/el/blog/` },
+      { hreflang: 'x-default', href: `${SITE_URL}/blog/` }
+    ]
+  }] : []
+
+  const elBlogPosts: SitemapEntry[] = []
+  for (const tr of blogPostsEl) {
+    const en = blogPosts.find((p) => p.slug === tr.enSlug)
+    if (!en) continue
+    const enUrl = `${SITE_URL}/blog/${en.slug}/`
+    const elUrl = `${SITE_URL}/el/blog/${tr.slug}/`
+    elBlogPosts.push({
+      loc: elUrl,
+      lastmod: en.updatedAt || en.publishedAt,
+      changefreq: 'monthly',
+      priority: en.featured ? '0.9' : '0.8',
+      alternates: [
+        { hreflang: 'en', href: enUrl },
+        { hreflang: 'el', href: elUrl },
+        { hreflang: 'x-default', href: enUrl }
+      ]
+    })
+  }
+
+  // Mark English /blog/ as having Greek alternate when any translation exists
+  const staticPagesWithAlternates = staticPages.map((entry) => {
+    if (entry.loc === `${SITE_URL}/blog/` && blogPostsEl.length > 0) {
+      return {
+        ...entry,
+        alternates: [
+          { hreflang: 'en', href: entry.loc },
+          { hreflang: 'el', href: `${SITE_URL}/el/blog/` },
+          { hreflang: 'x-default', href: entry.loc }
+        ]
+      }
+    }
+    return entry
+  })
+
+  const urls = [...staticPagesWithAlternates, ...elBlogIndex, ...blogEntries, ...elBlogPosts]
     .map((entry) => {
       const videoBlocks = (entry.videos || []).map((v) => `    <video:video>
       <video:thumbnail_loc>https://img.youtube.com/vi/${xmlEscape(v.videoId)}/maxresdefault.jpg</video:thumbnail_loc>
@@ -79,17 +139,21 @@ export const GET: APIRoute = () => {
       <video:uploader info="https://www.youtube.com/@naurra_ai">Naurra.ai</video:uploader>
     </video:video>`).join('\n')
 
+      const altBlocks = (entry.alternates || []).map((a) =>
+        `    <xhtml:link rel="alternate" hreflang="${xmlEscape(a.hreflang)}" href="${xmlEscape(a.href)}" />`
+      ).join('\n')
+
       return `  <url>
     <loc>${xmlEscape(entry.loc)}</loc>
     <lastmod>${entry.lastmod}</lastmod>
     <changefreq>${entry.changefreq}</changefreq>
-    <priority>${entry.priority}</priority>${videoBlocks ? '\n' + videoBlocks : ''}
+    <priority>${entry.priority}</priority>${altBlocks ? '\n' + altBlocks : ''}${videoBlocks ? '\n' + videoBlocks : ''}
   </url>`
     })
     .join('\n')
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urls}
 </urlset>`
 
