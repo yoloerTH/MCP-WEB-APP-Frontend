@@ -713,7 +713,7 @@ export default function CompanyPage() {
               View Pricing
             </a>
             <a
-              href="/blog/ai-workspace-automation-2026"
+              href="/blog/ai-workspace-automation-2026/"
               className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-emerald-500/30 text-white font-semibold rounded-xl transition-all text-base"
             >
               Read Our AI Automation Guide

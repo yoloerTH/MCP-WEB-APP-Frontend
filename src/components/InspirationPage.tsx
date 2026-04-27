@@ -95,7 +95,7 @@ export function InspirationPage() {
         title="AI Inspiration Hub | 40+ Voice Command Examples - Naurra.ai"
         description="Browse 40+ real voice command examples for Gmail, Calendar, Drive, Docs and Sheets. See what Naurra.ai can automate in your Google Workspace."
         keywords="voice command examples, AI assistant use cases, Google Workspace commands, productivity examples, Naurra inspiration"
-        url="/inspiration"
+        url="/inspiration/"
       />
       {/* Ambient background effects */}
       <div className="absolute inset-0 opacity-30">

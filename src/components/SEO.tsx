@@ -23,7 +23,27 @@ export function SEO({
   publishedTime,
   modifiedTime,
 }: SEOProps) {
-  const fullUrl = url.startsWith('http') ? url : `https://naurra.ai${url}`
+  const needsSlash = (u: string) => {
+    const [pathAndQueryHash] = [u]
+    const hashIdx = pathAndQueryHash[0].indexOf('#')
+    const queryIdx = pathAndQueryHash[0].indexOf('?')
+    const cutIdx = [hashIdx, queryIdx].filter((i) => i >= 0).sort((a, b) => a - b)[0]
+    const path = cutIdx === undefined ? u : u.slice(0, cutIdx)
+    if (path.endsWith('/')) return false
+    const lastSeg = path.split('/').pop() || ''
+    if (lastSeg.includes('.')) return false
+    return true
+  }
+  const withSlash = (u: string) => {
+    if (!needsSlash(u)) return u
+    const hashIdx = u.indexOf('#')
+    const queryIdx = u.indexOf('?')
+    const cutIdx = [hashIdx, queryIdx].filter((i) => i >= 0).sort((a, b) => a - b)[0]
+    if (cutIdx === undefined) return `${u}/`
+    return `${u.slice(0, cutIdx)}/${u.slice(cutIdx)}`
+  }
+  const normalizedUrl = withSlash(url)
+  const fullUrl = normalizedUrl.startsWith('http') ? normalizedUrl : `https://naurra.ai${normalizedUrl}`
   const fullImage = image.startsWith('http') ? image : `https://naurra.ai${image}`
 
   return (

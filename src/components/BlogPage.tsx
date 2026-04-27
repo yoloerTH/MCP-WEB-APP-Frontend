@@ -46,7 +46,7 @@ export default function BlogPage() {
         title="Blog - Naurra.ai | AI Workspace Automation Insights & Tutorials"
         description="Explore expert articles on AI workspace automation, productivity tips, Google Workspace optimization, and voice AI tutorials. Stay ahead with Naurra.ai's latest insights."
         keywords="AI blog, workspace automation articles, productivity tips, Google Workspace tutorials, voice AI guides, AI assistant insights"
-        url="/blog"
+        url="/blog/"
       />
       <StructuredData type="breadcrumb" data={{
         items: [
