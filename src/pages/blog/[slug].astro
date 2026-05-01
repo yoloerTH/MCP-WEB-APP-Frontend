@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import { blogPosts, getRelatedPosts, type BlogPost } from '../../data/blogPosts'
 import { getElTranslationByEnSlug } from '../../data/blogPostsEl'
+import { ensureTrailingSlashPath } from '../../lib/siteUrl'
 
 export function getStaticPaths() {
   return blogPosts.map((post) => ({
@@ -175,7 +176,8 @@ function renderInline(text: string): string {
   text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, linkText, url) => {
     const isExternal = url.startsWith('http')
     const extras = isExternal ? ' target="_blank" rel="noopener noreferrer"' : ''
-    return `<a href="${escapeHtml(url)}"${extras} class="text-emerald-400 hover:text-emerald-300 underline underline-offset-2 transition-colors">${renderInlineFormatting(linkText)}</a>`
+    const href = isExternal ? url : ensureTrailingSlashPath(url)
+    return `<a href="${escapeHtml(href)}"${extras} class="text-emerald-400 hover:text-emerald-300 underline underline-offset-2 transition-colors">${renderInlineFormatting(linkText)}</a>`
   })
 
   // 2. Handle remaining inline formatting

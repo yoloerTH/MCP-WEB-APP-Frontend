@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { SEO } from './SEO'
 import { StructuredData } from './StructuredData'
 import { getPostBySlug, getRelatedPosts, type BlogPost } from '../data/blogPosts'
+import { ensureTrailingSlashPath } from '../lib/siteUrl'
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>()
@@ -77,10 +78,11 @@ export default function BlogPostPage() {
           parts.push(renderInlineInner(text.slice(lastIndex, match.index), keyPrefix * 100 + lastIndex))
         }
         const isExternal = match[2].startsWith('http')
+        const href = isExternal ? match[2] : ensureTrailingSlashPath(match[2])
         parts.push(
           <a
             key={`${keyPrefix}-link-${match.index}`}
-            href={match[2]}
+            href={href}
             {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
             className="text-emerald-400 hover:text-emerald-300 underline underline-offset-2 transition-colors"
           >

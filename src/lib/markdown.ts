@@ -1,3 +1,5 @@
+import { ensureTrailingSlashPath } from './siteUrl'
+
 function escapeHtml(str: string): string {
   return str
     .replace(/&/g, '&amp;')
@@ -18,7 +20,8 @@ function renderInline(text: string): string {
   text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, linkText, url) => {
     const isExternal = url.startsWith('http')
     const extras = isExternal ? ' target="_blank" rel="noopener noreferrer"' : ''
-    return `<a href="${escapeHtml(url)}"${extras} class="text-emerald-400 hover:text-emerald-300 underline underline-offset-2 transition-colors">${renderInlineFormatting(linkText)}</a>`
+    const href = isExternal ? url : ensureTrailingSlashPath(url)
+    return `<a href="${escapeHtml(href)}"${extras} class="text-emerald-400 hover:text-emerald-300 underline underline-offset-2 transition-colors">${renderInlineFormatting(linkText)}</a>`
   })
   return renderInlineFormatting(text)
 }

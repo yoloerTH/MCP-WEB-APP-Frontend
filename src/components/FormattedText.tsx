@@ -1,3 +1,5 @@
+import { ensureTrailingSlashPath } from '../lib/siteUrl'
+
 /**
  * FormattedText Component
  *
@@ -49,7 +51,10 @@ function processInline(line: string): string {
   // Internal links [text](/path)
   result = result.replace(
     /\[([^\]]+)\]\(\/([^)]+)\)/g,
-    '<a href="/$2" class="underline underline-offset-2 decoration-1 decoration-emerald-300/40 hover:decoration-emerald-300 transition-all">$1</a>'
+    (_match, linkText, path) => {
+      const href = ensureTrailingSlashPath(`/${path}`)
+      return `<a href="${href}" class="underline underline-offset-2 decoration-1 decoration-emerald-300/40 hover:decoration-emerald-300 transition-all">${linkText}</a>`
+    }
   )
 
   return result
