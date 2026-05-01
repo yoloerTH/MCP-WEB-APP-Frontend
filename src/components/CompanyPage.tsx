@@ -947,6 +947,96 @@ export default function CompanyPage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════════ */}
+      {/* SOLUTIONS — Productized custom AI agent offerings            */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      <section className="relative py-24 lg:py-32">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-emerald-500/[0.02] to-transparent" />
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-100px' }} className="mb-12">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-px w-[40px] bg-gradient-to-r from-emerald-500 to-transparent" />
+              <span className="text-xs text-emerald-400/60 uppercase tracking-[0.25em] font-semibold">Solutions</span>
+            </div>
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+              <h2 className="text-3xl lg:text-5xl font-display font-extrabold max-w-2xl">
+                Productized custom AI agents,{' '}
+                <span className="bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">priced upfront.</span>
+              </h2>
+              <p className="text-gray-400 text-base lg:text-lg leading-relaxed max-w-md">
+                Common small-business workflows we have shipped before, scoped as fixed-price packages. Pick the one that matches your pain.
+              </p>
+            </div>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+            {[
+              { title: 'AI CRM + Quoting Agent', summary: 'Inbound lead to branded quote in minutes. Replaces spreadsheet CRMs and Word-template quoting.', price: '$6K - $15K', timeline: '4 - 6 weeks', href: '/solutions/ai-crm-quoting-agent/', live: true, accent: 'from-emerald-400 to-teal-400' },
+              { title: 'AI Invoicing Agent', summary: 'Issue invoices, chase unpaid balances, reconcile payments automatically.', price: '$4.5K - $11K', timeline: '3 - 5 weeks', href: '/blog/ai-agent-automate-invoicing-payment-reminders-small-business/', live: false, accent: 'from-amber-400 to-orange-400' },
+              { title: 'AI Lead Capture Agent', summary: 'Listen to Instagram, WhatsApp, email and forms. Qualify in your tone, route to sales.', price: '$5K - $13K', timeline: '4 - 6 weeks', href: '/blog/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business/', live: false, accent: 'from-cyan-400 to-blue-400' },
+              { title: 'AI Customer Support Agent', summary: 'Triage every email, draft replies, auto-resolve the simple ones, escalate the rest.', price: '$4K - $11K', timeline: '3 - 5 weeks', href: '/blog/ai-agent-handle-customer-support-emails-small-business/', live: false, accent: 'from-violet-400 to-purple-400' },
+              { title: 'AI Scheduling Agent', summary: 'Book over WhatsApp and email. Confirm and reduce no-shows automatically.', price: '$4K - $9K', timeline: '3 - 5 weeks', href: '/blog/ai-agent-schedule-confirm-client-appointments-small-business/', live: false, accent: 'from-sky-400 to-indigo-400' },
+              { title: 'AI Proposal Agent', summary: 'Read brief, search past wins, draft scope and pricing in your voice. Output a branded PDF.', price: '$5K - $13K', timeline: '4 - 6 weeks', href: '/blog/ai-agent-generate-proposals-statements-of-work-small-business/', live: false, accent: 'from-rose-400 to-pink-400' },
+            ].map((s, i) => (
+              <motion.a
+                key={s.title}
+                href={s.href}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.06 }}
+                className="group relative block bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-gray-700/50 rounded-2xl p-6 hover:border-emerald-500/30 transition-all"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <span className={`text-xs font-mono font-semibold bg-gradient-to-r ${s.accent} bg-clip-text text-transparent`}>{s.price}</span>
+                  {s.live ? (
+                    <span className="px-2 py-0.5 text-[10px] font-bold rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 uppercase tracking-wider">Live</span>
+                  ) : (
+                    <span className="px-2 py-0.5 text-[10px] font-bold rounded-full bg-white/5 border border-white/10 text-gray-500 uppercase tracking-wider">Soon</span>
+                  )}
+                </div>
+                <h3 className="text-lg font-display font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">{s.title}</h3>
+                <p className="text-sm text-gray-400 leading-relaxed mb-5">{s.summary}</p>
+                <div className="flex items-center justify-between pt-4 border-t border-white/5">
+                  <span className="text-xs text-gray-500 font-mono">{s.timeline}</span>
+                  <span className="text-sm text-emerald-400 font-semibold flex items-center gap-1.5">
+                    {s.live ? 'See solution' : 'Read approach'}
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                  </span>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-br from-emerald-500/[0.06] via-gray-800/40 to-amber-500/[0.06] border border-emerald-500/20 rounded-2xl p-8 lg:p-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6"
+          >
+            <div className="max-w-xl">
+              <h3 className="text-2xl lg:text-3xl font-display font-bold text-white mb-2">Browse all solutions</h3>
+              <p className="text-gray-400 leading-relaxed">See every productized AI agent we offer, with full scope, build process, and the workflows each one replaces.</p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto flex-shrink-0">
+              <a
+                href="/solutions/"
+                className="px-7 py-3.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 rounded-xl font-semibold text-white text-center transition-all shadow-lg shadow-emerald-500/30 border border-emerald-400/30 inline-flex items-center justify-center gap-2"
+              >
+                Explore solutions
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </a>
+              <a
+                href="/contact/"
+                className="px-7 py-3.5 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 rounded-xl font-semibold text-gray-300 hover:text-white text-center transition-all"
+              >
+                Book a free call
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════ */}
       {/* TECH STACK — Grouped with colored accents                  */}
       {/* ═══════════════════════════════════════════════════════════ */}
       <section className="relative py-24 lg:py-32">
