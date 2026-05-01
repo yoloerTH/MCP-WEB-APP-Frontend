@@ -27,7 +27,7 @@ interface TranscriptMessage {
 function VoiceAIApp() {
   const navigate = useNavigate()
   const location = useLocation()
-  const { user, signOut } = useAuth()
+  const { user, signOut, loading } = useAuth()
 
   // Determine mode based on route (normalize trailing slash for Netlify)
   const pathname = location.pathname.replace(/\/+$/, '') || '/'
@@ -92,6 +92,17 @@ function VoiceAIApp() {
 
   // Initialize socket connection
   useEffect(() => {
+    if (loading) {
+      return
+    }
+
+    if (!user) {
+      previousUserIdRef.current = null
+      setSocket(null)
+      setCallStatus('disconnected')
+      return
+    }
+
     const currentUserId = user?.id || null
 
     // Only reconnect if user ID actually changed
@@ -190,7 +201,7 @@ function VoiceAIApp() {
     return () => {
       newSocket.close()
     }
-  }, [user?.id]) // Only reconnect when user ID changes, not on every auth event
+  }, [loading, user?.id]) // Only reconnect when auth settles or the user changes
 
   const addTranscript = (type: 'user' | 'ai' | 'system', text: string) => {
     setTranscript(prev => [...prev, {

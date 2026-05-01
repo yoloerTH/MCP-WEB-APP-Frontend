@@ -5,7 +5,7 @@ export const prerender = true
 
 const SITE_URL = 'https://naurra.ai'
 const FEED_URL = `${SITE_URL}/rss.xml`
-const BLOG_URL = `${SITE_URL}/blog`
+const BLOG_URL = `${SITE_URL}/blog/`
 
 function escapeXml(value: string): string {
   return value
@@ -33,7 +33,7 @@ export const GET: APIRoute = () => {
 
   const itemsXml = sortedPosts
     .map((post) => {
-      const postUrl = `${BLOG_URL}/${post.slug}`
+      const postUrl = `${BLOG_URL}${post.slug}/`
       const description = escapeXml(post.description)
       const contentPreview = escapeXml(stripMarkdown(post.content).slice(0, 400))
       const categories = post.tags

@@ -1,6 +1,29 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import AppShell from '../components/islands/AppShell'
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://naurra.ai/' },
+    { '@type': 'ListItem', position: 2, name: 'Voice AI', item: 'https://naurra.ai/voiceai/' }
+  ]
+}
+
+const voiceAiSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Voice AI for Gmail and Google Workspace',
+  description: 'Use voice commands to run Gmail, Google Calendar, Drive, Docs and Sheets with Naurra.ai.',
+  url: 'https://naurra.ai/voiceai/',
+  about: {
+    '@type': 'SoftwareApplication',
+    name: 'Naurra.ai',
+    applicationCategory: 'ProductivityApplication',
+    operatingSystem: 'iOS, Web Browser'
+  }
+}
 ---
 
 <BaseLayout
@@ -8,7 +31,21 @@ import AppShell from '../components/islands/AppShell'
   description="Run Gmail, Google Calendar, Drive and Docs hands-free with voice. Send emails, schedule meetings and draft documents in seconds — Naurra's voice AI saves hours every week on Google Workspace."
   keywords="voice AI for Gmail, voice AI Google Workspace, voice assistant for Google Calendar, hands-free Gmail, voice commands Gmail, voice email assistant, save time voice AI"
   url="https://naurra.ai/voiceai/"
-  noindex={true}
+  structuredData={[breadcrumbSchema, voiceAiSchema]}
 >
+  <div style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">
+    <h1>Voice AI for Gmail and Google Workspace</h1>
+    <p>
+      Naurra.ai lets you control Gmail, Google Calendar, Drive, Docs and Sheets with voice commands.
+      You can draft emails, schedule meetings, create documents, summarize inbox threads, and run
+      multi-step Google Workspace workflows without typing every instruction manually.
+    </p>
+    <ul>
+      <li>Send and reply to Gmail messages with voice</li>
+      <li>Schedule and reschedule meetings in Google Calendar</li>
+      <li>Create Google Docs and organize Drive files</li>
+      <li>Trigger multi-step Google Workspace workflows from one command</li>
+    </ul>
+  </div>
   <AppShell client:only="react" />
 </BaseLayout>

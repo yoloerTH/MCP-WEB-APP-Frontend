@@ -1,6 +1,29 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import AppShell from '../components/islands/AppShell'
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://naurra.ai/' },
+    { '@type': 'ListItem', position: 2, name: 'Chat AI', item: 'https://naurra.ai/chatai/' }
+  ]
+}
+
+const chatAiSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Chat AI for Gmail and Google Workspace',
+  description: 'Use chat to run Gmail, Google Calendar, Drive, Docs and Sheets with Naurra.ai.',
+  url: 'https://naurra.ai/chatai/',
+  about: {
+    '@type': 'SoftwareApplication',
+    name: 'Naurra.ai',
+    applicationCategory: 'ProductivityApplication',
+    operatingSystem: 'iOS, Web Browser'
+  }
+}
 ---
 
 <BaseLayout
@@ -8,7 +31,21 @@ import AppShell from '../components/islands/AppShell'
   description="Chat your way through Gmail, Google Calendar, Drive and Docs. Send emails, schedule meetings and draft documents from one chat — save hours every week on Google Workspace tasks."
   keywords="chat AI for Gmail, AI chat for Google Workspace, AI email assistant, AI calendar chat, chat assistant for Gmail, conversational AI Google Workspace, save time chat AI"
   url="https://naurra.ai/chatai/"
-  noindex={true}
+  structuredData={[breadcrumbSchema, chatAiSchema]}
 >
+  <div style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">
+    <h1>Chat AI for Gmail and Google Workspace</h1>
+    <p>
+      Naurra.ai gives you a chat interface for Gmail, Google Calendar, Drive, Docs and Sheets.
+      You can ask it to draft emails, summarize conversations, build documents, organize work, and
+      coordinate multi-step Google Workspace tasks from one conversation.
+    </p>
+    <ul>
+      <li>Draft and edit Gmail messages in chat</li>
+      <li>Schedule meetings and manage calendar tasks</li>
+      <li>Create documents and coordinate follow-up work</li>
+      <li>Run cross-workspace actions from a single chat prompt</li>
+    </ul>
+  </div>
   <AppShell client:only="react" />
 </BaseLayout>
