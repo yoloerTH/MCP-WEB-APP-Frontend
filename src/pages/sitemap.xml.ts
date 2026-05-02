@@ -39,8 +39,8 @@ const staticPages: SitemapEntry[] = [
   { loc: `${SITE_URL}/tools/email-signature/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.7' },
   { loc: `${SITE_URL}/tools/mailto-link-generator/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.7' },
   { loc: `${SITE_URL}/tools/meeting-agenda-builder/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.7' },
-  { loc: `${SITE_URL}/solutions/`, lastmod: '2026-05-01', changefreq: 'weekly', priority: '0.9' },
-  { loc: `${SITE_URL}/solutions/ai-crm-quoting-agent/`, lastmod: '2026-05-01', changefreq: 'monthly', priority: '0.9' }
+  { loc: `${SITE_URL}/solutions/`, lastmod: '2026-05-02', changefreq: 'weekly', priority: '0.9' },
+  { loc: `${SITE_URL}/solutions/ai-crm-quoting-agent/`, lastmod: '2026-05-02', changefreq: 'monthly', priority: '0.9' }
 ]
 
 function xmlEscape(value: string): string {

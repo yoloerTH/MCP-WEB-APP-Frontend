@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
 
+const crmSolutionImage = '/blog/ai-agent-custom-crm-quoting-system-small-business.png'
+
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -18,6 +20,8 @@ const serviceSchema = {
   name: 'Custom AI CRM and Quoting Agent for Small Business',
   description: 'A custom AI agent that captures inbound leads, drafts branded quotes from your real pricing, and runs a lightweight CRM for your sales team. Fixed-price build, deployed in 4 to 6 weeks.',
   url: 'https://naurra.ai/solutions/ai-crm-quoting-agent/',
+  image: `https://naurra.ai${crmSolutionImage}`,
+  mainEntityOfPage: 'https://naurra.ai/solutions/ai-crm-quoting-agent/',
   provider: {
     '@type': 'ProfessionalService',
     name: 'Naurra.ai',
@@ -34,8 +38,8 @@ const serviceSchema = {
   offers: {
     '@type': 'AggregateOffer',
     priceCurrency: 'EUR',
-    lowPrice: '4615',
-    highPrice: '11537',
+    lowPrice: '4500',
+    highPrice: '11000',
     availability: 'https://schema.org/InStock',
     eligibleQuantity: { '@type': 'QuantitativeValue', value: '1' }
   },
@@ -62,7 +66,7 @@ const faqSchema = {
       name: 'What does a custom AI CRM and quoting agent cost?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'A typical small business build lands between €4,615 and €11,537 as a fixed-price engagement. Ongoing AI and hosting costs after launch are usually €77 to €288 per month depending on volume. Every project is scoped individually with a free consultation and a detailed proposal within 48 hours.'
+        text: 'A typical small business build lands between €4,500 and €11,000 as a fixed-price engagement. Ongoing AI and hosting costs after launch are usually €75 to €275 per month depending on volume. Every project is scoped individually with a free consultation and a detailed proposal within 48 hours.'
       }
     },
     {
@@ -128,8 +132,10 @@ const capabilities = [
 
 <BaseLayout
   title="Custom AI CRM + Quoting Agent for Small Business — Built in 4 to 6 Weeks"
-  description="Get a custom AI agent that captures leads, drafts branded quotes from your real pricing, and runs your CRM. Fixed-price €4.6K to €11.5K, deployed in 4 to 6 weeks. Free consultation."
+  description="Get a custom AI agent that captures leads, drafts branded quotes from your real pricing, and runs your CRM. Fixed-price €4.5K to €11K, deployed in 4 to 6 weeks. Free consultation."
   keywords="ai crm quoting agent small business, custom ai crm small business, ai quoting system small business, ai sales agent small business, custom crm and quoting ai, ai agent for crm and quoting, ai agent quote generator small business, build ai crm small business, custom ai sales agent, ai crm small business pricing"
+  image={crmSolutionImage}
+  imageAlt="Naurra.ai CRM and quoting agent page preview"
   url="https://naurra.ai/solutions/ai-crm-quoting-agent/"
   structuredData={[breadcrumbSchema, serviceSchema, faqSchema]}
 >
@@ -194,9 +200,9 @@ const capabilities = [
         </p>
 
         <div class="flex flex-wrap gap-3 mb-8">
-          <span class="px-4 py-2 rounded-full text-sm font-mono" style="background: rgba(16,185,129,0.10); border: 1px solid rgba(16,185,129,0.20); color: #6ee7b7;">€4.6K - €11.5K fixed</span>
+          <span class="px-4 py-2 rounded-full text-sm font-mono" style="background: rgba(16,185,129,0.10); border: 1px solid rgba(16,185,129,0.20); color: #6ee7b7;">€4.5K - €11K fixed</span>
           <span class="px-4 py-2 rounded-full text-sm font-mono" style="background: rgba(245,158,11,0.10); border: 1px solid rgba(245,158,11,0.20); color: #fcd34d;">4 - 6 weeks</span>
-          <span class="px-4 py-2 rounded-full text-sm font-mono" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); color: rgba(255,255,255,0.62);">€77 - €288/mo running</span>
+          <span class="px-4 py-2 rounded-full text-sm font-mono" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); color: rgba(255,255,255,0.62);">€75 - €275/mo running</span>
         </div>
 
         <div class="flex flex-col sm:flex-row gap-4">
@@ -249,7 +255,7 @@ const capabilities = [
     </div>
 
     <!-- Capabilities -->
-    <div class="mb-24">
+    <div id="how-it-works" class="mb-24">
       <div class="flex items-center gap-3 mb-10">
         <div class="w-1 h-8 bg-gradient-to-b from-emerald-500 to-amber-500 rounded-full"></div>
         <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.02em;" class="text-3xl text-white">What the agent actually does</h2>
@@ -312,7 +318,7 @@ const capabilities = [
             </tr>
           </thead>
           <tbody class="divide-y divide-gray-700/50 text-sm">
-            <tr class="hover:bg-white/[0.02]"><td class="px-6 py-4 text-gray-300 font-medium">Cost (Year 1)</td><td class="px-6 py-4 text-gray-500">Free + lost revenue</td><td class="px-6 py-4 text-gray-500">€2.3K - €13.8K subscription</td><td class="px-6 py-4 text-emerald-300">€5.4K - €14.6K all-in</td></tr>
+            <tr class="hover:bg-white/[0.02]"><td class="px-6 py-4 text-gray-300 font-medium">Cost (Year 1)</td><td class="px-6 py-4 text-gray-500">Free + lost revenue</td><td class="px-6 py-4 text-gray-500">€2K - €13K subscription</td><td class="px-6 py-4 text-emerald-300">€5K - €14K all-in</td></tr>
             <tr class="hover:bg-white/[0.02]"><td class="px-6 py-4 text-gray-300 font-medium">Quote drafting</td><td class="px-6 py-4 text-gray-500">Manual</td><td class="px-6 py-4 text-gray-500">Templated, manual edit</td><td class="px-6 py-4 text-emerald-300">Auto, in your voice</td></tr>
             <tr class="hover:bg-white/[0.02]"><td class="px-6 py-4 text-gray-300 font-medium">Pricing logic</td><td class="px-6 py-4 text-gray-500">In someone's head</td><td class="px-6 py-4 text-gray-500">Limited</td><td class="px-6 py-4 text-emerald-300">Yours, encoded</td></tr>
             <tr class="hover:bg-white/[0.02]"><td class="px-6 py-4 text-gray-300 font-medium">Inbound channels</td><td class="px-6 py-4 text-gray-500">Manual triage</td><td class="px-6 py-4 text-gray-500">Email + form</td><td class="px-6 py-4 text-emerald-300">Email, WhatsApp, IG, forms</td></tr>
