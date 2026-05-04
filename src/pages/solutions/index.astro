@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
+import { solutionPages } from '../../data/solutionPages'
 
 const solutionsImage = '/solutions/custom-ai-solutions-og.png'
 
@@ -16,7 +17,7 @@ const collectionSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: 'Custom AI Agent Solutions for Small Business',
-  description: 'Custom AI agents for small business: CRM and quoting, invoicing, lead capture, customer support, scheduling, and proposals. Fixed-price builds from €3K, deployed in 3 to 6 weeks.',
+  description: 'Custom AI agents for small business: CRM and quoting, invoicing, lead capture, customer support, scheduling, and proposals. Fixed-price builds from €2K, deployed in 3 to 6 weeks.',
   url: 'https://naurra.ai/solutions/',
   image: `https://naurra.ai${solutionsImage}`,
   primaryImageOfPage: `https://naurra.ai${solutionsImage}`,
@@ -30,14 +31,12 @@ const collectionSchema = {
   },
   mainEntity: {
     '@type': 'ItemList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, url: 'https://naurra.ai/solutions/ai-crm-quoting-agent/', name: 'AI CRM and Quoting Agent' },
-      { '@type': 'ListItem', position: 2, url: 'https://naurra.ai/blog/ai-agent-automate-invoicing-payment-reminders-small-business/', name: 'AI Invoicing Agent' },
-      { '@type': 'ListItem', position: 3, url: 'https://naurra.ai/blog/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business/', name: 'AI Lead Capture Agent' },
-      { '@type': 'ListItem', position: 4, url: 'https://naurra.ai/blog/ai-agent-handle-customer-support-emails-small-business/', name: 'AI Customer Support Agent' },
-      { '@type': 'ListItem', position: 5, url: 'https://naurra.ai/blog/ai-agent-schedule-confirm-client-appointments-small-business/', name: 'AI Scheduling Agent' },
-      { '@type': 'ListItem', position: 6, url: 'https://naurra.ai/blog/ai-agent-generate-proposals-statements-of-work-small-business/', name: 'AI Proposal Agent' }
-    ]
+    itemListElement: solutionPages.map((solution, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `https://naurra.ai/solutions/${solution.slug}/`,
+      name: solution.name
+    }))
   }
 }
 
@@ -66,7 +65,7 @@ const faqSchema = {
       name: 'How much do Naurra.ai custom AI solutions cost?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Most solutions on this page start from around €3,000, with fixed-price builds typically landing between €3,000 and €11,000 depending on the workflow depth, integrations, and level of automation.'
+        text: 'Most solutions on this page start from around €2,000, with fixed-price builds typically landing between €2,000 and €10,000 depending on the workflow depth, integrations, and level of automation.'
       }
     },
     {
@@ -88,68 +87,16 @@ const faqSchema = {
   ]
 }
 
-const solutions = [
-  {
-    title: 'AI CRM + Quoting Agent',
-    summary: 'Replace spreadsheet CRMs and Word-template quoting. Inbound lead to branded quote in minutes.',
-    href: '/solutions/ai-crm-quoting-agent/',
-    pricing: '€4.5K - €11K',
-    timeline: '4 - 6 weeks',
-    badge: 'Most popular',
-    status: 'live',
-    accent: 'emerald'
-  },
-  {
-    title: 'AI Invoicing Agent',
-    summary: 'Issue invoices, chase unpaid balances, reconcile payments. Get back a full day every month.',
-    href: '/blog/ai-agent-automate-invoicing-payment-reminders-small-business/',
-    pricing: '€3.5K - €8K',
-    timeline: '3 - 5 weeks',
-    badge: 'Coming soon',
-    status: 'coming',
-    accent: 'amber'
-  },
-  {
-    title: 'AI Lead Capture Agent',
-    summary: 'Listen to Instagram, WhatsApp, email, and forms. Qualify leads, reply in your tone, route to sales.',
-    href: '/blog/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business/',
-    pricing: '€3.5K - €9.5K',
-    timeline: '4 - 6 weeks',
-    badge: 'Coming soon',
-    status: 'coming',
-    accent: 'cyan'
-  },
-  {
-    title: 'AI Customer Support Agent',
-    summary: 'Triage every support email, draft replies in your voice, auto-resolve the simple ones, escalate the rest.',
-    href: '/blog/ai-agent-handle-customer-support-emails-small-business/',
-    pricing: '€3K - €8K',
-    timeline: '3 - 5 weeks',
-    badge: 'Coming soon',
-    status: 'coming',
-    accent: 'violet'
-  },
-  {
-    title: 'AI Scheduling Agent',
-    summary: 'Book appointments over WhatsApp and email, send confirmations, reduce no-shows automatically.',
-    href: '/blog/ai-agent-schedule-confirm-client-appointments-small-business/',
-    pricing: '€3K - €6.5K',
-    timeline: '3 - 5 weeks',
-    badge: 'Coming soon',
-    status: 'coming',
-    accent: 'sky'
-  },
-  {
-    title: 'AI Proposal Agent',
-    summary: 'Read the brief, search past wins, draft scope and pricing in your voice, output a branded PDF.',
-    href: '/blog/ai-agent-generate-proposals-statements-of-work-small-business/',
-    pricing: '€3.5K - €9.5K',
-    timeline: '4 - 6 weeks',
-    badge: 'Coming soon',
-    status: 'coming',
-    accent: 'rose'
-  }
-]
+const solutions = solutionPages.map((solution, index) => ({
+  title: solution.name,
+  summary: solution.summary,
+  href: `/solutions/${solution.slug}/`,
+  pricing: solution.priceRange.replace(' fixed', ''),
+  timeline: solution.timeline,
+  badge: index === 0 ? 'Most popular' : 'New',
+  status: 'live',
+  accent: ['emerald', 'amber', 'cyan', 'violet', 'sky', 'rose'][index] || 'emerald'
+}))
 
 const accentMap: Record<string, { dot: string; bg: string; border: string }> = {
   emerald: { dot: 'bg-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' },
@@ -163,7 +110,7 @@ const accentMap: Record<string, { dot: string; bg: string; border: string }> = {
 
 <BaseLayout
   title="Custom AI Agent Solutions for Small Business | CRM, Quoting, Invoicing & More"
-  description="Explore Naurra.ai custom AI solutions for small business: CRM and quoting, invoicing, lead capture, support, scheduling, and proposal workflows. Fixed-price builds from €3K, deployed in 3 to 6 weeks."
+  description="Explore Naurra.ai custom AI solutions for small business: CRM and quoting, invoicing, lead capture, support, scheduling, and proposal workflows. Fixed-price builds from €2K, deployed in 3 to 6 weeks."
   keywords="custom ai agent solutions, custom ai solutions for small business, ai crm solution, ai invoicing solution, ai lead capture solution, ai support automation solution, ai scheduling solution, ai proposal agent, custom ai workflow automation"
   image={solutionsImage}
   imageAlt="Naurra.ai solutions page preview showing custom AI agents for small business"
@@ -219,7 +166,7 @@ const accentMap: Record<string, { dot: string; bg: string; border: string }> = {
       </p>
 
       <div class="flex flex-wrap gap-3 justify-center mb-10">
-        <span class="px-4 py-2 rounded-full text-sm" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); color: rgba(255,255,255,0.62);">From €3K</span>
+        <span class="px-4 py-2 rounded-full text-sm" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); color: rgba(255,255,255,0.62);">From €2K</span>
         <span class="px-4 py-2 rounded-full text-sm" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); color: rgba(255,255,255,0.62);">3 to 6 weeks</span>
         <span class="px-4 py-2 rounded-full text-sm" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); color: rgba(255,255,255,0.62);">Fixed price</span>
         <span class="px-4 py-2 rounded-full text-sm" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); color: rgba(255,255,255,0.62);">Free consultation</span>
@@ -318,7 +265,7 @@ const accentMap: Record<string, { dot: string; bg: string; border: string }> = {
         For workflows where you do less than ten of something a month, off-the-shelf tools usually win. For workflows where the cost of slow or sloppy execution is real revenue, the math almost always favors a custom build. We help you figure out which side you are on before writing a single line of code.
       </p>
       <p>
-        Read the full breakdown in our guide on <a href="/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need/" style="color: #10b981; text-decoration: none; font-weight: 600;">custom vs off-the-shelf AI</a>, see real <a href="/company/" style="color: #10b981; text-decoration: none; font-weight: 600;">case studies across 7 industries</a>, or jump into the <a href="/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business/" style="color: #10b981; text-decoration: none; font-weight: 600;">honest pricing breakdown</a>.
+        Read the full breakdown in our guide on <a href="/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need/" style="color: #10b981; text-decoration: none; font-weight: 600;">custom vs off-the-shelf AI</a>, see real <a href="/company/" style="color: #10b981; text-decoration: none; font-weight: 600;">case studies across 7 industries</a>, or jump into the <a href="/blog/how-much-does-an-ai-agent-cost/" style="color: #10b981; text-decoration: none; font-weight: 600;">honest pricing breakdown</a>.
       </p>
     </div>
 

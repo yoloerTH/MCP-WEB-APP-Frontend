@@ -3710,7 +3710,7 @@ At [Naurra.ai](/company), we build custom AI agents for businesses across indust
 If you want to keep reading, these companion posts go deeper on specific questions we hear most often:
 
 - **[Custom AI agents for small business: what they do and when to build one](/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one)** -- the small-business lens on scope, timing, and first projects that actually pay back.
-- **[How much do custom AI agents cost? Real pricing ranges for small business](/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business)** -- honest pricing ranges, what drives cost up or down, and how to budget your first build.
+- **[How much do custom AI agents cost? Real pricing ranges for small business](/blog/how-much-does-an-ai-agent-cost)** -- honest pricing ranges, what drives cost up or down, and how to budget your first build.
 - **[Custom AI agents vs. off-the-shelf AI: which one does your business need?](/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need)** -- when to buy, when to build, and the hybrid path most businesses actually end up on.
 `,
     author: {
@@ -6521,7 +6521,7 @@ AI calendar management is the gateway feature for most people. Once you experien
     content: `
 # Why a Professional Email Signature Is Your Secret Weapon for Outreach
 
-**TL;DR:** A professional email signature increases reply rates by up to 32% in cold outreach campaigns. It builds instant credibility, drives traffic to your website or booking page, and turns every email you send into a micro-marketing asset. Our [free email signature generator](/tools/email-signature) lets you create a polished, Gmail-compatible signature in 30 seconds -- no signup required.
+**TL;DR:** A professional email signature increases reply rates by up to 32% in cold outreach campaigns. It builds instant credibility, drives traffic to your website or booking page, and turns every email you send into a micro-marketing asset. Our [free email signature generator](/tools/gmail-signature-generator) lets you create a polished, Gmail-compatible signature in 30 seconds -- no signup required.
 
 You spend hours crafting the perfect cold email. You A/B test subject lines. You personalize every opening line. But there is one element most people completely overlook: the email signature at the bottom.
 
@@ -6587,7 +6587,7 @@ Gmail and Outlook strip fancy CSS. Your signature needs to use:
 - **Inline styles only** (no external stylesheets)
 - **Hosted images** (not base64 or inline SVG -- Gmail strips both)
 
-This is exactly what our [free email signature generator](/tools/email-signature) produces. Every template is battle-tested across Gmail, Outlook, Apple Mail, and Yahoo Mail.
+This is exactly what our [free email signature generator](/tools/gmail-signature-generator) produces. Every template is battle-tested across Gmail, Outlook, Apple Mail, and Yahoo Mail.
 
 ### Step 3: Optimize the Booking Link
 
@@ -6621,7 +6621,7 @@ Give every team member a consistent, professional signature. When 10 people send
 
 ## How to Create Your Signature in 30 Seconds
 
-We built a [free email signature generator](/tools/email-signature) specifically designed for outreach and marketing professionals. Here is what makes it different:
+We built a [free email signature generator](/tools/gmail-signature-generator) specifically designed for outreach and marketing professionals. Here is what makes it different:
 
 ### 5 Professional Templates
 Choose from Minimal, Modern, Corporate, Creative, or Compact -- each designed for a different use case:
@@ -6677,7 +6677,7 @@ Your email signature is not an afterthought -- it is one of the most viewed piec
 
 The best part? Creating a professional signature takes less than a minute with the right tool.
 
-**[Create your free email signature now](/tools/email-signature)** -- no signup, no watermark, no limits. Choose a template, customize it, copy it to Gmail. Done.
+**[Create your free email signature now](/tools/gmail-signature-generator)** -- no signup, no watermark, no limits. Choose a template, customize it, copy it to Gmail. Done.
 
 And if you want to take your email productivity even further, check out how [Naurra.ai automates your entire Gmail workflow](/blog/gmail-automation-tips) with voice commands -- from composing and sending to searching and organizing your inbox.
     `,
@@ -6784,7 +6784,7 @@ The best CTAs are:
 - **Specific**: Suggest actual days/times instead of "let me know"
 - **Easy to answer**: Yes/no questions get more replies than open-ended ones
 
-Pro tip: if you have a [booking link in your email signature](/tools/email-signature), your CTA practically handles itself. The recipient can book a slot without the back-and-forth of scheduling.
+Pro tip: if you have a [booking link in your email signature](/tools/gmail-signature-generator), your CTA practically handles itself. The recipient can book a slot without the back-and-forth of scheduling.
 
 ## 5. Look Credible at First Glance
 
@@ -6802,7 +6802,7 @@ This is the part most people overlook. Your signature is scanned almost immediat
 
 A [professional email signature with a booking link](/blog/free-email-signature-generator-outreach) does double duty: it builds trust AND gives them a zero-friction way to schedule a call.
 
-If you do not have one yet, you can [create a polished signature in 30 seconds](/tools/email-signature) -- it takes less time than writing a single outreach email.
+If you do not have one yet, you can [create a polished signature in 30 seconds](/tools/gmail-signature-generator) -- it takes less time than writing a single outreach email.
 
 ### The email domain
 Send from a professional domain (sarah@yourcompany.com), never from Gmail or Yahoo for B2B outreach.
@@ -6886,7 +6886,7 @@ Before you send your next outreach email, check these boxes:
 
 Email outreach is not about sending more emails -- it is about sending better ones. The difference between a 2% reply rate and a 15% reply rate comes down to these fundamentals: sound human, be specific, keep it short, make it easy to respond, and look credible.
 
-The irony is that the smallest detail -- your email signature -- can have an outsized impact. It is the one element every recipient sees, and it takes [30 seconds to set up](/tools/email-signature).
+The irony is that the smallest detail -- your email signature -- can have an outsized impact. It is the one element every recipient sees, and it takes [30 seconds to set up](/tools/gmail-signature-generator).
 
 Combine a polished signature with these 7 strategies, and your outreach will perform better than 90% of the cold emails landing in inboxes today.
 
@@ -9236,7 +9236,7 @@ If you can remove friction from the small recurring jobs inside those tools, you
 
 We put the first set of utilities into one place on our new [tools page](/tools).
 
-### 1. [Free Gmail Signature Generator](/tools/email-signature)
+### 1. [Free Gmail Signature Generator](/tools/gmail-signature-generator)
 
 This tool helps you create a cleaner, more professional signature for Gmail and Google Workspace without touching HTML.
 
@@ -9268,7 +9268,7 @@ Use it when you need:
 
 It is a small thing, but it saves unnecessary fiddling every time.
 
-### 3. [Meeting Agenda Builder](/tools/meeting-agenda-builder)
+### 3. [Meeting Agenda Builder](/tools/meeting-agenda-maker)
 
 Many meetings go sideways before they even start because there is no real structure.
 
@@ -9367,9 +9367,9 @@ And they are designed to solve useful problems without adding new friction.
 
 If you want to explore the tools, start here:
 
-- [Gmail Signature Generator](/tools/email-signature)
+- [Gmail Signature Generator](/tools/gmail-signature-generator)
 - [Mailto Link Generator](/tools/mailto-link-generator)
-- [Meeting Agenda Builder](/tools/meeting-agenda-builder)
+- [Meeting Agenda Builder](/tools/meeting-agenda-maker)
 
 And if you want the full workflow layer on top of that, [try Naurra.ai free for 3 days](/pricing).
     `,
@@ -9392,7 +9392,7 @@ And if you want the full workflow layer on top of that, [try Naurra.ai free for 
     content: `
 # Free Gmail Signature Generator: Create a Clean Gmail Signature in 60 Seconds
 
-**TL;DR:** If you need a professional Gmail signature fast, use our [free Gmail signature generator](/tools/email-signature). Fill in your details, pick a layout, copy the result, and paste it straight into Gmail settings. No signup, no HTML, no watermark. The whole process takes about a minute.
+**TL;DR:** If you need a professional Gmail signature fast, use our [free Gmail signature generator](/tools/gmail-signature-generator). Fill in your details, pick a layout, copy the result, and paste it straight into Gmail settings. No signup, no HTML, no watermark. The whole process takes about a minute.
 
 Most people know their Gmail signature is bad.
 
@@ -9427,7 +9427,7 @@ There are dozens of free Gmail signature generators online. Most are fine. A few
 - supports photo, logo, social icons, and a CTA link
 - copy-paste ready into Gmail without breaking formatting
 
-Our [free Gmail signature generator](/tools/email-signature) is built to pass all of those. It is the same tool our own team uses, and it is designed specifically for Gmail and Google Workspace rendering.
+Our [free Gmail signature generator](/tools/gmail-signature-generator) is built to pass all of those. It is the same tool our own team uses, and it is designed specifically for Gmail and Google Workspace rendering.
 
 ## How to Create a Gmail Signature in Under 60 Seconds
 
@@ -9435,7 +9435,7 @@ Here is the exact process.
 
 ### Step 1: Open the Generator
 
-Go to [naurra.ai/tools/email-signature](/tools/email-signature). The page loads instantly. There is no popup, no onboarding, no account wall.
+Go to [naurra.ai/tools/gmail-signature-generator](/tools/gmail-signature-generator). The page loads instantly. There is no popup, no onboarding, no account wall.
 
 ### Step 2: Fill In Your Core Details
 
@@ -9520,7 +9520,7 @@ For related reading:
 
 No signup. No watermark. No upsell.
 
-[Open the free Gmail signature generator here](/tools/email-signature) and build your new signature in about a minute.
+[Open the free Gmail signature generator here](/tools/gmail-signature-generator) and build your new signature in about a minute.
 
 If you want the full automation layer on top, [try Naurra free for 3 days](/pricing).
     `,
@@ -9537,7 +9537,7 @@ If you want the full automation layer on top, [try Naurra free for 3 days](/pric
       description: 'Use the free Naurra Gmail signature generator to build a branded HTML signature and paste it into Gmail -- no signup, no watermark.',
       totalTime: 'PT1M',
       steps: [
-        { name: 'Open the generator', text: 'Go to naurra.ai/tools/email-signature in your browser. No signup is required.' },
+        { name: 'Open the generator', text: 'Go to naurra.ai/tools/gmail-signature-generator in your browser. No signup is required.' },
         { name: 'Fill in your details', text: 'Enter your name, role, company, phone, email, and website. A live preview renders as you type.' },
         { name: 'Add a photo or logo', text: 'Upload a square photo or your company logo. The tool crops and resizes it automatically for Gmail.' },
         { name: 'Add a CTA link', text: 'Add an optional call to action such as "Book a meeting" or "See our work" pointing to your most valuable link.' },
@@ -9556,7 +9556,7 @@ If you want the full automation layer on top, [try Naurra free for 3 days](/pric
     content: `
 # Free Gmail Signature Templates: 5 Clean Layouts That Work in Gmail
 
-**TL;DR:** The best free Gmail signature template is one that renders cleanly in Gmail, looks good on mobile, and does not look like it came from 2011. This guide walks through five layouts that work, when to use each, and how to build your own in about a minute using our [free Gmail signature generator](/tools/email-signature).
+**TL;DR:** The best free Gmail signature template is one that renders cleanly in Gmail, looks good on mobile, and does not look like it came from 2011. This guide walks through five layouts that work, when to use each, and how to build your own in about a minute using our [free Gmail signature generator](/tools/gmail-signature-generator).
 
 If you have ever searched for a free Gmail signature template, you have probably seen the same problems:
 
@@ -9577,7 +9577,7 @@ Before picking a template, it helps to know what Gmail actually renders well.
 - **Reasonable size.** Keep the full signature under 10KB. Gmail clips anything that bloats the message.
 - **Mobile-first spacing.** Padding that looks tight on desktop often looks broken on mobile.
 
-Every template below is designed around those rules. If you build one yourself with our [Gmail signature generator](/tools/email-signature), these constraints are handled for you automatically.
+Every template below is designed around those rules. If you build one yourself with our [Gmail signature generator](/tools/gmail-signature-generator), these constraints are handled for you automatically.
 
 ## Template 1: The Minimalist
 
@@ -9662,7 +9662,7 @@ Stripped down, confident, assumes the reader knows the context. The assistant em
 
 You do not need to copy HTML or wrestle with a PSD file. The workflow is:
 
-1. Open our [free Gmail signature generator](/tools/email-signature)
+1. Open our [free Gmail signature generator](/tools/gmail-signature-generator)
 2. Pick the layout closest to the template above
 3. Fill in your details
 4. Copy the generated signature
@@ -9695,7 +9695,7 @@ The worst move is to use a template that is flashier than your actual brand. A m
 
 No signup. No watermark. Five clean layouts to choose from.
 
-[Open the free Gmail signature generator](/tools/email-signature) and pick the template that fits your role.
+[Open the free Gmail signature generator](/tools/gmail-signature-generator) and pick the template that fits your role.
 
 Pair it with the rest of our [free Google Workspace tools](/tools) for the small tasks that slow down real work, or [try Naurra free for 3 days](/pricing) to automate the workflow around your inbox.
     `,
@@ -9712,15 +9712,15 @@ Pair it with the rest of our [free Google Workspace tools](/tools) for the small
     keywords: 'free gmail signature template, gmail signature templates, free gmail signature templates, gmail signature layouts, professional gmail signature template, gmail email signature templates, gmail signature examples'
   },
   {
-    slug: 'meeting-agenda-maker-how-to-build-agendas-that-keep-meetings-on-track',
-    title: 'Meeting Agenda Maker: How to Build Agendas That Keep Meetings on Track',
-    description: 'A practical guide to building meeting agendas that actually work. Use our free meeting agenda maker to structure weekly syncs, client calls, and one-on-ones in minutes.',
+    slug: 'create-an-agenda',
+    title: 'Create an Agenda: Free Meeting Agenda Maker for Better Meetings',
+    description: 'Learn how to create an agenda that keeps meetings on track. Use our free meeting agenda maker and app to structure weekly syncs, client calls, and one-on-ones in minutes.',
     content: `
-# Meeting Agenda Maker: How to Build Agendas That Keep Meetings on Track
+# Create an Agenda: Free Meeting Agenda Maker for Better Meetings
 
-**TL;DR:** Most meetings go sideways because nobody wrote a proper agenda. Our [free meeting agenda builder](/tools/meeting-agenda-builder/) gives you a clean, timed, action-item-ready structure in under a minute. This guide covers what belongs in every agenda, which format to use for which meeting type, and how to keep the call from drifting.
+**TL;DR:** If you need to create an agenda fast, start with our [free meeting agenda maker](/tools/meeting-agenda-maker/). It gives you a clean, timed, action-item-ready structure in under a minute. This guide covers what belongs in every agenda, which format to use for which meeting type, and how to keep the call from drifting.
 
-> **Want to skip straight to the tool?** [Open the free Meeting Agenda Builder](/tools/meeting-agenda-builder/) and have a structured, timed agenda in under two minutes. No signup. This guide is the background — the tool does the work.
+> **Want to skip straight to the tool?** [Open the free Meeting Agenda Maker](/tools/meeting-agenda-maker/) and create a structured agenda in under two minutes. No signup. This guide is the background — the tool does the work.
 
 Almost every unproductive meeting has the same root cause: the agenda was missing, vague, or written five minutes before the call.
 
@@ -9742,9 +9742,9 @@ Good agendas share the same skeleton:
 
 That is it. Seven elements. Most meeting agenda makers overcomplicate the format. Ours keeps it to the essentials because anything more rarely gets read.
 
-## How to Use the Free Meeting Agenda Builder
+## How to Use the Free Meeting Agenda Maker
 
-Open [naurra.ai/tools/meeting-agenda-builder](/tools/meeting-agenda-builder) and follow the fields. The tool builds a clean, copy-paste-ready agenda you can drop into a calendar invite, a Google Doc, or a Slack message.
+Open [naurra.ai/tools/meeting-agenda-maker](/tools/meeting-agenda-maker) and follow the fields. The tool builds a clean, copy-paste-ready agenda you can drop into a calendar invite, a Google Doc, or a Slack message.
 
 The workflow:
 
@@ -9836,7 +9836,7 @@ If you are running a lot of meetings in a given week, the real leverage is strin
 
 No signup. No account. No upsell.
 
-**→ [Open the free Meeting Agenda Builder](/tools/meeting-agenda-builder/)** and build your next agenda in under two minutes. Pick the meeting type, add attendees, set time budgets, and copy the finished agenda straight into your calendar invite.
+**→ [Open the free Meeting Agenda Maker](/tools/meeting-agenda-maker/)** and create your next agenda in under two minutes. Pick the meeting type, add attendees, set time budgets, and copy the finished agenda straight into your calendar invite.
 
 It pairs well with the rest of our [free Google Workspace tools](/tools/). And if you want the full automation layer around your meetings — scheduling, briefing, agendas, and follow-ups from a single voice request — [try Naurra free for 3 days](/pricing/).
     `,
@@ -9848,15 +9848,15 @@ It pairs well with the rest of our [free Google Workspace tools](/tools/). And i
     category: 'Productivity',
     tags: ['Meetings', 'Free Tools', 'Google Workspace', 'Productivity'],
     featured: true,
-    image: '/blog/meeting-agenda-maker-how-to-build-agendas-that-keep-meetings-on-track.png',
+    image: '/blog/create-an-agenda.png',
     readingTime: 7,
-    keywords: 'meeting agenda maker, agenda builder, meeting agenda builder, free meeting agenda maker, meeting agenda template, how to build a meeting agenda, meeting agenda generator, team meeting agenda',
+    keywords: 'create an agenda, create agenda, meeting agenda maker, meeting agenda app, meeting agenda builder, make an agenda, free meeting agenda maker, agenda creator, team meeting agenda, how to create an agenda',
     howTo: {
-      name: 'How to build a meeting agenda that keeps meetings on track',
-      description: 'Use the free Naurra meeting agenda builder to draft a structured agenda with objectives, time budgets, decisions, and action items in under two minutes.',
+      name: 'How to create an agenda that keeps meetings on track',
+      description: 'Use the free Naurra meeting agenda maker to draft a structured agenda with objectives, time budgets, decisions, and action items in under two minutes.',
       totalTime: 'PT2M',
       steps: [
-        { name: 'Open the agenda builder', text: 'Go to naurra.ai/tools/meeting-agenda-builder. No signup is required.' },
+        { name: 'Open the agenda builder', text: 'Go to naurra.ai/tools/meeting-agenda-maker. No signup is required.' },
         { name: 'Define the meeting goal', text: 'Write a concrete objective, for example "Approve the Q3 launch timeline," not a vague topic like "align on roadmap."' },
         { name: 'Add attendees and roles', text: 'List who is attending and assign owners for each agenda item so accountability is clear before the meeting starts.' },
         { name: 'Add topics with time budgets', text: 'Add each discussion topic with a time budget so the first topic does not eat the whole meeting.' },
@@ -9969,7 +9969,7 @@ If you are in the second bucket, start with pre-built automation first. Our guid
 
 Custom AI agents for small business typically range from a few thousand to low five figures depending on scope. Anyone promising a production-grade custom agent for a few hundred dollars is selling you a template, not a custom system.
 
-For a proper range breakdown, see [how much do custom AI agents cost](/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business).
+For a proper range breakdown, see [how much do custom AI agents cost](/blog/how-much-does-an-ai-agent-cost).
 
 The honest rule: the cost of a custom AI agent should be a small fraction of the annual cost of the manual process it replaces. If it is not, the scope is wrong or the workflow is not a fit.
 
@@ -9998,7 +9998,7 @@ At [Naurra.ai](/company), we build custom AI agents for small businesses across 
 - [How an AI Agent Creates a Custom CRM + Quoting System for a Small Business](/blog/ai-agent-custom-crm-quoting-system-small-business)
 - [Custom AI Agents for Business: case studies across 7 industries](/blog/custom-ai-agents-for-business)
 - [Custom AI vs Off-the-Shelf AI: which one does your business actually need](/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need)
-- [How Much Do Custom AI Agents Cost](/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business)
+- [How Much Do Custom AI Agents Cost](/blog/how-much-does-an-ai-agent-cost)
 - [AI Agent vs Chatbot](/blog/ai-agent-vs-chatbot-what-your-business-actually-needs)
 - [What the perfect AI looks like for your business](/blog/what-the-perfect-ai-looks-like-for-your-business)
     `,
@@ -10015,15 +10015,15 @@ At [Naurra.ai](/company), we build custom AI agents for small businesses across 
     keywords: 'custom ai agents for small business, ai agents for small business, custom ai for small business, small business ai automation, custom ai solutions small business, ai agent development small business, business automation ai, custom ai agents'
   },
   {
-    slug: 'how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business',
-    title: 'How Much Do Custom AI Agents Cost? Real Pricing Ranges for Business in 2026',
-    description: 'An honest breakdown of what custom AI agents cost in 2026. Real pricing ranges by scope, what drives the cost, when to pay for custom vs stick with off-the-shelf tools.',
+    slug: 'how-much-does-an-ai-agent-cost',
+    title: 'How Much Does an AI Agent Cost? Real Build Pricing in 2026',
+    description: 'How much does an AI agent cost in 2026? Honest pricing for custom AI agents, including what it costs to build or make an AI agent for a small business.',
     content: `
-# How Much Do Custom AI Agents Cost? Real Pricing Ranges for Business in 2026
+# How Much Does an AI Agent Cost? Real Build Pricing in 2026
 
-**TL;DR:** Custom AI agents for business typically range from about $3,000 to $50,000+ depending on scope, integrations, and complexity. Anyone quoting a few hundred dollars is selling a template. Anyone quoting six figures is either doing enterprise-scale work or overcharging. This post breaks down the real cost drivers and when custom AI is worth the investment.
+**TL;DR:** If you are wondering how much an AI agent costs, the honest range is usually $3,000 to $50,000+ depending on scope, integrations, and complexity. That also answers related searches like cost to build an AI agent, how much it costs to make an AI agent, and AI agent pricing for small business. This post breaks down the real cost drivers and when custom AI is worth the investment.
 
-One of the most common questions we get is some version of: "How much does a custom AI agent actually cost?"
+One of the most common questions we get is some version of: "How much does an AI agent cost?"
 
 It is a reasonable question. And the honest answer is: it depends. But vendors love to hide behind "it depends" and never give real numbers. This post gives real numbers.
 
@@ -10166,9 +10166,9 @@ At [Naurra.ai](/company), we scope every custom AI project upfront, quote fixed-
     category: 'Industry Insights',
     tags: ['AI Agents', 'Pricing', 'Custom AI', 'Business Automation'],
     featured: false,
-    image: '/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business.png',
+    image: '/blog/how-much-does-an-ai-agent-cost.png',
     readingTime: 8,
-    keywords: 'how much do custom ai agents cost, custom ai agent cost, custom ai agent pricing, cost of custom ai, ai agent development cost, custom ai pricing, ai automation cost business, ai agent price'
+    keywords: 'how much does an ai agent cost, cost to build an ai agent, how much does it cost to build an ai agent, how much does it cost to make an ai agent, ai agent cost, ai agent pricing, custom ai agent cost, ai agent development cost, ai automation cost business, ai agent price'
   },
   {
     slug: 'custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need',
@@ -10296,7 +10296,7 @@ If you have worked through the framework and custom looks right:
 3. Get a scoped fixed-price proposal from a builder you trust. The cost should be a small fraction of the annual manual cost.
 4. Deliver in phases with weekly demos. You see working software from day one.
 
-For real pricing ranges, see [how much do custom AI agents cost](/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business).
+For real pricing ranges, see [how much do custom AI agents cost](/blog/how-much-does-an-ai-agent-cost).
 
 ## The Honest Next Step
 
@@ -10311,7 +10311,7 @@ If you are not sure which side of the line your workflow falls on, that is exact
 - [How an AI Agent Creates a Custom CRM + Quoting System for a Small Business](/blog/ai-agent-custom-crm-quoting-system-small-business)
 - [Custom AI Agents for Business: 7-industry case studies](/blog/custom-ai-agents-for-business)
 - [Custom AI Agents for Small Business: when it makes sense](/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one)
-- [How Much Do Custom AI Agents Cost](/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business)
+- [How Much Do Custom AI Agents Cost](/blog/how-much-does-an-ai-agent-cost)
 - [AI Agent vs Chatbot: what your business actually needs](/blog/ai-agent-vs-chatbot-what-your-business-actually-needs)
 - [What the perfect AI looks like for your business](/blog/what-the-perfect-ai-looks-like-for-your-business)
     `,
@@ -10399,7 +10399,7 @@ You have three real options:
 
 The math usually works out in favor of the custom build for any small business that does more than 20 quotes a month with non-trivial pricing logic. The payback period is typically 3–6 months.
 
-For the detailed cost breakdown, see [How Much Do Custom AI Agents Cost?](/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business).
+For the detailed cost breakdown, see [How Much Do Custom AI Agents Cost?](/blog/how-much-does-an-ai-agent-cost).
 
 ## What the Build Process Looks Like
 
@@ -10469,7 +10469,7 @@ That is the entire brief needed to scope a build. Anyone asking for a 40-field d
 
 If you are running a small business and losing hours to manual quoting or a spreadsheet CRM, this is usually the highest-ROI first AI project you can run.
 
-See the dedicated solution page for a full overview of [our custom AI CRM and quoting agent](/solutions/ai-crm-quoting-agent), or [see our case studies and book a free consultation](/company). We reply within 24 hours with an honest read on whether a custom build actually makes sense for your business.
+See the dedicated solution page for a full overview of [our custom AI CRM and quoting agent](/solutions/ai-agent-custom-crm-quoting-system-small-business), or [see our case studies and book a free consultation](/company). We reply within 24 hours with an honest read on whether a custom build actually makes sense for your business.
 
 ## Related Reading
 
@@ -10477,7 +10477,7 @@ See the dedicated solution page for a full overview of [our custom AI CRM and qu
 - [How an AI Agent Captures and Qualifies Leads from Instagram, WhatsApp, and Email](/blog/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business)
 - [How an AI Agent Generates Proposals and Statements of Work for a Small Business](/blog/ai-agent-generate-proposals-statements-of-work-small-business)
 - [Custom AI Agents for Small Business: What They Do and When to Build One](/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one)
-- [How Much Do Custom AI Agents Cost?](/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business)
+- [How Much Do Custom AI Agents Cost?](/blog/how-much-does-an-ai-agent-cost)
 - [Custom AI Agents vs Off-the-Shelf AI](/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need)
 - [Custom AI Agents for Business: 7-industry case studies](/blog/custom-ai-agents-for-business)
     `,
@@ -10568,7 +10568,7 @@ You have three real options for invoicing and collections:
 
 The math usually favors the custom build for any small business sending **more than 15 invoices a month**, with non-trivial billing logic (project milestones, retainers, multi-currency, tax rules, or client-specific terms). The payback period is typically 4–8 months.
 
-For the detailed cost breakdown, see [How Much Do Custom AI Agents Cost?](/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business).
+For the detailed cost breakdown, see [How Much Do Custom AI Agents Cost?](/blog/how-much-does-an-ai-agent-cost).
 
 ## What the Build Process Looks Like
 
@@ -10644,7 +10644,7 @@ We build custom AI agents for small business — [see our work and book a free c
 
 - [How an AI Agent Creates a Custom CRM + Quoting System for a Small Business](/blog/ai-agent-custom-crm-quoting-system-small-business)
 - [Custom AI Agents for Small Business: What They Do and When to Build One](/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one)
-- [How Much Do Custom AI Agents Cost?](/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business)
+- [How Much Do Custom AI Agents Cost?](/blog/how-much-does-an-ai-agent-cost)
 - [Custom AI Agents vs Off-the-Shelf AI](/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need)
 - [Best Google Workspace Automations for Small Business Owners](/blog/best-google-workspace-automations-for-small-business-owners)
     `,
@@ -10728,7 +10728,7 @@ You have three real options for inbound lead handling:
 
 The math usually favors the custom build for any small business getting **more than 30 inbound leads per month** across two or more channels, especially if response time is currently more than a few hours. The payback period is typically 3-6 months.
 
-For the detailed cost breakdown, see [How Much Do Custom AI Agents Cost?](/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business).
+For the detailed cost breakdown, see [How Much Do Custom AI Agents Cost?](/blog/how-much-does-an-ai-agent-cost).
 
 ## What the Build Process Looks Like
 
@@ -10800,7 +10800,7 @@ We build custom AI agents for small business. [See the case studies and book a f
 - [How an AI Agent Creates a Custom CRM + Quoting System for a Small Business](/blog/ai-agent-custom-crm-quoting-system-small-business)
 - [How an AI Agent Automates Invoicing and Payment Reminders for a Small Business](/blog/ai-agent-automate-invoicing-payment-reminders-small-business)
 - [Custom AI Agents for Small Business: What They Do and When to Build One](/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one)
-- [How Much Do Custom AI Agents Cost?](/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business)
+- [How Much Do Custom AI Agents Cost?](/blog/how-much-does-an-ai-agent-cost)
 - [Custom AI Agents vs Off-the-Shelf AI](/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need)
     `,
     author: {
@@ -10873,7 +10873,7 @@ For the full breakdown, see [our work](/company).
 
 The math usually favors the custom build for any small business handling **more than 100 support emails per month** with non-trivial product or order questions. Payback typically lands in 4-8 months.
 
-For the detailed cost breakdown, see [How Much Do Custom AI Agents Cost?](/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business).
+For the detailed cost breakdown, see [How Much Do Custom AI Agents Cost?](/blog/how-much-does-an-ai-agent-cost).
 
 ## What the Build Process Looks Like
 
@@ -10932,7 +10932,7 @@ We build custom AI agents for small business. [See the case studies and book a f
 - [How an AI Agent Creates a Custom CRM + Quoting System for a Small Business](/blog/ai-agent-custom-crm-quoting-system-small-business)
 - [How an AI Agent Automates Invoicing and Payment Reminders for a Small Business](/blog/ai-agent-automate-invoicing-payment-reminders-small-business)
 - [Best Google Workspace Automations for Small Business Owners](/blog/best-google-workspace-automations-for-small-business-owners)
-- [How Much Do Custom AI Agents Cost?](/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business)
+- [How Much Do Custom AI Agents Cost?](/blog/how-much-does-an-ai-agent-cost)
     `,
     author: {
       name: 'Thanos Panagiotakopoulos',
@@ -11005,7 +11005,7 @@ The same pattern applies to scheduling: a clinic books appointments over WhatsAp
 
 The math usually favors the custom build for any service business handling **more than 50 appointments per month** with a client base that prefers WhatsApp or messaging over web links. Payback typically lands in 4-8 months.
 
-For pricing detail, see [How Much Do Custom AI Agents Cost?](/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business).
+For pricing detail, see [How Much Do Custom AI Agents Cost?](/blog/how-much-does-an-ai-agent-cost).
 
 ## What the Build Process Looks Like
 
@@ -11065,7 +11065,7 @@ We build custom AI agents for small business. [See the case studies and book a f
 - [How an AI Agent Handles Customer Support Emails for a Small Business](/blog/ai-agent-handle-customer-support-emails-small-business)
 - [How an AI Agent Creates a Custom CRM + Quoting System for a Small Business](/blog/ai-agent-custom-crm-quoting-system-small-business)
 - [Custom AI Agents for Small Business: What They Do and When to Build One](/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one)
-- [How Much Do Custom AI Agents Cost?](/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business)
+- [How Much Do Custom AI Agents Cost?](/blog/how-much-does-an-ai-agent-cost)
     `,
     author: {
       name: 'Thanos Panagiotakopoulos',
@@ -11147,7 +11147,7 @@ For the full case studies, see [our work](/company).
 
 The math usually favors the custom build for any small business sending **more than 10 proposals per month** with non-trivial scope and pricing logic. Payback typically lands in 3-6 months because faster proposals win more deals.
 
-For pricing detail, see [How Much Do Custom AI Agents Cost?](/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business).
+For pricing detail, see [How Much Do Custom AI Agents Cost?](/blog/how-much-does-an-ai-agent-cost).
 
 ## What the Build Process Looks Like
 
@@ -11206,7 +11206,7 @@ We build custom AI agents for small business. [See the case studies and book a f
 - [How an AI Agent Captures and Qualifies Leads from Instagram, WhatsApp, and Email](/blog/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business)
 - [How an AI Agent Handles Customer Support Emails for a Small Business](/blog/ai-agent-handle-customer-support-emails-small-business)
 - [How an AI Agent Schedules and Confirms Client Appointments for a Small Business](/blog/ai-agent-schedule-confirm-client-appointments-small-business)
-- [How Much Do Custom AI Agents Cost?](/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business)
+- [How Much Do Custom AI Agents Cost?](/blog/how-much-does-an-ai-agent-cost)
     `,
     author: {
       name: 'Thanos Panagiotakopoulos',
@@ -11327,7 +11327,7 @@ That is the safe upper bound for broad compatibility. If your body template is l
 Not every page needs a form. Situations where a mailto link converts better:
 
 - **High-intent pages** where a serious reader is willing to write a real email (pricing, enterprise inquiries, partnerships).
-- **Email signatures** (pair this with our [free Gmail signature generator](/tools/email-signature)).
+- **Email signatures** (pair this with our [free Gmail signature generator](/tools/gmail-signature-generator)).
 - **Support pages** where the triage logic depends on human context, not form fields.
 - **Newsletters and blog posts** — a mailto CTA in an article feels lower-friction than "fill this form."
 - **Any page where a typed email address is more respectful than a tracked form submission.**

@@ -970,12 +970,12 @@ export default function CompanyPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
             {[
-              { title: 'AI CRM + Quoting Agent', summary: 'Inbound lead to branded quote in minutes. Replaces spreadsheet CRMs and Word-template quoting.', price: '$6K - $15K', timeline: '4 - 6 weeks', href: '/solutions/ai-crm-quoting-agent/', live: true, accent: 'from-emerald-400 to-teal-400' },
-              { title: 'AI Invoicing Agent', summary: 'Issue invoices, chase unpaid balances, reconcile payments automatically.', price: '$4.5K - $11K', timeline: '3 - 5 weeks', href: '/blog/ai-agent-automate-invoicing-payment-reminders-small-business/', live: false, accent: 'from-amber-400 to-orange-400' },
-              { title: 'AI Lead Capture Agent', summary: 'Listen to Instagram, WhatsApp, email and forms. Qualify in your tone, route to sales.', price: '$5K - $13K', timeline: '4 - 6 weeks', href: '/blog/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business/', live: false, accent: 'from-cyan-400 to-blue-400' },
-              { title: 'AI Customer Support Agent', summary: 'Triage every email, draft replies, auto-resolve the simple ones, escalate the rest.', price: '$4K - $11K', timeline: '3 - 5 weeks', href: '/blog/ai-agent-handle-customer-support-emails-small-business/', live: false, accent: 'from-violet-400 to-purple-400' },
-              { title: 'AI Scheduling Agent', summary: 'Book over WhatsApp and email. Confirm and reduce no-shows automatically.', price: '$4K - $9K', timeline: '3 - 5 weeks', href: '/blog/ai-agent-schedule-confirm-client-appointments-small-business/', live: false, accent: 'from-sky-400 to-indigo-400' },
-              { title: 'AI Proposal Agent', summary: 'Read brief, search past wins, draft scope and pricing in your voice. Output a branded PDF.', price: '$5K - $13K', timeline: '4 - 6 weeks', href: '/blog/ai-agent-generate-proposals-statements-of-work-small-business/', live: false, accent: 'from-rose-400 to-pink-400' },
+              { title: 'AI CRM + Quoting Agent', summary: 'Inbound lead to branded quote in minutes. Replaces spreadsheet CRMs and Word-template quoting.', price: '€3.5K - €10K', timeline: '4 - 6 weeks', href: '/solutions/ai-agent-custom-crm-quoting-system-small-business/', live: true, accent: 'from-emerald-400 to-teal-400' },
+              { title: 'AI Invoicing Agent', summary: 'Issue invoices, chase unpaid balances, reconcile payments automatically.', price: '€2.5K - €7K', timeline: '3 - 5 weeks', href: '/solutions/ai-agent-automate-invoicing-payment-reminders-small-business/', live: true, accent: 'from-amber-400 to-orange-400' },
+              { title: 'AI Lead Capture Agent', summary: 'Listen to Instagram, WhatsApp, email and forms. Qualify in your tone, route to sales.', price: '€2.5K - €8.5K', timeline: '4 - 6 weeks', href: '/solutions/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business/', live: true, accent: 'from-cyan-400 to-blue-400' },
+              { title: 'AI Customer Support Agent', summary: 'Triage every email, draft replies, auto-resolve the simple ones, escalate the rest.', price: '€2K - €7K', timeline: '3 - 5 weeks', href: '/solutions/ai-agent-handle-customer-support-emails-small-business/', live: true, accent: 'from-violet-400 to-purple-400' },
+              { title: 'AI Scheduling Agent', summary: 'Book over WhatsApp and email. Confirm and reduce no-shows automatically.', price: '€2K - €5.5K', timeline: '3 - 5 weeks', href: '/solutions/ai-agent-schedule-confirm-client-appointments-small-business/', live: true, accent: 'from-sky-400 to-indigo-400' },
+              { title: 'AI Proposal Agent', summary: 'Read brief, search past wins, draft scope and pricing in your voice. Output a branded PDF.', price: '€2.5K - €8.5K', timeline: '4 - 6 weeks', href: '/solutions/ai-agent-generate-proposals-statements-of-work-small-business/', live: true, accent: 'from-rose-400 to-pink-400' },
             ].map((s, i) => (
               <motion.a
                 key={s.title}
@@ -1212,7 +1212,7 @@ export default function CompanyPage() {
                 description: 'A plain-English guide to which workflows are worth automating and how small teams deploy agents without a six-figure budget.',
               },
               {
-                href: '/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business',
+                href: '/blog/how-much-does-an-ai-agent-cost',
                 title: 'How Much Do Custom AI Agents Cost?',
                 description: 'Real pricing ranges for small business custom AI builds — what drives cost, what to expect, and how to scope a first project.',
               },

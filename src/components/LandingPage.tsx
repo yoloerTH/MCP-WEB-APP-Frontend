@@ -207,7 +207,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
         className="fixed top-0 left-0 right-0 z-[51] bg-gradient-to-r from-emerald-600/90 via-emerald-500/90 to-teal-500/90 backdrop-blur-sm"
       >
         <a
-          href="/tools/email-signature/"
+          href="/tools/gmail-signature-generator/"
           className="block py-2 text-center text-sm font-semibold text-white hover:text-emerald-100 transition-colors"
           style={{ fontFamily: 'Outfit, sans-serif' }}
         >

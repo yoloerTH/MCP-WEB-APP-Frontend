@@ -7,20 +7,20 @@ const breadcrumbSchema = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://naurra.ai/' },
     { '@type': 'ListItem', position: 2, name: 'Free Tools', item: 'https://naurra.ai/tools/' },
-    { '@type': 'ListItem', position: 3, name: 'Meeting Agenda Builder', item: 'https://naurra.ai/tools/meeting-agenda-builder/' }
+    { '@type': 'ListItem', position: 3, name: 'Meeting Agenda Maker', item: 'https://naurra.ai/tools/meeting-agenda-maker/' }
   ]
 }
 
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
-  name: 'Free Meeting Agenda Builder & Maker',
-  alternateName: ['Meeting Agenda Maker', 'Agenda Creator', 'AI Meeting Agenda Generator'],
-  url: 'https://naurra.ai/tools/meeting-agenda-builder/',
+  name: 'Free Meeting Agenda Maker & App',
+  alternateName: ['Meeting Agenda Builder', 'Meeting Agenda App', 'Agenda Creator', 'Create Agenda Tool'],
+  url: 'https://naurra.ai/tools/meeting-agenda-maker/',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Any',
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-  description: 'Free meeting agenda builder and maker. Create structured team meeting agendas with timed sections, attendees and action items. Copy as text or Markdown for Google Docs and Calendar.',
+  description: 'Free meeting agenda maker and app. Create an agenda with timed sections, attendees and action items, then copy it into Google Docs, Calendar or email.',
   creator: { '@type': 'Organization', name: 'Naurra.ai', url: 'https://naurra.ai' }
 }
 
@@ -45,8 +45,8 @@ const faqData = {
     },
     {
       '@type': 'Question',
-      name: 'Is this meeting agenda builder free?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Yes, completely free with no signup required. Build unlimited agendas, add as many sections as you need, and copy them in any format.' }
+      name: 'Is this meeting agenda maker free?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes, completely free with no signup required. Create unlimited agendas, add as many sections as you need, and copy them in any format.' }
     },
     {
       '@type': 'Question',
@@ -63,11 +63,11 @@ const faqData = {
 ---
 
 <BaseLayout
-  title="Free Meeting Agenda Builder & Maker — AI Agenda Creator"
-  description="Free meeting agenda builder & maker. Create structured team meeting agendas with timed sections, attendees and action items in seconds. Copy to Google Docs, Calendar or email. No signup."
-  keywords="meeting agenda builder, meeting agenda maker, agenda creator, agenda generator, ai meeting agenda, free meeting agenda, meeting agenda template, team meeting agenda, google calendar agenda, meeting planner"
+  title="Free Meeting Agenda Maker & App — Create an Agenda Fast"
+  description="Free meeting agenda maker and app. Create an agenda with timed sections, attendees and action items in seconds. Copy to Google Docs, Calendar or email. No signup."
+  keywords="meeting agenda maker, meeting agenda app, create an agenda, create agenda, make an agenda, meeting agenda builder, agenda creator, free meeting agenda, team meeting agenda, google calendar agenda"
   image="/tools/tools-page-launch.png"
-  url="https://naurra.ai/tools/meeting-agenda-builder/"
+  url="https://naurra.ai/tools/meeting-agenda-maker/"
   structuredData={[breadcrumbSchema, structuredData, faqData]}
 >
 
@@ -433,10 +433,10 @@ const faqData = {
       </div>
       <h1 style="font-family: 'Sora', sans-serif; font-size: clamp(32px, 5vw, 52px); font-weight: 800; color: #f1f5f9; margin: 0 0 16px; line-height: 1.15; letter-spacing: -0.04em;">
         Meeting Agenda<br/>
-        <span style="background: linear-gradient(135deg, #10b981, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Builder &amp; Maker</span>
+        <span style="background: linear-gradient(135deg, #10b981, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Maker &amp; App</span>
       </h1>
       <p style="font-size: 18px; color: rgba(255,255,255,0.5); max-width: 620px; margin: 0 auto; line-height: 1.6; font-weight: 400;">
-        The free AI-powered agenda creator for teams. Build structured agendas with timed sections, attendees, and action items — then share before the meeting starts.
+        The free AI-powered meeting agenda maker for teams. Create an agenda with timed sections, attendees, and action items, then share it before the meeting starts.
       </p>
       <div class="feature-pills" style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 24px;">
         <div style="padding: 10px 14px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); font-size: 13px; color: rgba(255,255,255,0.62);">Timed sections</div>
@@ -448,7 +448,7 @@ const faqData = {
     <!-- SEO Intro -->
     <section class="seo-copy">
       <p style="margin: 0 0 14px;">
-        A structured <strong>meeting agenda</strong> is the difference between a productive 30-minute call and an hour of wandering discussion. This free <strong>meeting agenda builder</strong> — an <strong>AI-powered agenda maker and creator</strong> for teams — helps you generate clear, time-boxed agendas that keep every meeting on track.
+        A structured <strong>meeting agenda</strong> is the difference between a productive 30-minute call and an hour of wandering discussion. This free <strong>meeting agenda maker</strong> and <strong>meeting agenda app</strong> helps you create an agenda with clear, time-boxed sections that keep every meeting on track.
       </p>
       <p style="margin: 0;">
         Build your agenda here, then paste it into a <a href="/blog/google-calendar-ai-scheduling/" style="color: #10b981; text-decoration: none; font-weight: 600;">Google Calendar event</a> or share it via email. For recurring meetings, use <a href="/voiceai/" style="color: #10b981; text-decoration: none; font-weight: 600;">Naurra's voice AI</a> to generate and send agendas automatically.

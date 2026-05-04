@@ -19,9 +19,9 @@ const collectionSchema = {
   mainEntity: {
     '@type': 'ItemList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, url: 'https://naurra.ai/tools/email-signature/', name: 'Free Gmail Signature Generator' },
+      { '@type': 'ListItem', position: 1, url: 'https://naurra.ai/tools/gmail-signature-generator/', name: 'Free Gmail Signature Generator' },
       { '@type': 'ListItem', position: 2, url: 'https://naurra.ai/tools/mailto-link-generator/', name: 'Mailto Link Generator' },
-      { '@type': 'ListItem', position: 3, url: 'https://naurra.ai/tools/meeting-agenda-builder/', name: 'Meeting Agenda Builder' }
+      { '@type': 'ListItem', position: 3, url: 'https://naurra.ai/tools/meeting-agenda-maker/', name: 'Meeting Agenda Maker' }
     ]
   }
 }
@@ -30,7 +30,7 @@ const tools = [
   {
     title: 'Gmail Signature Generator',
     description: 'Create professional email signatures for Gmail, Outlook, and Apple Mail. Pick a template, customize colors and details, copy with one click.',
-    href: '/tools/email-signature',
+    href: '/tools/gmail-signature-generator',
     icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
     category: 'Gmail',
     badge: 'Popular'
@@ -44,9 +44,9 @@ const tools = [
     badge: 'New'
   },
   {
-    title: 'Meeting Agenda Builder',
-    description: 'Build structured meeting agendas with timed sections, attendees, and action items. Export to Google Docs or copy as formatted text.',
-    href: '/tools/meeting-agenda-builder',
+    title: 'Meeting Agenda Maker',
+    description: 'Create an agenda with timed sections, attendees, and action items. Export to Google Docs or copy as formatted text.',
+    href: '/tools/meeting-agenda-maker',
     icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01',
     category: 'Calendar',
     badge: 'New'
@@ -56,8 +56,8 @@ const tools = [
 
 <BaseLayout
   title="Free Gmail & Google Workspace Tools — Save Hours Every Week"
-  description="Free tools for Gmail, Google Calendar and Google Workspace. Gmail signature generator, meeting agenda builder, mailto link creator and more — save hours on daily Google tasks. No signup."
-  keywords="free google workspace tools, free gmail tools, gmail signature generator, meeting agenda builder, mailto link generator, google calendar tools, productivity utilities, save time gmail"
+  description="Free tools for Gmail, Google Calendar and Google Workspace. Gmail signature generator, meeting agenda maker, mailto link creator and more — save hours on daily Google tasks. No signup."
+  keywords="free google workspace tools, free gmail tools, gmail signature generator, meeting agenda maker, meeting agenda app, mailto link generator, google calendar tools, productivity utilities, save time gmail"
   image="/tools/tools-page-launch.png"
   url="https://naurra.ai/tools/"
   structuredData={[breadcrumbSchema, collectionSchema]}
@@ -107,7 +107,7 @@ const tools = [
       </h1>
 
       <p class="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed mb-8">
-        Save hours every week on Gmail, Google Calendar and Google Workspace. Signature generators, agenda builders, mailto creators — no signup, no account, no strings.
+        Save hours every week on Gmail, Google Calendar and Google Workspace. Signature generators, agenda makers, mailto creators — no signup, no account, no strings.
       </p>
 
       <div class="flex flex-wrap gap-3 justify-center">

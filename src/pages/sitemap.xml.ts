@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro'
 import { blogPosts } from '../data/blogPosts'
 import { blogPostsEl } from '../data/blogPostsEl'
+import { solutionPages } from '../data/solutionPages'
 
 export const prerender = true
 
@@ -36,11 +37,16 @@ const staticPages: SitemapEntry[] = [
   { loc: `${SITE_URL}/terms/`, lastmod: '2026-03-20', changefreq: 'yearly', priority: '0.3' },
   { loc: `${SITE_URL}/blog/`, lastmod: '2026-04-24', changefreq: 'daily', priority: '0.9' },
   { loc: `${SITE_URL}/tools/`, lastmod: '2026-04-21', changefreq: 'weekly', priority: '0.8' },
-  { loc: `${SITE_URL}/tools/email-signature/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.7' },
+  { loc: `${SITE_URL}/tools/gmail-signature-generator/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.7' },
   { loc: `${SITE_URL}/tools/mailto-link-generator/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.7' },
-  { loc: `${SITE_URL}/tools/meeting-agenda-builder/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.7' },
-  { loc: `${SITE_URL}/solutions/`, lastmod: '2026-05-02', changefreq: 'weekly', priority: '0.9' },
-  { loc: `${SITE_URL}/solutions/ai-crm-quoting-agent/`, lastmod: '2026-05-02', changefreq: 'monthly', priority: '0.9' }
+  { loc: `${SITE_URL}/tools/meeting-agenda-maker/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.7' },
+  { loc: `${SITE_URL}/solutions/`, lastmod: '2026-05-04', changefreq: 'weekly', priority: '0.9' },
+  ...solutionPages.map((solution) => ({
+    loc: `${SITE_URL}/solutions/${solution.slug}/`,
+    lastmod: '2026-05-04',
+    changefreq: 'monthly' as const,
+    priority: solution.slug === 'ai-agent-custom-crm-quoting-system-small-business' ? '0.9' : '0.8'
+  }))
 ]
 
 function xmlEscape(value: string): string {

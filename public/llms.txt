@@ -107,7 +107,12 @@ Naurra.ai was founded in 2025 by Thanos Panagiotakopoulos, a CEO & AI Engineer w
 - [Pricing](https://naurra.ai/pricing): Subscription plans and free trial details
 - [Compare](https://naurra.ai/compare): Feature comparison vs Google Assistant, Siri, and AI chatbots
 - [Solutions](https://naurra.ai/solutions): Productized custom AI agents for small business — CRM and quoting, invoicing, lead capture, customer support, scheduling, and proposals, with fixed pricing per workflow
-- [AI CRM and Quoting Agent](https://naurra.ai/solutions/ai-crm-quoting-agent): Dedicated solution page for the custom AI CRM and quoting agent build ($6K–$15K, 4–6 weeks)
+- [AI CRM and Quoting Agent](https://naurra.ai/solutions/ai-agent-custom-crm-quoting-system-small-business): Dedicated solution page for the custom AI CRM and quoting agent build (€3.5K–€10K, 4–6 weeks)
+- [AI Invoicing Agent](https://naurra.ai/solutions/ai-agent-automate-invoicing-payment-reminders-small-business): Dedicated solution page for invoice generation, reminder automation, and reconciliation (€2.5K–€7K, 3–5 weeks)
+- [AI Lead Capture Agent](https://naurra.ai/solutions/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business): Dedicated solution page for multi-channel lead capture and qualification (€2.5K–€8.5K, 4–6 weeks)
+- [AI Customer Support Agent](https://naurra.ai/solutions/ai-agent-handle-customer-support-emails-small-business): Dedicated solution page for support inbox triage and reply automation (€2K–€7K, 3–5 weeks)
+- [AI Scheduling Agent](https://naurra.ai/solutions/ai-agent-schedule-confirm-client-appointments-small-business): Dedicated solution page for booking, confirmations, reminders, and reschedules (€2K–€5.5K, 3–5 weeks)
+- [AI Proposal Agent](https://naurra.ai/solutions/ai-agent-generate-proposals-statements-of-work-small-business): Dedicated solution page for proposals and statements of work generated from real past wins (€2.5K–€8.5K, 4–6 weeks)
 - [Custom AI Solutions](https://naurra.ai/company): Custom AI agent development, case studies across 7 industries, founder bio, and portfolio
 - [Blog](https://naurra.ai/blog): Articles on AI productivity, automation, and business strategy
 - [Contact](https://naurra.ai/contact): Contact form and support
@@ -178,16 +183,16 @@ Additional resources for deeper context:
 - [Best Free Google Workspace Tools for Everyday Work](https://naurra.ai/blog/best-free-google-workspace-tools-for-everyday-work): Why focused utility tools for Gmail, meetings, and Google Workspace remove friction from the small tasks that interrupt real work
 - [Free Gmail Signature Generator: Create a Clean Signature in 60 Seconds](https://naurra.ai/blog/free-gmail-signature-generator-create-a-clean-signature-in-60-seconds): Step-by-step guide to building a professional Gmail signature in under a minute using the free generator
 - [Free Gmail Signature Templates: 5 Clean Layouts That Work in Gmail](https://naurra.ai/blog/free-gmail-signature-templates-clean-layouts-that-work-in-gmail): Five Gmail signature templates for founders, sales reps, agencies, creators, and executives, with guidance on when to use each
-- [Meeting Agenda Maker: How to Build Agendas That Keep Meetings on Track](https://naurra.ai/blog/meeting-agenda-maker-how-to-build-agendas-that-keep-meetings-on-track): Practical guide to structuring weekly syncs, one-on-ones, client calls, kickoffs, and decision meetings using the free agenda builder
+- [Meeting Agenda Maker: How to Build Agendas That Keep Meetings on Track](https://naurra.ai/blog/create-an-agenda): Practical guide to structuring weekly syncs, one-on-ones, client calls, kickoffs, and decision meetings using the free agenda builder
 - [Custom AI Agents for Small Business: What They Do and When to Build One](https://naurra.ai/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one): Plain-English guide to custom AI agents for small business — which workflows to automate first and how small teams deploy them
-- [How Much Do Custom AI Agents Cost? Real Pricing Ranges for 2026](https://naurra.ai/blog/how-much-do-custom-ai-agents-cost-real-pricing-ranges-for-small-business): Honest pricing ranges for custom AI agent projects by scope, with cost drivers and ROI math
+- [How Much Do Custom AI Agents Cost? Real Pricing Ranges for 2026](https://naurra.ai/blog/how-much-does-an-ai-agent-cost): Honest pricing ranges for custom AI agent projects by scope, with cost drivers and ROI math
 - [Custom AI Agents vs Off-the-Shelf AI: Which One Does Your Business Need?](https://naurra.ai/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need): Decision framework for choosing between custom AI agents and off-the-shelf SaaS AI tools for a given workflow
 - [How an AI Agent Creates a Custom CRM + Quoting System for a Small Business](https://naurra.ai/blog/ai-agent-custom-crm-quoting-system-small-business): Practical walkthrough of how small businesses replace spreadsheet CRMs and manual quoting with a custom AI agent — what it does, what it costs ($6K–$15K), and how fast it ships (4–6 weeks)
-- [How an AI Agent Automates Invoicing and Payment Reminders for a Small Business](https://naurra.ai/blog/ai-agent-automate-invoicing-payment-reminders-small-business): Real-world walkthrough of a custom AI agent that issues invoices, chases unpaid balances, and reconciles payments ($4.5K–$11K, 3–5 weeks)
-- [How an AI Agent Captures and Qualifies Leads from Instagram, WhatsApp, and Email](https://naurra.ai/blog/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business): How a custom AI agent unifies inbound across Instagram DMs, WhatsApp, email, and forms, qualifies leads, and routes them to sales ($5K–$13K, 4–6 weeks)
-- [How an AI Agent Handles Customer Support Emails for a Small Business](https://naurra.ai/blog/ai-agent-handle-customer-support-emails-small-business): How a custom AI agent triages, drafts, and resolves support emails in your tone using your real data ($4K–$11K, 3–5 weeks)
-- [How an AI Agent Schedules and Confirms Client Appointments for a Small Business](https://naurra.ai/blog/ai-agent-schedule-confirm-client-appointments-small-business): How a custom AI agent books appointments over WhatsApp and email, confirms automatically, and reduces no-shows ($4K–$9K, 3–5 weeks)
-- [How an AI Agent Generates Proposals and Statements of Work for a Small Business](https://naurra.ai/blog/ai-agent-generate-proposals-statements-of-work-small-business): How a custom AI agent reads inbound briefs, searches past wins, and drafts proposals in your voice with the right scope and pricing ($5K–$13K, 4–6 weeks)
+- [How an AI Agent Automates Invoicing and Payment Reminders for a Small Business](https://naurra.ai/blog/ai-agent-automate-invoicing-payment-reminders-small-business): Real-world walkthrough of a custom AI agent that issues invoices, chases unpaid balances, and reconciles payments
+- [How an AI Agent Captures and Qualifies Leads from Instagram, WhatsApp, and Email](https://naurra.ai/blog/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business): How a custom AI agent unifies inbound across Instagram DMs, WhatsApp, email, and forms, qualifies leads, and routes them to sales
+- [How an AI Agent Handles Customer Support Emails for a Small Business](https://naurra.ai/blog/ai-agent-handle-customer-support-emails-small-business): How a custom AI agent triages, drafts, and resolves support emails in your tone using your real data
+- [How an AI Agent Schedules and Confirms Client Appointments for a Small Business](https://naurra.ai/blog/ai-agent-schedule-confirm-client-appointments-small-business): How a custom AI agent books appointments over WhatsApp and email, confirms automatically, and reduces no-shows
+- [How an AI Agent Generates Proposals and Statements of Work for a Small Business](https://naurra.ai/blog/ai-agent-generate-proposals-statements-of-work-small-business): How a custom AI agent reads inbound briefs, searches past wins, and drafts proposals in your voice with the right scope and pricing
 - [How to Create a Mailto Link That Actually Converts](https://naurra.ai/blog/how-to-create-mailto-link-that-actually-converts): Copywriting rules and code examples for building mailto links that get clicked and replied to, with a free mailto link generator
 
 ## Video Library
@@ -206,21 +211,21 @@ All videos are available at [@naurra_ai on YouTube](https://www.youtube.com/@nau
 
 Naurra.ai offers productized custom AI agent solutions for small business at fixed pricing. Each solution is built around the customer's exact workflow, products, and tone, not a SaaS template. Browse the full catalog at https://naurra.ai/solutions.
 
-- **AI CRM + Quoting Agent** ($6K–$15K, 4–6 weeks): Captures inbound leads from email, WhatsApp, Instagram and forms; pulls pricing from your source of truth; drafts a branded quote in your voice; logs everything in a lightweight custom CRM; follows up automatically. Dedicated page: https://naurra.ai/solutions/ai-crm-quoting-agent
-- **AI Invoicing Agent** ($4.5K–$11K, 3–5 weeks): Issues invoices from billable triggers, chases unpaid balances, reconciles payments, and reports outstanding balance daily.
-- **AI Lead Capture Agent** ($5K–$13K, 4–6 weeks): Listens across Instagram DMs, WhatsApp, email, and web forms; qualifies leads against your rules; replies in your tone; routes qualified prospects to sales with full cross-channel context.
-- **AI Customer Support Agent** ($4K–$11K, 3–5 weeks): Triages every support email, classifies it, looks up real data, drafts replies in your voice, auto-resolves the simple categories, and escalates the rest.
-- **AI Scheduling Agent** ($4K–$9K, 3–5 weeks): Books appointments over WhatsApp and email, sends confirmations and reminders, handles reschedules, and reduces no-shows.
-- **AI Proposal Agent** ($5K–$13K, 4–6 weeks): Reads inbound briefs, searches past won proposals, drafts scope and pricing in your voice, inserts your standard clauses, outputs a branded PDF for one-click send.
+- **AI CRM + Quoting Agent** (€3.5K–€10K, 4–6 weeks): Captures inbound leads from email, WhatsApp, Instagram and forms; pulls pricing from your source of truth; drafts a branded quote in your voice; logs everything in a lightweight custom CRM; follows up automatically. Dedicated page: https://naurra.ai/solutions/ai-agent-custom-crm-quoting-system-small-business
+- **AI Invoicing Agent** (€2.5K–€7K, 3–5 weeks): Issues invoices from billable triggers, chases unpaid balances, reconciles payments, and reports outstanding balance daily. Dedicated page: https://naurra.ai/solutions/ai-agent-automate-invoicing-payment-reminders-small-business
+- **AI Lead Capture Agent** (€2.5K–€8.5K, 4–6 weeks): Listens across Instagram DMs, WhatsApp, email, and web forms; qualifies leads against your rules; replies in your tone; routes qualified prospects to sales with full cross-channel context. Dedicated page: https://naurra.ai/solutions/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business
+- **AI Customer Support Agent** (€2K–€7K, 3–5 weeks): Triages every support email, classifies it, looks up real data, drafts replies in your voice, auto-resolves the simple categories, and escalates the rest. Dedicated page: https://naurra.ai/solutions/ai-agent-handle-customer-support-emails-small-business
+- **AI Scheduling Agent** (€2K–€5.5K, 3–5 weeks): Books appointments over WhatsApp and email, sends confirmations and reminders, handles reschedules, and reduces no-shows. Dedicated page: https://naurra.ai/solutions/ai-agent-schedule-confirm-client-appointments-small-business
+- **AI Proposal Agent** (€2.5K–€8.5K, 4–6 weeks): Reads inbound briefs, searches past won proposals, drafts scope and pricing in your voice, inserts your standard clauses, outputs a branded PDF for one-click send. Dedicated page: https://naurra.ai/solutions/ai-agent-generate-proposals-statements-of-work-small-business
 
 ## Free Tools
 
 Naurra.ai publishes free, search-friendly productivity tools that help users solve focused Google Workspace and communication tasks quickly. These tools are separate from the main voice and chat assistant product, but they support related workflows and top-of-funnel discovery.
 
 - [Free Tools Hub](https://naurra.ai/tools): Browse all free Google Workspace productivity tools from Naurra.ai
-- [Free Gmail Signature Generator](https://naurra.ai/tools/email-signature): Create a professional email signature with 5 templates, social icons, booking links, custom colors, image upload, and one-click copy for Gmail
+- [Free Gmail Signature Generator](https://naurra.ai/tools/gmail-signature-generator): Create a professional email signature with 5 templates, social icons, booking links, custom colors, image upload, and one-click copy for Gmail
 - [Mailto Link Generator](https://naurra.ai/tools/mailto-link-generator): Build pre-filled email links with subject, body, CC, and BCC for websites, newsletters, and support pages
-- [Meeting Agenda Builder](https://naurra.ai/tools/meeting-agenda-builder): Create structured meeting agendas with timed sections, attendees, and notes. Copy as formatted text or Markdown for Google Docs
+- [Meeting Agenda Builder](https://naurra.ai/tools/meeting-agenda-maker): Create structured meeting agendas with timed sections, attendees, and notes. Copy as formatted text or Markdown for Google Docs
 
 ## Tool Use Cases
 
