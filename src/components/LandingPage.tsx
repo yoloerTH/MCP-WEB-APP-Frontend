@@ -246,34 +246,17 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="hidden lg:flex items-center gap-6"
+            className="hidden lg:flex items-center gap-5"
           >
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => navigate('/compare')}
-              className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
+              onClick={() => navigate('/solutions')}
+              className="relative text-sm font-semibold text-emerald-300 hover:text-emerald-200 transition-colors inline-flex items-center gap-1.5"
               style={{ fontFamily: 'Outfit, sans-serif' }}
             >
-              Compare
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => navigate('/blog')}
-              className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
-              style={{ fontFamily: 'Outfit, sans-serif' }}
-            >
-              Blog
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => navigate('/pricing')}
-              className="text-sm font-semibold text-emerald-300 hover:text-emerald-200 transition-colors"
-              style={{ fontFamily: 'Outfit, sans-serif' }}
-            >
-              Pricing
+              Custom Solutions
+              <span className="px-1.5 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wider bg-gradient-to-r from-emerald-500 to-amber-500 text-white">New</span>
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -287,11 +270,38 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/compare')}
+              className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Compare
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/pricing')}
+              className="text-sm font-semibold text-gray-300 hover:text-emerald-200 transition-colors"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Pricing
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => navigate('/company')}
               className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
               style={{ fontFamily: 'Outfit, sans-serif' }}
             >
               Company
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/blog')}
+              className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Blog
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -346,11 +356,12 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
               className="fixed top-0 right-0 bottom-0 w-72 bg-[#0a0e1a]/95 backdrop-blur-xl border-l border-white/10 z-40 lg:hidden flex flex-col pt-24 px-6"
             >
               {[
-                { label: 'Compare', path: '/compare', color: 'text-gray-300' },
-                { label: 'Blog', path: '/blog', color: 'text-gray-300' },
-                { label: 'Pricing', path: '/pricing', color: 'text-emerald-400' },
+                { label: 'Custom Solutions', path: '/solutions', color: 'text-emerald-400' },
                 { label: 'Explore AI Hub', path: '/inspiration', color: 'text-gray-300' },
+                { label: 'Compare', path: '/compare', color: 'text-gray-300' },
+                { label: 'Pricing', path: '/pricing', color: 'text-gray-300' },
                 { label: 'Company', path: '/company', color: 'text-gray-300' },
+                { label: 'Blog', path: '/blog', color: 'text-gray-300' },
                 { label: 'Contact', path: '/contact', color: 'text-amber-400' },
               ].map((item, i) => (
                 <motion.button
