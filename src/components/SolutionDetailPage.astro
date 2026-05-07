@@ -69,6 +69,16 @@ const sectionBar = `background: linear-gradient(180deg, ${solution.theme.primary
 const ctaButton = `background: linear-gradient(135deg, ${solution.theme.primary}, ${solution.theme.secondary}); box-shadow: 0 16px 48px ${solution.theme.primarySoft}; border: 1px solid ${solution.theme.primaryBorder};`
 const softPrimaryCard = `background: linear-gradient(135deg, ${solution.theme.primarySoft}, rgba(255,255,255,0.01)); border: 1px solid ${solution.theme.primaryBorder};`
 const softSecondaryCard = `background: linear-gradient(135deg, ${solution.theme.secondarySoft}, rgba(255,255,255,0.01)); border: 1px solid ${solution.theme.secondaryBorder};`
+const accentCard = `background: linear-gradient(135deg, ${solution.theme.primarySoft} 0%, rgba(10,14,26,0.4) 60%); border: 1px solid ${solution.theme.primaryBorder};`
+
+const chapters = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'capabilities', label: 'Capabilities' },
+  { id: 'process', label: 'Process' },
+  { id: 'compare', label: 'Compare' },
+  { id: 'fit', label: 'Right fit?' },
+  { id: 'faq', label: 'FAQ' }
+]
 ---
 
 <BaseLayout
@@ -85,6 +95,7 @@ const softSecondaryCard = `background: linear-gradient(135deg, ${solution.theme.
       <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] via-transparent to-transparent"></div>
       <div class="absolute top-0 -right-1/4 w-[800px] h-[800px] rounded-full blur-[120px]" style={orbPrimary}></div>
       <div class="absolute bottom-0 -left-1/4 w-[800px] h-[800px] rounded-full blur-[120px]" style={orbSecondary}></div>
+      <div class="absolute inset-0 opacity-[0.025]" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 56px 56px;"></div>
     </div>
 
     <nav class="relative border-b border-white/10 bg-[#0a0e1a]/95 backdrop-blur-xl sticky top-0 z-40">
@@ -99,62 +110,80 @@ const softSecondaryCard = `background: linear-gradient(135deg, ${solution.theme.
           </span>
         </a>
         <div class="flex items-center gap-4 flex-wrap justify-end">
-          <a href="/solutions/" class="text-sm text-gray-400 hover:text-white transition-colors font-medium">Solutions</a>
-          <a href="/company/" class="text-sm text-gray-400 hover:text-white transition-colors font-medium">Case Studies</a>
-          <a href="/blog/" class="text-sm text-gray-400 hover:text-white transition-colors font-medium">Blog</a>
+          <a href="/solutions/" class="text-sm text-gray-400 hover:text-white transition-colors font-medium hidden sm:inline">Solutions</a>
+          <a href="/company/" class="text-sm text-gray-400 hover:text-white transition-colors font-medium hidden md:inline">Case Studies</a>
+          <a href="/blog/" class="text-sm text-gray-400 hover:text-white transition-colors font-medium hidden md:inline">Blog</a>
           <a href="/contact/" class="text-sm font-semibold px-5 py-2 rounded-lg transition-all text-white" style={ctaButton}>Book a free call</a>
         </div>
       </div>
     </nav>
 
+    <!-- Breadcrumb + chapter nav -->
     <div class="relative max-w-7xl mx-auto px-6 lg:px-8 pt-8">
-      <nav class="text-xs text-gray-500 font-mono uppercase tracking-wider" aria-label="Breadcrumb">
+      <nav class="text-xs text-gray-500 font-mono uppercase tracking-wider flex items-center gap-2" aria-label="Breadcrumb">
         <a href="/" class="hover:text-white transition-colors">Home</a>
-        <span class="mx-2">/</span>
+        <span class="text-gray-700">/</span>
         <a href="/solutions/" class="hover:text-white transition-colors">Solutions</a>
-        <span class="mx-2">/</span>
-        <span class="text-gray-300">{solution.name}</span>
+        <span class="text-gray-700">/</span>
+        <span class="text-gray-300 truncate">{solution.name}</span>
       </nav>
     </div>
 
-    <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24 items-center">
-        <div>
+    <!-- ============== HERO ============== -->
+    <section id="overview" class="relative max-w-7xl mx-auto px-6 lg:px-8 pt-10 pb-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-7">
           <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={softPrimaryCard}>
             <span class="w-2 h-2 rounded-full animate-pulse" style={`background: ${solution.theme.primary};`}></span>
             <span class="text-xs font-mono uppercase tracking-widest" style={`color: ${solution.theme.primary};`}>{solution.heroLabel}</span>
           </div>
 
-          <h1 style="font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.04em;" class="text-5xl lg:text-6xl leading-[0.95] tracking-tight mb-6">
+          <h1 style="font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.045em;" class="text-4xl sm:text-5xl lg:text-6xl leading-[0.98] tracking-tight mb-6">
             <span class="text-white">{solution.heroTitleTop}</span><br />
             <span style={gradientText}>{solution.heroTitleBottom}</span>
           </h1>
 
-          <p class="text-xl text-gray-400 leading-relaxed mb-8">
+          <p class="text-lg lg:text-xl text-gray-400 leading-relaxed mb-8">
             {solution.heroDescription}
           </p>
 
-          <div class="flex flex-wrap gap-3 mb-8">
-            <span class="px-4 py-2 rounded-full text-sm font-mono" style={primaryPill}>{solution.priceRange}</span>
-            <span class="px-4 py-2 rounded-full text-sm font-mono" style={secondaryPill}>{solution.timeline}</span>
-            <span class="px-4 py-2 rounded-full text-sm font-mono" style={neutralPill}>{solution.runningCost}</span>
+          <div class="grid grid-cols-3 gap-3 mb-8">
+            <div class="rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3">
+              <div class="text-[10px] font-mono uppercase tracking-wider text-gray-500 mb-1">Investment</div>
+              <div class="text-sm font-bold text-white">{solution.priceRange}</div>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3">
+              <div class="text-[10px] font-mono uppercase tracking-wider text-gray-500 mb-1">Timeline</div>
+              <div class="text-sm font-bold text-white">{solution.timeline}</div>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3">
+              <div class="text-[10px] font-mono uppercase tracking-wider text-gray-500 mb-1">Run cost</div>
+              <div class="text-sm font-bold text-white">{solution.runningCost}</div>
+            </div>
           </div>
 
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a href="/contact/" class="px-8 py-4 rounded-xl font-semibold text-lg text-white transition-all hover:opacity-95 text-center" style={ctaButton}>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/contact/" class="group px-7 py-3.5 rounded-xl font-semibold text-base text-white transition-all hover:opacity-95 text-center inline-flex items-center justify-center gap-2" style={ctaButton}>
               Book a free consultation
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </a>
-            <a href="#how-it-works" class="px-8 py-4 bg-white/5 border border-white/10 rounded-xl text-gray-400 hover:bg-white/10 hover:text-white transition-all font-medium text-center">
+            <a href="#capabilities" class="px-7 py-3.5 bg-white/5 border border-white/10 rounded-xl text-gray-300 hover:bg-white/10 hover:text-white transition-all font-medium text-center text-sm">
               See how it works
             </a>
           </div>
+
+          <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-gray-500 font-mono uppercase tracking-wider mt-6">
+            <span class="flex items-center gap-2"><svg class="w-3.5 h-3.5" style={`color: ${solution.theme.primary};`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Fixed price</span>
+            <span class="flex items-center gap-2"><svg class="w-3.5 h-3.5" style={`color: ${solution.theme.primary};`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>You own the code</span>
+            <span class="flex items-center gap-2"><svg class="w-3.5 h-3.5" style={`color: ${solution.theme.primary};`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>No SaaS lock-in</span>
+          </div>
         </div>
 
-        <div class="relative">
+        <div class="lg:col-span-5 relative">
           <div class="absolute -inset-4 rounded-3xl blur-2xl" style={`background: linear-gradient(135deg, ${solution.theme.primarySoft}, ${solution.theme.secondarySoft});`}></div>
-          <div class="relative bg-gradient-to-br from-gray-800/70 to-gray-900/70 border border-gray-700/50 rounded-3xl p-8">
+          <div class="relative rounded-3xl p-8" style={accentCard}>
             <div class="text-xs font-mono uppercase tracking-widest mb-4" style={`color: ${solution.theme.primary};`}>{solution.proofLabel}</div>
-            <p style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-3xl lg:text-4xl text-white leading-tight mb-6">
+            <p style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-3xl lg:text-4xl text-white leading-tight mb-5">
               <span style={gradientText}>{solution.proofMetric}</span>
             </p>
             <p class="text-gray-400 leading-relaxed mb-6">
@@ -165,76 +194,126 @@ const softSecondaryCard = `background: linear-gradient(135deg, ${solution.theme.
                 <div class="text-sm text-white font-semibold">{solution.proofSource}</div>
                 <div class="text-xs text-gray-500">{solution.proofContext}</div>
               </div>
-              <a href="/company/" class="text-sm font-semibold flex items-center gap-1" style={`color: ${solution.theme.primary};`}>
-                Read case studies
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              <a href="/company/" class="text-sm font-semibold flex items-center gap-1 group" style={`color: ${solution.theme.primary};`}>
+                Case studies
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </a>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="max-w-3xl mx-auto mb-24" style="color: rgba(255,255,255,0.74); font-size: 17px; line-height: 1.8;">
-        <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.02em;" class="text-3xl lg:text-4xl text-white mb-6">{solution.problemTitle}</h2>
+    <!-- ============== CHAPTER NAV ============== -->
+    <div class="relative border-y border-white/5 bg-[#0a0e1a]/60 backdrop-blur-md sticky top-[73px] z-30">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-3 overflow-x-auto">
+        <div class="flex items-center gap-1 min-w-max">
+          {chapters.map((c) => (
+            <a href={`#${c.id}`} class="px-4 py-2 rounded-lg text-xs font-mono uppercase tracking-wider text-gray-500 hover:text-white hover:bg-white/5 transition-all whitespace-nowrap">
+              {c.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
+
+      <!-- ============== PROBLEM ============== -->
+      <div class="max-w-3xl mb-24" style="color: rgba(255,255,255,0.74); font-size: 17px; line-height: 1.8;">
+        <div class="text-xs font-mono uppercase tracking-widest mb-3" style={`color: ${solution.theme.primary};`}>/ The problem</div>
+        <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-3xl lg:text-4xl text-white mb-6 leading-tight">{solution.problemTitle}</h2>
         {solution.problemParagraphs.map((paragraph) => (
           <p class="mb-4">{paragraph}</p>
         ))}
       </div>
 
-      <div id="how-it-works" class="mb-24">
-        <div class="flex items-center gap-3 mb-10">
+      <!-- ============== CAPABILITIES ============== -->
+      <div id="capabilities" class="mb-24 scroll-mt-32">
+        <div class="flex items-center gap-3 mb-3">
           <div class="w-1 h-8 rounded-full" style={sectionBar}></div>
-          <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.02em;" class="text-3xl text-white">{solution.capabilitiesTitle}</h2>
+          <div class="text-xs font-mono uppercase tracking-widest" style={`color: ${solution.theme.primary};`}>/ Capabilities</div>
         </div>
+        <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-3xl lg:text-4xl text-white mb-10 leading-tight">{solution.capabilitiesTitle}</h2>
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {solution.capabilities.map((capability, index) => (
-            <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6">
-              <div class="text-xs font-mono mb-3" style={`color: ${solution.theme.primary};`}>{String(index + 1).padStart(2, '0')}</div>
-              <h3 style="font-family: 'Sora', sans-serif; font-weight: 700;" class="text-lg text-white mb-2 leading-tight">{capability.title}</h3>
-              <p class="text-sm text-gray-400 leading-relaxed">{capability.body}</p>
+            <div class="group relative rounded-2xl border border-white/10 bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 hover:border-white/20 transition-all overflow-hidden">
+              <div class="absolute -top-20 -right-20 w-40 h-40 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={orbPrimary}></div>
+              <div class="relative">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold" style={`background: ${solution.theme.primarySoft}; border: 1px solid ${solution.theme.primaryBorder}; color: ${solution.theme.primary}; font-family: 'Sora', sans-serif;`}>
+                    {String(index + 1).padStart(2, '0')}
+                  </div>
+                  <div class="h-px flex-1 ml-4 bg-gradient-to-r from-white/10 to-transparent"></div>
+                </div>
+                <h3 style="font-family: 'Sora', sans-serif; font-weight: 700;" class="text-lg text-white mb-2 leading-tight">{capability.title}</h3>
+                <p class="text-sm text-gray-400 leading-relaxed">{capability.body}</p>
+              </div>
             </div>
           ))}
         </div>
       </div>
 
-      <div class="mb-24">
-        <div class="flex items-center gap-3 mb-10">
+      <!-- ============== PROCESS / STEPS ============== -->
+      <div id="process" class="mb-24 scroll-mt-32">
+        <div class="flex items-center gap-3 mb-3">
           <div class="w-1 h-8 rounded-full" style={sectionBar}></div>
-          <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.02em;" class="text-3xl text-white">{solution.stepsTitle}</h2>
+          <div class="text-xs font-mono uppercase tracking-widest" style={`color: ${solution.theme.primary};`}>/ Process</div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
-          {solution.steps.map((step) => (
-            <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6">
-              <div class="text-xs font-mono mb-3" style={`color: ${solution.theme.primary};`}>{step.label}</div>
-              <h3 class="text-lg text-white font-semibold mb-2">{step.title}</h3>
-              <p class="text-sm text-gray-400 leading-relaxed">{step.body}</p>
-            </div>
-          ))}
+        <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-3xl lg:text-4xl text-white mb-10 leading-tight">{solution.stepsTitle}</h2>
+
+        <div class="relative">
+          <div class="hidden md:block absolute top-12 left-[12.5%] right-[12.5%] h-px" style={`background: linear-gradient(90deg, ${solution.theme.primary}00, ${solution.theme.primary}40, ${solution.theme.secondary}40);`}></div>
+
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
+            {solution.steps.map((step) => (
+              <div class="relative rounded-2xl border border-white/10 bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 hover:border-white/20 transition-all">
+                <div class="relative w-12 h-12 mb-5">
+                  <div class="absolute inset-0 rounded-full blur-md opacity-30" style={`background: linear-gradient(135deg, ${solution.theme.primary}, ${solution.theme.secondary});`}></div>
+                  <div class="relative w-12 h-12 rounded-full bg-[#0a0e1a] flex items-center justify-center text-xs font-bold" style={`border: 2px solid ${solution.theme.primaryBorder}; color: ${solution.theme.primary}; font-family: 'Sora', sans-serif;`}>
+                    {step.label.split('/')[0].trim() || step.label}
+                  </div>
+                </div>
+                <div class="text-[10px] font-mono uppercase tracking-widest mb-1" style={`color: ${solution.theme.secondary};`}>{step.label}</div>
+                <h3 class="text-lg text-white font-bold mb-2" style="font-family: 'Sora', sans-serif;">{step.title}</h3>
+                <p class="text-sm text-gray-400 leading-relaxed">{step.body}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div class="mb-24">
-        <div class="flex items-center gap-3 mb-10">
+      <!-- ============== COMPARE ============== -->
+      <div id="compare" class="mb-24 scroll-mt-32">
+        <div class="flex items-center gap-3 mb-3">
           <div class="w-1 h-8 rounded-full" style={sectionBar}></div>
-          <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.02em;" class="text-3xl text-white">{solution.compareTitle}</h2>
+          <div class="text-xs font-mono uppercase tracking-widest" style={`color: ${solution.theme.primary};`}>/ Compare</div>
         </div>
-        <div class="overflow-x-auto rounded-2xl border border-gray-700/50">
+        <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-3xl lg:text-4xl text-white mb-10 leading-tight">{solution.compareTitle}</h2>
+
+        <div class="overflow-x-auto rounded-2xl border border-white/10 bg-gradient-to-br from-gray-800/30 to-gray-900/40">
           <table class="w-full text-left">
-            <thead class="bg-white/5 text-xs font-mono uppercase tracking-wider text-gray-400">
+            <thead class="bg-white/[0.03] text-xs font-mono uppercase tracking-wider text-gray-400 border-b border-white/5">
               <tr>
-                <th class="px-6 py-4 font-semibold"></th>
-                <th class="px-6 py-4 font-semibold">{solution.compareHeaders.baseline}</th>
-                <th class="px-6 py-4 font-semibold">{solution.compareHeaders.middle}</th>
-                <th class="px-6 py-4 font-semibold" style={`color: ${solution.theme.primary};`}>{solution.compareHeaders.custom}</th>
+                <th class="px-6 py-5 font-semibold w-1/4"></th>
+                <th class="px-6 py-5 font-semibold">{solution.compareHeaders.baseline}</th>
+                <th class="px-6 py-5 font-semibold">{solution.compareHeaders.middle}</th>
+                <th class="px-6 py-5 font-semibold relative" style={`color: ${solution.theme.primary};`}>
+                  <span class="inline-flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full" style={`background: ${solution.theme.primary};`}></span>
+                    {solution.compareHeaders.custom}
+                  </span>
+                </th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-gray-700/50 text-sm">
+            <tbody class="divide-y divide-white/5 text-sm">
               {solution.compareRows.map((row) => (
-                <tr class="hover:bg-white/[0.02]">
-                  <td class="px-6 py-4 text-gray-300 font-medium">{row.label}</td>
+                <tr class="hover:bg-white/[0.015] transition-colors">
+                  <td class="px-6 py-4 text-gray-300 font-semibold">{row.label}</td>
                   <td class="px-6 py-4 text-gray-500">{row.baseline}</td>
                   <td class="px-6 py-4 text-gray-500">{row.middle}</td>
-                  <td class="px-6 py-4" style={`color: ${solution.theme.primary};`}>{row.custom}</td>
+                  <td class="px-6 py-4 font-medium" style={`color: ${solution.theme.primary}; background: ${solution.theme.primarySoft};`}>{row.custom}</td>
                 </tr>
               ))}
             </tbody>
@@ -242,94 +321,179 @@ const softSecondaryCard = `background: linear-gradient(135deg, ${solution.theme.
         </div>
         <p class="text-sm text-gray-500 mt-4">
           For the broader decision framework, read our
-          <a href="/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need/" class="font-semibold ml-1" style={`color: ${solution.theme.primary};`}>custom vs off-the-shelf AI guide</a>.
+          <a href="/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need/" class="font-semibold ml-1 hover:underline" style={`color: ${solution.theme.primary};`}>custom vs off-the-shelf AI guide</a>.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
-        <div class="rounded-2xl p-7" style={softPrimaryCard}>
-          <h3 style="font-family: 'Sora', sans-serif; font-weight: 700;" class="text-xl text-white mb-4 flex items-center gap-2">
-            <svg class="w-5 h-5" style={`color: ${solution.theme.primary};`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-            When the math works
-          </h3>
-          <ul class="space-y-2.5 text-sm text-gray-300 leading-relaxed">
-            {solution.whenWorks.map((item) => (
-              <li class="flex gap-2"><span class="mt-0.5" style={`color: ${solution.theme.primary};`}>+</span><span>{item}</span></li>
-            ))}
-          </ul>
+      <!-- ============== FIT (when works / when not) ============== -->
+      <div id="fit" class="mb-24 scroll-mt-32">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-1 h-8 rounded-full" style={sectionBar}></div>
+          <div class="text-xs font-mono uppercase tracking-widest" style={`color: ${solution.theme.primary};`}>/ Right fit?</div>
         </div>
-        <div class="rounded-2xl p-7" style={softSecondaryCard}>
-          <h3 style="font-family: 'Sora', sans-serif; font-weight: 700;" class="text-xl text-white mb-4 flex items-center gap-2">
-            <svg class="w-5 h-5" style={`color: ${solution.theme.secondary};`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-            When it does not
-          </h3>
-          <ul class="space-y-2.5 text-sm text-gray-300 leading-relaxed">
-            {solution.whenNot.map((item) => (
-              <li class="flex gap-2"><span class="mt-0.5" style={`color: ${solution.theme.secondary};`}>-</span><span>{item}</span></li>
-            ))}
-          </ul>
+        <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-3xl lg:text-4xl text-white mb-10 leading-tight">When the math works, and when it doesn't</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div class="rounded-2xl p-7" style={softPrimaryCard}>
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center" style={`background: ${solution.theme.primarySoft}; border: 1px solid ${solution.theme.primaryBorder};`}>
+                <svg class="w-5 h-5" style={`color: ${solution.theme.primary};`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <h3 style="font-family: 'Sora', sans-serif; font-weight: 700;" class="text-xl text-white">When the math works</h3>
+            </div>
+            <ul class="space-y-3 text-sm text-gray-300 leading-relaxed">
+              {solution.whenWorks.map((item) => (
+                <li class="flex gap-3">
+                  <span class="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full" style={`background: ${solution.theme.primary};`}></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="rounded-2xl p-7" style={softSecondaryCard}>
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center" style={`background: ${solution.theme.secondarySoft}; border: 1px solid ${solution.theme.secondaryBorder};`}>
+                <svg class="w-5 h-5" style={`color: ${solution.theme.secondary};`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+              </div>
+              <h3 style="font-family: 'Sora', sans-serif; font-weight: 700;" class="text-xl text-white">When it doesn't</h3>
+            </div>
+            <ul class="space-y-3 text-sm text-gray-300 leading-relaxed">
+              {solution.whenNot.map((item) => (
+                <li class="flex gap-3">
+                  <span class="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full" style={`background: ${solution.theme.secondary};`}></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div class="mb-24">
-        <div class="flex items-center gap-3 mb-10">
-          <div class="w-1 h-8 rounded-full" style={sectionBar}></div>
-          <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.02em;" class="text-3xl text-white">Frequently asked questions</h2>
-        </div>
-        <div class="space-y-4">
-          {solution.faqs.map((faq) => (
-            <details class="group bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-gray-700/50 rounded-2xl overflow-hidden">
-              <summary class="cursor-pointer list-none px-6 py-5 flex items-center justify-between hover:bg-white/[0.02]">
-                <span class="text-white font-semibold text-base pr-4">{faq.question}</span>
-                <svg class="w-5 h-5 flex-shrink-0 transition-transform group-open:rotate-180" style={`color: ${solution.theme.primary};`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-              </summary>
-              <div class="px-6 pb-5 text-sm text-gray-400 leading-relaxed">{faq.answer}</div>
-            </details>
-          ))}
+      <!-- ============== FAQ ============== -->
+      <div id="faq" class="mb-24 scroll-mt-32">
+        <div class="grid lg:grid-cols-12 gap-10">
+          <div class="lg:col-span-4">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-1 h-8 rounded-full" style={sectionBar}></div>
+              <div class="text-xs font-mono uppercase tracking-widest" style={`color: ${solution.theme.primary};`}>/ FAQ</div>
+            </div>
+            <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-3xl lg:text-4xl text-white leading-tight mb-4">Frequently asked questions</h2>
+            <p class="text-gray-400 leading-relaxed mb-5">Most questions we hear on a discovery call about this build.</p>
+            <a href="/contact/" class="inline-flex items-center gap-2 text-sm font-semibold hover:opacity-80 transition-opacity" style={`color: ${solution.theme.primary};`}>
+              Ask us directly
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+          </div>
+          <div class="lg:col-span-8 space-y-3">
+            {solution.faqs.map((faq, i) => (
+              <details class="group rounded-2xl border border-white/10 bg-gradient-to-br from-gray-800/30 to-gray-900/30 overflow-hidden hover:border-white/20 transition-colors" open={i === 0}>
+                <summary class="cursor-pointer list-none px-6 py-5 flex items-center justify-between gap-4 hover:bg-white/[0.02]">
+                  <span class="text-white font-semibold text-base">{faq.question}</span>
+                  <span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-transform group-open:rotate-45" style={`background: ${solution.theme.primarySoft}; border: 1px solid ${solution.theme.primaryBorder};`}>
+                    <svg class="w-4 h-4" style={`color: ${solution.theme.primary};`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v12m6-6H6" /></svg>
+                  </span>
+                </summary>
+                <div class="px-6 pb-5 text-sm text-gray-400 leading-relaxed">{faq.answer}</div>
+              </details>
+            ))}
+          </div>
         </div>
       </div>
 
+      <!-- ============== RELATED GUIDES ============== -->
       <div class="mb-24">
-        <div class="flex items-center gap-3 mb-8">
+        <div class="flex items-center gap-3 mb-3">
           <div class="w-1 h-8 rounded-full" style={sectionBar}></div>
-          <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.02em;" class="text-2xl text-white">Related guides</h2>
+          <div class="text-xs font-mono uppercase tracking-widest" style={`color: ${solution.theme.primary};`}>/ Read next</div>
         </div>
+        <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-2xl lg:text-3xl text-white mb-8 leading-tight">Related guides</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
           {solution.relatedGuides.map((guide) => (
-            <a href={guide.href} class="group block bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl p-6 hover:border-white/20 transition-all">
-              <span class="text-xs font-mono uppercase tracking-wider" style={`color: ${solution.theme.primary};`}>{guide.label}</span>
-              <h3 class="text-white font-semibold mt-2 group-hover:text-white transition-colors">{guide.title}</h3>
-              <p class="text-sm text-gray-500 mt-2">{guide.body}</p>
+            <a href={guide.href} class="group block rounded-2xl border border-white/10 bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 hover:border-white/20 transition-all relative overflow-hidden">
+              <div class="absolute -top-20 -right-20 w-32 h-32 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={orbPrimary}></div>
+              <div class="relative">
+                <span class="text-[10px] font-mono uppercase tracking-widest" style={`color: ${solution.theme.primary};`}>{guide.label}</span>
+                <h3 class="text-white font-bold mt-2 mb-2 leading-tight" style="font-family: 'Sora', sans-serif;">{guide.title}</h3>
+                <p class="text-sm text-gray-400 leading-relaxed mb-4">{guide.body}</p>
+                <span class="inline-flex items-center gap-1 text-xs font-semibold" style={`color: ${solution.theme.primary};`}>
+                  Read guide
+                  <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </span>
+              </div>
             </a>
           ))}
         </div>
       </div>
 
-      <div class="bg-gradient-to-br from-gray-800/60 to-gray-900/60 border border-gray-700/50 rounded-3xl p-12 lg:p-16 text-center">
-        <h2 style="font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.04em;" class="text-3xl lg:text-4xl text-white mb-4">
-          {solution.ctaTitle}
-        </h2>
-        <p class="text-lg text-gray-400 max-w-xl mx-auto mb-8">
-          {solution.ctaBody}
-        </p>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="/contact/" class="px-8 py-4 rounded-xl font-semibold text-lg text-white transition-all hover:opacity-95" style={ctaButton}>
-            Book a free consultation
-          </a>
-          <a href="/company/" class="px-8 py-4 bg-white/5 border border-white/10 rounded-xl text-gray-400 hover:bg-white/10 hover:text-white transition-all font-medium">
-            See more case studies
-          </a>
+      <!-- ============== FINAL CTA ============== -->
+      <div class="relative rounded-3xl overflow-hidden border border-white/10 p-10 lg:p-16" style={`background: linear-gradient(135deg, ${solution.theme.primarySoft} 0%, rgba(10,14,26,0.9) 50%, ${solution.theme.secondarySoft} 100%);`}>
+        <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full blur-3xl" style={orbPrimary}></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 rounded-full blur-3xl" style={orbSecondary}></div>
+
+        <div class="relative grid lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-7">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={softPrimaryCard}>
+              <span class="w-2 h-2 rounded-full animate-pulse" style={`background: ${solution.theme.primary};`}></span>
+              <span class="text-xs font-mono uppercase tracking-widest" style={`color: ${solution.theme.primary};`}>Booking Q2 2026 builds</span>
+            </div>
+            <h2 style="font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.04em;" class="text-3xl lg:text-5xl text-white leading-[1.05] mb-5">
+              {solution.ctaTitle}
+            </h2>
+            <p class="text-lg text-gray-300 leading-relaxed mb-8">
+              {solution.ctaBody}
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <a href="/contact/" class="px-8 py-4 rounded-xl font-semibold text-base text-white transition-all hover:opacity-95 text-center" style={ctaButton}>
+                Book a free consultation
+              </a>
+              <a href="/company/" class="px-8 py-4 bg-white/5 border border-white/10 rounded-xl text-gray-300 hover:bg-white/10 hover:text-white transition-all font-medium text-center text-sm">
+                See more case studies
+              </a>
+            </div>
+          </div>
+          <div class="lg:col-span-5">
+            <div class="space-y-3">
+              <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/5">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={`background: ${solution.theme.primarySoft}; border: 1px solid ${solution.theme.primaryBorder}; color: ${solution.theme.primary};`}>
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-white">30-minute discovery call</div>
+                  <div class="text-xs text-gray-500">No prep needed. Just bring the workflow.</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/5">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={`background: ${solution.theme.secondarySoft}; border: 1px solid ${solution.theme.secondaryBorder}; color: ${solution.theme.secondary};`}>
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-white">Fixed-price proposal in 48h</div>
+                  <div class="text-xs text-gray-500">If we both agree there's a fit.</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/5">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={`background: ${solution.theme.primarySoft}; border: 1px solid ${solution.theme.primaryBorder}; color: ${solution.theme.primary};`}>
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <div>
+                  <div class="text-sm font-semibold text-white">Live in {solution.timeline}</div>
+                  <div class="text-xs text-gray-500">Working demo at the end of every week.</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <footer class="relative border-t border-gray-700/50 bg-[#0a0e1a] mt-20">
+    <footer class="relative border-t border-gray-700/50 bg-[#0a0e1a]">
       <div class="max-w-7xl mx-auto px-6 lg:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-6">
         <p class="text-gray-500 text-sm">&copy; 2026 Naurra.ai. All rights reserved.</p>
         <div class="flex items-center gap-6">
           <a href="/privacy/" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Privacy</a>
           <a href="/terms/" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Terms</a>
           <a href="/blog/" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Blog</a>
+          <a href="/solutions/" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Solutions</a>
           <a href="/contact/" class="text-gray-500 hover:text-gray-300 text-sm transition-colors">Contact</a>
         </div>
       </div>
