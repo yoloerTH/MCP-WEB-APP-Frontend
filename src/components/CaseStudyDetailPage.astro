@@ -1,0 +1,303 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import type { CaseStudy } from '../data/caseStudies'
+
+const { study } = Astro.props as { study: CaseStudy }
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://naurra.ai/' },
+    { '@type': 'ListItem', position: 2, name: 'Case Studies', item: 'https://naurra.ai/case-studies/' },
+    { '@type': 'ListItem', position: 3, name: study.title, item: `https://naurra.ai/case-studies/${study.slug}/` }
+  ]
+}
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: study.seoTitle,
+  description: study.description,
+  mainEntityOfPage: `https://naurra.ai/case-studies/${study.slug}/`,
+  url: `https://naurra.ai/case-studies/${study.slug}/`,
+  datePublished: `${study.publishedAt}T09:00:00+00:00`,
+  dateModified: `${study.updatedAt}T09:00:00+00:00`,
+  author: {
+    '@type': 'Person',
+    name: 'Athanasios-Ioannis Panagiotakopoulos',
+    jobTitle: 'CEO & AI Engineer'
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Naurra.ai',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://naurra.ai/logo-transparent.png'
+    }
+  },
+  about: [
+    study.industry,
+    ...study.tags
+  ]
+}
+
+const gradientText = `background: linear-gradient(135deg, ${study.theme.primary}, ${study.theme.secondary}); -webkit-background-clip: text; -webkit-text-fill-color: transparent;`
+const heroGlow = `background: linear-gradient(135deg, ${study.theme.primarySoft}, ${study.theme.secondarySoft});`
+const primaryCard = `background: linear-gradient(135deg, ${study.theme.primarySoft}, rgba(255,255,255,0.01)); border: 1px solid ${study.theme.primaryBorder};`
+const secondaryCard = `background: linear-gradient(135deg, ${study.theme.secondarySoft}, rgba(255,255,255,0.01)); border: 1px solid ${study.theme.secondaryBorder};`
+const ctaButton = `background: linear-gradient(135deg, ${study.theme.primary}, ${study.theme.secondary}); box-shadow: 0 16px 48px ${study.theme.primarySoft}; border: 1px solid ${study.theme.primaryBorder};`
+const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, ${study.theme.secondary});`
+---
+
+<BaseLayout
+  title={study.seoTitle}
+  description={study.description}
+  keywords={`${study.industry.toLowerCase()} ai case study, ${study.title.toLowerCase()}, custom ai automation case study, naurra ai case study`}
+  image="/og-default.png"
+  imageAlt={`${study.title} case study by Naurra.ai`}
+  url={`https://naurra.ai/case-studies/${study.slug}/`}
+  type="article"
+  publishedTime={`${study.publishedAt}T09:00:00+00:00`}
+  modifiedTime={`${study.updatedAt}T09:00:00+00:00`}
+  structuredData={[breadcrumbSchema, articleSchema]}
+>
+  <div class="min-h-screen bg-[#0a0e1a] text-white overflow-hidden" style="font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;">
+    <div class="fixed inset-0 pointer-events-none">
+      <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] via-transparent to-transparent"></div>
+      <div class="absolute top-0 -right-1/4 w-[800px] h-[800px] rounded-full blur-[120px]" style={heroGlow}></div>
+      <div class="absolute bottom-0 -left-1/4 w-[760px] h-[760px] rounded-full blur-[120px]" style={secondaryCard}></div>
+      <div class="absolute inset-0 opacity-[0.025]" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 56px 56px;"></div>
+    </div>
+
+    <nav class="relative border-b border-white/10 bg-[#0a0e1a]/95 backdrop-blur-xl sticky top-0 z-40">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="relative w-10 h-10 flex items-center justify-center">
+            <div class="absolute inset-0 rounded-full blur-xl" style={heroGlow}></div>
+            <img src="/logo-transparent.png" alt="Naurra.ai" class="w-full h-full object-contain relative z-10" />
+          </div>
+          <span style={`font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.04em; font-size: 20px; ${gradientText}`}>
+            Naurra.ai
+          </span>
+        </a>
+        <div class="flex items-center gap-4 flex-wrap justify-end">
+          <a href="/case-studies/" class="text-sm text-gray-400 hover:text-white transition-colors font-medium hidden sm:inline">Case Studies</a>
+          <a href="/solutions/" class="text-sm text-gray-400 hover:text-white transition-colors font-medium hidden md:inline">Solutions</a>
+          <a href="/contact/" class="text-sm font-semibold px-5 py-2 rounded-lg transition-all text-white" style={ctaButton}>Book a free call</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8 pt-8">
+      <nav class="text-xs text-gray-500 font-mono uppercase tracking-wider flex items-center gap-2" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <span class="text-gray-700">/</span>
+        <a href="/case-studies/" class="hover:text-white transition-colors">Case studies</a>
+        <span class="text-gray-700">/</span>
+        <span class="text-gray-300 truncate">{study.title}</span>
+      </nav>
+    </div>
+
+    <section class="relative max-w-7xl mx-auto px-6 lg:px-8 pt-10 pb-14">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div class="lg:col-span-7">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={primaryCard}>
+            <span class="w-2 h-2 rounded-full animate-pulse" style={`background: ${study.theme.primary};`}></span>
+            <span class="text-xs font-mono uppercase tracking-widest" style={`color: ${study.theme.primary};`}>{study.heroLabel}</span>
+          </div>
+
+          <h1 style="font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.045em;" class="text-4xl sm:text-5xl lg:text-6xl leading-[0.98] tracking-tight mb-6">
+            <span class="text-white">{study.title}</span><br />
+            <span style={gradientText}>{study.impact}</span>
+          </h1>
+
+          <p class="text-lg lg:text-xl text-gray-400 leading-relaxed mb-8">
+            {study.summary}
+          </p>
+
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="px-3 py-1.5 rounded-lg text-xs uppercase tracking-[0.18em] font-semibold bg-white/[0.05] border border-white/[0.08] text-gray-300">
+              {study.industry}
+            </span>
+            {study.tags.map((tag) => (
+              <span class="px-3 py-1.5 rounded-lg text-xs font-medium" style={primaryCard}>{tag}</span>
+            ))}
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
+            <div class="rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3">
+              <div class="text-[10px] font-mono uppercase tracking-wider text-gray-500 mb-1">Industry</div>
+              <div class="text-sm font-bold text-white">{study.industry}</div>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3">
+              <div class="text-[10px] font-mono uppercase tracking-wider text-gray-500 mb-1">Timeline</div>
+              <div class="text-sm font-bold text-white">{study.timeline}</div>
+            </div>
+            <div class="rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3">
+              <div class="text-[10px] font-mono uppercase tracking-wider text-gray-500 mb-1">Outcome</div>
+              <div class="text-sm font-bold text-white">{study.impact}</div>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/contact/" class="group px-7 py-3.5 rounded-xl font-semibold text-base text-white transition-all hover:opacity-95 text-center inline-flex items-center justify-center gap-2" style={ctaButton}>
+              Talk through a similar build
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+            <a href="/case-studies/" class="px-7 py-3.5 bg-white/5 border border-white/10 rounded-xl text-gray-300 hover:bg-white/10 hover:text-white transition-all font-medium text-center text-sm">
+              Browse more case studies
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 relative">
+          <div class="absolute -inset-4 rounded-3xl blur-2xl" style={heroGlow}></div>
+          <div class="relative rounded-3xl p-8" style={primaryCard}>
+            <div class="text-xs font-mono uppercase tracking-widest mb-4" style={`color: ${study.theme.primary};`}>Result snapshot</div>
+            <p style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-3xl lg:text-4xl text-white leading-tight mb-5">
+              <span style={gradientText}>{study.impact}</span>
+            </p>
+            <p class="text-gray-400 leading-relaxed mb-6">
+              {study.impactDetail}
+            </p>
+            <div class="grid grid-cols-1 gap-3">
+              {study.outcomes.map((outcome) => (
+                <div class="rounded-2xl border border-white/7 bg-white/[0.03] px-4 py-4 text-sm text-gray-300 leading-relaxed">
+                  {outcome}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8 pb-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <div class="lg:col-span-7 space-y-16">
+          <section>
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-1 h-8 rounded-full" style={sectionBar}></div>
+              <div class="text-xs font-mono uppercase tracking-widest" style={`color: ${study.theme.primary};`}>/ The challenge</div>
+            </div>
+            <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-3xl lg:text-4xl text-white mb-6 leading-tight">
+              Where the bottleneck actually was
+            </h2>
+            <p class="text-gray-300 text-lg leading-relaxed mb-6">
+              {study.problem}
+            </p>
+            <div class="space-y-3">
+              {study.challengeBullets.map((item) => (
+                <div class="flex gap-3 rounded-2xl border border-white/8 bg-white/[0.02] px-4 py-4">
+                  <div class="mt-1 w-2 h-2 rounded-full flex-shrink-0" style={`background: ${study.theme.primary};`}></div>
+                  <div class="text-sm text-gray-400 leading-relaxed">{item}</div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section>
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-1 h-8 rounded-full" style={sectionBar}></div>
+              <div class="text-xs font-mono uppercase tracking-widest" style={`color: ${study.theme.primary};`}>/ What we built</div>
+            </div>
+            <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-3xl lg:text-4xl text-white mb-6 leading-tight">
+              A system built around the real workflow
+            </h2>
+            <p class="text-gray-300 text-lg leading-relaxed mb-6">
+              {study.solution}
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {study.systemComponents.map((component, index) => (
+                <div class="rounded-2xl p-5" style={secondaryCard}>
+                  <div class="text-[11px] font-mono uppercase tracking-[0.2em] mb-3" style={`color: ${study.theme.secondary};`}>Module {String(index + 1).padStart(2, '0')}</div>
+                  <div class="text-sm text-gray-300 leading-relaxed">{component}</div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {study.testimonial && (
+            <section>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-1 h-8 rounded-full" style={sectionBar}></div>
+                <div class="text-xs font-mono uppercase tracking-widest" style={`color: ${study.theme.primary};`}>/ Client proof</div>
+              </div>
+              <div class="rounded-3xl overflow-hidden border border-white/10 bg-white/[0.03]">
+                <div class="flex flex-col md:flex-row">
+                  {study.testimonial.image && (
+                    <div class="md:w-64 flex-shrink-0">
+                      <img src={study.testimonial.image} alt={`Client testimonial for ${study.title}`} class="w-full h-64 md:h-full object-cover" loading="lazy" />
+                    </div>
+                  )}
+                  <div class="p-8">
+                    <div class="text-xs font-mono uppercase tracking-[0.2em] mb-3" style={`color: ${study.theme.primary};`}>What the client said</div>
+                    <p class="text-lg text-gray-300 leading-relaxed italic mb-5">"{study.testimonial.quote}"</p>
+                    <div class="text-sm text-white font-semibold">{study.testimonial.author}</div>
+                    <div class="text-xs text-gray-500 uppercase tracking-[0.16em] mt-1">{study.testimonial.role}</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          )}
+        </div>
+
+        <div class="lg:col-span-5 space-y-6">
+          <section class="rounded-3xl p-7" style={primaryCard}>
+            <div class="text-xs font-mono uppercase tracking-[0.2em] mb-4" style={`color: ${study.theme.primary};`}>Build profile</div>
+            <div class="space-y-4">
+              <div>
+                <div class="text-xs text-gray-500 uppercase tracking-[0.16em] mb-2">Stack</div>
+                <div class="flex flex-wrap gap-2">
+                  {study.stack.map((item) => (
+                    <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white/[0.04] border border-white/[0.08] text-gray-300">{item}</span>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <div class="text-xs text-gray-500 uppercase tracking-[0.16em] mb-2">Proof source</div>
+                <div class="text-sm text-white font-semibold">{study.proofSource}</div>
+                <div class="text-sm text-gray-400 mt-1">{study.proofContext}</div>
+              </div>
+            </div>
+          </section>
+
+          {(study.relatedSolutionHref || study.relatedBlogHref) && (
+            <section class="rounded-3xl p-7" style={secondaryCard}>
+              <div class="text-xs font-mono uppercase tracking-[0.2em] mb-4" style={`color: ${study.theme.secondary};`}>Related pages</div>
+              <div class="space-y-3">
+                {study.relatedSolutionHref && study.relatedSolutionLabel && (
+                  <a href={study.relatedSolutionHref} class="group flex items-center justify-between rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-4 text-sm text-gray-300 hover:bg-white/[0.05] hover:text-white transition-all">
+                    <span>{study.relatedSolutionLabel}</span>
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                  </a>
+                )}
+                {study.relatedBlogHref && study.relatedBlogLabel && (
+                  <a href={study.relatedBlogHref} class="group flex items-center justify-between rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-4 text-sm text-gray-300 hover:bg-white/[0.05] hover:text-white transition-all">
+                    <span>{study.relatedBlogLabel}</span>
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                  </a>
+                )}
+              </div>
+            </section>
+          )}
+
+          <section class="rounded-3xl p-7 border border-white/10 bg-white/[0.02]">
+            <div class="text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">Next step</div>
+            <h3 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-2xl text-white mb-3">
+              Want this outcome in your business?
+            </h3>
+            <p class="text-sm text-gray-400 leading-relaxed mb-5">
+              We scope custom AI systems around the workflow that is already costing you time, margin, or speed.
+            </p>
+            <a href="/contact/" class="inline-flex items-center justify-center gap-2 w-full px-5 py-3 rounded-xl font-semibold text-white transition-all hover:opacity-95" style={ctaButton}>
+              Book a free consultation
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

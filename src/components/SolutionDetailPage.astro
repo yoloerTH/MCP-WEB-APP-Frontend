@@ -111,7 +111,7 @@ const chapters = [
         </a>
         <div class="flex items-center gap-4 flex-wrap justify-end">
           <a href="/solutions/" class="text-sm text-gray-400 hover:text-white transition-colors font-medium hidden sm:inline">Solutions</a>
-          <a href="/company/" class="text-sm text-gray-400 hover:text-white transition-colors font-medium hidden md:inline">Case Studies</a>
+          <a href="/case-studies/" class="text-sm text-gray-400 hover:text-white transition-colors font-medium hidden md:inline">Case Studies</a>
           <a href="/blog/" class="text-sm text-gray-400 hover:text-white transition-colors font-medium hidden md:inline">Blog</a>
           <a href="/contact/" class="text-sm font-semibold px-5 py-2 rounded-lg transition-all text-white" style={ctaButton}>Book a free call</a>
         </div>
@@ -194,8 +194,8 @@ const chapters = [
                 <div class="text-sm text-white font-semibold">{solution.proofSource}</div>
                 <div class="text-xs text-gray-500">{solution.proofContext}</div>
               </div>
-              <a href="/company/" class="text-sm font-semibold flex items-center gap-1 group" style={`color: ${solution.theme.primary};`}>
-                Case studies
+              <a href={solution.proofHref || '/case-studies/'} class="text-sm font-semibold flex items-center gap-1 group" style={`color: ${solution.theme.primary};`}>
+                {solution.proofLinkLabel || 'Case studies'}
                 <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </a>
             </div>
@@ -446,7 +446,7 @@ const chapters = [
               <a href="/contact/" class="px-8 py-4 rounded-xl font-semibold text-base text-white transition-all hover:opacity-95 text-center" style={ctaButton}>
                 Book a free consultation
               </a>
-              <a href="/company/" class="px-8 py-4 bg-white/5 border border-white/10 rounded-xl text-gray-300 hover:bg-white/10 hover:text-white transition-all font-medium text-center text-sm">
+              <a href="/case-studies/" class="px-8 py-4 bg-white/5 border border-white/10 rounded-xl text-gray-300 hover:bg-white/10 hover:text-white transition-all font-medium text-center text-sm">
                 See more case studies
               </a>
             </div>

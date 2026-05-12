@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro'
 import { blogPosts } from '../data/blogPosts'
 import { blogPostsEl } from '../data/blogPostsEl'
+import { caseStudies } from '../data/caseStudies'
 import { solutionPages } from '../data/solutionPages'
 
 export const prerender = true
@@ -27,7 +28,8 @@ type SitemapEntry = {
 
 const staticPages: SitemapEntry[] = [
   { loc: `${SITE_URL}/`, lastmod: '2026-04-24', changefreq: 'weekly', priority: '1.0' },
-  { loc: `${SITE_URL}/company/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.9' },
+  { loc: `${SITE_URL}/company/`, lastmod: '2026-05-13', changefreq: 'monthly', priority: '0.9' },
+  { loc: `${SITE_URL}/case-studies/`, lastmod: '2026-05-13', changefreq: 'weekly', priority: '0.9' },
   { loc: `${SITE_URL}/pricing/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.8' },
   { loc: `${SITE_URL}/compare/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.8' },
   { loc: `${SITE_URL}/contact/`, lastmod: '2026-03-20', changefreq: 'monthly', priority: '0.6' },
@@ -41,6 +43,12 @@ const staticPages: SitemapEntry[] = [
   { loc: `${SITE_URL}/tools/mailto-link-generator/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.7' },
   { loc: `${SITE_URL}/tools/meeting-agenda-maker/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.7' },
   { loc: `${SITE_URL}/solutions/`, lastmod: '2026-05-13', changefreq: 'weekly', priority: '0.9' },
+  ...caseStudies.map((study) => ({
+    loc: `${SITE_URL}/case-studies/${study.slug}/`,
+    lastmod: study.updatedAt,
+    changefreq: 'monthly' as const,
+    priority: study.featured ? '0.8' : '0.7'
+  })),
   ...solutionPages.map((solution) => ({
     loc: `${SITE_URL}/solutions/${solution.slug}/`,
     lastmod: '2026-05-13',

@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { caseStudies, featuredCaseStudies } from '../../data/caseStudies'
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://naurra.ai/' },
+    { '@type': 'ListItem', position: 2, name: 'Case Studies', item: 'https://naurra.ai/case-studies/' }
+  ]
+}
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Naurra.ai Case Studies',
+  description: 'Real Naurra.ai case studies across quoting, document intelligence, travel, e-commerce, CRM, and operations automation.',
+  url: 'https://naurra.ai/case-studies/'
+}
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: caseStudies.map((study, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    url: `https://naurra.ai/case-studies/${study.slug}/`,
+    name: study.title
+  }))
+}
+---
+
+<BaseLayout
+  title="AI Automation Case Studies for Small Business — Naurra.ai"
+  description="Browse real Naurra.ai case studies across quoting, CRM, travel, legal document intelligence, e-commerce, and operations automation for small business."
+  keywords="ai case studies, ai automation case studies, custom ai small business case studies, quoting ai case study, crm ai case study, document intelligence case study"
+  url="https://naurra.ai/case-studies/"
+  structuredData={[breadcrumbSchema, collectionSchema, itemListSchema]}
+>
+  <div class="min-h-screen bg-[#0a0e1a] text-white overflow-hidden" style="font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;">
+    <div class="fixed inset-0 pointer-events-none">
+      <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/[0.05] via-transparent to-amber-500/[0.05]"></div>
+      <div class="absolute top-0 -right-1/4 w-[820px] h-[820px] rounded-full bg-emerald-500/10 blur-[120px]"></div>
+      <div class="absolute bottom-0 -left-1/4 w-[760px] h-[760px] rounded-full bg-amber-500/10 blur-[120px]"></div>
+      <div class="absolute inset-0 opacity-[0.025]" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 56px 56px;"></div>
+    </div>
+
+    <nav class="relative border-b border-white/10 bg-[#0a0e1a]/95 backdrop-blur-xl sticky top-0 z-40">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="relative w-10 h-10 flex items-center justify-center">
+            <div class="absolute inset-0 rounded-full blur-xl bg-emerald-500/20"></div>
+            <img src="/logo-transparent.png" alt="Naurra.ai" class="w-full h-full object-contain relative z-10" />
+          </div>
+          <span style="font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.04em; font-size: 20px; background: linear-gradient(135deg, #34d399, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Naurra.ai
+          </span>
+        </a>
+        <div class="flex items-center gap-4 flex-wrap justify-end">
+          <a href="/company/" class="text-sm text-gray-400 hover:text-white transition-colors font-medium hidden sm:inline">Company</a>
+          <a href="/solutions/" class="text-sm text-gray-400 hover:text-white transition-colors font-medium hidden md:inline">Solutions</a>
+          <a href="/contact/" class="text-sm font-semibold px-5 py-2 rounded-lg text-white transition-all bg-gradient-to-r from-emerald-500 to-emerald-600 border border-emerald-400/30 shadow-lg shadow-emerald-500/20">Book a free call</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8 pt-8">
+      <nav class="text-xs text-gray-500 font-mono uppercase tracking-wider flex items-center gap-2" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <span class="text-gray-700">/</span>
+        <span class="text-gray-300">Case studies</span>
+      </nav>
+    </div>
+
+    <section class="relative max-w-7xl mx-auto px-6 lg:px-8 pt-10 pb-16">
+      <div class="max-w-4xl">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 bg-emerald-500/10 border border-emerald-500/20">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-xs font-mono uppercase tracking-widest text-emerald-300">Real implementations</span>
+        </div>
+
+        <h1 style="font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.045em;" class="text-4xl sm:text-5xl lg:text-6xl leading-[0.98] tracking-tight mb-6">
+          Case studies with
+          <br />
+          <span style="background: linear-gradient(135deg, #34d399, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            real before-and-after outcomes.
+          </span>
+        </h1>
+
+        <p class="text-lg lg:text-xl text-gray-400 leading-relaxed max-w-3xl mb-8">
+          These are the kinds of systems Naurra.ai builds for small business: quoting engines, document intelligence, multi-channel communication, travel planning, and operations automation grounded in real workflows.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="/contact/" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white transition-all hover:opacity-95 bg-gradient-to-r from-emerald-500 to-emerald-600 border border-emerald-400/30 shadow-lg shadow-emerald-500/20">
+            Book a free consultation
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </a>
+          <a href="/solutions/" class="px-7 py-3.5 bg-white/5 border border-white/10 rounded-xl text-gray-300 hover:bg-white/10 hover:text-white transition-all font-medium text-center text-sm">
+            Explore solutions
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative max-w-7xl mx-auto px-6 lg:px-8 pb-16">
+      <div class="flex items-center justify-between gap-4 mb-8">
+        <div>
+          <div class="text-xs font-mono uppercase tracking-[0.22em] text-emerald-300/70 mb-2">Featured stories</div>
+          <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-3xl text-white">High-signal implementations</h2>
+        </div>
+        <div class="text-sm text-gray-500 hidden md:block">Built around specific commercial bottlenecks, not generic AI demos.</div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {featuredCaseStudies.map((study) => (
+          <a href={`/case-studies/${study.slug}/`} class="group relative rounded-3xl overflow-hidden border border-white/10 bg-white/[0.03] hover:bg-white/[0.05] transition-all">
+            <div class={`h-1 bg-gradient-to-r ${study.accentFrom} ${study.accentTo}`}></div>
+            <div class="p-8">
+              <div class="flex flex-wrap gap-2 mb-5">
+                <span class="px-3 py-1.5 rounded-lg bg-white/[0.05] border border-white/[0.08] text-xs text-gray-300 uppercase tracking-[0.18em] font-semibold">{study.industry}</span>
+                {study.tags.slice(0, 2).map((tag) => (
+                  <span class="px-3 py-1.5 rounded-lg text-xs font-medium" style={`background: ${study.theme.primarySoft}; border: 1px solid ${study.theme.primaryBorder}; color: ${study.theme.primary};`}>{tag}</span>
+                ))}
+              </div>
+              <h3 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-2xl text-white mb-3 group-hover:text-white transition-colors">
+                {study.title}
+              </h3>
+              <p class="text-sm text-gray-400 leading-relaxed mb-6">
+                {study.summary}
+              </p>
+              <div class="rounded-2xl px-5 py-5 mb-6" style={`background: linear-gradient(135deg, ${study.theme.primarySoft}, rgba(255,255,255,0.01)); border: 1px solid ${study.theme.primaryBorder};`}>
+                <div class="text-[11px] font-mono uppercase tracking-[0.22em] mb-2" style={`color: ${study.theme.primary};`}>Outcome</div>
+                <div class="text-2xl font-bold text-white mb-2">{study.impact}</div>
+                <div class="text-sm text-gray-400 leading-relaxed">{study.impactDetail}</div>
+              </div>
+              <div class="inline-flex items-center gap-2 text-sm font-semibold text-white">
+                Read full case study
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="relative max-w-7xl mx-auto px-6 lg:px-8 pb-24">
+      <div class="flex items-center justify-between gap-4 mb-8">
+        <div>
+          <div class="text-xs font-mono uppercase tracking-[0.22em] text-amber-300/70 mb-2">Full library</div>
+          <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-3xl text-white">All case studies</h2>
+        </div>
+        <div class="text-sm text-gray-500 hidden md:block">{caseStudies.length} workflows, industries, and operational systems.</div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+        {caseStudies.map((study) => (
+          <a href={`/case-studies/${study.slug}/`} class="group rounded-3xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-all p-6">
+            <div class={`h-1 w-16 rounded-full bg-gradient-to-r ${study.accentFrom} ${study.accentTo} mb-5`}></div>
+            <div class="text-xs text-gray-500 uppercase tracking-[0.18em] mb-3">{study.industry}</div>
+            <h3 style="font-family: 'Sora', sans-serif; font-weight: 700;" class="text-xl text-white mb-3">{study.title}</h3>
+            <p class="text-sm text-gray-400 leading-relaxed mb-5">{study.summary}</p>
+            <div class="text-sm font-semibold text-white mb-4">{study.impact}</div>
+            <div class="inline-flex items-center gap-2 text-sm text-gray-300 group-hover:text-white transition-colors">
+              Open case study
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>

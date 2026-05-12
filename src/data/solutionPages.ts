@@ -61,6 +61,8 @@ export type SolutionPage = {
   proofBody: string
   proofSource: string
   proofContext: string
+  proofHref?: string
+  proofLinkLabel?: string
   problemTitle: string
   problemParagraphs: string[]
   capabilitiesTitle: string
@@ -108,6 +110,8 @@ export const solutionPages: SolutionPage[] = [
     proofBody: '"Thanos helped me set up automation for my automotive business and it completely changed the game for me. Since implementing it we have been averaging around $15K profit every two weeks."',
     proofSource: 'Automotive reseller',
     proofContext: 'Custom AI quoting + CRM agent',
+    proofHref: '/case-studies/automotive-sourcing-engine-profit-automation/',
+    proofLinkLabel: 'Read the full automotive case study',
     problemTitle: 'If this sounds familiar, this is for you',
     problemParagraphs: [
       'Leads come in across email, web forms, WhatsApp, and Instagram. Someone copies the details into a spreadsheet, sometimes. Quotes get written in Google Docs from a template, with prices looked up in a separate sheet. Follow-up is sporadic. Win rate is unknown.',
@@ -204,6 +208,8 @@ export const solutionPages: SolutionPage[] = [
     proofBody: 'Owners stop burning Fridays on invoice admin. Closed work triggers draft invoices automatically, recurring clients bill themselves on schedule, and overdue balances chase themselves with the tone you approve.',
     proofSource: 'Services businesses',
     proofContext: 'Recurring and milestone billing',
+    proofHref: '/case-studies/full-stack-ecommerce-ai-operations-platform/',
+    proofLinkLabel: 'See the operations automation case study',
     problemTitle: 'Where invoicing quietly leaks time and money',
     problemParagraphs: [
       'A job finishes, someone opens a Word or Google Docs template, looks up the right amount, finds the billing contact, exports a PDF, and sends it. A week later nobody knows who has paid and who has not. Another week later follow-up still has not happened.',
@@ -298,6 +304,8 @@ export const solutionPages: SolutionPage[] = [
     proofBody: 'The automotive reseller pattern is the clearest version of this: no lead gets forgotten, quotes go out faster, and conversations stop fragmenting across channels.',
     proofSource: 'Automotive reseller + B2B sales teams',
     proofContext: 'Instagram, WhatsApp, email, forms',
+    proofHref: '/case-studies/multi-channel-salesforce-ai-communication-suite/',
+    proofLinkLabel: 'Read the multi-channel communication case study',
     problemTitle: 'The real cost of scattered inbound',
     problemParagraphs: [
       'Leads arrive on Instagram, WhatsApp, email, contact forms, and sometimes voice notes. Some are answered fast. Some go cold. Some disappear because nobody was watching that channel at the right moment.',
@@ -392,6 +400,8 @@ export const solutionPages: SolutionPage[] = [
     proofBody: 'For small teams, support stops being the founder\'s background task. Repetitive questions resolve themselves, complex issues arrive pre-triaged, and response time drops without adding headcount.',
     proofSource: 'Wellness e-commerce + support-heavy teams',
     proofContext: 'Email-first support flows',
+    proofHref: '/case-studies/full-stack-ecommerce-ai-operations-platform/',
+    proofLinkLabel: 'Read the e-commerce automation case study',
     problemTitle: 'Why support still feels heavier than it should',
     problemParagraphs: [
       'Support emails usually land in a shared inbox or, worse, the founder\'s inbox. Common questions get answered from scratch, order lookups require jumping into another tool, and edge cases sit unanswered for too long.',
@@ -486,6 +496,8 @@ export const solutionPages: SolutionPage[] = [
     proofBody: 'The same conversational AI pattern that helps travel teams respond 10x faster can be applied to clinics, salons, consultancies, and service businesses where booking still happens in message threads.',
     proofSource: 'Travel concierge + service businesses',
     proofContext: 'WhatsApp, email, DMs, calendar',
+    proofHref: '/case-studies/ai-travel-concierge-whatsapp-telegram-itineraries/',
+    proofLinkLabel: 'Read the travel concierge case study',
     problemTitle: 'Scheduling feels small until it steals every day',
     problemParagraphs: [
       'A client asks for a slot over WhatsApp or email, someone checks the calendar manually, offers two or three options, waits for the reply, creates the event, and hopes the reminder goes out. Then the reschedule message arrives five minutes before the slot.',
@@ -580,6 +592,8 @@ export const solutionPages: SolutionPage[] = [
     proofBody: 'The HVAC-style quoting pattern is the clearest proof: once the agent can read the brief, search the right reference material, and apply pricing logic, the bottleneck collapses.' ,
     proofSource: 'HVAC quoting + document-heavy teams',
     proofContext: 'Scope, pricing, clauses, output',
+    proofHref: '/case-studies/mep-quotation-intelligence-hvac-case-study/',
+    proofLinkLabel: 'Read the HVAC quotation case study',
     problemTitle: 'Where proposals lose deals before you even send them',
     problemParagraphs: [
       'A qualified lead asks for a proposal, and a senior person loses two to four hours to writing it. They copy from an old version, rewrite the scope, hunt for the right clauses, fix the formatting, and send later than they wanted.',

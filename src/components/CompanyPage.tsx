@@ -1,99 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
-
-/* ═══════════════════════════════════════════════════════════════════
-   CASE STUDIES — framed as Problem → Solution → Impact
-   ═══════════════════════════════════════════════════════════════════ */
-const caseStudies = [
-  {
-    id: 0,
-    industry: 'Automotive',
-    title: 'Automotive Sourcing Engine',
-    problem: 'A car reseller was manually browsing dozens of listing sites daily, trying to spot undervalued vehicles before competitors. Slow, exhausting, and easy to miss profitable deals.',
-    solution: 'We built an automated pipeline that scrapes thousands of listings, runs AI-powered filtering to identify undervalued inventory, cross-references wholesale pricing, and calculates instant profit margins.',
-    impact: '$15K profit every two weeks',
-    impactDetail: 'The system surfaces deals the client would have never found manually — filtering noise from signal across the entire market in real time.',
-    tags: ['Web Scraping', 'AI Filtering', 'Profit Analytics'],
-    accentFrom: 'from-cyan-400',
-    accentTo: 'to-blue-400',
-    testimonial: {
-      quote: 'Thanos helped me set up automation for my automotive business and it completely changed the game for me. Since implementing it we\'ve been averaging around $15K profit every two weeks. Because of that, I was able to buy my dad his dream truck. If anyone is looking to automate parts of their business, he really knows what he\'s doing.',
-      image: '/testimonial-automotive.jpg',
-    },
-  },
-  {
-    id: 1,
-    industry: 'HVAC & MEP',
-    title: 'MEP Quotation Intelligence',
-    problem: 'HVAC contractors were spending hours manually matching equipment specs to project requirements, then building quotes line by line. Every quotation was a bottleneck.',
-    solution: 'We built an AI engine that reads project specifications, automatically matches the right equipment from supplier catalogs, and generates complete quotations — priced, formatted, and ready to send.',
-    impact: '95% faster processing',
-    impactDetail: 'What used to take a full workday now takes minutes. The system handles equipment matching, pricing calculations, and document formatting autonomously.',
-    tags: ['GPT-4', 'Document Processing', 'SaaS Platform'],
-    accentFrom: 'from-emerald-400',
-    accentTo: 'to-teal-400',
-  },
-  {
-    id: 2,
-    industry: 'CRM & Sales',
-    title: 'AI Communication Suite',
-    problem: 'A sales team was losing leads because customers would message on WhatsApp, follow up via email, and get treated as new conversations each time. No unified memory, no context.',
-    solution: 'We deployed a single AI brain across WhatsApp, Telegram, email, and web chat — all connected to Salesforce. The AI remembers every interaction regardless of channel and responds with full context.',
-    impact: '4 channels, 1 AI brain',
-    impactDetail: 'Customer switches from WhatsApp to email? The AI knows exactly where the conversation left off. Every interaction is logged in Salesforce automatically.',
-    tags: ['Salesforce CRM', 'Multi-Channel', 'Autonomous Agents'],
-    accentFrom: 'from-amber-400',
-    accentTo: 'to-orange-400',
-  },
-  {
-    id: 3,
-    industry: 'Legal & Finance',
-    title: 'Lease AI Analyser',
-    problem: 'A legal team was spending 2-3 days per commercial lease agreement — reading 50+ page documents, extracting key terms, calculating NPV, and flagging risk clauses manually.',
-    solution: 'We built a document intelligence engine that ingests lease agreements, extracts every critical clause, calculates net present value, identifies risk flags, and outputs a structured summary.',
-    impact: 'Days reduced to under 60 seconds',
-    impactDetail: 'The same analysis that took a legal team days is now done before they finish their coffee. Every clause extracted, every risk flagged, every number calculated.',
-    tags: ['NLP', 'Document Intelligence', 'Financial Modeling'],
-    accentFrom: 'from-violet-400',
-    accentTo: 'to-purple-400',
-  },
-  {
-    id: 4,
-    industry: 'Fashion',
-    title: 'AI Virtual Fitting Room',
-    problem: 'A bespoke tailor had no way to show clients what a custom suit would look like before production. Clients were committing thousands on fabric choices they could only imagine.',
-    solution: 'We created a platform where clients upload a photo and see themselves wearing any suit configuration — different fabrics, cuts, and accessories — powered by Google Imagen AI generation.',
-    impact: 'Infinite try-ons, zero inventory',
-    impactDetail: 'Clients now explore hundreds of combinations visually before committing. Conversion rates increased because confidence replaced uncertainty.',
-    tags: ['Google Imagen', 'Computer Vision', 'Generative AI'],
-    accentFrom: 'from-rose-400',
-    accentTo: 'to-pink-400',
-  },
-  {
-    id: 5,
-    industry: 'Travel',
-    title: 'AI Travel Concierge',
-    problem: 'A travel agency spent hours per client building custom itineraries — researching destinations, checking logistics, formatting PDFs. High-touch work that didn\'t scale.',
-    solution: 'We built intelligent agents on Telegram and WhatsApp that converse with travelers, understand their style and budget, and generate beautifully formatted PDF itineraries — complete with timings, costs, and recommendations.',
-    impact: '10x faster itinerary creation',
-    impactDetail: 'Clients chat naturally about their dream trip. The AI handles research, logistics, and formatting. What took hours now takes a single conversation.',
-    tags: ['Telegram Bots', 'PDF Generation', 'Conversational AI'],
-    accentFrom: 'from-sky-400',
-    accentTo: 'to-indigo-400',
-  },
-  {
-    id: 6,
-    industry: 'E-Commerce',
-    title: 'Full-Stack E-Commerce Platform',
-    problem: 'A wellness brand was doing everything manually — customer support, email marketing, social posting, order receipts, SEO updates. The founder was the bottleneck for their own growth.',
-    solution: 'We built an end-to-end platform: AI web assistant handles customer questions, email agent manages campaigns, social AI posts across LinkedIn, Twitter, Facebook, and Pinterest. Receipts, SEO, everything automated.',
-    impact: '100% automated operations',
-    impactDetail: 'The founder went from working IN the business to working ON it. Marketing, support, and operations run 24/7 without human intervention.',
-    tags: ['Full-Stack', 'Social Media AI', 'Marketing Automation'],
-    accentFrom: 'from-amber-400',
-    accentTo: 'to-yellow-400',
-  },
-]
+import { caseStudies } from '../data/caseStudies'
 
 /* Service icon SVGs -- themed to each capability */
 /* Service icon SVGs -- themed to each capability */
@@ -879,15 +786,49 @@ export default function CompanyPage() {
                               <p className="text-gray-300 text-sm leading-relaxed italic">
                                 "{(project as any).testimonial.quote}"
                               </p>
+                              <div className="mt-4 text-xs text-gray-500 uppercase tracking-[0.18em]">
+                                {(project as any).testimonial.author} · {(project as any).testimonial.role}
+                              </div>
                             </div>
                           </div>
                         </motion.div>
                       )}
+
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-2">
+                        <div className="text-sm text-gray-500">
+                          Want the full build story, system design, and related next steps?
+                        </div>
+                        <motion.a
+                          href={`/case-studies/${project.slug}/`}
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-sm font-semibold text-white hover:bg-white/10 hover:border-emerald-500/30 transition-all"
+                        >
+                          Read full case study
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </motion.a>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
               </AnimatePresence>
             </div>
+          </div>
+
+          <div className="mt-10 flex justify-center">
+            <motion.a
+              href="/case-studies/"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500/15 to-amber-500/15 border border-emerald-500/20 text-sm font-semibold text-white hover:border-emerald-400/35 hover:bg-white/10 transition-all"
+            >
+              Browse all case studies
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </motion.a>
           </div>
         </div>
       </section>
