@@ -93,7 +93,7 @@ const ogLocale = lang === 'el' ? 'el_GR' : 'en_US'
     <meta property="og:image:type" content="image/png" />
 
     {/* Site-wide WebSite Schema with SearchAction (enables sitelinks searchbox) */}
-    <script type="application/ld+json" set:html={JSON.stringify({
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: 'Naurra.ai',
@@ -118,7 +118,7 @@ const ogLocale = lang === 'el' ? 'el_GR' : 'en_US'
     })} />
 
     {/* Site-wide Organization Schema */}
-    <script type="application/ld+json" set:html={JSON.stringify({
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: 'Naurra.ai',
@@ -144,7 +144,7 @@ const ogLocale = lang === 'el' ? 'el_GR' : 'en_US'
 
     {/* Page-specific Structured Data */}
     {structuredData.map((data) => (
-      <script type="application/ld+json" set:html={JSON.stringify(data)} />
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(data)} />
     ))}
 
     {/* Google Analytics 4 with Consent Mode v2 */}
