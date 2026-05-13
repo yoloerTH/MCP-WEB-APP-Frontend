@@ -215,7 +215,7 @@ const services = [
     num: '03',
     title: 'LLM Integration',
     value: 'Frontier Models, Your Data',
-    description: 'Embed GPT-4, Claude, or Gemini into your existing systems for intelligent document processing and decision support.',
+    description: 'Embed the latest GPT models, Claude, or Gemini into your existing systems for intelligent document processing and decision support.',
     capabilities: ['RAG pipelines', 'Fine-tuned models', 'Secure data handling'],
     color: { from: '#a78bfa', to: '#c084fc', text: 'text-violet-400', glow: 'rgba(167,139,250,0.15)' },
   },
@@ -999,7 +999,7 @@ export default function CompanyPage() {
 
           <div className="grid md:grid-cols-2 gap-5 max-w-4xl">
             {[
-              { title: 'AI & Intelligence', color: 'text-emerald-400', border: 'border-emerald-500/15', bg: 'bg-emerald-500/[0.06]', items: ['GPT-4o', 'Claude', 'Gemini', 'Voice AI', 'Autonomous Agents', 'MCP Protocol', 'RAG Pipelines', 'NLP / NLU'] },
+              { title: 'AI & Intelligence', color: 'text-emerald-400', border: 'border-emerald-500/15', bg: 'bg-emerald-500/[0.06]', items: ['Latest GPT Models', 'Claude', 'Gemini', 'Voice AI', 'Autonomous Agents', 'MCP Protocol', 'RAG Pipelines', 'NLP / NLU'] },
               { title: 'Frontend & Mobile', color: 'text-amber-400', border: 'border-amber-500/15', bg: 'bg-amber-500/[0.06]', items: ['React', 'React Native', 'Next.js', 'Astro', 'TypeScript', 'Swift', 'Tailwind CSS'] },
               { title: 'Backend & APIs', color: 'text-cyan-400', border: 'border-cyan-500/15', bg: 'bg-cyan-500/[0.06]', items: ['Node.js', 'Python', 'Deno', 'GraphQL', 'WebSockets', 'Serverless'] },
               { title: 'Infrastructure', color: 'text-violet-400', border: 'border-violet-500/15', bg: 'bg-violet-500/[0.06]', items: ['AWS', 'Google Cloud', 'Azure', 'Supabase', 'PostgreSQL', 'Redis', 'Docker'] },
@@ -1042,11 +1042,11 @@ export default function CompanyPage() {
                 {/* Photo */}
                 <div className="relative w-full lg:w-5/12 flex-shrink-0">
                   <div className="relative h-80 lg:h-full min-h-[420px] overflow-hidden">
-                    <img src="/ceo-thanos.jpg" alt="Thanos Panagiotakopoulos - CEO & AI Engineer at Naurra.ai" className="absolute inset-0 w-full h-full object-cover object-top" loading="lazy" />
+                    <img src="/ceo-thanos.jpg" alt="Thanos Panagiotakopoulos - Founder and Lead AI Engineer at Naurra.ai" className="absolute inset-0 w-full h-full object-cover object-top" loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e1a] via-[#0a0e1a]/20 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-[#0a0e1a]/80" />
                     <div className="absolute bottom-6 left-6 lg:hidden">
                       <h3 className="text-2xl font-display font-extrabold text-white">Thanos Panagiotakopoulos</h3>
-                      <p className="text-emerald-400 font-medium">Founder & CEO</p>
+                      <p className="text-emerald-400 font-medium">Founder & Lead AI Engineer</p>
                     </div>
                   </div>
                 </div>
@@ -1055,7 +1055,7 @@ export default function CompanyPage() {
                 <div className="relative w-full lg:w-7/12 p-8 lg:p-12 flex flex-col justify-center">
                   <div className="hidden lg:block mb-6">
                     <h3 className="text-3xl font-display font-extrabold text-white mb-1">Thanos Panagiotakopoulos</h3>
-                    <p className="text-emerald-400 font-semibold text-lg">Founder & CEO — AI Engineer</p>
+                    <p className="text-emerald-400 font-semibold text-lg">Founder & Lead AI Engineer</p>
                   </div>
                   <div className="space-y-4 text-gray-400 leading-relaxed">
                     <p>I don't manage projects from a distance — I build every solution personally. From architecting the AI system to writing the production code, I'm hands-on at every stage.</p>

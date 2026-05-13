@@ -3586,7 +3586,7 @@ These aren't hypothetical. These are production systems delivering measurable re
 
 **The Problem:** Mechanical, electrical, and plumbing contractors were spending entire workdays manually matching equipment specifications to project requirements, then building quotes line by line in spreadsheets.
 
-**The AI Agent:** A GPT-4 powered system that reads project specifications, understands equipment requirements, matches them against supplier catalogs, calculates pricing including margins and labor, and generates professional quotation documents — all automatically.
+**The AI Agent:** A system powered by the latest GPT models that reads project specifications, understands equipment requirements, matches them against supplier catalogs, calculates pricing including margins and labor, and generates professional quotation documents — all automatically.
 
 **The Result:** What used to take a full workday now takes minutes. 95% faster processing with fewer errors, because the AI cross-references specs against actual product databases instead of relying on human memory.
 
@@ -3660,7 +3660,7 @@ The process typically follows five stages:
 Deep-dive into your workflows. What takes the most time? Where do things fall through the cracks? What would 10x improvement look like? No generic pitches — just understanding your business.
 
 ### 2. Architecture (Week 1-2)
-Design the AI system. Choose the right models (GPT-4, Claude, Gemini — depending on the task). Map integrations with your existing tools. Define success metrics.
+Design the AI system. Choose the right models (the latest GPT models, Claude, Gemini — depending on the task). Map integrations with your existing tools. Define success metrics.
 
 ### 3. Build & Iterate (Weeks 2-6)
 Rapid development with weekly demos. You see working software from day one, not after months of silence. Feedback loops are tight — if something doesn't work the way your team needs, it gets fixed immediately.

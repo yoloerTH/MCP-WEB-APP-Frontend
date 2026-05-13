@@ -139,8 +139,8 @@ export const caseStudies: CaseStudy[] = [
       'A quoting process that scales better when request volume spikes'
     ],
     timeline: '6 weeks from workflow mapping to production rollout',
-    stack: ['GPT-4', 'Document processing', 'Catalog matching', 'Quotation workflow'],
-    tags: ['GPT-4', 'Document Processing', 'SaaS Platform'],
+    stack: ['Latest GPT models', 'Document processing', 'Catalog matching', 'Quotation workflow'],
+    tags: ['Latest GPT Models', 'Document Processing', 'SaaS Platform'],
     proofSource: 'HVAC and MEP team',
     proofContext: 'AI equipment-matching and quote-generation system',
     accentFrom: 'from-emerald-400',
