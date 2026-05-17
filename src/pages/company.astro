@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import CompanyPageIsland from '../components/islands/CompanyPageIsland'
+import { featuredCaseStudies } from '../data/caseStudies'
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -82,11 +83,22 @@ const breadcrumbSchema = {
   ]
 }
 
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: featuredCaseStudies.slice(0, 4).map((study, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    url: `https://naurra.ai/case-studies/${study.slug}/`,
+    name: study.title
+  }))
+}
+
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
   name: 'Naurra.ai - Custom AI Solutions',
-  description: 'We build custom AI agents, workflow automation, and intelligent systems for businesses. Proven results across HVAC, legal, automotive, travel, fashion, and e-commerce.',
+  description: 'Custom AI agents for small business across quoting, CRM, support, operations, and Google Workspace workflows, with real case studies and engineer-led delivery.',
   url: 'https://naurra.ai/company/',
   logo: 'https://naurra.ai/logo-transparent.png',
   image: 'https://naurra.ai/og-default.png',
@@ -94,6 +106,7 @@ const serviceSchema = {
   areaServed: 'Worldwide',
   serviceType: ['AI Development', 'Workflow Automation', 'Custom Software Development', 'AI Consulting', 'Chatbot Development'],
   knowsAbout: ['Artificial Intelligence', 'Machine Learning', 'Natural Language Processing', 'Workflow Automation', 'Google Workspace', 'LLM Integration'],
+  foundingDate: '2025',
   founder: {
     '@type': 'Person',
     name: 'Athanasios-Ioannis Panagiotakopoulos',
@@ -106,34 +119,21 @@ const serviceSchema = {
     email: 'support@naurra.ai',
     url: 'https://naurra.ai/contact/'
   },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5',
-    bestRating: '5',
-    ratingCount: '7'
-  },
-  review: {
-    '@type': 'Review',
-    author: {
-      '@type': 'Person',
-      name: 'Automotive Reseller Client'
-    },
-    reviewRating: {
-      '@type': 'Rating',
-      ratingValue: '5',
-      bestRating: '5'
-    },
-    reviewBody: 'Thanos helped me set up automation for my automotive business and it completely changed the game for me. Since implementing it we\'ve been averaging around $15K profit every two weeks. If anyone is looking to automate parts of their business, he really knows what he\'s doing.'
-  }
+  sameAs: [
+    'https://www.linkedin.com/company/109405415',
+    'https://www.linkedin.com/in/athanasios-ioannis-panagiotakopoulos-2362a9274/',
+    'https://x.com/Naurra_ai'
+  ]
 }
 ---
 
 <BaseLayout
-  title="AI Automation Case Studies for Small Business — Naurra.ai Company"
-  description="See how Naurra.ai delivers custom AI automation for small business across quoting, support, operations, and Google Workspace workflows. Real case studies, real ROI, direct access to the engineers building it."
-  keywords="ai automation case studies, custom ai agency, ai automation company, small business ai case studies, custom ai development company, ai workflow automation agency, naurra company"
+  title="Custom AI Agents for Small Business | Naurra.ai"
+  description="Custom AI agents for small business across quoting, CRM, support, operations, and Google Workspace workflows. Explore Naurra.ai case studies and real results."
+  keywords="custom ai agents for small business, custom ai case studies, ai automation company, small business ai automation, google workspace workflow automation, custom ai solutions"
+  imageAlt="Naurra.ai company page featuring custom AI agents, case studies, and founder-led delivery"
   url="https://naurra.ai/company/"
-  structuredData={[breadcrumbSchema, faqSchema, serviceSchema]}
+  structuredData={[breadcrumbSchema, faqSchema, serviceSchema, itemListSchema]}
 >
   <CompanyPageIsland client:load />
 </BaseLayout>

@@ -28,7 +28,8 @@ type SitemapEntry = {
 
 const staticPages: SitemapEntry[] = [
   { loc: `${SITE_URL}/`, lastmod: '2026-04-24', changefreq: 'weekly', priority: '1.0' },
-  { loc: `${SITE_URL}/company/`, lastmod: '2026-05-13', changefreq: 'monthly', priority: '0.9' },
+  { loc: `${SITE_URL}/about/`, lastmod: '2026-05-17', changefreq: 'monthly', priority: '0.8' },
+  { loc: `${SITE_URL}/company/`, lastmod: '2026-05-17', changefreq: 'monthly', priority: '0.9' },
   { loc: `${SITE_URL}/case-studies/`, lastmod: '2026-05-13', changefreq: 'weekly', priority: '0.9' },
   { loc: `${SITE_URL}/pricing/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.8' },
   { loc: `${SITE_URL}/compare/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.8' },

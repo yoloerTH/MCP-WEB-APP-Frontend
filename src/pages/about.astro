@@ -1,0 +1,521 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { featuredCaseStudies } from '../data/caseStudies'
+
+const highlightedResults = featuredCaseStudies.slice(0, 3)
+
+const trustStats = [
+  { value: '35+', label: 'built-in product workflows' },
+  { value: '8', label: 'Google services connected' },
+  { value: '3-6 weeks', label: 'typical custom build window' },
+  { value: '2 paths', label: 'product and custom systems' },
+]
+
+const dualPaths = [
+  {
+    eyebrow: 'The product',
+    title: 'A Google Workspace AI assistant for day-to-day execution',
+    description: 'Naurra.ai helps people run Gmail, Calendar, Drive, Docs, Sheets, Meet, Tasks, and Contacts through voice or chat. The goal is simple: reduce friction, remove context switching, and turn requests into finished actions.',
+    bullets: [
+      'Voice and chat control across Google Workspace',
+      'Useful for daily execution, not just one-off prompts',
+      'Built for people who live inside Gmail, Calendar, Docs, and Sheets'
+    ],
+    ctaLabel: 'Explore the product',
+    ctaHref: '/pricing/',
+    tone: 'emerald'
+  },
+  {
+    eyebrow: 'The company',
+    title: 'An engineering partner for workflows generic software cannot handle cleanly',
+    description: 'For businesses with revenue-critical or operations-heavy workflows, Naurra.ai also designs custom AI systems. These are built around your pricing logic, handoffs, rules, data, and edge cases, not around a generic template.',
+    bullets: [
+      'Custom AI agents for quoting, CRM, support, operations, and document workflows',
+      'Engineer-led scoping and delivery from architecture to rollout',
+      'Best suited for workflows tied to speed, margin, or execution quality'
+    ],
+    ctaLabel: 'See company work',
+    ctaHref: '/company/',
+    tone: 'amber'
+  }
+]
+
+const simpleFlow = [
+  {
+    step: '01',
+    title: 'You describe the outcome',
+    body: 'A message, a meeting, a quote, a report, a follow-up, or a workflow that needs to move.'
+  },
+  {
+    step: '02',
+    title: 'Naurra handles the moving pieces',
+    body: 'The product orchestrates Google Workspace tasks. The company designs custom orchestration when the workflow is more specific.'
+  },
+  {
+    step: '03',
+    title: 'Execution happens with less drag',
+    body: 'Less copy-pasting, less switching tabs, less manual follow-through, and a cleaner path from intent to action.'
+  }
+]
+
+const principles = [
+  {
+    title: 'Execution over spectacle',
+    body: 'The point of AI is not to sound clever. It is to complete work, support decisions, and reduce operational drag.'
+  },
+  {
+    title: 'Use product where the workflow is common',
+    body: 'Naurra.ai the product exists for repeatable Google Workspace workflows that many people share.'
+  },
+  {
+    title: 'Build custom where the workflow is the edge',
+    body: 'When the real value lives in your own process, data, rules, and handoffs, custom AI usually makes more sense than forcing a generic tool.'
+  },
+]
+
+const aboutFAQs = [
+  {
+    question: 'What is Naurra.ai?',
+    answer: 'Naurra.ai is both a Google Workspace AI product and the engineering company behind custom AI systems. The product handles common day-to-day Google Workspace execution. The company handles business-specific workflows that need a more tailored system.'
+  },
+  {
+    question: 'Who is the product for?',
+    answer: 'The product is for people and teams who spend a meaningful part of their week inside Gmail, Calendar, Drive, Docs, and Sheets and want faster execution with less switching between tools.'
+  },
+  {
+    question: 'When does a custom build make sense?',
+    answer: 'A custom build makes sense when the workflow depends on your own pricing logic, approvals, delivery rules, document structure, sales process, or operational edge cases. That is where generic software usually starts to break down.'
+  },
+  {
+    question: 'Does Naurra.ai have real proof behind it?',
+    answer: 'Yes. The company side includes live examples across automotive sourcing, quotation intelligence, travel concierge workflows, legal document analysis, and AI-led operations systems. The case studies and company page show the clearest proof.'
+  },
+]
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://naurra.ai/' },
+    { '@type': 'ListItem', position: 2, name: 'About', item: 'https://naurra.ai/about/' }
+  ]
+}
+
+const aboutPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About Naurra.ai',
+  description: 'About Naurra.ai: the Google Workspace AI product and the engineering company behind custom AI systems and real workflow results.',
+  url: 'https://naurra.ai/about/',
+  mainEntity: {
+    '@type': 'Organization',
+    name: 'Naurra.ai',
+    url: 'https://naurra.ai/',
+    logo: 'https://naurra.ai/logo-transparent.png',
+    founder: {
+      '@type': 'Person',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
+      jobTitle: 'Founder and Lead AI Engineer'
+    }
+  }
+}
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: aboutFAQs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer
+    }
+  }))
+}
+---
+
+<BaseLayout
+  title="About Naurra.ai | AI That Moves Work Into Execution"
+  description="Learn what Naurra.ai is: a Google Workspace AI product and the engineering company behind custom AI systems, case studies, and real operational results."
+  keywords="about Naurra.ai, Naurra company, Naurra AI product, Google Workspace AI assistant, custom AI company"
+  url="https://naurra.ai/about/"
+  structuredData={[breadcrumbSchema, aboutPageSchema, faqSchema]}
+>
+  <div class="min-h-screen bg-[#0a0e1a] text-white overflow-hidden" style="font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;">
+    <div class="fixed inset-0 pointer-events-none">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.12),_transparent_35%),radial-gradient(circle_at_bottom_left,_rgba(251,191,36,0.08),_transparent_30%)]"></div>
+      <div class="absolute inset-0 opacity-[0.025]" style="background-image: linear-gradient(rgba(255,255,255,0.45) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.45) 1px, transparent 1px); background-size: 56px 56px;"></div>
+    </div>
+
+    <nav class="relative border-b border-white/10 bg-[#0a0e1a]/92 backdrop-blur-xl sticky top-0 z-40">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="relative w-11 h-11 flex items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-amber-500/10 opacity-80"></div>
+            <img src="/logo-transparent.png" alt="Naurra.ai" class="w-8 h-8 object-contain relative z-10" />
+          </div>
+          <span style="font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.04em; font-size: 20px; background: linear-gradient(135deg, #34d399, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Naurra.ai
+          </span>
+        </a>
+        <div class="flex items-center gap-4 flex-wrap justify-end">
+          <a href="/company/" class="text-sm text-gray-400 hover:text-white transition-colors font-medium hidden sm:inline">Company</a>
+          <a href="/pricing/" class="text-sm text-gray-400 hover:text-white transition-colors font-medium hidden md:inline">Pricing</a>
+          <a href="/contact/" class="text-sm font-semibold px-5 py-2 rounded-lg text-white transition-all bg-gradient-to-r from-emerald-500 to-emerald-600 border border-emerald-400/30 shadow-lg shadow-emerald-500/20">Talk to us</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8 pt-8">
+      <nav class="text-xs text-gray-500 font-mono uppercase tracking-wider flex items-center gap-2" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <span class="text-gray-700">/</span>
+        <span class="text-gray-300">About</span>
+      </nav>
+    </div>
+
+    <section class="relative max-w-7xl mx-auto px-6 lg:px-8 pt-10 lg:pt-14 pb-16 lg:pb-20">
+      <div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 bg-emerald-500/10 border border-emerald-500/20">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-xs font-mono uppercase tracking-widest text-emerald-300">About Naurra.ai</span>
+          </div>
+
+          <h1 style="font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.05em;" class="text-5xl sm:text-6xl xl:text-7xl leading-[0.94] tracking-tight mb-6">
+            From intention
+            <br />
+            <span style="background: linear-gradient(135deg, #34d399, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+              to execution.
+            </span>
+          </h1>
+
+          <p class="text-lg lg:text-xl text-gray-400 leading-relaxed max-w-2xl mb-8">
+            Naurra.ai sits between conversation and execution. It exists as a Google Workspace AI
+            product for everyday work, and as an engineering company for workflows that need a more
+            custom system behind them.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-3 mb-10">
+            <a href="/pricing/" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white transition-all hover:opacity-95 bg-gradient-to-r from-emerald-500 to-emerald-600 border border-emerald-400/30 shadow-lg shadow-emerald-500/20">
+              Explore the product
+            </a>
+            <a href="/company/" class="px-7 py-3.5 bg-white/5 border border-white/10 rounded-xl text-gray-300 hover:bg-white/10 hover:text-white transition-all font-medium text-center text-sm">
+              See custom AI case studies
+            </a>
+          </div>
+
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            {trustStats.map((stat) => (
+              <div class="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4">
+                <div class="text-lg font-bold text-white mb-1">{stat.value}</div>
+                <div class="text-xs text-gray-500 leading-relaxed uppercase tracking-[0.16em]">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="about-orb absolute inset-0 blur-3xl opacity-80"></div>
+          <div class="relative rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] backdrop-blur-xl p-7 lg:p-8 shadow-2xl">
+            <div class="flex items-center justify-between mb-8">
+              <div>
+                <div class="text-[11px] font-mono uppercase tracking-[0.22em] text-emerald-300/80 mb-2">One foundation</div>
+                <div style="font-family: 'Sora', sans-serif; font-weight: 700;" class="text-2xl text-white">Two ways Naurra shows up</div>
+              </div>
+              <div class="w-14 h-14 rounded-2xl border border-white/10 bg-white/[0.05] flex items-center justify-center">
+                <img src="/logo-transparent.png" alt="Naurra.ai logo" class="w-9 h-9 object-contain" />
+              </div>
+            </div>
+
+            <div class="relative rounded-[2rem] border border-white/10 bg-[#0d1322] min-h-[380px] overflow-hidden">
+              <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(52,211,153,0.14),_transparent_28%),radial-gradient(circle_at_72%_28%,_rgba(251,191,36,0.10),_transparent_24%)]"></div>
+
+              <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full border border-emerald-400/20 bg-gradient-to-br from-emerald-500/14 to-amber-500/10 flex items-center justify-center shadow-[0_0_80px_rgba(16,185,129,0.12)]">
+                <div class="w-28 h-28 rounded-full border border-white/10 bg-[#11182b] flex items-center justify-center">
+                  <img src="/logo-transparent.png" alt="Naurra.ai" class="w-16 h-16 object-contain" />
+                </div>
+              </div>
+
+              <div class="orbit-card orbit-card-left">
+                <div class="text-[11px] font-mono uppercase tracking-[0.2em] text-emerald-300/80 mb-2">Product</div>
+                <div class="text-sm font-semibold text-white mb-1">Google Workspace execution</div>
+                <div class="text-xs text-gray-400 leading-relaxed">Voice, chat, docs, email, meetings, files, and daily workflow control.</div>
+              </div>
+
+              <div class="orbit-card orbit-card-right">
+                <div class="text-[11px] font-mono uppercase tracking-[0.2em] text-amber-300/80 mb-2">Company</div>
+                <div class="text-sm font-semibold text-white mb-1">Custom systems for workflow-heavy teams</div>
+                <div class="text-xs text-gray-400 leading-relaxed">Quoting, operations, CRM, support, and document intelligence designed around real business logic.</div>
+              </div>
+
+              <div class="mini-node mini-node-top">Ask</div>
+              <div class="mini-node mini-node-bottom">Execute</div>
+
+              <div class="absolute left-[24%] top-1/2 w-[17%] h-px bg-gradient-to-r from-emerald-400/0 via-emerald-400/35 to-emerald-400/0"></div>
+              <div class="absolute right-[24%] top-1/2 w-[17%] h-px bg-gradient-to-r from-amber-400/0 via-amber-300/35 to-amber-400/0"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative max-w-7xl mx-auto px-6 lg:px-8 pb-16">
+      <div class="grid lg:grid-cols-2 gap-6">
+        {dualPaths.map((path) => (
+          <div class={`rounded-[2rem] border p-8 ${path.tone === 'emerald' ? 'border-emerald-500/20 bg-gradient-to-br from-emerald-500/[0.10] to-white/[0.02]' : 'border-amber-500/20 bg-gradient-to-br from-amber-500/[0.10] to-white/[0.02]'}`}>
+            <div class={`text-xs font-mono uppercase tracking-[0.22em] mb-3 ${path.tone === 'emerald' ? 'text-emerald-300/80' : 'text-amber-300/80'}`}>{path.eyebrow}</div>
+            <h2 style="font-family: 'Sora', sans-serif; font-weight: 700;" class="text-3xl text-white mb-4">{path.title}</h2>
+            <p class="text-gray-300 leading-relaxed mb-6">{path.description}</p>
+            <div class="space-y-3 mb-8">
+              {path.bullets.map((bullet) => (
+                <div class="flex gap-3 text-sm text-gray-300 leading-relaxed">
+                  <svg class={`w-5 h-5 shrink-0 mt-0.5 ${path.tone === 'emerald' ? 'text-emerald-400' : 'text-amber-300'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>{bullet}</span>
+                </div>
+              ))}
+            </div>
+            <a href={path.ctaHref} class={`inline-flex items-center gap-2 text-sm font-semibold transition-colors ${path.tone === 'emerald' ? 'text-emerald-300 hover:text-emerald-200' : 'text-amber-300 hover:text-amber-200'}`}>
+              {path.ctaLabel}
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="relative max-w-7xl mx-auto px-6 lg:px-8 pb-16">
+      <div class="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 lg:p-10">
+        <div class="max-w-3xl mb-10">
+          <div class="text-xs font-mono uppercase tracking-[0.22em] text-emerald-300/80 mb-3">Simple model</div>
+          <h2 style="font-family: 'Sora', sans-serif; font-weight: 700;" class="text-3xl lg:text-4xl text-white mb-4">A clearer way to understand what Naurra.ai actually does</h2>
+          <p class="text-gray-400 leading-relaxed">
+            Whether it starts with a product command or a more custom workflow, the core idea is the same:
+            move from intention to execution with fewer manual steps in the middle.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-5">
+          {simpleFlow.map((item) => (
+            <div class="rounded-3xl border border-white/10 bg-[#0d1322] p-6">
+              <div class="text-xs font-mono uppercase tracking-[0.22em] text-amber-300/80 mb-3">{item.step}</div>
+              <h3 style="font-family: 'Sora', sans-serif; font-weight: 700;" class="text-xl text-white mb-3">{item.title}</h3>
+              <p class="text-sm text-gray-400 leading-relaxed">{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="relative max-w-7xl mx-auto px-6 lg:px-8 pb-16">
+      <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-6 items-start">
+        <div class="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8">
+          <div class="text-xs font-mono uppercase tracking-[0.22em] text-emerald-300/80 mb-3">Built from the same foundation</div>
+          <h2 style="font-family: 'Sora', sans-serif; font-weight: 700;" class="text-3xl text-white mb-4">The product and the company are different expressions of the same idea</h2>
+          <p class="text-gray-400 leading-relaxed mb-4">
+            The product exists for everyday Google Workspace execution. The company exists for the
+            workflows where the real value lives in business-specific logic, approvals, timing, and
+            handoff quality.
+          </p>
+          <p class="text-gray-400 leading-relaxed">
+            What connects both is the same principle: AI should reduce drag, not add another layer
+            of software to manage.
+          </p>
+        </div>
+
+        <div class="grid gap-5">
+          {principles.map((principle) => (
+            <div class="rounded-3xl border border-white/10 bg-white/[0.03] p-6">
+              <h3 style="font-family: 'Sora', sans-serif; font-weight: 700;" class="text-xl text-white mb-3">{principle.title}</h3>
+              <p class="text-sm text-gray-400 leading-relaxed">{principle.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="relative max-w-7xl mx-auto px-6 lg:px-8 pb-16">
+      <div class="flex items-center justify-between gap-4 mb-8">
+        <div>
+          <div class="text-xs font-mono uppercase tracking-[0.22em] text-amber-300/70 mb-2">Proof</div>
+          <h2 style="font-family: 'Sora', sans-serif; font-weight: 700;" class="text-3xl text-white">A few clear examples of what this turns into</h2>
+        </div>
+            <a href="/company/" class="hidden md:inline-flex items-center gap-2 text-sm font-semibold text-emerald-400 hover:text-emerald-300 transition-colors">
+          Open custom AI case studies
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {highlightedResults.map((study) => (
+          <a href={`/case-studies/${study.slug}/`} class="group rounded-3xl border border-white/10 bg-white/[0.03] hover:bg-white/[0.05] transition-all p-6">
+            <div class={`h-1 w-16 rounded-full bg-gradient-to-r ${study.accentFrom} ${study.accentTo} mb-5`}></div>
+            <div class="text-xs text-gray-500 uppercase tracking-[0.18em] mb-3">{study.industry}</div>
+            <h3 style="font-family: 'Sora', sans-serif; font-weight: 700;" class="text-xl text-white mb-3">{study.title}</h3>
+            <p class="text-sm text-gray-400 leading-relaxed mb-5">{study.summary}</p>
+            <div class="text-sm font-semibold text-white mb-4">{study.impact}</div>
+            <div class="inline-flex items-center gap-2 text-sm text-gray-300 group-hover:text-white transition-colors">
+              Read case study
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="relative max-w-7xl mx-auto px-6 lg:px-8 pb-16">
+      <div class="rounded-[2rem] border border-white/10 bg-white/[0.03] p-8 lg:p-10">
+        <div class="grid lg:grid-cols-[0.72fr_1.28fr] gap-8 items-center">
+          <div class="max-w-sm">
+            <div class="rounded-[2rem] overflow-hidden border border-white/10 bg-white/[0.04]">
+              <img src="/ceo-thanos.jpg" alt="Athanasios-Ioannis Panagiotakopoulos, founder of Naurra.ai" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+          </div>
+          <div>
+            <div class="text-xs font-mono uppercase tracking-[0.22em] text-emerald-300/80 mb-3">Founder</div>
+            <h2 style="font-family: 'Sora', sans-serif; font-weight: 700;" class="text-3xl text-white mb-4">A product-first view of AI, grounded in shipping</h2>
+            <p class="text-gray-400 leading-relaxed mb-4">
+              Naurra.ai is led by Athanasios-Ioannis Panagiotakopoulos, founder and lead AI engineer.
+              The throughline is simple: build AI that removes real work, not AI that just produces more interfaces.
+            </p>
+            <p class="text-gray-400 leading-relaxed mb-6">
+              That is why the business spans both a productized Google Workspace assistant and
+              bespoke AI systems for workflow-heavy companies. The product sharpens the product sense.
+              The client work sharpens the understanding of where AI creates real leverage.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <a href="/company/" class="px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-gray-200 hover:bg-white/10 transition-all text-sm font-medium">See the company work</a>
+              <a href="https://www.linkedin.com/in/athanasios-ioannis-panagiotakopoulos-2362a9274/" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 hover:bg-emerald-500/15 transition-all text-sm font-medium">Founder LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative max-w-7xl mx-auto px-6 lg:px-8 pb-16">
+      <div class="max-w-4xl">
+        <div class="text-xs font-mono uppercase tracking-[0.22em] text-amber-300/70 mb-3">FAQ</div>
+        <h2 style="font-family: 'Sora', sans-serif; font-weight: 700;" class="text-3xl text-white mb-8">Common questions about Naurra.ai</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-5">
+        {aboutFAQs.map((faq) => (
+          <div class="rounded-3xl border border-white/10 bg-white/[0.03] p-6">
+            <h3 style="font-family: 'Sora', sans-serif; font-weight: 700;" class="text-lg text-white mb-3">{faq.question}</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">{faq.answer}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="relative max-w-7xl mx-auto px-6 lg:px-8 pb-24">
+      <div class="rounded-[2rem] border border-emerald-500/20 bg-gradient-to-br from-emerald-500/[0.10] to-amber-500/[0.06] p-8 lg:p-10 text-center">
+        <div class="max-w-3xl mx-auto">
+          <div class="text-xs font-mono uppercase tracking-[0.22em] text-emerald-300/80 mb-3">Choose the right path</div>
+          <h2 style="font-family: 'Sora', sans-serif; font-weight: 700;" class="text-3xl lg:text-4xl text-white mb-4">Start with the product when the workflow is common. Build custom when the workflow is the edge.</h2>
+          <p class="text-gray-300 leading-relaxed mb-8">
+            If you want faster execution inside Google Workspace, start with Naurra.ai the product.
+            If the workflow is tied to your own operational logic, margin, or delivery model, talk to us about a custom system.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="/pricing/" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white transition-all hover:opacity-95 bg-gradient-to-r from-emerald-500 to-emerald-600 border border-emerald-400/30 shadow-lg shadow-emerald-500/20">
+              Explore the product
+            </a>
+            <a href="/contact/" class="px-7 py-3.5 bg-white/5 border border-white/10 rounded-xl text-gray-300 hover:bg-white/10 hover:text-white transition-all font-medium text-center text-sm">
+              Talk to the team
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-orb {
+    background: radial-gradient(circle, rgba(52, 211, 153, 0.18) 0%, rgba(251, 191, 36, 0.08) 38%, transparent 70%);
+  }
+
+  .orbit-card {
+    position: absolute;
+    width: min(40vw, 190px);
+    max-width: 190px;
+    padding: 16px;
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(10, 14, 26, 0.78);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+  }
+
+  .orbit-card-left {
+    left: 20px;
+    top: 32px;
+    animation: floatSoft 7s ease-in-out infinite;
+  }
+
+  .orbit-card-right {
+    right: 20px;
+    bottom: 32px;
+    animation: floatSoft 7s ease-in-out infinite 1.4s;
+  }
+
+  .mini-node {
+    position: absolute;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-family: 'Space Mono', monospace;
+  }
+
+  .mini-node-top {
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .mini-node-bottom {
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @keyframes floatSoft {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .orbit-card {
+      position: relative;
+      width: 100%;
+      max-width: none;
+      left: auto;
+      right: auto;
+      top: auto;
+      bottom: auto;
+      margin: 18px;
+    }
+
+    .orbit-card-left,
+    .orbit-card-right {
+      animation: none;
+    }
+
+    .mini-node-top {
+      top: 18px;
+    }
+
+    .mini-node-bottom {
+      bottom: 18px;
+    }
+  }
+</style>
