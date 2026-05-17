@@ -1,4 +1,6 @@
 ---
+import { ensureTrailingSlashPath } from '../lib/siteUrl'
+
 type Locale = 'en' | 'el'
 
 interface Alternate {
@@ -38,7 +40,23 @@ const {
   alternates = [],
 } = Astro.props
 
-const fullUrl = url.startsWith('http') ? url : `https://naurra.ai${url}`
+function normalizeSiteUrl(rawUrl: string): string {
+  if (!rawUrl.startsWith('http')) {
+    return `https://naurra.ai${ensureTrailingSlashPath(rawUrl)}`
+  }
+
+  try {
+    const parsed = new URL(rawUrl)
+    if (parsed.hostname === 'naurra.ai') {
+      parsed.pathname = ensureTrailingSlashPath(parsed.pathname)
+    }
+    return parsed.toString()
+  } catch {
+    return rawUrl
+  }
+}
+
+const fullUrl = normalizeSiteUrl(url)
 const fullImage = image.startsWith('http') ? image : `https://naurra.ai${image}`
 const ogLocale = lang === 'el' ? 'el_GR' : 'en_US'
 ---

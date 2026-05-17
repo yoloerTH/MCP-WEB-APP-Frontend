@@ -7856,6 +7856,8 @@ That is why Google Workspace automation is such a good fit for small businesses.
 
 If you want the bigger strategic view, pair this with [AI automation for small business owners](/blog/small-business-ai-automation) and [AI for business owners](/blog/non-technical-guide-to-ai-for-business-owners).
 
+If you want the quick product-versus-company explanation first, read [About Naurra.ai](/about).
+
 ## The Best Automations to Start With
 
 ### 1. Morning inbox triage
@@ -11027,6 +11029,8 @@ When the painful part is not ticket management but the actual thinking work: cla
 ## Start the Conversation
 
 If you are losing hours every week to support email and customers are waiting too long for answers, this is one of the cleanest first AI projects to ship.
+
+If you want the implementation-ready version of this workflow, see our [AI customer support agent solution page](/solutions/ai-agent-handle-customer-support-emails-small-business).
 
 We build custom AI agents for small business. [See the case studies and book a free consultation](/company). We reply within 24 hours with an honest read on whether a custom build actually makes sense for your business.
 

@@ -1142,28 +1142,30 @@ export default function CompanyPage() {
               <span className="bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">custom AI build</span>?
             </h2>
             <p className="text-gray-400 mt-4 max-w-2xl">
-              Before we scope a project, most founders want to understand the landscape. These guides cover cost, timelines, what to automate first, and when custom beats off-the-shelf.
+              Before we scope a project, most founders want to understand the landscape. If you are new to Naurra.ai, start with our{' '}
+              <a href="/about/" className="text-emerald-300 hover:text-emerald-200 transition-colors underline underline-offset-4">About page</a>. If support is the workflow that keeps leaking time, see the{' '}
+              <a href="/solutions/ai-agent-handle-customer-support-emails-small-business/" className="text-emerald-300 hover:text-emerald-200 transition-colors underline underline-offset-4">AI customer support agent solution</a>.
             </p>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               {
-                href: '/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one',
+                href: '/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one/',
                 title: 'Custom AI Agents for Small Business: What They Do and When to Build One',
                 description: 'A plain-English guide to which workflows are worth automating and how small teams deploy agents without a six-figure budget.',
               },
               {
-                href: '/blog/how-much-does-an-ai-agent-cost',
+                href: '/blog/how-much-does-an-ai-agent-cost/',
                 title: 'How Much Do Custom AI Agents Cost?',
                 description: 'Real pricing ranges for small business custom AI builds — what drives cost, what to expect, and how to scope a first project.',
               },
               {
-                href: '/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need',
+                href: '/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need/',
                 title: 'Custom AI Agents vs Off-the-Shelf AI',
                 description: 'When a generic tool is enough, when you need a custom agent, and the decision framework we walk every new client through.',
               },
               {
-                href: '/blog/best-google-workspace-automations-for-small-business-owners',
+                href: '/blog/best-google-workspace-automations-for-small-business-owners/',
                 title: 'Best Google Workspace Automations for Small Business Owners',
                 description: 'The highest-leverage Gmail, Calendar, Drive and Docs automations — which ones are worth off-the-shelf and which need a custom agent.',
               },
