@@ -10049,6 +10049,8 @@ One clear workflow. Two or three integrations. A fixed scope.
 
 This is the most common engagement for small businesses. Delivery is usually 2-4 weeks. ROI is usually measurable in the first month.
 
+Real example: our [MEP quotation intelligence build for an HVAC contractor](/case-studies/mep-quotation-intelligence-hvac-case-study) is a Tier 1 system — one workflow, a handful of integrations, in production within weeks.
+
 ### Tier 2: Multi-step workflow agent — $10,000 to $25,000
 
 Think: a full sales workflow (inbound lead to CRM entry to outreach sequence), a meeting lifecycle agent (prep + notes + follow-up + tasks), or a document intelligence system (contracts, leases, invoices).
@@ -10060,6 +10062,8 @@ More integrations, more edge cases, more data handling. Delivery is 4-8 weeks.
 Think: a unified AI brain across WhatsApp, email, web chat, and CRM. Or a fleet of specialized agents working together (sales + support + ops). Or a system that handles an end-to-end business process with multiple decision points.
 
 This is where you are replacing meaningful headcount, not just saving time. Delivery is 8-16 weeks.
+
+Real example: our [multi-channel AI communication suite built on Salesforce](/case-studies/multi-channel-salesforce-ai-communication-suite) is a Tier 3 system — multiple channels and integrations coordinated by one AI brain.
 
 ### Tier 4: Enterprise platform — $100,000+
 
@@ -10090,6 +10094,18 @@ This is also the line that separates a cheap template from a real custom system.
 If you are processing regulated data (health, finance, legal), the cost goes up. You need audit logs, encryption, access controls, possibly on-premise deployment.
 
 For a deeper dive, see [is AI safe for your business data](/blog/is-ai-safe-for-your-business-data).
+
+## Where the Build Budget Actually Goes
+
+A common misread is to assume the model bill is the big number. It is not. Inference costs for most agents are a few cents per task. The real cost is engineering time, and on a typical Tier 1 or Tier 2 build it splits roughly like this:
+
+- **Scoping and workflow design (10-15%).** Mapping the current process, defining inputs, outputs, edge cases, and approval gates. This is the cheapest hour in the project and the one that prevents the most expensive ones later.
+- **Integrations (30-40%).** Auth, API quirks, rate limits, retries, and the parts of every external API that are not in the docs. Every additional system the agent touches adds hours here.
+- **Agent logic and prompting (15-20%).** Choosing the model, structuring the prompts, handling tool calls, and designing fallbacks for when the model returns something unexpected.
+- **Edge-case handling and reliability (20-30%).** The hidden iceberg. Production agents fail gracefully on malformed inputs, partial outages, and inputs the model has never seen. A demo skips all of this; a real build cannot.
+- **Logging, monitoring, and handover (5-10%).** Audit logs, dashboards, alerts, and the documentation a non-technical owner needs to run the system.
+
+If a vendor quote is heavy on "AI logic" and light on integrations and edge cases, the price is usually too low for the work that has to happen.
 
 ## When Custom AI Is Worth It (and When It Is Not)
 
@@ -10172,12 +10188,13 @@ If you are evaluating custom AI for your business, the practical sequence is:
 3. Get a scoped fixed-price proposal from a builder you trust
 4. Compare the payback period against the investment
 
-At [Naurra.ai](/company), we scope every custom AI project upfront, quote fixed-price, and deliver with engineers rather than account managers.
+At [Naurra.ai](/company), we scope every custom AI project upfront, quote fixed-price, and deliver with engineers rather than account managers. You can see the kind of systems we ship across industries in our [case studies](/case-studies) — from [HVAC quotation intelligence](/case-studies/mep-quotation-intelligence-hvac-case-study) and [automotive sourcing](/case-studies/automotive-sourcing-engine-profit-automation) to a [multi-channel Salesforce communication suite](/case-studies/multi-channel-salesforce-ai-communication-suite) and a [legal document intelligence analyser](/case-studies/lease-ai-analyser-legal-document-intelligence).
 
 **[Get a free scoping call](/contact)** and we will give you an honest read on what your workflow would cost to automate.
 
 ## Related Reading
 
+- [Case studies: real custom AI builds across 7 industries](/case-studies)
 - [How an AI Agent Creates a Custom CRM + Quoting System for a Small Business](/blog/ai-agent-custom-crm-quoting-system-small-business)
 - [Custom AI Agents for Business: case studies across 7 industries](/blog/custom-ai-agents-for-business)
 - [Custom AI Agents for Small Business: what they do and when to build one](/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one)
@@ -10189,13 +10206,13 @@ At [Naurra.ai](/company), we scope every custom AI project upfront, quote fixed-
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-04-17',
-    updatedAt: '2026-05-13',
+    updatedAt: '2026-05-24',
     category: 'Industry Insights',
     tags: ['AI Agents', 'Pricing', 'Custom AI', 'Business Automation'],
     featured: false,
     isPillar: true,
     image: '/blog/how-much-does-an-ai-agent-cost.png',
-    readingTime: 8,
+    readingTime: 10,
     keywords: 'how much does an ai agent cost, cost to build an ai agent, how much does it cost to build an ai agent, how much does it cost to make an ai agent, ai agent cost, ai agent pricing, custom ai agent cost, ai agent development cost, ai automation cost business, ai agent price'
   },
   {
@@ -10519,6 +10536,7 @@ See the dedicated solution page for a full overview of [our custom AI CRM and qu
 
 ## Related Reading
 
+- [Case study: MEP quotation intelligence — a real AI quoting system we built](/case-studies/mep-quotation-intelligence-hvac-case-study)
 - [How an AI Agent Automates Invoicing and Payment Reminders for a Small Business](/blog/ai-agent-automate-invoicing-payment-reminders-small-business)
 - [How an AI Agent Captures and Qualifies Leads from Instagram, WhatsApp, and Email](/blog/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business)
 - [How an AI Agent Generates Proposals and Statements of Work for a Small Business](/blog/ai-agent-generate-proposals-statements-of-work-small-business)
@@ -10708,6 +10726,7 @@ We build custom AI agents for small business — [see our work and book a free c
 
 ## Related Reading
 
+- [The service: AI Invoicing Agent for Small Business](/solutions/ai-agent-automate-invoicing-payment-reminders-small-business)
 - [How an AI Agent Creates a Custom CRM + Quoting System for a Small Business](/blog/ai-agent-custom-crm-quoting-system-small-business)
 - [Custom AI Agents for Small Business: What They Do and When to Build One](/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one)
 - [How Much Do Custom AI Agents Cost?](/blog/how-much-does-an-ai-agent-cost)
@@ -10883,6 +10902,8 @@ We build custom AI agents for small business. [See the case studies and book a f
 
 ## Related Reading
 
+- [The service: AI Lead Capture Agent for Small Business](/solutions/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business)
+- [Case study: AI travel concierge handling leads and itineraries over WhatsApp and Telegram](/case-studies/ai-travel-concierge-whatsapp-telegram-itineraries)
 - [How an AI Agent Creates a Custom CRM + Quoting System for a Small Business](/blog/ai-agent-custom-crm-quoting-system-small-business)
 - [How an AI Agent Automates Invoicing and Payment Reminders for a Small Business](/blog/ai-agent-automate-invoicing-payment-reminders-small-business)
 - [Custom AI Agents for Small Business: What They Do and When to Build One](/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one)
@@ -11171,6 +11192,7 @@ We build custom AI agents for small business. [See the case studies and book a f
 
 ## Related Reading
 
+- [The service: AI Scheduling and Confirmation Agent for Small Business](/solutions/ai-agent-schedule-confirm-client-appointments-small-business)
 - [How an AI Agent Captures and Qualifies Leads from Instagram, WhatsApp, and Email](/blog/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business)
 - [How an AI Agent Handles Customer Support Emails for a Small Business](/blog/ai-agent-handle-customer-support-emails-small-business)
 - [How an AI Agent Creates a Custom CRM + Quoting System for a Small Business](/blog/ai-agent-custom-crm-quoting-system-small-business)
@@ -11330,6 +11352,7 @@ We build custom AI agents for small business. [See the case studies and book a f
 
 ## Related Reading
 
+- [The service: AI Proposal and Statement of Work Agent for Small Business](/solutions/ai-agent-generate-proposals-statements-of-work-small-business)
 - [How an AI Agent Creates a Custom CRM + Quoting System for a Small Business](/blog/ai-agent-custom-crm-quoting-system-small-business)
 - [How an AI Agent Captures and Qualifies Leads from Instagram, WhatsApp, and Email](/blog/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business)
 - [How an AI Agent Handles Customer Support Emails for a Small Business](/blog/ai-agent-handle-customer-support-emails-small-business)
@@ -11506,193 +11529,6 @@ No signup. No account. One of a handful of [free Google Workspace tools](/tools)
     keywords: 'mailto link generator, how to create mailto link, mailto link builder, mailto with subject and body, pre-filled email link, email link generator, mailto link html, contact link generator, mailto link examples, free mailto tool'
   },
   {
-    slug: 'cost-to-build-an-ai-agent-2026',
-    title: 'Cost to Build an AI Agent in 2026: Real Development Numbers',
-    description: 'What it actually costs to build an AI agent in 2026. Honest development pricing, where the engineering hours go, and how to scope a custom AI agent project without overpaying.',
-    content: `
-# Cost to Build an AI Agent in 2026: Real Development Numbers
-
-**TL;DR:** The cost to build an AI agent in 2026 typically lands between $3,000 and $50,000 depending on scope. A focused single-workflow agent costs $3,000 to $10,000 to build. A multi-step workflow agent runs $10,000 to $25,000. A multi-channel system that touches CRM, messaging, and email together usually starts at $25,000. The number is driven less by the model and more by integrations, edge cases, and how clearly the workflow is defined before development starts.
-
-If you have searched for how much it costs to build an AI agent or how much it costs to make an AI agent, you have probably noticed that almost no vendor publishes real numbers. This post does. It also explains exactly where the hours go, so the price stops feeling like a black box.
-
-For the buyer-side view of pricing (what an agent costs to use or buy, not build), see our companion post on [how much an AI agent costs](/blog/how-much-does-an-ai-agent-cost).
-
-## What "Build an AI Agent" Actually Means
-
-A custom AI agent is not a chatbot with a prompt. It is software that:
-
-1. Reads structured or unstructured input (an email, a form, a row in a spreadsheet, a webhook).
-2. Decides what to do based on rules, context, and a language model.
-3. Acts inside real systems (Gmail, Calendar, a CRM, a database, an internal API).
-4. Logs the result and handles failure cleanly.
-
-That fourth point is what separates a working prototype from a production agent. It is also where most of the build cost lives.
-
-## Real Build Cost Tiers in 2026
-
-Here is the honest range for what it costs to build an AI agent today, based on the work we and other reputable builders are quoting.
-
-### Tier 1: Single-workflow agent, $3,000 to $10,000
-
-One clear job. Two or three integrations. A defined input and a defined output.
-
-Examples:
-
-- A lead qualifier that reads inbound forms and updates the CRM.
-- A quote generator that turns a structured request into a branded PDF.
-- A support triage agent that tags and routes incoming tickets.
-
-Build time: 2 to 4 weeks. Most small businesses start here. See our walkthrough of [an AI agent that builds a custom CRM and quoting system](/blog/ai-agent-custom-crm-quoting-system-small-business) for a Tier 1 example.
-
-### Tier 2: Multi-step workflow agent, $10,000 to $25,000
-
-Several connected steps, more integrations, more decision points.
-
-Examples:
-
-- A meeting lifecycle agent (prep + notes + follow-up + tasks) across Gmail, Calendar, Docs, and a CRM.
-- A document intelligence agent that reads contracts, extracts terms, and writes a summary doc.
-- A sales workflow that captures inbound interest, enriches it, and runs a multi-step outreach sequence.
-
-Build time: 4 to 8 weeks.
-
-### Tier 3: Multi-channel or multi-agent system, $25,000 to $50,000+
-
-A system, not a single agent. Multiple inputs, multiple integrations, multiple specialised sub-agents working together.
-
-Examples:
-
-- A unified inbound brain across WhatsApp, Instagram DMs, email, and web chat that routes to the right human or workflow. We cover this scenario in [capturing and qualifying leads from Instagram, WhatsApp, and email](/blog/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business).
-- A back-office stack that pairs a sales agent, an ops agent, and a finance agent.
-- A vertical-specific platform with custom data pipelines.
-
-Build time: 8 to 16 weeks. This is where you are replacing meaningful headcount, not just saving time.
-
-### Tier 4: Enterprise build, $100,000+
-
-Custom-trained or fine-tuned models, security audits, on-premise or VPC deployment, procurement cycles, dedicated infrastructure. Most small and mid-sized businesses never need this.
-
-## Where the Build Cost Actually Goes
-
-A common misread is to assume the model bill is the big number. It is not. Inference costs for most agents are a few cents per task. The cost is engineering time, and it splits roughly like this on a typical Tier 1 or Tier 2 build:
-
-- **Scoping and workflow design (10 to 15%).** Mapping the current process, defining inputs, outputs, edge cases, and approval gates. This is the cheapest hour in the project and the one that prevents the most expensive ones later.
-- **Integrations (30 to 40%).** Auth, API quirks, rate limits, retries, and the parts of every external API that are not in the docs. Every additional system the agent touches adds hours here.
-- **Agent logic and prompting (15 to 20%).** Choosing the model, structuring the prompts, handling tool calls, designing fallbacks for when the model returns something unexpected.
-- **Edge-case handling and reliability (20 to 30%).** This is the hidden iceberg. Production agents fail gracefully on malformed inputs, partial outages, weird user behavior, and inputs the model has never seen. A demo skips all of this. A real build cannot.
-- **Logging, monitoring, and handover (5 to 10%).** Audit logs, dashboards, alerts, and the documentation a non-technical owner needs to run the system.
-
-If a vendor quote is heavy on "AI logic" and light on integrations and edge cases, the price is usually too low for the work that has to happen.
-
-## What Makes One Build Cost 3x Another
-
-Three drivers move the number more than anything else.
-
-### 1. Number of integrations
-
-A one-integration agent (read Gmail, write to a sheet) is fast. A five-integration agent (Gmail + Calendar + CRM + Slack + internal API) is not. Each connection adds auth setup, rate limits, retry logic, and testing.
-
-If you can consolidate before you automate, do it. Every tool removed from the stack is saved scope.
-
-### 2. Workflow clarity at the start
-
-The cheapest builds are the ones where the customer can write the workflow on a single page before any code is written. The expensive ones are the ones where the workflow keeps changing during development.
-
-Before asking for a quote, write down: the trigger, the steps, the approvals, the edge cases, and what "done" looks like. A clear brief saves more on the build than any vendor discount.
-
-### 3. Data sensitivity
-
-Regulated data (health, finance, legal) needs audit logs, encryption, access controls, and possibly on-premise deployment. That can add 20 to 40% to a build. For a deeper dive on this, see [is AI safe for your business data](/blog/is-ai-safe-for-your-business-data).
-
-## Why Some "Build an AI Agent" Quotes Are So Cheap
-
-If a vendor is quoting $500 to $1,500 to build a custom AI agent, you are getting one of three things:
-
-- A template with your branding swapped in.
-- A wrapper around a single API call with no error handling.
-- A demo that breaks the moment a real edge case shows up.
-
-Real engineering hours have a real floor. The math does not lie.
-
-## Why Some Quotes Are Absurdly High
-
-On the other end, six-figure quotes for problems that should cost a tenth of that usually mean one of:
-
-- Agency overhead (account managers, sales, offices) baked into the price.
-- Inflated scope to justify a target margin.
-- A buyer who could not articulate the workflow, so the vendor padded for unknowns.
-
-A useful test: ask the vendor to break the cost into phases with deliverables. If they cannot, that is a signal.
-
-## Build vs Off-the-Shelf
-
-Sometimes the right answer is not to build at all. If an off-the-shelf SaaS already covers 90% of the workflow, paying $200 a month for it is cheaper than a $15,000 custom build.
-
-Custom is the right call when:
-
-- The workflow is core to how you make money.
-- No off-the-shelf tool covers the messy 50% in the middle.
-- The cost of the manual work, annualised, is many times the cost of building.
-
-We covered the trade-off in detail in [custom AI agents vs off-the-shelf AI](/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need).
-
-## A Quick ROI Check Before You Commission a Build
-
-Before any quote, run this calculation:
-
-1. Hours per week the manual workflow takes.
-2. Loaded hourly cost (salary plus overhead, usually 1.3x to 1.5x base).
-3. Annual cost = hours per week x hourly cost x 50.
-
-If the build cost is less than 6 to 9 months of that annual number, the project pays for itself inside the first year. If it is more than 18 months, either the scope is wrong or the workflow is not the right candidate.
-
-## How a Reputable Build Engagement Should Work
-
-A serious AI agent build typically follows this sequence:
-
-1. **Scoping call.** 30 to 60 minutes. The builder asks about the workflow, not the technology.
-2. **Written proposal.** Fixed scope, fixed price, phased deliverables, and a timeline. Avoid open-ended hourly engagements with no cap.
-3. **Workflow doc.** A one-pager that the customer signs off before code starts.
-4. **Build phase.** Weekly demos, not just a final reveal.
-5. **Handover.** Logs, monitoring, runbook, and a window for adjustments.
-
-If a vendor skips step 3, the project will go over budget. Every time.
-
-## The Honest Next Step
-
-If you are evaluating a build, the practical sequence is:
-
-1. Pick the one workflow that costs you the most in time or money.
-2. Write the workflow on a single page.
-3. Get a fixed-price proposal from a builder you trust.
-4. Compare the payback period against the investment.
-
-At [Naurra.ai](/company), we scope every custom AI agent project upfront, quote fixed-price, and ship with engineers rather than account managers.
-
-**[Get a free scoping call](/contact)** and we will give you an honest read on what your workflow would cost to build.
-
-## Related Reading
-
-- [How Much Does an AI Agent Cost? Real Build Pricing in 2026](/blog/how-much-does-an-ai-agent-cost)
-- [Custom AI Agents for Business: case studies across 7 industries](/blog/custom-ai-agents-for-business)
-- [Custom AI Agents for Small Business: what they do and when to build one](/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one)
-- [Custom AI vs Off-the-Shelf AI: which one does your business need](/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need)
-- [Is AI Safe for Your Business Data](/blog/is-ai-safe-for-your-business-data)
-    `,
-    author: {
-      name: 'Thanos Panagiotakopoulos',
-      avatar: '/ceo-thanos.jpg',
-    },
-    publishedAt: '2026-05-10',
-    category: 'Industry Insights',
-    tags: ['AI Agents', 'Pricing', 'Custom AI', 'Development'],
-    featured: false,
-    image: '/blog/cost-to-build-an-ai-agent-2026.png',
-    readingTime: 9,
-    keywords: 'cost to build an ai agent, how much does it cost to build an ai agent, how much does it cost to make an ai agent, ai agent development cost, build an ai agent cost, custom ai agent build cost, ai agent build pricing, ai agent engineering cost, cost to make an ai agent, ai agent development pricing'
-  },
-  {
     slug: 'ai-sales-agent-pricing-monthly-cost-small-business',
     title: 'AI Sales Agent Pricing: What It Actually Costs Per Month for a Small Business',
     description: 'Real monthly pricing for an AI sales agent in 2026. Typical price ranges for small business, what is included, and when paying $300 vs $3,000 a month makes sense.',
@@ -11703,7 +11539,7 @@ At [Naurra.ai](/company), we scope every custom AI agent project upfront, quote 
 
 The most common search phrase we see from small business owners is some variant of "how much does an AI sales agent cost per month for a small business." The answer is genuinely useful, so here are real ranges, not "it depends."
 
-For the broader picture on AI agent pricing, the [AI agent cost guide](/blog/how-much-does-an-ai-agent-cost) and [cost to build an AI agent](/blog/cost-to-build-an-ai-agent-2026) cover the build side. This post focuses on the monthly run cost.
+For the broader picture on AI agent pricing, our [AI agent cost guide](/blog/how-much-does-an-ai-agent-cost) covers the build side in detail. This post focuses on the monthly run cost.
 
 ## What an AI Sales Agent Actually Does
 
@@ -11749,7 +11585,7 @@ This number includes:
 - Model and API costs ($100 to $1,000 a month, scaling with conversation volume).
 - Ongoing tuning, monitoring, and small changes (the bulk of the bill).
 
-There is also a one-time build fee, typically $3,000 to $15,000 for a sales agent at small business scope. See [cost to build an AI agent](/blog/cost-to-build-an-ai-agent-2026) for the build-side breakdown.
+There is also a one-time build fee, typically $3,000 to $15,000 for a sales agent at small business scope. See [how much an AI agent costs](/blog/how-much-does-an-ai-agent-cost) for the build-side breakdown.
 
 Right for: businesses where sales conversations are core to revenue and the agent needs to behave in a way that no off-the-shelf tool quite gets right.
 
@@ -11831,7 +11667,6 @@ At [Naurra.ai](/company), we scope custom AI sales agents for small businesses w
 ## Related Reading
 
 - [How Much Does an AI Agent Cost? Real Build Pricing in 2026](/blog/how-much-does-an-ai-agent-cost)
-- [Cost to Build an AI Agent in 2026: Real Development Numbers](/blog/cost-to-build-an-ai-agent-2026)
 - [How an AI Agent Captures and Qualifies Leads from Instagram, WhatsApp, and Email](/blog/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business)
 - [Custom AI Agents vs Off-the-Shelf AI](/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need)
 - [Custom AI Agents for Small Business: what they do and when to build one](/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one)
@@ -11927,7 +11762,7 @@ Strengths: highest reply rate, best brand fit, owns the whole workflow including
 
 Weaknesses: requires a build investment up front. Not the right call for very low volume.
 
-Right for: small businesses where email volume is high enough that the time saved pays back the build inside 6 to 12 months. We covered the math in [how much does an AI agent cost](/blog/how-much-does-an-ai-agent-cost) and [cost to build an AI agent](/blog/cost-to-build-an-ai-agent-2026).
+Right for: small businesses where email volume is high enough that the time saved pays back the build inside 6 to 12 months. We covered the math in [how much does an AI agent cost](/blog/how-much-does-an-ai-agent-cost).
 
 ## How to Pick the Right Category
 

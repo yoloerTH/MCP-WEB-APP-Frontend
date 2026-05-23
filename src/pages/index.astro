@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 import LandingPageIsland from '../components/islands/LandingPageIsland'
 import { landingPageFAQs } from '../components/StructuredData'
+import { caseStudies } from '../data/caseStudies'
+import { solutionPages } from '../data/solutionPages'
 
 const organizationSchema = {
   '@context': 'https://schema.org',
@@ -116,6 +118,31 @@ const faqSchema = {
         <li><a href="/company/">Custom AI Agents for Business</a></li>
         <li><a href="/tools/">Free Google Workspace tools</a></li>
         <li><a href="/blog/">Naurra.ai blog</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Case studies">
+      <h2>Custom AI build case studies across industries</h2>
+      <p>
+        Beyond the app, Naurra.ai designs and builds custom AI agents and systems for businesses.
+        See real custom AI builds and their results:
+      </p>
+      <ul>
+        <li><a href="/case-studies/">All custom AI automation case studies</a></li>
+        {caseStudies.map((study) => (
+          <li><a href={`/case-studies/${study.slug}/`}>{study.seoTitle}</a></li>
+        ))}
+      </ul>
+    </nav>
+    <nav aria-label="Solutions">
+      <h2>Custom AI agents we build for small business</h2>
+      <p>
+        Naurra.ai builds custom AI agents that automate specific small business workflows end to end:
+      </p>
+      <ul>
+        <li><a href="/solutions/">All custom AI agent solutions</a></li>
+        {solutionPages.map((solution) => (
+          <li><a href={`/solutions/${solution.slug}/`}>{solution.seoTitle}</a></li>
+        ))}
       </ul>
     </nav>
   </div>

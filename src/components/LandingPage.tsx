@@ -5,6 +5,7 @@ import { useAuth } from '../hooks/useAuth'
 import { AuthButton } from './AuthButton'
 import { SEO } from './SEO'
 import { StructuredData, landingPageFAQs } from './StructuredData'
+import { caseStudies } from '../data/caseStudies'
 
 interface LandingPageProps {
   onGetStarted: (mode?: 'voice' | 'chat') => void
@@ -1558,6 +1559,66 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 </div>
               </motion.details>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Case studies / proof */}
+      <section className="relative py-32 px-8">
+        <div className="max-w-[1200px] mx-auto">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-16 space-y-4"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full backdrop-blur-sm mb-4">
+              <span className="text-xs font-mono uppercase tracking-wider text-emerald-300">Case Studies</span>
+            </div>
+            <h2 className="font-display text-4xl lg:text-5xl tracking-tight">
+              <span className="text-white">Real custom AI builds, </span>
+              <span className="bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">real results</span>
+            </h2>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              Beyond the app, we design and ship custom AI agents and systems for businesses across industries. Here is a sample of what we have built.
+            </p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {caseStudies.map((study, idx) => (
+              <motion.a
+                key={study.slug}
+                href={`/case-studies/${study.slug}/`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: (idx % 3) * 0.05, duration: 0.4 }}
+                className="group flex flex-col bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-emerald-500/30 transition-colors"
+              >
+                <span className="text-xs font-mono uppercase tracking-wider text-emerald-300/80 mb-3">{study.industry}</span>
+                <h3 className="text-white font-display text-xl tracking-tight mb-2">{study.title}</h3>
+                <p className="text-2xl font-display bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent mb-3">{study.impact}</p>
+                <p className="text-sm text-gray-400 leading-relaxed flex-1">{study.summary}</p>
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
+                  Read the case study
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </span>
+              </motion.a>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <a
+              href="/case-studies/"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-emerald-300 font-medium hover:bg-emerald-500/20 transition-colors"
+            >
+              View all case studies
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
           </div>
         </div>
       </section>
