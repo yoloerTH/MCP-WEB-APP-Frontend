@@ -1,10 +1,8 @@
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../hooks/useAuth'
 import { AuthButton } from './AuthButton'
-import { SEO } from './SEO'
-import { StructuredData, landingPageFAQs } from './StructuredData'
+import { landingPageFAQs } from './StructuredData'
 import { caseStudies } from '../data/caseStudies'
 
 interface LandingPageProps {
@@ -65,7 +63,6 @@ const GoogleServiceIcon = ({ service }: { service: string }) => {
 }
 
 export default function LandingPage({ onGetStarted }: LandingPageProps) {
-  const navigate = useNavigate()
   const { user, signInWithGoogle } = useAuth()
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [currentScenario, setCurrentScenario] = useState(0)
@@ -143,18 +140,10 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
 
   return (
     <div className="min-h-screen bg-[#0a0e1a] text-white overflow-x-hidden relative">
-      <SEO
-        title="Naurra.ai - AI Voice & Chat Assistant for Google Workspace"
-        description="Control Gmail, Calendar, Drive, Docs and Sheets with natural voice commands or chat. The AI assistant built for Google Workspace productivity."
-        keywords="AI assistant, Google Workspace, voice AI, chat AI, productivity tools, Gmail automation, Calendar AI, Drive management, workspace automation, AI productivity"
-        url="/"
-      />
-      <StructuredData type="organization" />
-      <StructuredData type="software" />
-      <StructuredData type="faq" data={{ faqs: landingPageFAQs }} />
+      {/* SEO meta + structured data are emitted server-side by index.astro/BaseLayout. */}
 
       {/* Font classes - fonts loaded via Astro head */}
-      <style>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         * {
           font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
         }
@@ -181,7 +170,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
           background: linear-gradient(to right, #10b981, #f59e0b);
           border-radius: 10px;
         }
-      `}</style>
+      ` }} />
 
       {/* Dynamic gradient background */}
       <motion.div
@@ -252,7 +241,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => navigate('/solutions')}
+              onClick={() => window.location.href = '/solutions/'}
               className="relative text-sm font-semibold text-emerald-300 hover:text-emerald-200 transition-colors inline-flex items-center gap-1.5"
               style={{ fontFamily: 'Outfit, sans-serif' }}
             >
@@ -262,7 +251,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => navigate('/inspiration')}
+              onClick={() => window.location.href = '/inspiration/'}
               className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
               style={{ fontFamily: 'Outfit, sans-serif' }}
             >
@@ -271,7 +260,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => navigate('/compare')}
+              onClick={() => window.location.href = '/compare/'}
               className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
               style={{ fontFamily: 'Outfit, sans-serif' }}
             >
@@ -280,7 +269,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => navigate('/pricing')}
+              onClick={() => window.location.href = '/pricing/'}
               className="text-sm font-semibold text-gray-300 hover:text-emerald-200 transition-colors"
               style={{ fontFamily: 'Outfit, sans-serif' }}
             >
@@ -289,7 +278,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => navigate('/about/')}
+              onClick={() => window.location.href = '/about/'}
               className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
               style={{ fontFamily: 'Outfit, sans-serif' }}
             >
@@ -298,7 +287,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => navigate('/blog')}
+              onClick={() => window.location.href = '/blog/'}
               className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
               style={{ fontFamily: 'Outfit, sans-serif' }}
             >
@@ -307,7 +296,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => navigate('/contact')}
+              onClick={() => window.location.href = '/contact/'}
               className="text-sm font-semibold text-amber-400 hover:text-amber-300 transition-colors"
               style={{ fontFamily: 'Outfit, sans-serif' }}
             >
@@ -357,20 +346,20 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
               className="fixed top-0 right-0 bottom-0 w-72 bg-[#0a0e1a]/95 backdrop-blur-xl border-l border-white/10 z-40 lg:hidden flex flex-col pt-24 px-6"
             >
               {[
-                { label: 'Custom Solutions', path: '/solutions', color: 'text-emerald-400' },
-                { label: 'Explore AI Hub', path: '/inspiration', color: 'text-gray-300' },
-                { label: 'Compare', path: '/compare', color: 'text-gray-300' },
-                { label: 'Pricing', path: '/pricing', color: 'text-gray-300' },
+                { label: 'Custom Solutions', path: '/solutions/', color: 'text-emerald-400' },
+                { label: 'Explore AI Hub', path: '/inspiration/', color: 'text-gray-300' },
+                { label: 'Compare', path: '/compare/', color: 'text-gray-300' },
+                { label: 'Pricing', path: '/pricing/', color: 'text-gray-300' },
                 { label: 'About', path: '/about/', color: 'text-gray-300' },
-                { label: 'Blog', path: '/blog', color: 'text-gray-300' },
-                { label: 'Contact', path: '/contact', color: 'text-amber-400' },
+                { label: 'Blog', path: '/blog/', color: 'text-gray-300' },
+                { label: 'Contact', path: '/contact/', color: 'text-amber-400' },
               ].map((item, i) => (
                 <motion.button
                   key={item.path}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
-                  onClick={() => { navigate(item.path); setMobileMenuOpen(false) }}
+                  onClick={() => { window.location.href = item.path; setMobileMenuOpen(false) }}
                   className={`py-4 text-left text-lg font-semibold ${item.color} hover:text-emerald-300 transition-colors border-b border-white/5`}
                   style={{ fontFamily: 'Outfit, sans-serif' }}
                 >

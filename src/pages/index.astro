@@ -98,9 +98,12 @@ const faqSchema = {
   url="https://naurra.ai/"
   structuredData={[organizationSchema, websiteSchema, softwareSchema, faqSchema]}
 >
-  {/* SSR-visible content for crawlers. Visually hidden via sr-only pattern — does not affect layout. */}
+  {/* Supplementary crawlable navigation. The main landing content is now server-rendered
+      (LandingPageIsland is client:load), so the visible hero carries the page h1. This block
+      stays visually hidden and exists only to expose internal links the visible nav renders as
+      buttons (not anchors). It must NOT contain an h1 — that would duplicate the hero heading. */}
   <div style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">
-    <h1>Naurra.ai — Save Hours on Gmail, Calendar and Google Workspace with AI</h1>
+    <p><strong>Naurra.ai — Save Hours on Gmail, Calendar and Google Workspace with AI</strong></p>
     <p>
       Naurra.ai is the voice-first AI that runs your Google Workspace for you. Send emails, schedule
       meetings, build agendas, draft documents, and organize files across Gmail, Google Calendar,
@@ -147,5 +150,5 @@ const faqSchema = {
     </nav>
   </div>
 
-  <LandingPageIsland client:only="react" />
+  <LandingPageIsland client:load />
 </BaseLayout>
