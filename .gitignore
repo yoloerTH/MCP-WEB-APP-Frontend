@@ -30,3 +30,11 @@ dist-ssr
 
 # Netlify
 .netlify
+
+# Local working files (drafts, backups, screenshots, tooling — not part of the site)
+.playwright-mcp/
+*.backup
+/SEO_AUDIT.md
+/company-page-full.png
+/newsletter-*.txt
+/linkedin-email-signature-post.txt
