@@ -245,6 +245,67 @@ const services = [
   },
 ]
 
+/* Channel/integration icons for the hero orbital hub -- monochrome line art, themed per node */
+const channelIcons: Record<string, JSX.Element> = {
+  WhatsApp: (
+    <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
+      <path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M8.5 8.2c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .5.4l.7 1.6c.1.2 0 .4-.1.5l-.5.5c-.1.1-.2.3-.1.5.3.6 1.2 1.6 2.2 2 .2.1.4.1.5 0l.5-.6c.2-.2.3-.2.5-.1l1.5.7c.2.1.3.3.3.5 0 .8-.6 1.4-1.3 1.5-1.4.1-3-.7-4.2-2-1-1.1-1.7-2.6-1.6-3.6 0-.5.3-1 .7-1.4z" fill="currentColor" />
+    </svg>
+  ),
+  Telegram: (
+    <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
+      <path d="M21 5L3 12l5 2 2 5 3-3.5L18 19l3-14z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M8 14l9-6.5L9.5 16" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" opacity="0.6" />
+    </svg>
+  ),
+  Slack: (
+    <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
+      <line x1="9" y1="4" x2="9" y2="14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <line x1="15" y1="10" x2="15" y2="20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <line x1="4" y1="15" x2="14" y2="15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <line x1="10" y1="9" x2="20" y2="9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <circle cx="9" cy="3.5" r="1.6" stroke="currentColor" strokeWidth="1.3" />
+      <circle cx="15" cy="20.5" r="1.6" stroke="currentColor" strokeWidth="1.3" />
+      <circle cx="3.5" cy="15" r="1.6" stroke="currentColor" strokeWidth="1.3" />
+      <circle cx="20.5" cy="9" r="1.6" stroke="currentColor" strokeWidth="1.3" />
+    </svg>
+  ),
+  Email: (
+    <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
+      <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M4 7l8 6 8-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  ),
+  Calendar: (
+    <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
+      <rect x="3" y="5" width="18" height="16" rx="2.5" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <rect x="7" y="12" width="3" height="3" rx="0.6" fill="currentColor" opacity="0.7" />
+    </svg>
+  ),
+  CRM: (
+    <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
+      <ellipse cx="12" cy="6" rx="7" ry="3" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6" stroke="currentColor" strokeWidth="1.5" />
+    </svg>
+  ),
+  Docs: (
+    <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
+      <path d="M6 3h8l4 4v14a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M14 3v4h4" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M8 12h8M8 15h8M8 18h5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" opacity="0.7" />
+    </svg>
+  ),
+  Web: (
+    <svg viewBox="0 0 24 24" fill="none" className="w-full h-full">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M3 12h18M12 3c2.5 2.4 3.8 5.6 3.8 9S14.5 18.6 12 21c-2.5-2.4-3.8-5.6-3.8-9S9.5 5.4 12 3z" stroke="currentColor" strokeWidth="1.5" />
+    </svg>
+  ),
+}
+
 const processSteps = [
   { step: '01', title: 'Discovery', description: 'Deep-dive into your workflows, pain points, and goals. No generic pitches.' },
   { step: '02', title: 'Architecture', description: 'Design the system, pick the right models, map integrations with your tools.' },
@@ -312,7 +373,7 @@ export default function CompanyPage() {
       {/* ═══════════════════════════════════════════════════════════ */}
       {/* HERO — Lead with what AI actually does, not buzzwords       */}
       {/* ═══════════════════════════════════════════════════════════ */}
-      <section className="relative pt-20 lg:pt-28 pb-20 lg:pb-28">
+      <section className="relative pt-16 lg:pt-24 pb-20 lg:pb-28 overflow-hidden">
         {/* Faint grid */}
         <div className="absolute inset-0 opacity-[0.025]" style={{
           backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
@@ -320,112 +381,246 @@ export default function CompanyPage() {
         }} />
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-4xl">
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="flex items-center gap-3 mb-10"
-            >
-              <div className="h-px flex-1 max-w-[60px] bg-gradient-to-r from-emerald-500 to-transparent" />
-              <span className="text-emerald-400 text-xs uppercase tracking-[0.25em] font-semibold">Custom AI Agents for Small Business</span>
-            </motion.div>
+          <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-10 items-center">
+            {/* ── Left: Content ── */}
+            <div>
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex items-center gap-3 mb-8"
+              >
+                <div className="h-px flex-1 max-w-[60px] bg-gradient-to-r from-emerald-500 to-transparent" />
+                <span className="text-emerald-400 text-xs uppercase tracking-[0.25em] font-semibold">Custom AI Agents for Every Business</span>
+              </motion.div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-extrabold leading-[1.05] tracking-tight mb-8"
-            >
-              Your business runs on
-              <br />
-              <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
-                manual processes.
-              </span>
-              <br />
-              We fix that.
-            </motion.h1>
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-extrabold leading-[1.05] tracking-tight mb-7"
+              >
+                Your business runs on
+                <br />
+                <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+                  manual processes.
+                </span>
+                <br />
+                We fix that.
+              </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              className="text-lg lg:text-xl text-gray-400 max-w-2xl leading-relaxed mb-12"
-            >
-              We build <strong className="text-gray-200 font-semibold">custom AI agents</strong> for small business — quoting systems, custom CRMs, sales and support automation, and Google Workspace workflows. Purpose-engineered for your exact process, not generic templates.
-            </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.25 }}
+                className="text-lg lg:text-xl text-gray-400 max-w-xl leading-relaxed mb-9"
+              >
+                We build <strong className="text-gray-200 font-semibold">custom AI agents</strong> for businesses of every size: quoting systems, custom CRMs, sales and support automation, and Google Workspace workflows. Purpose-engineered for your exact process, not generic templates.
+              </motion.p>
 
-            {/* Proof ticker — scrolling examples of what we automate */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="mb-12 overflow-hidden"
-            >
-              <div className="flex gap-4 flex-wrap">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="flex flex-col sm:flex-row items-start gap-4 mb-12"
+              >
+                <motion.a
+                  href="/contact/"
+                  whileHover={{ scale: 1.03, boxShadow: '0 20px 60px rgba(16, 185, 129, 0.35)' }}
+                  whileTap={{ scale: 0.98 }}
+                  className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-semibold rounded-xl shadow-lg shadow-emerald-500/30 transition-all text-lg inline-block"
+                >
+                  Get a Free Consultation
+                </motion.a>
+                <motion.a
+                  href="#projects"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-emerald-500/30 text-white font-semibold rounded-xl transition-all text-lg cursor-pointer"
+                >
+                  See Our Work
+                </motion.a>
+              </motion.div>
+
+              {/* Stats — glass cards, matching landing page hero */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="grid grid-cols-3 gap-4 max-w-md"
+              >
                 {[
+                  { value: '7+', label: 'Industries' },
+                  { value: '15+', label: 'Projects' },
+                  { value: '95%', label: 'Faster' },
+                ].map((stat, idx) => (
+                  <motion.div
+                    key={stat.label}
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.6 + idx * 0.1, duration: 0.5 }}
+                    whileHover={{ y: -4 }}
+                    className="relative group"
+                  >
+                    <div className="absolute inset-0 bg-emerald-500/5 blur-xl rounded-2xl group-hover:bg-emerald-500/10 transition-all duration-300" />
+                    <div className="relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 group-hover:border-emerald-500/30 transition-all duration-300">
+                      <div className="font-display text-3xl font-black bg-gradient-to-br from-emerald-400 to-amber-400 bg-clip-text text-transparent">{stat.value}</div>
+                      <div className="text-xs text-gray-400 font-medium mt-1 uppercase tracking-wider">{stat.label}</div>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* ── Right: Orbital AI Hub — one brain, every channel ── */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4, duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              className="relative w-full h-[460px] hidden lg:flex items-center justify-center"
+            >
+              {/* Ambient glow */}
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-amber-500/10 rounded-[40px] blur-3xl" />
+
+              <div className="relative w-[400px] h-[400px] flex items-center justify-center" style={{ transform: 'translate(-34px, -34px)' }}>
+                {/* Slowly rotating orbit ring — offset to sit around the core */}
+                <motion.div
+                  style={{ x: 40, y: 26 }}
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
+                  className="absolute w-[300px] h-[300px] rounded-full border border-dashed border-emerald-500/10"
+                />
+                <div className="absolute w-[300px] h-[300px] rounded-full border border-emerald-500/[0.06]" style={{ transform: 'translate(40px, 26px)' }} />
+
+                {/* Center AI core */}
+                <motion.div
+                  animate={{
+                    boxShadow: [
+                      '0 0 40px rgba(16, 185, 129, 0.3)',
+                      '0 0 80px rgba(16, 185, 129, 0.5)',
+                      '0 0 40px rgba(16, 185, 129, 0.3)',
+                    ],
+                  }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                  className="absolute z-20 w-24 h-24 bg-[#0a0e1a]/80 backdrop-blur-sm rounded-2xl flex items-center justify-center border-2 border-emerald-400/40 shadow-2xl p-3"
+                  style={{ transform: 'translate(40px, 26px)' }}
+                >
+                  <img src="/logo-transparent.png" alt="Naurra.ai AI core" className="w-full h-full object-contain" />
+                </motion.div>
+
+                {/* Orbiting channel nodes */}
+                {[
+                  { name: 'WhatsApp', angle: 0, color: '#34d399' },
+                  { name: 'Telegram', angle: 45, color: '#22d3ee' },
+                  { name: 'Slack', angle: 90, color: '#a78bfa' },
+                  { name: 'Email', angle: 135, color: '#fb7185' },
+                  { name: 'Calendar', angle: 180, color: '#fbbf24' },
+                  { name: 'CRM', angle: 225, color: '#38bdf8' },
+                  { name: 'Docs', angle: 270, color: '#2dd4bf' },
+                  { name: 'Web', angle: 315, color: '#818cf8' },
+                ].map((node, idx) => {
+                  const radius = 150
+                  const angleRad = (node.angle * Math.PI) / 180
+                  const x = Math.cos(angleRad) * radius
+                  const y = Math.sin(angleRad) * radius
+
+                  return (
+                    <motion.div
+                      key={node.name}
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.6 + idx * 0.08, duration: 0.6, ease: 'easeOut' }}
+                      className="absolute z-10"
+                      style={{ left: `calc(50% + ${x}px)`, top: `calc(50% + ${y}px)`, transform: 'translate(-50%, -50%)' }}
+                    >
+                      <motion.div
+                        animate={{ y: [0, -5, 0] }}
+                        transition={{ duration: 4 + idx * 0.4, repeat: Infinity, ease: 'easeInOut' }}
+                        whileHover={{ scale: 1.15 }}
+                        className="relative group w-[68px] h-[68px] cursor-pointer"
+                        title={node.name}
+                      >
+                        <div className="absolute inset-0 blur-xl rounded-2xl transition-all duration-300" style={{ background: `${node.color}33` }} />
+                        <div
+                          className="relative w-full h-full bg-[#0a0e1a]/95 backdrop-blur-sm border border-white/10 rounded-2xl p-3 shadow-xl group-hover:shadow-2xl transition-all duration-300"
+                          style={{ color: node.color }}
+                        >
+                          {channelIcons[node.name]}
+                        </div>
+                      </motion.div>
+
+                      {/* Connection line from node back to core */}
+                      <div
+                        className="absolute pointer-events-none -z-10"
+                        style={{
+                          width: `${radius - 28}px`,
+                          height: '3px',
+                          left: '50%',
+                          top: '50%',
+                          transformOrigin: '0 0',
+                          transform: `rotate(${node.angle + 180}deg)`,
+                        }}
+                      >
+                        <motion.div
+                          className="absolute inset-0 overflow-hidden rounded-full"
+                          initial={{ scaleX: 0 }}
+                          animate={{ scaleX: 1 }}
+                          transition={{ duration: 1, delay: 0.7 + idx * 0.08 }}
+                          style={{ background: `linear-gradient(90deg, ${node.color}1a 0%, ${node.color}4d 50%, ${node.color}1a 100%)` }}
+                        />
+                        {/* Flowing pulse */}
+                        <motion.div
+                          className="absolute inset-0 rounded-full"
+                          style={{ background: `linear-gradient(90deg, transparent 0%, ${node.color}cc 50%, transparent 100%)`, width: '40%' }}
+                          animate={{ x: ['-100%', '260%'] }}
+                          transition={{ duration: 3, delay: idx * 0.3, repeat: Infinity, ease: 'linear' }}
+                        />
+                        {/* Energy particle */}
+                        <motion.div
+                          className="absolute top-1/2 -translate-y-1/2 w-1 h-1 rounded-full"
+                          style={{ background: node.color, boxShadow: `0 0 8px ${node.color}` }}
+                          animate={{ x: ['-4px', `${radius - 28}px`], opacity: [0, 1, 1, 0], scale: [0.5, 1.2, 1, 0.8] }}
+                          transition={{ duration: 2.5, delay: idx * 0.2, repeat: Infinity, ease: 'easeInOut' }}
+                        />
+                      </div>
+                    </motion.div>
+                  )
+                })}
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Proof marquee — what we automate, seamless loop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mt-14 lg:mt-20 relative overflow-hidden"
+            style={{ maskImage: 'linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)', WebkitMaskImage: 'linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)' }}
+          >
+            <motion.div
+              className="flex gap-4 w-max"
+              animate={{ x: ['0%', '-50%'] }}
+              transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+            >
+              {[...Array(2)].flatMap((_, dup) =>
+                [
                   'Quotes generated in seconds, not hours',
                   'Customer support across 4 channels with one AI',
                   'Legal documents analyzed in under 60 seconds',
                   'Profit opportunities found before competitors',
                   'Marketing that runs itself 24/7',
-                ].map((item, i) => (
-                  <motion.div
-                    key={item}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: 0.5 + i * 0.08 }}
-                    className="flex items-center gap-2.5 px-4 py-2.5 bg-white/[0.03] border border-white/[0.06] rounded-xl"
+                ].map((item) => (
+                  <div
+                    key={`${dup}-${item}`}
+                    className="flex items-center gap-2.5 px-4 py-2.5 bg-white/[0.03] border border-white/[0.06] rounded-xl flex-shrink-0"
                   >
                     <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
                     <span className="text-sm text-gray-300 whitespace-nowrap">{item}</span>
-                  </motion.div>
-                ))}
-              </div>
+                  </div>
+                ))
+              )}
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-col sm:flex-row items-start gap-4"
-            >
-              <motion.a
-                href="/contact/"
-                whileHover={{ scale: 1.03, boxShadow: '0 20px 60px rgba(16, 185, 129, 0.35)' }}
-                whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-semibold rounded-xl shadow-lg shadow-emerald-500/30 transition-all text-lg inline-block"
-              >
-                Get a Free Consultation
-              </motion.a>
-              <motion.a
-                href="#projects"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-emerald-500/30 text-white font-semibold rounded-xl transition-all text-lg cursor-pointer"
-              >
-                See Our Work
-              </motion.a>
-            </motion.div>
-          </div>
-
-          {/* Side stats — absolute positioned on large screens */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.6 }}
-            className="hidden xl:flex flex-col gap-6 absolute right-8 top-1/2 -translate-y-1/2"
-          >
-            {[
-              { value: '7+', label: 'Industries' },
-              { value: '15+', label: 'Projects' },
-              { value: '95%', label: 'Faster' },
-            ].map((stat, i) => (
-              <div key={stat.label} className="text-right">
-                <div className="text-3xl font-display font-black bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">{stat.value}</div>
-                <div className="text-xs text-gray-500 uppercase tracking-wider">{stat.label}</div>
-              </div>
-            ))}
           </motion.div>
         </div>
       </section>
