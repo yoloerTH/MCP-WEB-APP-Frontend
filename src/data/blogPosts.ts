@@ -26,6 +26,201 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'how-to-choose-an-ai-automation-agency-2026',
+    title: 'How to Choose an AI Automation Agency in 2026: A Practical Buyer\'s Guide',
+    description: 'A clear, no-hype framework for choosing an AI automation agency in 2026: what they actually do, the questions to ask, the red flags to avoid, and how pricing really works.',
+    content: `
+# How to Choose an AI Automation Agency in 2026: A Practical Buyer's Guide
+
+**TL;DR:** The right AI automation agency does not sell you a model. It studies your workflow, builds a system around your exact process, integrates it with the tools you already use, and stays accountable after launch. Judge agencies on real case studies, integration depth, pricing clarity, and who actually writes the code. Not on buzzwords.
+
+Choosing an AI partner in 2026 is harder than it should be. Every agency now claims to "do AI." The gap between a polished pitch and a system that actually runs your business is enormous, and most of that gap is invisible until you are three months and a few thousand dollars in.
+
+This guide gives you a practical way to tell the difference before you sign anything.
+
+## What an AI automation agency actually does
+
+A real AI automation agency is not a reseller of a single chatbot. It builds systems that take work off your team's plate. In practice that means:
+
+- mapping a repetitive, high-friction workflow in your business
+- designing an AI agent or pipeline around that exact process
+- connecting it to your real tools (CRM, email, WhatsApp, spreadsheets, databases)
+- testing it against your edge cases, not a generic demo
+- deploying it and supporting it as your needs change
+
+If an agency cannot explain a project in those terms, they are probably selling you a template with your logo on it. For a deeper breakdown of what these systems look like, see [custom AI agents for business](/blog/custom-ai-agents-for-business).
+
+## The questions to ask before you sign
+
+You do not need to be technical to vet an agency well. You need to ask the right questions and listen for specific, concrete answers.
+
+1. **Can you show me a case study close to my problem?** Vague portfolios are a warning sign. Look for documented problem, solution, and result. Ours are on the [case studies](/case-studies) page.
+2. **Who writes the code?** You want to talk to the people building the system, not an account manager relaying messages.
+3. **How does this connect to my existing tools?** Integration is where most projects quietly fail. The answer should be specific to your stack.
+4. **What does it cost, and how is it priced?** Fixed-price scopes protect you. Open-ended hourly work rarely does. We cover real numbers in [how much does an AI agent cost](/blog/how-much-does-an-ai-agent-cost).
+5. **Who owns the system after launch?** You should own your data and your solution.
+6. **What happens when it breaks or my process changes?** Ongoing support is not optional for a system your business depends on.
+7. **Should this even be custom?** A good partner will sometimes tell you to use an off-the-shelf tool. See [custom AI agents vs off-the-shelf AI](/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need).
+
+## Red flags to watch for
+
+- They lead with the model name instead of your problem.
+- They cannot point to a single shipped project they built end to end.
+- Pricing is vague, or scope keeps expanding without a clear reason.
+- They promise to "replace your team" instead of removing specific friction.
+- They avoid talking about integrations, security, or what happens after launch.
+
+## How pricing usually works
+
+Healthy AI automation pricing is tied to scope, not to hype. For most small and mid-sized businesses, a focused custom build is a fixed-price engagement that depends on:
+
+- how many tools it needs to integrate with
+- how deep the workflow logic goes
+- how much data handling and validation is required
+
+The benefit of a fixed price is simple: you know what you are paying before work starts, and the risk of overruns sits with the agency, not you. You can see how we structure this on the [pricing page](/pricing).
+
+## Custom or off-the-shelf?
+
+Not every problem needs a custom build. If your need is running Gmail, Calendar, Drive, Docs, and Sheets from a single prompt, an off-the-shelf tool like Naurra is faster and cheaper to adopt. If your workflow is unique to your business (a custom CRM, a quoting engine, a multi-channel support agent), a custom AI agent will pay for itself far faster than stitching generic tools together.
+
+A trustworthy agency helps you make that call honestly, before writing a single line of code.
+
+## How we approach it at Naurra
+
+We are engineers who build and ship, not a layer of middlemen. Our founder has personally delivered every project in our portfolio, which means you work directly with the people writing the code. We start with a discovery phase, design the architecture around your exact process, build with weekly demos so you see progress from week one, and support the system as your business evolves.
+
+You can see the full range of what we build, and the real problems we have solved, on the [company page](/company).
+
+## Final checklist
+
+Before you commit to any AI automation agency, make sure you can answer yes to these:
+
+- I have seen a case study close to my problem.
+- I know who is building the system and can talk to them.
+- I understand exactly how it integrates with my tools.
+- I have a clear, fixed scope and price.
+- I know who owns the system and how it is supported after launch.
+
+If an agency makes all five easy to answer, you are in good hands. If they dodge any of them, keep looking.
+
+Want a straight answer on whether your workflow is a good fit for a custom AI agent? [Contact us](/contact) for a free consultation and a detailed proposal within 48 hours.
+    `,
+    author: {
+      name: 'Thanos Panagiotakopoulos',
+      avatar: '/ceo-thanos.jpg'
+    },
+    publishedAt: '2026-06-09',
+    updatedAt: '2026-06-09',
+    category: 'AI Strategy',
+    tags: ['AI Strategy', 'Custom AI Agents', 'AI Automation', 'Buyer Guide', 'Business'],
+    featured: false,
+    image: '/blog/custom-ai-agents-for-business.png',
+    readingTime: 7,
+    keywords: 'how to choose an ai automation agency, ai automation agency, custom ai agency, hire ai developers, ai agency buyers guide, ai consulting agency, custom ai agents agency, ai automation company',
+    howTo: {
+      name: 'How to choose an AI automation agency',
+      description: 'A five-step framework for evaluating and selecting an AI automation agency for your business.',
+      totalTime: 'PT30M',
+      steps: [
+        { name: 'Define the workflow', text: 'Pin down the specific, repetitive workflow you want to automate before talking to any agency.' },
+        { name: 'Review real case studies', text: 'Ask for documented projects with a clear problem, solution, and measurable result close to your own.' },
+        { name: 'Check integration depth', text: 'Confirm exactly how the system will connect to your existing tools such as CRM, email, and spreadsheets.' },
+        { name: 'Clarify pricing and scope', text: 'Get a fixed-price scope so you know the cost up front and the overrun risk sits with the agency.' },
+        { name: 'Confirm ownership and support', text: 'Make sure you own your data and solution, and that there is a clear support plan after launch.' },
+      ],
+    },
+  },
+  {
+    slug: 'ai-document-intelligence-extract-data-contracts-invoices-leases',
+    title: 'AI Document Intelligence: Turn Contracts, Invoices, and Leases into Structured Data in Seconds',
+    description: 'How AI document intelligence reads contracts, invoices, and leases, extracts the data that matters, flags risk, and pushes clean records into your systems in seconds instead of days.',
+    content: `
+# AI Document Intelligence: Turn Contracts, Invoices, and Leases into Structured Data in Seconds
+
+**TL;DR:** AI document intelligence reads unstructured documents (contracts, invoices, leases, statements, forms) and turns them into structured data your systems can actually use. The win is not just speed. It is fewer errors, less manual re-keying, and surfacing risk before it costs you money.
+
+Most businesses still process documents by hand. Someone opens a PDF, reads it, copies numbers into a spreadsheet or a CRM, and hopes nothing was missed. It is slow, it is error prone, and it does not scale.
+
+AI document intelligence changes that. Instead of a person reading every page, an AI system extracts the fields that matter, validates them, flags anything unusual, and routes a clean record into the tools you already use.
+
+## What "document intelligence" actually means
+
+Document intelligence is the layer that sits between a raw file and your structured systems. A capable setup can:
+
+- parse PDFs, scans, and images, not just clean text
+- extract specific fields (dates, totals, parties, clauses, line items)
+- understand context, so it knows a renewal date from an invoice date
+- flag risk, like an unusual clause or a mismatched total
+- push the result into a spreadsheet, CRM, or database automatically
+
+The difference from a basic OCR tool is judgment. OCR turns an image into text. Document intelligence turns a document into decisions.
+
+## Where it creates the most value
+
+This is one of the most broadly useful AI capabilities because almost every business runs on documents. A few high-impact examples:
+
+- **Legal and contracts:** extract key clauses, obligations, and renewal dates, and flag risky terms for review.
+- **Finance and invoicing:** pull line items and totals, match them against purchase orders, and catch discrepancies.
+- **Real estate and leases:** turn long lease agreements into a structured summary of terms, dates, and liabilities.
+- **Operations and quoting:** read inbound specs or requests and convert them into structured quote inputs.
+
+We built a system in the legal space that does exactly this. You can read the full story in our [lease AI analyser case study](/case-studies/lease-ai-analyser-legal-document-intelligence), and a quoting-focused version in our [MEP quotation intelligence case study](/case-studies/mep-quotation-intelligence-hvac-case-study).
+
+## How an AI document workflow runs
+
+A well-built document intelligence pipeline follows the same shape regardless of industry:
+
+1. **Ingest:** the document arrives by email, upload, or API.
+2. **Extract:** the AI pulls the specific fields and clauses you care about.
+3. **Validate:** the system checks the data against rules, totals, or existing records.
+4. **Route:** the clean, structured result is written into your CRM, sheet, or database, and anything risky is flagged for a human.
+
+The goal is not to remove humans. It is to remove the manual reading and re-keying so your team only looks at the exceptions that actually need judgment.
+
+## What about accuracy and data safety?
+
+Two questions come up every time, and both are fair.
+
+On accuracy: the right design keeps a human in the loop for low-confidence or high-stakes extractions, so the system speeds up the easy 90 percent and escalates the rest. On security: your documents often contain sensitive data, so the system should be built with secure data handling and clear ownership from day one. We go deeper on this in [is AI safe for your business data](/blog/is-ai-safe-for-your-business-data).
+
+## Build vs buy
+
+Generic document tools work for generic documents. The moment your documents are specific to your business (your contract templates, your invoice formats, your lease structures), a custom AI agent extracts far more value because it is tuned to your exact fields, rules, and edge cases.
+
+That is the kind of system we design and ship. See the full range of what we build on the [company page](/company), or read more about [custom AI agents for business](/blog/custom-ai-agents-for-business).
+
+## Final thought
+
+If your team still reads documents one page at a time and types the results into another system, you are paying for that twice: once in hours, and again in the errors that slip through. Document intelligence turns that work into seconds, and turns your documents into data you can actually use.
+
+Curious whether your documents are a good fit? [Contact us](/contact) for a free consultation and we will tell you honestly what is worth automating.
+    `,
+    author: {
+      name: 'Thanos Panagiotakopoulos',
+      avatar: '/ceo-thanos.jpg'
+    },
+    publishedAt: '2026-06-09',
+    updatedAt: '2026-06-09',
+    category: 'Industry Insights',
+    tags: ['Document Intelligence', 'Custom AI Agents', 'AI Automation', 'Industry Insights', 'Business'],
+    featured: false,
+    image: '/blog/how-ai-turns-google-sheets-into-business-intelligence.png',
+    readingTime: 7,
+    keywords: 'ai document intelligence, extract data from contracts, invoice data extraction ai, lease analysis ai, intelligent document processing, ai contract review, document automation, turn documents into data',
+    howTo: {
+      name: 'How an AI document intelligence workflow runs',
+      description: 'The four core stages of an AI pipeline that turns unstructured documents into structured data.',
+      totalTime: 'PT1M',
+      steps: [
+        { name: 'Ingest', text: 'The document arrives by email, upload, or API and enters the pipeline.' },
+        { name: 'Extract', text: 'The AI pulls the specific fields, totals, and clauses that matter to your business.' },
+        { name: 'Validate', text: 'The system checks the extracted data against rules, totals, or existing records.' },
+        { name: 'Route', text: 'Clean, structured data is written into your CRM, sheet, or database, and anything risky is flagged for a human.' },
+      ],
+    },
+  },
+  {
     slug: 'introducing-naurra-ai-one-prompt-whole-workspace-done',
     title: 'Introducing Naurra AI: One Prompt. Your Whole Workspace, Done.',
     description: 'We just launched the new Naurra AI video. Here is the product story behind it, what Naurra actually does, and why we believe the next AI interface for work is execution, not more prompting.',
