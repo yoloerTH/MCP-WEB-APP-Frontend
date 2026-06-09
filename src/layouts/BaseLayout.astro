@@ -140,9 +140,22 @@ const ogLocale = lang === 'el' ? 'el_GR' : 'en_US'
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: 'Naurra.ai',
+      legalName: 'NAURRA AI LTD',
       url: 'https://naurra.ai',
       logo: 'https://naurra.ai/logo-transparent.png',
       description: 'Custom AI solutions, workflow automation, and intelligent systems for businesses.',
+      identifier: {
+        '@type': 'PropertyValue',
+        propertyID: 'Cyprus Company Registration Number',
+        value: 'HE 493756'
+      },
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '10 Kyriakou Matsi, LILIANA COURT, 4th Floor',
+        addressLocality: 'Nicosia',
+        postalCode: '1082',
+        addressCountry: 'CY'
+      },
       founder: {
         '@type': 'Person',
         name: 'Athanasios-Ioannis Panagiotakopoulos',

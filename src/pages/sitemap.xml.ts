@@ -38,6 +38,7 @@ const staticPages: SitemapEntry[] = [
   { loc: `${SITE_URL}/chatai/`, lastmod: '2026-05-01', changefreq: 'monthly', priority: '0.7' },
   { loc: `${SITE_URL}/privacy/`, lastmod: '2026-03-20', changefreq: 'yearly', priority: '0.3' },
   { loc: `${SITE_URL}/terms/`, lastmod: '2026-03-20', changefreq: 'yearly', priority: '0.3' },
+  { loc: `${SITE_URL}/legal/`, lastmod: '2026-06-09', changefreq: 'yearly', priority: '0.3' },
   { loc: `${SITE_URL}/blog/`, lastmod: '2026-05-13', changefreq: 'daily', priority: '0.9' },
   { loc: `${SITE_URL}/tools/`, lastmod: '2026-04-21', changefreq: 'weekly', priority: '0.8' },
   { loc: `${SITE_URL}/tools/gmail-signature-generator/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.7' },

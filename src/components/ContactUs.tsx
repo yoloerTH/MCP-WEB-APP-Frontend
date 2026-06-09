@@ -277,6 +277,16 @@ export default function ContactUs() {
           </motion.div>
         )}
 
+        {/* Legal entity */}
+        <div className="max-w-2xl mx-auto mt-12 pt-8 border-t border-white/[0.06] text-center">
+          <p className="text-sm text-gray-400 leading-relaxed">
+            <span className="text-gray-200 font-semibold">NAURRA AI LTD</span> · Company Registration No. HE 493756
+            <br />
+            Registered Office: 10 Kyriakou Matsi, LILIANA COURT, 4th Floor, 1082 Nicosia, Cyprus
+          </p>
+          <a href="/legal/" className="inline-block mt-3 text-xs text-emerald-400 hover:text-emerald-300 underline">Legal Information</a>
+        </div>
+
       </div>
     </div>
   )

@@ -1751,6 +1751,13 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 </a>
                 <span className="text-gray-700">•</span>
                 <a
+                  href="/legal/"
+                  className="text-gray-500 hover:text-emerald-400 transition-colors underline"
+                >
+                  Legal Information
+                </a>
+                <span className="text-gray-700">•</span>
+                <a
                   href="/contact/"
                   className="text-amber-400 hover:text-amber-300 transition-colors underline font-semibold"
                 >
@@ -1758,6 +1765,13 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 </a>
               </div>
             </div>
+          </div>
+
+          {/* Legal entity */}
+          <div className="mt-8 pt-6 border-t border-white/5 text-center md:text-left">
+            <p className="text-xs text-gray-600 leading-relaxed">
+              © 2026 NAURRA AI LTD. All rights reserved. Registered in Cyprus under company number HE 493756.
+            </p>
           </div>
         </div>
       </footer>

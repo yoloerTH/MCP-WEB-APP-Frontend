@@ -706,9 +706,17 @@ export default function BlogPostPage() {
                 Naurra.ai
               </span>
             </div>
-            <p className="text-gray-500 text-sm">
-              © 2026 Naurra.ai. Transforming workspaces with AI.
-            </p>
+            <div className="text-center md:text-right">
+              <p className="text-gray-500 text-sm mb-2">
+                © 2026 NAURRA AI LTD. Registered in Cyprus under company number HE 493756.
+              </p>
+              <div className="flex items-center justify-center md:justify-end gap-4 text-xs">
+                <a href="/privacy/" className="text-gray-500 hover:text-emerald-400 transition-colors">Privacy</a>
+                <a href="/terms/" className="text-gray-500 hover:text-emerald-400 transition-colors">Terms</a>
+                <a href="/legal/" className="text-emerald-400 hover:text-emerald-300 transition-colors font-semibold">Legal Information</a>
+                <a href="/contact/" className="text-gray-500 hover:text-emerald-400 transition-colors">Contact</a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>

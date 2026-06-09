@@ -1418,6 +1418,39 @@ export default function CompanyPage() {
         </div>
       </section>
 
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* COMPANY INFORMATION — legal entity                          */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      <section className="relative border-t border-white/[0.06] py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="h-px w-[40px] bg-gradient-to-r from-emerald-500 to-transparent" />
+            <span className="text-xs text-emerald-400/60 uppercase tracking-[0.25em] font-semibold">Company Information</span>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-x-12 gap-y-6 max-w-3xl">
+            <div>
+              <div className="text-xs uppercase tracking-wider text-gray-600 mb-1">Legal company name</div>
+              <div className="text-white font-semibold">NAURRA AI LTD</div>
+            </div>
+            <div>
+              <div className="text-xs uppercase tracking-wider text-gray-600 mb-1">Company registration number</div>
+              <div className="text-white font-semibold">HE 493756</div>
+            </div>
+            <div>
+              <div className="text-xs uppercase tracking-wider text-gray-600 mb-1">Country of incorporation</div>
+              <div className="text-white font-semibold">Cyprus</div>
+            </div>
+            <div>
+              <div className="text-xs uppercase tracking-wider text-gray-600 mb-1">Registered office</div>
+              <div className="text-white font-semibold leading-relaxed">10 Kyriakou Matsi, LILIANA COURT, 4th Floor, 1082 Nicosia, Cyprus</div>
+            </div>
+          </div>
+          <p className="text-gray-500 text-sm mt-8 max-w-2xl leading-relaxed">
+            Naurra is a technology brand operated by NAURRA AI LTD, a company incorporated in Cyprus. See our <a href="/legal/" className="text-emerald-400 hover:text-emerald-300 underline">Legal Information</a> page for full details.
+          </p>
+        </div>
+      </section>
+
       <div className="h-12" />
     </main>
   )

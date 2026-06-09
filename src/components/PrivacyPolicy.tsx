@@ -40,9 +40,12 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-2xl font-semibold text-white mb-4">1. Introduction</h2>
             <p>
-              Welcome to Naurra.ai ("we," "our," or "us"). We are committed to protecting your privacy and ensuring
-              the security of your personal information. This Privacy Policy explains how we collect, use, disclose,
-              and safeguard your information when you use our AI-powered workspace assistant service.
+              Welcome to Naurra. This service is operated by <strong className="text-white">NAURRA AI LTD</strong> ("we," "our," or "us"),
+              a private limited liability company incorporated in Cyprus under company registration number HE 493756, with its registered office
+              at 10 Kyriakou Matsi, LILIANA COURT, 4th Floor, 1082 Nicosia, Cyprus. NAURRA AI LTD is the data controller responsible for your
+              personal information. We are committed to protecting your privacy and ensuring the security of your personal information. This
+              Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our AI-powered workspace
+              assistant service.
             </p>
           </section>
 
@@ -148,7 +151,12 @@ export default function PrivacyPolicy() {
       {/* Footer */}
       <footer className="border-t border-white/10 py-8 px-8 mt-12">
         <div className="max-w-4xl mx-auto text-center text-gray-500 text-sm">
-          <p>© {new Date().getFullYear()} Naurra.ai. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} NAURRA AI LTD. All rights reserved. Registered in Cyprus under company number HE 493756.</p>
+          <div className="flex items-center justify-center gap-4 text-xs mt-3">
+            <a href="/legal/" className="text-emerald-400 hover:text-emerald-300 transition-colors font-semibold">Legal Information</a>
+            <a href="/terms/" className="text-gray-500 hover:text-emerald-400 transition-colors">Terms of Service</a>
+            <a href="/contact/" className="text-gray-500 hover:text-emerald-400 transition-colors">Contact</a>
+          </div>
         </div>
       </footer>
     </div>

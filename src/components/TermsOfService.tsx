@@ -40,8 +40,10 @@ export default function TermsOfService() {
           <section>
             <h2 className="text-2xl font-semibold text-white mb-4">1. Acceptance of Terms</h2>
             <p>
-              By accessing or using Naurra.ai ("Service"), you agree to be bound by these Terms of Service
-              ("Terms"). If you do not agree to these Terms, please do not use our Service.
+              These Terms of Service ("Terms") govern your use of Naurra, a service operated by <strong className="text-white">NAURRA AI LTD</strong>,
+              a private limited liability company incorporated in Cyprus under company registration number HE 493756, with its registered office at
+              10 Kyriakou Matsi, LILIANA COURT, 4th Floor, 1082 Nicosia, Cyprus. By accessing or using Naurra (the "Service"), you agree to be bound
+              by these Terms. If you do not agree to these Terms, please do not use our Service.
             </p>
           </section>
 
@@ -170,7 +172,12 @@ export default function TermsOfService() {
       {/* Footer */}
       <footer className="border-t border-white/10 py-8 px-8 mt-12">
         <div className="max-w-4xl mx-auto text-center text-gray-500 text-sm">
-          <p>© {new Date().getFullYear()} Naurra.ai. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} NAURRA AI LTD. All rights reserved. Registered in Cyprus under company number HE 493756.</p>
+          <div className="flex items-center justify-center gap-4 text-xs mt-3">
+            <a href="/legal/" className="text-emerald-400 hover:text-emerald-300 transition-colors font-semibold">Legal Information</a>
+            <a href="/privacy/" className="text-gray-500 hover:text-emerald-400 transition-colors">Privacy Policy</a>
+            <a href="/contact/" className="text-gray-500 hover:text-emerald-400 transition-colors">Contact</a>
+          </div>
         </div>
       </footer>
     </div>
