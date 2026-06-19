@@ -90,7 +90,7 @@ export const solutionPages: SolutionPage[] = [
     slug: 'ai-agent-custom-crm-quoting-system-small-business',
     name: 'AI CRM + Quoting Agent',
     summary: 'Replace spreadsheet CRMs and Word-template quoting. Inbound lead to branded quote in minutes.',
-    seoTitle: 'AI CRM and Quoting Agent for Small Business',
+    seoTitle: 'Custom AI CRM & Quoting Agent for Small Business',
     description: 'Custom AI CRM and quoting agent for small business. Capture leads, draft branded quotes from real pricing, follow up automatically, and run one lightweight sales pipeline.',
     keywords: 'ai agent custom crm quoting system small business, ai crm quoting agent small business, custom ai crm small business, ai quoting system small business, ai sales agent small business, custom crm and quoting ai, ai agent for crm and quoting, ai agent quote generator small business, build ai crm small business, custom ai sales agent',
     image: '/blog/ai-agent-custom-crm-quoting-system-small-business.png',

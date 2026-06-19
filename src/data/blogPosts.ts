@@ -8029,8 +8029,8 @@ For the wider communication workflow behind this, go back to [AI organizing emai
   },
   {
     slug: 'best-google-workspace-automations-for-small-business-owners',
-    title: 'Best Google Workspace Automations for Small Business Owners',
-    description: 'Discover the best Google Workspace automations for small business owners. Save time on email, scheduling, docs, files, and weekly admin with AI-powered workflows.',
+    title: 'Best Google Workspace Automations for Small Business (2026)',
+    description: 'The best Google Workspace automations for small business in 2026: cut time on email, scheduling, docs, and weekly admin with AI-powered workflows you can set up today.',
     content: `
 # Best Google Workspace Automations for Small Business Owners
 
@@ -10217,8 +10217,8 @@ At [Naurra.ai](/company), we build custom AI agents for small businesses across 
   },
   {
     slug: 'how-much-does-an-ai-agent-cost',
-    title: 'How Much Does an AI Agent Cost? Build Pricing for Small Business in 2026',
-    description: 'How much does an AI agent cost in 2026? Honest build pricing for small business custom AI agents, including cost to build, cost to make, monthly running cost, and ROI by workflow.',
+    title: 'How Much Does an AI Agent Cost? Real 2026 Pricing Ranges',
+    description: 'How much does an AI agent cost in 2026? Real build and monthly pricing ranges for small business, what actually drives the price, and the ROI by workflow. No sales fluff.',
     content: `
 # How Much Does an AI Agent Cost? Real Build Pricing in 2026
 
@@ -10390,6 +10390,7 @@ At [Naurra.ai](/company), we scope every custom AI project upfront, quote fixed-
 ## Related Reading
 
 - [Case studies: real custom AI builds across 7 industries](/case-studies)
+- [AI Sales Agent Pricing: what it costs per month for a small business](/blog/ai-sales-agent-pricing-monthly-cost-small-business)
 - [How an AI Agent Creates a Custom CRM + Quoting System for a Small Business](/blog/ai-agent-custom-crm-quoting-system-small-business)
 - [Custom AI Agents for Business: case studies across 7 industries](/blog/custom-ai-agents-for-business)
 - [Custom AI Agents for Small Business: what they do and when to build one](/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one)
@@ -11725,7 +11726,7 @@ No signup. No account. One of a handful of [free Google Workspace tools](/tools)
   },
   {
     slug: 'ai-sales-agent-pricing-monthly-cost-small-business',
-    title: 'AI Sales Agent Pricing: What It Actually Costs Per Month for a Small Business',
+    title: 'AI Sales Agent Pricing: Real Monthly Cost for Small Business',
     description: 'Real monthly pricing for an AI sales agent in 2026. Typical price ranges for small business, what is included, and when paying $300 vs $3,000 a month makes sense.',
     content: `
 # AI Sales Agent Pricing: What It Actually Costs Per Month for a Small Business
