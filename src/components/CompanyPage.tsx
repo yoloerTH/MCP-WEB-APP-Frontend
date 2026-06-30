@@ -315,7 +315,7 @@ const processSteps = [
 ]
 
 const companyFAQs = [
-  { question: 'What types of businesses do you work with?', answer: 'We work with businesses of all sizes across multiple industries — from startups to established enterprises. Our clients span HVAC, legal, automotive, travel, fashion, e-commerce, wellness, and more. If your business has manual processes that could benefit from AI automation, we can help.' },
+  { question: 'What types of businesses do you work with?', answer: 'We work with businesses of all sizes across multiple industries — from startups to established enterprises. Our clients span HVAC, legal, automotive, travel, fashion, e-commerce, wellness, legaltech, sports analytics, and more. If your business has manual processes that could benefit from AI automation, we can help.' },
   { question: 'How long does a typical project take?', answer: 'Most projects are delivered within 4-8 weeks, depending on complexity. We start with a discovery phase (1 week), followed by architecture design, rapid development with weekly demos, and deployment. You see working progress from week one — not after months of waiting.' },
   { question: 'What does a custom AI solution cost?', answer: 'Every project is scoped individually based on your needs. We offer fixed-price engagements so you know exactly what you\'re paying upfront. Contact us for a free consultation and we\'ll provide a detailed proposal within 48 hours.' },
   { question: 'Do you offer ongoing support after deployment?', answer: 'Yes. We offer ongoing support and optimization packages. AI systems improve over time with fine-tuning and monitoring, and we partner with you long-term to ensure your solution keeps delivering results as your business evolves.' },
@@ -450,7 +450,7 @@ export default function CompanyPage() {
                 className="grid grid-cols-3 gap-4 max-w-md"
               >
                 {[
-                  { value: '7+', label: 'Industries' },
+                  { value: '9+', label: 'Industries' },
                   { value: '15+', label: 'Projects' },
                   { value: '95%', label: 'Faster' },
                 ].map((stat, idx) => (
@@ -610,6 +610,8 @@ export default function CompanyPage() {
                   'Legal documents analyzed in under 60 seconds',
                   'Profit opportunities found before competitors',
                   'Marketing that runs itself 24/7',
+                  'Incoming paperwork read, classified and filed automatically',
+                  'Every betting market priced from one probability model',
                 ].map((item) => (
                   <div
                     key={`${dup}-${item}`}
@@ -1254,7 +1256,7 @@ export default function CompanyPage() {
                   </div>
                   <div className="space-y-4 text-gray-400 leading-relaxed">
                     <p>I don't manage projects from a distance — I build every solution personally. From architecting the AI system to writing the production code, I'm hands-on at every stage.</p>
-                    <p>With projects shipped across HVAC, legal, automotive, travel, fashion, and e-commerce, I've seen firsthand how AI transforms operations when it's built right — not as a gimmick, but as infrastructure that delivers measurable ROI from day one.</p>
+                    <p>With projects shipped across HVAC, legal, automotive, travel, fashion, e-commerce, legaltech document automation, and quantitative sports analytics, I've seen firsthand how AI transforms operations when it's built right — not as a gimmick, but as infrastructure that delivers measurable ROI from day one.</p>
                     <p>When you work with Naurra, you work directly with the engineer who writes the code. No middlemen, no account managers relaying messages.</p>
                   </div>
                   <div className="flex flex-wrap gap-3 mt-8">

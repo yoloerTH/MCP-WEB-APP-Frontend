@@ -26,6 +26,236 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'probability-not-prediction-how-an-ev-engine-finds-value',
+    title: 'Probability, Not Prediction: How an Expected-Value Engine Finds Where the Market Is Wrong',
+    description: 'A look inside Total Stats EV Lab — the probabilistic football engine we built that prices every market from one scoreline model, anchors to bookmaker consensus, and flags value only where the true probability beats the implied price.',
+    content: `
+# Probability, Not Prediction: How an Expected-Value Engine Finds Where the Market Is Wrong
+
+**TL;DR:** Most "predictions" tell you who is likely to win. That is the wrong question. The better question is whether a price is wrong — whether the true probability of an outcome is higher than the probability implied by the odds. We built a football decision engine, Total Stats EV Lab, that answers exactly that: it maps every possible scoreline once, prices every market from that single map, anchors itself to the market's own consensus, and only flags selections where the maths says the price is mispriced. It is a demonstration of probabilistic AI done with discipline — and the same thinking applies far beyond football. This is not financial advice.
+
+There is a difference between a good prediction and a good decision, and most people building "AI that predicts" never notice it.
+
+A good prediction feels likely. A good decision is one where the odds you are offered are better than the real odds of the thing happening. Those are not the same thing. A heavy favourite can be a terrible bet and a long shot can be a great one — it depends entirely on the price. So we built a system around the only question that actually matters: where is the market wrong?
+
+## One model, every market
+
+The engine starts by building a complete probability map of a match. Not "who wins," but the likelihood of every scoreline — 0-0, 1-0, 1-1, 2-1, 3-1, and so on — estimated with expected goals and a Poisson model that gives each team a probability of scoring 0, 1, 2, or 3+ goals.
+
+That single grid is the source of truth. Every market is then just a sum of the right cells:
+
+- **Over 2.5** is every scoreline with three or more goals.
+- **Both teams to score** is every scoreline where both sides score at least one.
+- **Home win** is every home-winning scoreline.
+- **Draw** is every level scoreline.
+
+The same grid prices 1X2, over/under, BTTS, Asian handicaps, double chance, draw-no-bet, team totals, and correct score. Because everything comes from one model, the numbers can never contradict each other. There is no scenario where the over/under price disagrees with the correct-score price, because they are the same maths viewed from two angles.
+
+This is the part most people skip. It is easy to build six separate models for six markets. It is much harder — and much more correct — to build one model and derive everything from it.
+
+## Anchoring to the market instead of fighting it
+
+The engine does not assume it is smarter than the market. That is the trap that ruins most quantitative systems.
+
+Bookmaker odds already contain an enormous amount of information: injuries, team news, sharp money, line movement, and public sentiment, all compressed into a price. So we treat the market as the anchor. We strip the bookmaker's margin out of the odds to recover a fair implied probability, build a consensus across multiple books, and use that as the reference point.
+
+The model's job is not to overrule that anchor. Its job is to find the small gaps between its own probabilities and the market price. If the model estimates a 55% chance while the market implies 48%, that gap is where value might live. If a single bookmaker is badly out of line with the consensus of the others, that is value too — even without claiming to out-predict the whole market.
+
+## Research that informs but never overrides
+
+Football is not only numbers. Team news, lineups, fatigue, motivation, and match context all matter. So there is a research layer — but it is deliberately bounded.
+
+Research does not output probabilities directly. It produces signals: "Team X has a moderate attacking edge, 70% confidence." That converts into a small, capped adjustment to expected goals — a nudge of a few hundredths, not a rewrite. There is a hard ceiling on how far any narrative can move the model.
+
+This is the discipline that keeps the system honest. A compelling story should never be able to manufacture an edge that the maths does not support. Research can refine the numbers; it can never override them.
+
+## What the engine actually outputs
+
+For every selection, the system produces a full decision record, not a hot take:
+
+- Probability and fair odds
+- Expected value
+- Confidence and a risk grade
+- A suggested stake sized with fractional Kelly — bigger edge plus higher confidence means a larger stake, more uncertainty means a smaller stake or no bet at all
+- A **CORE** or **LOTTERY** classification, separating cleaner value from higher-variance angles
+
+Bankroll protection always comes first. The staking is conservative by design, because surviving variance is the whole game.
+
+## Judging success by calibration and CLV, not by wins
+
+Here is the part that separates a real system from a tipster. A good bet can lose. A bad bet can win. Over a single weekend, results tell you almost nothing.
+
+So the engine is validated on two things:
+
+- **Calibration** — selections rated at 60% should win about 60% of the time over a large sample. If they do, the probabilities are honest.
+- **Closing-line value (CLV)** — if we consistently take a better price than the market's closing price, we are systematically beating the market, which is the real signal of an edge. A bet taken at 2.10 that closes at 1.90 was correctly priced, even if it loses.
+
+Every prediction is stored so it can be audited and back-tested later. Process is the product; the wins are a by-product.
+
+## Why this matters beyond football
+
+Strip away the sport and this is just a rigorous template for decision-making under uncertainty:
+
+1. Build one coherent probability model of the world.
+2. Derive every downstream question from that single model so nothing contradicts.
+3. Anchor to the best external reference you have instead of assuming you know better.
+4. Let qualitative research adjust the model within strict, bounded limits.
+5. Act only where the expected value is genuinely positive, and size your commitment to your confidence.
+6. Judge yourself by calibration and by beating a benchmark — not by short-term outcomes.
+
+That pattern is exactly how we approach pricing engines, risk scoring, forecasting, and any system where a business has to act on probabilities rather than certainties. The football engine is one of our [in-house case studies](/case-studies/football-ev-lab-probability-expected-value-engine/), but the methodology is the point.
+
+If your business makes repeated decisions under uncertainty and you want a system that quantifies the odds instead of guessing, [tell us about it](/contact/) or see the rest of [what we build](/company/).
+
+*This article describes a quantitative modelling project for research and analysis. It is not financial or betting advice, and no system can guarantee outcomes.*
+`,
+    author: {
+      name: 'Thanos Panagiotakopoulos',
+      avatar: '/ceo-thanos.jpg'
+    },
+    publishedAt: '2026-06-30',
+    updatedAt: '2026-06-30',
+    category: 'AI Strategy',
+    tags: ['Probability', 'Quantitative AI', 'Expected Value', 'Sports Analytics'],
+    featured: true,
+    image: '/og-default.png',
+    readingTime: 9,
+    keywords: 'expected value model, football probability model, poisson scoreline model, quantitative AI, closing line value, calibration, value betting model, probabilistic AI systems'
+  },
+  {
+    slug: 'document-intelligence-in-production-automating-back-office-paperwork',
+    title: 'Document Intelligence in Production: Automating Back-Office Paperwork Safely',
+    description: 'How we productionized a document-intelligence pipeline for an EU flight-compensation firm — OCR, classification, and field extraction across six document types, built credential-isolated and safe by design so it never writes bad data.',
+    content: `
+# Document Intelligence in Production: Automating Back-Office Paperwork Safely
+
+**TL;DR:** A real document-intelligence system is not a demo that reads one clean PDF. It is a pipeline that survives messy scans, untrusted attachments, and edge cases without ever corrupting your data. We were brought in as a task force to finish and productionize exactly that for an EU flight-compensation firm: read every incoming letter, work out what kind of document it is, pull the key fields, and write them back into the CRM — or flag a human when anything is uncertain. The hard part was not the AI. It was making it safe.
+
+Most businesses that drown in paperwork already know which documents they receive. The pain is that a person has to open each one, recognise it, copy the important fields somewhere, and file it. It is slow, it is boring, and it scales linearly with volume — every new case means more manual reading.
+
+That was the situation for an EU flight-compensation firm handling claims under EU Regulation 261/2004. A steady stream of PDFs arrived — objection notices, court-cost invoices, handover letters, booking confirmations, customer claim forms — and each one had to be identified and keyed into the CRM by hand. A previous team had built most of the surrounding system but could never get it to run end to end, because the engine that read the documents never worked reliably.
+
+## The pipeline, in plain terms
+
+Every incoming document goes through one async pass:
+
+1. **Read it (OCR).** Pull the text off the scan or PDF.
+2. **Classify it.** Decide which of the known document types it is.
+3. **Extract the fields.** Pull out the data the business actually needs — references, dates, amounts, names, addresses, flight details.
+4. **Write it back — or escalate.** Apply the right labels and case data in the CRM, or route it to a human if anything is uncertain.
+
+Simple to describe. The value is entirely in how robustly each step behaves when the input is not clean.
+
+## Trick one: do not OCR what you do not have to
+
+Not every PDF is a scanned image. Roughly half of the incoming documents were born-digital — they already contained a real text layer. Running heavy vision OCR on those is slow and can even be less accurate than just reading the text that is already there.
+
+So the first thing the pipeline does is triage: if a document already has a usable text layer, it reads it directly and skips OCR entirely. Only true scans go to the vision model. That one decision is a large throughput and accuracy win before any AI even runs. The lesson generalises: the fastest, most accurate step is often the one you can avoid.
+
+## Trick two: deterministic rules that prime, never override
+
+Pure LLM classification is powerful but occasionally overconfident, especially on near-empty or ambiguous documents. So before the model runs, a deterministic keyword pre-filter looks for strong, unambiguous signals and uses them to *prime* the classifier — to point it in the right direction — without ever hard-coding the final answer.
+
+The same pattern applies to extraction. A rule-based pre-filter fills in fields it can prove from the text and leaves everything else to the model, with each value tagged by how it was derived. You get the reliability of rules where rules are safe, and the flexibility of an LLM everywhere else. Rules and models are not rivals; the rules make the model more trustworthy. This is the same bounded-signal philosophy behind our [probability engine work](/blog/probability-not-prediction-how-an-ev-engine-finds-value).
+
+## Trick three: keep the brain away from the credentials
+
+This system opens untrusted attachments for a living. That is precisely the kind of component you do not want holding the keys to your CRM.
+
+So the architecture splits cleanly. The part that reads and understands documents has no CRM access at all. When it finishes, it sends its result over an HMAC-signed callback to a separate, single workflow that is the only thing allowed to write to the CRM. The signing means the receiver can verify the result genuinely came from the pipeline and was not tampered with in transit.
+
+The benefit is structural, not cosmetic: the box that handles risky input is permanently isolated from the system of record. Even a worst-case compromise of the document reader cannot reach the database directly.
+
+## Trick four: when in doubt, ask a human
+
+The single most important behaviour in the whole system is what it does when it is *not* sure.
+
+If a document is unrecognised, or a required field is missing, or the text is too thin to trust, the pipeline does not guess and write something plausible. It routes the item to manual review and writes nothing. We proved this with deliberately broken inputs — garbage files and malformed documents — and watched them land safely in the review queue instead of polluting real case data.
+
+This is the difference between automation people trust and automation people quietly turn off. A system that is 95% automated and never corrupts data is far more valuable than one that is 100% automated and occasionally writes nonsense into your CRM. Safe by design beats fully autonomous.
+
+## What "done" actually looks like
+
+The result is a live, end-to-end flow: a new PDF lands, gets read, classified, and extracted in one pass, and a structured result is written back to the CRM under proper labels — with anything uncertain handed to a person. Born-digital documents skip OCR, untrusted input never touches credentials, and every output is auditable.
+
+If your team spends hours moving data from documents into a system by hand — invoices, contracts, claims, leases, intake forms — that is exactly the kind of workflow this approach removes. See the full [flight-compensation case study](/case-studies/document-intelligence-flight-compensation-eu261-automation/), our broader take on [extracting data from contracts and invoices](/blog/ai-document-intelligence-extract-data-contracts-invoices-leases), or [tell us about your paperwork](/contact/) and we will tell you honestly whether it is worth automating.
+`,
+    author: {
+      name: 'Thanos Panagiotakopoulos',
+      avatar: '/ceo-thanos.jpg'
+    },
+    publishedAt: '2026-06-30',
+    updatedAt: '2026-06-30',
+    category: 'Industry Insights',
+    tags: ['Document Intelligence', 'OCR', 'Automation', 'LegalTech'],
+    featured: true,
+    image: '/og-default.png',
+    readingTime: 9,
+    keywords: 'document intelligence, OCR automation, document classification, LLM extraction, back office automation, paperwork automation, legaltech document processing, safe AI automation'
+  },
+  {
+    slug: 'safe-by-design-ai-why-the-best-systems-know-when-to-ask-a-human',
+    title: 'Safe by Design: Why the Best AI Systems Know When to Ask a Human',
+    description: 'The most valuable AI systems are not the most autonomous ones — they are the ones that know their own limits. Lessons from a document pipeline and a probability engine on bounding the model and failing safe.',
+    content: `
+# Safe by Design: Why the Best AI Systems Know When to Ask a Human
+
+**TL;DR:** The instinct with AI is to make it as autonomous as possible. That is usually a mistake. The systems businesses actually keep running are the ones that know their own limits — that bound how far the model can go, fail safe instead of failing loud, and escalate to a human when confidence is low. Across two very different builds — a document pipeline and a probability engine — the same principle kept showing up: a slightly less autonomous system that never does damage beats a fully autonomous one that occasionally does.
+
+Everyone wants the AI that just handles it. No oversight, no checks, total automation. It is an appealing pitch and a bad target.
+
+The reason is simple. The cost of an AI mistake is rarely symmetric. A system that correctly processes a thousand items and corrupts one record has not saved you time — it has created a hunt for the one piece of bad data hiding among the good. Trust, once lost, is expensive to rebuild. So the question is not "how autonomous can we make it?" It is "how do we make it safe enough that you never have to second-guess it?"
+
+Two patterns do most of the work.
+
+## Pattern one: bound the model so a story cannot override the maths
+
+Language models are persuasive. That is exactly why you cannot let them have the final word on everything.
+
+In our [football probability engine](/blog/probability-not-prediction-how-an-ev-engine-finds-value), there is a research layer that reads context — team news, form, motivation — and turns it into signals. But those signals can only nudge the underlying model within a hard cap. A compelling narrative can move a probability by a few hundredths; it can never manufacture an edge the maths does not support. The model stays in charge; the narrative is bounded.
+
+The same idea drives the [document pipeline](/blog/document-intelligence-in-production-automating-back-office-paperwork). Deterministic rules prime the classifier and extractor toward the right answer where the evidence is unambiguous, but they are layered so that strong rules add reliability without hard-coding wrong answers, and the model handles everything the rules cannot prove.
+
+In both cases the design choice is the same: identify the component you trust most for a given job — the maths, an authoritative rule, a verified field — and do not let a more flexible but less reliable component overrule it. Flexibility is valuable exactly where it is bounded.
+
+## Pattern two: fail safe, not loud
+
+The second pattern is about what happens at the edges, because the edges are where real systems live.
+
+A demo only ever sees clean input. Production sees the blurry scan, the empty file, the document in a format nobody anticipated, the match with almost no data. The interesting question is what the system does then.
+
+The wrong answer is to produce a confident output anyway. The right answer is to recognise low confidence and stop. In the document pipeline, anything unrecognised or missing a required field is routed to a human and nothing is written. In the probability engine, thin data keeps the model in a conservative, market-only mode and weak edges simply do not become bets. Neither system tries to look smart when it is uncertain. They both degrade gracefully toward "ask a human" or "do nothing."
+
+That sounds modest. It is the entire difference between automation that survives contact with reality and automation that quietly gets switched off after the first bad week.
+
+## Why this makes systems more valuable, not less
+
+It feels counterintuitive that holding an AI back makes it worth more. But think about where the value actually comes from.
+
+A system that automates 95% of a workload and never corrupts your data lets your team stop doing the boring 95% and trust the result. A system that automates 100% but occasionally writes nonsense forces your team to check everything — which means you are now paying for the AI *and* doing the work. The bounded, fail-safe system captures almost all of the upside with almost none of the risk. The "fully autonomous" one often captures less real value because nobody trusts it unsupervised.
+
+This is also why honest scoping matters more than ambition. The right answer to "can you automate this completely?" is sometimes "we can automate most of it safely, and the last few percent should stay with a person." A partner who tells you that is protecting your data; one who promises total autonomy is usually selling a demo.
+
+## The takeaway
+
+Good AI engineering is not about removing humans. It is about being deliberate regarding which decisions the machine should own, which should be bounded, and which should always escalate. Bound the model so confidence cannot override correctness. Fail safe so uncertainty becomes a question, not a bad write. Do that, and you get systems people actually leave running.
+
+That philosophy runs through everything we build. See [how we work and what we ship](/company/), or [tell us about a workflow](/contact/) you want automated — and we will be honest about how much of it should be.
+`,
+    author: {
+      name: 'Thanos Panagiotakopoulos',
+      avatar: '/ceo-thanos.jpg'
+    },
+    publishedAt: '2026-06-30',
+    updatedAt: '2026-06-30',
+    category: 'AI Strategy',
+    tags: ['AI Strategy', 'Automation', 'Trust', 'AI Safety'],
+    featured: false,
+    image: '/og-default.png',
+    readingTime: 7,
+    keywords: 'safe AI automation, human in the loop, AI guardrails, fail safe AI, bounded AI systems, AI reliability, trustworthy automation'
+  },
+  {
     slug: 'how-to-choose-an-ai-automation-agency-2026',
     title: 'How to Choose an AI Automation Agency in 2026: A Practical Buyer\'s Guide',
     description: 'A clear, no-hype framework for choosing an AI automation agency in 2026: what they actually do, the questions to ask, the red flags to avoid, and how pricing really works.',
