@@ -315,7 +315,7 @@ const processSteps = [
 ]
 
 const companyFAQs = [
-  { question: 'What types of businesses do you work with?', answer: 'We work with businesses of all sizes across multiple industries — from startups to established enterprises. Our clients span HVAC, legal, automotive, travel, fashion, e-commerce, wellness, legaltech, sports analytics, and more. If your business has manual processes that could benefit from AI automation, we can help.' },
+  { question: 'What types of businesses do you work with?', answer: 'We work with businesses of all sizes across multiple industries — from startups to established enterprises. Our clients span HVAC, legal, automotive, travel, fashion, e-commerce, wellness, legaltech, quantitative analytics, and more. If your business has manual processes that could benefit from AI automation, we can help.' },
   { question: 'How long does a typical project take?', answer: 'Most projects are delivered within 4-8 weeks, depending on complexity. We start with a discovery phase (1 week), followed by architecture design, rapid development with weekly demos, and deployment. You see working progress from week one — not after months of waiting.' },
   { question: 'What does a custom AI solution cost?', answer: 'Every project is scoped individually based on your needs. We offer fixed-price engagements so you know exactly what you\'re paying upfront. Contact us for a free consultation and we\'ll provide a detailed proposal within 48 hours.' },
   { question: 'Do you offer ongoing support after deployment?', answer: 'Yes. We offer ongoing support and optimization packages. AI systems improve over time with fine-tuning and monitoring, and we partner with you long-term to ensure your solution keeps delivering results as your business evolves.' },
@@ -1239,10 +1239,10 @@ export default function CompanyPage() {
                 {/* Photo */}
                 <div className="relative w-full lg:w-5/12 flex-shrink-0">
                   <div className="relative h-80 lg:h-full min-h-[420px] overflow-hidden">
-                    <img src="/ceo-thanos.jpg" alt="Thanos Panagiotakopoulos - Founder and Lead AI Engineer at Naurra.ai" className="absolute inset-0 w-full h-full object-cover object-top" loading="lazy" />
+                    <img src="/ceo-thanos.jpg" alt="Athanasios-Ioannis Panagiotakopoulos - Founder and Lead AI Engineer at Naurra.ai" className="absolute inset-0 w-full h-full object-cover object-top" loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a0e1a] via-[#0a0e1a]/20 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-[#0a0e1a]/80" />
                     <div className="absolute bottom-6 left-6 lg:hidden">
-                      <h3 className="text-2xl font-display font-extrabold text-white">Thanos Panagiotakopoulos</h3>
+                      <h3 className="text-2xl font-display font-extrabold text-white">Athanasios-Ioannis Panagiotakopoulos</h3>
                       <p className="text-emerald-400 font-medium">Founder & Lead AI Engineer</p>
                     </div>
                   </div>
@@ -1251,12 +1251,12 @@ export default function CompanyPage() {
                 {/* Content */}
                 <div className="relative w-full lg:w-7/12 p-8 lg:p-12 flex flex-col justify-center">
                   <div className="hidden lg:block mb-6">
-                    <h3 className="text-3xl font-display font-extrabold text-white mb-1">Thanos Panagiotakopoulos</h3>
+                    <h3 className="text-3xl font-display font-extrabold text-white mb-1">Athanasios-Ioannis Panagiotakopoulos</h3>
                     <p className="text-emerald-400 font-semibold text-lg">Founder & Lead AI Engineer</p>
                   </div>
                   <div className="space-y-4 text-gray-400 leading-relaxed">
                     <p>I don't manage projects from a distance — I build every solution personally. From architecting the AI system to writing the production code, I'm hands-on at every stage.</p>
-                    <p>With projects shipped across HVAC, legal, automotive, travel, fashion, e-commerce, legaltech document automation, and quantitative sports analytics, I've seen firsthand how AI transforms operations when it's built right — not as a gimmick, but as infrastructure that delivers measurable ROI from day one.</p>
+                    <p>With projects shipped across HVAC, legal, automotive, travel, fashion, e-commerce, legaltech document automation, and quantitative modeling, I've seen firsthand how AI transforms operations when it's built right — not as a gimmick, but as infrastructure that delivers measurable ROI from day one.</p>
                     <p>When you work with Naurra, you work directly with the engineer who writes the code. No middlemen, no account managers relaying messages.</p>
                   </div>
                   <div className="flex flex-wrap gap-3 mt-8">

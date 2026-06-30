@@ -110,7 +110,7 @@ If your business makes repeated decisions under uncertainty and you want a syste
 *This article describes a quantitative modelling project for research and analysis. It is not financial or betting advice, and no system can guarantee outcomes.*
 `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-06-30',
@@ -181,7 +181,7 @@ The result is a live, end-to-end flow: a new PDF lands, gets read, classified, a
 If your team spends hours moving data from documents into a system by hand — invoices, contracts, claims, leases, intake forms — that is exactly the kind of workflow this approach removes. See the full [flight-compensation case study](/case-studies/document-intelligence-flight-compensation-eu261-automation/), our broader take on [extracting data from contracts and invoices](/blog/ai-document-intelligence-extract-data-contracts-invoices-leases), or [tell us about your paperwork](/contact/) and we will tell you honestly whether it is worth automating.
 `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-06-30',
@@ -243,7 +243,7 @@ Good AI engineering is not about removing humans. It is about being deliberate r
 That philosophy runs through everything we build. See [how we work and what we ship](/company/), or [tell us about a workflow](/contact/) you want automated — and we will be honest about how much of it should be.
 `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-06-30',
@@ -337,7 +337,7 @@ If an agency makes all five easy to answer, you are in good hands. If they dodge
 Want a straight answer on whether your workflow is a good fit for a custom AI agent? [Contact us](/contact) for a free consultation and a detailed proposal within 48 hours.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-06-09',
@@ -427,7 +427,7 @@ If your team still reads documents one page at a time and types the results into
 Curious whether your documents are a good fit? [Contact us](/contact) for a free consultation and we will tell you honestly what is worth automating.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-06-09',
@@ -626,7 +626,7 @@ And that is the standard we want to keep building toward.
 If you want to see whether Naurra fits how your team works, explore the [pricing page](/pricing), compare it against other approaches on [/compare](/compare), or [contact us](/contact) for a more tailored walkthrough.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-04-15',
@@ -952,7 +952,7 @@ If you want to move from experimentation into implementation, the smartest path 
 **Next step:** explore [Naurra pricing](/pricing), review the product [comparison page](/compare), or jump straight into the practical setup guide: [How to automate your entire Google Workspace in 5 minutes](/blog/automate-google-workspace-in-5-minutes).
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-01-15',
@@ -1073,7 +1073,7 @@ Voice AI assistants offer unmatched speed, cost-efficiency, and 24/7 availabilit
 Ready to experience Voice AI? [Try Naurra.ai free for 3 days](/pricing).
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-01-20',
@@ -1315,7 +1315,7 @@ Email doesn't have to be overwhelming. With the right automation strategy, you c
 **Next step:** go back to the pillar guide on [AI workspace automation](/blog/ai-workspace-automation-2026), compare your options on [/compare](/compare), or [try Naurra.ai free for 3 days](/pricing) if you want to put these Gmail workflows into practice.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-01-25',
@@ -1570,7 +1570,7 @@ Your calendar should work for you, not against you. AI-powered calendar manageme
 **Next step:** go back to the pillar guide on [AI workspace automation](/blog/ai-workspace-automation-2026), explore the practical setup flow in [How to automate your entire Google Workspace in 5 minutes](/blog/automate-google-workspace-in-5-minutes), or [try Naurra.ai free for 3 days](/pricing) if you want to put these scheduling workflows into practice.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-01-30',
@@ -1835,7 +1835,7 @@ Voice commands are not just faster -- they fundamentally change how you work. By
 **Ready to experience 3x productivity?** [Start your free trial](/pricing) and begin using these commands today.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-02-01',
@@ -1994,7 +1994,7 @@ A well-organized Google Drive is not just satisfying -- it is a productivity mul
 **Ready to tame your Drive?** [Start your free trial](/pricing) and let AI organize your files while you focus on what matters.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-02-03',
@@ -2167,7 +2167,7 @@ Remote work does not have to mean more chaos. With AI handling coordination, com
 **Ready to supercharge your remote team?** [Start your free trial](/pricing) and see how AI transforms distributed work.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-02-05',
@@ -2372,7 +2372,7 @@ If you want the most practical starting points, our guide to [the best Google Wo
 **Ready to reclaim 20+ hours a week?** [Start your free trial](/pricing). No credit card required. No technical setup. Just talk and let AI handle the rest.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-02-07',
@@ -2623,7 +2623,7 @@ Document creation shouldn't eat up your workday. With AI automation, you can cre
 **Next step:** return to the pillar guide on [AI workspace automation](/blog/ai-workspace-automation-2026), explore the hands-on setup path in [How to automate your entire Google Workspace in 5 minutes](/blog/automate-google-workspace-in-5-minutes), or [try Naurra.ai free for 3 days](/pricing) if you want to put these document workflows into practice.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-02-08',
@@ -2843,7 +2843,7 @@ Email isn't going away, but the way we write emails is evolving. Unlike [traditi
 **Ready to transform your email game?** [Try Naurra.ai free for 3 days](/pricing) and experience AI-powered email that saves time and impresses recipients.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-02-09',
@@ -3032,7 +3032,7 @@ The professionals and companies that embrace these trends today will define the 
 **Ready to join the future of work?** Try Naurra.ai free for 3 days and experience what AI-powered productivity feels like.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-02-10',
@@ -3160,7 +3160,7 @@ Stop managing your tools. Start letting your tools manage themselves.
 **Ready to streamline your team communication?** [Try Naurra.ai free for 3 days](/pricing) and control your entire Google Workspace with natural voice commands.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-03-10',
@@ -3307,7 +3307,7 @@ The best part? You don't need to adopt five different tools. One AI assistant th
 **Want to see full-stack workspace AI in action?** Try Naurra.ai free for 3 days. Control Gmail, Calendar, Drive, Docs, and Sheets with natural voice commands — one AI for your entire Google Workspace.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-03-14',
@@ -3642,7 +3642,7 @@ The professionals who adopt voice-first workflows today will be the most product
 **Ready to try voice commands for your Google Workspace?** Get started with Naurra.ai — free 3-day trial, no credit card required. Just talk, and your workspace listens.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-03-18',
@@ -3937,7 +3937,7 @@ The tools exist today. The only question is how much longer you'll keep doing ma
 **Next step:** use the main [AI workspace automation guide](/blog/ai-workspace-automation-2026) as your pillar, revisit [Gmail automation](/blog/gmail-automation-tips) and [calendar automation](/blog/google-calendar-ai-scheduling) for the most common time drains, or [try Naurra.ai free for 3 days](/pricing) if you want to start automating immediately.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg'
     },
     publishedAt: '2026-03-19',
@@ -4139,7 +4139,7 @@ If you want to keep reading, these companion posts go deeper on specific questio
 - **[Custom AI agents vs. off-the-shelf AI: which one does your business need?](/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need)** -- when to buy, when to build, and the hybrid path most businesses actually end up on.
 `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-03-20',
@@ -4302,7 +4302,7 @@ The gap between "using AI" and "being transformed by AI" isn't about technology.
 [Get a free consultation →](/contact)
 `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-03-21',
@@ -4522,7 +4522,7 @@ The question isn't whether to use AI. It's whether you're using the right kind.
 [Get a free consultation →](/contact)
 `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-03-21',
@@ -4783,7 +4783,7 @@ We've built custom automation for [HVAC quotation systems, automotive sourcing, 
 [Start automating →](/)
 `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-03-21',
@@ -4996,7 +4996,7 @@ The businesses that benefit most from AI aren't the ones who adopted fastest -- 
 [Try Naurra →](/) or explore our [custom AI solutions](/company).
 `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-03-22',
@@ -5438,7 +5438,7 @@ That clarity is enough to get moving.
 **Next step:** if you want a practical starting point, begin with [AI automation for small business owners](/blog/small-business-ai-automation), review [AI agent vs chatbot](/blog/ai-agent-vs-chatbot-what-your-business-actually-needs), or explore [custom AI solutions for business](/company).
 `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-03-23',
@@ -5672,7 +5672,7 @@ For businesses with complex, industry-specific workflows that go beyond workspac
 [Get a free consultation →](/contact)
 `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-03-24',
@@ -5867,7 +5867,7 @@ Or, if you want to start right now, [connect your Google Workspace](/) and see t
 For businesses with specialized needs, we build [custom AI agents](/company) designed around your exact workflows and industry requirements.
 `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-03-25',
@@ -6049,7 +6049,7 @@ Want to talk to a human first? We get it. [Book a call with our team](/contact) 
 For businesses with specific operational challenges, we also build [custom AI agents](/company) designed around how your business actually runs. No generic tools. No one-size-fits-all.
 `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-03-25',
@@ -6315,7 +6315,7 @@ You do not need to become a spreadsheet expert. You need a spreadsheet expert th
 **Ready to stop wrestling with formulas?** [Try Naurra.ai free for 3 days](/pricing) and manage your spreadsheets with simple voice or chat commands. For businesses with complex data workflows, we also build [custom AI solutions](/company) around your specific reporting and analysis needs.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-03-26',
@@ -6500,7 +6500,7 @@ Voice-controlled email is the single biggest [productivity upgrade](/blog/boost-
 For teams and businesses that need custom email workflows, we also build [tailored AI solutions](/company) that integrate with your existing systems.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-03-27',
@@ -6684,7 +6684,7 @@ Creating documents by voice is one of those things that sounds futuristic until 
 **[Start your free 3-day trial](/pricing)** and create your first voice-powered Google Doc in under a minute. For businesses that need document automation at scale, we build [custom AI workflows](/company) tailored to your templates and processes.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-03-27',
@@ -6927,7 +6927,7 @@ AI calendar management is the gateway feature for most people. Once you experien
 **[Try it free for 3 days](/pricing)** -- schedule your first meeting by voice and see the difference. For organizations that need advanced scheduling workflows (resource booking, multi-calendar coordination, automated reminders), we build [custom AI solutions](/company) for teams of any size.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-03-27',
@@ -7107,7 +7107,7 @@ The best part? Creating a professional signature takes less than a minute with t
 And if you want to take your email productivity even further, check out how [Naurra.ai automates your entire Gmail workflow](/blog/gmail-automation-tips) with voice commands -- from composing and sending to searching and organizing your inbox.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-03-29',
@@ -7318,7 +7318,7 @@ Combine a polished signature with these 7 strategies, and your outreach will per
 **Ready to level up your email game?** Check out our [Gmail automation tips](/blog/gmail-automation-tips) to save even more time on email management, or [automate your entire Google Workspace](/blog/automate-google-workspace-in-5-minutes) with voice commands.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-03-29',
@@ -7490,7 +7490,7 @@ The demo we showed is not a polished marketing video. It is a real workflow that
 Want to explore more? Check out our guide on [AI for Google Sheets formulas and analysis](/blog/ai-for-google-sheets-formulas-analysis-automation), or learn how to [automate your entire Google Workspace in 5 minutes](/blog/automate-google-workspace-in-5-minutes).
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-03-31',
@@ -7822,7 +7822,7 @@ That is the kind of AI that actually saves time.
 **[Try Naurra.ai free for 3 days](/pricing)** and see what your own inbox looks like when AI handles the triage, planning, and execution inside Google Workspace.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-04-01',
@@ -8053,7 +8053,7 @@ If you want the broader strategy behind this, go back to [AI organizing emails, 
 **[Try Naurra.ai free for 3 days](/pricing)** and turn your inbox into a workflow system instead of a pile of unresolved threads.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-04-03',
@@ -8246,7 +8246,7 @@ For the wider communication workflow behind this, go back to [AI organizing emai
 **[Try Naurra.ai free for 3 days](/pricing)** and prepare for your next client meeting in minutes, not half an hour.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-04-03',
@@ -8459,7 +8459,7 @@ If you want the full workspace-level strategy behind this, go back to [AI worksp
 **[Try Naurra.ai free for 3 days](/pricing)** and start with the few automations that actually give small business owners their time back.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-04-03',
@@ -8659,7 +8659,7 @@ If you want the full communication pillar behind this, go back to [how AI can or
 **[Try Naurra.ai free for 3 days](/pricing)** and build an inbox workflow that clears communication without dropping what matters.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-04-06',
@@ -8842,7 +8842,7 @@ If you want the wider communication workflow behind this, go back to [how AI can
 **[Try Naurra.ai free for 3 days](/pricing)** and make your meeting follow-ups faster, clearer, and much harder to drop.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-04-06',
@@ -9051,7 +9051,7 @@ If you want the broader strategic view, return to [AI workspace automation in 20
 **[Try Naurra.ai free for 3 days](/pricing)** and start replacing tab-hopping with one connected AI workflow.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-04-06',
@@ -9235,7 +9235,7 @@ If you want to go broader after this, continue with [how to automate repetitive 
 **[Try Naurra.ai free for 3 days](/pricing)** if you want reporting workflows that move from spreadsheet to summary without the usual busywork.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-04-09',
@@ -9416,7 +9416,7 @@ If you want a nearby next read, continue with [how to prepare for client meeting
 **[Try Naurra.ai free for 3 days](/pricing)** if you want client follow-up to feel like one smooth workflow instead of three disconnected tools.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-04-09',
@@ -9596,7 +9596,7 @@ If you want to continue from here, read [how to build a weekly reporting workflo
 **[Try Naurra.ai free for 3 days](/pricing)** if you want team updates that are more consistent, more readable, and much easier to act on.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-04-09',
@@ -9801,7 +9801,7 @@ If you want to explore the tools, start here:
 And if you want the full workflow layer on top of that, [try Naurra.ai free for 3 days](/pricing).
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-04-13',
@@ -9952,7 +9952,7 @@ No signup. No watermark. No upsell.
 If you want the full automation layer on top, [try Naurra free for 3 days](/pricing).
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-04-17',
@@ -10127,7 +10127,7 @@ No signup. No watermark. Five clean layouts to choose from.
 Pair it with the rest of our [free Google Workspace tools](/tools) for the small tasks that slow down real work, or [try Naurra free for 3 days](/pricing) to automate the workflow around your inbox.
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-04-17',
@@ -10268,7 +10268,7 @@ No signup. No account. No upsell.
 It pairs well with the rest of our [free Google Workspace tools](/tools/). And if you want the full automation layer around your meetings — scheduling, briefing, agendas, and follow-ups from a single voice request — [try Naurra free for 3 days](/pricing/).
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-04-17',
@@ -10434,7 +10434,7 @@ At [Naurra.ai](/company), we build custom AI agents for small businesses across 
 - [What the perfect AI looks like for your business](/blog/what-the-perfect-ai-looks-like-for-your-business)
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-04-17',
@@ -10628,7 +10628,7 @@ At [Naurra.ai](/company), we scope every custom AI project upfront, quote fixed-
 - [Is AI safe for your business data](/blog/is-ai-safe-for-your-business-data)
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-04-17',
@@ -10787,7 +10787,7 @@ If you are not sure which side of the line your workflow falls on, that is exact
 - [What the perfect AI looks like for your business](/blog/what-the-perfect-ai-looks-like-for-your-business)
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-04-17',
@@ -10972,7 +10972,7 @@ See the dedicated solution page for a full overview of [our custom AI CRM and qu
 - [Custom AI Agents for Business: 7-industry case studies](/blog/custom-ai-agents-for-business)
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-04-21',
@@ -11160,7 +11160,7 @@ We build custom AI agents for small business — [see our work and book a free c
 - [Best Google Workspace Automations for Small Business Owners](/blog/best-google-workspace-automations-for-small-business-owners)
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-05-01',
@@ -11337,7 +11337,7 @@ We build custom AI agents for small business. [See the case studies and book a f
 - [Custom AI Agents vs Off-the-Shelf AI](/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need)
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-05-01',
@@ -11490,7 +11490,7 @@ We build custom AI agents for small business. [See the case studies and book a f
 - [How Much Do Custom AI Agents Cost?](/blog/how-much-does-an-ai-agent-cost)
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-05-01',
@@ -11626,7 +11626,7 @@ We build custom AI agents for small business. [See the case studies and book a f
 - [How Much Do Custom AI Agents Cost?](/blog/how-much-does-an-ai-agent-cost)
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-05-01',
@@ -11786,7 +11786,7 @@ We build custom AI agents for small business. [See the case studies and book a f
 - [How Much Do Custom AI Agents Cost?](/blog/how-much-does-an-ai-agent-cost)
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-05-01',
@@ -11943,7 +11943,7 @@ No signup. No account. One of a handful of [free Google Workspace tools](/tools)
 - [How AI Can Organize Emails, Write Summaries, and Reply in Bulk](/blog/how-ai-organizes-emails-summaries-bulk-replies-and-meetings)
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-04-21',
@@ -12098,7 +12098,7 @@ At [Naurra.ai](/company), we scope custom AI sales agents for small businesses w
 - [Custom AI Agents for Small Business: what they do and when to build one](/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one)
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-05-10',
@@ -12257,7 +12257,7 @@ At [Naurra.ai](/company), we build custom email drafting and inbox workflows for
 - [How to Turn Emails into Tasks, Meetings, and Docs Automatically](/blog/how-to-turn-emails-into-tasks-meetings-and-docs-automatically)
     `,
     author: {
-      name: 'Thanos Panagiotakopoulos',
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
       avatar: '/ceo-thanos.jpg',
     },
     publishedAt: '2026-05-10',
