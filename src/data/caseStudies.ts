@@ -98,8 +98,8 @@ export const caseStudies: CaseStudy[] = [
     featured: true,
     relatedSolutionHref: '/solutions/ai-agent-custom-crm-quoting-system-small-business/',
     relatedSolutionLabel: 'See the AI CRM + quoting solution',
-    relatedBlogHref: '/blog/ai-agent-custom-crm-quoting-system-small-business/',
-    relatedBlogLabel: 'Read the CRM + quoting deep dive',
+    relatedBlogHref: '/blog/ai-car-sourcing-engine-undervalued-inventory/',
+    relatedBlogLabel: 'Read the sourcing-engine deep dive',
     testimonial: {
       quote: 'Thanos helped me set up automation for my automotive business and it completely changed the game for me. Since implementing it we have been averaging around $15K profit every two weeks. Because of that, I was able to buy my dad his dream truck. If anyone is looking to automate parts of their business, he really knows what he is doing.',
       image: '/testimonial-automotive.jpg',

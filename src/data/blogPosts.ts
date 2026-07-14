@@ -26,6 +26,195 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: 'why-document-automation-projects-stall',
+    title: 'Why Document-Automation Projects Stall — and What It Takes to Rescue One',
+    description: 'Most failed document-automation projects are not failures of ambition. They fail at one unglamorous layer and quietly never run end to end. Here is the pattern, and how we cut over a stalled EU261 pipeline instead of rebuilding it.',
+    content: `
+# Why Document-Automation Projects Stall — and What It Takes to Rescue One
+
+**TL;DR:** Document-automation projects rarely die of a bad idea. They die because one boring layer — usually OCR — never quite works, and the impressive machinery built on top of it never gets to run end to end. We were brought into an EU flight-compensation firm as a task force to finish exactly that kind of stalled pipeline. We did not rebuild it. We fixed the layer that was broken, hardened the flow around it, and cut it over. If your automation project has been "almost done" for months, this post is about you.
+
+There is a specific kind of project failure that almost nobody writes about, because it is embarrassing and undramatic.
+
+The project was not too ambitious. Nobody chose the wrong model. There was no architectural catastrophe. Someone built a genuinely reasonable document pipeline — ingestion, classification, extraction, a CRM write-back — and it has been ninety percent done for six months, and it has never once processed a real document from one end to the other.
+
+That is not a rare story. In back-office automation it might be the most common one. And when we were called into an EU261 flight-compensation firm, that was precisely the situation waiting for us.
+
+## The shape of the failure
+
+The firm handles claims under EU Regulation 261/2004 — the rule that entitles passengers to compensation for delayed and cancelled flights. That business runs on incoming paper. Objection notices. Court-cost invoices. Handover letters. Booking confirmations. Customer claim forms. A constant stream of PDFs, every one of which had to be read by a human, identified, and keyed into the CRM by hand.
+
+They knew this was automatable. They had already tried. A pipeline existed.
+
+It had stalled on OCR.
+
+The OCR engine never worked reliably, and because nothing downstream could trust its output, nothing downstream ever really ran. The classifier was there. The extraction logic was there. The CRM integration was there. All of it sat behind a layer that could not consistently turn a scanned page into text — and so the whole apparatus was, functionally, decorative.
+
+This is the pattern. **The glamorous parts of a document pipeline are not where these projects die.** They die at ingestion, at OCR, at the unsexy plumbing that everyone assumes is a solved problem and nobody wants to own. Classification is a fun problem. Prompt design is a fun problem. Making a smudged fax reliably become text is not, so it gets deferred — and it turns out to be load-bearing.
+
+## Rescue, not rebuild
+
+The instinct when you inherit a stalled system is to throw it away. It is almost always the wrong instinct, and it is usually ego dressed up as engineering judgment.
+
+We were engaged as a task force with a deliberately narrow mandate: **finish, fix, and cut over.** Not rebuild. The prior team's model of the domain was sound — they understood the document types, they understood the CRM. What they had was one broken layer and no path to production, and those are two different problems from "this design is wrong."
+
+So we fixed the OCR layer first, because until that worked nothing else could be evaluated at all. You cannot debug a classifier that is being fed garbage. Getting the foundation honest is what turns every downstream question from a guess into a measurement.
+
+Then we hardened the flow around it into a single async pass: OCR, a keyword pre-filter, classification, summarization, field extraction, and a CRM-ready result at the end. One pass. One path. Not a constellation of half-connected services that each work in isolation and never in sequence.
+
+## Three decisions that made it survivable
+
+**Do not OCR what you do not have to.** Roughly half the incoming PDFs were born-digital — they already contained a text layer, put there by whatever system generated them. Running heavyweight vision OCR on those is pure waste. A triage step reads the text layer directly and skips OCR entirely. Half the work simply stopped existing, which is the cheapest performance win available to anyone processing documents at volume.
+
+**Keep the brain away from the credentials.** The component that opens untrusted attachments — files arriving from the outside world, from anyone — holds no CRM credentials at all. It cannot write to the CRM even if it is compromised or confused. Results travel back over HMAC-signed callbacks to a separate workflow, and that workflow is the only thing in the system permitted to touch case data. This is not paranoia; it is the minimum posture for any system whose input is "a PDF a stranger emailed us."
+
+**When in doubt, ask a human.** The classifier handles six document types plus an explicit "unknown" bucket. Anything low-confidence or unrecognized is routed to a person for review rather than written into the CRM. This is the decision that most distinguishes a system you can actually deploy from a demo that looks impressive.
+
+That last one deserves more than a bullet.
+
+## The bar is not accuracy. It is "no bad writes."
+
+Here is the thing people get wrong when they evaluate document automation: they obsess over accuracy percentages, as though the goal were a high score.
+
+The goal is not a high score. The goal is that **the system never silently corrupts your data.**
+
+A pipeline that correctly processes 95% of documents and confidently mangles the other 5% into your case records is not 95% good. It is a liability, because now every record in your CRM is suspect and no human can tell which ones. You have not saved any work; you have converted a data-entry task into a far worse auditing task.
+
+A pipeline that processes 80% and hands the remaining 20% to a human, clearly flagged, is genuinely useful — because the 80% is trustworthy and the 20% is honest about itself. Our headline result on this project was not an accuracy figure. It was **one pass, zero bad writes**: well-formed documents flow through automatically, and garbage or uncertain input gets flagged for a person instead of poisoning the case data.
+
+Optimise for the floor, not the ceiling. Nobody ever got fired because the automation asked for help.
+
+## If your project is stuck right now
+
+A few questions worth being honest about:
+
+1. **Has it ever run end to end, on one real document, in production?** Not in a notebook. Not on the happy-path sample. If the answer is no, the pieces that "work" have not actually been tested, and your completion estimate is fiction.
+2. **Which layer is everyone quietly avoiding?** There is usually one. It is usually ingestion or OCR. It is usually the thing nobody put on the roadmap because it seemed too basic to warrant a ticket.
+3. **What happens to a document the system does not understand?** If the answer is anything other than "a human looks at it," you do not have a safety story, and you should not go live.
+4. **Could the component that opens untrusted files write to your database?** If yes, fix that before you optimise anything else.
+
+A stalled project is rarely as far from done as it feels. It usually just needs someone willing to own the boring layer.
+
+For the full architecture — the pre-filter that primes but never overrides the classifier, the callback design, and how the pieces fit — [read the technical deep dive](/blog/document-intelligence-in-production-automating-back-office-paperwork/).
+
+---
+
+*Sitting on a document-automation project that has been almost finished for months? [See the full case study](/case-studies/document-intelligence-flight-compensation-eu261-automation/) or [tell us where it is stuck](/contact/).*
+`,
+    author: {
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
+      avatar: '/ceo-thanos.jpg'
+    },
+    publishedAt: '2026-07-14',
+    updatedAt: '2026-07-14',
+    category: 'Industry Insights',
+    tags: ['Document Intelligence', 'OCR', 'Project Rescue', 'Automation'],
+    featured: false,
+    image: '/og-default.png',
+    readingTime: 8,
+    keywords: 'document automation failed, ocr project stalled, why automation projects fail, rescue automation project, document processing pipeline, back office automation problems, ocr not working, document classification accuracy',
+  },
+  {
+    slug: 'ai-car-sourcing-engine-undervalued-inventory',
+    title: 'The Margin Is in the Search: How We Built an AI Sourcing Engine for a Car Reseller',
+    description: 'A look inside the automotive sourcing engine we built — it scans thousands of marketplace listings, scores them against wholesale benchmarks, and surfaces only the cars worth buying. The client now averages around $15K profit every two weeks.',
+    content: `
+# The Margin Is in the Search: How We Built an AI Sourcing Engine for a Car Reseller
+
+**TL;DR:** In car resale, the profit is decided the moment you buy, not the moment you sell. Our client was manually browsing dozens of listing sites every day, hoping to spot an underpriced car before someone else did. We replaced the browsing with an engine: it scrapes thousands of listings, cross-checks each one against wholesale value, scores the margin, and puts only the genuinely promising cars in front of him. It took four weeks to build. He now averages roughly $15K profit every two weeks — and, in his words, it let him buy his dad his dream truck.
+
+Most people think a car reseller makes money by selling well. They do not. They make money by *buying* well.
+
+By the time a car is sitting in your driveway, your margin is already fixed. Every skill you have on the sales side — the photos, the listing copy, the negotiation — is just you trying to realise a number that was locked in at purchase. Which means the real job, the one that actually determines whether the business works, is finding the underpriced car in the first place.
+
+And that job is miserable. It is refreshing the same twenty listing sites over and over, all day, forever, hoping to be the first human to notice that someone has priced a car two thousand under what it is worth. Miss the window by an hour and it is gone.
+
+That was our client's life. He is good at this — genuinely good — but he was spending his best hours hunting instead of negotiating, closing, and scaling. So we asked a different question: what if the hunting simply happened on its own?
+
+## The engine, in plain terms
+
+The system does four things in sequence, continuously.
+
+**It scrapes.** Thousands of listings across the high-volume marketplaces where inventory actually shows up. Not a sample. The whole surface, on a loop.
+
+**It filters.** This is where most naive versions of this idea die. A raw feed of every listing is not an advantage — it is just the same haystack delivered faster. So an AI filtering layer reads each listing the way an experienced buyer would: what is this car really, how is it described, what is the seller not saying, does this look like a genuine opportunity or a lemon dressed as one.
+
+**It prices.** Every surviving candidate gets cross-checked against wholesale benchmarks. This is the step that turns "cheap" into "profitable," and they are not the same thing. A cheap car with no spread is a waste of capital. The engine estimates the gross profit on the spot.
+
+**It surfaces.** Only the deals that clear the bar reach a human. He opens his notifications and sees a short list of cars with margin context already attached, instead of an ocean of listings with none.
+
+The output is not "here are some cars." The output is "here are the cars worth your attention, and here is roughly what each one is worth to you."
+
+## The hard part was deciding what *not* to show him
+
+The instinct when you build something like this is to be comprehensive. Show everything. Cast the widest net. It feels safer — surely more options is more opportunity?
+
+It is the opposite. A firehose of listings is functionally identical to the manual browsing we were trying to eliminate. If the system hands back 400 cars a day, he still has to evaluate 400 cars a day, and we have automated nothing except the scrolling.
+
+The value of this system lives almost entirely in its willingness to throw things away. Aggressive filtering is the product. Every listing the engine discards is time it hands back to him, and the whole thing only works because it discards nearly all of them.
+
+That is the general lesson, and it applies far outside car resale: **an automation that surfaces everything has not automated the decision, only the retrieval.** The judgment is the job. If your system will not exercise judgment, it is a search bar with extra steps.
+
+## Speed is a feature, not a nice-to-have
+
+Undervalued inventory has a shelf life measured in hours. Sometimes less.
+
+This is what makes sourcing such a natural fit for automation, and why the ROI here is unusually clean. In a lot of business processes, doing the work faster is merely pleasant — the same outcome, sooner. In sourcing, doing it faster *changes the outcome*, because the opportunity genuinely evaporates. The car gets bought by someone else. There is no version of the deal available to you at 6pm that was available at 9am.
+
+A human who checks the marketplaces three times a day is not doing a slower version of this job. They are playing a different, worse game, and losing most of the deals before they ever see them.
+
+## What it actually changed
+
+The headline number is the one the client volunteered himself: roughly **$15K profit every two weeks**, consistently, since the system went live. We built it in four weeks, from first conversation to live monitoring.
+
+But the number is not really the interesting part. Three things changed underneath it:
+
+- **Sourcing became repeatable instead of opportunistic.** It stopped depending on him happening to look at the right screen at the right moment. A business that depends on someone's attention is not a business, it is a habit — and habits do not scale.
+- **His reaction time collapsed.** Deals that used to require luck now require a decision.
+- **He knew which listings deserved immediate action.** Confidence, not just volume. That is what the margin estimate buys you.
+
+And the outcome he cared about most had nothing to do with any of our architecture. He bought his dad a truck. That is the actual point of this work, and it is worth remembering when you are deep in scraper configs at midnight.
+
+> "Thanos helped me set up automation for my automotive business and it completely changed the game for me. Since implementing it we have been averaging around $15K profit every two weeks. Because of that, I was able to buy my dad his dream truck. If anyone is looking to automate parts of their business, he really knows what he is doing."
+
+## Does this transfer to your business?
+
+Probably — if your business has the same shape. Ask yourself three questions:
+
+1. **Is there an opportunity stream you cannot fully watch?** Listings, tenders, RFPs, job postings, inbound leads, supplier catalogues, auction lots. Anything that arrives faster than a person can review it.
+2. **Is there an objective way to score an item's value?** In cars it is wholesale benchmarks. In your world it might be margin, fit, urgency, or historical close rate. If you cannot articulate what "good" means, an AI filter cannot either.
+3. **Does being early actually matter?** If the opportunity is still there next week, automation saves you time. If it is gone in an hour, automation makes you money. These are very different business cases, and the second one is far easier to justify.
+
+If you answered yes three times, you are not looking at a chatbot problem. You are looking at a sourcing engine, and it is one of the highest-leverage systems a small business can own.
+
+If you answered no to the second question, start there. The scoring logic *is* the system. Everything else is plumbing.
+
+## The honest caveats
+
+This is not a machine that prints money, and we would be doing you a disservice to sell it that way.
+
+The engine finds opportunities; it does not close them. Our client still has to buy well, inspect properly, price correctly, and sell. His results reflect his own expertise operating with better information — not a system operating without him. Margins vary by market, by season, and by how much competition is running similar plays. And a sourcing engine is only as good as its scoring logic: point it at a market where you cannot reliably estimate value, and it will confidently surface garbage.
+
+What automation did here was remove the bottleneck between his judgment and the market. It did not replace the judgment. It never does.
+
+---
+
+*Want to know whether your business has a sourcing problem hiding inside it? [Read the full automotive case study](/case-studies/automotive-sourcing-engine-profit-automation/) or [tell us what you are trying to find](/contact/).*
+`,
+    author: {
+      name: 'Athanasios-Ioannis Panagiotakopoulos',
+      avatar: '/ceo-thanos.jpg'
+    },
+    publishedAt: '2026-07-14',
+    updatedAt: '2026-07-14',
+    category: 'Industry Insights',
+    tags: ['Web Scraping', 'AI Filtering', 'Profit Analytics', 'Automotive'],
+    featured: true,
+    image: '/og-default.png',
+    readingTime: 8,
+    keywords: 'ai car sourcing, automotive sourcing automation, undervalued car inventory, car reseller automation, ai web scraping marketplace, wholesale price comparison, car flipping automation, ai deal sourcing engine',
+  },
+  {
     slug: 'probability-not-prediction-how-an-ev-engine-finds-value',
     title: 'Probability, Not Prediction: How an Expected-Value Engine Finds Where the Market Is Wrong',
     description: 'A look inside Total Stats EV Lab — the probabilistic football engine we built that prices every market from one scoreline model, anchors to bookmaker consensus, and flags value only where the true probability beats the implied price.',
