@@ -196,7 +196,7 @@ export const caseStudies: CaseStudy[] = [
     timeline: '4 weeks from design to live concierge workflow',
     stack: ['Telegram bots', 'WhatsApp workflows', 'PDF generation', 'Conversational AI'],
     tags: ['Telegram Bots', 'PDF Generation', 'Conversational AI'],
-    proofSource: 'Boutique travel agency',
+    proofSource: 'Travel agency client',
     proofContext: 'Six months post-launch, client-reported',
     accentFrom: 'from-sky-400',
     accentTo: 'to-indigo-400',
@@ -213,8 +213,8 @@ export const caseStudies: CaseStudy[] = [
     relatedSolutionLabel: 'See the AI scheduling solution',
     testimonial: {
       quote: 'Just wanted to share some numbers after six months of using the AI concierge. We reduced itinerary creation time from around 3 hours to 20-30 minutes, saving over 180 staff hours per month. Without hiring, we\'ve increased capacity from about 80 to 120-150 itineraries monthly. Revenue has grown from roughly €15k to €27k per month, with an additional €4.5k-€5k in monthly profit. Clients receive responses in minutes instead of hours, which has noticeably improved conversions. The outcomes have exceeded our most optimistic expectations. It\'s truly proven to be one of the high-impact investments we\'ve made.',
-      author: 'Travel agency founder',
-      role: 'Boutique travel agency, client since 2026',
+      author: 'Travel agency client',
+      role: 'Six months post-launch',
     },
   },
   {

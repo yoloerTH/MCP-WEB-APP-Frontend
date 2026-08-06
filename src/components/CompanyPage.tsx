@@ -963,15 +963,17 @@ export default function CompanyPage() {
                           className="mt-8 relative bg-white/[0.03] border border-emerald-500/10 rounded-2xl overflow-hidden"
                         >
                           <div className="flex flex-col sm:flex-row">
-                            {/* Testimonial screenshot */}
-                            <div className="sm:w-48 flex-shrink-0">
-                              <img
-                                src={(project as any).testimonial.image}
-                                alt={`Client testimonial for ${project.title} project`}
-                                className="w-full h-48 sm:h-full object-cover"
-                                loading="lazy"
-                              />
-                            </div>
+                            {/* Testimonial screenshot — optional; several testimonials are text-only */}
+                            {(project as any).testimonial.image && (
+                              <div className="sm:w-48 flex-shrink-0">
+                                <img
+                                  src={(project as any).testimonial.image}
+                                  alt={`Client testimonial for ${project.title} project`}
+                                  className="w-full h-48 sm:h-full object-cover"
+                                  loading="lazy"
+                                />
+                              </div>
+                            )}
                             {/* Quote */}
                             <div className="p-6 flex-1">
                               <div className="flex items-center gap-2 mb-3">
@@ -1055,11 +1057,11 @@ export default function CompanyPage() {
           >
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-400/40 to-transparent" />
 
-            {/* Letterhead */}
+            {/* Letterhead — client name withheld by request; the letter is on file. */}
             <div className="px-7 sm:px-10 pt-9 pb-6 border-b border-white/[0.06] flex flex-wrap items-baseline justify-between gap-3">
               <div>
-                <div className="text-lg font-display font-extrabold text-white tracking-wide">COGNITECH GROUP</div>
-                <div className="mt-1 text-xs text-gray-500 uppercase tracking-[0.18em]">Letter of recommendation</div>
+                <div className="text-lg font-display font-extrabold text-white tracking-wide">LETTER OF RECOMMENDATION</div>
+                <div className="mt-1 text-xs text-gray-500 uppercase tracking-[0.18em]">From a technology group client · name withheld</div>
               </div>
               <time dateTime="2026-08-05" className="text-xs text-gray-500 font-mono">05 / 08 / 2026</time>
             </div>
@@ -1089,15 +1091,17 @@ export default function CompanyPage() {
               </p>
             </blockquote>
 
-            {/* Signature */}
+            {/* Signature — signer's name and company withheld by request. */}
             <figcaption className="px-7 sm:px-10 pb-9 pt-2 border-t border-white/[0.06]">
               <div className="pt-6 flex items-center gap-4">
                 <div className="w-11 h-11 rounded-full bg-gradient-to-br from-emerald-500/20 to-teal-500/10 border border-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                  <span className="text-sm font-display font-extrabold text-emerald-400">KJ</span>
+                  <svg className="w-5 h-5 text-emerald-400/70" fill="none" stroke="currentColor" strokeWidth="1.7" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>
                 </div>
                 <div>
-                  <div className="text-white font-display font-bold">Krystian Jacko</div>
-                  <div className="text-xs text-gray-500 uppercase tracking-[0.18em] mt-0.5">Chief Executive Officer · Cognitech Group</div>
+                  <div className="text-white font-display font-bold">Chief Executive Officer</div>
+                  <div className="text-xs text-gray-500 uppercase tracking-[0.18em] mt-0.5">Client · automotive sourcing and document-intelligence builds</div>
                 </div>
               </div>
             </figcaption>
