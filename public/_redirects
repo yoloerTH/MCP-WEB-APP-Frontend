@@ -14,3 +14,14 @@
 /blog/cost-to-build-an-ai-agent-2026/ /blog/how-much-does-an-ai-agent-cost/ 301
 /blog/meeting-agenda-maker-how-to-build-agendas-that-keep-meetings-on-track /blog/create-an-agenda/ 301
 /blog/meeting-agenda-maker-how-to-build-agendas-that-keep-meetings-on-track/ /blog/create-an-agenda/ 301
+
+# 2026-08 cannibalization cleanup.
+# These three posts targeted the same queries as /tools/gmail-signature-generator/
+# and all had zero impressions in the 90d to 2026-08-04 while the tool page drew
+# 2,781. Consolidating so one URL carries the signature cluster.
+/blog/free-gmail-signature-generator-create-a-clean-signature-in-60-seconds /tools/gmail-signature-generator/ 301
+/blog/free-gmail-signature-generator-create-a-clean-signature-in-60-seconds/ /tools/gmail-signature-generator/ 301
+/blog/free-gmail-signature-templates-clean-layouts-that-work-in-gmail /tools/gmail-signature-generator/ 301
+/blog/free-gmail-signature-templates-clean-layouts-that-work-in-gmail/ /tools/gmail-signature-generator/ 301
+/blog/free-email-signature-generator-outreach /tools/gmail-signature-generator/ 301
+/blog/free-email-signature-generator-outreach/ /tools/gmail-signature-generator/ 301

@@ -140,10 +140,12 @@ const ogLocale = lang === 'el' ? 'el_GR' : 'en_US'
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: 'Naurra.ai',
+      alternateName: ['Naurra', 'Naurra AI', 'NAURRA AI LTD'],
       legalName: 'NAURRA AI LTD',
       url: 'https://naurra.ai',
       logo: 'https://naurra.ai/logo-transparent.png',
       description: 'Custom AI solutions, workflow automation, and intelligent systems for businesses.',
+      foundingDate: '2025',
       identifier: {
         '@type': 'PropertyValue',
         propertyID: 'Cyprus Company Registration Number',
@@ -168,8 +170,13 @@ const ogLocale = lang === 'el' ? 'el_GR' : 'en_US'
         url: 'https://naurra.ai/contact/'
       },
       sameAs: [
+        'https://www.linkedin.com/company/109405415',
         'https://www.linkedin.com/in/athanasios-ioannis-panagiotakopoulos-2362a9274/',
-        'https://x.com/Naurra_ai'
+        'https://www.instagram.com/naurra.ai/',
+        'https://www.facebook.com/profile.php?id=61588566855794',
+        'https://x.com/Naurra_ai',
+        'https://www.youtube.com/@naurra_ai',
+        'https://www.reddit.com/user/naurra_ai/'
       ]
     })} />
 
@@ -212,7 +219,9 @@ const ogLocale = lang === 'el' ? 'el_GR' : 'en_US'
     {/* Google Fonts - all fonts preloaded in head to avoid render-blocking @import */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    {/* Weight 300 dropped from Outfit/Sora — no `font-light` or `fontWeight: 300` exists in src/.
+        Space Mono (0 refs) and Orbitron (0 refs) removed entirely. */}
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
     <slot />

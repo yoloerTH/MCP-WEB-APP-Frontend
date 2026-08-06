@@ -34,8 +34,9 @@ const staticPages: SitemapEntry[] = [
   { loc: `${SITE_URL}/pricing/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.8' },
   { loc: `${SITE_URL}/compare/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.8' },
   { loc: `${SITE_URL}/contact/`, lastmod: '2026-03-20', changefreq: 'monthly', priority: '0.6' },
-  { loc: `${SITE_URL}/voiceai/`, lastmod: '2026-05-01', changefreq: 'monthly', priority: '0.7' },
-  { loc: `${SITE_URL}/chatai/`, lastmod: '2026-05-01', changefreq: 'monthly', priority: '0.7' },
+  // /voiceai/ and /chatai/ removed 2026-08-07: they are authenticated app routes
+  // (AppShell, client:only) with no server-rendered content, now marked noindex.
+  // A sitemap must not advertise noindex URLs. See voiceai.astro for the full note.
   { loc: `${SITE_URL}/privacy/`, lastmod: '2026-03-20', changefreq: 'yearly', priority: '0.3' },
   { loc: `${SITE_URL}/terms/`, lastmod: '2026-03-20', changefreq: 'yearly', priority: '0.3' },
   { loc: `${SITE_URL}/legal/`, lastmod: '2026-06-09', changefreq: 'yearly', priority: '0.3' },

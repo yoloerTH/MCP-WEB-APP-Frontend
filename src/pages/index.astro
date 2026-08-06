@@ -5,38 +5,9 @@ import { landingPageFAQs } from '../components/StructuredData'
 import { caseStudies } from '../data/caseStudies'
 import { solutionPages } from '../data/solutionPages'
 
-const organizationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'Naurra.ai',
-  url: 'https://naurra.ai',
-  logo: 'https://naurra.ai/logo-transparent.png',
-  description: 'Naurra.ai saves hours on Gmail, Google Calendar, Drive, Docs and more. Voice and chat AI that automates daily Google Workspace tasks.',
-  foundingDate: '2025',
-  contactPoint: {
-    '@type': 'ContactPoint',
-    contactType: 'Customer Support',
-    email: 'support@naurra.ai',
-    url: 'https://naurra.ai/contact/'
-  },
-  sameAs: [
-    'https://www.linkedin.com/company/109405415',
-    'https://www.instagram.com/naurra.ai/',
-    'https://www.facebook.com/profile.php?id=61588566855794',
-    'https://x.com/Naurra_ai',
-    'https://www.youtube.com/@naurra_ai',
-    'https://www.reddit.com/user/naurra_ai/'
-  ]
-}
-
-const websiteSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'Naurra.ai',
-  url: 'https://naurra.ai/',
-  description: 'Voice-first AI that saves hours on Gmail, Google Calendar and Google Workspace — automates email, scheduling and documents with unlimited usage on every plan.',
-  inLanguage: 'en-US'
-}
+// Organization and WebSite schema are emitted site-wide by BaseLayout. They were
+// previously duplicated here with conflicting description/sameAs/contactPoint values,
+// which weakens entity resolution. Keep only homepage-specific schema below.
 
 const softwareSchema = {
   '@context': 'https://schema.org',
@@ -96,7 +67,7 @@ const faqSchema = {
   description="Naurra.ai automates Gmail, Google Calendar, Drive, Docs and Sheets through voice or chat. Send emails, schedule meetings, build agendas and run full workflows by voice — save hours every week on Google Workspace tasks."
   keywords="AI for Google Workspace, save time on Gmail, automate Gmail and Calendar, voice AI for Google Workspace, AI email assistant, AI calendar assistant, Google Workspace automation, AI workflow automation, chat AI for Gmail, unlimited AI assistant"
   url="https://naurra.ai/"
-  structuredData={[organizationSchema, websiteSchema, softwareSchema, faqSchema]}
+  structuredData={[softwareSchema, faqSchema]}
 >
   {/* Supplementary crawlable navigation. The main landing content is now server-rendered
       (LandingPageIsland is client:load), so the visible hero carries the page h1. This block

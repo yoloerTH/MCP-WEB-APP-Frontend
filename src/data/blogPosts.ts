@@ -7129,185 +7129,6 @@ AI calendar management is the gateway feature for most people. Once you experien
     keywords: 'manage Google Calendar with AI, AI calendar assistant, voice commands Google Calendar, schedule meetings by voice, AI scheduling assistant, Google Calendar automation, smart calendar management, voice calendar commands, AI meeting scheduler, Google Calendar voice control'
   },
   {
-    slug: 'free-email-signature-generator-outreach',
-    title: 'Why a Professional Email Signature Is Your Secret Weapon for Outreach',
-    description: 'Learn how a polished email signature boosts open rates, builds trust, and drives conversions in cold outreach and email marketing. Plus, create one free in 30 seconds.',
-    content: `
-# Why a Professional Email Signature Is Your Secret Weapon for Outreach
-
-**TL;DR:** A professional email signature increases reply rates by up to 32% in cold outreach campaigns. It builds instant credibility, drives traffic to your website or booking page, and turns every email you send into a micro-marketing asset. Our [free email signature generator](/tools/gmail-signature-generator) lets you create a polished, Gmail-compatible signature in 30 seconds -- no signup required.
-
-You spend hours crafting the perfect cold email. You A/B test subject lines. You personalize every opening line. But there is one element most people completely overlook: the email signature at the bottom.
-
-It sounds trivial. It is not.
-
-## The Data: Why Email Signatures Matter for Outreach
-
-Research from Newoldstamp shows that emails with professional signatures see a **32% higher reply rate** compared to emails without one. Here is why:
-
-### 1. Credibility at a Glance
-
-When a prospect receives a cold email, they subconsciously ask: *"Is this person real?"* A signature with your full name, title, company, photo, and social links answers that question instantly. No signature? You look like a bot.
-
-### 2. Social Proof Without Saying a Word
-
-Your LinkedIn icon, your company website, your professional headshot -- these are all trust signals. A recipient can click your LinkedIn profile, see your connections, and verify you in seconds. That friction-free verification is what separates opened emails from deleted ones.
-
-### 3. Every Email Becomes a Landing Page
-
-Think about it: if you send 50 cold emails a day, that is 50 opportunities for someone to click your booking link, visit your website, or connect on social media. Without a signature, those opportunities are wasted.
-
-## What Makes a High-Converting Email Signature
-
-Not all signatures are created equal. Here is what separates a forgettable signature from one that drives results:
-
-### The Must-Haves
-
-- **Full name and title** -- establishes authority
-- **Company name** -- builds brand recognition
-- **Professional photo** -- humanizes the email (faces increase trust by 38%)
-- **Email and phone** -- makes you reachable through multiple channels
-- **Website link** -- drives traffic to your site
-
-### The Conversion Boosters
-
-- **Booking/CTA link** ("Schedule a Call") -- the single most important element for outreach. It removes friction from the next step. Instead of "let me know if you're free," you give them a one-click path to a meeting
-- **Social media icons** (LinkedIn, Twitter/X, Instagram, Facebook) -- lets prospects research you without asking
-- **Company tagline** -- reinforces your value proposition in every email
-
-### The Deal Breakers (What to Avoid)
-
-- **Inspirational quotes** -- unprofessional in B2B outreach
-- **Too many colors or fonts** -- distracting and amateurish
-- **Huge logos** -- Gmail often clips large signatures
-- **No mobile optimization** -- over 60% of emails are opened on mobile
-
-## Email Signatures and Cold Outreach: A Practical Guide
-
-Here is how to strategically use your email signature in cold outreach campaigns:
-
-### Step 1: Match Your Signature to Your Goal
-
-Running a [cold email campaign](/blog/gmail-automation-tips)? Your signature should have a clear CTA:
-
-- **Booking meetings**: Include a Calendly or Cal.com link with "Schedule a 15-Min Call"
-- **Driving traffic**: Link to a specific landing page, not just your homepage
-- **Building authority**: Feature a recent press mention or award
-
-### Step 2: Keep It Clean
-
-Gmail and Outlook strip fancy CSS. Your signature needs to use:
-- **Table-based HTML** (not divs or flexbox)
-- **Inline styles only** (no external stylesheets)
-- **Hosted images** (not base64 or inline SVG -- Gmail strips both)
-
-This is exactly what our [free email signature generator](/tools/gmail-signature-generator) produces. Every template is battle-tested across Gmail, Outlook, Apple Mail, and Yahoo Mail.
-
-### Step 3: Optimize the Booking Link
-
-The booking link is your highest-converting element. Best practices:
-
-- Use action-oriented text: "Schedule a Call" beats "My Calendar"
-- Keep it visible -- do not bury it below social icons
-- Match the color to your brand accent for visual hierarchy
-
-### Step 4: A/B Test Your Signature
-
-Yes, you can A/B test email signatures. Try:
-- With photo vs. without photo
-- With booking link vs. without
-- Different CTA text ("Book a Demo" vs. "Schedule a Chat")
-
-Track reply rates and click-through rates to find what works for your audience.
-
-## Email Signatures for Marketing Campaigns
-
-Beyond cold outreach, professional signatures matter for:
-
-### Newsletter Campaigns
-Every newsletter you send carries your signature. That is hundreds or thousands of impressions on your booking link and social profiles.
-
-### Transactional Emails
-Order confirmations, support replies, onboarding emails -- all opportunities to reinforce your brand and drive engagement.
-
-### Team-Wide Branding
-Give every team member a consistent, professional signature. When 10 people send 30 emails each per day, that is 300 branded touchpoints daily.
-
-## How to Create Your Signature in 30 Seconds
-
-We built a [free email signature generator](/tools/gmail-signature-generator) specifically designed for outreach and marketing professionals. Here is what makes it different:
-
-### 5 Professional Templates
-Choose from Minimal, Modern, Corporate, Creative, or Compact -- each designed for a different use case:
-
-- **Minimal** -- clean and versatile, great for any industry
-- **Modern** -- bold accent bar with prominent CTA button
-- **Corporate** -- uppercase name with structured layout, ideal for enterprise
-- **Creative** -- colored email pill and big personality, perfect for agencies
-- **Compact** -- single-line layout for high-volume senders
-
-### Gmail-Safe by Design
-Every signature uses table-based HTML with inline styles and hosted images. No broken icons. No stripped formatting. What you see in the preview is exactly what lands in the inbox.
-
-### Built-In Booking Link
-Add your Calendly, Cal.com, or any scheduling URL with a custom button label. It renders as a prominent CTA in Modern and Creative templates or as an inline link in others.
-
-### Real Social Media Icons
-Official LinkedIn, X/Twitter, Instagram, and Facebook icons -- not generic SVGs. They are hosted on our CDN, so they load instantly and never break.
-
-### One-Click Copy to Gmail
-Click "Copy HTML Signature," paste into Gmail Settings, and you are done. No code editing. No HTML knowledge needed. Full instructions are included on the page.
-
-## The ROI of a Good Email Signature
-
-Let us do the math:
-
-- You send **50 cold emails per day**
-- A professional signature increases reply rate by **32%**
-- Your current reply rate is **5%** (2.5 replies/day)
-- With a professional signature: **6.6%** reply rate (3.3 replies/day)
-- That is **0.8 extra replies per day** = **16 extra conversations per month**
-
-If your average deal size is $5,000 and you close 10% of conversations, that is **$8,000 in additional monthly revenue** -- from a free 30-second signature upgrade.
-
-## Best Practices Checklist
-
-Before you launch your next outreach campaign, make sure your signature has:
-
-- [ ] Professional headshot or company logo
-- [ ] Full name and job title
-- [ ] Company name
-- [ ] Direct email and phone number
-- [ ] Website link
-- [ ] Booking/CTA link (Calendly, Cal.com, etc.)
-- [ ] At least 2 social media profiles (LinkedIn is essential)
-- [ ] Company tagline (if applicable)
-- [ ] Consistent brand colors
-- [ ] Mobile-friendly table layout
-
-## Conclusion
-
-Your email signature is not an afterthought -- it is one of the most viewed pieces of marketing content you produce. Every email you send is a chance to build trust, drive clicks, and book meetings.
-
-The best part? Creating a professional signature takes less than a minute with the right tool.
-
-**[Create your free email signature now](/tools/gmail-signature-generator)** -- no signup, no watermark, no limits. Choose a template, customize it, copy it to Gmail. Done.
-
-And if you want to take your email productivity even further, check out how [Naurra.ai automates your entire Gmail workflow](/blog/gmail-automation-tips) with voice commands -- from composing and sending to searching and organizing your inbox.
-    `,
-    author: {
-      name: 'Athanasios-Ioannis Panagiotakopoulos',
-      avatar: '/ceo-thanos.jpg',
-    },
-    publishedAt: '2026-03-29',
-    category: 'Business',
-    tags: ['Email Marketing', 'Cold Outreach', 'Email Signature', 'Productivity', 'Free Tools'],
-    featured: true,
-    image: '/blog/free-email-signature-generator-outreach.png',
-    readingTime: 8,
-    keywords: 'free email signature generator, email signature for outreach, professional email signature Gmail, email marketing signature, cold email signature tips, email signature generator free, Gmail signature generator, best email signature for sales, email signature booking link, HTML email signature tool'
-  },
-  {
     slug: '7-email-outreach-tips-that-actually-get-replies',
     title: '7 Email Outreach Tips That Actually Get Replies in 2026',
     description: 'Most cold emails get ignored. These 7 proven email outreach strategies -- from subject lines to follow-ups -- will dramatically increase your reply rates.',
@@ -7414,7 +7235,7 @@ This is the part most people overlook. Your signature is scanned almost immediat
 - You work at a real company (not a fly-by-night operation)
 - You are reachable through multiple channels (LinkedIn, phone, website)
 
-A [professional email signature with a booking link](/blog/free-email-signature-generator-outreach) does double duty: it builds trust AND gives them a zero-friction way to schedule a call.
+A [professional email signature with a booking link](/tools/gmail-signature-generator/) does double duty: it builds trust AND gives them a zero-friction way to schedule a call.
 
 If you do not have one yet, you can [create a polished signature in 30 seconds](/tools/gmail-signature-generator) -- it takes less time than writing a single outreach email.
 
@@ -9865,7 +9686,7 @@ It is useful when you want to:
 
 If your email signature still looks like plain text from 2013, this is the fastest fix.
 
-For a deeper strategy angle, read [why a professional email signature is your secret weapon for outreach](/blog/free-email-signature-generator-outreach).
+Build one in under a minute with our [free Gmail signature generator](/tools/gmail-signature-generator/).
 
 ### 2. [Mailto Link Generator](/tools/mailto-link-generator)
 
@@ -10000,332 +9821,6 @@ And if you want the full workflow layer on top of that, [try Naurra.ai free for 
     image: '/tools/tools-page-launch.png',
     readingTime: 7,
     keywords: 'free Google Workspace tools, Gmail tools, Google Calendar tools, free productivity tools, Gmail signature generator, mailto link generator, meeting agenda builder, useful Google Workspace utilities'
-  },
-  {
-    slug: 'free-gmail-signature-generator-create-a-clean-signature-in-60-seconds',
-    title: 'Free Gmail Signature Generator: Create a Clean Gmail Signature in 60 Seconds',
-    description: 'Use our free Gmail signature generator to build a clean, professional email signature for Gmail and Google Workspace in under a minute. No HTML, no signup, copy-paste ready.',
-    content: `
-# Free Gmail Signature Generator: Create a Clean Gmail Signature in 60 Seconds
-
-**TL;DR:** If you need a professional Gmail signature fast, use our [free Gmail signature generator](/tools/gmail-signature-generator). Fill in your details, pick a layout, copy the result, and paste it straight into Gmail settings. No signup, no HTML, no watermark. The whole process takes about a minute.
-
-Most people know their Gmail signature is bad.
-
-They just do not have time to fix it.
-
-That is exactly the problem our free signature creator for Gmail is designed to solve. You type your name, role, company, and links. You choose a clean layout. You copy the result and paste it into Gmail. Done.
-
-This guide walks through how to do it properly, what to include, and the small details that separate a signature that looks cheap from one that quietly builds trust in every email you send.
-
-## Why a Gmail Signature Still Matters in 2026
-
-Email is still where most real work happens. Sales conversations, client updates, hiring, partnerships, invoices, support. All of it flows through Gmail.
-
-Every single one of those emails has a tiny piece of real estate at the bottom that most people waste: the signature block.
-
-A good Gmail signature does three things at once:
-
-- confirms you are a real person at a real company
-- gives the recipient an easy path to your website, booking link, or LinkedIn
-- makes your emails look consistent with your brand
-
-A bad signature (or no signature) quietly drags down every message you send, especially in cold outreach. For more on the conversion angle, see [why a professional email signature is your secret weapon for outreach](/blog/free-email-signature-generator-outreach).
-
-## What a Free Gmail Signature Generator Should Actually Do
-
-There are dozens of free Gmail signature generators online. Most are fine. A few are terrible. Here is the short checklist we use to evaluate them:
-
-- no forced signup or email capture
-- no tracking pixel or hidden watermark
-- clean, modern layouts that actually render in Gmail
-- mobile-safe (over 60% of emails are opened on phones)
-- supports photo, logo, social icons, and a CTA link
-- copy-paste ready into Gmail without breaking formatting
-
-Our [free Gmail signature generator](/tools/gmail-signature-generator) is built to pass all of those. It is the same tool our own team uses, and it is designed specifically for Gmail and Google Workspace rendering.
-
-## How to Create a Gmail Signature in Under 60 Seconds
-
-Here is the exact process.
-
-### Step 1: Open the Generator
-
-Go to [naurra.ai/tools/gmail-signature-generator](/tools/gmail-signature-generator). The page loads instantly. There is no popup, no onboarding, no account wall.
-
-### Step 2: Fill In Your Core Details
-
-At minimum, you want:
-
-- full name
-- job title
-- company name
-- email address
-- phone (optional but useful in B2B)
-- website
-- LinkedIn URL
-
-Every one of those fields is a trust signal. Skip them and your signature looks like a placeholder.
-
-### Step 3: Add a Photo or Company Logo
-
-A professional headshot improves open-to-reply rates because it humanizes the message. If you are representing a brand rather than yourself, use a clean square logo instead. Do not use both at the same time unless the layout is explicitly designed for it.
-
-### Step 4: Add a CTA Link
-
-This is the single most overlooked element.
-
-Instead of hoping the recipient figures out how to book a meeting, give them a one-click path:
-
-- "Book a 15-minute intro call"
-- "View our case studies"
-- "Start a free trial"
-
-Anything concrete works better than "let me know if you are free."
-
-### Step 5: Pick a Layout
-
-Our generator includes multiple clean layouts designed to render consistently in Gmail, Outlook, and Apple Mail. Pick whichever matches your brand and copy the result.
-
-### Step 6: Paste Into Gmail
-
-1. Open Gmail
-2. Click the gear icon, then "See all settings"
-3. Scroll to the "Signature" section
-4. Paste your generated signature
-5. Save changes
-
-That is it. Every email you send now has a clean, professional signature attached.
-
-## Common Gmail Signature Mistakes to Avoid
-
-Even with a good generator, it is easy to undercut the result. Watch for these:
-
-- **Oversized logos or photos.** Gmail will clip large signatures. Keep images under 150px tall.
-- **Too many social icons.** Pick the one or two platforms where you actually engage. LinkedIn and your company site are almost always enough.
-- **Inspirational quotes.** Distracting in B2B contexts and rarely land well.
-- **Inconsistent team signatures.** If you lead a team, standardize the format. Mismatched signatures make a company look smaller than it is.
-- **Broken mobile rendering.** Always test by sending yourself a message and opening it on your phone.
-
-## When a Signature Creator for Gmail Beats Doing It Manually
-
-You can technically build a Gmail signature by hand in HTML. Most people should not.
-
-Here is why a dedicated Gmail email signature generator is worth it:
-
-- it handles inline styles that Gmail actually respects
-- it avoids the encoding quirks that break hosted images
-- it keeps the spacing consistent across devices
-- it saves you the 30 minutes of fiddling you would otherwise lose
-
-For a one-person business, a team of five, or a company rolling out a new brand, the free Gmail signature creator path is faster and produces a better-looking result.
-
-## How This Fits Into the Bigger Naurra Workflow
-
-The signature generator is one of several [free Google Workspace tools](/tools) we maintain. They all share the same design principle: do one job, do it fast, stay out of your way.
-
-If you want to go further and actually automate the work around email (drafting replies, scheduling follow-ups, turning threads into tasks), that is what [Naurra](/voiceai) is built for. The signature gets your outbound emails looking sharp. Naurra handles the workflow around them.
-
-For related reading:
-
-- [How AI organizes emails, summaries, bulk replies, and meetings](/blog/how-ai-organizes-emails-summaries-bulk-replies-and-meetings)
-- [7 email outreach tips that actually get replies](/blog/7-email-outreach-tips-that-actually-get-replies)
-- [Gmail automation tips](/blog/gmail-automation-tips)
-
-## Try the Free Gmail Signature Generator
-
-No signup. No watermark. No upsell.
-
-[Open the free Gmail signature generator here](/tools/gmail-signature-generator) and build your new signature in about a minute.
-
-If you want the full automation layer on top, [try Naurra free for 3 days](/pricing).
-    `,
-    author: {
-      name: 'Athanasios-Ioannis Panagiotakopoulos',
-      avatar: '/ceo-thanos.jpg',
-    },
-    publishedAt: '2026-04-17',
-    category: 'Productivity',
-    tags: ['Gmail', 'Email Signature', 'Free Tools', 'Google Workspace'],
-    featured: true,
-    howTo: {
-      name: 'How to create a clean Gmail signature in 60 seconds',
-      description: 'Use the free Naurra Gmail signature generator to build a branded HTML signature and paste it into Gmail -- no signup, no watermark.',
-      totalTime: 'PT1M',
-      steps: [
-        { name: 'Open the generator', text: 'Go to naurra.ai/tools/gmail-signature-generator in your browser. No signup is required.' },
-        { name: 'Fill in your details', text: 'Enter your name, role, company, phone, email, and website. A live preview renders as you type.' },
-        { name: 'Add a photo or logo', text: 'Upload a square photo or your company logo. The tool crops and resizes it automatically for Gmail.' },
-        { name: 'Add a CTA link', text: 'Add an optional call to action such as "Book a meeting" or "See our work" pointing to your most valuable link.' },
-        { name: 'Pick a layout', text: 'Choose from the prebuilt layouts. Each one is tested to render reliably in Gmail on desktop and mobile.' },
-        { name: 'Copy and paste into Gmail', text: 'Click Copy Signature, then in Gmail open Settings, Signature, paste, and save. Your new signature is live on your next email.' }
-      ]
-    },
-    image: '/blog/free-gmail-signature-generator-create-a-clean-signature-in-60-seconds.png',
-    readingTime: 6,
-    keywords: 'gmail signature generator, free gmail signature generator, gmail signature creator, signature creator for gmail, gmail email signature generator, free gmail signature, gmail signature maker, google workspace signature generator'
-  },
-  {
-    slug: 'free-gmail-signature-templates-clean-layouts-that-work-in-gmail',
-    title: 'Free Gmail Signature Templates: 5 Clean Layouts That Work in Gmail',
-    description: 'Five free Gmail signature templates built for real inboxes. Copy a clean layout, paste it into Gmail, and ship a more professional email signature in minutes.',
-    content: `
-# Free Gmail Signature Templates: 5 Clean Layouts That Work in Gmail
-
-**TL;DR:** The best free Gmail signature template is one that renders cleanly in Gmail, looks good on mobile, and does not look like it came from 2011. This guide walks through five layouts that work, when to use each, and how to build your own in about a minute using our [free Gmail signature generator](/tools/gmail-signature-generator).
-
-If you have ever searched for a free Gmail signature template, you have probably seen the same problems:
-
-- downloadable HTML files that break when pasted
-- templates that look great in the preview and terrible in Gmail
-- "free" templates that require signup, branding, or a paid upgrade to remove a watermark
-- layouts that look fine on desktop and get destroyed on mobile
-
-This post is the practical alternative. Five clean layouts, what each is best for, and a path to generating any of them without fighting with HTML.
-
-## What Makes a Gmail Signature Template Actually Work
-
-Before picking a template, it helps to know what Gmail actually renders well.
-
-- **Inline styles only.** Gmail strips most external CSS.
-- **Tables for structure.** Flexbox is unreliable in email clients. Tables are not beautiful but they are predictable.
-- **Images hosted on a stable URL.** Do not rely on base64 encoding. Use a public image URL.
-- **Reasonable size.** Keep the full signature under 10KB. Gmail clips anything that bloats the message.
-- **Mobile-first spacing.** Padding that looks tight on desktop often looks broken on mobile.
-
-Every template below is designed around those rules. If you build one yourself with our [Gmail signature generator](/tools/gmail-signature-generator), these constraints are handled for you automatically.
-
-## Template 1: The Minimalist
-
-Best for: founders, consultants, designers, anyone whose brand is quiet confidence.
-
-Layout:
-
-\`\`\`
-Name, Title
-Company
-email  |  website  |  LinkedIn
-\`\`\`
-
-Everything stacked, no photo, no logo, no social icons beyond LinkedIn. The entire signature lives in three lines of text with a subtle divider.
-
-This template works because it assumes your email content does the selling. The signature just confirms who you are.
-
-## Template 2: The Photo + CTA
-
-Best for: sales reps, BD, recruiters, anyone sending cold outreach where a booking link matters.
-
-Layout:
-
-\`\`\`
-[Photo]   Name, Title
-          Company
-          Book a 15-min intro call >
-          LinkedIn | Website
-\`\`\`
-
-The photo humanizes the message. The CTA removes friction. The small supporting links give the recipient easy ways to verify who you are before replying.
-
-For the reasoning behind this layout, see [why a professional email signature is your secret weapon for outreach](/blog/free-email-signature-generator-outreach).
-
-## Template 3: The Brand Block
-
-Best for: agencies, small teams, companies rolling out a consistent signature across the org.
-
-Layout:
-
-\`\`\`
-[Logo]    Name, Title
-          Company | Tagline
-          email  |  phone
-          website  |  LinkedIn  |  Twitter
-\`\`\`
-
-Company-first rather than person-first. The logo does the branding work, and the tagline reinforces your positioning in every message the team sends.
-
-Standardizing this across a team is worth the effort. Mismatched signatures make a ten-person company look like three freelancers.
-
-## Template 4: The Newsletter / Creator
-
-Best for: writers, solo operators, people who run a newsletter or content property.
-
-Layout:
-
-\`\`\`
-Name
-Writing at [Newsletter Name]
-Latest: "Post title" >
-Subscribe | Twitter/X
-\`\`\`
-
-This one treats every email as a small distribution channel. The most recent post and the subscribe link convert better than a generic website link because they point to something specific.
-
-## Template 5: The Executive
-
-Best for: founders, C-suite, investors, anyone whose name alone carries weight.
-
-Layout:
-
-\`\`\`
-Name
-Title, Company
-Assistant: assistant@company.com
-\`\`\`
-
-Stripped down, confident, assumes the reader knows the context. The assistant email is the useful addition because it signals that scheduling should route through a different path.
-
-## How to Actually Use These Templates in Gmail
-
-You do not need to copy HTML or wrestle with a PSD file. The workflow is:
-
-1. Open our [free Gmail signature generator](/tools/gmail-signature-generator)
-2. Pick the layout closest to the template above
-3. Fill in your details
-4. Copy the generated signature
-5. Paste into Gmail: Settings > See all settings > Signature > Create new
-
-Total time: about 60 seconds.
-
-If you want to customize further, you can edit the generated output directly in the Gmail signature editor. It handles bold, links, and inline image sizing cleanly.
-
-## Picking the Right Template for Your Role
-
-A quick heuristic:
-
-- Selling something to strangers? Template 2.
-- Leading a team or agency? Template 3.
-- Building a personal brand? Template 4.
-- Already well-known in your space? Template 5.
-- Not sure? Template 1.
-
-The worst move is to use a template that is flashier than your actual brand. A minimalist signature on a CEO email reads as confidence. A maximalist signature on the same email reads as overcompensating.
-
-## Related Reading
-
-- [Free Gmail Signature Generator: Create a Clean Signature in 60 Seconds](/blog/free-gmail-signature-generator-create-a-clean-signature-in-60-seconds)
-- [Why a Professional Email Signature Is Your Secret Weapon for Outreach](/blog/free-email-signature-generator-outreach)
-- [7 Email Outreach Tips That Actually Get Replies](/blog/7-email-outreach-tips-that-actually-get-replies)
-- [Best Free Google Workspace Tools for Everyday Work](/blog/best-free-google-workspace-tools-for-everyday-work)
-
-## Build Your Gmail Signature Now
-
-No signup. No watermark. Five clean layouts to choose from.
-
-[Open the free Gmail signature generator](/tools/gmail-signature-generator) and pick the template that fits your role.
-
-Pair it with the rest of our [free Google Workspace tools](/tools) for the small tasks that slow down real work, or [try Naurra free for 3 days](/pricing) to automate the workflow around your inbox.
-    `,
-    author: {
-      name: 'Athanasios-Ioannis Panagiotakopoulos',
-      avatar: '/ceo-thanos.jpg',
-    },
-    publishedAt: '2026-04-17',
-    category: 'Productivity',
-    tags: ['Gmail', 'Email Signature', 'Free Tools', 'Templates'],
-    featured: false,
-    image: '/blog/free-gmail-signature-templates-clean-layouts-that-work-in-gmail.png',
-    readingTime: 6,
-    keywords: 'free gmail signature template, gmail signature templates, free gmail signature templates, gmail signature layouts, professional gmail signature template, gmail email signature templates, gmail signature examples'
   },
   {
     slug: 'create-an-agenda',
@@ -10989,8 +10484,8 @@ If you are not sure which side of the line your workflow falls on, that is exact
   },
   {
     slug: 'ai-agent-custom-crm-quoting-system-small-business',
-    title: 'AI CRM + Quoting Agent for Small Business: Real Example, Cost, Timeline',
-    description: 'See how a custom AI CRM and quoting agent captures leads, drafts branded quotes, follows up automatically, and replaces spreadsheet CRM chaos. Real example, cost range, build timeline, and ROI math.',
+    title: 'How an AI CRM & Quoting Agent Works',
+    description: 'A walkthrough of how a custom AI CRM and quoting agent captures leads, drafts branded quotes, and follows up automatically, with a real build example, cost range and timeline.',
     content: `
 **TL;DR:** A custom AI agent can replace the spreadsheet-plus-email-plus-Word-template setup that most small businesses use for quoting and customer tracking. It reads inbound leads, pulls pricing from your sources of truth, drafts a branded quote in your voice, logs everything in a lightweight custom CRM, and follows up automatically. Typical build cost for small business: $6K-$15K. Typical timeline: 4–6 weeks. This guide shows how it works in practice.
 
@@ -11172,12 +10667,12 @@ See the dedicated solution page for a full overview of [our custom AI CRM and qu
     isPillar: true,
     image: '/blog/ai-agent-custom-crm-quoting-system-small-business.png',
     readingTime: 9,
-    keywords: 'ai agent create custom crm quoting system small business, ai agent custom crm, ai agent quoting system, ai agent for small business sales, ai quoting agent, custom crm small business ai, ai agent build crm, ai agent quote generator, small business ai sales agent, custom ai agent crm quoting'
+    keywords: 'ai agent create custom crm quoting system small business, how does an ai crm agent work, ai quoting agent explained, ai crm workflow example, what is an ai crm agent, ai crm agent cost breakdown'
   },
   {
     slug: 'ai-agent-automate-invoicing-payment-reminders-small-business',
-    title: 'AI Invoicing Agent for Small Business: Cost, Workflow, ROI',
-    description: 'See how a custom AI invoicing agent issues invoices, chases unpaid balances, and reconciles payments automatically. Real example, cost range, workflow, and ROI for small businesses.',
+    title: 'How AI Invoicing Agents Work: Cost and ROI',
+    description: 'A breakdown of how a custom AI invoicing agent issues invoices, chases unpaid balances and reconciles payments, with a real example, cost range and the ROI maths.',
     content: `
 **TL;DR:** A custom AI agent can run the entire invoicing loop a small business loses hours to every week. It pulls billable items from your sources of truth, drafts the invoice in your branding, sends it to the right contact, chases payment on a schedule you set, and reconciles incoming bank deposits against open invoices. Typical build cost for small business: $4.5K-$11K. Typical timeline: 3–5 weeks. This is what it actually does, what it costs, and when it pays for itself.
 
@@ -11360,12 +10855,12 @@ We build custom AI agents for small business — [see our work and book a free c
     isPillar: true,
     image: '/blog/ai-agent-custom-crm-quoting-system-small-business.png',
     readingTime: 9,
-    keywords: 'ai agent automate invoicing small business, ai agent invoicing payment reminders, ai invoicing automation small business, ai agent for invoicing, ai agent payment reminders, automated invoicing ai small business, ai agent collect unpaid invoices, ai invoicing system small business, custom ai agent invoicing, ai accounts receivable automation small business'
+    keywords: 'how do ai invoicing agents work, ai invoicing workflow explained, ai payment reminder automation, ai invoicing roi, automated invoicing explained, ai agent invoicing process'
   },
   {
     slug: 'ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business',
-    title: 'AI Lead Capture Agent for Small Business: Instagram, WhatsApp, Email',
-    description: 'See how a custom AI lead capture agent listens across Instagram, WhatsApp, email, and forms, qualifies leads automatically, and routes them into one pipeline. Real example, cost range, workflow, and ROI.',
+    title: 'How AI Lead Capture Agents Work',
+    description: 'How a custom AI lead capture agent listens across Instagram, WhatsApp, email and forms, qualifies leads automatically and routes them into one pipeline, with a real example and cost.',
     content: `
 **TL;DR:** A custom AI agent can listen to every inbound channel a small business uses (Instagram DMs, WhatsApp, email, web forms), extract the lead details, qualify the prospect against your rules, and route the lead into one unified pipeline with full context preserved across channels. Typical build cost for small business: $5K-$13K. Typical timeline: 4-6 weeks. We have shipped this for an automotive reseller now averaging [around $15K profit every two weeks](/company), and a B2B sales team running a single AI brain across 4 channels into Salesforce.
 
@@ -11537,12 +11032,12 @@ We build custom AI agents for small business. [See the case studies and book a f
     isPillar: true,
     image: '/blog/ai-agent-custom-crm-quoting-system-small-business.png',
     readingTime: 9,
-    keywords: 'ai agent capture leads instagram whatsapp email small business, ai agent qualify leads, ai lead capture small business, ai agent instagram dms, ai agent whatsapp business, ai inbound lead qualification, custom ai agent for sales leads, multi channel lead capture ai, ai agent for instagram leads, ai agent for whatsapp leads small business'
+    keywords: 'how does ai lead capture work, ai lead qualification explained, whatsapp lead automation guide, instagram dm ai agent guide, ai inbound lead routing, ai lead capture workflow'
   },
   {
     slug: 'ai-agent-handle-customer-support-emails-small-business',
-    title: 'AI Support Email Agent for Small Business: Cost, Workflow, ROI',
-    description: 'See how a custom AI support email agent triages messages, looks up real order or account data, drafts replies in your tone, and escalates only what needs a human. Real example, cost range, and workflow.',
+    title: 'How AI Support Email Agents Work',
+    description: 'How a custom AI support email agent triages messages, looks up real order or account data, drafts replies in your tone and escalates only what needs a human, with cost and ROI.',
     content: `
 **TL;DR:** A custom AI agent can read every incoming customer support email, classify it, draft a reply in your tone, resolve the simple ones automatically, and escalate the rest with full context to whoever handles them. Typical build cost for small business: $4K-$11K. Typical timeline: 3-5 weeks. We have shipped this for an e-commerce wellness brand now running [100% automated operations including support](/company) and a B2B sales team unifying support and sales conversations across 4 channels.
 
@@ -11690,12 +11185,12 @@ We build custom AI agents for small business. [See the case studies and book a f
     isPillar: true,
     image: '/blog/ai-agent-custom-crm-quoting-system-small-business.png',
     readingTime: 8,
-    keywords: 'ai agent customer support emails small business, ai agent for support email, ai customer support automation small business, ai email support agent, automated support emails ai, ai agent triage support emails, custom ai agent customer support, ai agent reply support emails, small business ai support, ai agent help desk'
+    keywords: 'how do ai support agents work, ai email triage explained, ai customer support workflow, ai support escalation logic, ai helpdesk agent explained, ai support agent roi'
   },
   {
     slug: 'ai-agent-schedule-confirm-client-appointments-small-business',
-    title: 'How an AI Agent Schedules and Confirms Client Appointments for a Small Business',
-    description: 'How a custom AI agent books, confirms, and reschedules client appointments over WhatsApp, email, and voice. Real example, $4K-$9K build, 3-5 week timeline, fewer no-shows from day one.',
+    title: 'How AI Agents Schedule Client Appointments',
+    description: 'How a custom AI agent books, confirms and reschedules client appointments over WhatsApp, email and voice, with a real example, build cost, timeline and the effect on no-shows.',
     content: `
 **TL;DR:** A custom AI agent can run the entire scheduling loop for a small business: book appointments over WhatsApp or email, confirm them automatically the day before, handle reschedules without a human, and reduce no-shows by sending the right reminder at the right time. Typical build cost for small business: $4K-$9K. Typical timeline: 3-5 weeks. We have built scheduling and concierge agents for a [travel agency now creating itineraries 10x faster](/company) and adapt the same pattern for clinics, salons, consultancies, and service businesses.
 
@@ -11824,12 +11319,12 @@ We build custom AI agents for small business. [See the case studies and book a f
     featured: true,
     image: '/blog/ai-agent-custom-crm-quoting-system-small-business.png',
     readingTime: 8,
-    keywords: 'ai agent schedule appointments small business, ai agent for booking appointments, ai appointment scheduler small business, ai agent confirm appointments, ai agent reduce no shows, ai booking agent whatsapp, ai agent for clinic scheduling, ai agent for salon appointments, custom ai scheduling agent, ai appointment automation small business'
+    keywords: 'how do ai scheduling agents work, ai appointment confirmation explained, ai booking agent workflow, reduce no shows with ai, ai reschedule automation, ai scheduling agent example'
   },
   {
     slug: 'ai-agent-generate-proposals-statements-of-work-small-business',
-    title: 'AI Proposal and Statement of Work Agent for Small Business',
-    description: 'See how a custom AI proposal and statement of work agent drafts scope, pricing, and clauses from your past wins. Real example, cost range, workflow, and ROI for small businesses.',
+    title: 'How AI Proposal and SOW Agents Work',
+    description: 'How a custom AI proposal and statement-of-work agent drafts scope, pricing and clauses from your past wins, with a real example, cost range, workflow and ROI.',
     content: `
 **TL;DR:** A custom AI agent can read an inbound brief, look at your library of past proposals, draft a new proposal in your voice with the right scope, pricing, and clauses, and send it for human review in minutes instead of days. Typical build cost for small business: $5K-$13K. Typical timeline: 4-6 weeks. We have shipped this pattern for an HVAC contractor now [building quotations 95% faster](/company) and a legal team where lease analysis dropped from days to under 60 seconds.
 
@@ -11986,7 +11481,7 @@ We build custom AI agents for small business. [See the case studies and book a f
     isPillar: true,
     image: '/blog/ai-agent-custom-crm-quoting-system-small-business.png',
     readingTime: 9,
-    keywords: 'ai agent generate proposals statements of work small business, ai proposal generator small business, ai agent draft proposals, ai sow generator, ai agent proposal automation, custom ai proposal agent, ai agent rfp response small business, ai agent quote generator small business, automated proposal generation ai, ai agent for sales proposals'
+    keywords: 'how do ai proposal agents work, ai sow generation explained, ai proposal drafting workflow, ai statement of work automation, ai proposal agent roi, ai proposal generator explained'
   },
   {
     slug: 'how-to-create-mailto-link-that-actually-converts',
@@ -12126,9 +11621,8 @@ No signup. No account. One of a handful of [free Google Workspace tools](/tools)
 ## Related Reading
 
 - [Free Mailto Link Generator — build yours in 30 seconds](/tools/mailto-link-generator)
-- [Free Gmail Signature Generator: a clean signature in 60 seconds](/blog/free-gmail-signature-generator-create-a-clean-signature-in-60-seconds)
+- [Free Gmail Signature Generator — build a clean signature in 60 seconds](/tools/gmail-signature-generator/)
 - [7 Email Outreach Tips That Actually Get Replies in 2026](/blog/7-email-outreach-tips-that-actually-get-replies)
-- [Why a Professional Email Signature Is Your Secret Weapon for Outreach](/blog/free-email-signature-generator-outreach)
 - [How AI Can Organize Emails, Write Summaries, and Reply in Bulk](/blog/how-ai-organizes-emails-summaries-bulk-replies-and-meetings)
     `,
     author: {
