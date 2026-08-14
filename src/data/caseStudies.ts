@@ -14,6 +14,18 @@ export type CaseStudyTestimonial = {
   role: string
 }
 
+/**
+ * Headline numbers for a study, rendered as a stat band on the company page and
+ * the detail page. Only add these where the figures are measured and sourced,
+ * because a stat band is the first thing a visitor reads and the easiest thing
+ * to lose trust over.
+ */
+export type CaseStudyMetric = {
+  value: string
+  label: string
+  note?: string
+}
+
 export type CaseStudy = {
   id: number
   slug: string
@@ -46,9 +58,79 @@ export type CaseStudy = {
   relatedBlogHref?: string
   relatedBlogLabel?: string
   testimonial?: CaseStudyTestimonial
+  /** Optional headline stat band. See CaseStudyMetric. */
+  metrics?: CaseStudyMetric[]
+  /** Where the work is distributed or published, shown as a channel row. */
+  channels?: string[]
+  /** A public URL where the result can be seen for itself. */
+  externalHref?: string
+  externalLabel?: string
 }
 
 export const caseStudies: CaseStudy[] = [
+  {
+    id: 9,
+    slug: 'ai-motion-graphics-content-engine-social-growth',
+    industry: 'Media & Social Growth',
+    title: 'AI Motion-Graphics Content Engine',
+    summary: 'A content engine where every frame is generated from code instead of edited by hand, tuned by a retention analysis of the channel\'s own published data, and now measured at over 5 million plays across Facebook, Instagram, TikTok and YouTube.',
+    seoTitle: 'Content Engine Case Study: 5M+ Plays From Code-Generated Motion Graphics',
+    description: 'See how Naurra.ai built an AI motion-graphics content engine that renders every frame from code, feeds published retention data back into the format, and grew a football channel past 5 million plays and 35,000 followers.',
+    heroLabel: 'Media and social growth case study',
+    publishedAt: '2026-08-14',
+    updatedAt: '2026-08-14',
+    problem: 'A football channel was posting reaction and hot-take clips across Facebook, Instagram and TikTok, and the results were flat: a median of 978 plays per post and a median of zero shares. Every video was cut by hand, so runtime and pacing changed from one upload to the next, and nobody could explain why one clip reached 200,000 people while the next reached 3,000. Using broadcast footage was also a permanent copyright risk on every single upload.',
+    solution: 'We built a content engine rather than a content calendar. Every frame is rendered from a versioned code composition, so a short is a program, not a timeline, and no broadcast footage is ever touched. Then we closed the loop: a pull from the Meta Graph API snapshots plays, watch time, shares and the full second-by-second retention curve for every published short, and an analysis pipeline turns 80 settled videos into build rules. Those rules changed the format. Watch-through rate became a hard pre-publish gate, the first numbered step now lands on screen before second 3.5, the trailing summary beat was cut at source, and the topic mix moved from individual techniques to whole-team systems. The catalogue was then published as a crawlable library site, so the same diagrams also work as search and email assets instead of disappearing into a feed.',
+    impact: '5M+ plays, 35K+ followers',
+    impactDetail: 'The format change lifted median reach per short 5.4x, from 978 plays to 5,330. The best single short has passed 2 million plays, the catalogue has crossed 5 million, and the channel grew past 35,000 followers across every platform. Because every frame is drawn in code, not one upload has ever been claimed or taken down.',
+    challengeBullets: [
+      'Reaction and hot-take posts earned a median of zero shares, so nothing compounded.',
+      'Every short was cut by hand, so published runtime and pacing were unpredictable.',
+      'Nobody could say why one video reached 200,000 people and the next reached 3,000.',
+      'Broadcast footage put a copyright claim risk on every upload.'
+    ],
+    systemComponents: [
+      'Code-generated motion graphics: every frame rendered from a versioned composition, zero broadcast footage',
+      'A Meta Graph API pull that snapshots plays, watch time, shares and full retention curves per short',
+      'A retention analysis that reads each curve second by second and separates the two distinct failure modes',
+      'Build rules fed back into the compositions: first numbered step before second 3.5, no dead tail, whole-team systems over isolated techniques',
+      'A pre-publish quality gate on watch-through rate, the one signal that actually predicts reach',
+      'A crawlable library site that republishes the same diagrams as static pages, with email capture and its own analytics'
+    ],
+    outcomes: [
+      'A repeatable format with a measured pre-publish gate instead of guesswork',
+      'Median reach per short up 5.4x after the format change',
+      'Zero copyright exposure, because nothing is borrowed and every frame is generated',
+      'A catalogue that now works as a search and email asset, not only as a feed'
+    ],
+    timeline: 'Ongoing in-house build, 88 shorts published to date',
+    stack: ['Remotion', 'React', 'Meta Graph API', 'Python analysis', 'Astro', 'Supabase', 'Netlify'],
+    tags: ['Motion Graphics', 'Content Analytics', 'Retention Modeling'],
+    proofSource: 'Naurra in-house build',
+    proofContext: 'Code-generated content engine with a measured feedback loop',
+    metrics: [
+      { value: '5M+', label: 'Plays', note: 'across the published catalogue' },
+      { value: '35K+', label: 'Followers', note: 'across every platform' },
+      { value: '2M+', label: 'Best single short', note: 'one composition, one render' },
+      { value: '5.4x', label: 'Median reach lift', note: '978 to 5,330 plays per short' },
+    ],
+    channels: ['Facebook', 'Instagram', 'TikTok', 'YouTube', 'Telegram'],
+    accentFrom: 'from-lime-400',
+    accentTo: 'to-emerald-400',
+    theme: {
+      primary: '#a3e635',
+      secondary: '#34d399',
+      primarySoft: 'rgba(163,230,53,0.14)',
+      primaryBorder: 'rgba(163,230,53,0.26)',
+      secondarySoft: 'rgba(52,211,153,0.12)',
+      secondaryBorder: 'rgba(52,211,153,0.24)',
+    },
+    featured: true,
+    externalHref: 'https://totalfootball.naurra.ai/',
+    externalLabel: 'See the live library',
+    relatedSolutionHref: '/solutions/',
+    relatedSolutionLabel: 'Explore what else we build',
+  },
   {
     id: 0,
     slug: 'automotive-sourcing-engine-profit-automation',

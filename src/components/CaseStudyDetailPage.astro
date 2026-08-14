@@ -130,6 +130,32 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
             ))}
           </div>
 
+          {study.metrics && (
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+              {study.metrics.map((metric) => (
+                <div class="relative overflow-hidden rounded-2xl px-4 py-4" style={primaryCard}>
+                  <div class="absolute -top-10 -right-8 w-24 h-24 rounded-full blur-2xl pointer-events-none" style={`background: ${study.theme.primarySoft};`}></div>
+                  <div class="relative">
+                    <div style={`font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.03em; color: ${study.theme.primary};`} class="text-2xl lg:text-3xl leading-none">
+                      {metric.value}
+                    </div>
+                    <div class="mt-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white/75">{metric.label}</div>
+                    {metric.note && <div class="mt-1 text-[11px] text-gray-500 leading-snug">{metric.note}</div>}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {study.channels && (
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-8">
+              <span class="text-[11px] uppercase tracking-[0.18em] text-gray-600 font-semibold">Published on</span>
+              {study.channels.map((channel) => (
+                <span class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/[0.04] border border-white/[0.07] text-gray-400">{channel}</span>
+              ))}
+            </div>
+          )}
+
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
             <div class="rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3">
               <div class="text-[10px] font-mono uppercase tracking-wider text-gray-500 mb-1">Industry</div>
@@ -150,9 +176,16 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
               Talk through a similar build
               <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </a>
-            <a href="/case-studies/" class="px-7 py-3.5 bg-white/5 border border-white/10 rounded-xl text-gray-300 hover:bg-white/10 hover:text-white transition-all font-medium text-center text-sm">
-              Browse more case studies
-            </a>
+            {study.externalHref && study.externalLabel ? (
+              <a href={study.externalHref} target="_blank" rel="noopener" class="group px-7 py-3.5 rounded-xl text-white hover:opacity-90 transition-all font-semibold text-center text-sm inline-flex items-center justify-center gap-2" style={secondaryCard}>
+                {study.externalLabel}
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5h5m0 0v5m0-5L10 14M19 13v5a1 1 0 01-1 1H6a1 1 0 01-1-1V6a1 1 0 011-1h5" /></svg>
+              </a>
+            ) : (
+              <a href="/case-studies/" class="px-7 py-3.5 bg-white/5 border border-white/10 rounded-xl text-gray-300 hover:bg-white/10 hover:text-white transition-all font-medium text-center text-sm">
+                Browse more case studies
+              </a>
+            )}
           </div>
         </div>
 

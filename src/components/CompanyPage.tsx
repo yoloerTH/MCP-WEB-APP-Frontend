@@ -871,6 +871,23 @@ export default function CompanyPage() {
                         : 'bg-transparent border-white/[0.04] hover:bg-white/[0.03] hover:border-white/[0.08]'
                     }`}
                   >
+                    {/* The lead story gets a badge and its headline number, so the
+                        list sells the first entry instead of merely listing it. */}
+                    {i === 0 && (
+                      <div className="flex items-center mb-2.5">
+                        <span
+                          className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-[0.16em]"
+                          style={{
+                            background: `linear-gradient(135deg, ${cs.theme.primarySoft}, ${cs.theme.secondarySoft})`,
+                            border: `1px solid ${cs.theme.primaryBorder}`,
+                            color: cs.theme.primary,
+                          }}
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: cs.theme.primary }} />
+                          Featured
+                        </span>
+                      </div>
+                    )}
                     <div className="flex items-center gap-3">
                       <span className={`text-xs font-mono font-bold transition-colors ${
                         activeProject === i ? 'text-emerald-400' : 'text-gray-600'
@@ -884,6 +901,11 @@ export default function CompanyPage() {
                           {cs.title}
                         </div>
                         <div className="text-xs text-gray-600 mt-0.5">{cs.industry}</div>
+                        {i === 0 && (
+                          <div className="text-xs font-semibold mt-1.5 truncate" style={{ color: cs.theme.primary }}>
+                            {cs.impact}
+                          </div>
+                        )}
                       </div>
                       {activeProject === i && (
                         <motion.div
@@ -924,9 +946,65 @@ export default function CompanyPage() {
                       ))}
                     </div>
 
-                    <h3 className="text-2xl lg:text-3xl font-display font-extrabold text-white mb-8">
+                    <h3 className={`text-2xl lg:text-3xl font-display font-extrabold text-white ${project.metrics ? 'mb-6' : 'mb-8'}`}>
                       {project.title}
                     </h3>
+
+                    {/* Headline metrics — only on studies carrying measured numbers */}
+                    {project.metrics && (
+                      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+                        {project.metrics.map((metric, mi) => (
+                          <motion.div
+                            key={metric.label}
+                            initial={{ opacity: 0, y: 12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4, delay: 0.08 + mi * 0.07 }}
+                            className="relative overflow-hidden rounded-2xl border px-4 py-4"
+                            style={{
+                              background: `linear-gradient(150deg, ${project.theme.primarySoft}, rgba(255,255,255,0.012))`,
+                              borderColor: project.theme.primaryBorder,
+                            }}
+                          >
+                            {/* Soft corner bloom, so the band reads as lit rather than boxed */}
+                            <div
+                              className="absolute -top-10 -right-8 w-24 h-24 rounded-full blur-2xl pointer-events-none"
+                              style={{ background: project.theme.primarySoft }}
+                            />
+                            <div className="relative">
+                              <div
+                                className="font-display font-black leading-none tracking-tight text-[26px] lg:text-[30px]"
+                                style={{ color: project.theme.primary }}
+                              >
+                                {metric.value}
+                              </div>
+                              <div className="mt-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white/75">
+                                {metric.label}
+                              </div>
+                              {metric.note && (
+                                <div className="mt-1 text-[11px] text-gray-500 leading-snug">{metric.note}</div>
+                              )}
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Distribution surfaces */}
+                    {project.channels && (
+                      <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-8">
+                        <span className="text-[11px] uppercase tracking-[0.18em] text-gray-600 font-semibold">
+                          Published on
+                        </span>
+                        {project.channels.map(channel => (
+                          <span
+                            key={channel}
+                            className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-white/[0.04] border border-white/[0.07] text-gray-400"
+                          >
+                            {channel}
+                          </span>
+                        ))}
+                      </div>
+                    )}
 
                     {/* Problem → Solution → Impact narrative */}
                     <div className="space-y-8">
@@ -997,17 +1075,38 @@ export default function CompanyPage() {
                         <div className="text-sm text-gray-500">
                           Want the full build story, system design, and related next steps?
                         </div>
-                        <motion.a
-                          href={`/case-studies/${project.slug}/`}
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-sm font-semibold text-white hover:bg-white/10 hover:border-emerald-500/30 transition-all"
-                        >
-                          Read full case study
-                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                          </svg>
-                        </motion.a>
+                        <div className="flex flex-col sm:flex-row gap-3">
+                          <motion.a
+                            href={`/case-studies/${project.slug}/`}
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-sm font-semibold text-white whitespace-nowrap hover:bg-white/10 hover:border-emerald-500/30 transition-all"
+                          >
+                            Read full case study
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                          </motion.a>
+                          {project.externalHref && project.externalLabel && (
+                            <motion.a
+                              href={project.externalHref}
+                              target="_blank"
+                              rel="noopener"
+                              whileHover={{ scale: 1.02 }}
+                              whileTap={{ scale: 0.98 }}
+                              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold text-white whitespace-nowrap transition-all hover:opacity-90"
+                              style={{
+                                background: `linear-gradient(135deg, ${project.theme.primarySoft}, ${project.theme.secondarySoft})`,
+                                border: `1px solid ${project.theme.primaryBorder}`,
+                              }}
+                            >
+                              {project.externalLabel}
+                              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5h5m0 0v5m0-5L10 14M19 13v5a1 1 0 01-1 1H6a1 1 0 01-1-1V6a1 1 0 011-1h5" />
+                              </svg>
+                            </motion.a>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>

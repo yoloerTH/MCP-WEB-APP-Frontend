@@ -130,6 +130,16 @@ const itemListSchema = {
               <p class="text-sm text-gray-400 leading-relaxed mb-6">
                 {study.summary}
               </p>
+              {study.metrics && (
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+                  {study.metrics.map((metric) => (
+                    <div class="rounded-xl border border-white/[0.07] bg-white/[0.02] px-3 py-3">
+                      <div style={`font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.03em; color: ${study.theme.primary};`} class="text-xl leading-none">{metric.value}</div>
+                      <div class="mt-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-gray-500">{metric.label}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
               <div class="rounded-2xl px-5 py-5 mb-6" style={`background: linear-gradient(135deg, ${study.theme.primarySoft}, rgba(255,255,255,0.01)); border: 1px solid ${study.theme.primaryBorder};`}>
                 <div class="text-[11px] font-mono uppercase tracking-[0.22em] mb-2" style={`color: ${study.theme.primary};`}>Outcome</div>
                 <div class="text-2xl font-bold text-white mb-2">{study.impact}</div>
