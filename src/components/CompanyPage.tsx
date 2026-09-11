@@ -376,7 +376,7 @@ export default function CompanyPage() {
         initial={{ y: 0 }}
         animate={{ y: showNav ? 0 : -140 }}
         transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-        className="fixed top-[36px] left-0 right-0 z-50 backdrop-blur-xl bg-[#0a0e1a]/90 border-b border-emerald-500/10"
+        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#0a0e1a]/90 border-b border-emerald-500/10"
       >
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8 py-3 lg:py-5 flex items-center justify-between">
           <motion.div
@@ -442,11 +442,11 @@ export default function CompanyPage() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.location.href = '/'}
+              onClick={() => window.location.href = '/product/'}
               className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
               style={{ fontFamily: 'Outfit, sans-serif' }}
             >
-              Company
+              Product
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -522,7 +522,7 @@ export default function CompanyPage() {
                 { label: 'Explore AI Hub', path: '/inspiration/', color: 'text-gray-300' },
                 { label: 'Compare', path: '/compare/', color: 'text-gray-300' },
                 { label: 'Pricing', path: '/pricing/', color: 'text-gray-300' },
-                { label: 'Company', path: '/', color: 'text-gray-300' },
+                { label: 'Product', path: '/product/', color: 'text-gray-300' },
                 { label: 'About', path: '/about/', color: 'text-gray-300' },
                 { label: 'Blog', path: '/blog/', color: 'text-gray-300' },
                 { label: 'Contact', path: '/contact/', color: 'text-amber-400' },
