@@ -48,7 +48,9 @@ const articleSchema = {
   },
   publisher: {
     '@type': 'Organization',
+    '@id': 'https://naurra.ai/#organization',
     name: 'Naurra.ai',
+    url: 'https://naurra.ai/',
     logo: {
       '@type': 'ImageObject',
       url: 'https://naurra.ai/logo-transparent.png'
@@ -130,7 +132,9 @@ const videoSchemas = uniqueVideoIds.map((videoId, idx) => ({
   embedUrl: `https://www.youtube.com/embed/${videoId}`,
   publisher: {
     '@type': 'Organization',
+    '@id': 'https://naurra.ai/#organization',
     name: 'Naurra.ai',
+    url: 'https://naurra.ai/',
     logo: {
       '@type': 'ImageObject',
       url: 'https://naurra.ai/logo-transparent.png'

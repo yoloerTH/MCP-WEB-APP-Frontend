@@ -29,7 +29,7 @@ export const landingPageFAQs = [
   },
   {
     question: 'How much does Naurra.ai cost?',
-    answer: 'Naurra.ai offers a free 3-day trial with no credit card required. After the trial, plans start at $79/month or $799/year (save 16%). All plans include full access to voice and chat AI, all Google Workspace integrations, 35+ AI-powered productivity tools, and unlimited usage within the active billing period.'
+    answer: 'Naurra.ai offers a free 3-day trial with no credit card required. After the trial, plans start at €79/month or €799/year (save 16%). All plans include full access to voice and chat AI, all Google Workspace integrations, 35+ AI-powered productivity tools, and unlimited usage within the active billing period.'
   },
   {
     question: 'Is my data secure with Naurra.ai?',
@@ -57,7 +57,7 @@ export const pricingPageFAQs = [
   },
   {
     question: 'Is there a difference between monthly and yearly plans?',
-    answer: 'Both plans include identical features — full access to voice and chat AI, all 8 Google Workspace integrations, 35+ AI-powered tools, and unlimited usage for the duration of the billing period. The yearly plan at $799/year saves you 16% compared to paying $79/month ($948/year).'
+    answer: 'Both plans include identical features — full access to voice and chat AI, all 8 Google Workspace integrations, 35+ AI-powered tools, and unlimited usage for the duration of the billing period. The yearly plan at €799/year saves you 16% compared to paying €79/month (€948/year).'
   },
   {
     question: 'Do I need a Google Workspace account?',
@@ -77,7 +77,7 @@ export function StructuredData({ type, data }: StructuredDataProps) {
       name: 'Naurra.ai',
       url: 'https://naurra.ai',
       logo: 'https://naurra.ai/logo-transparent.png',
-      description: 'AI-powered workspace assistant for Google Workspace. Control Gmail, Calendar, Drive, Docs, and more through natural voice commands or chat.',
+      description: 'AI company that builds custom AI agents and automation systems for businesses, and makes the Naurra.ai voice and chat assistant for Google Workspace.',
       foundingDate: '2025',
       contactPoint: {
         '@type': 'ContactPoint',
@@ -105,7 +105,7 @@ export function StructuredData({ type, data }: StructuredDataProps) {
           '@type': 'Offer',
           name: 'Monthly Plan',
           price: '79.00',
-          priceCurrency: 'USD',
+          priceCurrency: 'EUR',
           priceValidUntil: '2027-12-31',
           availability: 'https://schema.org/InStock',
           url: 'https://naurra.ai/pricing/'
@@ -114,7 +114,7 @@ export function StructuredData({ type, data }: StructuredDataProps) {
           '@type': 'Offer',
           name: 'Yearly Plan',
           price: '799.00',
-          priceCurrency: 'USD',
+          priceCurrency: 'EUR',
           priceValidUntil: '2027-12-31',
           availability: 'https://schema.org/InStock',
           url: 'https://naurra.ai/pricing/'

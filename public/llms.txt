@@ -1,34 +1,90 @@
 # Naurra.ai
 
-> Naurra.ai helps people and businesses save hours every week on Gmail, Google Calendar and Google Workspace. The product is a voice-first AI that runs Gmail, Calendar, Drive, Docs, Sheets, Meet, Tasks, and Contacts through natural voice commands or chat — replacing manual clicks with one prompt. Naurra.ai also builds custom AI agents for small business, including custom CRMs, AI quoting systems, sales and support automation, and Google Workspace workflows, with fixed-price engagements typically delivered in 4–8 weeks.
+> Naurra.ai is an AI company. It designs and builds custom AI agents and automation systems for businesses: quoting systems and custom CRMs, sales and lead capture, customer support, scheduling, proposals, document intelligence, and operations automation, with fixed-price, engineer-led delivery. Naurra.ai also makes its own product, a voice and chat AI assistant that runs Gmail, Google Calendar, Drive, Docs, Sheets, Meet, Tasks, and Contacts.
 
-## What Naurra.ai Does
+Naurra.ai is operated by NAURRA AI LTD, a company incorporated in Cyprus (registration number HE 493756). It was founded in 2025 by Athanasios-Ioannis Panagiotakopoulos, CEO & AI Engineer. The company website is https://naurra.ai/ and the Google Workspace assistant product is at https://naurra.ai/product/.
 
-Naurra.ai is an AI-powered productivity platform that connects to Google Workspace and lets users manage all 8 Google services through natural language. Users speak or type commands like "Send an email to John about tomorrow's meeting" or "Create a project brief doc and share it with the team" and Naurra executes them instantly.
+## Company at a Glance
 
-Key differentiator: Naurra.ai performs multi-service orchestration — one voice command can trigger actions across multiple Google services simultaneously. For example, "Create a meeting agenda doc and email it to tomorrow's meeting attendees" checks Calendar, creates a Doc, and sends it via Gmail in one step.
+- **What Naurra.ai is**: An AI company that builds custom AI agents and AI systems for businesses, and the maker of the Naurra.ai assistant for Google Workspace
+- **Legal entity**: NAURRA AI LTD, incorporated in Cyprus, company registration number HE 493756
+- **Registered office**: 10 Kyriakou Matsi, LILIANA COURT, 4th Floor, 1082 Nicosia, Cyprus
+- **Founded**: 2025
+- **Founder**: Athanasios-Ioannis Panagiotakopoulos, CEO & AI Engineer, who has personally delivered every project in the portfolio
+- **Track record**: 15+ projects across 9+ industries
+- **Industries served**: HVAC and MEP, automotive, legal and finance, LegalTech and aviation, travel, fashion, e-commerce and wellness, CRM and sales, media and social growth, quantitative analytics
+- **Engagement model**: Fixed-price projects, scoped individually after a free consultation, with a detailed proposal within 48 hours
+- **Delivery**: Productized AI agents typically ship in 3 to 6 weeks; broader custom projects typically in 4 to 8 weeks, with working demos from week one
+- **Support**: Ongoing support and optimization after deployment
+- **Contact**: support@naurra.ai or https://naurra.ai/contact/ (reply within 24 hours)
 
-## Core Features
+## What Naurra.ai Builds
 
-- **Voice AI**: Real-time voice assistant with barge-in support (interrupt while AI is speaking)
+- **Custom AI agents**: Purpose-built agents for a specific business operation such as quoting, lead intake, invoice triage, or reporting
+- **AI quoting systems and custom CRMs**: Read inbound leads, pull pricing from the business's source of truth, draft a branded quote in the business's voice, and log everything in a lightweight CRM
+- **Sales and multi-channel communication**: One AI across WhatsApp, Telegram, Instagram, email, and web chat, with CRM memory and human handoff
+- **Customer support automation**: Triage, classification, drafted replies, auto-resolution of simple cases, and escalation with full context
+- **Document intelligence**: Reading, classifying, and extracting structured data from contracts, invoices, leases, and other business documents
+- **Workflow and operations automation**: End-to-end automation across Google Workspace, Slack, WhatsApp, Salesforce, custom CRMs, and legacy systems
+- **AI consulting and integration**: Deciding between custom and off-the-shelf AI, then integrating AI into the tools a business already uses
+
+Technologies used include the latest GPT models, Claude, Gemini, voice AI, autonomous agents, the Model Context Protocol (MCP), RAG pipelines, and NLP/NLU.
+
+## Custom AI Agent Solutions
+
+Productized custom AI agents at fixed pricing. Each one is built around the customer's exact workflow, products, and tone, not a SaaS template. Full catalog: https://naurra.ai/solutions/
+
+- [AI CRM + Quoting Agent](https://naurra.ai/solutions/ai-agent-custom-crm-quoting-system-small-business/) (€3.5K–€10K, 4–6 weeks): Captures inbound leads from email, WhatsApp, Instagram and forms; pulls pricing from your source of truth; drafts a branded quote in your voice; logs everything in a lightweight custom CRM; follows up automatically
+- [AI Invoicing Agent](https://naurra.ai/solutions/ai-agent-automate-invoicing-payment-reminders-small-business/) (€2.5K–€7K, 3–5 weeks): Issues invoices from billable triggers, chases unpaid balances, reconciles payments, and reports outstanding balance daily
+- [AI Lead Capture Agent](https://naurra.ai/solutions/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business/) (€2.5K–€8.5K, 4–6 weeks): Listens across Instagram DMs, WhatsApp, email, and web forms; qualifies leads against your rules; replies in your tone; routes qualified prospects to sales with full cross-channel context
+- [AI Customer Support Agent](https://naurra.ai/solutions/ai-agent-handle-customer-support-emails-small-business/) (€2K–€7K, 3–5 weeks): Triages every support email, looks up real data, drafts replies in your voice, auto-resolves the simple categories, and escalates the rest
+- [AI Scheduling Agent](https://naurra.ai/solutions/ai-agent-schedule-confirm-client-appointments-small-business/) (€2K–€5.5K, 3–5 weeks): Books appointments over WhatsApp and email, sends confirmations and reminders, handles reschedules, and reduces no-shows
+- [AI Proposal Agent](https://naurra.ai/solutions/ai-agent-generate-proposals-statements-of-work-small-business/) (€2.5K–€8.5K, 4–6 weeks): Reads inbound briefs, searches past won proposals, drafts scope and pricing in your voice, inserts your standard clauses, and outputs a branded PDF
+
+## Case Studies
+
+Real client and in-house builds with measured results. Index: https://naurra.ai/case-studies/
+
+- [AI Motion-Graphics Content Engine](https://naurra.ai/case-studies/ai-motion-graphics-content-engine-social-growth/) (Media & Social Growth): A content engine that renders every frame from code and feeds published retention data back into the format. Grew a football channel past 5M+ plays and 35K+ followers, with a best single short of 2M+ plays and a 5.4x median reach lift. Live result: https://totalfootball.naurra.ai/
+- [Automotive Sourcing Engine](https://naurra.ai/case-studies/automotive-sourcing-engine-profit-automation/) (Automotive): Scans listing sites and filters undervalued cars, helping a reseller uncover roughly $15K profit every two weeks
+- [Flight-Compensation Document Intelligence](https://naurra.ai/case-studies/document-intelligence-flight-compensation-eu261-automation/) (LegalTech & Aviation): A production document-intelligence pipeline for an EU261 flight-compensation firm, with OCR, classification, and field extraction across six document types and a credential-isolated, safe-by-design architecture
+- [AI Travel Concierge](https://naurra.ai/case-studies/ai-travel-concierge-whatsapp-telegram-itineraries/) (Travel): A WhatsApp and Telegram concierge that cut itinerary creation from 3 hours to 20–30 minutes, saved 180+ staff hours a month, and grew monthly revenue from €15k to €27k
+- [MEP Quotation Intelligence](https://naurra.ai/case-studies/mep-quotation-intelligence-hvac-case-study/) (HVAC & MEP): Reads specs, matches equipment, and generates complete quotes with 95% faster processing
+- [AI Communication Suite](https://naurra.ai/case-studies/multi-channel-salesforce-ai-communication-suite/) (CRM & Sales): One AI across WhatsApp, Telegram, email, and web chat with Salesforce memory and handoff
+- [Lease AI Analyser](https://naurra.ai/case-studies/lease-ai-analyser-legal-document-intelligence/) (Legal & Finance): Extracts lease clauses, calculates NPV, and flags risk in under 60 seconds instead of days
+- [AI Virtual Fitting Room](https://naurra.ai/case-studies/bespoke-fashion-ai-virtual-fitting-room/) (Fashion): Lets a bespoke tailor's clients preview suit combinations before production
+- [Full-Stack E-Commerce Platform](https://naurra.ai/case-studies/full-stack-ecommerce-ai-operations-platform/) (E-Commerce): Automates support, email marketing, social publishing, receipts, and SEO workflows for a wellness brand, reaching 100% automated operations
+- [Quantitative Probability & EV Engine](https://naurra.ai/case-studies/football-ev-lab-probability-expected-value-engine/) (Quantitative Analytics): A probabilistic modeling and expected-value engine where a single Poisson outcome grid prices every market consistently, validated with calibration and closing-line value
+
+## The Product: Naurra.ai Assistant for Google Workspace
+
+Product page: https://naurra.ai/product/
+
+The Naurra.ai assistant connects to Google Workspace and lets users manage 8 Google services through natural language. Users speak or type commands like "Send an email to John about tomorrow's meeting" or "Create a project brief doc and share it with the team" and Naurra.ai executes them.
+
+Key differentiator: multi-service orchestration. One command can trigger actions across several Google services at once. For example, "Create a meeting agenda doc and email it to tomorrow's meeting attendees" checks Calendar, creates a Doc, and sends it via Gmail in one step.
+
+### Core Features
+
+- **Voice AI**: Real-time voice assistant with barge-in support (interrupt while the AI is speaking)
 - **Chat AI**: Text-based interface for the same workspace commands
 - **Multi-Service Orchestration**: Single commands that span Gmail, Calendar, Drive, Docs, Sheets, Meet, Tasks, and Contacts
 - **35+ Pre-Built AI Workflows**: Ready-made automations for common productivity tasks
 - **Native iOS App**: Available on the Apple App Store (app ID: id6759445443)
-- **Web App**: Available at https://naurra.ai
+- **Web App**: Available at https://naurra.ai/product/
 
-## Supported Google Workspace Services
+### Supported Google Workspace Services
 
-1. **Gmail** — Read, send, search, reply, forward, archive emails
-2. **Google Calendar** — Create, view, update, delete events; check availability
-3. **Google Drive** — Find, organize, share, create files and folders
-4. **Google Docs** — Create, edit, and share documents
-5. **Google Sheets** — Create, update, and query spreadsheets
-6. **Google Meet** — Schedule and manage video meetings
-7. **Google Tasks** — Create and manage task lists
-8. **Google Contacts** — Look up and manage contact information
+1. **Gmail**: Read, send, search, reply, forward, archive emails
+2. **Google Calendar**: Create, view, update, delete events; check availability
+3. **Google Drive**: Find, organize, share, create files and folders
+4. **Google Docs**: Create, edit, and share documents
+5. **Google Sheets**: Create, update, and query spreadsheets
+6. **Google Meet**: Schedule and manage video meetings
+7. **Google Tasks**: Create and manage task lists
+8. **Google Contacts**: Look up and manage contact information
 
-## Example Voice Commands
+### Example Commands
 
 - "Check my emails from today"
 - "Schedule a meeting with Sarah next Tuesday at 2pm"
@@ -36,44 +92,22 @@ Key differentiator: Naurra.ai performs multi-service orchestration — one voice
 - "Find the Q4 sales report in Drive"
 - "Send a follow-up email to today's meeting attendees"
 - "What does my calendar look like this week?"
-- "Create a spreadsheet for expense tracking"
-- "Move all Q4 reports to the Finance folder"
-
-## Multi-Step Command Examples
-
 - "Check my calendar for today, summarize my unread emails, and tell me what I need to focus on"
-- "Create a meeting agenda doc and email it to the attendees of my 2pm meeting"
 - "Pull the deadlines from my project spreadsheet and create calendar events for each one"
-- "Draft a status update email based on what I did today and send it to my manager"
 
-## Pricing
+### Pricing
 
 - **Free Trial**: 3 days, full access, no credit card required
-- **Monthly**: $79/month
-- **Yearly**: $799/year (save 16%)
+- **Monthly**: €79/month
+- **Yearly**: €799/year (save 16%)
 
-All plans include full voice and chat AI, all 8 Google Workspace integrations, 35+ AI tools, and unlimited usage within the active billing period.
+All plans include full voice and chat AI, all 8 Google Workspace integrations, 35+ AI tools, and unlimited usage within the active billing period. Details: https://naurra.ai/pricing/
 
-## Custom AI Solutions for Small Business
-
-Naurra.ai builds custom AI agents for small business — purpose-engineered software that automates the workflows your team does manually every day. Common engagements:
-
-- **Custom AI Agent Development**: Purpose-built AI agents for a specific business operation (quoting, lead intake, invoice triage, reporting)
-- **Custom CRM + AI Quoting Systems**: Lightweight custom CRMs with AI-powered quote generation that reads inbound leads, pulls pricing from your source of truth, drafts a branded quote in your voice, and logs everything in one dashboard
-- **Workflow Automation**: End-to-end automation of manual processes across Gmail, Google Calendar, Drive, Docs, Sheets, Slack, WhatsApp and CRMs
-- **AI Chatbot Development**: Customer-facing and internal chatbots with natural language understanding
-- **AI Consulting**: Strategy and implementation guidance for small businesses adopting AI
-- **System Integration**: Connecting AI with existing tools like Salesforce, Slack, WhatsApp, custom CRMs, and legacy systems
-
-Typical pricing for small business custom AI builds: $4,000–$19,000 fixed-price, with ongoing AI and hosting costs of $100–$375/month. Most projects are delivered in 3–6 weeks. Industries served include HVAC, legal, automotive, travel, fashion, e-commerce, wellness, and more.
-
-Founded by Athanasios-Ioannis Panagiotakopoulos (CEO & AI Engineer), who personally delivers every project. Contact support@naurra.ai or visit https://naurra.ai/contact for a free consultation.
-
-## Technical Details
+### Technical Details
 
 - Real-time voice processing with Deepgram Nova-3 (speech-to-text) and Cartesia Sonic-3 (text-to-speech)
 - LLM-powered intent parsing and response generation
-- Secure OAuth 2.0 Google authentication
+- Secure OAuth 2.0 Google authentication; Google credentials are never stored
 - End-to-end encryption, GDPR compliant
 - Sub-100ms orchestration latency
 - 99.9% uptime
@@ -81,161 +115,148 @@ Founded by Athanasios-Ioannis Panagiotakopoulos (CEO & AI Engineer), who persona
 ## Frequently Asked Questions
 
 **What is Naurra.ai?**
-Naurra.ai is an AI-powered voice and chat assistant for Google Workspace. It lets you control Gmail, Calendar, Drive, Docs, Sheets, Meet, Tasks, and Contacts through natural voice commands or text chat. Naurra.ai also builds custom AI solutions for businesses.
+Naurra.ai is an AI company that designs and builds custom AI agents and automation systems for businesses. It also makes the Naurra.ai assistant, a voice and chat AI for Google Workspace.
 
-**How is Naurra.ai different from Google Assistant or Siri?**
-Naurra.ai is purpose-built for Google Workspace productivity. It executes complex multi-step workflows across multiple Google services in a single command — something general-purpose assistants cannot do.
+**Is Naurra.ai an AI agency or a software product?**
+Primarily an AI company that builds custom AI systems for clients. The Google Workspace assistant is its own product, available at https://naurra.ai/product/.
 
-**What Google services does Naurra.ai support?**
-Naurra.ai integrates with 8 Google Workspace services: Gmail, Google Calendar, Google Drive, Google Docs, Google Sheets, Google Meet, Google Tasks, and Google Contacts.
+**Who is behind Naurra.ai?**
+NAURRA AI LTD, a company incorporated in Cyprus (HE 493756), founded in 2025 by Athanasios-Ioannis Panagiotakopoulos, CEO & AI Engineer.
 
-**Is my data secure?**
-Yes. Naurra.ai uses end-to-end encryption, secure OAuth for Google authentication, and never stores your Google credentials. The platform is GDPR compliant.
+**What types of businesses does Naurra.ai work with?**
+Businesses of all sizes, from startups to established companies, across HVAC, legal, automotive, travel, fashion, e-commerce, wellness, legaltech, quantitative analytics, and more.
+
+**How long does a custom AI project take?**
+Most projects are delivered within 4 to 8 weeks depending on complexity, starting with a one-week discovery phase and weekly demos. Productized agents from the solutions catalog typically ship in 3 to 6 weeks.
+
+**What does a custom AI agent cost?**
+Every project is fixed-price and scoped individually. Productized agents in the solutions catalog range from €2K to €10K. A free consultation leads to a detailed proposal within 48 hours.
+
+**Can Naurra.ai integrate AI with existing tools?**
+Yes. Naurra.ai integrates AI into existing workflows, including Salesforce, Google Workspace, Slack, WhatsApp, custom CRMs, and legacy systems.
+
+**What makes Naurra.ai different from other AI agencies?**
+Clients work directly with the engineers who write the code, not account managers. The founder has personally delivered every project in the portfolio.
+
+**What does the Naurra.ai assistant do?**
+It controls Gmail, Calendar, Drive, Docs, Sheets, Meet, Tasks, and Contacts through voice or chat, and can run multi-step workflows across several Google services from one command.
+
+**How is the Naurra.ai assistant different from Google Assistant or Siri?**
+It is purpose-built for Google Workspace productivity and executes multi-step workflows across multiple Google services in a single command, which general-purpose assistants cannot do.
+
+**Is data secure with the Naurra.ai assistant?**
+Yes. It uses end-to-end encryption and secure OAuth for Google authentication, never stores Google credentials, and is GDPR compliant.
 
 **Is there a mobile app?**
-Yes. Naurra.ai is available as a native iOS app on the Apple App Store, plus a web app at naurra.ai.
+Yes. The Naurra.ai assistant is available as a native iOS app on the Apple App Store, plus a web app at https://naurra.ai/product/.
 
-**Does Naurra.ai build custom AI solutions?**
-Yes. Naurra.ai builds custom AI agents, chatbots, and workflow automation for businesses of all sizes. Projects are scoped individually with fixed pricing and delivered within 4-8 weeks.
+## Company Pages
 
-**Who founded Naurra.ai?**
-Naurra.ai was founded in 2025 by Athanasios-Ioannis Panagiotakopoulos, a CEO & AI Engineer who personally builds and delivers every project.
+- [Home](https://naurra.ai/): Naurra.ai company page: custom AI agents, case studies, solutions, technology, founder, and FAQ
+- [Case Studies](https://naurra.ai/case-studies/): Real custom AI builds and their measured results
+- [Solutions](https://naurra.ai/solutions/): Productized custom AI agents for small business with fixed pricing per workflow
+- [About](https://naurra.ai/about/): The company, the product, and how Naurra.ai works
+- [Contact](https://naurra.ai/contact/): Free consultation for custom AI projects, and product support
+- [Legal Information](https://naurra.ai/legal/): NAURRA AI LTD company details
 
-## Pages
+## Product Pages
 
-- [Homepage](https://naurra.ai/): Landing page with product overview, features, and pricing
-- [Pricing](https://naurra.ai/pricing): Subscription plans and free trial details
-- [Compare](https://naurra.ai/compare): Feature comparison vs Google Assistant, Siri, and AI chatbots
-- [Solutions](https://naurra.ai/solutions): Productized custom AI agents for small business — CRM and quoting, invoicing, lead capture, customer support, scheduling, and proposals, with fixed pricing per workflow
-- [AI CRM and Quoting Agent](https://naurra.ai/solutions/ai-agent-custom-crm-quoting-system-small-business): Dedicated solution page for the custom AI CRM and quoting agent build (€3.5K–€10K, 4–6 weeks)
-- [AI Invoicing Agent](https://naurra.ai/solutions/ai-agent-automate-invoicing-payment-reminders-small-business): Dedicated solution page for invoice generation, reminder automation, and reconciliation (€2.5K–€7K, 3–5 weeks)
-- [AI Lead Capture Agent](https://naurra.ai/solutions/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business): Dedicated solution page for multi-channel lead capture and qualification (€2.5K–€8.5K, 4–6 weeks)
-- [AI Customer Support Agent](https://naurra.ai/solutions/ai-agent-handle-customer-support-emails-small-business): Dedicated solution page for support inbox triage and reply automation (€2K–€7K, 3–5 weeks)
-- [AI Scheduling Agent](https://naurra.ai/solutions/ai-agent-schedule-confirm-client-appointments-small-business): Dedicated solution page for booking, confirmations, reminders, and reschedules (€2K–€5.5K, 3–5 weeks)
-- [AI Proposal Agent](https://naurra.ai/solutions/ai-agent-generate-proposals-statements-of-work-small-business): Dedicated solution page for proposals and statements of work generated from real past wins (€2.5K–€8.5K, 4–6 weeks)
-- [Custom AI Solutions](https://naurra.ai/company): Custom AI agent development, case studies across 7 industries, founder bio, and portfolio
-- [Blog](https://naurra.ai/blog): Articles on AI productivity, automation, and business strategy
-- [Contact](https://naurra.ai/contact): Contact form and support
-- [Privacy Policy](https://naurra.ai/privacy): Data privacy and GDPR compliance
-- [Terms of Service](https://naurra.ai/terms): Terms and conditions
+- [Product](https://naurra.ai/product/): The Naurra.ai voice and chat AI assistant for Google Workspace
+- [Pricing](https://naurra.ai/pricing/): Subscription plans and free trial details
+- [Compare](https://naurra.ai/compare/): Feature comparison vs Google Assistant, Siri, and AI chatbots
+- [Free Tools](https://naurra.ai/tools/): Free Google Workspace productivity tools
+- [Privacy Policy](https://naurra.ai/privacy/): Data privacy and GDPR compliance
+- [Terms of Service](https://naurra.ai/terms/): Terms and conditions
 
-## Company
+## Company Profiles
 
-- **Founded**: 2025
-- **Founder**: Athanasios-Ioannis Panagiotakopoulos, CEO & AI Engineer
-- **Website**: [naurra.ai](https://naurra.ai)
-- **iOS App**: [Apple App Store](https://apps.apple.com/app/naurra-ai/id6759445443)
+- **Website**: [naurra.ai](https://naurra.ai/)
 - **LinkedIn**: [Naurra.ai](https://www.linkedin.com/company/109405415)
+- **Founder LinkedIn**: [Athanasios-Ioannis Panagiotakopoulos](https://www.linkedin.com/in/athanasios-ioannis-panagiotakopoulos-2362a9274/)
 - **X (Twitter)**: [@Naurra_ai](https://x.com/Naurra_ai)
 - **Instagram**: [@naurra.ai](https://www.instagram.com/naurra.ai/)
 - **YouTube**: [@naurra_ai](https://www.youtube.com/@naurra_ai)
 - **Reddit**: [u/naurra_ai](https://www.reddit.com/user/naurra_ai/)
 - **Facebook**: [Naurra.ai](https://www.facebook.com/profile.php?id=61588566855794)
-- **Contact**: [naurra.ai/contact](https://naurra.ai/contact)
+- **iOS App**: [Apple App Store](https://apps.apple.com/app/naurra-ai/id6759445443)
 
 ## Optional
 
-Additional resources for deeper context:
+### Custom AI Guides
 
-- [Introducing Naurra AI: One Prompt. Your Whole Workspace, Done.](https://naurra.ai/blog/introducing-naurra-ai-one-prompt-whole-workspace-done): The Naurra AI launch film and the product story behind it — why the next AI interface for work is execution, not more prompting
-- [AI Workspace Automation Guide](https://naurra.ai/blog/ai-workspace-automation-2026): Complete guide to AI-powered workspace automation in 2026
-- [Voice AI vs Traditional Assistants](https://naurra.ai/blog/voice-ai-vs-traditional-assistants): Comparison of voice AI and traditional virtual assistants
-- [Custom AI Agents for Business](https://naurra.ai/blog/custom-ai-agents-for-business): How companies are automating operations with custom AI agents
-- [AI Agent vs Chatbot](https://naurra.ai/blog/ai-agent-vs-chatbot-what-your-business-actually-needs): What businesses actually need — AI agents or chatbots
-- [Gmail Automation Tips](https://naurra.ai/blog/gmail-automation-tips): 10 Gmail automation tips that save hours, including a video demo of sending Gmail emails by voice with Naurra AI
-- [Google Workspace Voice Commands Guide](https://naurra.ai/blog/google-workspace-voice-commands-guide): Complete guide to voice commands for Google Workspace
-- [AI for Small Business](https://naurra.ai/blog/small-business-ai-automation): How small businesses save 20+ hours per week with AI
-- [Is AI Safe for Business Data?](https://naurra.ai/blog/is-ai-safe-for-your-business-data): Security and privacy considerations for business AI
-- [The Non-Technical Guide to AI](https://naurra.ai/blog/non-technical-guide-to-ai-for-business-owners): AI explained for business owners without technical background
-- [How to Automate Repetitive Tasks](https://naurra.ai/blog/how-to-automate-repetitive-tasks): Save 10+ hours every week by automating repetitive work
-- [AI for Remote Teams](https://naurra.ai/blog/ai-for-remote-teams-2026): How distributed teams stay productive with AI in 2026
-- [A Day in the Life: Solo Founder with AI](https://naurra.ai/blog/a-day-in-the-life-solo-founder-with-ai): How a solo founder runs a business with AI
-- [The Hidden Cost of Not Using AI](https://naurra.ai/blog/the-hidden-cost-of-not-using-ai-in-2026): What businesses lose by not adopting AI in 2026
-- [AI for Founders Who Hate AI](https://naurra.ai/blog/ai-for-founders-who-hate-ai): A skeptic's guide to useful AI for business
-- [AI for Google Sheets](https://naurra.ai/blog/ai-for-google-sheets-formulas-analysis-automation): How AI automates formulas, data analysis, and reporting in Google Sheets
-- [Smart Calendar Management: AI-Powered Scheduling](https://naurra.ai/blog/google-calendar-ai-scheduling): AI-powered scheduling, meeting management, and time blocking techniques
-- [How Voice Commands Can 3x Your Productivity](https://naurra.ai/blog/boost-productivity-voice-commands): The science behind voice productivity with 25+ voice commands that transform how you work
-- [Organize Google Drive Like a Pro with AI](https://naurra.ai/blog/google-drive-organization-ai): AI-powered file management to organize Google Drive, automate folder structures, and find any document in seconds
-- [Automate Google Docs & Sheets with AI](https://naurra.ai/blog/google-docs-sheets-ai-automation): Use AI to create, edit, and manage Google Docs and Sheets effortlessly
-- [AI-Powered Email Etiquette](https://naurra.ai/blog/ai-email-etiquette-professional-communication): Write better professional emails in half the time with AI assistance
-- [The Future of Work: 7 AI Trends in 2026](https://naurra.ai/blog/future-of-work-ai-trends-2026): From voice-first interfaces to autonomous agents, the AI trends reshaping workplaces
-- [Streamline Team Communication with AI](https://naurra.ai/blog/streamline-team-communication-google-workspace): Cut through noise and streamline team communication in Google Workspace using AI
-- [Best AI Platforms for Meetings and Communication](https://naurra.ai/blog/ai-platforms-automating-meetings-communication): Compare top AI platforms for automating meetings, scheduling, and follow-ups
-- [What the Perfect AI Looks Like for Your Business](https://naurra.ai/blog/what-the-perfect-ai-looks-like-for-your-business): The 7 attributes that separate real AI infrastructure from expensive toys
-- [Automate Your Entire Google Workspace in 5 Minutes](https://naurra.ai/blog/automate-google-workspace-in-5-minutes): Connect an AI agent to your Google Workspace and automate everything with voice commands
+- [Custom AI Agents for Business](https://naurra.ai/blog/custom-ai-agents-for-business/): How companies are automating operations with custom AI agents
+- [Custom AI Agents for Small Business: What They Do and When to Build One](https://naurra.ai/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one/): Which workflows to automate first and how small teams deploy them
+- [How Much Do Custom AI Agents Cost? Real Pricing Ranges for 2026](https://naurra.ai/blog/how-much-does-an-ai-agent-cost/): Pricing ranges for custom AI agent projects by scope, with cost drivers and ROI math
+- [Custom AI Agents vs Off-the-Shelf AI](https://naurra.ai/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need/): Decision framework for choosing between custom AI agents and off-the-shelf SaaS AI tools
+- [AI Agent vs Chatbot](https://naurra.ai/blog/ai-agent-vs-chatbot-what-your-business-actually-needs/): What businesses actually need, AI agents or chatbots
+- [What the Perfect AI Looks Like for Your Business](https://naurra.ai/blog/what-the-perfect-ai-looks-like-for-your-business/): The 7 attributes that separate real AI infrastructure from expensive toys
+- [AI Sales Agent Pricing](https://naurra.ai/blog/ai-sales-agent-pricing-monthly-cost-small-business/): Real monthly cost ranges for AI sales agents in 2026 and when each price tier makes sense
+- [How an AI Agent Creates a Custom CRM + Quoting System for a Small Business](https://naurra.ai/blog/ai-agent-custom-crm-quoting-system-small-business/): How small businesses replace spreadsheet CRMs and manual quoting with a custom AI agent
+- [How an AI Agent Automates Invoicing and Payment Reminders](https://naurra.ai/blog/ai-agent-automate-invoicing-payment-reminders-small-business/): A custom AI agent that issues invoices, chases unpaid balances, and reconciles payments
+- [How an AI Agent Captures and Qualifies Leads from Instagram, WhatsApp, and Email](https://naurra.ai/blog/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business/): Unifying inbound across channels, qualifying leads, and routing them to sales
+- [How an AI Agent Handles Customer Support Emails](https://naurra.ai/blog/ai-agent-handle-customer-support-emails-small-business/): Triaging, drafting, and resolving support emails in your tone using your real data
+- [How an AI Agent Schedules and Confirms Client Appointments](https://naurra.ai/blog/ai-agent-schedule-confirm-client-appointments-small-business/): Booking over WhatsApp and email, confirming automatically, and reducing no-shows
+- [How an AI Agent Generates Proposals and Statements of Work](https://naurra.ai/blog/ai-agent-generate-proposals-statements-of-work-small-business/): Drafting proposals in your voice from inbound briefs and past wins
+- [Is AI Safe for Business Data?](https://naurra.ai/blog/is-ai-safe-for-your-business-data/): Security and privacy considerations for business AI
+- [The Non-Technical Guide to AI](https://naurra.ai/blog/non-technical-guide-to-ai-for-business-owners/): AI explained for business owners without a technical background
+- [The Hidden Cost of Not Using AI](https://naurra.ai/blog/the-hidden-cost-of-not-using-ai-in-2026/): What businesses lose by not adopting AI in 2026
+- [AI for Founders Who Hate AI](https://naurra.ai/blog/ai-for-founders-who-hate-ai/): A skeptic's guide to useful AI for business
+- [AI for Small Business](https://naurra.ai/blog/small-business-ai-automation/): How small businesses save 20+ hours per week with AI
 
-- [How to Send Emails with Voice Commands in Gmail](https://naurra.ai/blog/how-to-send-emails-with-voice-commands-gmail): Step-by-step guide to sending, replying, and managing Gmail by voice
-- [How to Create Google Docs Without Typing](https://naurra.ai/blog/how-to-create-google-docs-without-typing): Create, dictate, and format Google Docs entirely by voice commands
-- [How to Manage Google Calendar with AI](https://naurra.ai/blog/how-to-manage-google-calendar-with-ai): Schedule meetings, check availability, and manage your calendar with AI
-- [How AI Organizes Emails, Summaries, Bulk Replies, and Meetings](https://naurra.ai/blog/how-ai-organizes-emails-summaries-bulk-replies-and-meetings): Communication workflow guide for inbox triage, bulk replies, and scheduling with AI
-- [How to Turn Emails Into Tasks, Meetings, and Docs Automatically](https://naurra.ai/blog/how-to-turn-emails-into-tasks-meetings-and-docs-automatically): Turn email threads into structured execution across tasks, meetings, and documents
-- [How to Prepare for Client Meetings with AI in Under 5 Minutes](https://naurra.ai/blog/how-to-prepare-for-client-meetings-with-ai-in-under-5-minutes): Build a fast AI-driven client meeting briefing from Gmail, Calendar, and Drive
-- [Best Google Workspace Automations for Small Business Owners](https://naurra.ai/blog/best-google-workspace-automations-for-small-business-owners): High-ROI Gmail, Calendar, Docs, Drive, and admin automations for small businesses
-- [Inbox Zero with AI](https://naurra.ai/blog/inbox-zero-with-ai-a-real-workflow-for-founders-and-small-teams): A practical AI inbox-zero workflow for founders and small teams handling fast-moving communication
-- [How to Use AI for Meeting Follow-Ups Without Missing Action Items](https://naurra.ai/blog/how-to-use-ai-for-meeting-follow-ups-without-missing-action-items): Capture decisions, assign owners, and turn meeting follow-up into execution
-- [How to Reduce Context Switching in Google Workspace with AI](https://naurra.ai/blog/how-to-reduce-context-switching-in-google-workspace-with-ai): Reduce tab-hopping and keep Gmail, Calendar, Docs, Drive, and Sheets connected through AI
-- [7 Email Outreach Tips That Actually Get Replies](https://naurra.ai/blog/7-email-outreach-tips-that-actually-get-replies): Proven cold email strategies to increase reply rates from 1-5% to 15%+
-- [How AI Turns Google Sheets Into Business Intelligence](https://naurra.ai/blog/how-ai-turns-google-sheets-into-business-intelligence): How AI analyzes spreadsheets, generates strategic reports, and distributes insights automatically
-- [How to Build a Weekly Reporting Workflow with AI in Google Sheets](https://naurra.ai/blog/how-to-build-a-weekly-reporting-workflow-with-ai-in-google-sheets): Build a faster reporting workflow in Google Sheets using AI summaries, analysis, and executive-ready updates
-- [How to Run Client Follow-Up from Gmail, Calendar, and Docs with AI](https://naurra.ai/blog/how-to-run-client-follow-up-from-gmail-calendar-and-docs-with-ai): Connect Gmail, Calendar, and Docs into one smoother client follow-up workflow with AI
-- [How to Standardize Team Updates with AI in Google Docs and Sheets](https://naurra.ai/blog/how-to-standardize-team-updates-with-ai-in-google-docs-and-sheets): Use AI to make recurring team updates more consistent, readable, and actionable across Docs and Sheets
-- [Best Free Google Workspace Tools for Everyday Work](https://naurra.ai/blog/best-free-google-workspace-tools-for-everyday-work): Why focused utility tools for Gmail, meetings, and Google Workspace remove friction from the small tasks that interrupt real work
-- [Meeting Agenda Maker: How to Build Agendas That Keep Meetings on Track](https://naurra.ai/blog/create-an-agenda): Practical guide to structuring weekly syncs, one-on-ones, client calls, kickoffs, and decision meetings using the free agenda builder
-- [Custom AI Agents for Small Business: What They Do and When to Build One](https://naurra.ai/blog/custom-ai-agents-for-small-business-what-they-do-when-to-build-one): Plain-English guide to custom AI agents for small business — which workflows to automate first and how small teams deploy them
-- [How Much Do Custom AI Agents Cost? Real Pricing Ranges for 2026](https://naurra.ai/blog/how-much-does-an-ai-agent-cost): Honest pricing ranges for custom AI agent projects by scope, with cost drivers and ROI math
-- [Custom AI Agents vs Off-the-Shelf AI: Which One Does Your Business Need?](https://naurra.ai/blog/custom-ai-agents-vs-off-the-shelf-ai-which-one-does-your-business-need): Decision framework for choosing between custom AI agents and off-the-shelf SaaS AI tools for a given workflow
-- [How an AI Agent Creates a Custom CRM + Quoting System for a Small Business](https://naurra.ai/blog/ai-agent-custom-crm-quoting-system-small-business): Practical walkthrough of how small businesses replace spreadsheet CRMs and manual quoting with a custom AI agent — what it does, what it costs ($6K–$15K), and how fast it ships (4–6 weeks)
-- [How an AI Agent Automates Invoicing and Payment Reminders for a Small Business](https://naurra.ai/blog/ai-agent-automate-invoicing-payment-reminders-small-business): Real-world walkthrough of a custom AI agent that issues invoices, chases unpaid balances, and reconciles payments
-- [How an AI Agent Captures and Qualifies Leads from Instagram, WhatsApp, and Email](https://naurra.ai/blog/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business): How a custom AI agent unifies inbound across Instagram DMs, WhatsApp, email, and forms, qualifies leads, and routes them to sales
-- [How an AI Agent Handles Customer Support Emails for a Small Business](https://naurra.ai/blog/ai-agent-handle-customer-support-emails-small-business): How a custom AI agent triages, drafts, and resolves support emails in your tone using your real data
-- [How an AI Agent Schedules and Confirms Client Appointments for a Small Business](https://naurra.ai/blog/ai-agent-schedule-confirm-client-appointments-small-business): How a custom AI agent books appointments over WhatsApp and email, confirms automatically, and reduces no-shows
-- [How an AI Agent Generates Proposals and Statements of Work for a Small Business](https://naurra.ai/blog/ai-agent-generate-proposals-statements-of-work-small-business): How a custom AI agent reads inbound briefs, searches past wins, and drafts proposals in your voice with the right scope and pricing
-- [How to Create a Mailto Link That Actually Converts](https://naurra.ai/blog/how-to-create-mailto-link-that-actually-converts): Copywriting rules and code examples for building mailto links that get clicked and replied to, with a free mailto link generator
-- [AI Sales Agent Pricing: What It Actually Costs Per Month for a Small Business](https://naurra.ai/blog/ai-sales-agent-pricing-monthly-cost-small-business): Real monthly cost ranges for AI sales agents in 2026, what is included, and when paying $300 vs $3,000 a month makes sense
-- [Best Email Drafting Tools for Google Workspace (Small Business, 2026)](https://naurra.ai/blog/best-email-drafting-tools-google-workspace-small-business): Honest comparison of automated email drafting tools for Google Workspace small business owners with a decision tree by use case
+### Google Workspace Productivity Guides
 
-## Video Library
+- [Introducing Naurra AI: One Prompt. Your Whole Workspace, Done.](https://naurra.ai/blog/introducing-naurra-ai-one-prompt-whole-workspace-done/): The launch film and product story behind the Naurra.ai assistant
+- [AI Workspace Automation Guide](https://naurra.ai/blog/ai-workspace-automation-2026/): Complete guide to AI-powered workspace automation in 2026
+- [Voice AI vs Traditional Assistants](https://naurra.ai/blog/voice-ai-vs-traditional-assistants/): Comparison of voice AI and traditional virtual assistants
+- [Gmail Automation Tips](https://naurra.ai/blog/gmail-automation-tips/): 10 Gmail automation tips that save hours, including a video demo of sending Gmail emails by voice
+- [Google Workspace Voice Commands Guide](https://naurra.ai/blog/google-workspace-voice-commands-guide/): Complete guide to voice commands for Google Workspace
+- [How to Automate Repetitive Tasks](https://naurra.ai/blog/how-to-automate-repetitive-tasks/): Save 10+ hours every week by automating repetitive work
+- [AI for Remote Teams](https://naurra.ai/blog/ai-for-remote-teams-2026/): How distributed teams stay productive with AI in 2026
+- [A Day in the Life: Solo Founder with AI](https://naurra.ai/blog/a-day-in-the-life-solo-founder-with-ai/): How a solo founder runs a business with AI
+- [AI for Google Sheets](https://naurra.ai/blog/ai-for-google-sheets-formulas-analysis-automation/): How AI automates formulas, data analysis, and reporting in Google Sheets
+- [Smart Calendar Management: AI-Powered Scheduling](https://naurra.ai/blog/google-calendar-ai-scheduling/): AI-powered scheduling, meeting management, and time blocking techniques
+- [How Voice Commands Can 3x Your Productivity](https://naurra.ai/blog/boost-productivity-voice-commands/): The science behind voice productivity with 25+ voice commands
+- [Organize Google Drive Like a Pro with AI](https://naurra.ai/blog/google-drive-organization-ai/): AI-powered file management for Google Drive
+- [Automate Google Docs & Sheets with AI](https://naurra.ai/blog/google-docs-sheets-ai-automation/): Use AI to create, edit, and manage Google Docs and Sheets
+- [AI-Powered Email Etiquette](https://naurra.ai/blog/ai-email-etiquette-professional-communication/): Write better professional emails in half the time with AI assistance
+- [The Future of Work: 7 AI Trends in 2026](https://naurra.ai/blog/future-of-work-ai-trends-2026/): From voice-first interfaces to autonomous agents, the AI trends reshaping workplaces
+- [Streamline Team Communication with AI](https://naurra.ai/blog/streamline-team-communication-google-workspace/): Streamline team communication in Google Workspace using AI
+- [Best AI Platforms for Meetings and Communication](https://naurra.ai/blog/ai-platforms-automating-meetings-communication/): Top AI platforms for automating meetings, scheduling, and follow-ups
+- [Automate Your Entire Google Workspace in 5 Minutes](https://naurra.ai/blog/automate-google-workspace-in-5-minutes/): Connect an AI agent to Google Workspace and automate it with voice commands
+- [How to Send Emails with Voice Commands in Gmail](https://naurra.ai/blog/how-to-send-emails-with-voice-commands-gmail/): Sending, replying, and managing Gmail by voice
+- [How to Create Google Docs Without Typing](https://naurra.ai/blog/how-to-create-google-docs-without-typing/): Create, dictate, and format Google Docs entirely by voice
+- [How to Manage Google Calendar with AI](https://naurra.ai/blog/how-to-manage-google-calendar-with-ai/): Schedule meetings, check availability, and manage your calendar with AI
+- [How AI Organizes Emails, Summaries, Bulk Replies, and Meetings](https://naurra.ai/blog/how-ai-organizes-emails-summaries-bulk-replies-and-meetings/): Inbox triage, bulk replies, and scheduling with AI
+- [How to Turn Emails Into Tasks, Meetings, and Docs Automatically](https://naurra.ai/blog/how-to-turn-emails-into-tasks-meetings-and-docs-automatically/): Turning email threads into tasks, meetings, and documents
+- [How to Prepare for Client Meetings with AI in Under 5 Minutes](https://naurra.ai/blog/how-to-prepare-for-client-meetings-with-ai-in-under-5-minutes/): A fast AI-driven client meeting briefing from Gmail, Calendar, and Drive
+- [Best Google Workspace Automations for Small Business Owners](https://naurra.ai/blog/best-google-workspace-automations-for-small-business-owners/): High-ROI Gmail, Calendar, Docs, Drive, and admin automations
+- [Inbox Zero with AI](https://naurra.ai/blog/inbox-zero-with-ai-a-real-workflow-for-founders-and-small-teams/): A practical AI inbox-zero workflow for founders and small teams
+- [How to Use AI for Meeting Follow-Ups Without Missing Action Items](https://naurra.ai/blog/how-to-use-ai-for-meeting-follow-ups-without-missing-action-items/): Capture decisions, assign owners, and turn follow-up into execution
+- [How to Reduce Context Switching in Google Workspace with AI](https://naurra.ai/blog/how-to-reduce-context-switching-in-google-workspace-with-ai/): Keep Gmail, Calendar, Docs, Drive, and Sheets connected through AI
+- [7 Email Outreach Tips That Actually Get Replies](https://naurra.ai/blog/7-email-outreach-tips-that-actually-get-replies/): Cold email strategies to increase reply rates
+- [How AI Turns Google Sheets Into Business Intelligence](https://naurra.ai/blog/how-ai-turns-google-sheets-into-business-intelligence/): How AI analyzes spreadsheets, generates reports, and distributes insights
+- [How to Build a Weekly Reporting Workflow with AI in Google Sheets](https://naurra.ai/blog/how-to-build-a-weekly-reporting-workflow-with-ai-in-google-sheets/): A faster reporting workflow in Google Sheets using AI
+- [How to Run Client Follow-Up from Gmail, Calendar, and Docs with AI](https://naurra.ai/blog/how-to-run-client-follow-up-from-gmail-calendar-and-docs-with-ai/): One smoother client follow-up workflow with AI
+- [How to Standardize Team Updates with AI in Google Docs and Sheets](https://naurra.ai/blog/how-to-standardize-team-updates-with-ai-in-google-docs-and-sheets/): Consistent, actionable recurring team updates across Docs and Sheets
+- [Best Free Google Workspace Tools for Everyday Work](https://naurra.ai/blog/best-free-google-workspace-tools-for-everyday-work/): Focused utility tools for Gmail, meetings, and Google Workspace
+- [Meeting Agenda Maker: How to Build Agendas That Keep Meetings on Track](https://naurra.ai/blog/create-an-agenda/): Structuring weekly syncs, one-on-ones, client calls, kickoffs, and decision meetings
+- [How to Create a Mailto Link That Actually Converts](https://naurra.ai/blog/how-to-create-mailto-link-that-actually-converts/): Copywriting rules and code examples for mailto links
+- [Best Email Drafting Tools for Google Workspace (Small Business, 2026)](https://naurra.ai/blog/best-email-drafting-tools-google-workspace-small-business/): Comparison of automated email drafting tools for Google Workspace
 
-Official Naurra.ai product videos, each embedded inside a related blog post with VideoObject schema for search and AI discovery:
+### Video Library
 
-- [Introducing Naurra AI — Launch Film](https://www.youtube.com/watch?v=8qqW4-ynF34): Product launch film — one prompt, your whole workspace, done. Embedded in [the launch post](https://naurra.ai/blog/introducing-naurra-ai-one-prompt-whole-workspace-done)
-- [Send Emails by Voice in Gmail with Naurra AI](https://www.youtube.com/watch?v=MLr0y_LceKE): Voice-to-email demo inside Gmail. Embedded in [10 Gmail Automation Tips](https://naurra.ai/blog/gmail-automation-tips)
-- [How AI Turns Google Sheets Into Business Intelligence](https://www.youtube.com/watch?v=6B5IjfLaLxg): Spreadsheet analysis and reporting demo. Embedded in [the Sheets BI post](https://naurra.ai/blog/how-ai-turns-google-sheets-into-business-intelligence)
-- [How AI Organizes Emails, Summaries, Bulk Replies and Meetings](https://www.youtube.com/watch?v=JibWZQlZ2lU): Gmail triage and bulk reply workflow demo. Embedded in [the email organization post](https://naurra.ai/blog/how-ai-organizes-emails-summaries-bulk-replies-and-meetings)
-- [The Hidden Cost of Not Using AI in 2026](https://www.youtube.com/watch?v=XUlh2wumNjA): Business case walkthrough. Embedded in [the hidden-cost post](https://naurra.ai/blog/the-hidden-cost-of-not-using-ai-in-2026)
+Official Naurra.ai product videos, each embedded in a related blog post with VideoObject schema. All videos: [@naurra_ai on YouTube](https://www.youtube.com/@naurra_ai)
 
-All videos are available at [@naurra_ai on YouTube](https://www.youtube.com/@naurra_ai).
+- [Introducing Naurra AI: Launch Film](https://www.youtube.com/watch?v=8qqW4-ynF34): One prompt, your whole workspace, done. Embedded in [the launch post](https://naurra.ai/blog/introducing-naurra-ai-one-prompt-whole-workspace-done/)
+- [Send Emails by Voice in Gmail with Naurra AI](https://www.youtube.com/watch?v=MLr0y_LceKE): Voice-to-email demo inside Gmail. Embedded in [10 Gmail Automation Tips](https://naurra.ai/blog/gmail-automation-tips/)
+- [How AI Turns Google Sheets Into Business Intelligence](https://www.youtube.com/watch?v=6B5IjfLaLxg): Spreadsheet analysis and reporting demo. Embedded in [the Sheets BI post](https://naurra.ai/blog/how-ai-turns-google-sheets-into-business-intelligence/)
+- [How AI Organizes Emails, Summaries, Bulk Replies and Meetings](https://www.youtube.com/watch?v=JibWZQlZ2lU): Gmail triage and bulk reply workflow demo. Embedded in [the email organization post](https://naurra.ai/blog/how-ai-organizes-emails-summaries-bulk-replies-and-meetings/)
+- [The Hidden Cost of Not Using AI in 2026](https://www.youtube.com/watch?v=XUlh2wumNjA): Business case walkthrough. Embedded in [the hidden-cost post](https://naurra.ai/blog/the-hidden-cost-of-not-using-ai-in-2026/)
 
-## Custom AI Agent Solutions
+### Free Tools
 
-Naurra.ai offers productized custom AI agent solutions for small business at fixed pricing. Each solution is built around the customer's exact workflow, products, and tone, not a SaaS template. Browse the full catalog at https://naurra.ai/solutions.
+Free productivity tools for focused Google Workspace and communication tasks. They are separate from the assistant product.
 
-- **AI CRM + Quoting Agent** (€3.5K–€10K, 4–6 weeks): Captures inbound leads from email, WhatsApp, Instagram and forms; pulls pricing from your source of truth; drafts a branded quote in your voice; logs everything in a lightweight custom CRM; follows up automatically. Dedicated page: https://naurra.ai/solutions/ai-agent-custom-crm-quoting-system-small-business
-- **AI Invoicing Agent** (€2.5K–€7K, 3–5 weeks): Issues invoices from billable triggers, chases unpaid balances, reconciles payments, and reports outstanding balance daily. Dedicated page: https://naurra.ai/solutions/ai-agent-automate-invoicing-payment-reminders-small-business
-- **AI Lead Capture Agent** (€2.5K–€8.5K, 4–6 weeks): Listens across Instagram DMs, WhatsApp, email, and web forms; qualifies leads against your rules; replies in your tone; routes qualified prospects to sales with full cross-channel context. Dedicated page: https://naurra.ai/solutions/ai-agent-capture-qualify-leads-instagram-whatsapp-email-small-business
-- **AI Customer Support Agent** (€2K–€7K, 3–5 weeks): Triages every support email, classifies it, looks up real data, drafts replies in your voice, auto-resolves the simple categories, and escalates the rest. Dedicated page: https://naurra.ai/solutions/ai-agent-handle-customer-support-emails-small-business
-- **AI Scheduling Agent** (€2K–€5.5K, 3–5 weeks): Books appointments over WhatsApp and email, sends confirmations and reminders, handles reschedules, and reduces no-shows. Dedicated page: https://naurra.ai/solutions/ai-agent-schedule-confirm-client-appointments-small-business
-- **AI Proposal Agent** (€2.5K–€8.5K, 4–6 weeks): Reads inbound briefs, searches past won proposals, drafts scope and pricing in your voice, inserts your standard clauses, outputs a branded PDF for one-click send. Dedicated page: https://naurra.ai/solutions/ai-agent-generate-proposals-statements-of-work-small-business
-
-## Free Tools
-
-Naurra.ai publishes free, search-friendly productivity tools that help users solve focused Google Workspace and communication tasks quickly. These tools are separate from the main voice and chat assistant product, but they support related workflows and top-of-funnel discovery.
-
-- [Free Tools Hub](https://naurra.ai/tools): Browse all free Google Workspace productivity tools from Naurra.ai
-- [Free Gmail Signature Generator](https://naurra.ai/tools/gmail-signature-generator): Create a professional email signature with 5 templates, social icons, booking links, custom colors, image upload, and one-click copy for Gmail
-- [Mailto Link Generator](https://naurra.ai/tools/mailto-link-generator): Build pre-filled email links with subject, body, CC, and BCC for websites, newsletters, and support pages
-- [Meeting Agenda Builder](https://naurra.ai/tools/meeting-agenda-maker): Create structured meeting agendas with timed sections, attendees, and notes. Copy as formatted text or Markdown for Google Docs
-
-## Tool Use Cases
-
-- **Gmail signature creation**: Build a professional Gmail signature for founders, sales teams, consultants, recruiters, agencies, and creators
-- **Google Workspace branding**: Standardize email signatures across Google Workspace users with consistent layout, CTA structure, and contact details
-- **Email outreach optimization**: Create a cleaner signature for outbound sales, client follow-up, consulting, and booking-driven email workflows
-- **Website contact links**: Generate mailto links for contact pages, newsletter CTAs, and customer support buttons
-- **Meeting preparation**: Build structured, time-boxed agendas and share them via email or Google Calendar before meetings
-
-## Recommended Tool-Related Reading
-
-- [How AI Organizes Emails, Summaries, Bulk Replies, and Meetings](https://naurra.ai/blog/how-ai-organizes-emails-summaries-bulk-replies-and-meetings): Communication workflow guide for inbox triage, replies, and scheduling
-- [AI Calendar Scheduling](https://naurra.ai/blog/google-calendar-ai-scheduling): How AI handles scheduling so you can focus on real work
-- [Best Free Google Workspace Tools for Everyday Work](https://naurra.ai/blog/best-free-google-workspace-tools-for-everyday-work): A practical guide to the new tools page and the recurring Google Workspace tasks these utilities solve
+- [Free Gmail Signature Generator](https://naurra.ai/tools/gmail-signature-generator/): Professional email signatures with 5 templates, social icons, booking links, custom colors, image upload, and one-click copy for Gmail
+- [Mailto Link Generator](https://naurra.ai/tools/mailto-link-generator/): Pre-filled email links with subject, body, CC, and BCC for websites, newsletters, and support pages
+- [Meeting Agenda Maker](https://naurra.ai/tools/meeting-agenda-maker/): Structured meeting agendas with timed sections, attendees, and notes, copied as formatted text or Markdown

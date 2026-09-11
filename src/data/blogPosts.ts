@@ -509,7 +509,7 @@ A trustworthy agency helps you make that call honestly, before writing a single 
 
 We are engineers who build and ship, not a layer of middlemen. Our founder has personally delivered every project in our portfolio, which means you work directly with the people writing the code. We start with a discovery phase, design the architecture around your exact process, build with weekly demos so you see progress from week one, and support the system as your business evolves.
 
-You can see the full range of what we build, and the real problems we have solved, on the [company page](/company).
+You can see the full range of what we build, and the real problems we have solved, on the [company page](/).
 
 ## Final checklist
 
@@ -607,7 +607,7 @@ On accuracy: the right design keeps a human in the loop for low-confidence or hi
 
 Generic document tools work for generic documents. The moment your documents are specific to your business (your contract templates, your invoice formats, your lease structures), a custom AI agent extracts far more value because it is tuned to your exact fields, rules, and edge cases.
 
-That is the kind of system we design and ship. See the full range of what we build on the [company page](/company), or read more about [custom AI agents for business](/blog/custom-ai-agents-for-business).
+That is the kind of system we design and ship. See the full range of what we build on the [company page](/), or read more about [custom AI agents for business](/blog/custom-ai-agents-for-business).
 
 ## Final thought
 
@@ -3216,7 +3216,7 @@ Professionals who adopt AI tools are:
 
 The future of work isn't coming—it's here. These 7 trends are already reshaping how millions of professionals work in 2026. The question isn't *whether* to adopt AI, but *how quickly* you can integrate it into your daily workflow.
 
-The professionals and companies that embrace these trends today will define the workplace of tomorrow. [See how Naurra is helping businesses lead this shift](/company).
+The professionals and companies that embrace these trends today will define the workplace of tomorrow. [See how Naurra is helping businesses lead this shift](/).
 
 **Ready to join the future of work?** Try Naurra.ai free for 3 days and experience what AI-powered productivity feels like.
     `,
@@ -4313,7 +4313,7 @@ If you're considering custom AI for your business, start here:
 2. **Quantify the cost** — How much does this process cost per month in labor and lost revenue?
 3. **Talk to a builder, not a salesperson** (or [automate Google Workspace in 5 minutes](/blog/automate-google-workspace-in-5-minutes) to see quick wins first) — The best AI solutions come from engineers who understand both the technology and your business problem.
 
-At [Naurra.ai](/company), we build custom AI agents for businesses across industries. Every project in our portfolio was architected and delivered end-to-end — no templates, no shortcuts.
+At [Naurra.ai](/), we build custom AI agents for businesses across industries. Every project in our portfolio was architected and delivered end-to-end — no templates, no shortcuts.
 
 **[Get a free consultation →](/contact)** -- Tell us about your workflow and we'll give you an honest assessment of how AI can help.
 
@@ -4363,7 +4363,7 @@ If you want the broader non-technical foundation first, pair this with our pilla
 
 So what does the right kind look like?
 
-After building custom AI systems across [7 different industries](/company) — from automotive to legal to e-commerce — we've identified 7 attributes that separate AI that transforms a business from AI that just sits there.
+After building custom AI systems across [7 different industries](/) — from automotive to legal to e-commerce — we've identified 7 attributes that separate AI that transforms a business from AI that just sits there.
 
 ## 1. It Works Where You Already Work
 
@@ -4470,9 +4470,9 @@ If your current tools fail more than two of these — you don't have an AI strat
 
 Here's what we recommend based on where you are:
 
-**If you're just starting with AI:** Start with the workspace layer. Get an AI that handles your daily operational tasks — email, calendar, documents — because that's where the most time is wasted and the ROI is fastest. [Naurra.ai](/) does exactly this.
+**If you're just starting with AI:** Start with the workspace layer. Get an AI that handles your daily operational tasks — email, calendar, documents — because that's where the most time is wasted and the ROI is fastest. [Naurra.ai](/product/) does exactly this.
 
-**If you've outgrown generic tools:** You need [custom AI built around your specific workflows](/blog/custom-ai-agents-for-business), industry requirements, and data. A HVAC company's AI needs are fundamentally different from a law firm's. That's why we build [custom AI solutions](/company) tailored to each business.
+**If you've outgrown generic tools:** You need [custom AI built around your specific workflows](/blog/custom-ai-agents-for-business), industry requirements, and data. A HVAC company's AI needs are fundamentally different from a law firm's. That's why we build [custom AI solutions](/) tailored to each business.
 
 If your concern is less feature fit and more trust, read [is AI safe for your business data?](/blog/is-ai-safe-for-your-business-data) before evaluating vendors.
 
@@ -4484,7 +4484,7 @@ If your concern is less feature fit and more trust, read [is AI safe for your bu
 
 The perfect AI for your business isn't the most expensive one, the most hyped one, or the one with the longest feature list. It's the one that checks all seven boxes: it works where you work, speaks your language, takes real action, learns your patterns, scales with your team, keeps your data secure, and delivers results you can measure.
 
-That's the standard we hold ourselves to — both with [Naurra.ai](/) as a workspace assistant and with the [custom AI systems](/company) we build for businesses across industries.
+That's the standard we hold ourselves to — both with [Naurra.ai](/product/) as a workspace assistant and with the [custom AI systems](/) we build for businesses across industries.
 
 The gap between "using AI" and "being transformed by AI" isn't about technology. It's about choosing the right architecture from the start.
 
@@ -4577,7 +4577,7 @@ An agent operates *across* tools because real work crosses tool boundaries:
 
 No single-tool chatbot can do this. It requires an AI that understands your entire workspace as one connected system.
 
-> This is the core architecture behind [Naurra.ai](/). One AI layer that connects to Gmail, Calendar, Drive, Docs, Sheets, and Meet — not as separate plugins, but as one unified system that moves between them the way you do.
+> This is the core architecture behind [Naurra.ai](/product/). One AI layer that connects to Gmail, Calendar, Drive, Docs, Sheets, and Meet — not as separate plugins, but as one unified system that moves between them the way you do.
 
 ### 4. Stateless vs. Contextual
 
@@ -4640,15 +4640,15 @@ Companies adopt a chatbot thinking it's an agent. Early excitement — "look, it
 - ROI is unmeasurable because the time savings are marginal
 - Six months later: "AI didn't work for us"
 
-We've seen this pattern across [every industry we've worked in](/company). The problem was never AI. It was deploying the wrong *type* of AI.
+We've seen this pattern across [every industry we've worked in](/). The problem was never AI. It was deploying the wrong *type* of AI.
 
 ### The Agent Difference
 
 When businesses deploy actual agents, the impact is measurable from week one:
 
-- **An HVAC company** went from manual quotation processes to AI-generated quotes — [95% faster](/company)
-- **An automotive dealer** deployed an AI sourcing agent that scanned 50+ marketplaces and generated profit in [the first week](/company)
-- **A legal firm** replaced days of manual lease review with an AI that produces full analysis in [under 60 seconds](/company)
+- **An HVAC company** went from manual quotation processes to AI-generated quotes — [95% faster](/)
+- **An automotive dealer** deployed an AI sourcing agent that scanned 50+ marketplaces and generated profit in [the first week](/)
+- **A legal firm** replaced days of manual lease review with an AI that produces full analysis in [under 60 seconds](/)
 
 These aren't chatbot results. A chatbot could summarize an HVAC spec sheet. It couldn't generate a price-accurate quotation by reading technical drawings, cross-referencing a product database, and calculating margins. That requires an agent.
 
@@ -4694,7 +4694,7 @@ The trajectory is clear:
 - **2025:** "We use AI agents" became the new bar
 - **2026:** "Our AI runs our operations" is what separates leaders from laggards
 
-The companies we work with at [Naurra.ai](/company) aren't asking "should we use AI?" anymore. They're asking "how do we go from chatbot-level AI to agent-level AI?" — and the answer is always specific to their industry, workflows, and data.
+The companies we work with at [Naurra.ai](/) aren't asking "should we use AI?" anymore. They're asking "how do we go from chatbot-level AI to agent-level AI?" — and the answer is always specific to their industry, workflows, and data.
 
 ## The Bottom Line
 
@@ -4702,7 +4702,7 @@ A chatbot is a smarter search box. An agent is a digital employee.
 
 If your AI can't cross tool boundaries, execute multi-step tasks, and deliver measurable outcomes without human hand-holding — you have a chatbot. That's fine for answering questions. It's not fine for transforming operations.
 
-[Naurra.ai](/) is built as a true workspace agent — one interface controlling your entire Google Workspace through natural conversation. And for businesses that need AI beyond workspace automation, we build [custom agents](/company) tailored to specific industries and workflows.
+[Naurra.ai](/product/) is built as a true workspace agent — one interface controlling your entire Google Workspace through natural conversation. And for businesses that need AI beyond workspace automation, we build [custom agents](/) tailored to specific industries and workflows.
 
 If you're evaluating whether your team is ready for a bigger move, pair this with [custom AI agents for business](/blog/custom-ai-agents-for-business) and [the hidden cost of not using AI in 2026](/blog/the-hidden-cost-of-not-using-ai-in-2026).
 
@@ -4752,7 +4752,7 @@ No API keys. No developer console. No spreadsheet formulas or Apps Script. You'r
 
 ## Step 1: Connect Your Google Account (60 seconds)
 
-Head to [naurra.ai](/) and click **Sign in with Google**.
+Head to [naurra.ai](/product/) and click **Sign in with Google**.
 
 You'll see a standard Google OAuth screen — the same one you see when signing into any app with Google. It will ask for permission to access your Workspace services:
 
@@ -4953,23 +4953,23 @@ No. The AI only acts on explicit commands. It doesn't read your emails in the ba
 
 ### "What about team use?"
 
-Each team member connects their own Google account. There's no shared access — your AI agent only works with your workspace. For team-wide AI automation and custom workflows, check out our [custom solutions](/company).
+Each team member connects their own Google account. There's no shared access — your AI agent only works with your workspace. For team-wide AI automation and custom workflows, check out our [custom solutions](/).
 
 ## Beyond Workspace: Custom Automation
 
-The 21 automations above cover what you can do out of the box. But if your business has specific workflows — industry-specific processes, multi-system integrations, complex data pipelines — we build [custom AI agents](/company) tailored to your exact needs.
+The 21 automations above cover what you can do out of the box. But if your business has specific workflows — industry-specific processes, multi-system integrations, complex data pipelines — we build [custom AI agents](/) tailored to your exact needs.
 
-We've built custom automation for [HVAC quotation systems, automotive sourcing, legal document analysis, and more](/company). Same philosophy: tell the AI what you need, it handles the rest.
+We've built custom automation for [HVAC quotation systems, automotive sourcing, legal document analysis, and more](/). Same philosophy: tell the AI what you need, it handles the rest.
 
 ## Get Started Now
 
-1. Go to [naurra.ai](/)
+1. Go to [naurra.ai](/product/)
 2. Sign in with Google
 3. Try any command from this article
 
 5 minutes to connect. 80 minutes saved every day. The math speaks for itself.
 
-[Start automating →](/)
+[Start automating →](/product/)
 `,
     author: {
       name: 'Athanasios-Ioannis Panagiotakopoulos',
@@ -5172,7 +5172,7 @@ We built Naurra's security model around one principle: **we should never be a li
 
 We don't ask you to trust us — we ask you to verify. Check our [privacy policy](/privacy), review the OAuth scopes during sign-up, and test revocation yourself.
 
-For businesses with specialized security requirements or custom AI needs, we build [tailored solutions](/company) with security architectures designed for your specific compliance landscape.
+For businesses with specialized security requirements or custom AI needs, we build [tailored solutions](/) with security architectures designed for your specific compliance landscape.
 
 ## The Bottom Line
 
@@ -5182,7 +5182,7 @@ The 8 questions in this guide work for evaluating *any* AI tool — not just our
 
 The businesses that benefit most from AI aren't the ones who adopted fastest -- they're the ones who adopted smartly. Security and productivity aren't trade-offs. With the right architecture, you get both. For a no-hype perspective on getting started, read [AI for founders who hate AI](/blog/ai-for-founders-who-hate-ai). And if you are a [small business evaluating AI automation](/blog/small-business-ai-automation), the same security checklist applies.
 
-[Try Naurra →](/) or explore our [custom AI solutions](/company).
+[Try Naurra →](/product/) or explore our [custom AI solutions](/).
 `,
     author: {
       name: 'Athanasios-Ioannis Panagiotakopoulos',
@@ -5419,7 +5419,7 @@ The AI market is confusing because thousands of tools sound similar. Here is a s
 
 **Limitation:** They depend on the systems they integrate with and still require human oversight.
 
-**Examples:** [Naurra.ai](/) for Google Workspace, Microsoft Copilot for Microsoft 365.
+**Examples:** [Naurra.ai](/product/) for Google Workspace, Microsoft Copilot for Microsoft 365.
 
 ### Type 5: Custom AI agents
 
@@ -5429,7 +5429,7 @@ The AI market is confusing because thousands of tools sound similar. Here is a s
 
 **Limitation:** They require design, implementation, and investment.
 
-**Examples:** [Custom AI solutions built by Naurra.ai](/company).
+**Examples:** [Custom AI solutions built by Naurra.ai](/).
 
 ## AI Assistant vs Chatbot vs Automation Tool
 
@@ -5490,7 +5490,7 @@ The biggest mistake business owners make with AI is trying to build a complete s
 
 ### Week 1: Connect and explore
 
-Pick one AI assistant that connects to the tools you already use. If you are on Google Workspace, try [Naurra.ai](/). If you are on Microsoft 365, try Copilot.
+Pick one AI assistant that connects to the tools you already use. If you are on Google Workspace, try [Naurra.ai](/product/). If you are on Microsoft 365, try Copilot.
 
 Try five basic commands:
 
@@ -5603,7 +5603,7 @@ Once you've mastered the workspace layer, you will start seeing opportunities ev
 
 That is when custom AI starts making sense.
 
-We build [custom AI agents for businesses](/company) across industries. An HVAC company that needed automated quoting. A car dealership that needed AI to scan marketplaces for profitable inventory. A law firm that needed lease analysis in seconds instead of days.
+We build [custom AI agents for businesses](/) across industries. An HVAC company that needed automated quoting. A car dealership that needed AI to scan marketplaces for profitable inventory. A law firm that needed lease analysis in seconds instead of days.
 
 Every one of those started with a conversation, not a contract.
 
@@ -5624,7 +5624,7 @@ You do not need to become technical. You need to become clear:
 
 That clarity is enough to get moving.
 
-**Next step:** if you want a practical starting point, begin with [AI automation for small business owners](/blog/small-business-ai-automation), review [AI agent vs chatbot](/blog/ai-agent-vs-chatbot-what-your-business-actually-needs), or explore [custom AI solutions for business](/company).
+**Next step:** if you want a practical starting point, begin with [AI automation for small business owners](/blog/small-business-ai-automation), review [AI agent vs chatbot](/blog/ai-agent-vs-chatbot-what-your-business-actually-needs), or explore [custom AI solutions for business](/).
 `,
     author: {
       name: 'Athanasios-Ioannis Panagiotakopoulos',
@@ -5854,9 +5854,9 @@ If you're a solo founder or small business owner spending your days on operation
 
 For one of the fastest wins in that workflow, read [how to prepare for client meetings with AI in under 5 minutes](/blog/how-to-prepare-for-client-meetings-with-ai-in-under-5-minutes).
 
-[Start with your own workspace →](/)
+[Start with your own workspace →](/product/)
 
-For businesses with complex, industry-specific workflows that go beyond workspace automation, we build [custom AI agents](/company) designed around how your business actually operates.
+For businesses with complex, industry-specific workflows that go beyond workspace automation, we build [custom AI agents](/) designed around how your business actually operates.
 
 [Get a free consultation →](/contact)
 `,
@@ -6013,7 +6013,7 @@ This is the most common reason businesses give for delaying AI adoption. Let us 
 
 **"We do not have the technical expertise."** Modern AI tools do not require technical expertise. If your team can write an email, they can use an AI assistant. The interfaces are conversational, not technical. [Our non-technical guide](/blog/non-technical-guide-to-ai-for-business-owners) covers everything you need to know.
 
-**"Our workflows are too complex."** Complex workflows are exactly where AI delivers the most value. The more steps, handoffs, and data sources involved in your processes, the more time AI saves. [Custom AI agents](/company) can be built around your specific workflows, no matter how unique.
+**"Our workflows are too complex."** Complex workflows are exactly where AI delivers the most value. The more steps, handoffs, and data sources involved in your processes, the more time AI saves. [Custom AI agents](/) can be built around your specific workflows, no matter how unique.
 
 **"We need to do more research first."** Research is important. But "more research" that stretches into months or years is not research. It is avoidance. The fastest way to learn whether AI works for your business is to start small: connect one tool, automate one workflow, measure the results.
 
@@ -6051,9 +6051,9 @@ Start with a free consultation. We will map your current workflows, identify whe
 
 [Get your free consultation →](/contact)
 
-Or, if you want to start right now, [connect your Google Workspace](/) and see the difference in your first week.
+Or, if you want to start right now, [connect your Google Workspace](/product/) and see the difference in your first week.
 
-For businesses with specialized needs, we build [custom AI agents](/company) designed around your exact workflows and industry requirements.
+For businesses with specialized needs, we build [custom AI agents](/) designed around your exact workflows and industry requirements.
 `,
     author: {
       name: 'Athanasios-Ioannis Panagiotakopoulos',
@@ -6231,11 +6231,11 @@ For a founder, that math is hard to argue with. Even if you hate AI.
 
 No commitment. No transformation. Just five days to see if AI saves you time.
 
-[Start your free trial →](/)
+[Start your free trial →](/product/)
 
 Want to talk to a human first? We get it. [Book a call with our team](/contact) and bring all your skepticism. We would rather answer hard questions than make empty promises.
 
-For businesses with specific operational challenges, we also build [custom AI agents](/company) designed around how your business actually runs. No generic tools. No one-size-fits-all.
+For businesses with specific operational challenges, we also build [custom AI agents](/) designed around how your business actually runs. No generic tools. No one-size-fits-all.
 `,
     author: {
       name: 'Athanasios-Ioannis Panagiotakopoulos',
@@ -6501,7 +6501,7 @@ You do not need to become a spreadsheet expert. You need a spreadsheet expert th
 
 ---
 
-**Ready to stop wrestling with formulas?** [Try Naurra.ai free for 3 days](/pricing) and manage your spreadsheets with simple voice or chat commands. For businesses with complex data workflows, we also build [custom AI solutions](/company) around your specific reporting and analysis needs.
+**Ready to stop wrestling with formulas?** [Try Naurra.ai free for 3 days](/pricing) and manage your spreadsheets with simple voice or chat commands. For businesses with complex data workflows, we also build [custom AI solutions](/) around your specific reporting and analysis needs.
     `,
     author: {
       name: 'Athanasios-Ioannis Panagiotakopoulos',
@@ -6545,7 +6545,7 @@ The average professional sends [40+ emails per day](https://naurra.ai/blog/gmail
 
 To send emails by voice in Gmail, you need an AI assistant that connects to your Google Workspace account. Here is what the setup looks like with Naurra.ai:
 
-**Step 1:** Sign up at [naurra.ai](/) and connect your Google Workspace account
+**Step 1:** Sign up at [naurra.ai](/product/) and connect your Google Workspace account
 
 **Step 2:** Grant Gmail permissions (read, compose, send). Naurra uses [secure OAuth scopes](/blog/is-ai-safe-for-your-business-data) and never stores your email content
 
@@ -6686,7 +6686,7 @@ Voice-controlled email is the single biggest [productivity upgrade](/blog/boost-
 
 **Ready to try it?** [Start your free 3-day trial](/pricing) and send your first voice email in the next 60 seconds. No credit card required.
 
-For teams and businesses that need custom email workflows, we also build [tailored AI solutions](/company) that integrate with your existing systems.
+For teams and businesses that need custom email workflows, we also build [tailored AI solutions](/) that integrate with your existing systems.
     `,
     author: {
       name: 'Athanasios-Ioannis Panagiotakopoulos',
@@ -6733,7 +6733,7 @@ That is what makes voice document creation more than dictation. It is not just a
 
 To create Google Docs by voice, you need Naurra.ai connected to your Google Workspace:
 
-**Step 1:** [Sign up at naurra.ai](/) and connect your Google account
+**Step 1:** [Sign up at naurra.ai](/product/) and connect your Google account
 
 **Step 2:** Grant Google Docs and Drive permissions
 
@@ -6870,7 +6870,7 @@ If you want to see how that expands across the full workspace, go back to [Googl
 
 Creating documents by voice is one of those things that sounds futuristic until you try it and realize it should have always worked this way.
 
-**[Start your free 3-day trial](/pricing)** and create your first voice-powered Google Doc in under a minute. For businesses that need document automation at scale, we build [custom AI workflows](/company) tailored to your templates and processes.
+**[Start your free 3-day trial](/pricing)** and create your first voice-powered Google Doc in under a minute. For businesses that need document automation at scale, we build [custom AI workflows](/) tailored to your templates and processes.
     `,
     author: {
       name: 'Athanasios-Ioannis Panagiotakopoulos',
@@ -6921,7 +6921,7 @@ Done. The AI checks your availability, finds a suitable slot, creates the event,
 
 Connect Naurra.ai to your Google Calendar:
 
-**Step 1:** [Sign up at naurra.ai](/) and connect your Google account
+**Step 1:** [Sign up at naurra.ai](/product/) and connect your Google account
 
 **Step 2:** Grant Calendar permissions (read and write access)
 
@@ -7113,7 +7113,7 @@ Your calendar data is handled securely:
 
 AI calendar management is the gateway feature for most people. Once you experience scheduling a meeting in 5 seconds instead of 60, you start using voice commands for [everything else](/blog/boost-productivity-voice-commands) too.
 
-**[Try it free for 3 days](/pricing)** -- schedule your first meeting by voice and see the difference. For organizations that need advanced scheduling workflows (resource booking, multi-calendar coordination, automated reminders), we build [custom AI solutions](/company) for teams of any size.
+**[Try it free for 3 days](/pricing)** -- schedule your first meeting by voice and see the difference. For organizations that need advanced scheduling workflows (resource booking, multi-calendar coordination, automated reminders), we build [custom AI solutions](/) for teams of any size.
     `,
     author: {
       name: 'Athanasios-Ioannis Panagiotakopoulos',
@@ -10104,7 +10104,7 @@ You do not need a CTO on staff. You do need one person in the business who can a
 
 If you are a small business wondering whether a custom AI agent is worth the investment, the answer is almost always: figure out which single workflow is costing you the most, quantify it, and get a scoped proposal. The most common starting point we see is quoting and customer tracking — see [how an AI agent creates a custom CRM and quoting system for a small business](/blog/ai-agent-custom-crm-quoting-system-small-business) for a real walkthrough.
 
-At [Naurra.ai](/company), we build custom AI agents for small businesses across industries. Every project is scoped upfront, every project is delivered by engineers (not account managers), and every project includes a free initial consultation.
+At [Naurra.ai](/), we build custom AI agents for small businesses across industries. Every project is scoped upfront, every project is delivered by engineers (not account managers), and every project includes a free initial consultation.
 
 **[Start with a free consultation](/contact)** and we will give you an honest read on whether custom AI makes sense for your workflow.
 
@@ -10297,7 +10297,7 @@ If you are evaluating custom AI for your business, the practical sequence is:
 3. Get a scoped fixed-price proposal from a builder you trust
 4. Compare the payback period against the investment
 
-At [Naurra.ai](/company), we scope every custom AI project upfront, quote fixed-price, and deliver with engineers rather than account managers. You can see the kind of systems we ship across industries in our [case studies](/case-studies) — from [HVAC quotation intelligence](/case-studies/mep-quotation-intelligence-hvac-case-study) and [automotive sourcing](/case-studies/automotive-sourcing-engine-profit-automation) to a [multi-channel Salesforce communication suite](/case-studies/multi-channel-salesforce-ai-communication-suite) and a [legal document intelligence analyser](/case-studies/lease-ai-analyser-legal-document-intelligence).
+At [Naurra.ai](/), we scope every custom AI project upfront, quote fixed-price, and deliver with engineers rather than account managers. You can see the kind of systems we ship across industries in our [case studies](/case-studies) — from [HVAC quotation intelligence](/case-studies/mep-quotation-intelligence-hvac-case-study) and [automotive sourcing](/case-studies/automotive-sourcing-engine-profit-automation) to a [multi-channel Salesforce communication suite](/case-studies/multi-channel-salesforce-ai-communication-suite) and a [legal document intelligence analyser](/case-studies/lease-ai-analyser-legal-document-intelligence).
 
 **[Get a free scoping call](/contact)** and we will give you an honest read on what your workflow would cost to automate.
 
@@ -10455,7 +10455,7 @@ For real pricing ranges, see [how much do custom AI agents cost](/blog/how-much-
 
 ## The Honest Next Step
 
-At [Naurra.ai](/company), we do both sides of this equation. Naurra itself is a productized tool for generic Google Workspace automation. And we build custom AI agents for the workflows that are unique to your business.
+At [Naurra.ai](/), we do both sides of this equation. Naurra itself is a productized tool for generic Google Workspace automation. And we build custom AI agents for the workflows that are unique to your business.
 
 If you are not sure which side of the line your workflow falls on, that is exactly the conversation to have before spending anything.
 
@@ -10540,7 +10540,7 @@ We built a custom AI agent that:
 - Logs the lead into a custom CRM view — one column per stage (new, quoted, negotiating, won, lost).
 - Follows up after 3 days if there is no response.
 
-Since deployment, the business has been [averaging around $15K profit every two weeks](/company), primarily because quotes now go out in minutes instead of the next day, and no lead gets forgotten.
+Since deployment, the business has been [averaging around $15K profit every two weeks](/), primarily because quotes now go out in minutes instead of the next day, and no lead gets forgotten.
 
 That is not a story about AI magic. It is a story about removing the specific friction where revenue was leaking.
 
@@ -10642,7 +10642,7 @@ This is usually the best first AI project for a business that sends **20+ quotes
 
 If you are running a small business and losing hours to manual quoting or a spreadsheet CRM, this is usually the highest-ROI first AI project you can run.
 
-See the dedicated solution page for a full overview of [our custom AI CRM and quoting agent](/solutions/ai-agent-custom-crm-quoting-system-small-business), or [see our case studies and book a free consultation](/company). We reply within 24 hours with an honest read on whether a custom build actually makes sense for your business.
+See the dedicated solution page for a full overview of [our custom AI CRM and quoting agent](/solutions/ai-agent-custom-crm-quoting-system-small-business), or [see our case studies and book a free consultation](/). We reply within 24 hours with an honest read on whether a custom build actually makes sense for your business.
 
 ## Related Reading
 
@@ -10832,7 +10832,7 @@ When the hard part is not just generating the invoice, but detecting billable ev
 
 If you are running a small business and losing hours every month to manual invoicing or chasing unpaid balances, this is one of the highest-ROI first AI projects you can run. The investment is small, the timeline is short, and the time and revenue you recover compound month after month.
 
-We build custom AI agents for small business — [see our work and book a free consultation](/company). We reply within 24 hours with an honest read on whether a custom build actually makes sense for your business.
+We build custom AI agents for small business — [see our work and book a free consultation](/). We reply within 24 hours with an honest read on whether a custom build actually makes sense for your business.
 
 ## Related Reading
 
@@ -10862,7 +10862,7 @@ We build custom AI agents for small business — [see our work and book a free c
     title: 'How AI Lead Capture Agents Work',
     description: 'How a custom AI lead capture agent listens across Instagram, WhatsApp, email and forms, qualifies leads automatically and routes them into one pipeline, with a real example and cost.',
     content: `
-**TL;DR:** A custom AI agent can listen to every inbound channel a small business uses (Instagram DMs, WhatsApp, email, web forms), extract the lead details, qualify the prospect against your rules, and route the lead into one unified pipeline with full context preserved across channels. Typical build cost for small business: $5K-$13K. Typical timeline: 4-6 weeks. We have shipped this for an automotive reseller now averaging [around $15K profit every two weeks](/company), and a B2B sales team running a single AI brain across 4 channels into Salesforce.
+**TL;DR:** A custom AI agent can listen to every inbound channel a small business uses (Instagram DMs, WhatsApp, email, web forms), extract the lead details, qualify the prospect against your rules, and route the lead into one unified pipeline with full context preserved across channels. Typical build cost for small business: $5K-$13K. Typical timeline: 4-6 weeks. We have shipped this for an automotive reseller now averaging [around $15K profit every two weeks](/), and a B2B sales team running a single AI brain across 4 channels into Salesforce.
 
 The lead leak is the most expensive problem small businesses do not realize they have.
 
@@ -10905,7 +10905,7 @@ Before the build, leads came in through Instagram DMs and a website form. The ow
 
 We deployed a custom AI agent that monitors the inbox and Instagram DMs, extracts vehicle and budget details, pulls live inventory and margin rules from a Google Sheet, drafts a branded quote, and logs the lead into a custom CRM view.
 
-Since deployment, the business has been [averaging around $15K profit every two weeks](/company), primarily because quotes now go out in minutes instead of the next day, and no lead gets forgotten.
+Since deployment, the business has been [averaging around $15K profit every two weeks](/), primarily because quotes now go out in minutes instead of the next day, and no lead gets forgotten.
 
 ### B2B Sales Team (4 Channels, 1 Brain)
 
@@ -10913,7 +10913,7 @@ A B2B sales team was losing leads because customers would message on WhatsApp, f
 
 We deployed a single AI brain across WhatsApp, Telegram, email, and web chat, all connected to Salesforce. The agent remembers every interaction regardless of channel. A lead who messaged on WhatsApp last week and emails this week gets a reply that picks up exactly where the prior conversation ended. Every interaction is logged automatically.
 
-For the full case study, see [our work](/company).
+For the full case study, see [our work](/).
 
 ## Build or Buy? A Straight Answer
 
@@ -11008,7 +11008,7 @@ When the real pain is not just viewing messages in one place, but replying fast,
 
 If you are running a small business and losing inbound to scattered channels and slow response, this is one of the highest-ROI first AI projects you can run.
 
-We build custom AI agents for small business. [See the case studies and book a free consultation](/company). We reply within 24 hours with an honest read on whether a custom build actually makes sense for your business.
+We build custom AI agents for small business. [See the case studies and book a free consultation](/). We reply within 24 hours with an honest read on whether a custom build actually makes sense for your business.
 
 ## Related Reading
 
@@ -11039,7 +11039,7 @@ We build custom AI agents for small business. [See the case studies and book a f
     title: 'How AI Support Email Agents Work',
     description: 'How a custom AI support email agent triages messages, looks up real order or account data, drafts replies in your tone and escalates only what needs a human, with cost and ROI.',
     content: `
-**TL;DR:** A custom AI agent can read every incoming customer support email, classify it, draft a reply in your tone, resolve the simple ones automatically, and escalate the rest with full context to whoever handles them. Typical build cost for small business: $4K-$11K. Typical timeline: 3-5 weeks. We have shipped this for an e-commerce wellness brand now running [100% automated operations including support](/company) and a B2B sales team unifying support and sales conversations across 4 channels.
+**TL;DR:** A custom AI agent can read every incoming customer support email, classify it, draft a reply in your tone, resolve the simple ones automatically, and escalate the rest with full context to whoever handles them. Typical build cost for small business: $4K-$11K. Typical timeline: 3-5 weeks. We have shipped this for an e-commerce wellness brand now running [100% automated operations including support](/) and a B2B sales team unifying support and sales conversations across 4 channels.
 
 Customer support is the workflow most small businesses build a duct-tape SaaS stack around and still hate.
 
@@ -11079,9 +11079,9 @@ A wellness brand was doing everything manually: customer support, email marketin
 
 We built an AI web assistant that handles customer questions, an email agent that manages support and campaigns, and a social AI that posts across LinkedIn, Twitter, Facebook, and Pinterest.
 
-The result, per the [case study on the company page](/company), is **100% automated operations**. The founder went from working in the business to working on it. Marketing, support, and operations run around the clock without human intervention, and support response time dropped to minutes.
+The result, per the [case study on the company page](/), is **100% automated operations**. The founder went from working in the business to working on it. Marketing, support, and operations run around the clock without human intervention, and support response time dropped to minutes.
 
-For the full breakdown, see [our work](/company).
+For the full breakdown, see [our work](/).
 
 ## Build or Buy? A Straight Answer
 
@@ -11163,7 +11163,7 @@ If you are losing hours every week to support email and customers are waiting to
 
 If you want the implementation-ready version of this workflow, see our [AI customer support agent solution page](/solutions/ai-agent-handle-customer-support-emails-small-business).
 
-We build custom AI agents for small business. [See the case studies and book a free consultation](/company). We reply within 24 hours with an honest read on whether a custom build actually makes sense for your business.
+We build custom AI agents for small business. [See the case studies and book a free consultation](/). We reply within 24 hours with an honest read on whether a custom build actually makes sense for your business.
 
 ## Related Reading
 
@@ -11192,7 +11192,7 @@ We build custom AI agents for small business. [See the case studies and book a f
     title: 'How AI Agents Schedule Client Appointments',
     description: 'How a custom AI agent books, confirms and reschedules client appointments over WhatsApp, email and voice, with a real example, build cost, timeline and the effect on no-shows.',
     content: `
-**TL;DR:** A custom AI agent can run the entire scheduling loop for a small business: book appointments over WhatsApp or email, confirm them automatically the day before, handle reschedules without a human, and reduce no-shows by sending the right reminder at the right time. Typical build cost for small business: $4K-$9K. Typical timeline: 3-5 weeks. We have built scheduling and concierge agents for a [travel agency now creating itineraries 10x faster](/company) and adapt the same pattern for clinics, salons, consultancies, and service businesses.
+**TL;DR:** A custom AI agent can run the entire scheduling loop for a small business: book appointments over WhatsApp or email, confirm them automatically the day before, handle reschedules without a human, and reduce no-shows by sending the right reminder at the right time. Typical build cost for small business: $4K-$9K. Typical timeline: 3-5 weeks. We have built scheduling and concierge agents for a [travel agency now creating itineraries 10x faster](/) and adapt the same pattern for clinics, salons, consultancies, and service businesses.
 
 Scheduling is the workflow that quietly destroys an hour or two of every working day for service businesses, and the cost is invisible because it happens in 30-second slices.
 
@@ -11233,7 +11233,7 @@ A travel agency spent hours per client building custom itineraries: researching 
 
 We built intelligent agents on Telegram and WhatsApp that converse with travelers, understand their style and budget, and generate beautifully formatted PDF itineraries with timings, costs, and recommendations.
 
-Per the [case study on the company page](/company), itinerary creation is now **10x faster** and clients chat naturally about their dream trip instead of waiting days for a human to come back to them.
+Per the [case study on the company page](/), itinerary creation is now **10x faster** and clients chat naturally about their dream trip instead of waiting days for a human to come back to them.
 
 The same pattern applies to scheduling: a clinic books appointments over WhatsApp in your voice, confirms them, reschedules them, and feeds the calendar so the human team only sees the appointments they need to actually run.
 
@@ -11298,7 +11298,7 @@ That is the entire brief.
 
 If scheduling is eating an hour of every day, no-shows are quietly costing real revenue, and your booking flow happens in WhatsApp threads more often than on a web page, this is one of the highest-ROI first AI projects you can ship.
 
-We build custom AI agents for small business. [See the case studies and book a free consultation](/company). We reply within 24 hours with an honest read on whether a custom build actually makes sense for your business.
+We build custom AI agents for small business. [See the case studies and book a free consultation](/). We reply within 24 hours with an honest read on whether a custom build actually makes sense for your business.
 
 ## Related Reading
 
@@ -11326,7 +11326,7 @@ We build custom AI agents for small business. [See the case studies and book a f
     title: 'How AI Proposal and SOW Agents Work',
     description: 'How a custom AI proposal and statement-of-work agent drafts scope, pricing and clauses from your past wins, with a real example, cost range, workflow and ROI.',
     content: `
-**TL;DR:** A custom AI agent can read an inbound brief, look at your library of past proposals, draft a new proposal in your voice with the right scope, pricing, and clauses, and send it for human review in minutes instead of days. Typical build cost for small business: $5K-$13K. Typical timeline: 4-6 weeks. We have shipped this pattern for an HVAC contractor now [building quotations 95% faster](/company) and a legal team where lease analysis dropped from days to under 60 seconds.
+**TL;DR:** A custom AI agent can read an inbound brief, look at your library of past proposals, draft a new proposal in your voice with the right scope, pricing, and clauses, and send it for human review in minutes instead of days. Typical build cost for small business: $5K-$13K. Typical timeline: 4-6 weeks. We have shipped this pattern for an HVAC contractor now [building quotations 95% faster](/) and a legal team where lease analysis dropped from days to under 60 seconds.
 
 Proposals are the workflow where small businesses lose the most revenue without realizing it.
 
@@ -11368,7 +11368,7 @@ HVAC contractors were spending hours manually matching equipment specs to projec
 
 We built an AI engine that reads project specifications, automatically matches the right equipment from supplier catalogs, and generates complete quotations: priced, formatted, and ready to send.
 
-Per the [case study on the company page](/company), the result was **95% faster processing**. What used to take a full workday now takes minutes.
+Per the [case study on the company page](/), the result was **95% faster processing**. What used to take a full workday now takes minutes.
 
 ### Legal Team (Document Intelligence)
 
@@ -11378,7 +11378,7 @@ We built a document intelligence engine that ingests lease agreements, extracts 
 
 The same pattern applies to proposals: read the inbound brief, extract the relevant fields, pull the right scope from a library of past wins, calculate pricing, and produce a complete document for human review.
 
-For the full case studies, see [our work](/company).
+For the full case studies, see [our work](/).
 
 ## Build or Buy? A Straight Answer
 
@@ -11458,7 +11458,7 @@ When the bottleneck is not tracking signatures, but actually writing the proposa
 
 If proposal writing is the chokepoint between qualified leads and closed deals, this is one of the highest-ROI first AI projects you can ship.
 
-We build custom AI agents for small business. [See the case studies and book a free consultation](/company). We reply within 24 hours with an honest read on whether a custom build actually makes sense for your business.
+We build custom AI agents for small business. [See the case studies and book a free consultation](/). We reply within 24 hours with an honest read on whether a custom build actually makes sense for your business.
 
 ## Related Reading
 
@@ -11769,7 +11769,7 @@ If you are evaluating an AI sales agent for your business:
 3. Decide the two or three actions the agent must own end to end.
 4. Get one Tier 1 quote and one Tier 2 or 3 quote. Compare them on hours saved and meetings booked, not on monthly fee.
 
-At [Naurra.ai](/company), we scope custom AI sales agents for small businesses with fixed monthly pricing and a clear breakdown of what is included.
+At [Naurra.ai](/), we scope custom AI sales agents for small businesses with fixed monthly pricing and a clear breakdown of what is included.
 
 **[Get a free scoping call](/contact)** and we will tell you honestly which tier fits your sales motion.
 
@@ -11927,7 +11927,7 @@ If you are picking a tool today:
 3. Pick the smallest tool in this guide that handles that category well.
 4. Measure reply rate or time saved for two weeks. Decide whether to keep it, swap it, or graduate to a custom workflow.
 
-At [Naurra.ai](/company), we build custom email drafting and inbox workflows for small businesses on Google Workspace where the off-the-shelf options have hit a ceiling.
+At [Naurra.ai](/), we build custom email drafting and inbox workflows for small businesses on Google Workspace where the off-the-shelf options have hit a ceiling.
 
 **[Get a free scoping call](/contact)** and we will give you an honest read on whether you should buy a tool or build one.
 

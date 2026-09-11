@@ -1,82 +1,73 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import CompanyPageIsland from '../components/islands/CompanyPageIsland'
+import { companyFAQs } from '../components/CompanyPage'
 import { featuredCaseStudies } from '../data/caseStudies'
+import { solutionPages } from '../data/solutionPages'
 
+// The root is the company page; the product lives at /product/. Organization and
+// WebSite schema are emitted site-wide by BaseLayout under stable @ids, so this page
+// references the company entity instead of declaring a second, conflicting one.
+const ORG_ID = 'https://naurra.ai/#organization'
+
+const title = 'Naurra.ai | Custom AI Agents & AI Automation Company'
+const description = 'Naurra.ai is an AI company building custom AI agents for business: quoting, CRM, sales, support and operations automation. See real case studies and results.'
+
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': 'https://naurra.ai/#webpage',
+  url: 'https://naurra.ai/',
+  name: title,
+  description,
+  isPartOf: { '@id': 'https://naurra.ai/#website' },
+  about: { '@id': ORG_ID },
+  primaryImageOfPage: 'https://naurra.ai/og-default.png'
+}
+
+// Built from the same array CompanyPage renders, so the markup always matches the visible FAQ.
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'What types of businesses do you work with?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'We work with businesses of all sizes across multiple industries — from startups to established enterprises. Our clients span HVAC, legal, automotive, travel, fashion, e-commerce, wellness, and more. If your business has manual processes that could benefit from AI automation, we can help.'
-      }
-    },
-    {
-      '@type': 'Question',
-      name: 'How long does a typical project take?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Most projects are delivered within 4-8 weeks, depending on complexity. We start with a discovery phase (1 week), followed by architecture design, rapid development with weekly demos, and deployment. You see working progress from week one — not after months of waiting.'
-      }
-    },
-    {
-      '@type': 'Question',
-      name: 'What does a custom AI agent cost for a small business?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'For small businesses, a focused custom AI agent typically lands between $4,000 and $19,000 for a fixed-price build, depending on the number of integrations and the depth of the workflow being automated. Every project is scoped individually with a free consultation and a detailed proposal within 48 hours. See our full pricing breakdown in our guide on how much custom AI agents cost for small business.'
-      }
-    },
-    {
-      '@type': 'Question',
-      name: 'Can you build a custom CRM or AI quoting system for a small business?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. Custom CRMs and AI-powered quoting systems are one of our most common builds for small business. A typical quoting agent reads an inbound lead (email, form or WhatsApp), pulls pricing and inventory from your sheets or database, drafts a branded quote in your voice, and pushes it into your CRM — in seconds instead of hours. We design it around your exact products, pricing rules and sales process, then deploy it in 4–6 weeks.'
-      }
-    },
-    {
-      '@type': 'Question',
-      name: 'What are the best Google Workspace automation tools for small business?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'For off-the-shelf needs, Naurra.ai is the voice and chat AI that runs Gmail, Google Calendar, Drive, Docs and Sheets from a single prompt — unlimited usage, built specifically for small teams. For workflows that are unique to your business (custom CRM, quoting, proposals, operations), a custom AI agent makes more sense than stitching together generic tools. We help small businesses choose between custom and off-the-shelf before writing a single line of code.'
-      }
-    },
-    {
-      '@type': 'Question',
-      name: 'Do you offer ongoing support after deployment?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes. We offer ongoing support and optimization packages. AI systems improve over time with fine-tuning and monitoring, and we partner with you long-term to ensure your solution keeps delivering results as your business evolves.'
-      }
-    },
-    {
-      '@type': 'Question',
-      name: 'Can you integrate AI with our existing tools and systems?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Absolutely. We specialize in integrating AI into existing workflows — whether that\'s Salesforce, Google Workspace, Slack, WhatsApp, custom CRMs, or legacy systems. Our solutions work alongside what you already use, not replace it.'
-      }
-    },
-    {
-      '@type': 'Question',
-      name: 'What makes Naurra different from other AI agencies?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'We\'re not a generic agency — we\'re engineers who build and ship. Our founder has personally delivered every project in our portfolio. You work directly with the people who write the code, not account managers who relay messages. That means faster delivery, better communication, and solutions that actually work.'
-      }
+  mainEntity: companyFAQs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer
     }
-  ]
+  }))
+}
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': 'https://naurra.ai/#custom-ai-development',
+  name: 'Custom AI Agent Development',
+  serviceType: ['Custom AI Agent Development', 'AI Workflow Automation', 'Document Intelligence', 'AI Integration', 'AI Consulting'],
+  description: 'Custom AI agents and automation systems built around a business\'s exact process: quoting systems, custom CRMs, sales and support automation, document intelligence, operations, and Google Workspace workflows. Fixed-price, engineer-led delivery.',
+  url: 'https://naurra.ai/',
+  provider: { '@id': ORG_ID },
+  areaServed: 'Worldwide',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Custom AI agent solutions',
+    url: 'https://naurra.ai/solutions/',
+    itemListElement: solutionPages.map((solution) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: solution.name,
+        url: `https://naurra.ai/solutions/${solution.slug}/`
+      }
+    }))
+  }
 }
 
 const itemListSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
+  name: 'Featured custom AI case studies',
   itemListElement: featuredCaseStudies.slice(0, 4).map((study, index) => ({
     '@type': 'ListItem',
     position: index + 1,
@@ -84,47 +75,15 @@ const itemListSchema = {
     name: study.title
   }))
 }
-
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'Naurra.ai - Custom AI Solutions',
-  description: 'Custom AI agents for small business across quoting, CRM, support, operations, and Google Workspace workflows, with real case studies and engineer-led delivery.',
-  url: 'https://naurra.ai/',
-  logo: 'https://naurra.ai/logo-transparent.png',
-  image: 'https://naurra.ai/og-default.png',
-  priceRange: '$$',
-  areaServed: 'Worldwide',
-  serviceType: ['AI Development', 'Workflow Automation', 'Custom Software Development', 'AI Consulting', 'Chatbot Development'],
-  knowsAbout: ['Artificial Intelligence', 'Machine Learning', 'Natural Language Processing', 'Workflow Automation', 'Google Workspace', 'LLM Integration'],
-  foundingDate: '2025',
-  founder: {
-    '@type': 'Person',
-    name: 'Athanasios-Ioannis Panagiotakopoulos',
-    jobTitle: 'Founder & Lead AI Engineer',
-    url: 'https://naurra.ai/'
-  },
-  contactPoint: {
-    '@type': 'ContactPoint',
-    contactType: 'Sales',
-    email: 'support@naurra.ai',
-    url: 'https://naurra.ai/contact/'
-  },
-  sameAs: [
-    'https://www.linkedin.com/company/109405415',
-    'https://www.linkedin.com/in/athanasios-ioannis-panagiotakopoulos-2362a9274/',
-    'https://x.com/Naurra_ai'
-  ]
-}
 ---
 
 <BaseLayout
-  title="Custom AI Agents for Small Business | Naurra.ai"
-  description="Custom AI agents for small business across quoting, CRM, support, operations, and Google Workspace workflows. Explore Naurra.ai case studies and real results."
-  keywords="custom ai agents for small business, custom ai case studies, ai automation company, small business ai automation, google workspace workflow automation, custom ai solutions"
-  imageAlt="Naurra.ai company page featuring custom AI agents, case studies, and founder-led delivery"
+  title={title}
+  description={description}
+  keywords="naurra, naurra ai, ai company, custom ai agents, custom ai agents for small business, ai automation company, ai agent development, custom ai solutions, custom ai case studies"
+  imageAlt="Naurra.ai, the AI company building custom AI agents and automation systems for businesses"
   url="https://naurra.ai/"
-  structuredData={[faqSchema, serviceSchema, itemListSchema]}
+  structuredData={[webPageSchema, serviceSchema, faqSchema, itemListSchema]}
 >
   <CompanyPageIsland client:load />
 </BaseLayout>

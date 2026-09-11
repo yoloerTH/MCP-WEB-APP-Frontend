@@ -314,7 +314,7 @@ const processSteps = [
   { step: '05', title: 'Scale & Support', description: 'Ongoing optimization and monitoring as your needs evolve.' },
 ]
 
-const companyFAQs = [
+export const companyFAQs = [
   { question: 'What types of businesses do you work with?', answer: 'We work with businesses of all sizes across multiple industries — from startups to established enterprises. Our clients span HVAC, legal, automotive, travel, fashion, e-commerce, wellness, legaltech, quantitative analytics, and more. If your business has manual processes that could benefit from AI automation, we can help.' },
   { question: 'How long does a typical project take?', answer: 'Most projects are delivered within 4-8 weeks, depending on complexity. We start with a discovery phase (1 week), followed by architecture design, rapid development with weekly demos, and deployment. You see working progress from week one — not after months of waiting.' },
   { question: 'What does a custom AI solution cost?', answer: 'Every project is scoped individually based on your needs. We offer fixed-price engagements so you know exactly what you\'re paying upfront. Contact us for a free consultation and we\'ll provide a detailed proposal within 48 hours.' },
@@ -402,79 +402,79 @@ export default function CompanyPage() {
             animate={{ opacity: 1, x: 0 }}
             className="hidden lg:flex items-center gap-5"
           >
-            <motion.button
+            <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.location.href = '/solutions/'}
+              href="/solutions/"
               className="relative text-sm font-semibold text-emerald-300 hover:text-emerald-200 transition-colors inline-flex items-center gap-1.5"
               style={{ fontFamily: 'Outfit, sans-serif' }}
             >
               Custom Solutions
               <span className="px-1.5 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wider bg-gradient-to-r from-emerald-500 to-amber-500 text-white">New</span>
-            </motion.button>
-            <motion.button
+            </motion.a>
+            <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.location.href = '/inspiration/'}
+              href="/inspiration/"
               className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
               style={{ fontFamily: 'Outfit, sans-serif' }}
             >
               Explore AI Hub
-            </motion.button>
-            <motion.button
+            </motion.a>
+            <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.location.href = '/compare/'}
+              href="/compare/"
               className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
               style={{ fontFamily: 'Outfit, sans-serif' }}
             >
               Compare
-            </motion.button>
-            <motion.button
+            </motion.a>
+            <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.location.href = '/pricing/'}
+              href="/pricing/"
               className="text-sm font-semibold text-gray-300 hover:text-emerald-200 transition-colors"
               style={{ fontFamily: 'Outfit, sans-serif' }}
             >
               Pricing
-            </motion.button>
-            <motion.button
+            </motion.a>
+            <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.location.href = '/product/'}
+              href="/product/"
               className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
               style={{ fontFamily: 'Outfit, sans-serif' }}
             >
               Product
-            </motion.button>
-            <motion.button
+            </motion.a>
+            <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.location.href = '/about/'}
+              href="/about/"
               className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
               style={{ fontFamily: 'Outfit, sans-serif' }}
             >
               About
-            </motion.button>
-            <motion.button
+            </motion.a>
+            <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.location.href = '/blog/'}
+              href="/blog/"
               className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
               style={{ fontFamily: 'Outfit, sans-serif' }}
             >
               Blog
-            </motion.button>
-            <motion.button
+            </motion.a>
+            <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.location.href = '/contact/'}
+              href="/contact/"
               className="text-sm font-semibold text-amber-400 hover:text-amber-300 transition-colors"
               style={{ fontFamily: 'Outfit, sans-serif' }}
             >
               Contact
-            </motion.button>
+            </motion.a>
           </motion.div>
 
           {/* Mobile Hamburger */}
@@ -527,17 +527,18 @@ export default function CompanyPage() {
                 { label: 'Blog', path: '/blog/', color: 'text-gray-300' },
                 { label: 'Contact', path: '/contact/', color: 'text-amber-400' },
               ].map((item, i) => (
-                <motion.button
+                <motion.a
                   key={item.path}
+                  href={item.path}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
-                  onClick={() => { window.location.href = item.path; setMobileMenuOpen(false) }}
+                  onClick={() => setMobileMenuOpen(false)}
                   className={`py-4 text-left text-lg font-semibold ${item.color} hover:text-emerald-300 transition-colors border-b border-white/5`}
                   style={{ fontFamily: 'Outfit, sans-serif' }}
                 >
                   {item.label}
-                </motion.button>
+                </motion.a>
               ))}
               <div className="mt-6">
               </div>

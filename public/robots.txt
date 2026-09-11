@@ -1,18 +1,29 @@
 # Robots.txt for Naurra.ai
+# Naurra.ai (NAURRA AI LTD) is an AI company that builds custom AI agents and
+# automation systems for businesses, and makes the Naurra.ai assistant for Google Workspace.
 
 User-agent: *
 Allow: /
+Disallow: /settings
+Disallow: /api/
+Crawl-delay: 1
 
-# Disallow private/authenticated pages
+# AI search and assistant crawlers are explicitly welcome.
+# A named group replaces the * group for that crawler, so the private paths are repeated.
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+Allow: /
 Disallow: /settings
 Disallow: /api/
 
-# Sitemap location
+# LLM context file (https://llmstxt.org/): https://naurra.ai/llms.txt
+
 Sitemap: https://naurra.ai/sitemap.xml
-
-# LLM context file
-# See https://llmstxt.org/
-Allow: /llms.txt
-
-# Crawl delay (optional - prevents aggressive crawling)
-Crawl-delay: 1

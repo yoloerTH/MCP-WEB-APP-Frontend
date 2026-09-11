@@ -105,10 +105,11 @@ const aboutPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'AboutPage',
   name: 'About Naurra.ai',
-  description: 'About Naurra.ai: the Google Workspace AI product and the engineering company behind custom AI systems and real workflow results.',
+  description: 'About Naurra.ai: an AI company that builds custom AI systems for businesses, with real workflow results, and the maker of a Google Workspace AI assistant.',
   url: 'https://naurra.ai/about/',
   mainEntity: {
     '@type': 'Organization',
+    '@id': 'https://naurra.ai/#organization',
     name: 'Naurra.ai',
     url: 'https://naurra.ai/',
     logo: 'https://naurra.ai/logo-transparent.png',
@@ -136,7 +137,7 @@ const faqSchema = {
 
 <BaseLayout
   title="About Naurra.ai | AI That Moves Work Into Execution"
-  description="Learn what Naurra.ai is: a Google Workspace AI product and the engineering company behind custom AI systems, case studies, and real operational results."
+  description="Learn what Naurra.ai is: an AI company that builds custom AI agents and systems for businesses, and the maker of a voice and chat AI assistant for Google Workspace."
   keywords="about Naurra.ai, Naurra company, Naurra AI product, Google Workspace AI assistant, custom AI company"
   url="https://naurra.ai/about/"
   structuredData={[breadcrumbSchema, aboutPageSchema, faqSchema]}

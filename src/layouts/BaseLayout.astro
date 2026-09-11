@@ -25,9 +25,9 @@ interface Props {
 }
 
 const {
-  title = 'Naurra.ai - AI Voice & Chat Assistant for Google Workspace',
-  description = 'Control Gmail, Calendar, Drive, Docs and Sheets with natural voice commands or chat. The AI assistant built for Google Workspace productivity.',
-  keywords = 'AI assistant, Google Workspace, voice AI, chat AI, productivity, automation, Naurra, workspace management',
+  title = 'Naurra.ai | Custom AI Agents & AI Automation Company',
+  description = 'Naurra.ai is an AI company building custom AI agents and automation systems for businesses, and the maker of a voice and chat AI assistant for Google Workspace.',
+  keywords = 'Naurra, Naurra AI, AI company, custom AI agents, AI automation, AI assistant for Google Workspace',
   image = 'https://naurra.ai/og-default.png',
   imageAlt = 'Naurra.ai preview image',
   url = 'https://naurra.ai/',
@@ -114,37 +114,48 @@ const ogLocale = lang === 'el' ? 'el_GR' : 'en_US'
     <script is:inline type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'WebSite',
+      '@id': 'https://naurra.ai/#website',
       name: 'Naurra.ai',
-      url: 'https://naurra.ai',
-      description: 'Voice and chat AI assistant for Google Workspace.',
+      alternateName: ['Naurra', 'Naurra AI'],
+      url: 'https://naurra.ai/',
+      description: 'Naurra.ai is an AI company that builds custom AI agents and automation systems for businesses, and makes a voice and chat AI assistant for Google Workspace.',
       potentialAction: {
         '@type': 'SearchAction',
         target: {
           '@type': 'EntryPoint',
-          urlTemplate: 'https://naurra.ai/blog?q={search_term_string}'
+          urlTemplate: 'https://naurra.ai/blog/?q={search_term_string}'
         },
         'query-input': 'required name=search_term_string'
       },
-      publisher: {
-        '@type': 'Organization',
-        name: 'Naurra.ai',
-        logo: {
-          '@type': 'ImageObject',
-          url: 'https://naurra.ai/logo-transparent.png'
-        }
-      }
+      publisher: { '@id': 'https://naurra.ai/#organization' }
     })} />
 
-    {/* Site-wide Organization Schema */}
+    {/* Site-wide Organization Schema. Every other schema block references this entity by @id. */}
     <script is:inline type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Organization',
+      '@id': 'https://naurra.ai/#organization',
       name: 'Naurra.ai',
       alternateName: ['Naurra', 'Naurra AI', 'NAURRA AI LTD'],
       legalName: 'NAURRA AI LTD',
-      url: 'https://naurra.ai',
-      logo: 'https://naurra.ai/logo-transparent.png',
-      description: 'Custom AI solutions, workflow automation, and intelligent systems for businesses.',
+      url: 'https://naurra.ai/',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://naurra.ai/logo-transparent.png'
+      },
+      description: 'Naurra.ai is an AI company that designs and builds custom AI agents, automation systems, and document intelligence for businesses, and makes the Naurra.ai voice and chat assistant for Google Workspace.',
+      knowsAbout: [
+        'Artificial intelligence',
+        'AI agents',
+        'Large language models',
+        'Workflow automation',
+        'Document intelligence',
+        'Voice AI',
+        'Retrieval-augmented generation',
+        'Google Workspace automation'
+      ],
+      areaServed: 'Worldwide',
+      email: 'support@naurra.ai',
       foundingDate: '2025',
       identifier: {
         '@type': 'PropertyValue',

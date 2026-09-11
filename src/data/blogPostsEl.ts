@@ -1170,7 +1170,7 @@ Notes, reports, briefs, agendas και proposals χωρίς να ξεκινάς 
 
 ## Βήμα 1: Σύνδεσε τον Google λογαριασμό σου
 
-Μπες στο [naurra.ai](/) και πάτησε **Sign in with Google**.
+Μπες στο [naurra.ai](/product/) και πάτησε **Sign in with Google**.
 
 Θα εμφανιστεί η κλασική Google OAuth οθόνη, η ίδια που βλέπεις σε κάθε app που συνδέεται με Google account. Θα ζητηθεί πρόσβαση σε:
 

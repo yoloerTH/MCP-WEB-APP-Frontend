@@ -25,3 +25,8 @@
 /blog/free-gmail-signature-templates-clean-layouts-that-work-in-gmail/ /tools/gmail-signature-generator/ 301
 /blog/free-email-signature-generator-outreach /tools/gmail-signature-generator/ 301
 /blog/free-email-signature-generator-outreach/ /tools/gmail-signature-generator/ 301
+
+# 2026-09-11 domain restructure: the company page moved from /company/ to the root,
+# and the product landing page moved from / to /product/.
+/company / 301
+/company/ / 301

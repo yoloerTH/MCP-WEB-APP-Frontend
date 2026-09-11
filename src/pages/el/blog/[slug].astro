@@ -56,7 +56,9 @@ const articleSchema = {
   },
   publisher: {
     '@type': 'Organization',
+    '@id': 'https://naurra.ai/#organization',
     name: 'Naurra.ai',
+    url: 'https://naurra.ai/',
     logo: { '@type': 'ImageObject', url: 'https://naurra.ai/logo-transparent.png' }
   },
   datePublished: post.publishedAt,
@@ -88,7 +90,9 @@ const videoSchemas = uniqueVideoIds.map((videoId, idx) => ({
   inLanguage: 'el-GR',
   publisher: {
     '@type': 'Organization',
+    '@id': 'https://naurra.ai/#organization',
     name: 'Naurra.ai',
+    url: 'https://naurra.ai/',
     logo: { '@type': 'ImageObject', url: 'https://naurra.ai/logo-transparent.png' }
   }
 }))

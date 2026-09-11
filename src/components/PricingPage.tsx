@@ -82,7 +82,7 @@ export default function PricingPage() {
     // Check authentication first
     if (!user) {
       alert('Please sign in first to choose a plan')
-      window.location.href = '/'
+      window.location.href = '/product/'
       return
     }
 
