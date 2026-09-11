@@ -294,7 +294,7 @@ Strip away the sport and this is just a rigorous template for decision-making un
 
 That pattern is exactly how we approach pricing engines, risk scoring, forecasting, and any system where a business has to act on probabilities rather than certainties. The football engine is one of our [in-house case studies](/case-studies/football-ev-lab-probability-expected-value-engine/), but the methodology is the point.
 
-If your business makes repeated decisions under uncertainty and you want a system that quantifies the odds instead of guessing, [tell us about it](/contact/) or see the rest of [what we build](/company/).
+If your business makes repeated decisions under uncertainty and you want a system that quantifies the odds instead of guessing, [tell us about it](/contact/) or see the rest of [what we build](/).
 
 *This article describes a quantitative modelling project for research and analysis. It is not financial or betting advice, and no system can guarantee outcomes.*
 `,
@@ -429,7 +429,7 @@ This is also why honest scoping matters more than ambition. The right answer to 
 
 Good AI engineering is not about removing humans. It is about being deliberate regarding which decisions the machine should own, which should be bounded, and which should always escalate. Bound the model so confidence cannot override correctness. Fail safe so uncertainty becomes a question, not a bad write. Do that, and you get systems people actually leave running.
 
-That philosophy runs through everything we build. See [how we work and what we ship](/company/), or [tell us about a workflow](/contact/) you want automated — and we will be honest about how much of it should be.
+That philosophy runs through everything we build. See [how we work and what we ship](/), or [tell us about a workflow](/contact/) you want automated — and we will be honest about how much of it should be.
 `,
     author: {
       name: 'Athanasios-Ioannis Panagiotakopoulos',

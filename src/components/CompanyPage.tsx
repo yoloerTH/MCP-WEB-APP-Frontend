@@ -360,7 +360,7 @@ export default function CompanyPage() {
             <span className="text-xl font-display font-bold bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Naurra.ai</span>
           </motion.a>
           <div className="hidden md:flex items-center gap-8">
-            {[{ label: 'Product', href: '/' }, { label: 'Pricing', href: '/pricing' }, { label: 'Blog', href: '/blog' }, { label: 'Contact', href: '/contact' }].map((link) => (
+            {[{ label: 'Product', href: '/product/' }, { label: 'Pricing', href: '/pricing' }, { label: 'Blog', href: '/blog' }, { label: 'Contact', href: '/contact' }].map((link) => (
               <a key={link.label} href={link.href} className="text-sm text-gray-400 hover:text-emerald-400 transition-colors">{link.label}</a>
             ))}
             <motion.a href="/contact/" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white text-sm font-semibold rounded-xl shadow-lg shadow-emerald-500/25 transition-all">

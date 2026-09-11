@@ -219,7 +219,7 @@ export default function ComparePage() {
           <div className="flex items-center gap-5">
             <a href="/pricing/" className="text-sm text-gray-400 hover:text-emerald-300 transition-colors" style={{ fontFamily: 'Outfit, sans-serif' }}>Pricing</a>
             <a href="/blog/" className="text-sm text-gray-400 hover:text-emerald-300 transition-colors" style={{ fontFamily: 'Outfit, sans-serif' }}>Blog</a>
-            <a href="/" className="text-sm text-emerald-300 hover:text-emerald-200 transition-colors">
+            <a href="/product/" className="text-sm text-emerald-300 hover:text-emerald-200 transition-colors">
               &larr; Home
             </a>
           </div>
@@ -535,7 +535,7 @@ export default function ComparePage() {
 
         {/* Bottom nav */}
         <div className="text-center text-sm text-gray-500">
-          <a href="/" className="text-emerald-400 hover:text-emerald-300 transition-colors">
+          <a href="/product/" className="text-emerald-400 hover:text-emerald-300 transition-colors">
             &larr; Back to Naurra.ai
           </a>
         </div>

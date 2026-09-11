@@ -278,7 +278,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => window.location.href = '/company/'}
+              onClick={() => window.location.href = '/'}
               className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
               style={{ fontFamily: 'Outfit, sans-serif' }}
             >
@@ -359,7 +359,7 @@ export default function LandingPage({ onGetStarted }: LandingPageProps) {
                 { label: 'Explore AI Hub', path: '/inspiration/', color: 'text-gray-300' },
                 { label: 'Compare', path: '/compare/', color: 'text-gray-300' },
                 { label: 'Pricing', path: '/pricing/', color: 'text-gray-300' },
-                { label: 'Company', path: '/company/', color: 'text-gray-300' },
+                { label: 'Company', path: '/', color: 'text-gray-300' },
                 { label: 'About', path: '/about/', color: 'text-gray-300' },
                 { label: 'Blog', path: '/blog/', color: 'text-gray-300' },
                 { label: 'Contact', path: '/contact/', color: 'text-amber-400' },
