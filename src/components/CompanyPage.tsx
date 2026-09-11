@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { caseStudies } from '../data/caseStudies'
 
 /* Service icon SVGs -- themed to each capability */
@@ -328,6 +328,25 @@ const companyFAQs = [
 export default function CompanyPage() {
   const [activeProject, setActiveProject] = useState(0)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [showNav, setShowNav] = useState(true)
+  const [lastScrollY, setLastScrollY] = useState(0)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      if (currentScrollY < 10) {
+        setShowNav(true)
+      } else if (currentScrollY > lastScrollY) {
+        setShowNav(false)
+      } else {
+        setShowNav(true)
+      }
+      setLastScrollY(currentScrollY)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [lastScrollY])
 
   const project = caseStudies[activeProject]
 
@@ -353,22 +372,179 @@ export default function CompanyPage() {
       </div>
 
       {/* ── NAVIGATION ── */}
-      <nav className="relative border-b border-emerald-500/10 backdrop-blur-xl bg-[#0a0e1a]/80 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex items-center justify-between">
-          <motion.a href="/" className="flex items-center gap-3 cursor-pointer" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            <img src="/logo-transparent.png" alt="Naurra.ai Logo" className="w-9 h-9" />
-            <span className="text-xl font-display font-bold bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Naurra.ai</span>
-          </motion.a>
-          <div className="hidden md:flex items-center gap-8">
-            {[{ label: 'Product', href: '/product/' }, { label: 'Pricing', href: '/pricing' }, { label: 'Blog', href: '/blog' }, { label: 'Contact', href: '/contact' }].map((link) => (
-              <a key={link.label} href={link.href} className="text-sm text-gray-400 hover:text-emerald-400 transition-colors">{link.label}</a>
-            ))}
-            <motion.a href="/contact/" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white text-sm font-semibold rounded-xl shadow-lg shadow-emerald-500/25 transition-all">
-              Get a Free Consultation
-            </motion.a>
-          </div>
+      <motion.nav
+        initial={{ y: 0 }}
+        animate={{ y: showNav ? 0 : -140 }}
+        transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+        className="fixed top-[36px] left-0 right-0 z-50 backdrop-blur-xl bg-[#0a0e1a]/90 border-b border-emerald-500/10"
+      >
+        <div className="max-w-[1400px] mx-auto px-4 lg:px-8 py-3 lg:py-5 flex items-center justify-between">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="flex items-center gap-4"
+          >
+            <div className="relative">
+              <div className="absolute inset-0 bg-emerald-500/20 blur-xl rounded-full" />
+              <div className="relative w-10 h-10 lg:w-14 lg:h-14 flex items-center justify-center">
+                <img src="/logo-transparent.png" alt="Naurra.ai Logo" className="w-full h-full object-contain" />
+              </div>
+            </div>
+            <div>
+              <span className="text-xl lg:text-2xl font-display tracking-tight bg-gradient-to-r from-emerald-400 to-amber-400 bg-clip-text text-transparent">Naurra.ai</span>
+              <div className="text-[10px] font-mono text-emerald-400 uppercase tracking-widest hidden sm:block">AI Workspace</div>
+            </div>
+          </motion.div>
+
+          {/* Desktop Nav Links */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="hidden lg:flex items-center gap-5"
+          >
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => window.location.href = '/solutions/'}
+              className="relative text-sm font-semibold text-emerald-300 hover:text-emerald-200 transition-colors inline-flex items-center gap-1.5"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Custom Solutions
+              <span className="px-1.5 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wider bg-gradient-to-r from-emerald-500 to-amber-500 text-white">New</span>
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => window.location.href = '/inspiration/'}
+              className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Explore AI Hub
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => window.location.href = '/compare/'}
+              className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Compare
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => window.location.href = '/pricing/'}
+              className="text-sm font-semibold text-gray-300 hover:text-emerald-200 transition-colors"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Pricing
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => window.location.href = '/'}
+              className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Company
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => window.location.href = '/about/'}
+              className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              About
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => window.location.href = '/blog/'}
+              className="text-sm font-semibold text-gray-400 hover:text-emerald-200 transition-colors"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Blog
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => window.location.href = '/contact/'}
+              className="text-sm font-semibold text-amber-400 hover:text-amber-300 transition-colors"
+              style={{ fontFamily: 'Outfit, sans-serif' }}
+            >
+              Contact
+            </motion.button>
+          </motion.div>
+
+          {/* Mobile Hamburger */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden flex flex-col gap-[5px] p-2"
+            aria-label="Toggle menu"
+          >
+            <motion.span
+              animate={mobileMenuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+              className="block w-5 h-[2px] bg-white/80 rounded-full origin-center"
+            />
+            <motion.span
+              animate={mobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
+              className="block w-5 h-[2px] bg-white/80 rounded-full"
+            />
+            <motion.span
+              animate={mobileMenuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+              className="block w-5 h-[2px] bg-white/80 rounded-full origin-center"
+            />
+          </button>
         </div>
-      </nav>
+      </motion.nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+            />
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              className="fixed top-0 right-0 bottom-0 w-72 bg-[#0a0e1a]/95 backdrop-blur-xl border-l border-white/10 z-40 lg:hidden flex flex-col pt-24 px-6"
+            >
+              {[
+                { label: 'Custom Solutions', path: '/solutions/', color: 'text-emerald-400' },
+                { label: 'Explore AI Hub', path: '/inspiration/', color: 'text-gray-300' },
+                { label: 'Compare', path: '/compare/', color: 'text-gray-300' },
+                { label: 'Pricing', path: '/pricing/', color: 'text-gray-300' },
+                { label: 'Company', path: '/', color: 'text-gray-300' },
+                { label: 'About', path: '/about/', color: 'text-gray-300' },
+                { label: 'Blog', path: '/blog/', color: 'text-gray-300' },
+                { label: 'Contact', path: '/contact/', color: 'text-amber-400' },
+              ].map((item, i) => (
+                <motion.button
+                  key={item.path}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                  onClick={() => { window.location.href = item.path; setMobileMenuOpen(false) }}
+                  className={`py-4 text-left text-lg font-semibold ${item.color} hover:text-emerald-300 transition-colors border-b border-white/5`}
+                  style={{ fontFamily: 'Outfit, sans-serif' }}
+                >
+                  {item.label}
+                </motion.button>
+              ))}
+              <div className="mt-6">
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       {/* ═══════════════════════════════════════════════════════════ */}
       {/* HERO — Lead with what AI actually does, not buzzwords       */}
@@ -398,15 +574,13 @@ export default function CompanyPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-extrabold leading-[1.05] tracking-tight mb-7"
+                className="font-display text-5xl lg:text-6xl xl:text-7xl leading-[0.95] tracking-tight mb-7"
               >
-                Your business runs on
-                <br />
-                <span className="bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent">
+                <span className="block text-white">Your business runs on</span>
+                <span className="block bg-gradient-to-r from-emerald-400 via-emerald-300 to-amber-400 bg-clip-text text-transparent">
                   manual processes.
                 </span>
-                <br />
-                We fix that.
+                <span className="block text-white">We fix that.</span>
               </motion.h1>
 
               <motion.p
