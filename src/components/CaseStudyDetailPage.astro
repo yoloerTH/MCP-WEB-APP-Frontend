@@ -42,6 +42,7 @@ const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: study.seoTitle,
+  image: `https://naurra.ai${inProgramme ? `/og/case-studies/${study.slug}.png` : '/og-default.png'}`,
   description: study.description,
   mainEntityOfPage: `https://naurra.ai/case-studies/${study.slug}/`,
   url: `https://naurra.ai/case-studies/${study.slug}/`,
@@ -80,7 +81,7 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
   title={study.seoTitle}
   description={study.description}
   keywords={study.keywords ?? `${study.industry.toLowerCase()} ai case study, ${study.title.toLowerCase()}, custom ai automation case study, naurra ai case study`}
-  image="/og-default.png"
+  image={inProgramme ? `/og/case-studies/${study.slug}.png` : '/og-default.png'}
   imageAlt={`${study.title} case study by Naurra.ai`}
   url={`https://naurra.ai/case-studies/${study.slug}/`}
   type="article"
