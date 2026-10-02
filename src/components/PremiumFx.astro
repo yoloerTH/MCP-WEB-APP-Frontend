@@ -1,0 +1,163 @@
+---
+/**
+ * Shared motion layer for the case-study pages.
+ *
+ *   data-reveal            fades and lifts the element in when it scrolls into view
+ *   data-reveal-stagger    does the same for each direct child, one after another
+ *   data-count             counts a value like "30M+" up from zero when seen
+ *   data-spotlight         a soft light that follows the cursor, plus a glowing border
+ *   .fx-shine              a light sweep across a button on hover
+ *   svg.fx-draw            strokes draw themselves in (give shapes pathLength="1")
+ *
+ * Content is fully visible without JavaScript: the hidden starting state only
+ * applies once the script has added `fx` to <html>. Everything is switched off
+ * under prefers-reduced-motion.
+ */
+interface Props {
+  accent?: string
+  accent2?: string
+}
+const { accent = '#a3e635', accent2 = '#34d399' } = Astro.props
+---
+
+<div class="fx-progress" aria-hidden="true" style={`--fx-a:${accent};--fx-b:${accent2};`}></div>
+<div class="fx-grain" aria-hidden="true"></div>
+
+<style is:global>
+  .fx-progress {
+    position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 60; transform-origin: 0 50%;
+    transform: scaleX(var(--fx-p, 0));
+    background: linear-gradient(90deg, var(--fx-a), var(--fx-b));
+    box-shadow: 0 0 18px var(--fx-a);
+  }
+  .fx-grain {
+    position: fixed; inset: -50%; z-index: 1; pointer-events: none; opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: fx-grain 9s steps(10) infinite;
+  }
+  @keyframes fx-grain {
+    0%, 100% { transform: translate(0, 0); } 20% { transform: translate(-3%, 2%); }
+    40% { transform: translate(2%, -3%); } 60% { transform: translate(-2%, 3%); } 80% { transform: translate(3%, -1%); }
+  }
+
+  html.fx [data-reveal], html.fx [data-reveal-stagger] > * {
+    opacity: 0; transform: translateY(26px); filter: blur(6px);
+    transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1), filter .9s ease;
+    transition-delay: var(--fx-d, 0ms);
+  }
+  html.fx [data-reveal].is-in, html.fx [data-reveal-stagger].is-in > * {
+    opacity: 1; transform: none; filter: none;
+  }
+
+  [data-spotlight] { position: relative; isolation: isolate; }
+  [data-spotlight]::before {
+    content: ''; position: absolute; inset: 0; border-radius: inherit; z-index: -1; pointer-events: none;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), var(--spot, rgba(163,230,53,.10)), transparent 60%);
+    opacity: 0; transition: opacity .35s ease;
+  }
+  [data-spotlight]::after {
+    content: ''; position: absolute; inset: -1px; border-radius: inherit; padding: 1px; pointer-events: none;
+    background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), var(--spot-edge, rgba(163,230,53,.65)), transparent 70%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    opacity: 0; transition: opacity .35s ease;
+  }
+  [data-spotlight]:hover::before, [data-spotlight]:hover::after { opacity: 1; }
+
+  .fx-shine { position: relative; overflow: hidden; }
+  .fx-shine::after {
+    content: ''; position: absolute; top: 0; bottom: 0; width: 45%; left: -60%; pointer-events: none;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,.45), transparent);
+    transform: skewX(-20deg);
+  }
+  .fx-shine:hover::after { animation: fx-shine .9s ease; }
+  @keyframes fx-shine { to { left: 130%; } }
+
+  html.fx svg.fx-draw [pathLength] { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  html.fx svg.fx-draw.is-in [pathLength] {
+    animation: fx-draw 2.4s cubic-bezier(.6,.1,.2,1) forwards; animation-delay: var(--fx-d, 0ms);
+  }
+  @keyframes fx-draw { to { stroke-dashoffset: 0; } }
+
+  .fx-float { animation: fx-float 7s ease-in-out infinite; }
+  @keyframes fx-float { 50% { transform: translateY(-10px); } }
+
+  .fx-marquee { display: flex; width: max-content; animation: fx-marquee 38s linear infinite; }
+  .fx-marquee:hover { animation-play-state: paused; }
+  @keyframes fx-marquee { to { transform: translateX(-50%); } }
+
+  .fx-gradient-text {
+    background-size: 200% auto; animation: fx-pan 8s ease-in-out infinite alternate;
+  }
+  @keyframes fx-pan { to { background-position: 100% 50%; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fx-grain, .fx-float, .fx-marquee, .fx-gradient-text, .fx-shine::after { animation: none !important; }
+    html.fx [data-reveal], html.fx [data-reveal-stagger] > * { opacity: 1; transform: none; filter: none; transition: none; }
+    html.fx svg.fx-draw [pathLength] { stroke-dashoffset: 0; animation: none; }
+  }
+</style>
+
+<script is:inline>
+  (() => {
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches
+    const root = document.documentElement
+    if (!reduce) root.classList.add('fx')
+    // This script sits at the top of <body>, before the content it animates.
+    const init = () => {
+
+    const bar = document.querySelector('.fx-progress')
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - innerHeight
+      if (bar) bar.style.setProperty('--fx-p', max > 0 ? String(Math.min(1, scrollY / max)) : '0')
+    }
+    addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+
+    const countUp = (el) => {
+      if (el.dataset.counted) return
+      el.dataset.counted = '1'
+      const raw = el.dataset.countValue || el.textContent.trim()
+      const m = raw.match(/^(\D*)(\d+(?:\.\d+)?)(.*)$/)
+      if (!m || reduce) return
+      const [, pre, num, post] = m
+      const target = parseFloat(num), decimals = (num.split('.')[1] || '').length
+      const t0 = performance.now(), dur = 1400
+      const tick = (t) => {
+        const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 4)
+        el.textContent = pre + (target * e).toFixed(decimals) + post
+        if (k < 1) requestAnimationFrame(tick)
+      }
+      el.dataset.countValue = raw
+      requestAnimationFrame(tick)
+    }
+
+    document.querySelectorAll('[data-reveal-stagger]').forEach((g) => {
+      ;[...g.children].forEach((c, i) => c.style.setProperty('--fx-d', `${i * 90}ms`))
+    })
+
+    const io = new IntersectionObserver((entries) => {
+      for (const en of entries) {
+        if (!en.isIntersecting) continue
+        en.target.classList.add('is-in')
+        en.target.querySelectorAll('[data-count]').forEach(countUp)
+        if (en.target.hasAttribute('data-count')) countUp(en.target)
+        io.unobserve(en.target)
+      }
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 })
+    document.querySelectorAll('[data-reveal], [data-reveal-stagger], svg.fx-draw, [data-count]').forEach((el) => io.observe(el))
+
+    if (matchMedia('(hover: hover)').matches) {
+      document.addEventListener('pointermove', (e) => {
+        const card = e.target.closest && e.target.closest('[data-spotlight]')
+        if (!card) return
+        const r = card.getBoundingClientRect()
+        card.style.setProperty('--mx', `${e.clientX - r.left}px`)
+        card.style.setProperty('--my', `${e.clientY - r.top}px`)
+      }, { passive: true })
+    }
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init)
+    else init()
+  })()
+</script>

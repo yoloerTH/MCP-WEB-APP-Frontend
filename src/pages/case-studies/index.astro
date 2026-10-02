@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
+import PremiumFx from '../../components/PremiumFx.astro'
 import { caseStudies, featuredCaseStudies, totalFootballCaseStudies } from '../../data/caseStudies'
 import { TOTAL_FOOTBALL } from '../../data/totalFootballStudies'
 
@@ -41,7 +42,8 @@ const itemListSchema = {
   url="https://naurra.ai/case-studies/"
   structuredData={[breadcrumbSchema, collectionSchema, itemListSchema]}
 >
-  <div class="min-h-screen bg-[#0a0e1a] text-white overflow-hidden" style="font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;">
+  <PremiumFx accent="#34d399" accent2="#fbbf24" />
+  <div class="min-h-screen bg-[#0a0e1a] text-white overflow-hidden" style="font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif; --spot: rgba(52,211,153,.10); --spot-edge: #34d399;">
     <div class="fixed inset-0 pointer-events-none">
       <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/[0.05] via-transparent to-amber-500/[0.05]"></div>
       <div class="absolute top-0 -right-1/4 w-[820px] h-[820px] rounded-full bg-emerald-500/10 blur-[120px]"></div>
@@ -77,7 +79,7 @@ const itemListSchema = {
     </div>
 
     <section class="relative max-w-7xl mx-auto px-6 lg:px-8 pt-10 pb-16">
-      <div class="max-w-4xl">
+      <div data-reveal class="max-w-4xl">
         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 bg-emerald-500/10 border border-emerald-500/20">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
           <span class="text-xs font-mono uppercase tracking-widest text-emerald-300">Real implementations</span>
@@ -108,26 +110,26 @@ const itemListSchema = {
     </section>
 
     <section class="relative max-w-7xl mx-auto px-6 lg:px-8 pb-20">
-      <div class="relative overflow-hidden rounded-[2rem] border border-lime-400/25 bg-gradient-to-br from-lime-400/[0.09] via-[#0b101d] to-emerald-400/[0.06] p-7 sm:p-10 lg:p-12">
+      <div data-reveal class="relative overflow-hidden rounded-[2rem] border border-lime-400/25 bg-gradient-to-br from-lime-400/[0.09] via-[#0b101d] to-emerald-400/[0.06] p-7 sm:p-10 lg:p-12">
         <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-lime-400/10 blur-3xl pointer-events-none"></div>
         <div class="relative grid lg:grid-cols-12 gap-10 items-start">
           <div class="lg:col-span-6">
             <div class="text-xs font-mono uppercase tracking-[0.22em] text-lime-300 mb-3">Flagship · our own product</div>
             <h2 style="font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.04em;" class="text-3xl sm:text-4xl lg:text-5xl text-white leading-tight mb-4">{TOTAL_FOOTBALL.name}</h2>
-            <p class="text-gray-300 text-lg leading-relaxed mb-6">A software product and iPhone app we built and run ourselves, from the code to the marketing. Eight systems working together, each with its own case study.</p>
+            <p class="text-gray-300 text-lg leading-relaxed mb-6">A software product and iPhone app we built and run ourselves, from the code to the marketing, grown entirely through organic content. Eight systems working together, each with its own case study.</p>
             <div class="grid grid-cols-3 gap-3 mb-7">
               <div><div style="font-family: 'Sora', sans-serif; font-weight: 800;" class="text-3xl text-lime-300">{TOTAL_FOOTBALL.views}</div><div class="text-xs text-gray-400 mt-1">views {TOTAL_FOOTBALL.viewsWindow}</div></div>
               <div><div style="font-family: 'Sora', sans-serif; font-weight: 800;" class="text-3xl text-lime-300">{TOTAL_FOOTBALL.followers}</div><div class="text-xs text-gray-400 mt-1">followers</div></div>
-              <div><div style="font-family: 'Sora', sans-serif; font-weight: 800;" class="text-3xl text-lime-300">{TOTAL_FOOTBALL.accounts}</div><div class="text-xs text-gray-400 mt-1">accounts in 8 weeks</div></div>
+              <div><div style="font-family: 'Sora', sans-serif; font-weight: 800;" class="text-3xl text-lime-300">100s</div><div class="text-xs text-gray-400 mt-1">of users in weeks</div></div>
             </div>
-            <a href={TOTAL_FOOTBALL.hubPath} class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-[#0a0e1a] bg-gradient-to-r from-lime-300 to-emerald-300 hover:opacity-95 transition-opacity">
+            <a href={TOTAL_FOOTBALL.hubPath} class="fx-shine inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-[#0a0e1a] bg-gradient-to-r from-lime-300 to-emerald-300 hover:opacity-95 transition-opacity">
               See the whole build
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </a>
           </div>
-          <div class="lg:col-span-6 grid sm:grid-cols-2 gap-3">
+          <div data-reveal-stagger class="lg:col-span-6 grid sm:grid-cols-2 gap-3">
             {totalFootballCaseStudies.map((study) => (
-              <a href={`/case-studies/${study.slug}/`} class="group rounded-2xl border border-white/10 bg-[#0a0e1a]/70 p-4 hover:border-white/25 transition-colors">
+              <a href={`/case-studies/${study.slug}/`} data-spotlight class="group rounded-2xl border border-white/10 bg-[#0a0e1a]/70 p-4 transition-transform hover:-translate-y-0.5" style={`--spot: ${study.theme.primarySoft}; --spot-edge: ${study.theme.primary};`}>
                 <div class="w-8 h-1 rounded-full mb-3" style={`background: linear-gradient(90deg, ${study.theme.primary}, ${study.theme.secondary});`}></div>
                 <div class="text-sm font-semibold text-white mb-1">{study.title}</div>
                 <div class="text-xs font-medium" style={`color: ${study.theme.primary};`}>{study.impact}</div>
@@ -147,9 +149,9 @@ const itemListSchema = {
         <div class="text-sm text-gray-500 hidden md:block">Built around specific commercial bottlenecks, not generic AI demos.</div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div data-reveal-stagger class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {clientFeatured.map((study) => (
-          <a href={`/case-studies/${study.slug}/`} class="group relative rounded-3xl overflow-hidden border border-white/10 bg-white/[0.03] hover:bg-white/[0.05] transition-all">
+          <a href={`/case-studies/${study.slug}/`} data-spotlight class="group relative rounded-3xl overflow-hidden border border-white/10 bg-white/[0.03] transition-transform hover:-translate-y-1" style={`--spot: ${study.theme.primarySoft}; --spot-edge: ${study.theme.primary};`}>
             <div class={`h-1 bg-gradient-to-r ${study.accentFrom} ${study.accentTo}`}></div>
             <div class="p-8">
               <div class="flex flex-wrap gap-2 mb-5">
@@ -198,9 +200,9 @@ const itemListSchema = {
         <div class="text-sm text-gray-500 hidden md:block">{caseStudies.length} workflows, industries, and operational systems.</div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+      <div data-reveal-stagger class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
         {caseStudies.map((study) => (
-          <a href={`/case-studies/${study.slug}/`} class="group rounded-3xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.05] transition-all p-6">
+          <a href={`/case-studies/${study.slug}/`} data-spotlight class="group rounded-3xl border border-white/10 bg-white/[0.02] transition-transform hover:-translate-y-1 p-6" style={`--spot: ${study.theme.primarySoft}; --spot-edge: ${study.theme.primary};`}>
             <div class={`h-1 w-16 rounded-full bg-gradient-to-r ${study.accentFrom} ${study.accentTo} mb-5`}></div>
             <div class="text-xs text-gray-500 uppercase tracking-[0.18em] mb-3">{study.industry}</div>
             <h3 style="font-family: 'Sora', sans-serif; font-weight: 700;" class="text-xl text-white mb-3">{study.title}</h3>

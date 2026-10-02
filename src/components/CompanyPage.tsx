@@ -325,7 +325,7 @@ export const companyFAQs = [
   { question: 'Do you offer ongoing support after deployment?', answer: 'Yes. We offer ongoing support and optimization packages. AI systems improve over time with fine-tuning and monitoring, and we partner with you long-term to ensure your solution keeps delivering results as your business evolves.' },
   { question: 'Can you integrate AI with our existing tools and systems?', answer: 'Absolutely. We specialize in integrating AI into existing workflows — whether that\'s Salesforce, Google Workspace, Slack, WhatsApp, custom CRMs, or legacy systems. Our solutions work alongside what you already use, not replace it.' },
   { question: 'Do you build more than AI agents?', answer: 'Yes. We build the full set of systems a growing business needs: software products and iPhone apps, websites and SEO, email marketing and automation, comment-to-DM bots for Instagram and Facebook, Google and Apple login, databases and reporting, and Stripe payments. We built all of them for our own product, Total Football Studio.' },
-  { question: 'Do you have proof that these systems work?', answer: 'Yes, and it is our own. Total Football Studio, the product we built and run, reached 30M+ views in the last three months, 80K+ followers across social media and 587 accounts in its first eight weeks. Each of its eight systems has a public case study with the numbers.' },
+  { question: 'Do you have proof that these systems work?', answer: 'Yes, and it is our own. Total Football Studio, the product we built and run, reached 30M+ views in the last three months and 80K+ followers across social media, all from organic content, and signed up hundreds of users in a couple of weeks. Each of its eight systems has a public case study.' },
   { question: 'What makes Naurra different from other AI agencies?', answer: 'We\'re not a generic agency — we\'re engineers who build and ship. Our founder has personally delivered every project in our portfolio. You work directly with the people who write the code, not account managers who relay messages. That means faster delivery, better communication, and solutions that actually work.' },
 ]
 
@@ -838,7 +838,7 @@ export default function CompanyPage() {
               {[
                 { value: TOTAL_FOOTBALL.views, label: `Views ${TOTAL_FOOTBALL.viewsWindow}` },
                 { value: TOTAL_FOOTBALL.followers, label: 'Followers on social' },
-                { value: TOTAL_FOOTBALL.accounts, label: 'Accounts in 8 weeks' },
+                { value: '100s', label: 'Users in weeks' },
                 { value: '8', label: 'Systems, all live' },
               ].map((stat) => (
                 <div key={stat.label} className="rounded-2xl bg-white/[0.04] border border-white/10 px-5 py-5">

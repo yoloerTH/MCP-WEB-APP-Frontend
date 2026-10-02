@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import PremiumFx from './PremiumFx.astro'
 import { caseStudies, totalFootballCaseStudies, type CaseStudy } from '../data/caseStudies'
 import { TOTAL_FOOTBALL } from '../data/totalFootballStudies'
 
@@ -89,7 +90,8 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
   modifiedTime={`${study.updatedAt}T09:00:00+00:00`}
   structuredData={faqSchema ? [breadcrumbSchema, articleSchema, faqSchema] : [breadcrumbSchema, articleSchema]}
 >
-  <div class="min-h-screen bg-[#0a0e1a] text-white overflow-hidden" style="font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;">
+  <PremiumFx accent={study.theme.primary} accent2={study.theme.secondary} />
+  <div class="min-h-screen bg-[#0a0e1a] text-white overflow-hidden" style={`font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif; --spot: ${study.theme.primarySoft}; --spot-edge: ${study.theme.primary};`}>
     <div class="fixed inset-0 pointer-events-none">
       <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] via-transparent to-transparent"></div>
       <div class="absolute top-0 -right-1/4 w-[800px] h-[800px] rounded-full blur-[120px]" style={heroGlow}></div>
@@ -135,17 +137,17 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
     <section class="relative max-w-7xl mx-auto px-6 lg:px-8 pt-10 pb-14">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         <div class="lg:col-span-7">
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={primaryCard}>
+          <div data-reveal class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={primaryCard}>
             <span class="w-2 h-2 rounded-full animate-pulse" style={`background: ${study.theme.primary};`}></span>
             <span class="text-xs font-mono uppercase tracking-widest" style={`color: ${study.theme.primary};`}>{study.heroLabel}</span>
           </div>
 
-          <h1 style="font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.045em;" class="text-4xl sm:text-5xl lg:text-6xl leading-[0.98] tracking-tight mb-6">
+          <h1 data-reveal style="font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.045em; --fx-d: 120ms;" class="text-4xl sm:text-5xl lg:text-6xl leading-[0.98] tracking-tight mb-6">
             <span class="text-white">{study.title}</span><br />
             <span style={gradientText}>{study.impact}</span>
           </h1>
 
-          <p class="text-lg lg:text-xl text-gray-400 leading-relaxed mb-8">
+          <p data-reveal style="--fx-d: 240ms" class="text-lg lg:text-xl text-gray-400 leading-relaxed mb-8">
             {study.summary}
           </p>
 
@@ -159,12 +161,12 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
           </div>
 
           {study.metrics && (
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+            <div data-reveal-stagger class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
               {study.metrics.map((metric) => (
-                <div class="relative overflow-hidden rounded-2xl px-4 py-4" style={primaryCard}>
+                <div data-spotlight class="relative overflow-hidden rounded-2xl px-4 py-4" style={primaryCard}>
                   <div class="absolute -top-10 -right-8 w-24 h-24 rounded-full blur-2xl pointer-events-none" style={`background: ${study.theme.primarySoft};`}></div>
                   <div class="relative">
-                    <div style={`font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.03em; color: ${study.theme.primary};`} class="text-2xl lg:text-3xl leading-none">
+                    <div data-count style={`font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.03em; color: ${study.theme.primary};`} class="text-2xl lg:text-3xl leading-none">
                       {metric.value}
                     </div>
                     <div class="mt-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-white/75">{metric.label}</div>
@@ -200,7 +202,7 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
           </div>
 
           <div class="flex flex-col sm:flex-row gap-3">
-            <a href="/contact/" class="group px-7 py-3.5 rounded-xl font-semibold text-base text-white transition-all hover:opacity-95 text-center inline-flex items-center justify-center gap-2" style={ctaButton}>
+            <a href="/contact/" class="fx-shine group px-7 py-3.5 rounded-xl font-semibold text-base text-white transition-all hover:opacity-95 text-center inline-flex items-center justify-center gap-2" style={ctaButton}>
               Talk through a similar build
               <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </a>
@@ -217,7 +219,7 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
           </div>
         </div>
 
-        <div class="lg:col-span-5 relative">
+        <div data-reveal style="--fx-d: 300ms" class="lg:col-span-5 relative">
           <div class="absolute -inset-4 rounded-3xl blur-2xl" style={heroGlow}></div>
           <div class="relative rounded-3xl p-8" style={primaryCard}>
             <div class="text-xs font-mono uppercase tracking-widest mb-4" style={`color: ${study.theme.primary};`}>Result snapshot</div>
@@ -229,7 +231,7 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
             </p>
             <div class="grid grid-cols-1 gap-3">
               {study.outcomes.map((outcome) => (
-                <div class="rounded-2xl border border-white/7 bg-white/[0.03] px-4 py-4 text-sm text-gray-300 leading-relaxed">
+                <div class="rounded-2xl border border-white/[0.07] bg-white/[0.03] px-4 py-4 text-sm text-gray-300 leading-relaxed">
                   {outcome}
                 </div>
               ))}
@@ -242,7 +244,7 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
     <div class="relative max-w-7xl mx-auto px-6 lg:px-8 pb-20">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
         <div class="lg:col-span-7 space-y-16">
-          <section>
+          <section data-reveal>
             <div class="flex items-center gap-3 mb-3">
               <div class="w-1 h-8 rounded-full" style={sectionBar}></div>
               <div class="text-xs font-mono uppercase tracking-widest" style={`color: ${study.theme.primary};`}>/ The challenge</div>
@@ -255,7 +257,7 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
             </p>
             <div class="space-y-3">
               {study.challengeBullets.map((item) => (
-                <div class="flex gap-3 rounded-2xl border border-white/8 bg-white/[0.02] px-4 py-4">
+                <div class="flex gap-3 rounded-2xl border border-white/[0.08] bg-white/[0.02] px-4 py-4">
                   <div class="mt-1 w-2 h-2 rounded-full flex-shrink-0" style={`background: ${study.theme.primary};`}></div>
                   <div class="text-sm text-gray-400 leading-relaxed">{item}</div>
                 </div>
@@ -263,7 +265,7 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
             </div>
           </section>
 
-          <section>
+          <section data-reveal>
             <div class="flex items-center gap-3 mb-3">
               <div class="w-1 h-8 rounded-full" style={sectionBar}></div>
               <div class="text-xs font-mono uppercase tracking-widest" style={`color: ${study.theme.primary};`}>/ What we built</div>
@@ -274,9 +276,9 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
             <p class="text-gray-300 text-lg leading-relaxed mb-6">
               {study.solution}
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div data-reveal-stagger class="grid grid-cols-1 md:grid-cols-2 gap-4">
               {study.systemComponents.map((component, index) => (
-                <div class="rounded-2xl p-5" style={secondaryCard}>
+                <div data-spotlight class="rounded-2xl p-5 transition-transform hover:-translate-y-0.5" style={secondaryCard}>
                   <div class="text-[11px] font-mono uppercase tracking-[0.2em] mb-3" style={`color: ${study.theme.secondary};`}>Module {String(index + 1).padStart(2, '0')}</div>
                   <div class="text-sm text-gray-300 leading-relaxed">{component}</div>
                 </div>
@@ -285,7 +287,7 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
           </section>
 
           {study.businessUses && (
-            <section>
+            <section data-reveal>
               <div class="flex items-center gap-3 mb-3">
                 <div class="w-1 h-8 rounded-full" style={sectionBar}></div>
                 <div class="text-xs font-mono uppercase tracking-widest" style={`color: ${study.theme.primary};`}>/ For your business</div>
@@ -295,7 +297,7 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
               </h2>
               <div class="space-y-4">
                 {study.businessUses.map((use, index) => (
-                  <div class="flex gap-5 rounded-2xl border border-white/8 bg-white/[0.02] p-5 sm:p-6">
+                  <div data-spotlight class="flex gap-5 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-5 sm:p-6">
                     <div style={`font-family: 'Sora', sans-serif; font-weight: 800; color: ${study.theme.primary};`} class="text-2xl leading-none flex-shrink-0 w-8">{index + 1}</div>
                     <div>
                       <h3 class="text-base font-semibold text-white mb-1.5">{use.title}</h3>
@@ -308,7 +310,7 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
           )}
 
           {study.faqs && (
-            <section>
+            <section data-reveal>
               <div class="flex items-center gap-3 mb-3">
                 <div class="w-1 h-8 rounded-full" style={sectionBar}></div>
                 <div class="text-xs font-mono uppercase tracking-widest" style={`color: ${study.theme.primary};`}>/ Questions</div>
@@ -318,7 +320,7 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
               </h2>
               <div class="space-y-3">
                 {study.faqs.map((faq) => (
-                  <details class="group rounded-2xl border border-white/8 bg-white/[0.02] px-5 py-4 open:bg-white/[0.04]">
+                  <details class="group rounded-2xl border border-white/[0.08] bg-white/[0.02] px-5 py-4 open:bg-white/[0.04]">
                     <summary class="cursor-pointer list-none flex items-center justify-between gap-4 text-white font-semibold text-base">
                       {faq.question}
                       <span class="text-xl leading-none transition-transform group-open:rotate-45" style={`color: ${study.theme.primary};`}>+</span>
@@ -331,7 +333,7 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
           )}
 
           {study.testimonial && (
-            <section>
+            <section data-reveal>
               <div class="flex items-center gap-3 mb-3">
                 <div class="w-1 h-8 rounded-full" style={sectionBar}></div>
                 <div class="text-xs font-mono uppercase tracking-widest" style={`color: ${study.theme.primary};`}>/ Client proof</div>
@@ -356,7 +358,7 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
         </div>
 
         <div class="lg:col-span-5 space-y-6">
-          <section class="rounded-3xl p-7" style={primaryCard}>
+          <section data-reveal class="rounded-3xl p-7" style={primaryCard}>
             <div class="text-xs font-mono uppercase tracking-[0.2em] mb-4" style={`color: ${study.theme.primary};`}>Build profile</div>
             <div class="space-y-4">
               <div>
@@ -389,17 +391,17 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
           </section>
 
           {(study.relatedSolutionHref || study.relatedBlogHref) && (
-            <section class="rounded-3xl p-7" style={secondaryCard}>
+            <section data-reveal class="rounded-3xl p-7" style={secondaryCard}>
               <div class="text-xs font-mono uppercase tracking-[0.2em] mb-4" style={`color: ${study.theme.secondary};`}>Related pages</div>
               <div class="space-y-3">
                 {study.relatedSolutionHref && study.relatedSolutionLabel && (
-                  <a href={study.relatedSolutionHref} class="group flex items-center justify-between rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-4 text-sm text-gray-300 hover:bg-white/[0.05] hover:text-white transition-all">
+                  <a href={study.relatedSolutionHref} class="group flex items-center justify-between rounded-2xl border border-white/[0.08] bg-white/[0.03] px-4 py-4 text-sm text-gray-300 hover:bg-white/[0.05] hover:text-white transition-all">
                     <span>{study.relatedSolutionLabel}</span>
                     <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                   </a>
                 )}
                 {study.relatedBlogHref && study.relatedBlogLabel && (
-                  <a href={study.relatedBlogHref} class="group flex items-center justify-between rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-4 text-sm text-gray-300 hover:bg-white/[0.05] hover:text-white transition-all">
+                  <a href={study.relatedBlogHref} class="group flex items-center justify-between rounded-2xl border border-white/[0.08] bg-white/[0.03] px-4 py-4 text-sm text-gray-300 hover:bg-white/[0.05] hover:text-white transition-all">
                     <span>{study.relatedBlogLabel}</span>
                     <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                   </a>
@@ -408,7 +410,7 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
             </section>
           )}
 
-          <section class="rounded-3xl p-7 border border-white/10 bg-white/[0.02]">
+          <section data-reveal class="rounded-3xl p-7 border border-white/10 bg-white/[0.02]">
             <div class="text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">Next step</div>
             <h3 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-2xl text-white mb-3">
               Want this outcome in your business?
@@ -416,7 +418,7 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
             <p class="text-sm text-gray-400 leading-relaxed mb-5">
               We scope custom AI systems around the workflow that is already costing you time, margin, or speed.
             </p>
-            <a href="/contact/" class="inline-flex items-center justify-center gap-2 w-full px-5 py-3 rounded-xl font-semibold text-white transition-all hover:opacity-95" style={ctaButton}>
+            <a href="/contact/" class="fx-shine inline-flex items-center justify-center gap-2 w-full px-5 py-3 rounded-xl font-semibold text-white transition-all hover:opacity-95" style={ctaButton}>
               Book a free consultation
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </a>
@@ -425,7 +427,7 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
       </div>
 
       {inProgramme && (
-        <section class="mt-24 rounded-3xl p-7 sm:p-10" style={primaryCard}>
+        <section data-reveal class="mt-24 rounded-3xl p-7 sm:p-10" style={primaryCard}>
           <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8">
             <div class="max-w-2xl">
               <div class="text-xs font-mono uppercase tracking-widest mb-3" style={`color: ${study.theme.primary};`}>/ Part of one product</div>
@@ -433,7 +435,7 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
                 One of eight systems behind {TOTAL_FOOTBALL.name}
               </h2>
               <p class="text-gray-400 leading-relaxed">
-                We built and run Total Football Studio ourselves: {TOTAL_FOOTBALL.views} views {TOTAL_FOOTBALL.viewsWindow}, {TOTAL_FOOTBALL.followers} followers and {TOTAL_FOOTBALL.accounts} accounts. This page is one part of it. Here are the others.
+                We built and run Total Football Studio ourselves: {TOTAL_FOOTBALL.views} views {TOTAL_FOOTBALL.viewsWindow} and {TOTAL_FOOTBALL.followers} followers, {TOTAL_FOOTBALL.organic}, and {TOTAL_FOOTBALL.accountsPhrase}. This page is one part of it. Here are the others.
               </p>
             </div>
             <a href={TOTAL_FOOTBALL.hubPath} class="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-white flex-shrink-0" style={ctaButton}>
@@ -441,9 +443,9 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
             </a>
           </div>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div data-reveal-stagger class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {siblings.map((rel) => (
-              <a href={`/case-studies/${rel.slug}/`} class="group rounded-2xl border border-white/8 bg-[#0a0e1a]/60 p-4 hover:border-white/20 transition-all">
+              <a href={`/case-studies/${rel.slug}/`} data-spotlight class="group rounded-2xl border border-white/[0.08] bg-[#0a0e1a]/60 p-4 transition-transform hover:-translate-y-0.5" style={`--spot: ${rel.theme.primarySoft}; --spot-edge: ${rel.theme.primary};`}>
                 <div class="w-8 h-1 rounded-full mb-3" style={`background: linear-gradient(90deg, ${rel.theme.primary}, ${rel.theme.secondary});`}></div>
                 <div class="text-sm font-semibold text-white mb-1">{rel.title}</div>
                 <div class="text-xs font-medium" style={`color: ${rel.theme.primary};`}>{rel.impact}</div>
@@ -458,9 +460,9 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
           <div class="w-1 h-8 rounded-full" style={sectionBar}></div>
           <div class="text-xs font-mono uppercase tracking-widest" style={`color: ${study.theme.primary};`}>/ More case studies</div>
         </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div data-reveal-stagger class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {relatedStudies.map((rel) => (
-            <a href={`/case-studies/${rel.slug}/`} class="group flex flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-6 hover:border-white/20 hover:bg-white/[0.05] transition-all">
+            <a href={`/case-studies/${rel.slug}/`} data-spotlight class="group flex flex-col rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition-transform hover:-translate-y-1" style={`--spot: ${rel.theme.primarySoft}; --spot-edge: ${rel.theme.primary};`}>
               <span class="text-xs font-mono uppercase tracking-wider text-gray-500 mb-3">{rel.industry}</span>
               <h3 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.02em;" class="text-lg text-white mb-2">{rel.title}</h3>
               <p class="text-sm font-semibold mb-3" style={`color: ${study.theme.primary};`}>{rel.impact}</p>
