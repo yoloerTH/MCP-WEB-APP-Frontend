@@ -1,3 +1,5 @@
+import { totalFootballPosts } from './blogPostsTotalFootball'
+
 export interface BlogPost {
   slug: string
   title: string
@@ -25,6 +27,7 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  ...totalFootballPosts,
   {
     slug: 'why-document-automation-projects-stall',
     title: 'Why Document-Automation Projects Stall — and What It Takes to Rescue One',
