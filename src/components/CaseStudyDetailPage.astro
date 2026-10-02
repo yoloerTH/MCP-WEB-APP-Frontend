@@ -1,13 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-import { caseStudies, type CaseStudy } from '../data/caseStudies'
+import { caseStudies, totalFootballCaseStudies, type CaseStudy } from '../data/caseStudies'
+import { TOTAL_FOOTBALL } from '../data/totalFootballStudies'
 
 const { study } = Astro.props as { study: CaseStudy }
 
 // Surface a rotating trio of other case studies so every page links to peers.
-const others = caseStudies.filter((s) => s.slug !== study.slug)
+// A Total Football page already lists its siblings, so its trio is client work.
+const others = caseStudies.filter((s) => s.slug !== study.slug && (!study.programme || s.programme !== study.programme))
 const startIndex = Math.max(0, caseStudies.findIndex((s) => s.slug === study.slug))
 const relatedStudies = [...others.slice(startIndex), ...others.slice(0, startIndex)].slice(0, 3)
+
+// Total Football studies link to their siblings and the hub instead of the rotating trio.
+const inProgramme = study.programme === 'total-football'
+const siblings = inProgramme ? totalFootballCaseStudies.filter((s) => s.slug !== study.slug) : []
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -15,9 +21,22 @@ const breadcrumbSchema = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://naurra.ai/' },
     { '@type': 'ListItem', position: 2, name: 'Case Studies', item: 'https://naurra.ai/case-studies/' },
-    { '@type': 'ListItem', position: 3, name: study.title, item: `https://naurra.ai/case-studies/${study.slug}/` }
+    ...(inProgramme ? [{ '@type': 'ListItem', position: 3, name: TOTAL_FOOTBALL.name, item: `https://naurra.ai${TOTAL_FOOTBALL.hubPath}` }] : []),
+    { '@type': 'ListItem', position: inProgramme ? 4 : 3, name: study.title, item: `https://naurra.ai/case-studies/${study.slug}/` }
   ]
 }
+
+const faqSchema = study.faqs?.length
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: study.faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+      }))
+    }
+  : null
 
 const articleSchema = {
   '@context': 'https://schema.org',
@@ -60,14 +79,14 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
 <BaseLayout
   title={study.seoTitle}
   description={study.description}
-  keywords={`${study.industry.toLowerCase()} ai case study, ${study.title.toLowerCase()}, custom ai automation case study, naurra ai case study`}
+  keywords={study.keywords ?? `${study.industry.toLowerCase()} ai case study, ${study.title.toLowerCase()}, custom ai automation case study, naurra ai case study`}
   image="/og-default.png"
   imageAlt={`${study.title} case study by Naurra.ai`}
   url={`https://naurra.ai/case-studies/${study.slug}/`}
   type="article"
   publishedTime={`${study.publishedAt}T09:00:00+00:00`}
   modifiedTime={`${study.updatedAt}T09:00:00+00:00`}
-  structuredData={[breadcrumbSchema, articleSchema]}
+  structuredData={faqSchema ? [breadcrumbSchema, articleSchema, faqSchema] : [breadcrumbSchema, articleSchema]}
 >
   <div class="min-h-screen bg-[#0a0e1a] text-white overflow-hidden" style="font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;">
     <div class="fixed inset-0 pointer-events-none">
@@ -102,6 +121,12 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
         <span class="text-gray-700">/</span>
         <a href="/case-studies/" class="hover:text-white transition-colors">Case studies</a>
         <span class="text-gray-700">/</span>
+        {inProgramme && (
+          <>
+            <a href={TOTAL_FOOTBALL.hubPath} class="hover:text-white transition-colors">{TOTAL_FOOTBALL.name}</a>
+            <span class="text-gray-700">/</span>
+          </>
+        )}
         <span class="text-gray-300 truncate">{study.title}</span>
       </nav>
     </div>
@@ -258,6 +283,52 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
             </div>
           </section>
 
+          {study.businessUses && (
+            <section>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-1 h-8 rounded-full" style={sectionBar}></div>
+                <div class="text-xs font-mono uppercase tracking-widest" style={`color: ${study.theme.primary};`}>/ For your business</div>
+              </div>
+              <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-3xl lg:text-4xl text-white mb-6 leading-tight">
+                How your business could use this
+              </h2>
+              <div class="space-y-4">
+                {study.businessUses.map((use, index) => (
+                  <div class="flex gap-5 rounded-2xl border border-white/8 bg-white/[0.02] p-5 sm:p-6">
+                    <div style={`font-family: 'Sora', sans-serif; font-weight: 800; color: ${study.theme.primary};`} class="text-2xl leading-none flex-shrink-0 w-8">{index + 1}</div>
+                    <div>
+                      <h3 class="text-base font-semibold text-white mb-1.5">{use.title}</h3>
+                      <p class="text-sm text-gray-400 leading-relaxed">{use.body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {study.faqs && (
+            <section>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-1 h-8 rounded-full" style={sectionBar}></div>
+                <div class="text-xs font-mono uppercase tracking-widest" style={`color: ${study.theme.primary};`}>/ Questions</div>
+              </div>
+              <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-3xl lg:text-4xl text-white mb-6 leading-tight">
+                Common questions
+              </h2>
+              <div class="space-y-3">
+                {study.faqs.map((faq) => (
+                  <details class="group rounded-2xl border border-white/8 bg-white/[0.02] px-5 py-4 open:bg-white/[0.04]">
+                    <summary class="cursor-pointer list-none flex items-center justify-between gap-4 text-white font-semibold text-base">
+                      {faq.question}
+                      <span class="text-xl leading-none transition-transform group-open:rotate-45" style={`color: ${study.theme.primary};`}>+</span>
+                    </summary>
+                    <p class="mt-3 text-sm text-gray-400 leading-relaxed">{faq.answer}</p>
+                  </details>
+                ))}
+              </div>
+            </section>
+          )}
+
           {study.testimonial && (
             <section>
               <div class="flex items-center gap-3 mb-3">
@@ -300,6 +371,19 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
                 <div class="text-sm text-white font-semibold">{study.proofSource}</div>
                 <div class="text-sm text-gray-400 mt-1">{study.proofContext}</div>
               </div>
+              {study.proofLinks && (
+                <div>
+                  <div class="text-xs text-gray-500 uppercase tracking-[0.16em] mb-2">See it live</div>
+                  <div class="flex flex-col gap-2">
+                    {study.proofLinks.map((link) => (
+                      <a href={link.href} target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-medium hover:underline" style={`color: ${study.theme.primary};`}>
+                        {link.label}
+                        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5h5m0 0v5m0-5L10 14M19 13v5a1 1 0 01-1 1H6a1 1 0 01-1-1V6a1 1 0 011-1h5" /></svg>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </section>
 
@@ -338,6 +422,35 @@ const sectionBar = `background: linear-gradient(180deg, ${study.theme.primary}, 
           </section>
         </div>
       </div>
+
+      {inProgramme && (
+        <section class="mt-24 rounded-3xl p-7 sm:p-10" style={primaryCard}>
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8">
+            <div class="max-w-2xl">
+              <div class="text-xs font-mono uppercase tracking-widest mb-3" style={`color: ${study.theme.primary};`}>/ Part of one product</div>
+              <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-3xl lg:text-4xl text-white leading-tight mb-3">
+                One of eight systems behind {TOTAL_FOOTBALL.name}
+              </h2>
+              <p class="text-gray-400 leading-relaxed">
+                We built and run Total Football Studio ourselves: {TOTAL_FOOTBALL.views} views {TOTAL_FOOTBALL.viewsWindow}, {TOTAL_FOOTBALL.followers} followers and {TOTAL_FOOTBALL.accounts} accounts. This page is one part of it. Here are the others.
+              </p>
+            </div>
+            <a href={TOTAL_FOOTBALL.hubPath} class="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-white flex-shrink-0" style={ctaButton}>
+              See the whole build
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {siblings.map((rel) => (
+              <a href={`/case-studies/${rel.slug}/`} class="group rounded-2xl border border-white/8 bg-[#0a0e1a]/60 p-4 hover:border-white/20 transition-all">
+                <div class="w-8 h-1 rounded-full mb-3" style={`background: linear-gradient(90deg, ${rel.theme.primary}, ${rel.theme.secondary});`}></div>
+                <div class="text-sm font-semibold text-white mb-1">{rel.title}</div>
+                <div class="text-xs font-medium" style={`color: ${rel.theme.primary};`}>{rel.impact}</div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section class="mt-24">
         <div class="flex items-center gap-3 mb-8">

@@ -28,10 +28,11 @@ type SitemapEntry = {
 
 const staticPages: SitemapEntry[] = [
   // 2026-09-11: the company page became the root and the product landing page moved to /product/.
-  { loc: `${SITE_URL}/`, lastmod: '2026-09-11', changefreq: 'weekly', priority: '1.0' },
+  { loc: `${SITE_URL}/`, lastmod: '2026-10-02', changefreq: 'weekly', priority: '1.0' },
   { loc: `${SITE_URL}/product/`, lastmod: '2026-09-11', changefreq: 'weekly', priority: '0.9' },
   { loc: `${SITE_URL}/about/`, lastmod: '2026-09-11', changefreq: 'monthly', priority: '0.8' },
-  { loc: `${SITE_URL}/case-studies/`, lastmod: '2026-05-13', changefreq: 'weekly', priority: '0.9' },
+  { loc: `${SITE_URL}/case-studies/`, lastmod: '2026-10-02', changefreq: 'weekly', priority: '0.9' },
+  { loc: `${SITE_URL}/case-studies/total-football-studio/`, lastmod: '2026-10-02', changefreq: 'monthly', priority: '0.9' },
   { loc: `${SITE_URL}/pricing/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.8' },
   { loc: `${SITE_URL}/compare/`, lastmod: '2026-04-21', changefreq: 'monthly', priority: '0.8' },
   { loc: `${SITE_URL}/contact/`, lastmod: '2026-03-20', changefreq: 'monthly', priority: '0.6' },

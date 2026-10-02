@@ -1,0 +1,347 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { totalFootballCaseStudies } from '../../data/caseStudies'
+import { TOTAL_FOOTBALL } from '../../data/totalFootballStudies'
+
+const url = `https://naurra.ai${TOTAL_FOOTBALL.hubPath}`
+const title = 'Total Football Studio Case Study: 30M+ Views, a SaaS and an App, Built by Naurra'
+const description = 'How Naurra built and runs Total Football Studio: a SaaS product and iPhone app, a content engine with 30M+ views in 3 months and 80K+ followers, comment-to-DM, email, login, data, SEO and billing. Eight systems, one business.'
+
+const bySlug = Object.fromEntries(totalFootballCaseStudies.map((s) => [s.slug, s]))
+const link = (slug: string) => `/case-studies/${slug}/`
+
+// The order a stranger actually moves through the business, from first view to paying customer.
+const journey = [
+  { step: 'They see a video', slug: 'ai-motion-graphics-content-engine-social-growth', body: 'A short made entirely by code shows up in their feed.' },
+  { step: 'They comment a word', slug: 'instagram-facebook-comment-to-dm-automation', body: 'They type "433" and get the link in a private message within seconds.' },
+  { step: 'They land on the site', slug: 'seo-website-build-domain-migration', body: 'A fast page, also found through Google and AI assistants, asks for their email.' },
+  { step: 'They get the emails', slug: 'email-marketing-automation-newsletters-transactional', body: 'A free playbook, a welcome series and a regular newsletter.' },
+  { step: 'They sign up in one tap', slug: 'google-apple-sign-in-login-flows', body: 'With Google, Apple or an email link, on the web or the iPhone app.' },
+  { step: 'They use the product', slug: 'saas-product-development-web-and-ios-app', body: 'They draw tactics, animate them and share them with their team.' },
+  { step: 'They pay', slug: 'stripe-subscription-billing-affiliate-system', body: 'A trial, then a plan, with Apple Pay or Google Pay in one tap.' },
+]
+
+const timeline = [
+  { date: '9 Aug 2026', text: 'First line of code for the product.' },
+  { date: 'Aug 2026', text: 'Web app, website and library live. The content engine starts feeding the site.' },
+  { date: '5 Sept 2026', text: 'Work starts on the native iPhone and iPad app.' },
+  { date: '16 Sept 2026', text: 'The whole site moves to totalfootballstudio.com, with Google told the same day.' },
+  { date: 'Sept 2026', text: 'iOS app live on the App Store. Team accounts, voice-over videos and live present mode ship.' },
+  { date: '1 Oct 2026', text: 'Comment-to-DM bot built and live on Instagram and Facebook in one day.' },
+  { date: '2 Oct 2026', text: 'Paid plans, trials, team seats and the affiliate programme go live.' },
+]
+
+const stats = [
+  { value: TOTAL_FOOTBALL.views, label: 'Views', note: TOTAL_FOOTBALL.viewsWindow },
+  { value: TOTAL_FOOTBALL.followers, label: 'Followers', note: 'across all social accounts' },
+  { value: TOTAL_FOOTBALL.accounts, label: 'Accounts', note: 'signed up by 30 Sept 2026' },
+  { value: '8', label: 'Weeks', note: 'from first code to paid plans' },
+]
+
+const faqs = [
+  { question: 'What is Total Football Studio?', answer: 'A software product for football coaches: an animated tactics board on the web and on iPhone and iPad, with team accounts, voice-over videos and paid plans. It is built and run by Naurra.' },
+  { question: 'Is this a client project?', answer: 'No, it is our own business. That is why we can show every number: the views, the followers, the accounts and how each system was built.' },
+  { question: 'Can you build the same systems for my business?', answer: 'Yes. Each of the eight systems works on its own, for any industry. Most businesses start with one, such as comment-to-DM or email automation, and add the rest over time.' },
+  { question: 'How big was the team?', answer: 'Small and engineer-led. The product went from first code on 9 August 2026 to paid plans on 2 October 2026.' },
+]
+
+const schemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://naurra.ai/' },
+      { '@type': 'ListItem', position: 2, name: 'Case Studies', item: 'https://naurra.ai/case-studies/' },
+      { '@type': 'ListItem', position: 3, name: TOTAL_FOOTBALL.name, item: url },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    url,
+    mainEntityOfPage: url,
+    datePublished: '2026-10-02T09:00:00+00:00',
+    dateModified: '2026-10-02T09:00:00+00:00',
+    author: { '@type': 'Person', name: 'Athanasios-Ioannis Panagiotakopoulos', jobTitle: 'CEO & AI Engineer' },
+    publisher: { '@id': 'https://naurra.ai/#organization' },
+    about: { '@id': `${url}#software` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    '@id': `${url}#software`,
+    name: TOTAL_FOOTBALL.name,
+    url: TOTAL_FOOTBALL.url,
+    applicationCategory: 'SportsApplication',
+    operatingSystem: 'Web, iOS',
+    creator: { '@id': 'https://naurra.ai/#organization' },
+    sameAs: [TOTAL_FOOTBALL.appStoreUrl],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'The systems behind Total Football Studio',
+    itemListElement: totalFootballCaseStudies.map((s, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `https://naurra.ai${link(s.slug)}`,
+      name: s.title,
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })),
+  },
+]
+
+const display = "font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.045em;"
+const brand = 'background: linear-gradient(135deg, #a3e635, #34d399 55%, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent;'
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords="total football studio, naurra case study, saas product case study, social media growth case study, comment to dm automation, email automation case study, supabase case study, stripe billing case study, seo case study, motion graphics content engine"
+  imageAlt="Total Football Studio, a product built and run by Naurra.ai"
+  url={url}
+  type="article"
+  publishedTime="2026-10-02T09:00:00+00:00"
+  modifiedTime="2026-10-02T09:00:00+00:00"
+  structuredData={schemas}
+>
+  <div class="min-h-screen bg-[#0a0e1a] text-white overflow-hidden" style="font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;">
+    <div class="fixed inset-0 pointer-events-none" aria-hidden="true">
+      <div class="absolute top-[-10%] right-[-15%] w-[900px] h-[900px] rounded-full bg-lime-400/[0.07] blur-[140px]"></div>
+      <div class="absolute bottom-[-20%] left-[-20%] w-[800px] h-[800px] rounded-full bg-emerald-500/[0.08] blur-[140px]"></div>
+    </div>
+
+    <nav class="relative border-b border-white/10 bg-[#0a0e1a]/95 backdrop-blur-xl sticky top-0 z-40">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3">
+          <img src="/logo-transparent.png" alt="Naurra.ai" class="w-10 h-10 object-contain" />
+          <span style={`font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.04em; font-size: 20px; ${brand}`}>Naurra.ai</span>
+        </a>
+        <div class="flex items-center gap-4">
+          <a href="/case-studies/" class="text-sm text-gray-400 hover:text-white transition-colors font-medium hidden sm:inline">Case Studies</a>
+          <a href="/solutions/" class="text-sm text-gray-400 hover:text-white transition-colors font-medium hidden md:inline">Solutions</a>
+          <a href="/contact/" class="text-sm font-semibold px-5 py-2 rounded-lg text-[#0a0e1a] bg-lime-300 hover:bg-lime-200 transition-colors">Book a free call</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+      <nav class="text-xs text-gray-500 font-mono uppercase tracking-wider flex items-center gap-2" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <span class="text-gray-700">/</span>
+        <a href="/case-studies/" class="hover:text-white transition-colors">Case studies</a>
+        <span class="text-gray-700">/</span>
+        <span class="text-gray-300 truncate">{TOTAL_FOOTBALL.name}</span>
+      </nav>
+    </div>
+
+    <!-- HERO: a pitch drawn in lines behind the headline -->
+    <section class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16 lg:pb-24">
+      <svg class="absolute inset-x-0 top-0 mx-auto w-full max-w-6xl h-full opacity-[0.07] pointer-events-none" viewBox="0 0 1050 680" fill="none" stroke="#a3e635" stroke-width="2" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+        <rect x="25" y="25" width="1000" height="630" rx="4" />
+        <line x1="525" y1="25" x2="525" y2="655" />
+        <circle cx="525" cy="340" r="91" />
+        <rect x="25" y="178" width="165" height="324" />
+        <rect x="860" y="178" width="165" height="324" />
+        <rect x="25" y="258" width="55" height="164" />
+        <rect x="970" y="258" width="55" height="164" />
+      </svg>
+
+      <div class="relative max-w-4xl">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-7 bg-lime-400/10 border border-lime-400/25">
+          <span class="w-2 h-2 rounded-full bg-lime-300 animate-pulse"></span>
+          <span class="text-xs font-mono uppercase tracking-widest text-lime-200">Our own product · live in production</span>
+        </div>
+        <h1 style={display} class="text-[2.6rem] sm:text-6xl lg:text-7xl leading-[0.95] mb-7">
+          We didn't just build it for a client.
+          <span class="block" style={brand}>We built a whole business and ran it.</span>
+        </h1>
+        <p class="text-lg lg:text-xl text-gray-300 leading-relaxed max-w-3xl mb-4">
+          <strong class="text-white font-semibold">Total Football Studio</strong> is a tactics app for football coaches, on the web and on iPhone. We wrote the software, made the videos, built the marketing, the emails, the logins, the database and the payments.
+        </p>
+        <p class="text-lg text-gray-400 leading-relaxed max-w-3xl mb-10">
+          Every system your business might need is on this page, working in production, with real numbers. Rare proof: most agencies can only show you a demo.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="#systems" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-[#0a0e1a] bg-gradient-to-r from-lime-300 to-emerald-300 hover:opacity-95 transition-opacity">
+            See the eight systems
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
+          </a>
+          <a href={TOTAL_FOOTBALL.url} target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+            Open the live product
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5h5m0 0v5m0-5L10 14M19 13v5a1 1 0 01-1 1H6a1 1 0 01-1-1V6a1 1 0 011-1h5" /></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="relative grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-14">
+        {stats.map((s) => (
+          <div class="rounded-2xl border border-white/10 bg-[#0d1322]/80 backdrop-blur px-5 py-6">
+            <div style={display} class="text-4xl sm:text-5xl leading-none"><span style={brand}>{s.value}</span></div>
+            <div class="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-white/80">{s.label}</div>
+            <div class="mt-1 text-xs text-gray-500">{s.note}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- THE JOURNEY: how the systems hand a stranger to the next one -->
+    <section class="relative border-y border-white/[0.06] bg-white/[0.015]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+        <div class="max-w-3xl mb-14">
+          <div class="text-xs font-mono uppercase tracking-widest text-lime-300 mb-3">/ How it fits together</div>
+          <h2 style={display} class="text-3xl sm:text-4xl lg:text-5xl leading-tight mb-5">From a stranger scrolling to a paying customer, with no one pressing a button.</h2>
+          <p class="text-gray-400 text-lg leading-relaxed">Each system hands the person to the next one. That chain is what most businesses are missing: they have some of the pieces, but nothing connects them.</p>
+        </div>
+        <ol class="relative grid gap-4 lg:grid-cols-7">
+          {journey.map((j, i) => {
+            const s = bySlug[j.slug]
+            return (
+              <li class="relative">
+                <a href={link(j.slug)} class="group flex lg:flex-col h-full gap-4 rounded-2xl border border-white/10 bg-[#0a0e1a] p-5 hover:border-white/25 transition-colors">
+                  <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-[#0a0e1a]" style={`background: linear-gradient(135deg, ${s.theme.primary}, ${s.theme.secondary});`}>{i + 1}</div>
+                  <div>
+                    <div class="text-base font-semibold text-white mb-1.5 leading-snug">{j.step}</div>
+                    <p class="text-sm text-gray-400 leading-relaxed mb-3">{j.body}</p>
+                    <span class="text-xs font-semibold group-hover:underline" style={`color: ${s.theme.primary};`}>{s.title} →</span>
+                  </div>
+                </a>
+              </li>
+            )
+          })}
+        </ol>
+        <a href={link('supabase-database-data-orchestration-analytics')} class="group mt-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 rounded-2xl border border-violet-400/25 bg-violet-400/[0.06] p-5 hover:border-violet-400/50 transition-colors">
+          <div class="text-xs font-mono uppercase tracking-widest text-violet-300 flex-shrink-0">Underneath all of it</div>
+          <div class="text-sm text-gray-300 flex-1">One database that every step reads and writes, keeps private data private, and tells the owner what really happened each day.</div>
+          <span class="text-xs font-semibold text-violet-300 group-hover:underline flex-shrink-0">Database & Data Orchestration →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- THE EIGHT SYSTEMS: each one a product of its own -->
+    <section id="systems" class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 scroll-mt-24">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
+        <div class="max-w-3xl">
+          <div class="text-xs font-mono uppercase tracking-widest text-lime-300 mb-3">/ The eight systems</div>
+          <h2 style={display} class="text-3xl sm:text-4xl lg:text-5xl leading-tight">Each one is a product we can build for you.</h2>
+        </div>
+        <p class="text-gray-400 max-w-md leading-relaxed">Every card opens a full case study: the problem, what we built, the results, and how a business like yours could use it.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5">
+        {totalFootballCaseStudies.map((s, i) => (
+          <a href={link(s.slug)} class="group relative overflow-hidden rounded-3xl border bg-[#0b101d] p-7 sm:p-8 transition-all hover:-translate-y-0.5" style={`border-color: ${s.theme.primaryBorder};`}>
+            <div class="absolute -top-24 -right-24 w-64 h-64 rounded-full blur-3xl opacity-60 group-hover:opacity-100 transition-opacity" style={`background: ${s.theme.primarySoft};`}></div>
+            <div class="relative">
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-xs font-mono uppercase tracking-[0.2em]" style={`color: ${s.theme.primary};`}>{String(i + 1).padStart(2, '0')} · {s.industry}</span>
+                <svg class="w-5 h-5 text-gray-500 group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </div>
+              <h3 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-2xl sm:text-3xl text-white mb-3">{s.title}</h3>
+              <p class="text-gray-400 leading-relaxed mb-6">{s.summary}</p>
+              {s.metrics && (
+                <div class="grid grid-cols-2 gap-3 mb-6">
+                  {s.metrics.slice(0, 2).map((m) => (
+                    <div class="rounded-xl bg-white/[0.03] border border-white/[0.07] px-4 py-3">
+                      <div style={`font-family: 'Sora', sans-serif; font-weight: 800; color: ${s.theme.primary};`} class="text-2xl leading-none">{m.value}</div>
+                      <div class="mt-1.5 text-[11px] uppercase tracking-[0.14em] text-gray-500 font-semibold">{m.label}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {s.businessUses && (
+                <div class="rounded-xl border border-white/[0.07] bg-white/[0.02] px-4 py-3">
+                  <div class="text-[11px] uppercase tracking-[0.16em] text-gray-500 font-semibold mb-1">Great for</div>
+                  <div class="text-sm text-gray-300">{s.businessUses.map((u) => u.title).join(' · ')}</div>
+                </div>
+              )}
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 lg:pb-28">
+      <div class="grid lg:grid-cols-12 gap-10">
+        <div class="lg:col-span-4">
+          <div class="text-xs font-mono uppercase tracking-widest text-lime-300 mb-3">/ Timeline</div>
+          <h2 style={display} class="text-3xl sm:text-4xl leading-tight mb-4">Eight weeks, empty folder to paid plans.</h2>
+          <p class="text-gray-400 leading-relaxed">Speed matters because every week without a working product is a week of guessing. We ship something real every week and let users tell us what is next.</p>
+        </div>
+        <ol class="lg:col-span-8 relative border-l border-white/10 ml-2 space-y-7">
+          {timeline.map((t) => (
+            <li class="pl-7 relative">
+              <span class="absolute -left-[7px] top-1.5 w-3.5 h-3.5 rounded-full bg-lime-300 ring-4 ring-[#0a0e1a]"></span>
+              <div class="text-xs font-mono uppercase tracking-widest text-lime-200/80 mb-1">{t.date}</div>
+              <div class="text-gray-200 leading-relaxed">{t.text}</div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- WHAT IT MEANS FOR YOU -->
+    <section class="relative border-y border-white/[0.06] bg-white/[0.015]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
+        <div class="max-w-3xl mb-12">
+          <div class="text-xs font-mono uppercase tracking-widest text-lime-300 mb-3">/ Why this matters to you</div>
+          <h2 style={display} class="text-3xl sm:text-4xl lg:text-5xl leading-tight">You hire the team that already ran it.</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-5">
+          <div class="rounded-2xl border border-white/10 bg-[#0a0e1a] p-7">
+            <div class="text-lime-300 text-sm font-semibold mb-2">Proven, not promised</div>
+            <p class="text-gray-400 leading-relaxed">Every system here runs in production with real users and real money. You are not paying for us to learn.</p>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-[#0a0e1a] p-7">
+            <div class="text-lime-300 text-sm font-semibold mb-2">It all connects</div>
+            <p class="text-gray-400 leading-relaxed">We build the pieces to work together: your videos feed your list, your list feeds your sales, and your data shows what works.</p>
+          </div>
+          <div class="rounded-2xl border border-white/10 bg-[#0a0e1a] p-7">
+            <div class="text-lime-300 text-sm font-semibold mb-2">Start with one</div>
+            <p class="text-gray-400 leading-relaxed">Most clients start with the system that hurts most today, like comment-to-DM or email, and add the rest when it pays for itself.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ + CTA -->
+    <section class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+      <div class="grid lg:grid-cols-12 gap-10">
+        <div class="lg:col-span-7">
+          <div class="text-xs font-mono uppercase tracking-widest text-lime-300 mb-3">/ Questions</div>
+          <h2 style={display} class="text-3xl sm:text-4xl leading-tight mb-8">Common questions</h2>
+          <div class="space-y-3">
+            {faqs.map((f) => (
+              <details class="group rounded-2xl border border-white/8 bg-white/[0.02] px-5 py-4 open:bg-white/[0.04]">
+                <summary class="cursor-pointer list-none flex items-center justify-between gap-4 text-white font-semibold">
+                  {f.question}
+                  <span class="text-xl leading-none text-lime-300 transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p class="mt-3 text-sm text-gray-400 leading-relaxed">{f.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+        <div class="lg:col-span-5">
+          <div class="sticky top-28 rounded-3xl p-8 border border-lime-400/25 bg-gradient-to-br from-lime-400/[0.10] to-emerald-400/[0.04]">
+            <h3 style={display} class="text-3xl leading-tight mb-3">Want one of these in your business?</h3>
+            <p class="text-gray-300 leading-relaxed mb-6">Tell us what takes your team the most time today. We will tell you which system fixes it, what it costs, and how long it takes, in a free call.</p>
+            <a href="/contact/" class="inline-flex w-full items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-[#0a0e1a] bg-gradient-to-r from-lime-300 to-emerald-300 hover:opacity-95 transition-opacity">
+              Book a free call
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+            <a href="/case-studies/" class="mt-3 inline-flex w-full items-center justify-center px-6 py-3 rounded-xl text-sm font-medium text-gray-300 bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">See our client case studies</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

@@ -1,6 +1,10 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { caseStudies } from '../data/caseStudies'
+import { caseStudies, totalFootballCaseStudies } from '../data/caseStudies'
+import { TOTAL_FOOTBALL } from '../data/totalFootballStudies'
+
+// Client work gets the interactive showcase; Total Football Studio has its own section above it.
+const showcaseStudies = caseStudies.filter((study) => !study.programme)
 
 /* Service icon SVGs -- themed to each capability */
 /* Service icon SVGs -- themed to each capability */
@@ -320,6 +324,8 @@ export const companyFAQs = [
   { question: 'What does a custom AI solution cost?', answer: 'Every project is scoped individually based on your needs. We offer fixed-price engagements so you know exactly what you\'re paying upfront. Contact us for a free consultation and we\'ll provide a detailed proposal within 48 hours.' },
   { question: 'Do you offer ongoing support after deployment?', answer: 'Yes. We offer ongoing support and optimization packages. AI systems improve over time with fine-tuning and monitoring, and we partner with you long-term to ensure your solution keeps delivering results as your business evolves.' },
   { question: 'Can you integrate AI with our existing tools and systems?', answer: 'Absolutely. We specialize in integrating AI into existing workflows — whether that\'s Salesforce, Google Workspace, Slack, WhatsApp, custom CRMs, or legacy systems. Our solutions work alongside what you already use, not replace it.' },
+  { question: 'Do you build more than AI agents?', answer: 'Yes. We build the full set of systems a growing business needs: software products and iPhone apps, websites and SEO, email marketing and automation, comment-to-DM bots for Instagram and Facebook, Google and Apple login, databases and reporting, and Stripe payments. We built all of them for our own product, Total Football Studio.' },
+  { question: 'Do you have proof that these systems work?', answer: 'Yes, and it is our own. Total Football Studio, the product we built and run, reached 30M+ views in the last three months, 80K+ followers across social media and 587 accounts in its first eight weeks. Each of its eight systems has a public case study with the numbers.' },
   { question: 'What makes Naurra different from other AI agencies?', answer: 'We\'re not a generic agency — we\'re engineers who build and ship. Our founder has personally delivered every project in our portfolio. You work directly with the people who write the code, not account managers who relay messages. That means faster delivery, better communication, and solutions that actually work.' },
 ]
 
@@ -348,7 +354,7 @@ export default function CompanyPage() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [lastScrollY])
 
-  const project = caseStudies[activeProject]
+  const project = showcaseStudies[activeProject]
 
   return (
     <main className="min-h-screen bg-[#0a0e1a] text-white overflow-hidden">
@@ -590,7 +596,7 @@ export default function CompanyPage() {
                 transition={{ duration: 0.6, delay: 0.25 }}
                 className="text-lg lg:text-xl text-gray-400 max-w-xl leading-relaxed mb-9"
               >
-                We build <strong className="text-gray-200 font-semibold">custom AI agents</strong> for businesses of every size: quoting systems, custom CRMs, sales and support automation, and Google Workspace workflows. Purpose-engineered for your exact process, not generic templates.
+                We build <strong className="text-gray-200 font-semibold">custom AI agents</strong> and the growth systems around them: quoting and CRMs, support automation, websites and SEO, email automation, comment-to-DM, apps, logins and payments. We built and run our own product with them, so we know they work.
               </motion.p>
 
               <motion.div
@@ -625,9 +631,9 @@ export default function CompanyPage() {
                 className="grid grid-cols-3 gap-4 max-w-md"
               >
                 {[
-                  { value: '9+', label: 'Industries' },
-                  { value: '15+', label: 'Projects' },
-                  { value: '95%', label: 'Faster' },
+                  { value: TOTAL_FOOTBALL.views, label: 'Views in 3 months' },
+                  { value: TOTAL_FOOTBALL.followers, label: 'Followers grown' },
+                  { value: String(caseStudies.length), label: 'Case studies' },
                 ].map((stat, idx) => (
                   <motion.div
                     key={stat.label}
@@ -780,6 +786,9 @@ export default function CompanyPage() {
             >
               {[...Array(2)].flatMap((_, dup) =>
                 [
+                  '30M+ views in 3 months from code-made videos',
+                  'Instagram comments turned into leads automatically',
+                  'A SaaS and an iPhone app shipped in 8 weeks',
                   'Quotes generated in seconds, not hours',
                   'Customer support across 4 channels with one AI',
                   'Legal documents analyzed in under 60 seconds',
@@ -799,6 +808,83 @@ export default function CompanyPage() {
               )}
             </motion.div>
           </motion.div>
+        </div>
+      </section>
+
+
+      {/* ═══════════════════════════════════════════════════════════ */}
+      {/* TOTAL FOOTBALL — our own product as proof in production     */}
+      {/* ═══════════════════════════════════════════════════════════ */}
+      <section id="total-football" className="relative py-24 lg:py-32 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 -right-40 w-[700px] h-[700px] rounded-full bg-lime-400/[0.06] blur-[130px]" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-100px' }} className="grid lg:grid-cols-12 gap-10 mb-14">
+            <div className="lg:col-span-7">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-px w-[40px] bg-gradient-to-r from-lime-400 to-transparent" />
+                <span className="text-xs text-lime-300/80 uppercase tracking-[0.25em] font-semibold">Our own product · proof in production</span>
+              </div>
+              <h2 className="text-3xl lg:text-5xl font-display font-extrabold mb-5 leading-tight">
+                We built {TOTAL_FOOTBALL.name}{' '}
+                <span className="bg-gradient-to-r from-lime-300 via-emerald-300 to-amber-300 bg-clip-text text-transparent">and grew it ourselves.</span>
+              </h2>
+              <p className="text-gray-400 text-lg leading-relaxed max-w-2xl">
+                A tactics app for football coaches, on the web and on iPhone. We wrote the software, made the videos, and built every system around it: the marketing, the emails, the logins, the data and the payments. Few agencies can show you their own work running for real. We can.
+              </p>
+            </div>
+            <div className="lg:col-span-5 grid grid-cols-2 gap-3 self-end">
+              {[
+                { value: TOTAL_FOOTBALL.views, label: `Views ${TOTAL_FOOTBALL.viewsWindow}` },
+                { value: TOTAL_FOOTBALL.followers, label: 'Followers on social' },
+                { value: TOTAL_FOOTBALL.accounts, label: 'Accounts in 8 weeks' },
+                { value: '8', label: 'Systems, all live' },
+              ].map((stat) => (
+                <div key={stat.label} className="rounded-2xl bg-white/[0.04] border border-white/10 px-5 py-5">
+                  <div className="font-display text-3xl lg:text-4xl font-black bg-gradient-to-br from-lime-300 to-emerald-300 bg-clip-text text-transparent">{stat.value}</div>
+                  <div className="text-xs text-gray-400 mt-1.5 uppercase tracking-wider">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {totalFootballCaseStudies.map((cs, i) => (
+              <motion.a
+                key={cs.slug}
+                href={`/case-studies/${cs.slug}/`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
+                whileHover={{ y: -4 }}
+                className="group relative overflow-hidden rounded-2xl bg-[#0b101d] p-6 border"
+                style={{ borderColor: cs.theme.primaryBorder }}
+              >
+                <div className="absolute -top-16 -right-16 w-40 h-40 rounded-full blur-2xl opacity-70" style={{ background: cs.theme.primarySoft }} />
+                <div className="relative">
+                  <div className="text-[11px] font-mono uppercase tracking-[0.18em] mb-4" style={{ color: cs.theme.primary }}>{String(i + 1).padStart(2, '0')} · {cs.industry}</div>
+                  <h3 className="font-display text-lg font-bold text-white mb-2">{cs.title}</h3>
+                  <div className="text-sm font-semibold mb-4" style={{ color: cs.theme.primary }}>{cs.impact}</div>
+                  <span className="inline-flex items-center gap-1.5 text-sm text-gray-400 group-hover:text-white transition-colors">
+                    Read the case study
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                  </span>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-col sm:flex-row gap-3">
+            <a href={TOTAL_FOOTBALL.hubPath} className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-[#0a0e1a] bg-gradient-to-r from-lime-300 to-emerald-300 hover:opacity-95 transition-opacity">
+              See how the eight systems fit together
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+            <a href={TOTAL_FOOTBALL.url} target="_blank" rel="noopener" className="inline-flex items-center justify-center px-7 py-3.5 rounded-xl font-semibold text-white bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+              Open the live product
+            </a>
+          </div>
         </div>
       </section>
 
@@ -1024,7 +1110,7 @@ export default function CompanyPage() {
               </span>
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl">
-              Every project started with a real business bottleneck. Here's what happened when we applied AI to it.
+              Client work. Every project started with a real business bottleneck. Here's what happened when we applied AI to it.
             </p>
           </motion.div>
 
@@ -1032,7 +1118,7 @@ export default function CompanyPage() {
             {/* Left — Project selector */}
             <div className="lg:w-[340px] flex-shrink-0">
               <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 -mx-2 px-2 lg:mx-0 lg:px-0">
-                {caseStudies.map((cs, i) => (
+                {showcaseStudies.map((cs, i) => (
                   <motion.button
                     key={cs.id}
                     onClick={() => setActiveProject(i)}

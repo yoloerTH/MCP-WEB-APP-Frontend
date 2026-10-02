@@ -11,8 +11,8 @@ Naurra.ai is operated by NAURRA AI LTD, a company incorporated in Cyprus (regist
 - **Registered office**: 10 Kyriakou Matsi, LILIANA COURT, 4th Floor, 1082 Nicosia, Cyprus
 - **Founded**: 2025
 - **Founder**: Athanasios-Ioannis Panagiotakopoulos, CEO & AI Engineer, who has personally delivered every project in the portfolio
-- **Track record**: 15+ projects across 9+ industries
-- **Industries served**: HVAC and MEP, automotive, legal and finance, LegalTech and aviation, travel, fashion, e-commerce and wellness, CRM and sales, media and social growth, quantitative analytics
+- **Track record**: 17 published case studies, including Total Football Studio, Naurra's own SaaS product and iPhone app (30M+ views in the last 3 months, 80K+ followers across social media, 587 accounts in its first 8 weeks, as of 2 October 2026)
+- **Industries served**: SaaS and sports technology, HVAC and MEP, automotive, legal and finance, LegalTech and aviation, travel, fashion, e-commerce and wellness, CRM and sales, media and social growth, quantitative analytics
 - **Engagement model**: Fixed-price projects, scoped individually after a free consultation, with a detailed proposal within 48 hours
 - **Delivery**: Productized AI agents typically ship in 3 to 6 weeks; broader custom projects typically in 4 to 8 weeks, with working demos from week one
 - **Support**: Ongoing support and optimization after deployment
@@ -26,6 +26,9 @@ Naurra.ai is operated by NAURRA AI LTD, a company incorporated in Cyprus (regist
 - **Customer support automation**: Triage, classification, drafted replies, auto-resolution of simple cases, and escalation with full context
 - **Document intelligence**: Reading, classifying, and extracting structured data from contracts, invoices, leases, and other business documents
 - **Workflow and operations automation**: End-to-end automation across Google Workspace, Slack, WhatsApp, Salesforce, custom CRMs, and legacy systems
+- **SaaS products and mobile apps**: Web apps and native SwiftUI iPhone and iPad apps that share one backend
+- **Growth systems**: Motion graphics content engines, Instagram and Facebook comment-to-DM automation, email marketing and automation, websites and SEO
+- **Product infrastructure**: Google and Apple sign-in, Supabase/Postgres databases and data orchestration, Stripe subscription billing and affiliate programmes
 - **AI consulting and integration**: Deciding between custom and off-the-shelf AI, then integrating AI into the tools a business already uses
 
 Technologies used include the latest GPT models, Claude, Gemini, voice AI, autonomous agents, the Model Context Protocol (MCP), RAG pipelines, and NLP/NLU.
@@ -45,7 +48,22 @@ Productized custom AI agents at fixed pricing. Each one is built around the cust
 
 Real client and in-house builds with measured results. Index: https://naurra.ai/case-studies/
 
-- [AI Motion-Graphics Content Engine](https://naurra.ai/case-studies/ai-motion-graphics-content-engine-social-growth/) (Media & Social Growth): A content engine that renders every frame from code and feeds published retention data back into the format. Grew a football channel past 5M+ plays and 35K+ followers, with a best single short of 2M+ plays and a 5.4x median reach lift. Live result: https://totalfootball.naurra.ai/
+### Total Football Studio (Naurra's own product, built and run in production)
+
+Hub: https://naurra.ai/case-studies/total-football-studio/ . Live product: https://totalfootballstudio.com/ . App Store: https://apps.apple.com/app/id6811093002 . A tactics app for football coaches. First code 9 August 2026, paid plans live 2 October 2026. Figures as of 2 October 2026.
+
+- [Total Football Studio: The Software](https://naurra.ai/case-studies/saas-product-development-web-and-ios-app/) (SaaS & Software): Web app plus native SwiftUI iPhone and iPad app with animated tactics boards, voice-over MP4 export, live present mode, team accounts and paid plans; 587 accounts in 8 weeks
+- [Motion Graphics Content Engine](https://naurra.ai/case-studies/ai-motion-graphics-content-engine-social-growth/) (Media & Social Growth): Every video frame rendered from code, tuned by retention data; 30M+ views in the last 3 months, 80K+ followers, best short 2M+ plays, 5.4x median reach lift, zero copyright claims
+- [Comment-to-DM Automation](https://naurra.ai/case-studies/instagram-facebook-comment-to-dm-automation/) (Marketing Automation): Instagram and Facebook keyword comments answered by private message via the official Meta API, with a public-reply fallback when DMs are closed; 156 of 156 Instagram comments answered in the first audit; built in one day; no ManyChat
+- [Email Marketing & Automation](https://naurra.ai/case-studies/email-marketing-automation-newsletters-transactional/) (Email Marketing): Branded login emails, welcome series, gift email, team invites and a synced newsletter (14 editions), with SPF/DKIM/DMARC and automatic provider failover
+- [Login With Google & Apple](https://naurra.ai/case-studies/google-apple-sign-in-login-flows/) (Authentication): Google, Sign in with Apple and magic-link login shared across web and native iOS, including Apple private relay delivery and invite-by-email
+- [Database & Data Orchestration](https://naurra.ai/case-studies/supabase-database-data-orchestration-analytics/) (Data & Backend): Supabase/Postgres with row-level security on personal data, private storage, realtime sessions, 58 production migrations, 25 serverless functions, attribution and usage reporting
+- [Website, SEO & Domain Move](https://naurra.ai/case-studies/seo-website-build-domain-migration/) (SEO & Web): A 79-page Astro site with 26 guides, a tactics library, structured data and llms.txt, moved to a new domain with page-by-page redirects and a Google Change of Address
+- [Subscriptions, Payments & Affiliates](https://naurra.ai/case-studies/stripe-subscription-billing-affiliate-system/) (Payments & Billing): Stripe plans with a 7-day trial, team seats, five payment methods including Apple Pay and Google Pay, and an affiliate programme with an in-app wallet and owner-approved payouts
+
+### Client work
+
+
 - [Automotive Sourcing Engine](https://naurra.ai/case-studies/automotive-sourcing-engine-profit-automation/) (Automotive): Scans listing sites and filters undervalued cars, helping a reseller uncover roughly $15K profit every two weeks
 - [Flight-Compensation Document Intelligence](https://naurra.ai/case-studies/document-intelligence-flight-compensation-eu261-automation/) (LegalTech & Aviation): A production document-intelligence pipeline for an EU261 flight-compensation firm, with OCR, classification, and field extraction across six document types and a credential-isolated, safe-by-design architecture
 - [AI Travel Concierge](https://naurra.ai/case-studies/ai-travel-concierge-whatsapp-telegram-itineraries/) (Travel): A WhatsApp and Telegram concierge that cut itinerary creation from 3 hours to 20–30 minutes, saved 180+ staff hours a month, and grew monthly revenue from €15k to €27k

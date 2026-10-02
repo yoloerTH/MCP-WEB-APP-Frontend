@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
-import { caseStudies, featuredCaseStudies } from '../../data/caseStudies'
+import { caseStudies, featuredCaseStudies, totalFootballCaseStudies } from '../../data/caseStudies'
+import { TOTAL_FOOTBALL } from '../../data/totalFootballStudies'
+
+const clientFeatured = featuredCaseStudies.filter((study) => !study.programme)
 
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
@@ -15,7 +18,7 @@ const collectionSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: 'Naurra.ai Case Studies',
-  description: 'Real Naurra.ai case studies across quoting, document intelligence, travel, e-commerce, CRM, and operations automation.',
+  description: 'Real Naurra.ai case studies: our own product Total Football Studio (30M+ views, 80K+ followers) plus client builds across quoting, document intelligence, travel, e-commerce, CRM and operations automation.',
   url: 'https://naurra.ai/case-studies/'
 }
 
@@ -32,9 +35,9 @@ const itemListSchema = {
 ---
 
 <BaseLayout
-  title="AI Automation Case Studies for Small Business — Naurra.ai"
-  description="Browse real Naurra.ai case studies across quoting, CRM, travel, legal document intelligence, e-commerce, and operations automation for small business."
-  keywords="ai case studies, ai automation case studies, custom ai small business case studies, quoting ai case study, crm ai case study, document intelligence case study"
+  title="Case Studies: AI, Automation, SaaS and Growth Results | Naurra.ai"
+  description="Real Naurra.ai case studies with real numbers: a SaaS product and app we built and run (30M+ views, 80K+ followers), comment-to-DM, email, SEO, billing, plus client AI automation builds."
+  keywords="ai case studies, automation case studies, saas case study, social media growth case study, comment to dm automation case study, email automation case study, custom ai small business case studies, document intelligence case study"
   url="https://naurra.ai/case-studies/"
   structuredData={[breadcrumbSchema, collectionSchema, itemListSchema]}
 >
@@ -89,7 +92,7 @@ const itemListSchema = {
         </h1>
 
         <p class="text-lg lg:text-xl text-gray-400 leading-relaxed max-w-3xl mb-8">
-          These are the kinds of systems Naurra.ai builds for small business: quoting engines, document intelligence, multi-channel communication, travel planning, and operations automation grounded in real workflows.
+          Real systems with real numbers. Our own product, Total Football Studio, shows every piece working together in production. Our client work shows the same skills applied to quoting, documents, travel, sales and operations.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-3">
@@ -104,17 +107,48 @@ const itemListSchema = {
       </div>
     </section>
 
+    <section class="relative max-w-7xl mx-auto px-6 lg:px-8 pb-20">
+      <div class="relative overflow-hidden rounded-[2rem] border border-lime-400/25 bg-gradient-to-br from-lime-400/[0.09] via-[#0b101d] to-emerald-400/[0.06] p-7 sm:p-10 lg:p-12">
+        <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-lime-400/10 blur-3xl pointer-events-none"></div>
+        <div class="relative grid lg:grid-cols-12 gap-10 items-start">
+          <div class="lg:col-span-6">
+            <div class="text-xs font-mono uppercase tracking-[0.22em] text-lime-300 mb-3">Flagship · our own product</div>
+            <h2 style="font-family: 'Sora', sans-serif; font-weight: 800; letter-spacing: -0.04em;" class="text-3xl sm:text-4xl lg:text-5xl text-white leading-tight mb-4">{TOTAL_FOOTBALL.name}</h2>
+            <p class="text-gray-300 text-lg leading-relaxed mb-6">A software product and iPhone app we built and run ourselves, from the code to the marketing. Eight systems working together, each with its own case study.</p>
+            <div class="grid grid-cols-3 gap-3 mb-7">
+              <div><div style="font-family: 'Sora', sans-serif; font-weight: 800;" class="text-3xl text-lime-300">{TOTAL_FOOTBALL.views}</div><div class="text-xs text-gray-400 mt-1">views {TOTAL_FOOTBALL.viewsWindow}</div></div>
+              <div><div style="font-family: 'Sora', sans-serif; font-weight: 800;" class="text-3xl text-lime-300">{TOTAL_FOOTBALL.followers}</div><div class="text-xs text-gray-400 mt-1">followers</div></div>
+              <div><div style="font-family: 'Sora', sans-serif; font-weight: 800;" class="text-3xl text-lime-300">{TOTAL_FOOTBALL.accounts}</div><div class="text-xs text-gray-400 mt-1">accounts in 8 weeks</div></div>
+            </div>
+            <a href={TOTAL_FOOTBALL.hubPath} class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-[#0a0e1a] bg-gradient-to-r from-lime-300 to-emerald-300 hover:opacity-95 transition-opacity">
+              See the whole build
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
+          </div>
+          <div class="lg:col-span-6 grid sm:grid-cols-2 gap-3">
+            {totalFootballCaseStudies.map((study) => (
+              <a href={`/case-studies/${study.slug}/`} class="group rounded-2xl border border-white/10 bg-[#0a0e1a]/70 p-4 hover:border-white/25 transition-colors">
+                <div class="w-8 h-1 rounded-full mb-3" style={`background: linear-gradient(90deg, ${study.theme.primary}, ${study.theme.secondary});`}></div>
+                <div class="text-sm font-semibold text-white mb-1">{study.title}</div>
+                <div class="text-xs font-medium" style={`color: ${study.theme.primary};`}>{study.impact}</div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="relative max-w-7xl mx-auto px-6 lg:px-8 pb-16">
       <div class="flex items-center justify-between gap-4 mb-8">
         <div>
-          <div class="text-xs font-mono uppercase tracking-[0.22em] text-emerald-300/70 mb-2">Featured stories</div>
+          <div class="text-xs font-mono uppercase tracking-[0.22em] text-emerald-300/70 mb-2">Client work</div>
           <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -0.03em;" class="text-3xl text-white">High-signal implementations</h2>
         </div>
         <div class="text-sm text-gray-500 hidden md:block">Built around specific commercial bottlenecks, not generic AI demos.</div>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {featuredCaseStudies.map((study) => (
+        {clientFeatured.map((study) => (
           <a href={`/case-studies/${study.slug}/`} class="group relative rounded-3xl overflow-hidden border border-white/10 bg-white/[0.03] hover:bg-white/[0.05] transition-all">
             <div class={`h-1 bg-gradient-to-r ${study.accentFrom} ${study.accentTo}`}></div>
             <div class="p-8">

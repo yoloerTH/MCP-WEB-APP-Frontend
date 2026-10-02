@@ -10,8 +10,8 @@ import { solutionPages } from '../data/solutionPages'
 // references the company entity instead of declaring a second, conflicting one.
 const ORG_ID = 'https://naurra.ai/#organization'
 
-const title = 'Naurra.ai | Custom AI Agents & AI Automation Company'
-const description = 'Naurra.ai is an AI company building custom AI agents for business: quoting, CRM, sales, support and operations automation. See real case studies and results.'
+const title = 'Naurra.ai | Custom AI Agents, Automation & Growth Systems'
+const description = 'Naurra.ai builds custom AI agents and growth systems: automation, apps, SEO, email, comment-to-DM and payments. Proven on our own product: 30M+ views and 80K+ followers.'
 
 const webPageSchema = {
   '@context': 'https://schema.org',
@@ -68,7 +68,7 @@ const itemListSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: 'Featured custom AI case studies',
-  itemListElement: featuredCaseStudies.slice(0, 4).map((study, index) => ({
+  itemListElement: featuredCaseStudies.slice(0, 8).map((study, index) => ({
     '@type': 'ListItem',
     position: index + 1,
     url: `https://naurra.ai/case-studies/${study.slug}/`,
@@ -80,7 +80,7 @@ const itemListSchema = {
 <BaseLayout
   title={title}
   description={description}
-  keywords="naurra, naurra ai, ai company, custom ai agents, custom ai agents for small business, ai automation company, ai agent development, custom ai solutions, custom ai case studies"
+  keywords="naurra, naurra ai, ai company, custom ai agents, ai automation agency, saas development, comment to dm automation, email automation, seo services, custom ai agents for small business, ai automation company, ai agent development, custom ai solutions, custom ai case studies"
   imageAlt="Naurra.ai, the AI company building custom AI agents and automation systems for businesses"
   url="https://naurra.ai/"
   structuredData={[webPageSchema, serviceSchema, faqSchema, itemListSchema]}
